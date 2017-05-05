@@ -129,7 +129,7 @@ let collators = [
 				if (this.currInfo.location.isMart) {
 					return `**Bought ${amount} ${item}(s)!**`;
 				} else {
-					return `**Aquired ${amount} ${item}(s)!**`;
+					return `**Acquired ${amount} ${item}(s)!**`;
 				}
 				return;
 			} else {
@@ -156,7 +156,7 @@ let collators = [
 			if (this.currInfo.location.isMart) {
 				return rand(`**We buy `, `**Buying `) + txt.join(', ') + ".**";
 			} else {
-				return rand(`**We aquired `) + txt.join(', ') + ".**";
+				return rand(`**We acquired `) + txt.join(', ') + ".**";
 			}
 		}
 	},
@@ -166,7 +166,7 @@ let collators = [
 		if (this.reports['blackout']) {
 			let info = this.reports['blackout'][0];
 			fullText.push('**BLACKED OUT!**');
-			if (info.e4turnover && this.memory.inE4Run) {
+			if (this.memory.inE4Run) {
 				this.memory.inE4Run = false;
 				fullText.push(`rip E4 Attempt #${this.memory.e4Attempt}.`);
 			}

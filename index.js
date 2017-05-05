@@ -8,8 +8,8 @@ const discord = require("discord.js");
 const auth = require("./auth");
 const reddit = require("./redditapi.js");
 
-// const UPDATER = require('./updaters/test.js');
-const UPDATER = require('./updaters/s4-blazed-glazed.js');
+const UPDATER = require('./updaters/test.js');
+// const UPDATER = require('./updaters/s4-blazed-glazed.js');
 
 const { discover } = require("./discovery.js");
 const Reporter = require("./report.js");
@@ -17,9 +17,9 @@ const Reporter = require("./report.js");
 let access = { token:"", timeout:0 };
 let memoryBank = {
 	//!!!!!!!!!!!!!!!!!!! TEMPORARY !!!!!!!!!!!!!!!!!!!!!!!
-	inE4Run: true,
-	e4Attempt: 15,
-	iAmABotWarning: false,
+	// inE4Run: false,
+	// e4Attempt: 0,
+	// iAmABotWarning: false,
 };
 let data_curr, data_prev;
 let sorted_curr, sorted_prev;
@@ -81,13 +81,15 @@ function enableInfo(enabled) {
 }
 
 function getTimestamp(time) {
-	const elapsed = ((time || Date.now()) - new Date(UPDATER.runStart*1000).getTime()) / 1000;
+	let elapsed = ((time || Date.now()) - new Date(UPDATER.runStart*1000).getTime()) / 1000;
+	let n		= (elapsed < 0)?"T-":"";
+	elapsed 	= Math.abs(elapsed);
 	let days    = Math.floor(elapsed / 86400);
     let hours   = Math.floor(elapsed / 3600 % 24);
     let minutes = Math.floor(elapsed / 60 % 60);
     // let seconds = Math.floor(elapsed % 60);
     
-    return `${days}d ${hours}h ${minutes}m`;
+    return `${n}${days}d ${hours}h ${minutes}m`;
 }
 
 function refreshInfo() {

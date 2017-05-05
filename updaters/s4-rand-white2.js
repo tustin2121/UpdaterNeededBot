@@ -3,10 +3,10 @@
 
 module.exports = {
 	// The Reddit Live Updater ID to post to
-	liveID : "yp65jgm0fxu9", 
-	// liveID : "ysqpsvyo0yjv",  // Test updater
+	// liveID : "", 
+	liveID : "ysqpsvyo0yjv",  // Test updater
 	// Unix timestamp since when the run started
-	runStart : 1491685200,
+	runStart : 1496523600,
 	
 	// The Stream API URL to poll
 	infoSource : "https://twitchplayspokemon.tv/api/run_status",
