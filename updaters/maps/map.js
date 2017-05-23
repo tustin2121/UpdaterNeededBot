@@ -2,10 +2,10 @@
 // The base class for Map Graphs
 
 class Region {
-	constructor({ name, mapid }) {
+	constructor({ name, mapid }, nodes=[]) {
 		this.name = name;
 		this.mapidType = mapid;
-		this.mapid = Region.createMapidHandler(mapid);
+		this.normalizeMapId = Region.createMapidHandler(mapid);
 		
 		this.nodes = {};
 		this.nodesByName = {};
@@ -13,15 +13,20 @@ class Region {
 			// Default properties of the whole region and any nodes under it
 			"indoors": false,	//If the location is inside (cannot fly)
 			"inTown": false,	//If the location is in a town (not the wild)
-			"healing": false,	//If the location offers healing [false|true=pokecenters|array of coords=doctors or field healing]
+			"healing": false,	//If the location offers healing [false|true=pokecenters|coord or array of coords=doctors or field healing]
 			"shopping": false,	//If the location offers buying (marts, vendors)
-			"vending": false,	//If the location has vending machines (water, lemonade, soda) [false|array of coords]
+			"vending": false,	//If the location has vending machines (water, lemonade, soda) [false|coord or array of coords]
 			"gym": false,		//If the location is a gym (badge/TM getting, attempt counting)
 			"e4": false,		//If the location is part of the E4 [false|lobby|e4|champion|hallOfFame] (run counting)
 			"dungeon": false,	//If the location is a cave or dungeon
 			"flySpot": false,	//If the location has a spot to fly to
-			"pc": false,		//If the location has a PC [false|array of coords]
+			"pc": false,		//If the location has a PC [false|coord or array of coords]
+			
+			"noteworthy":false,	//If the location is worthy of noting upon arrival
+			"announce":null,	//An announcement about this map, implies noteworthiness.
 		} });
+		
+		this.addNode(...nodes);
 	}
 	
 	static createMapidHandler(mapid) {
@@ -29,7 +34,10 @@ class Region {
 			case "gen3": // Uses "Bank.Id" format
 				return (mapid)=>mapid;
 			case "ds": // Uses "MatrixId" format, optionally "MatrixId:x,y" for overworld
-				return (mapid)=>mapid;
+				return (mapid)=>{
+					// { matrix:int, name:string, mapid:int, parentmap:int }
+					return mapid;
+				}
 		}
 	}
 	
@@ -47,30 +55,12 @@ class Region {
 	
 	/** Finalize the node graph by connecting things that are simply references at the moment. */
 	resolve() {
-		__res(this.topNode, 12);
-		return;
-		
-		function __res(node, depth) {
-			if (depth < 0) throw new Error('Map resolution goes too deep! Possible graph loop!');
-			for (let conn of node.pendingConnections) {
-				let map = node.region.nodesByName[conn];
-				if (!map) map = node.region.nodes[conn];
-				if (map) {
-					node.connections.push(map);
-				} else {
-					throw new ReferenceError(`Bad connection name "${conn}" in map node "${node.name}" (${node.mapids})`);
-				}
-			}
-			node.pendingConnections.length = 0;
-			for (let child of node) {
-				__res(child, depth-1);
-			}
-		}
+		this.topNode.__finalize(12);
 	}
 }
 
 class Node {
-	constructor({ name, mapids=[], attrs={}, region, parent }) {
+	constructor({ name, mapids=[], attrs={}, locOf={}, region, parent }) {
 		if (!Array.isArray(mapids)) throw new TypeError('mapids must be an array!');
 		if (region && !(region instanceof Region)) throw new TypeError('region must be a Region or undefined!');
 		if (parent && !(parent instanceof Node)) throw new TypeError('parent must be a Node or undefined!');
@@ -79,12 +69,54 @@ class Node {
 		this.region = region;
 		this.mapids = mapids;
 		this.attrs = attrs;
+		this.locOf = locOf;
 		this.parent = parent;
 		this.children = [];
 		this.connections = [];
-		this.pendingConnections = [];
+		
+		this._pendingConnections = [];
+		this._pendingReverseConns = [];
+		
 		
 		if (this.region) this.region.addNode(this);
+	}
+	
+	/** Finalize this node and its children. */
+	__finalize(depth) {
+		if (depth < 0) throw new Error('Map resolution goes too deep! Possible graph loop!');
+		
+		// Resolve Map IDs
+		this.mapids = this.mapids.map( this.region.normalizeMapId );
+		
+		// Resolve Pending connections
+		for (let conn of this._pendingConnections) {
+			if (typeof conn === "number") conn = `Route ${conn}`;
+			let map = this.region.nodesByName[conn];
+			if (!map) map = this.region.nodes[conn];
+			if (map) {
+				this.connections.push(map);
+			} else {
+				throw new ReferenceError(`Bad connection name "${conn}" in map node "${this.name}" (${this.mapids})`);
+			}
+		}
+		this._pendingConnections.length = 0;
+		
+		for (let conn of this._pendingReverseConns) {
+			if (typeof conn === "number") conn = `Route ${conn}`;
+			let map = this.region.nodesByName[conn];
+			if (!map) map = this.region.nodes[conn];
+			if (map) {
+				map.connections.push(this);
+			} else {
+				throw new ReferenceError(`Bad connection name "${conn}" in map node "${this.name}" (${this.mapids})`);
+			}
+		}
+		this._pendingReverseConns.length = 0;
+		
+		// Process children
+		for (let child of this.children) {
+			child.__finalize(depth-1);
+		}
 	}
 	
 	addChild(...nodes) {
@@ -97,7 +129,10 @@ class Node {
 	}
 	
 	addConnection(...names) {
-		this.pendingConnections.push(...names);
+		this._pendingConnections.push(...names);
+	}
+	addReverseConnection(...names) {
+		this._pendingReverseConns.push(...names);
 	}
 	
 	/** Test if this node (or its parents) has the given attribute. */
@@ -105,6 +140,14 @@ class Node {
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
 		if (this.parent) return this.parent.is(attr);
 		return undefined;
+	}
+	
+	locationOf(item) {
+		if (this.locOf[item]) {
+			if (!Array.isArray(this.locOf[item])) return [this.locOf[item]];
+			return this.locOf[item];
+		}
+		return [];
 	}
 	
 	// Allow iteration over children in for...of loops (NOT for...in loops, note)
@@ -134,92 +177,147 @@ module.exports = Town("Example Town", "12.0", {
 
 module.exports = {
 	Region: Region,
-	Town : function(name, mapid, { attrs={}, buildings=[], exits=[], connections=[] }){
-		let me = new Node({ name, mapids:[mapid], attrs:Object.assign({
+	Area : function(mapids, { name, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, noteworthy=false }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ name, mapids, attrs:Object.assign({
+			noteworthy, announce,
+		}, attrs), locOf });
+		me.addChild(...zones);
+		me.addChild(...buildings);
+		me.addConnection(...connections);
+		return me;
+	},
+	Town : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ name, mapids, attrs:Object.assign({
 			"inTown": true,
-		}, attrs) });
+			"noteworthy": true,
+			announce,
+		}, attrs), locOf });
 		me.addChild(...buildings);
 		me.addConnection(...exits);
 		me.addConnection(...connections);
 		return me;
 	},
 	/** Multistory/Room Building */
-	Building : function({ name, attrs={}, floors=[], connections=[] }){
+	Building : function({ name, attrs={}, locOf={}, floors=[], connections=[], announce, }){
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
-		}, attrs) });
+			announce,
+		}, attrs), locOf });
 		me.addChild(...floors);
 		me.addConnection(...connections);
 		return me;
 	},
-	Floor : function(mapid, { name, attrs={}, floors=[], connections=[] }){
-		let me = new Node({ name, mapids:[mapid], attrs:Object.assign({
-			
-		}, attrs) });
+	Floor : function(mapids, { name, attrs={}, locOf={}, floors=[], connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ name, mapids, attrs:Object.assign({
+			announce,
+		}, attrs), locOf });
 		me.addConnection(...connections);
 		return me;
 	},
 	/** Single Room Building */
-	House : function(mapid, { name, attrs={}, connections=[] }){
-		let me = new Node({ name, mapids:[mapid], attrs:Object.assign({
+	House : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
-		}, attrs) });
+			announce,
+		}, attrs), locOf });
 		me.addConnection(...connections);
 		return me;
 	},
 	/** Common Pokemart */
-	Mart : function(mapid, { attrs={}, connections=[] }){
-		let me = new Node({ mapids:[mapid], attrs:Object.assign({
+	Mart : function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"shopping": true,
-		}, attrs) });
+			announce,
+		}, attrs), locOf });
 		me.addConnection(...connections);
 		return me;
 	},
 	/** Common Pokecenter */
-	Center : function(mapid, { attrs={}, connections=[] }){
-		let me = new Node({ mapids:[mapid], attrs:Object.assign({
+	Center : function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"healing": true,
-			"pc": ["5,10"], //TODO fill in with the common coordinate(s)
-		}, attrs) });
+			"shopping": true,
+			announce,
+		}, attrs), locOf:Object.assign({
+			"pc": ["4,12"],
+		}, locOf) });
 		me.addConnection(...connections);
+		me.addConnection("Union Room");
 		return me;
 	},
 	/** Common Pokecenter */
-	Gym : function(mapid, { attrs={}, connections=[] }){
-		let me = new Node({ mapids:[mapid], attrs:Object.assign({
+	Gym : function(mapids, { name, leader, badge, attrs={}, locOf={}, connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"gym": true,
-		}, attrs) });
+			"noteworthy": true,
+			leader, badge, announce,
+		}, attrs), locOf });
 		me.addConnection(...connections);
 		return me;
 	},
 	
+	/** */
+	Gatehouse : function(mapids, from, to, { name, attrs={}, locOf={}, connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!name) name = `${from} Gatehouse`;
+		if (typeof to === "number") to = `Route ${to}`;
+		let me = new Node({ name, mapids, attrs:Object.assign({
+			announce,
+		}, attrs), locOf });
+		me.addConnection(from, to);
+		me.addReverseConnection(from, to);
+		me.addConnection(...connections);
+		return me;
+	},
 	/** Outdoor routes */
-	Route : function(name, mapid, { attrs={}, buildings=[], exits=[], connections=[] }){
-		let me = new Node({ name, mapids:[mapid], attrs:Object.assign({
-			
-		}, attrs) });
+	Route : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
+		if (!Array.isArray(mapids)) mapids = mapids;
+		if (typeof name === "number") name = `Route ${name}`;
+		let me = new Node({ name, mapids, attrs:Object.assign({
+			"noteworthy": true,
+			announce,
+		}, attrs), locOf });
 		me.addChild(...buildings);
 		me.addConnection(...exits);
 		me.addConnection(...connections);
 		return me;
 	},
 	/** Multilevel Dungeons */
-	Dungeon : function(name, { attrs={}, floors=[], connections=[] }){
+	Dungeon : function(name, { attrs={}, locOf={}, floors=[], connections=[], announce, }={}){
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
 			"dungeon": true,
-		}, attrs) });
+			"noteworthy": true,
+			announce,
+		}, attrs), locOf });
 		me.addChild(...floors);
+		me.addConnection(...connections);
+		return me;
+	},
+	
+	Cutscene : function(mapids, { name, attrs={}, connections=[], announce, }={}) {
+		if (!Array.isArray(mapids)) mapids = mapids;
+		let me = new Node({ name, mapids, attrs:Object.assign({
+			"noteworthy": true,
+			announce,
+		}, attrs) });
 		me.addConnection(...connections);
 		return me;
 	},
 };
 // Aliases
 module.exports.City = module.exports.Town;
-module.exports.Area = module.exports.Town;
+// module.exports.Area = module.exports.Town;
 module.exports.PokeMart = module.exports.Mart;
 module.exports.PokeCenter = module.exports.Center;
 module.exports.Cave = module.exports.Dungeon;
