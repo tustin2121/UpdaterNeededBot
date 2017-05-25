@@ -8,8 +8,8 @@ const discord = require("discord.js");
 const auth = require("./auth");
 const reddit = require("./redditapi.js");
 
-const UPDATER = require('./updaters/test.js');
-// const UPDATER = require('./updaters/s4-blazed-glazed.js');
+// const UPDATER = require('./updaters/test.js');
+const UPDATER = require('./updaters/s4-rand-white2.js');
 
 const { discover } = require("./discovery.js");
 const Reporter = require("./report.js");

@@ -1,4 +1,7 @@
 // report.js
+// report.js
+// report.js
+// report.js
 // The thing which collates reports and creates an update to be posted.
 
 class Reporter {
@@ -24,10 +27,29 @@ class Reporter {
 		if (!texts.length) return null;
 		return texts.join(' ');
 	}
+	
+	// progressive text responses
+	progressive(memKey, ...opts) {
+		memKey = `%progressive.${memKey}`;
+		this.memory[memKey] = (this.memory[memKey] || 0) + 1;
+		let t = opts[Math.ceil(this.memory[memKey])];
+		if (!t) t = opts[opts.length-1];
+		return t;
+	}
+	
+	progressiveTickDown(memKey) {
+		memKey = `%progressive.${memKey}`;
+		this.memory[memKey] = Math.max((this.memory[memKey] || 0) - 0.25, 0);
+	}
+	
+	rand(...opts) {
+		return opts[Math.floor(Math.random()*opts.length)];
+	}
 }
 module.exports = Reporter;
 
 let collators = [
+	// Caught new pokemon
 	function newPokemon() {
 		let fullText = [];
 		if (this.reports['newmon']) {
@@ -44,6 +66,8 @@ let collators = [
 			return fullText.join(' ');
 		}
 	},
+	
+	// Party update
 	function partyLevel() {
 		let monProgress = {};
 		
@@ -97,6 +121,8 @@ let collators = [
 		if (fullText.length > 1) fullText[fullText.length-1] = "and "+fullText[fullText.length-1];
 		return `**${fullText.join(', ')} ${fullText.length>1?"have":"has"} fainted!**`;
 	},
+	
+	// Items
 	function heldItemWatch() {
 		if (!this.reports['helditem']) return;
 		let fullText = [];
@@ -116,6 +142,36 @@ let collators = [
 		});
 		return `**${fullText.join(" ")}**`;
 	},
+	function itemVending() {
+		this.progressiveTickDown("vending");
+		if (!this.reports['itemdelta']) return;
+		if (!this.currInfo.location.within('vending', this.currInfo.position, 10)) return;
+		let fullText = [];
+		let delta = this.reports['itemdelta'][0];
+		
+		_vend('Fresh Water');
+		_vend('Soda Pop');
+		_vend('Lemonade');
+		
+		if (!fullText.length) return;
+		if (fullText.length > 1) fullText[fullText.length-1] = "and "+fullText[fullText.length-1];
+		return this.progressive("vending",
+			`**We buy ${fullText.join(", ")} from a nearby vending machine.**`
+			`We vend more items: **${fullText.join(", ")}**`,
+			`Still buying items from the vending machine: **${fullText.join(", ")}**`,
+			`Still vending: **${fullText.join(", ")}**`,
+			`♪ Vending, vending, vending... ♪ **${fullText.join(", ")}**`,
+			`♪ ...keep on keep on vending... ♫ **${fullText.join(", ")}**`,
+			`♪ ...vending, vending, vending... ♫ *AWAY!!*... **${fullText.join(", ")}**`,
+			`Vending: **${fullText.join(", ")}**`
+		);
+		
+		function _vend(item) {
+			if (!delta[item] || delta[item] <= 0) return;
+			fullText.push(`${delta[item]} ${correctCase(item)}`)
+			delete delta[item];
+		}
+	},
 	function itemPickup() {
 		if (!this.reports['itemdelta']) return;
 		let delta = this.reports['itemdelta'][0];
@@ -126,41 +182,47 @@ let collators = [
 			item = correctCase(item);
 			if (amount === 0) return;
 			if (amount > 0) {
-				if (this.currInfo.location.isMart) {
+				if (this.currInfo.location.has('shopping')) {
 					return `**Bought ${amount} ${item}(s)!**`;
 				} else {
 					return `**Acquired ${amount} ${item}(s)!**`;
 				}
 				return;
 			} else {
-				if (this.currInfo.location.isMart) {
-					return `**Sold ${amount} ${item}(s)!**`;
-				} else if (/ball$/i.test(item)) {
-					// return `We're tossing ${amount} ${item}s!`;
+				if (this.currInfo.location.has('shopping')) {
+					return `**Sold ${-amount} ${item}(s)!**`;
 				} else {
 					// return `Used/tossed ${amount} ${item}(s)!`;
 				}
 				return;
 			}
 		} else {
-			let txt = [];
+			let buy = [], sell = [];
 			Object.keys(delta).forEach((item, index)=>{
 				let itemName = correctCase(item);
 				let amount = delta[item];
 				if (amount === 0) return; //Continue
-				txt.push(`${amount} ${itemName}`);
+				if (amount > 0 )
+					buy.push(`${amount} ${itemName}`);
+				else
+					sell.push(`${amount} ${itemName}`);
 			});
-			if (!txt.length) return;
-			if (txt.length > 1) txt[txt.length-1] = "and "+txt[txt.length-1];
+			if (!buy.length && !sell.length) return;
+			if (buy.length > 1) buy[buy.length-1] = "and "+buy[buy.length-1];
+			if (sell.length > 1) sell[sell.length-1] = "and "+sell[sell.length-1];
 			
-			if (this.currInfo.location.isMart) {
-				return rand(`**We buy `, `**Buying `) + txt.join(', ') + ".**";
+			if (this.currInfo.location.has('shopping')) {
+				if (buy.length) buy = rand(`We buy ${buy.join(', ')}.`);
+				if (sell.length) sell = rand(`We sell ${sell.join(', ')}.`);
 			} else {
-				return rand(`**We acquired `) + txt.join(', ') + ".**";
+				if (buy.length) buy = rand(`We aquire ${buy.join(', ')}.`);
+				if (sell.length) sell = rand(`We toss ${sell.join(', ')}.`);
 			}
+			return `**${[buy, sell].join(' ')}**`;
 		}
 	},
 	
+	// Blackout / Healing
 	function blackoutHeal() {
 		let fullText = [];
 		if (this.reports['blackout']) {
@@ -196,12 +258,43 @@ let collators = [
 					this.memory.iAmABotWarning = true;
 				}
 			}
+			if (this.memory.inE4Run) {
+				if (info.championReach) {
+					this.memory.champAttempt = (this.memory.champAttempt || 0) + 1;
+					fullText.push(`**WE'VE REACHED THE CHAMPION! CHAMPION BATTLE, ATTEMPT #${this.memory.champAttempt} SHORTLY!**`);
+				}
+				if (info.hallOfFame) {
+					fullText.push(`**We enter the HALL OF FAME!** [Victory Riot!]`);
+					delete this.memory.champAttempt;
+					delete this.memory.e4Attempt;
+					delete this.memory.inE4Run;
+					delete this.memory.iAmABotWarning;
+				}
+			}
 		}
 		return fullText.join(' ');
 	},
-	function mapNameChange() { // Last
-		if (!this.reports['mapchange-name']) return;
-		let loc = correctCase(this.reports['mapchange-name'][0].display);
+	
+	// Location changes
+	function mapChange() { // Last
+		if (!this.memory.lastArea) {
+			this.memory.lastArea = this.memory.location.getArea();
+		}
+		
+		if (!this.reports['mapchange']) return;
+		let loc = this.currInfo.location.getArea();
+		let lastArea = this.memory.lastArea;
+		
+		this.memory.lastArea = loc;
+		
+		
+		
+		if (loc.is('inTown')) {
+			return
+		}
+		
+		
+		let loc = correctCase(this.reports['mapchange'][0].display);
 		return rand(`In ${loc}.`, `Arrived in ${loc}.`, `We walk into ${loc}.`, `${loc}.`, `Welcome to ${loc}.`);
 	},
 ];

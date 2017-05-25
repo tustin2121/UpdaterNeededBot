@@ -7,11 +7,11 @@ const {
 	Cutscene,
 } = require("../map.js");
 
-function id( mapid, parentId, matrix=0 ) { 
+function id( mapid, parentId, matrix=0 ) {
 	return { mapid, parentId, matrix };
 }
 
-const Unova = module.exports = 
+const Unova = module.exports =
 new Region({ name:"Unova", mapid:"ds" }, [
 	City("Aspertia City", id(163,427), {
 		buildings: [
@@ -167,7 +167,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 							Floor(id(60,28,290)), // Floor 2: Medal Hut
 							Floor(id(61,28,291), { // Floor 3: Fennel's lab
 								locOf: { pc: "9,8", },
-							}), 
+							}),
 						],
 					}), //Floor 1, 2, 3
 					Gym([id(29,28,56), id(30,28,274)], {
@@ -222,7 +222,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			House(id(397,249,137)), // The Pinwheel-side gatehouse
 			House(id(396,249,41), { // The pinwheel-side overlook
 				connections: [ id(204,154,16) ],
-			}), 
+			}),
 		],
 	}),
 	Dungeon("Pinwheel Forest", {
@@ -288,17 +288,22 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			House([id(83,62,98), id(84,62,221), id(86,62,222)], {name:"Nimbasa City's Big Stadium"}),
 			House([id(81,62,58)], {
 				name:"Musical Theater",
-				locOf: { 
+				locOf: {
 					pc: "21,12",
 					vending: ["25,10","26,10"],
 				},
 				connections: [ id(82,62,116) ],
 			}),
+			Cutscene(id(82,62,116), {
+				name: "Musical Stage",
+				announce: "We've decided to participate in a musical!",
+				connections: ["Musical Theater"],
+			}),
 			
 			Building({
 				name: "Gear Station",
 				floors: [
-					Floor(id(70,62,101), { name: "Gear Station", }), 
+					Floor(id(70,62,101), { name: "Gear Station", }),
 					//TODO The trains
 				],
 			}),
@@ -392,8 +397,8 @@ Unova.addNode(...[
 	Area("Entralink", id(435,279,117), {
 		zones: [
 			Area("Entree Forest", [
-				id(436,279,119), 
-				id(437,279,228), 
+				id(436,279,119),
+				id(437,279,228),
 				id(439,279,230),
 				id(438,279,229),
 				id(441,279,232),
@@ -401,17 +406,9 @@ Unova.addNode(...[
 				id(444,279,235),
 			])
 		],
-		attrs: {
-			"announce": "And we dive into the Entralink...!",
-		}
+		announce: "And we dive into the Entralink...!",
 	}),
 	Area("Union Room", id(609,422,88)), // Connection from any Pokecenter
-	
-	House(id(82,62,116), {
-		name: "Musical Stage",
-		announce: "We've decided to participate in a musical!",
-		connections: ["Musical Theater"],
-	}),
 	
 	// Boat transition from Virbank to Castelia. There's no such transition back.
 	Cutscene(id(566,389,260), {

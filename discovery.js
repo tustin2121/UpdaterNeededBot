@@ -93,30 +93,45 @@ let me = module.exports = {
 			
 			console.log(`blackout discovery: pp=${ppWasHealed}, hp=${hpWasHealed}`);
 			if (ppWasHealed > 0 && hpWasHealed > 1) {
-				if (curr.location.isE4Lobby || curr.location.isE4RunStart) {
+				if ((prev.location.is('e4') && !curr.location.is('e4')) || curr.location.is('e4') === 'lobby' || curr.location.is('e4') === 'e4') {
 					report('blackout', { e4turnover: true });
 				} else if (prev.location.mapid !== curr.location.mapid) {
 					// This is definitely a blackout
 					report('blackout');
-				} else if (curr.location.isCenter) {
+				} else if (curr.location.is('healing') === true) {
 					report('healed', { atCenter: true });
+				} else if (curr.location.within('healing', curr.position)) {
+					report('healed', { fieldHeal: true });
 				} else {
 					report('healed');
 				}
 			}
 		},
 		function e4watch(prev, curr, report) {
-			if (prev.location.isE4Lobby) {
-				if (curr.location.isE4RunStart) {
+			if (prev.location.is('e4') === 'lobby') {
+				if (curr.location.is('e4') === 'e4') {
 					report ('e4', { runStarted: true });
 				}
-			} else if (!prev.location.isE4Lobby && !prev.location.isE4RunStart) {
-				if (curr.location.isE4RunStart) {
+			} else if (prev.location.is('e4') !== 'lobby' && prev.location.is('e4') !== 'e4') {
+				if (curr.location.is('e4') === 'e4') {
 					report ('e4', { runStarted: true });
+				}
+			} else if (prev.location.is('e4') === 'e4') {
+				if (curr.location.is('e4') === 'champion') {
+					report ('e4', { championReach: true });
+				}
+			} else if (prev.location.is('e4') === 'champion') {
+				if (curr.location.is('e4') === 'hallOfFame') {
+					report ('e4', { hallOfFame: true });
+				}
+			} else if (prev.location.is('e4')) {
+				if (!curr.location.is('e4')) {
+					report ('e4', { turnover: true });
 				}
 			}
 		},
 	],
+	
 	// A list of functions which discover differences specifically about the party itself
 	discoveries_party: [
 		function levelUp({prev, curr}, report) {

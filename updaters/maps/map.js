@@ -13,17 +13,20 @@ class Region {
 			// Default properties of the whole region and any nodes under it
 			"indoors": false,	//If the location is inside (cannot fly)
 			"inTown": false,	//If the location is in a town (not the wild)
-			"healing": false,	//If the location offers healing [false|true=pokecenters|coord or array of coords=doctors or field healing]
+			"healing": false,	//If the location offers healing [false|pokecenter|doctor|nurse|other field healing]
 			"shopping": false,	//If the location offers buying (marts, vendors)
-			"vending": false,	//If the location has vending machines (water, lemonade, soda) [false|coord or array of coords]
 			"gym": false,		//If the location is a gym (badge/TM getting, attempt counting)
 			"e4": false,		//If the location is part of the E4 [false|lobby|e4|champion|hallOfFame] (run counting)
 			"dungeon": false,	//If the location is a cave or dungeon
-			"flySpot": false,	//If the location has a spot to fly to
-			"pc": false,		//If the location has a PC [false|coord or array of coords]
 			
 			"noteworthy":false,	//If the location is worthy of noting upon arrival
 			"announce":null,	//An announcement about this map, implies noteworthiness.
+		},locOf:{
+			"vending": false,	//If the location has vending machines (water, lemonade, soda) [false|coord or array of coords]
+			"healing": false,	//If the location offers field healing [false|coord or array of coords=doctors or field healing]
+			"shopping": false,	//If the location offers buying (marts, vendors)
+			"pc": false,		//If the location has a PC [false|coord or array of coords]
+			"flySpot": false,	//If the location has a spot to fly to
 		} });
 		
 		this.addNode(...nodes);
@@ -32,11 +35,11 @@ class Region {
 	static createMapidHandler(mapid) {
 		switch (mapid) {
 			case "gen3": // Uses "Bank.Id" format
-				return (mapid)=>mapid;
-			case "ds": // Uses "MatrixId" format, optionally "MatrixId:x,y" for overworld
-				return (mapid)=>{
-					// { matrix:int, name:string, mapid:int, parentmap:int }
-					return mapid;
+				return (id)=>id;
+			case "ds":
+				return (id)=>{
+					// { matrix:int, mapid:int, parentId:int }
+					return id.mapid;
 				}
 		}
 	}
@@ -44,8 +47,10 @@ class Region {
 	addNode(...nodes) {
 		for(let n of nodes) {
 			n.region = this;
-			n.mapids.forEach((id)=>{
-				this.nodes[id] = n;
+			n.mapids.forEach((mapid)=>{
+				let id = Region.createMapidHandler(mapid);
+				if (!this.nodes[id]) this.nodes[id] = [];
+				this.nodes[id].push(n);
 			});
 			if (n.name) {
 				this.nodesByName[n.name] = n;
@@ -56,6 +61,21 @@ class Region {
 	/** Finalize the node graph by connecting things that are simply references at the moment. */
 	resolve() {
 		this.topNode.__finalize(12);
+	}
+	
+	find(mapid) {
+		let id = Region.createMapidHandler(mapid);
+		let nodes = this.nodes[id];
+		if (!nodes) return null;
+		for (let i = 0; i < nodes.length; i++) {
+			for (let j = 0; j < nodes[i].mapids.length; j++) {
+				let thisid = nodes[i].mapids[j];
+				if (thisid.mapid !== mapid.mapid) continue;
+				if (thisid.parentId !== mapid.parentId) continue;
+				if (thisid.matrix !== mapid.matrix) continue;
+				return nodes[i];
+			}
+		}
 	}
 }
 
@@ -142,12 +162,53 @@ class Node {
 		return undefined;
 	}
 	
+	/** Test if this mode's coordinate attribute is within a certain range of the given value. */
+	within(attr, loc, dist=6) {
+		let a = this.locOf[attr];
+		if (!a) return false;
+		if (Array.isArray(a)) {
+			return a.reduce((acc, val)=>{
+				return acc || _wi(val, loc);
+			}, false);
+		}
+		if (typeof a === 'string') {
+			return _wi(a, loc);
+		}
+		return false;
+		
+		// a = target point, b = curr loc
+		function _wi(a, b) {
+			try {
+				let [ ax, ay ] = a.split(',');
+				let [ bx, by ] = b.split(',');
+				ax = Number(ax); ay = Number(ay);
+				bx = Number(bx); by = Number(by);
+				
+				if (ax - dist < bx && bx < ax + dist) {
+					if (ay - dist < by && by < ay + dist) {
+						return true;
+					}
+				}
+			} catch (e) {
+				console.log('Error calculating within!', e);
+			} finally {
+				return false;
+			}
+		}
+	}
+	
 	locationOf(item) {
 		if (this.locOf[item]) {
 			if (!Array.isArray(this.locOf[item])) return [this.locOf[item]];
 			return this.locOf[item];
 		}
 		return [];
+	}
+	
+	getArea() {
+		let p = this;
+		while (p && p.parent !== this.region.topNode) p = p.parent;
+		return p;
 	}
 	
 	// Allow iteration over children in for...of loops (NOT for...in loops, note)
@@ -305,11 +366,10 @@ module.exports = {
 		return me;
 	},
 	
-	Cutscene : function(mapids, { name, attrs={}, connections=[], announce, }={}) {
+	Cutscene : function(mapids, { name, attrs={}, connections=[], announce, noteworthy=true }={}) {
 		if (!Array.isArray(mapids)) mapids = mapids;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			"noteworthy": true,
-			announce,
+			noteworthy, announce,
 		}, attrs) });
 		me.addConnection(...connections);
 		return me;
