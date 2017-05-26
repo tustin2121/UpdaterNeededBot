@@ -352,7 +352,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				badge: "Quake",
 			}),
 		],
-		connections: [ "Driftveil Drawbridge", "Clay Tunnel" ],
+		connections: [ "Driftveil Drawbridge", "Clay Tunnel", 6 ],
 	}),
 	Dungeon("Clay Tunnel", {
 		floors: [
@@ -367,21 +367,105 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(373,506,409)), // Sun place = Rock Golem's Chambers
 		],
 	}),
-	
-	
 	Dungeon("Mistralton Cave", {
 		floors: [
 			Floor(id(502,333,110), {
-				connections: [ id(370,506,302) ], // Clay Tunnel
+				connections: [ 6, id(370,506,302) ], // Clay Tunnel, and Route 6
+			}),
+			Floor(id(503,333,111)),
+			Floor(id(504,333,112)), // Where Cobalion is located
+		],
+	}),
+	Route(6, id(500,331), {
+		buildings: [
+			House(id(501,331,92), { name: "Seasons Research Lab" }), //Note: has a deerling giveaway
+			House(id(505,331,44), { attrs: { "healing":"house", } }),
+		],
+		connections: [ "Driftveil City", "Chargestone Cave", id(502,333,110) ],
+	}),
+	Dungeon("Chargestone Cave", {
+		floors: [
+			Floor(id(243,194), {
+				connections: [ 6, "Mistralton City" ],
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				},
+			}),
+			Floor(id(244,194,23)),
+			Floor(id(245,194,24)),
+			Floor(id(246,195,25)),
+		],
+	}),
+	City("Mistralton City", id(120, 107), {
+		buildings: [
+			PokeCenter(id(122,107,13)),
+			Gym(id(121,107,62), {
+				name: "Mistralton City Gym",
+				leader: "Skyla",
+				badge: "Jet",
+			}),
+			House(id(124,107,63), { name: "Mistralton Cargo Service", }), // Plane
+			House(id(125,107,46)),
+			House(id(123,107,46)),
+		],
+		connections: [ id(243,194), 7 ],
+		locOf: { flySpot: "108,306" },
+	}),
+	Route(7, id(506,337), {
+		buildings: [
+			House(id(512,337,44)), // Trade Emolga for a Gigalith
+			House(id(513,337,44), { attrs: {"healing":"house"} }),
+		],
+		connections: [ "Mistralton City", id(247,198),  ],
+	}),
+	Dungeon("Celestial Tower", {
+		floors: [
+			Floor(id(507,338,185)), // Base floor
+			Floor(id(508,338,186)),
+			Floor(id(509,338,187)),
+			Floor(id(510,338,188)),
+			Floor(id(511,338,189), {
+				attrs: {
+					"indoors": false,
+				},
+				announce: "We're at the top of Celestial Tower!",
 			}),
 		],
 	}),
-	
 	Dungeon("Twist Mountain", {
 		floors: [
-			Floor(id(252,198,97), {
-				connections: [ id(371,506,303) ], // Clay Runnel
+			Floor(id(247,198), {
+				connections: [ 7 ],
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				}
 			}),
+			Floor(id(248,198,93), {
+				attrs: {
+					"indoors": false,
+					"healing": "nurse",
+				},
+				locOf: {
+					"healing":"50,38",
+					"vending":["26,27","27,27"],
+				},
+			}),
+			Floor(id(249,198,94)), // Floor 3
+			Floor(id(250,198,95)), // Floor 2
+			Floor(id(251,198,96)), // Floor 1
+			Floor(id(252,198,97), { // Floor BF1
+				connections: [ id(371,506,303) ], // Clay Tunnel
+			}),
+			Floor(id(253,198,331), {
+				attrs: {
+					"legendary": "Regigigas"
+				},
+				locOf: {
+					"legendary": "15,5",
+				},
+			}), // Regigiga's Room
 		],
 	}),
 	
@@ -416,3 +500,5 @@ Unova.addNode(...[
 		connections: [ id(39,28,9) ],
 	})
 ]);
+
+Unova.resolve();

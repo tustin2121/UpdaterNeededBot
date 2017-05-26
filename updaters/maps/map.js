@@ -13,7 +13,7 @@ class Region {
 			// Default properties of the whole region and any nodes under it
 			"indoors": false,	//If the location is inside (cannot fly)
 			"inTown": false,	//If the location is in a town (not the wild)
-			"healing": false,	//If the location offers healing [false|pokecenter|doctor|nurse|other field healing]
+			"healing": false,	//If the location offers healing [false|pokecenter|doctor|nurse|house|other field healing]
 			"shopping": false,	//If the location offers buying (marts, vendors)
 			"gym": false,		//If the location is a gym (badge/TM getting, attempt counting)
 			"e4": false,		//If the location is part of the E4 [false|lobby|e4|champion|hallOfFame] (run counting)
@@ -207,7 +207,10 @@ class Node {
 	
 	getArea() {
 		let p = this;
-		while (p && p.parent !== this.region.topNode) p = p.parent;
+		while (p && p.parent && p.parent !== this.region.topNode) {
+			if (p.attr['noteworthy']) break;
+			p = p.parent;
+		}
 		return p;
 	}
 	

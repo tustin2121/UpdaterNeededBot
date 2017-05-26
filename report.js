@@ -282,10 +282,16 @@ let collators = [
 		}
 		
 		if (!this.reports['mapchange']) return;
-		let loc = this.currInfo.location.getArea();
+		if (this.currInfo.location.has('announce')) {
+			return this.currInfo.location.has('announce');
+		}
+		
+		let area = this.currInfo.location.getArea();
 		let lastArea = this.memory.lastArea;
 		
-		this.memory.lastArea = loc;
+		if ()
+		
+		this.memory.lastArea = area;
 		
 		
 		

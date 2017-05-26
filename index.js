@@ -10,20 +10,15 @@ const reddit = require("./redditapi.js");
 
 // const UPDATER = require('./updaters/test.js');
 const UPDATER = require('./updaters/s4-rand-white2.js');
+const TEST_UPDATER = require('./updaters/test.js');
 
 const { discover } = require("./discovery.js");
 const Reporter = require("./report.js");
 
 let access = { token:"", timeout:0 };
-let memoryBank = {
-	//!!!!!!!!!!!!!!!!!!! TEMPORARY !!!!!!!!!!!!!!!!!!!!!!!
-	// inE4Run: false,
-	// e4Attempt: 0,
-	// iAmABotWarning: false,
-};
+let memoryBank = {}; //TODO save via the save proxy
 let data_curr, data_prev;
 let sorted_curr, sorted_prev;
-// let shopping_delta = {}, shopping_map = 0;
 let taggedIn = false;
 
 let dbot = new discord.Client({
@@ -155,7 +150,7 @@ function refreshInfo() {
 			let ts = getTimestamp();
 			console.log('UPDATE:', `${ts} [Bot] ${update}`);
 			
-			let liveID = (taggedIn)?UPDATER.liveID:"ysqpsvyo0yjv"; //Live or test updater
+			let liveID = (taggedIn)?UPDATER.liveID:TEST_UPDATER.liveID; //Live or test updater
 			
 			let p;
 			if (access.timeout < Date.now()) {
