@@ -559,7 +559,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Area("Moor of Icirrus", id(515,346,183), {
 		connections: [ 8 ],
 	}),
-	Gatehouse(id(516,345,129), 8, "Tubeline Bridge"),
+	Gatehouse(id(516,345,129), "Tubeline Bridge", 8),
 	Route("Tubeline Bridge", id(400,254,136), {
 		connections: [ id(516,345,129) ],
 	}),
@@ -584,7 +584,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			"vending": ["366,169","367,169","368,169","369,169"],
 		},
 	}),
-	Gatehouse(id(144,348,50), 9, "Opelucid City"),
+	Gatehouse(id(144,348,50), "Opelucid City", 9),
 	City("Opelucid City", id(133,120), {
 		buildings: [
 			PokeCenter(id(135,120,13)),
@@ -613,7 +613,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			House(id(536,365,65)),
 		],
 	}),
-	Gatehouse(id(535,365,50), 11, "Village Bridge"),
+	Gatehouse(id(535,365,50), "Village Bridge", 11),
 	Area("Village Bridge", id(401,255,182), {
 		buildings: [
 			House(id(407,255,44), attrs:{ "healing":"house", }),
@@ -633,10 +633,225 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	}),
 	Town("Lacunosa Town", id(583,406), {
 		buildings: [
+			PokeCenter(id(584,406,13)),
 			House(id(585,406,47)),
+			House(id(586,406,47)),
+			House(id(587,406,47)),
+			House(id(588,406,47)),
 			
 		],
-		connections: [ 12 ],
+		locOf: {
+			"vending": ["665,177","666,177"],
+			"flySpot": "660,186",
+		},
+		connections: [ 12, 13 ],
+	}),
+	Route(13, id(539,370), { // Cobold is here after the game ends...? "684,190"
+		buildings: [
+			House(id(540,370,47)),
+			House(id(542,370,47)),
+		],
+		connections: [ "Lacunosa Town", "Giant Chasm" ],
+	}),
+	Dungeon("Giant Chasm", {
+		floors: [
+			Floor(id(280,230), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				}
+			}),
+			Floor(id(281,230,184), {
+				connections: [ 23, 22 ],
+			}),
+			Floor(id(282,230,250), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				}
+			}),
+			Floor(id(284,230,252)),
+			Floor(id(285,230,397), {
+				attrs: { "legendary":"Kyurem", },
+				locOf: { "legendary":"15,15", },
+			}),
+		],
+		connections: [ 13 ],
+	}),
+	Route(22, id(562,474), { // Terrakon is just hanging out here...? "725,139"
+		connections: [ id(281,230,184), id(333,573,337) ], // Giant Chasm, Victory Road
+	}),
+	Route(23, id(563,475), {
+		buildings: [
+			House(id(564,475,44), attrs:{ "healing":"house", }),
+			House(id(565,475,44)),
+		],
+		connections: [ id(281,230,184) ],
+	}),
+	Gatehouse(id(541,370,12), "Undella Town", 13),
+	Town("Undella Town", id(589,412), {
+		buildings: [
+			PokeCenter(id(590,412,13)),
+			House(id(593,412,44)),
+			House(id(592,412,44)),
+			House(id(591,412,271), {
+				name:"Marine Tube",
+				attrs: { "vending":"8,4" },
+			}),
+		],
+		locOf: {
+			"flySpot": "760,301",
+		},
+		connections: [ id(321,461,333), "Undella Bay", 14 ], // Reversal Mountan
+	}),
+	Gatehouse(id(411,464,273), id(591,412,271), id(191,465,272), {
+		name: "Marine Tube",
+	}),
+	City("Humilau City", id(183,465), {
+		buildings: [
+			PokeCenter(id(185,465,13)),
+			Gym(id(184,465,336), {
+				name: "Humilau City Gym",
+				leader: "Marlon",
+				badge: "Wave",
+				locOf: {
+					"leader": "16,5",
+				}
+			}),
+			House(id(191,465,272), {
+				name:"Marine Tube",
+				attrs: { "vending":"14,4" },
+			}),
+			House(id(186,465,264)),
+			House(id(189,465,264)),
+			House(id(187,465,264)),
+			House(id(188,465,264)),
+			House(id(190,465,264)),
+		],
+		connections: [ 22, 21 ],
+	}),
+	Route(21, id(611,463), {
+		connections: [ "Seaside Cave", "Humilau City" ],
+	}),
+	Dungeon("Seaside Cave", {
+		floors: [
+			Floor(id(390,515,312)),
+			Floor(id(391,515,313)),
+		],
+		connections: [ "Undella Bay", 21 ],
+	}),
+	Route("Undella Bay", id(296,240), {
+		connections: [ "Seaside Cave", "Abyssal Ruins" ],
+	}),
+	Dungeon("Abyssal Ruins", {
+		floors: [
+			Floor(id(298,241,244), {
+				connections: [ "Undella Bay" ],
+			}),
+			Floor(id(301,241,247)),
+			Floor(id(302,241,248)), // Assumption
+			Floor(id(303,241,249)), // Assumption
+			Floor(id(304,241,250)), // Assumption
+		],
+	}),
+	Dungeon("Reversal Mountain", {
+		floors: [
+			Floor(id(321,461,333), {
+				connections: [ "Undella Town" ],
+			}),
+			Floor(id(318,461,328), {
+				attrs: { "healing":"doctor" },
+				locOf: { "healing":"42,54" },
+			}),
+			Floor(id(319,461,331), {
+				attrs: { "legendary": "Heatran", },
+				locOf: { "legendary": "10,13", },
+			}),
+			Floor(id(320,461,332)),
+			Floor(id(316,461,330)),
+			Floor(id(309,461), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				},
+				connections: [ "Lentimas Town" ],
+			}),
+		],
+	}),
+	Town("Lentimas Town", id(605,458), {
+		buildings: [
+			PokeCenter(id(606,458,13)),
+			House(id(607,458,263)),
+			House(id(608,458,263)),
+		],
+		connections: [ id(309,461), "Mistralton City" ],
+	}),
+	Route(14, id(543,374), {
+		connections: [ "Undella Town", "Abundant Shrine" ],
+	}),
+	// TODO White forest
+	
+	
+	
+	Dungeon("Victory Road", {
+		floors: [
+			Area(id(333,573,337), { // Badge Check lane
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				},
+				buildings: [
+					PokeCenter(id(332,373,54), {
+						locOf: { "pc":"4,12", },
+					}),
+				],
+			}),
+			Floor(id(341,573,389)),
+			Floor(id(335,573,383), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				},
+			}),
+			Floor(id(342,573,390), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				},
+			}),
+			Floor(id(343,573,391), { // Bridge to N's Castle
+				connections: [ id(421,264,171) ],
+			}),
+			Floor(id(240,573,388)), // Northeast Cave
+			Floor(id(337,573,385)), // South Cave
+			Floor(id(338,573,386)), // North Cave
+			Floor(id(339,573,387), { attrs: {"indoors":false} }), // Cliffside
+			Floor(id(278,573,198)), //Topmost Room
+			Floor(id(264,573,162), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				},
+			}),
+		],
+	}),
+	Dungeon("N's Castle", {
+		floors: [
+			Floor(id(421,264,171), {
+				connections: [ id(343,573,391) ],
+			}),
+			Floor(id(422,264,163), { announce: "We poke around N's old room... and the creepy off-key music causes some WutFaces...", }),
+			Floor(id(425,264,174)),
+			Floor(id(526,264,212)),
+		],
+	}),
+	Area("Pokemon League", id(149,136,87), {
+		locOf: { "flySpot":"19,49" },
+		floors: [
+			PokeCenter(id(332,373,54), {
+				locOf: { "pc":"4,12", },
+			}),
+		],
 	}),
 	
 	Area("Cave of Being", id(), {

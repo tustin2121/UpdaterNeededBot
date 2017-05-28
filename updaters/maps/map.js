@@ -277,7 +277,7 @@ module.exports = {
 		me.addConnection(...connections);
 		return me;
 	},
-	Floor : function(mapids, { name, attrs={}, locOf={}, floors=[], connections=[], announce, }={}){
+	Floor : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = mapids;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			announce,
