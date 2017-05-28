@@ -3,14 +3,37 @@
 const {
 	Region, Town, City, Area, Route, Dungeon,
 	Building, Floor, House, Cave, Gatehouse,
-	Mart, PokeMart, Center, PokeCenter, Gym,
+	Mart, PokeMart, Gym,
 	Cutscene,
 } = require("../map.js");
 
+// Defaults for this particular region
+const Center = function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
+	if (!Array.isArray(mapids)) mapids = mapids;
+	let me = new Node({ mapids, attrs:Object.assign({
+		"indoors": true,
+		"healing": true,
+		"shopping": true,
+		announce,
+	}, attrs), locOf:Object.assign({
+		"pc": ["4,12"],
+	}, locOf) });
+	me.addConnection(...connections);
+	me.addConnection("Union Room");
+	return me;
+};
+const PokeCenter = Center;
+
+// Helper functions
 function id( mapid, parentId, matrix=0 ) {
 	return { mapid, parentId, matrix };
 }
+function gameSpecific(black, white) {
+	if (global.game == "Black2") return black;
+	return white;
+}
 
+// The region itself
 const Unova = module.exports =
 new Region({ name:"Unova", mapid:"ds" }, [
 	City("Aspertia City", id(163,427), {
@@ -31,6 +54,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 						name: "Aspertia Pokémon Gym",
 						leader: "Cheren",
 						badge: "Basic",
+						locOf: {
+							leader: "", //TODO
+						}
 					}),
 				],
 			}),
@@ -174,6 +200,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 						name: "Castelia City Gym",
 						leader: "Burgh",
 						badge: "Insect",
+						locOf: {
+							leader: id(30,28,274)],
+						}
 					}),
 				],
 			}),
@@ -321,6 +350,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 						name: "Nimbasa City Gym",
 						leader: "Elesa",
 						badge: "Bolt",
+						locOf: {
+							"leader": "", //TODO
+						}
 					}),
 				],
 			}),
@@ -350,6 +382,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				name: "Driftveil City Gym",
 				leader: "Clay",
 				badge: "Quake",
+				locOf: {
+					"leader": "", //TODO
+				}
 			}),
 		],
 		connections: [ "Driftveil Drawbridge", "Clay Tunnel", 6 ],
@@ -373,7 +408,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				connections: [ 6, id(370,506,302) ], // Clay Tunnel, and Route 6
 			}),
 			Floor(id(503,333,111)),
-			Floor(id(504,333,112)), // Where Cobalion is located
+			Floor(id(504,333,112), {
+				
+			}), // Where Cobalion is located
 		],
 	}),
 	Route(6, id(500,331), {
@@ -404,6 +441,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				name: "Mistralton City Gym",
 				leader: "Skyla",
 				badge: "Jet",
+				locOf: {
+					leader: "", //TODO find location again
+				}
 			}),
 			House(id(124,107,63), { name: "Mistralton Cargo Service", }), // Plane
 			House(id(125,107,46)),
@@ -454,19 +494,149 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			}),
 			Floor(id(249,198,94)), // Floor 3
 			Floor(id(250,198,95)), // Floor 2
-			Floor(id(251,198,96)), // Floor 1
+			Floor(id(251,198,96), { // Floor 1
+				connections: [ "Icirrus City" ],
+			}),
 			Floor(id(252,198,97), { // Floor BF1
 				connections: [ id(371,506,303) ], // Clay Tunnel
 			}),
 			Floor(id(253,198,331), {
-				attrs: {
-					"legendary": "Regigigas"
-				},
-				locOf: {
-					"legendary": "15,5",
-				},
+				attrs: { "legendary": "Regigigas" },
+				locOf: { "legendary": "15,5", },
 			}), // Regigiga's Room
 		],
+	}),
+	City("Icirrus City", id(126,113), {
+		locOf: { "flySpot":"184,197" },
+		buildings: [
+			PokeCenter(id(128,113,13)),
+			House(id(129,113,46)),
+			House(id(130,113,44), { announce: `We're in the quiz house! We're pounced on and force to answer a "Pep Quiz"!`, }),
+			House(id(131,113,46)), // Unreachable other than Winter
+			House(id(132,113,359), { name: "Pokemon Fan Club", }),
+			Gym(id(127,113,64), {
+				name: "Former Icirrus City Gym", // Memory Link here
+				locOf: {
+					"leader": "17,14",
+				}
+			}),
+		],
+		connections: [ id(251,198,96), id(255,205), 8 ], // Twist, Dragonspiral
+	}),
+	Dungeon("Dragonspiral Tower", {
+		floors: [
+			Floor(id(255,205), {
+				connections: [ "Icirrus City" ],
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				}
+			}),
+			Floor(id(256,205,208), {
+				attrs: {
+					"indoors": false,
+					"dungeon": false,
+				}
+			}),
+			Floor(id(257,205,200)),
+			Floor(id(258,205,201)),
+			Floor(id(259,205,202)),
+			Floor(id(260,205,203)),
+			Floor(id(261,205,204)), // Spiral Room
+			Floor(id(262,205,205)),
+			Floor(id(263,205,206), {
+				attrs: {
+					"indoors": false,
+					"legendary": gameSpecific("Zekrom", "Reshiram")
+				},
+				locOf: { "legendary": "16,10", },
+			}),
+		],
+	}),
+	Route(8, id(514,345), {
+		connections: [ "Icirrus City", "Moor of Icirrus" ],
+	}),
+	Area("Moor of Icirrus", id(515,346,183), {
+		connections: [ 8 ],
+	}),
+	Gatehouse(id(516,345,129), 8, "Tubeline Bridge"),
+	Route("Tubeline Bridge", id(400,254,136), {
+		connections: [ id(516,345,129) ],
+	}),
+	Gatehouse(id(518,348,129), "Tubeline Bridge", 9),
+	Route(9, id(517,348), {
+		buildings: [
+			Building({
+				name: "Shopping Mall Nine",
+				floors: [
+					Floor(id(519,348,90), {
+						attrs: { "shopping": true, },
+						locOf: {
+							"shopping": ["7,16","9,10","7,3","9,3","21,10"],
+							"vending": ["21,2","22,2","22,3"],
+						}
+					}),
+					Floor(id(520,348,141)),
+				],
+			}),
+		],
+		locOf: {
+			"vending": ["366,169","367,169","368,169","369,169"],
+		},
+	}),
+	Gatehouse(id(144,348,50), 9, "Opelucid City"),
+	City("Opelucid City", id(133,120), {
+		buildings: [
+			PokeCenter(id(135,120,13)),
+			Gym(id(134,120,66), {
+				name: "Opelucid City Gym",
+				leader: "Dryden",
+				badge: "Legend",
+				locOf: {
+					"leader": "15,18", //15,57,18
+				},
+			}),
+			House([id(140,120,67),id(141,120,160)]),
+			House([id(147,120,67),id(148,120,160)]),
+			House([id(138,120,67),id(139,120,160)]),
+			House([id(142,120,67),id(143,120,160)]),
+			House([id(136,120,67),id(137,120,160)]), // Drayden's House
+			
+		],
+		locOf: {
+			"vending": ["428,178","429,178"],
+		}
+	}),
+	Gatehouse(id(146,365,50), "Opelucid City", 11),
+	Route(11, id(534,365), { // Viziron is here after the game ends...?
+		buildings: [
+			House(id(536,365,65)),
+		],
+	}),
+	Gatehouse(id(535,365,50), 11, "Village Bridge"),
+	Area("Village Bridge", id(401,255,182), {
+		buildings: [
+			House(id(407,255,44), attrs:{ "healing":"house", }),
+			House(id(406,255,44)),
+			House(id(404,255,44)),
+			House(id(405,255,44)),
+			House(id(403,255,44)),
+			House(id(402,255,44)),
+		],
+		locOf: {
+			"vending": ["5,12","6,12"],
+		},
+	}),
+	Gatehouse(id(538,368,50), "Village Bridge", 12),
+	Route(12, id(537,368), {
+		connections: [ "Lacunosa Town" ],
+	}),
+	Town("Lacunosa Town", id(583,406), {
+		buildings: [
+			House(id(585,406,47)),
+			
+		],
+		connections: [ 12 ],
 	}),
 	
 	Area("Cave of Being", id(), {

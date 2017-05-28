@@ -18,6 +18,7 @@ class Region {
 			"gym": false,		//If the location is a gym (badge/TM getting, attempt counting)
 			"e4": false,		//If the location is part of the E4 [false|lobby|e4|champion|hallOfFame] (run counting)
 			"dungeon": false,	//If the location is a cave or dungeon
+			"legendary": false, //If the location is home to a legendary pokemon, name of it
 			
 			"noteworthy":false,	//If the location is worthy of noting upon arrival
 			"announce":null,	//An announcement about this map, implies noteworthiness.
@@ -27,6 +28,8 @@ class Region {
 			"shopping": false,	//If the location offers buying (marts, vendors)
 			"pc": false,		//If the location has a PC [false|coord or array of coords]
 			"flySpot": false,	//If the location has a spot to fly to
+			"legendary": false, //If the location is home to a legendary, location of it
+			"leader": false, 	//If the location is a gym, location of the gym leader [coord|mapid]
 		} });
 		
 		this.addNode(...nodes);
@@ -241,6 +244,7 @@ module.exports = Town("Example Town", "12.0", {
 
 module.exports = {
 	Region: Region,
+	Node: Node,
 	Area : function(mapids, { name, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, noteworthy=false }={}){
 		if (!Array.isArray(mapids)) mapids = mapids;
 		let me = new Node({ name, mapids, attrs:Object.assign({
@@ -308,13 +312,11 @@ module.exports = {
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"healing": true,
-			"shopping": true,
 			announce,
 		}, attrs), locOf:Object.assign({
-			"pc": ["4,12"],
+			"pc": [],
 		}, locOf) });
 		me.addConnection(...connections);
-		me.addConnection("Union Room");
 		return me;
 	},
 	/** Common Pokecenter */
