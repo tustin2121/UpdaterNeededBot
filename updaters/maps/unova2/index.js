@@ -4,13 +4,13 @@
 const {
 	Region, Town, City, Area, Route, Dungeon,
 	Building, Floor, House, Cave, Gatehouse,
-	Mart, PokeMart, Gym,
+	Mart, PokeMart, Gym, Node,
 	Cutscene,
 } = require("../map.js");
 
 // Defaults for this particular region
 const Center = function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
-	if (!Array.isArray(mapids)) mapids = mapids;
+	if (!Array.isArray(mapids)) mapids = [mapids];
 	let me = new Node({ mapids, attrs:Object.assign({
 		"indoors": true,
 		"healing": true,
@@ -147,7 +147,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Area("Liberty Pier", id(37,28,7), {
 				connections: [ "Liberty Garden" ],
 			}),
-			Area("Thumb Pier". id(41,28,11), {
+			Area("Thumb Pier", id(41,28,11), {
 				connections: [ id(286,495,293) ], // Sewers
 			}),
 			House(id(45,28,177),{
@@ -204,7 +204,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 						leader: "Burgh",
 						badge: "Insect",
 						locOf: {
-							leader: id(30,28,274)],
+							leader: id(30,28,274),
 						}
 					}),
 				],
@@ -271,8 +271,8 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(366,503,298), { // South
 				connections: [ id(286,495,293) ],
 			}),
-			Floor(id(267,503,299),{ // Center
-				connections: [ id(229,160,74) ].
+			Floor(id(267,503,299), { // Center
+				connections: [ id(229,160,74) ],
 			}),
 			Floor(id(368,503,300), { // North
 				connections: [ "PWT Plaza" ],
@@ -536,7 +536,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Gatehouse(id(119,96,373), "PWT", "Driftveil City", {
 		locOf: { "vending":["8,3","8,4"], },
 	}),
-	Area("PWT Plaza", id(240,191). {
+	Area("PWT Plaza", id(240,191), {
 		buildings: [
 			Building("Pokemon World Tournament", {
 				floors: [
@@ -720,7 +720,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 					"indoors": false,
 				},
 				legendary: {
-					name: gameSpecific("Zekrom", "Reshiram")
+					name: gameSpecific("Zekrom", "Reshiram"),
 					loc: "16,10",
 				}
 			}),
@@ -794,7 +794,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Gatehouse(id(535,365,50), "Village Bridge", 11),
 	Area("Village Bridge", id(401,255,182), {
 		buildings: [
-			House(id(407,255,44), attrs:{ "healing":"house", }),
+			House(id(407,255,44), { attrs:{ "healing":"house" } }),
 			House(id(406,255,44)),
 			House(id(404,255,44)),
 			House(id(405,255,44)),
@@ -864,7 +864,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	}),
 	Route(23, id(563,475), {
 		buildings: [
-			House(id(564,475,44), attrs:{ "healing":"house", }),
+			House(id(564,475,44), { attrs:{ "healing":"house" }, }),
 			House(id(565,475,44)),
 		],
 		connections: [ id(281,230,184) ],
@@ -1104,13 +1104,13 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	}),
 	Area("Pokemon League", id(149,136,87), {
 		locOf: { "flySpot":"19,49" },
-		attrs: { "e4":"lobby", }
+		attrs: { "e4":"lobby", },
 		buildings: [
 			PokeCenter(id(332,373,54), {
 				locOf: { "pc":"4,12", },
 			}),
 			Area("Elite Four", id(150,136,210), {
-				attrs: { "e4":"e4", }
+				attrs: { "e4":"e4", },
 				buildings: [
 					House(id(153,136,121), {
 						attrs: { "leader":"Shauntal", },

@@ -150,7 +150,7 @@ class Node {
 		for (let node of nodes) {
 			if (!(node instanceof Node)) throw new TypeError('Can only add Nodes to children!');
 			node.parent = this;
-			if (!node.region) this.region.addNode(node);
+			if (node.region) this.region.addNode(node);
 			this.children.push(node);
 		}
 	}
@@ -250,7 +250,7 @@ module.exports = {
 	Region: Region,
 	Node: Node,
 	Area : function(mapids, { name, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			noteworthy, announce, legendary,
@@ -261,7 +261,7 @@ module.exports = {
 		return me;
 	},
 	Town : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"inTown": true,
 			"noteworthy": true,
@@ -283,7 +283,7 @@ module.exports = {
 		return me;
 	},
 	Floor : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			announce, legendary,
@@ -293,7 +293,7 @@ module.exports = {
 	},
 	/** Single Room Building */
 	House : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
@@ -304,7 +304,7 @@ module.exports = {
 	},
 	/** Common Pokemart */
 	Mart : function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"shopping": true,
@@ -315,7 +315,7 @@ module.exports = {
 	},
 	/** Common Pokecenter */
 	Center : function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"healing": true,
@@ -328,7 +328,7 @@ module.exports = {
 	},
 	/** Common Pokecenter */
 	Gym : function(mapids, { name, leader, badge, attrs={}, locOf={}, connections=[], announce, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"gym": true,
@@ -341,7 +341,7 @@ module.exports = {
 	
 	/** */
 	Gatehouse : function(mapids, from, to, { name, attrs={}, locOf={}, connections=[], announce, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (!name) name = `${from} Gatehouse`;
 		if (typeof to === "number") to = `Route ${to}`;
 		let me = new Node({ name, mapids, attrs:Object.assign({
@@ -354,7 +354,7 @@ module.exports = {
 	},
 	/** Outdoor routes */
 	Route : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, legendary, }={}){
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (typeof name === "number") name = `Route ${name}`;
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
@@ -380,7 +380,7 @@ module.exports = {
 	},
 	
 	Cutscene : function(mapids, { name, attrs={}, connections=[], announce, noteworthy=true }={}) {
-		if (!Array.isArray(mapids)) mapids = mapids;
+		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			noteworthy, announce,
 		}, attrs) });
