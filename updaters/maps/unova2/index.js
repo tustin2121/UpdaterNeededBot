@@ -1,4 +1,5 @@
 // Unova (BW2)
+// Unova (BW2)
 
 const {
 	Region, Town, City, Area, Route, Dungeon,
@@ -39,12 +40,12 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	City("Aspertia City", id(163,427), {
 		buildings: [
 			House(id(167,427,257), {
-				name: "${Player}'s House",
+				name: "Player's House",
 				locOf: { "healing":"4,5", },
 			}),
 			House([id(170,427,406), id(171,427,262)]),
 			House([id(168,427,406), id(169,427,258)], {
-				name:"${Rival}'s House",
+				name:"Rival's House",
 			}),
 			Building({
 				name: "Trainer's School",
@@ -74,12 +75,14 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			House(id(602,439,261)),
 			House(id(603,439,261)),
 			House(id(601,439,259), { name: "Alder's House", }),
+			Area("Pledge Grove", id(604,439,414)),
 		],
 		connections: [ 19, 20 ],
 	}),
 	Route(20, id(560,446), {
-		connections: [ "Floccesy Town", "Floccesy Ranch" ],
+		connections: [ "Floccesy Town", "Floccesy Ranch", "Cave of Being" ],
 	}),
+	Area("Cave of Being", id(392,517,310)), // Come here to unlock Uxie, Mesprit, and the other one
 	Area("Floccesy Ranch", [id(305,444), id(306,444,255)], {
 		
 	}),
@@ -145,7 +148,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				connections: [ "Liberty Garden" ],
 			}),
 			Area("Thumb Pier". id(41,28,11), {
-				connections: [ id(286,495,293) ],
+				connections: [ id(286,495,293) ], // Sewers
 			}),
 			House(id(45,28,177),{
 				name: "Passerby Analytics HQ",
@@ -216,6 +219,14 @@ new Region({ name:"Unova", mapid:"ds" }, [
 					House([id(62,28,33),id(63,28,34)]), //Floor 1, 47
 				],
 			}),
+			Area("Origin Square", id(42,28,296), {
+				announce: "We surface in a small forgotten square in the middle of Castelia, where a lone tree stands...",
+				connections: [ id(286,495,293) ], // Sewers
+			}),
+			Area("Castelia Back Alley", id(43,28,297), {
+				announce: "We surface in a Castelia back alley... some people are dancing at the far end...",
+				connections: [ id(286,495,293) ], // Sewers
+			}),
 		],
 	}),
 	Area("Liberty Garden", id(291,235), {
@@ -228,7 +239,18 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			}),
 		],
 	}),
-	Dungeon("Castelia Sewers", id(286,495,293), {
+	Dungeon("Castelia Sewers", {
+		floors: [
+			Floor(id(286,495,293), {
+				attrs: { healing: "doctor", },
+				locOf: { healing: "25,32", },
+				connections: [ "Thumb Pier", "Origin Square", "Castelia Back Alley", id(366,503,298) ], // Relic Passage
+			}),
+			Floor(id(290,495,295)),
+			Floor(id(289,495,295)),
+			Floor(id(287,495,294)),
+			Floor(id(288,495,294)),
+		],
 		attrs: { }, //TODO Explore
 	}),
 	Building({
@@ -244,6 +266,20 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		announce: "We've boarded the Royal Unova! And the ship is now leaving port!",
 	}),
 	
+	Dungeon("Relic Passage", {
+		floors: [
+			Floor(id(366,503,298), { // South
+				connections: [ id(286,495,293) ],
+			}),
+			Floor(id(267,503,299),{ // Center
+				connections: [ id(229,160,74) ].
+			}),
+			Floor(id(368,503,300), { // North
+				connections: [ "PWT Plaza" ],
+			}),
+		],
+	}),
+	
 	
 	Gatehouse(id(398,249,138), "Castelia City", id(395,249,133)),
 	Route("Skyarrow Bridge", id(395,249,133), {
@@ -255,12 +291,105 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		],
 	}),
 	Dungeon("Pinwheel Forest", {
+		attrs: {
+			"indoors": false,
+		},
 		floors: [
 			Floor(id(204,154,16), {
 				connections: [ id(396,249,41) ],
 			}),
-			// TODO this branch
+			Floor(id(205,154,224), { name:"Rumination Field" }),
+			Floor(id(203,154), {
+				attrs: { "dungeon": false, },
+				connections: [ "Nacrene City" ],
+			})
 		],
+	}),
+	City("Nacrene City", id(16,16), {
+		buildings: [
+			PokeCenter(id(20,16,13)),
+			House(id(26,16,30), { name:"Café Warehouse", }),
+			House([id(17,16,52),id(8,16,377),id(19,16,378)], { name:"Nacrene Museum" }),
+			House(id(22,16,31)),
+			House(id(21,16,169)),
+			House(id(23,16,31)),
+			House(id(24,16,31), { attrs:{ "shopping":true } }),
+			House(id(25,16,49)),
+		],
+		connections: [ id(203,154) ],
+		attrs: { "flySpot":"637,599" },
+	}),
+	Gatehouse(id(27,321,50), "Nacrene City", 3),
+	Route(3, id(477,321), {
+		buildings: [
+			House(id(479,321,28),{
+				name: "Pokemon Daycare",
+				locOf: { "pc":"9,9" },
+			}),
+			House(id(478,321,53), { attrs:{ "healing":"house", }}), // People Daycare
+		],
+		connections: [ "Striaton City" ],
+	}),
+	Dungeon("Wellspring Cave", {
+		floors: [
+			Floor(id(480,324,108)),
+			Floor(id(481,324,109)),
+		],
+	}),
+	City("Striaton City", id(6,6), {
+		buildings: [
+			PokeCenter(id(8,6,13)),
+			House(id(7,6,374)), // Restaraunt
+			House(id(15,6,29)), // Trainer's School
+			House(id(9,6,26)), House(id(10,6,134), { locOf:{"pc":"7,7"} }), // Fennels Lab
+			House([id(11,6,26),id(12,6,27)]),
+			House([id(13,6,26),id(14,6,32)]),
+		],
+		connections: [ 3, 2 ],
+	}),
+	Route(2, id(475,319), {
+		
+	}),
+	Gatehouse(id(476,319,50), "Accumula Town", 2),
+	Town("Accumula Town", id(574,397), {
+		buildings: [
+			PokeCenter(id(575,397,13)),
+			House([id(580,397,26), id(581,397,32)]),
+			House([id(578,397,26), id(579,397,32)]),
+			House([id(576,397,26), id(577,397,32)]),
+			House(id(582,397,45)),
+		],
+		connections: [ 1 ],
+	}),
+	Route(1, id(473,317), {
+		connections: [ "Accumula Town", "Nuvema Town"],
+	}),
+	Town("Nuvema Town", id(566,389), {
+		buildings: [
+			House(id(573,389,42), { name:"Juniper Pokemon Lab" }),
+			House([id(567,389,39),id(568,389,40)], { name:"Previous Protagonist's House", attrs: {"healing":"house"} }),
+			House([id(569,389,37),id(570,389,38)]),
+			House([id(571,389,35),id(572,389,36)]),
+		],
+		connections: [ 1 ],
+	}),
+	Gatehouse(id(474,317,50), 17, 1),
+	Route(17, id(610,423), {
+		buildings: [
+			Area(id(294,238), { // Final resting place of the Plasma Frigate
+				buildings: [
+					House(id(295,238,191)),
+				],
+				connections: [ "Plasma Frigate" ],
+			}),
+		],
+		connections: [ 18 ],
+	}),
+	Route(18, id(556,387), {
+		buildings: [
+			House(id(557,387,91)),
+		],
+		connections: [ 17 ],
 	}),
 	
 	
@@ -282,6 +411,20 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				floors: [
 					Floor(id(209,160,17)),
 					Floor(id(210,160,18)),
+					Floor(id(229,160,74),{
+						connections: [ id(267,503,299) ], // Relic Passage
+					}),
+					Floor(id(224,160,72)),
+					Floor(id(230,160,75)),
+					Floor(id(225,160,72)),
+					Floor(id(227,160,73)),
+					Floor(id(231,160,76), {
+						legendary: {
+							name: "Volcarona",
+							loc: "16,5",
+							level: 65,
+						},
+					}),
 				],
 			}),
 		],
@@ -294,6 +437,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Area("Join Avenue", id(197,490,376), {
 		attrs: {
 			"shopping": true,
+			"indoors": true,
 		},
 		buildings: [
 			House(id(198,490,375), {
@@ -351,7 +495,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 						leader: "Elesa",
 						badge: "Bolt",
 						locOf: {
-							"leader": "", //TODO
+							"leader": "15,6",
 						}
 					}),
 				],
@@ -389,6 +533,31 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		],
 		connections: [ "Driftveil Drawbridge", "Clay Tunnel", 6 ],
 	}),
+	Gatehouse(id(119,96,373), "PWT", "Driftveil City", {
+		locOf: { "vending":["8,3","8,4"], },
+	}),
+	Area("PWT Plaza", id(240,191). {
+		buildings: [
+			Building("Pokemon World Tournament", {
+				floors: [
+					Floor(id(241,191,265), {
+						locOf: {
+							"vending":["25,24","26,24"],
+							"pc":"17,7",
+						}
+					}), // Main entrance
+					Floor(id(242,191,266), {
+						announce: "**We've entered the Pokemon World Tournament's Arena! Time to battle!**"
+					})
+				],
+			})
+		],
+		locOf: {
+			"vending":["204,454","205,454","206,454","207,454"],
+		},
+		connections: [ id(368,503,300) ], // Relic Passage
+	}),
+	
 	Dungeon("Clay Tunnel", {
 		floors: [
 			Floor(id(369,506,301)),
@@ -501,8 +670,10 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				connections: [ id(371,506,303) ], // Clay Tunnel
 			}),
 			Floor(id(253,198,331), {
-				attrs: { "legendary": "Regigigas" },
-				locOf: { "legendary": "15,5", },
+				legendary: {
+					name: "Regigigas",
+					loc: "15,5",
+				}
 			}), // Regigiga's Room
 		],
 	}),
@@ -547,9 +718,11 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(263,205,206), {
 				attrs: {
 					"indoors": false,
-					"legendary": gameSpecific("Zekrom", "Reshiram")
 				},
-				locOf: { "legendary": "16,10", },
+				legendary: {
+					name: gameSpecific("Zekrom", "Reshiram")
+					loc: "16,10",
+				}
 			}),
 		],
 	}),
@@ -612,6 +785,11 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		buildings: [
 			House(id(536,365,65)),
 		],
+		legendary: {
+			name: "Virizion",
+			loc: "", //TODO
+			requirement: "",
+		}
 	}),
 	Gatehouse(id(535,365,50), "Village Bridge", 11),
 	Area("Village Bridge", id(401,255,182), {
@@ -672,8 +850,11 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			}),
 			Floor(id(284,230,252)),
 			Floor(id(285,230,397), {
-				attrs: { "legendary":"Kyurem", },
-				locOf: { "legendary":"15,15", },
+				legendary: {
+					name: "Kyurem",
+					loc: "15,15",
+					requirement: "catch:"+gameSpecific("Zekrom", "Reshiram"),
+				}
 			}),
 		],
 		connections: [ 13 ],
@@ -764,8 +945,11 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				locOf: { "healing":"42,54" },
 			}),
 			Floor(id(319,461,331), {
-				attrs: { "legendary": "Heatran", },
-				locOf: { "legendary": "10,13", },
+				legendary: {
+					name: "Heatran",
+					loc: "10,13",
+					requirement: "has:Magma Stone",
+				}
 			}),
 			Floor(id(320,461,332)),
 			Floor(id(316,461,330)),
@@ -789,8 +973,75 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Route(14, id(543,374), {
 		connections: [ "Undella Town", "Abundant Shrine" ],
 	}),
-	// TODO White forest
-	
+	Area("Abundant Shrine", id(545,376,190), {
+		buildings: [
+			House(id(546,376,46)),
+		],
+		connections: [ 14 ],
+	}),
+	Gatehouse(id(544,374,12), "White Forest", 14),
+	City("White Forest", id(612,424,356), {
+		attrs: {
+			"shopping": true,
+		},
+		buildings: [
+			PokeCenter(id(613,424,13)),
+			Area(id(378,478,278), {
+				name: "White Treehollow",
+				zones: [
+					Floor(id(380,478,280)),
+					Floor(id(381,478,281)), // Assumed
+					Floor(id(382,478,282)), // Assumed
+					Floor(id(383,478,283)), // Assumed
+					Floor(id(384,478,284)), // Assumed
+					Floor(id(385,478,285)), // Assumed
+					Floor(id(386,478,286)), // Assumed
+					Floor(id(387,478,287)), // Assumed
+					Floor(id(388,478,288)),
+				],
+				locOf: {
+					"pc": "2,8",
+				},
+			}),
+			House(id(614,424,44)),
+		],
+	}),
+	Gatehouse(id(548,378,50), "White Forest", 15),
+	Route(15, id(547,378), {
+		locOf: {
+			"vending": ["602,426","603,426"],
+		},
+		buildings: [
+			House(id(550,381,140), {
+				name:"Pokemon Transfer Lab",
+				locOf: {
+					"pc":"7,8",
+				},
+			}),
+			House(id(551,378,65)),
+		],
+	}),
+	Gatehouse(id(549,378,131), "Marvelous Bridge", 15, {
+		locOf: {
+			"vending": "9,5",
+		}
+	}),
+	Route("Marvelous Bridge", id(410,263,135), { // Cresselia is here after Lunar Wing "130,33"
+		
+	}),
+	Gatehouse(id(553,383,130), "Marvelous Bridge", 16, {
+		locOf: {
+			"vending": "13,7",
+		}
+	}),
+	Route(16, id(552,383), {
+		buildings: [
+			Area("Lostlorn Forest", id(554,385,238), {
+				
+			}),
+		],
+	}),
+	Gatehouse(id(96,383,50), "Nimbasa City", 16),
 	
 	
 	Dungeon("Victory Road", {
@@ -805,6 +1056,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 						locOf: { "pc":"4,12", },
 					}),
 				],
+				locOf: {
+					"flySpot":"43,18",
+				},
 			}),
 			Floor(id(341,573,389)),
 			Floor(id(335,573,383), {
@@ -834,6 +1088,9 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				},
 			}),
 		],
+		locOf: {
+			"flySpot":"43,18",
+		},
 	}),
 	Dungeon("N's Castle", {
 		floors: [
@@ -847,15 +1104,51 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	}),
 	Area("Pokemon League", id(149,136,87), {
 		locOf: { "flySpot":"19,49" },
-		floors: [
+		attrs: { "e4":"lobby", }
+		buildings: [
 			PokeCenter(id(332,373,54), {
 				locOf: { "pc":"4,12", },
 			}),
+			Area("Elite Four", id(150,136,210), {
+				attrs: { "e4":"e4", }
+				buildings: [
+					House(id(153,136,121), {
+						attrs: { "leader":"Shauntal", },
+						locOf: { "leader":"15,9" },
+					}),
+					House(id(154,136,122), {
+						attrs: { "leader":"Grimsley", },
+						locOf: { "leader":"15,11" },
+					}),
+					House(id(155,136,123), {
+						attrs: { "leader":"Marshal", },
+						locOf: { "leader":"15,11" },
+					}),
+					House(id(156,136,124), {
+						attrs: { "leader":"Caitlin", },
+						locOf: { "leader":"15,11" },
+					}),
+					House(id(151,136,211), { // Note, this is also the start of the credits
+						attrs: {
+							"e4": "champion",
+						},
+						announce: "**We're climbing the stairs to the champion's room!**",
+					}),
+					House(id(157,136,125), {
+						attrs: {
+							"e4": "champion",
+							"leader":"Iris",
+						},
+						locOf: { "leader":"16,43" },
+					}),
+					House(id(158,136,126), {
+						attrs: {
+							"e4": "hallOfFame",
+						}
+					}),
+				],
+			}),
 		],
-	}),
-	
-	Area("Cave of Being", id(), {
-		
 	}),
 	
 ]);
@@ -863,6 +1156,22 @@ new Region({ name:"Unova", mapid:"ds" }, [
 
 // Other areas that are not part of the main map
 Unova.addNode(...[
+	Dungeon("Plasma Frigate", id(344,552,338), {
+		floors: [
+			Floor(id(255,522,249)),
+			Floor(id(346,552,340)),
+			Floor(id(356,552,394)),
+			Floor(id(347,552,341)), // Bridge
+			Floor(id(349,552,393)),
+			Floor(id(350,552,344)),
+			Floor(id(361,552,367)), // Barracks
+			Floor(id(362,552,368)), // Barracks
+			Floor(id(363,552,369)), // Barracks
+			Floor(id(364,552,370)), // Barracks
+			Floor(id(365,552,371)), // Mess Hall
+		],
+	}),
+	
 	Area("Entralink", id(435,279,117), {
 		zones: [
 			Area("Entree Forest", [
@@ -883,6 +1192,19 @@ Unova.addNode(...[
 	Cutscene(id(566,389,260), {
 		announce: "We take a ferry to Castelia City!",
 		connections: [ id(39,28,9) ],
+	}),
+	// Cutscene(id(152,136,211), {
+	// 	announce: "Fireworks explode as the credits play!",
+	// })
+	Cutscene([id(7465,60045,0), id(44496,2691,0)], {
+		name: "Title Screen",
+		announce: "We return to the title screen!",
+	}),
+	Cutscene([id(49772,3786,21479)], {
+		name: "Load Screen",
+	}),
+	Cutscene(id(548,3783), {
+		announce: "We start a new game! Welcome to the world of Pokemon!",
 	})
 ]);
 

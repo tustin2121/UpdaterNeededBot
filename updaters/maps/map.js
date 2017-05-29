@@ -9,6 +9,7 @@ class Region {
 		
 		this.nodes = {};
 		this.nodesByName = {};
+		this.nodesByParent = {};
 		this.topNode = new Node({ name:"Mystery Zone", region:this, attrs:{
 			// Default properties of the whole region and any nodes under it
 			"indoors": false,	//If the location is inside (cannot fly)
@@ -79,6 +80,9 @@ class Region {
 				return nodes[i];
 			}
 		}
+	}
+	findParent(parent) {
+		// TODO
 	}
 }
 
@@ -245,10 +249,11 @@ module.exports = Town("Example Town", "12.0", {
 module.exports = {
 	Region: Region,
 	Node: Node,
-	Area : function(mapids, { name, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, noteworthy=false }={}){
+	Area : function(mapids, { name, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
 		if (!Array.isArray(mapids)) mapids = mapids;
+		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			noteworthy, announce,
+			noteworthy, announce, legendary,
 		}, attrs), locOf });
 		me.addChild(...zones);
 		me.addChild(...buildings);
@@ -277,20 +282,22 @@ module.exports = {
 		me.addConnection(...connections);
 		return me;
 	},
-	Floor : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, }={}){
+	Floor : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
 		if (!Array.isArray(mapids)) mapids = mapids;
+		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			announce,
+			announce, legendary,
 		}, attrs), locOf });
 		me.addConnection(...connections);
 		return me;
 	},
 	/** Single Room Building */
-	House : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, }={}){
+	House : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
 		if (!Array.isArray(mapids)) mapids = mapids;
+		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
-			announce,
+			announce, legendary,
 		}, attrs), locOf });
 		me.addConnection(...connections);
 		return me;
@@ -346,12 +353,13 @@ module.exports = {
 		return me;
 	},
 	/** Outdoor routes */
-	Route : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
+	Route : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, legendary, }={}){
 		if (!Array.isArray(mapids)) mapids = mapids;
 		if (typeof name === "number") name = `Route ${name}`;
+		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"noteworthy": true,
-			announce,
+			announce, legendary,
 		}, attrs), locOf });
 		me.addChild(...buildings);
 		me.addConnection(...exits);
