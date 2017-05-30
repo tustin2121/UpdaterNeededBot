@@ -24,6 +24,22 @@ const Center = function(mapids, { attrs={}, locOf={}, connections=[], announce, 
 };
 const PokeCenter = Center;
 
+// Gear Station Train Lines
+const TrainLine = function(type, boarding_id) {
+	let boarding = new Node({
+		name: `Platform for ${type} Trains`,
+		mapids:[id(boarding_id,62,165)],
+		attrs:{
+			"subway":"lobby",
+			"indoors": true,
+			"shopping": true,
+		},
+		locOf: { "pc": ["5,11"], },
+	});
+	return boarding;
+};
+
+
 // Helper functions
 function id( mapid, parentId, matrix=0 ) {
 	return { mapid, parentId, matrix };
@@ -476,7 +492,34 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				name: "Gear Station",
 				floors: [
 					Floor(id(70,62,101), { name: "Gear Station", }),
-					//TODO The trains
+					TrainLine("Wi-Fi", 77),
+					TrainLine("Multi", 75),
+					TrainLine("Super Multi", 76),
+					TrainLine("Super Double", 74),
+					TrainLine("Double", 73),
+					TrainLine("Super Single", 72),
+					TrainLine("Single", 71),
+					
+					Floor(id(79,62,167), {
+						name: "Subway Train",
+						attrs:{
+							"subway":"train",
+							"shopping": false,
+						},
+					}),
+					Floor(id(80,62,166), {
+						name: "Midway Platform",
+						attrs:{
+							"subway":"midway",
+						},
+						locOf: { "vending": "42,16", },
+					}),
+					
+					Floor(id(78,62,165), {
+						name: `Platform for the train to Anville Town`,
+						locOf: { "pc":"5,11", },
+						connections: [ "Anville Town" ],
+					}),
 				],
 			}),
 			Area("Nimbasa City Amusement Park", id(68,62,107), {
@@ -1041,6 +1084,15 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		],
 	}),
 	Gatehouse(id(96,383,50), "Nimbasa City", 16),
+	
+	Town("Anville Town", id(595,418,128), {
+		buildings: [
+			House(id(596,418,46)),
+			House(id(597,418,46)),
+			House(id(598,418,46)),
+		],
+		connections: [ id(78,62,165) ],
+	}),
 	
 	
 	Dungeon("Victory Road", {
