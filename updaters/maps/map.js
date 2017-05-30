@@ -212,6 +212,45 @@ class Node {
 		return [];
 	}
 	
+	/** Gets the number of steps of separation between two nodes.
+	 * First it tries to find the relation via one step of connections,
+	 * Then it finds them via a parent-child common ancestor. */
+	getStepsTo(other) {
+		if (!(other instanceof Node)) throw new TypeError('Other must be a node!');
+		if (other.region !== this.region) return 10000;
+		if (other === this) return 0; // No steps if same node
+		
+		// First find via connnections, moving from other node to this node
+		let nextNodes = []; // processing queue, bredth first search
+		let processed = [];
+		nextNodes.push(...other.connections.map(x=> return {n:x, s:1} ));
+		while (nextNodes.length) {
+			let p = nextNodes.shift();
+			processed.push(p);
+			if (p.n === this) return p.s;
+			nextNodes.push(...p.n.connections
+				.filter(x=>!processed.includes(x))
+				.map(x=>return {n:x, s:p.n+1})
+			);
+		}
+		processed.length = 0;
+		
+		// If no connections, perform lowest common ancestor search
+		let an = this, bn = other;
+		let as = 0, bs = 0;
+		while (bn.parent) {
+			while(an.parent) {
+				if (an === bn) return as + bs;
+				an = an.parent;
+				if (an.mapids.length) as++;
+			}
+			an = this; as = 0;
+			bn = bn.parent;
+			if (bn.mapids.length) bs++;
+		}
+		return 10000; // Should never reach here
+	}
+	
 	getArea() {
 		let p = this;
 		while (p && p.parent && p.parent !== this.region.topNode) {

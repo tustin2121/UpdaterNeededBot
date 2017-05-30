@@ -1,11 +1,10 @@
 // Unova (BW2)
-// Unova (BW2)
 
 const {
 	Region, Town, City, Area, Route, Dungeon,
 	Building, Floor, House, Cave, Gatehouse,
-	Mart, PokeMart, Gym, Node,
-	Cutscene,
+	Mart, PokeMart, Gym,
+	Cutscene, Node,
 } = require("../map.js");
 
 // Defaults for this particular region
