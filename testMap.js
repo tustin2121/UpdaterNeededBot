@@ -1,8 +1,10 @@
 // testMap.js
 // Tests the connections of a given map
 
+const path = require('path');
+const os = require('os');
 const fs = require('fs');
-const FILE = `./output`;
+const FILE = path.resolve(os.homedir(), `Dropbox/Apps/Emulator/Pokemon White 2/output`);
 
 global.game = "White2";
 const Region = require('./updaters/maps/unova2');

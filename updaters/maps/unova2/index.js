@@ -1,5 +1,6 @@
 // Unova (BW2)
 
+const fs = require('fs');
 const {
 	Region, Town, City, Area, Route, Dungeon,
 	Building, Floor, House, Cave, Gatehouse,
@@ -48,6 +49,26 @@ function gameSpecific(black, white) {
 	if (global.game == "Black2") return black;
 	return white;
 }
+
+// The game's header table
+const HEADER = (()=>{
+	let file = fs.readFileSync(require.resolve('./MapHeaders.tsv'));
+	let rows = file.split('\n').map((r, idx)=>{
+		let x = r.split('\t').map((v, i)=>{
+			if (i === 15) return v; // Area Name
+			return Number(v);
+		});
+		x.matrix = x[3];
+		x.mapid = x[13];
+		x.parentid = x[14];
+		x.name = x[15];
+		x.fly_x = x[24];
+		x.fly_z = x[26];
+		x.index = idx;
+		return x;
+	});
+	return rows;
+})();
 
 // The region itself
 const Unova = module.exports =
