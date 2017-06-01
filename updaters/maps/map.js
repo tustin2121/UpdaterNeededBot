@@ -251,11 +251,17 @@ class Node {
 			while(an.parent) {
 				if (an === bn) return as + bs;
 				an = an.parent;
+				// If this node represents a map, add some distance on
 				if (an.mapids.length) as++;
+				// If this node represents the top node, add a LOT of distance
+				if (an === this.region.topNode) as += 100;
 			}
 			an = this; as = 0;
 			bn = bn.parent;
+			// If this node represents a map, add some distance on
 			if (bn.mapids.length) bs++;
+			// If this node represents the top node, add a LOT of distance
+			if (bn === this.region.topNode) bs += 100;
 		}
 		return 10000; // Should never reach here
 	}
