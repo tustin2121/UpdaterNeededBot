@@ -24,12 +24,7 @@ module.exports = {
 		
 		{ // Parse out location data to a standard display format:
 			const Unova = require('./maps/unova2');
-			const mapid = {
-				mapid: data.map_id,
-				parentId: data.map_parent,
-				matrix: data.map_matrix,
-			};
-			sorted.location = Unova.find(mapid);
+			sorted.location = Unova.find(data.map_id);
 			sorted.position = `${data.x},${data.y}`;
 		}
 		{ // Collate pokemon together
@@ -46,7 +41,7 @@ module.exports = {
 		}
 		{ // Collate items together
 			sorted.allitems = {};
-			[data.items, data.items_ball, data.items_berry, data.items_key, data.items_tm, data.pc_items].forEach(items=>{
+			[data.items, data.items_berry, data.items_free_space, data.items_key, data.items_medicine, data.items_tm].forEach(items=>{
 				items.forEach(x=>{
 					sorted.allitems[x.name] = (sorted.allitems[x.name] || 0) + x.count;
 				});

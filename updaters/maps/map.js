@@ -1,8 +1,10 @@
 // map.js
 // The base class for Map Graphs
 
+const inspect = require('util').inspect;
+
 class Region {
-	constructor({ name, mapid }, nodes=[]) {
+	constructor({ name, mapid, handler }, nodes=[]) {
 		this.name = name;
 		this.mapidType = mapid;
 		this.normalizeMapId = Region.createMapidHandler(mapid);
@@ -38,48 +40,45 @@ class Region {
 	
 	static createMapidHandler(mapid) {
 		switch (mapid) {
+			case "identity": return (id)=>`${id}`;
 			case "gen3": // Uses "Bank.Id" format
 				return (id)=>id;
 			case "ds":
 				return (id)=>{
 					// { matrix:int, mapid:int, parentId:int }
-					return id.mapid;
+					return `${id.mapid}:${id.parentId}:${id.matrix}`;
 				}
 		}
 	}
 	
 	addNode(...nodes) {
-		for(let n of nodes) {
-			n.region = this;
-			n.mapids.forEach((mapid)=>{
-				let id = Region.createMapidHandler(mapid);
-				if (!this.nodes[id]) this.nodes[id] = [];
-				this.nodes[id].push(n);
-			});
-			if (n.name) {
-				this.nodesByName[n.name] = n;
-			}
+		this.topNode.addChild(...nodes);
+	}
+	
+	__addNode(n) {
+		n.region = this;
+		n.mapids.forEach((mapid)=>{
+			let id = this.normalizeMapId(mapid);
+			if (this.nodes[id]) throw new ReferenceError(`Node ${n} is a duplicate id of ${inspect(id)}! (${this.nodes[id]})`);
+			this.nodes[id] = n;
+			// if (!this.nodes[id]) this.nodes[id] = [];
+			// this.nodes[id].push(n);
+		});
+		if (n.name) {
+			this.nodesByName[n.name] = n;
 		}
 	}
 	
 	/** Finalize the node graph by connecting things that are simply references at the moment. */
 	resolve() {
-		this.topNode.__finalize(12);
+		// console.log(this.nodesByName);
+		this.topNode.__finalize1(12, this);
+		this.topNode.__finalize2(12, this);
 	}
 	
 	find(mapid) {
-		let id = Region.createMapidHandler(mapid);
-		let nodes = this.nodes[id];
-		if (!nodes) return null;
-		for (let i = 0; i < nodes.length; i++) {
-			for (let j = 0; j < nodes[i].mapids.length; j++) {
-				let thisid = nodes[i].mapids[j];
-				if (thisid.mapid !== mapid.mapid) continue;
-				if (thisid.parentId !== mapid.parentId) continue;
-				if (thisid.matrix !== mapid.matrix) continue;
-				return nodes[i];
-			}
-		}
+		let id = this.normalizeMapId(mapid);
+		return this.nodes[id];
 	}
 	findParent(parent) {
 		// TODO
@@ -104,53 +103,63 @@ class Node {
 		this._pendingConnections = [];
 		this._pendingReverseConns = [];
 		
-		
-		if (this.region) this.region.addNode(this);
+		// if (this.region) this.region.addNode(this);
+	}
+	
+	toString() {
+		return `${this.name} (${inspect(this.mapids)}`;
 	}
 	
 	/** Finalize this node and its children. */
-	__finalize(depth) {
+	__finalize1(depth, region) {
 		if (depth < 0) throw new Error('Map resolution goes too deep! Possible graph loop!');
-		
 		// Resolve Map IDs
-		this.mapids = this.mapids.map( this.region.normalizeMapId );
+		this.mapids = this.mapids.map( region.normalizeMapId );
+		region.__addNode(this);
+		
+		// Process children
+		for (let child of this.children) {
+			child.__finalize1(depth-1, region);
+		}
+	}
+	__finalize2(depth, region) {
+		if (depth < 0) throw new Error('Map resolution goes too deep! Possible graph loop!');
 		
 		// Resolve Pending connections
 		for (let conn of this._pendingConnections) {
 			if (typeof conn === "number") conn = `Route ${conn}`;
-			let map = this.region.nodesByName[conn];
-			if (!map) map = this.region.nodes[conn];
+			let map = region.nodesByName[conn];
+			if (!map) map = region.nodes[conn];
 			if (map) {
 				this.connections.push(map);
 			} else {
 				throw new ReferenceError(`Bad connection name "${conn}" in map node "${this.name}" (${this.mapids})`);
 			}
 		}
-		this._pendingConnections.length = 0;
+		delete this._pendingConnections;
 		
 		for (let conn of this._pendingReverseConns) {
 			if (typeof conn === "number") conn = `Route ${conn}`;
-			let map = this.region.nodesByName[conn];
-			if (!map) map = this.region.nodes[conn];
+			let map = region.nodesByName[conn];
+			if (!map) map = region.nodes[conn];
 			if (map) {
 				map.connections.push(this);
 			} else {
 				throw new ReferenceError(`Bad connection name "${conn}" in map node "${this.name}" (${this.mapids})`);
 			}
 		}
-		this._pendingReverseConns.length = 0;
+		delete this._pendingReverseConns;
 		
 		// Process children
 		for (let child of this.children) {
-			child.__finalize(depth-1);
+			child.__finalize2(depth-1, region);
 		}
 	}
 	
 	addChild(...nodes) {
 		for (let node of nodes) {
-			if (!(node instanceof Node)) throw new TypeError('Can only add Nodes to children!');
+			if (!(node instanceof Node)) throw new TypeError(`Can only add Nodes to children! ${node} is not a node!`);
 			node.parent = this;
-			if (node.region) this.region.addNode(node);
 			this.children.push(node);
 		}
 	}
@@ -223,14 +232,14 @@ class Node {
 		// First find via connnections, moving from other node to this node
 		let nextNodes = []; // processing queue, bredth first search
 		let processed = [];
-		nextNodes.push(...other.connections.map(x=> return {n:x, s:1} ));
+		nextNodes.push(...other.connections.map(x=>{ return {n:x, s:1}; }));
 		while (nextNodes.length) {
 			let p = nextNodes.shift();
 			processed.push(p);
 			if (p.n === this) return p.s;
 			nextNodes.push(...p.n.connections
 				.filter(x=>!processed.includes(x))
-				.map(x=>return {n:x, s:p.n+1})
+				.map(x=>{ return {n:x, s:p.n+1}; })
 			);
 		}
 		processed.length = 0;
@@ -288,7 +297,7 @@ module.exports = Town("Example Town", "12.0", {
 module.exports = {
 	Region: Region,
 	Node: Node,
-	Area : function(mapids, { name, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
+	Area : function(name, mapids, { attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({

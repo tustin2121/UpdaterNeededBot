@@ -40,19 +40,10 @@ const TrainLine = function(type, boarding_id) {
 	return boarding;
 };
 
-
-// Helper functions
-function id( mapid, parentId, matrix=0 ) {
-	return { mapid, parentId, matrix };
-}
-function gameSpecific(black, white) {
-	if (global.game == "Black2") return black;
-	return white;
-}
-
 // The game's header table
 const HEADER = (()=>{
-	let file = fs.readFileSync(require.resolve('./MapHeaders.tsv'));
+	let file = fs.readFileSync(require.resolve('./MapHeaders.tsv'), { encoding:'utf8'});
+	let reverse = {};
 	let rows = file.split('\n').map((r, idx)=>{
 		let x = r.split('\t').map((v, i)=>{
 			if (i === 15) return v; // Area Name
@@ -65,14 +56,29 @@ const HEADER = (()=>{
 		x.fly_x = x[24];
 		x.fly_z = x[26];
 		x.index = idx;
+		reverse[`${x.mapid}:${x.parentid}:${x.matrix}`] = idx;
 		return x;
 	});
+	rows.reverse = reverse;
 	return rows;
 })();
 
+// Helper functions
+function id( mapid, parentId, matrix=0 ) {
+	let d = HEADER.reverse[`${mapid}:${parentId}:${matrix}`];
+	// console.log(`${mapid}:${parentId}:${matrix} => ${d}`);
+	if (!d) return `${mapid}:${parentId}:${matrix}`;
+	return `${d}`;
+	// return { mapid, parentId, matrix };
+}
+function gameSpecific(black, white) {
+	if (global.game == "Black2") return black;
+	return white;
+}
+
 // The region itself
 const Unova = module.exports =
-new Region({ name:"Unova", mapid:"ds" }, [
+new Region({ name:"Unova", mapid:"identity" }, [
 	City("Aspertia City", id(163,427), {
 		buildings: [
 			House(id(167,427,257), {
@@ -105,7 +111,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Route(19, id(558, 437), {
 		connections: [ "Floccesy Town" ],
 	}),
-	Town("Floccesy Town", id(), {
+	Town("Floccesy Town", id(599,439), {
 		buildings: [
 			PokeCenter(id(600,439,13)),
 			House(id(602,439,261)),
@@ -177,7 +183,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				connections: [ id(181,448,260) ],
 			}),
 			Area("Cruise Ship Dock", id(40,28,10), {
-				connections: [ id(55,23,179) ],
+				connections: [ id(55,28,179) ],
 			}),
 			Area("Unity Pier", id(38,28,8)),
 			Area("Liberty Pier", id(37,28,7), {
@@ -250,7 +256,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 					vending: ["10,18","11,18"],
 				},
 				buildings: [
-					House([id(64,28,33),id(55,28,34)]), //Floor 1, 47
+					House([id(64,28,33),id(65,28,34)]), //Floor 1, 47
 					House([id(52,28,33),id(53,28,43)]), //Floor 1, 11
 					House([id(62,28,33),id(63,28,34)]), //Floor 1, 47
 				],
@@ -294,8 +300,8 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		floors: [
 			Cutscene(id(41,28,179), { // Cutscene: Royal Unova Pulling out of Dock
 			}),
-			Floor(id(55,23,179)), // Trainers Deck (The Cabins are all on the same map)
-			Cutscene(id(566,389,179), {
+			Floor(id(55,28,179)), // Trainers Deck (The Cabins are all on the same map)
+			Cutscene(id(566,389,179), { // No header index
 				name: "Royal Unova's Observation Deck",
 			}),
 		],
@@ -307,7 +313,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(366,503,298), { // South
 				connections: [ id(286,495,293) ],
 			}),
-			Floor(id(267,503,299), { // Center
+			Floor(id(367,503,299), { // Center
 				connections: [ id(229,160,74) ],
 			}),
 			Floor(id(368,503,300), { // North
@@ -345,7 +351,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		buildings: [
 			PokeCenter(id(20,16,13)),
 			House(id(26,16,30), { name:"Café Warehouse", }),
-			House([id(17,16,52),id(8,16,377),id(19,16,378)], { name:"Nacrene Museum" }),
+			House([id(17,16,52),id(18,16,377),id(19,16,378)], { name:"Nacrene Museum" }),
 			House(id(22,16,31)),
 			House(id(21,16,169)),
 			House(id(23,16,31)),
@@ -391,8 +397,8 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		buildings: [
 			PokeCenter(id(575,397,13)),
 			House([id(580,397,26), id(581,397,32)]),
-			House([id(578,397,26), id(579,397,32)]),
-			House([id(576,397,26), id(577,397,32)]),
+			House([id(578,397,26), id(579,397,27)]),
+			House([id(576,397,26), id(577,397,27)]),
 			House(id(582,397,45)),
 		],
 		connections: [ 1 ],
@@ -412,7 +418,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	Gatehouse(id(474,317,50), 17, 1),
 	Route(17, id(610,423), {
 		buildings: [
-			Area(id(294,238), { // Final resting place of the Plasma Frigate
+			Area("Plasma Frigate", id(294,238), { // Final resting place of the Plasma Frigate
 				buildings: [
 					House(id(295,238,191)),
 				],
@@ -448,7 +454,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 					Floor(id(209,160,17)),
 					Floor(id(210,160,18)),
 					Floor(id(229,160,74),{
-						connections: [ id(267,503,299) ], // Relic Passage
+						connections: [ id(367,503,299) ], // Relic Passage
 					}),
 					Floor(id(224,160,72)),
 					Floor(id(230,160,75)),
@@ -549,7 +555,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 				},
 				buildings: [
 					House(id(100,62,379), {name:"Shining Rollar Coaster"}),
-					Cutscene(id(566,389,107), {
+					Cutscene(id(566,389,107), { // No Header index
 						name: "Rondez-View Ferris Wheel",
 						announce: "We took a break to ride on the ferris wheel...",
 					}),
@@ -571,7 +577,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		buildings: [
 			House(id(499,329,65)),
 		],
-		connections: [ "Driftbeil Drawbridge" ],
+		connections: [ "Driftveil Drawbridge" ],
 	}),
 	Route("Driftveil Drawbridge", id(399,253,106), {
 		connections: [ 5, "Driftveil City" ],
@@ -583,7 +589,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			House([id(108,96,319), id(109,96,320), id(110,96,320)], { name: "Grand Hotel Driftveil" }), //Floor 1, 14, 19
 			House([id(111,96,319), id(112,96,320), id(113,96,321)], { name: "Driftveil Luxury Suites" }), //Floor 1, 29, 23
 			House([id(114,96,319), id(115,96,320), id(116,96,321)], { name: "Driftveil Continental Hotel" }), // Floor 1, 23, 25
-			House(id(118,96,214), { name: "Driftveil Market" }),
+			House(id(118,96,60), { name: "Driftveil Market" }),
 			House(id(117,96,59)),
 			Gym([id(103,96,180), id(102,96,61)], {
 				name: "Driftveil City Gym",
@@ -596,7 +602,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		],
 		connections: [ "Driftveil Drawbridge", "Clay Tunnel", 6 ],
 	}),
-	Gatehouse(id(119,96,373), "PWT", "Driftveil City", {
+	Gatehouse(id(119,96,373), "PWT Plaza", "Driftveil City", {
 		locOf: { "vending":["8,3","8,4"], },
 	}),
 	Area("PWT Plaza", id(240,191), {
@@ -663,7 +669,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			}),
 			Floor(id(244,194,23)),
 			Floor(id(245,194,24)),
-			Floor(id(246,195,25)),
+			Floor(id(246,194,25)),
 		],
 	}),
 	City("Mistralton City", id(120, 107), {
@@ -732,7 +738,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(252,198,97), { // Floor BF1
 				connections: [ id(371,506,303) ], // Clay Tunnel
 			}),
-			Floor(id(253,198,331), {
+			Floor(id(253,198,311), {
 				legendary: {
 					name: "Regigigas",
 					loc: "15,5",
@@ -832,14 +838,15 @@ new Region({ name:"Unova", mapid:"ds" }, [
 					"leader": "15,18", //15,57,18
 				},
 			}),
-			House([id(140,120,67),id(141,120,160)]),
-			House([id(147,120,67),id(148,120,160)]),
-			House([id(138,120,67),id(139,120,160)]),
-			House([id(142,120,67),id(143,120,160)]),
-			House([id(136,120,67),id(137,120,160)]), // Drayden's House
+			House([id(140,120,68),id(141,120,161)]),
+			House([id(147,120,68),id(148,120,161)]),
+			House([id(138,120,68),id(139,120,161)]),
+			House([id(142,120,68),id(143,120,161)]),
+			House([id(136,120,68),id(137,120,161)]), // Drayden's House
 			
 		],
 		locOf: {
+			"flySpot": "425,174",
 			"vending": ["428,178","429,178"],
 		}
 	}),
@@ -995,7 +1002,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(301,241,247)),
 			Floor(id(302,241,248)), // Assumption
 			Floor(id(303,241,249)), // Assumption
-			Floor(id(304,241,250)), // Assumption
+			Floor(id(304,241,254)), // Assumption
 		],
 	}),
 	Dungeon("Reversal Mountain", {
@@ -1049,8 +1056,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 		},
 		buildings: [
 			PokeCenter(id(613,424,13)),
-			Area(id(378,478,278), {
-				name: "White Treehollow",
+			Area("White Treehollow", id(378,478,278), {
 				zones: [
 					Floor(id(380,478,280)),
 					Floor(id(381,478,281)), // Assumed
@@ -1118,13 +1124,13 @@ new Region({ name:"Unova", mapid:"ds" }, [
 	
 	Dungeon("Victory Road", {
 		floors: [
-			Area(id(333,573,337), { // Badge Check lane
+			Area("Badge Check", id(333,573,337), { // Badge Check lane
 				attrs: {
 					"indoors": false,
 					"dungeon": false,
 				},
 				buildings: [
-					PokeCenter(id(332,373,54), {
+					PokeCenter(id(332,573,54), {
 						locOf: { "pc":"4,12", },
 					}),
 				],
@@ -1148,7 +1154,7 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			Floor(id(343,573,391), { // Bridge to N's Castle
 				connections: [ id(421,264,171) ],
 			}),
-			Floor(id(240,573,388)), // Northeast Cave
+			Floor(id(340,573,388)), // Northeast Cave
 			Floor(id(337,573,385)), // South Cave
 			Floor(id(338,573,386)), // North Cave
 			Floor(id(339,573,387), { attrs: {"indoors":false} }), // Cliffside
@@ -1171,14 +1177,14 @@ new Region({ name:"Unova", mapid:"ds" }, [
 			}),
 			Floor(id(422,264,163), { announce: "We poke around N's old room... and the creepy off-key music causes some WutFaces...", }),
 			Floor(id(425,264,174)),
-			Floor(id(526,264,212)),
+			Floor(id(426,264,212)),
 		],
 	}),
 	Area("Pokemon League", id(149,136,87), {
 		locOf: { "flySpot":"19,49" },
 		attrs: { "e4":"lobby", },
 		buildings: [
-			PokeCenter(id(332,373,54), {
+			PokeCenter(id(159,136,54), {
 				locOf: { "pc":"4,12", },
 			}),
 			Area("Elite Four", id(150,136,210), {
@@ -1230,11 +1236,11 @@ new Region({ name:"Unova", mapid:"ds" }, [
 Unova.addNode(...[
 	Dungeon("Plasma Frigate", id(344,552,338), {
 		floors: [
-			Floor(id(255,522,249)),
+			Floor(id(355,522,249)),
 			Floor(id(346,552,340)),
-			Floor(id(356,552,394)),
+			Floor(id(356,552,350)),
 			Floor(id(347,552,341)), // Bridge
-			Floor(id(349,552,393)),
+			Floor(id(349,552,343)),
 			Floor(id(350,552,344)),
 			Floor(id(361,552,367)), // Barracks
 			Floor(id(362,552,368)), // Barracks
@@ -1261,7 +1267,7 @@ Unova.addNode(...[
 	Area("Union Room", id(609,422,88)), // Connection from any Pokecenter
 	
 	// Boat transition from Virbank to Castelia. There's no such transition back.
-	Cutscene(id(566,389,260), {
+	Cutscene(id(566,389,260), { // No header index
 		announce: "We take a ferry to Castelia City!",
 		connections: [ id(39,28,9) ],
 	}),
@@ -1279,5 +1285,15 @@ Unova.addNode(...[
 		announce: "We start a new game! Welcome to the world of Pokemon!",
 	})
 ]);
+
+// Unova.find = function(mapid){
+// 	let header = HEADER[mapid];
+// 	console.log(`Unova.find(${mapid}) => ${header.matrix}:${header.mapid}:${header.parentid}`);
+// 	return Region.prototype.find.call(this, {
+// 		matrix:header.matrix,
+// 		mapid:header.mapid,
+// 		parentId:header.parentid,
+// 	});
+// };
 
 Unova.resolve();

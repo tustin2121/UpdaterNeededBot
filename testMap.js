@@ -7,7 +7,7 @@ const fs = require('fs');
 const FILE = path.resolve(os.homedir(), `Dropbox/Apps/Emulator/Pokemon White 2/output`);
 
 global.game = "White2";
-const Region = require('./updaters/maps/unova2');
+const Unova = require('./updaters/maps/unova2');
 
 let sorted_curr;
 let lastLocs = [ null, null, null ];
@@ -39,13 +39,14 @@ function refreshInfo() {
 	}).then((data)=>{
 		let sorted = {};
 		
-		const mapid = {
-			mapid: data.map_id,
-			parentId: data.map_parent,
-			matrix: data.map_matrix,
-		};
-		sorted.location = Unova.find(mapid);
+		sorted.location = Unova.find(data.map_id);
 		sorted.position = `${data.x},${data.y}`;
+		sorted_curr = sorted;
+		
+		if (!sorted.location) {
+			console.log('UNKNOWN LOCATION! '+data.map_id);
+			return;
+		}
 		
 		let steps = (lastLocs[0])? sorted.location.getStepsTo(lastLocs[0]) : 0;
 		
@@ -82,10 +83,9 @@ function refreshInfo() {
 		}
 		
 		console.log(`------------ Info ------------`);
-		console.log(sorted.location);
+		console.log(require('util').inspect(sorted.location, { depth: 1 }));
 		console.log(`------------------------------`);
 		
-		sorted_curr = sorted;
 	}).catch((e)=>{
 		console.error("Error in Main:",e);
 	});
