@@ -7,6 +7,8 @@ const fs = require("fs");
 const discord = require("discord.js");
 const auth = require("./auth");
 const reddit = require("./redditapi.js");
+const saveproxy = require("./save-proxy");
+const memoryFile = require('path').resolve(__dirname, "memory.json");
 
 // const UPDATER = require('./updaters/test.js');
 const UPDATER = require('./updaters/s4-rand-white2.js');
@@ -15,11 +17,17 @@ const TEST_UPDATER = require('./updaters/test.js');
 const { discover } = require("./discovery.js");
 const Reporter = require("./report.js");
 
+try { // Make the memory file if it does not exist
+	fs.writeFileSync(memoryFile, "{}", { flag:'wx'});
+} catch (e) {}
+
 let access = { token:"", timeout:0 };
-let memoryBank = {}; //TODO save via the save proxy
+let memoryBank = saveproxy(memoryFile, "\t");
 let data_curr, data_prev;
 let sorted_curr, sorted_prev;
 let taggedIn = false;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let dbot = new discord.Client({
 	disabledEvents: [ //Events we completely ignore entirely
@@ -58,6 +66,8 @@ dbot.on('message', (msg)=>{
 	}
 });
 dbot.login(auth.discord.token);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let _interval = undefined;
 function enableInfo(enabled) {

@@ -21,6 +21,7 @@ const Center = function(mapids, { attrs={}, locOf={}, connections=[], announce, 
 	}, locOf) });
 	me.addConnection(...connections);
 	me.addConnection("Union Room");
+	me._typename = "Center";
 	return me;
 };
 const PokeCenter = Center;
@@ -37,6 +38,7 @@ const TrainLine = function(type, boarding_id) {
 		},
 		locOf: { "pc": ["5,11"], },
 	});
+	boarding._typename = "TrainLine";
 	return boarding;
 };
 

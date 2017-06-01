@@ -1,6 +1,8 @@
 // updaters/s4-rand-white2.js
 // The configuration for Season 4's Randomized White 2
 
+global.game = "White2";
+
 module.exports = {
 	// The Reddit Live Updater ID to post to
 	// liveID : "",
@@ -53,6 +55,7 @@ module.exports = {
 			let mon = {};
 			
 			mon.species = minfo.is_egg? 'Egg':minfo.species.name;
+			mon.nicknamed = minfo.is_nicknamed;
 			mon.dexid = minfo.species.national_dex;
 			mon.types = [ minfo.species.type1 ];
 			if (minfo.species.type1 !== minfo.species.type2) {
@@ -67,9 +70,6 @@ module.exports = {
 				return { id: m.id, max_pp:m.max_pp, pp:m.pp, name:m.name, type:m.type };
 			});
 			mon.level = minfo.level;
-			if (minfo.experience.current === minfo.experience.next_level) {
-				mon.level++; //Correct for level descrepency
-			}
 			if (minfo.held_item.count > 0) {
 				mon.item = minfo.held_item.name;
 			} else {
@@ -77,6 +77,10 @@ module.exports = {
 			}
 			mon.gender = minfo.gender;
 			mon.ability = minfo.ability;
+			mon.nature = `${minfo.nature}, ${minfo.characteristic}`;
+			if (minfo.met) {
+				mon.caughtIn = minfo.met.caught_in;
+			}
 			if (minfo.health) {
 				if (minfo.health[0] === 0) mon.hp = 0;
 				else mon.hp = Math.max(1, Math.floor((minfo.health[0] / minfo.health[1])*100)); //At least 1% HP if not fainted

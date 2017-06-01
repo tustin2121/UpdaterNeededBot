@@ -83,6 +83,11 @@ class Region {
 	findParent(parent) {
 		// TODO
 	}
+	
+	[inspect.custom](depth, options) {
+		if (depth < 1) return `Region (${this.name})`;
+		return this;
+	}
 }
 
 class Node {
@@ -102,6 +107,8 @@ class Node {
 		
 		this._pendingConnections = [];
 		this._pendingReverseConns = [];
+		
+		Object.defineProperty(this, '_typename', { writable:true, value:"Generic" });
 		
 		// if (this.region) this.region.addNode(this);
 	}
@@ -279,6 +286,25 @@ class Node {
 	[Symbol.iterator]() {
 		return this.children[Symbol.iterator]();
 	}
+	
+	[inspect.custom](depth, options) {
+		if (depth < 0) return `Node [${this.mapids[0]||'--'}](${this.name||` [${this._typename}] `})`;
+		if (depth < 1) {
+			const newopts = Object.assign({}, options, { depth: 0 });
+			const inner = inspect(Object.assign({}, this, {
+				children: this.children.length,
+				connections: this.connections.length,
+			}), newopts);
+			return "Node "+inner;
+		}
+		if (depth < 2) {
+			const newopts = Object.assign({}, options, { depth: -1 });
+			return inspect(Object.assign({}, this, {
+				parent: `[[${inspect(this.parent, newopts)}]]`,
+			}), options).replace(`'[[`,"").replace(`]]'`,"");
+		}
+		return this;
+	}
 }
 Node.prototype.has = Node.prototype.is; //Alias
 Node.prototype.can = Node.prototype.is; //Alias
@@ -312,6 +338,7 @@ module.exports = {
 		me.addChild(...zones);
 		me.addChild(...buildings);
 		me.addConnection(...connections);
+		me._typename = "Area";
 		return me;
 	},
 	Town : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
@@ -324,6 +351,7 @@ module.exports = {
 		me.addChild(...buildings);
 		me.addConnection(...exits);
 		me.addConnection(...connections);
+		me._typename = "Town/City";
 		return me;
 	},
 	/** Multistory/Room Building */
@@ -334,6 +362,7 @@ module.exports = {
 		}, attrs), locOf });
 		me.addChild(...floors);
 		me.addConnection(...connections);
+		me._typename = "Building";
 		return me;
 	},
 	Floor : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
@@ -343,6 +372,7 @@ module.exports = {
 			announce, legendary,
 		}, attrs), locOf });
 		me.addConnection(...connections);
+		me._typename = "Floor";
 		return me;
 	},
 	/** Single Room Building */
@@ -354,6 +384,7 @@ module.exports = {
 			announce, legendary,
 		}, attrs), locOf });
 		me.addConnection(...connections);
+		me._typename = "House";
 		return me;
 	},
 	/** Common Pokemart */
@@ -365,6 +396,7 @@ module.exports = {
 			announce,
 		}, attrs), locOf });
 		me.addConnection(...connections);
+		me._typename = "Mart";
 		return me;
 	},
 	/** Common Pokecenter */
@@ -378,6 +410,7 @@ module.exports = {
 			"pc": [],
 		}, locOf) });
 		me.addConnection(...connections);
+		me._typename = "Center";
 		return me;
 	},
 	/** Common Pokecenter */
@@ -390,6 +423,7 @@ module.exports = {
 			leader, badge, announce,
 		}, attrs), locOf });
 		me.addConnection(...connections);
+		me._typename = "Gym";
 		return me;
 	},
 	
@@ -404,6 +438,7 @@ module.exports = {
 		me.addConnection(from, to);
 		me.addReverseConnection(from, to);
 		me.addConnection(...connections);
+		me._typename = "Gatehouse";
 		return me;
 	},
 	/** Outdoor routes */
@@ -418,6 +453,7 @@ module.exports = {
 		me.addChild(...buildings);
 		me.addConnection(...exits);
 		me.addConnection(...connections);
+		me._typename = "Route";
 		return me;
 	},
 	/** Multilevel Dungeons */
@@ -430,6 +466,7 @@ module.exports = {
 		}, attrs), locOf });
 		me.addChild(...floors);
 		me.addConnection(...connections);
+		me._typename = "Dungeon";
 		return me;
 	},
 	
@@ -439,6 +476,7 @@ module.exports = {
 			noteworthy, announce,
 		}, attrs) });
 		me.addConnection(...connections);
+		me._typename = "Cutscene";
 		return me;
 	},
 };
