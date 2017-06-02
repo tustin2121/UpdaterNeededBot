@@ -14,6 +14,7 @@ class Region {
 		this.nodesByParent = {};
 		this.topNode = new Node({ name:"Mystery Zone", region:this, attrs:{
 			// Default properties of the whole region and any nodes under it
+			"the": false,		//If the location name should use an article [true=definite|string=other article]
 			"indoors": false,	//If the location is inside (cannot fly)
 			"inTown": false,	//If the location is in a town (not the wild)
 			"healing": false,	//If the location offers healing [false|pokecenter|doctor|nurse|house|other field healing]
@@ -329,11 +330,11 @@ module.exports = Town("Example Town", "12.0", {
 module.exports = {
 	Region: Region,
 	Node: Node,
-	Area : function(name, mapids, { attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
+	Area : function(name, mapids, { the=true, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			noteworthy, announce, legendary,
+			noteworthy, announce, legendary, the,
 		}, attrs), locOf });
 		me.addChild(...zones);
 		me.addChild(...buildings);
@@ -341,12 +342,12 @@ module.exports = {
 		me._typename = "Area";
 		return me;
 	},
-	Town : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
+	Town : function(name, mapids, { the=false, attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"inTown": true,
 			"noteworthy": true,
-			announce,
+			announce, the,
 		}, attrs), locOf });
 		me.addChild(...buildings);
 		me.addConnection(...exits);
@@ -355,57 +356,57 @@ module.exports = {
 		return me;
 	},
 	/** Multistory/Room Building */
-	Building : function({ name, attrs={}, locOf={}, floors=[], connections=[], announce, }){
+	Building : function({ name, the=true, attrs={}, locOf={}, floors=[], connections=[], announce, }){
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
-			announce,
+			announce, the,
 		}, attrs), locOf });
 		me.addChild(...floors);
 		me.addConnection(...connections);
 		me._typename = "Building";
 		return me;
 	},
-	Floor : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
+	Floor : function(mapids, { name, the=false, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			announce, legendary,
+			announce, legendary, the,
 		}, attrs), locOf });
 		me.addConnection(...connections);
 		me._typename = "Floor";
 		return me;
 	},
 	/** Single Room Building */
-	House : function(mapids, { name, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
+	House : function(mapids, { name, the=false, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
-			announce, legendary,
+			announce, legendary, the,
 		}, attrs), locOf });
 		me.addConnection(...connections);
 		me._typename = "House";
 		return me;
 	},
 	/** Common Pokemart */
-	Mart : function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
+	Mart : function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"shopping": true,
-			announce,
+			announce, the,
 		}, attrs), locOf });
 		me.addConnection(...connections);
 		me._typename = "Mart";
 		return me;
 	},
 	/** Common Pokecenter */
-	Center : function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
+	Center : function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
-		let me = new Node({ mapids, attrs:Object.assign({
+		let me = new Node({ name:"Pokemon Center", mapids, attrs:Object.assign({
 			"indoors": true,
 			"healing": true,
-			announce,
+			announce, the,
 		}, attrs), locOf:Object.assign({
 			"pc": [],
 		}, locOf) });
@@ -414,13 +415,13 @@ module.exports = {
 		return me;
 	},
 	/** Common Pokecenter */
-	Gym : function(mapids, { name, leader, badge, attrs={}, locOf={}, connections=[], announce, }={}){
+	Gym : function(mapids, { name, leader, badge, the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"gym": true,
 			"noteworthy": true,
-			leader, badge, announce,
+			leader, badge, announce, the,
 		}, attrs), locOf });
 		me.addConnection(...connections);
 		me._typename = "Gym";
@@ -428,12 +429,12 @@ module.exports = {
 	},
 	
 	/** */
-	Gatehouse : function(mapids, from, to, { name, attrs={}, locOf={}, connections=[], announce, }={}){
+	Gatehouse : function(mapids, from, to, { name, the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (!name) name = `${from} Gatehouse`;
 		if (typeof to === "number") to = `Route ${to}`;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			announce,
+			announce, the,
 		}, attrs), locOf });
 		me.addConnection(from, to);
 		me.addReverseConnection(from, to);
@@ -442,13 +443,13 @@ module.exports = {
 		return me;
 	},
 	/** Outdoor routes */
-	Route : function(name, mapids, { attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, legendary, }={}){
+	Route : function(name, mapids, { the=false, attrs={}, locOf={}, buildings=[], exits=[], connections=[], announce, legendary, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (typeof name === "number") name = `Route ${name}`;
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"noteworthy": true,
-			announce, legendary,
+			announce, legendary, the,
 		}, attrs), locOf });
 		me.addChild(...buildings);
 		me.addConnection(...exits);
@@ -457,12 +458,12 @@ module.exports = {
 		return me;
 	},
 	/** Multilevel Dungeons */
-	Dungeon : function(name, { attrs={}, locOf={}, floors=[], connections=[], announce, }={}){
+	Dungeon : function(name, { the=false, attrs={}, locOf={}, floors=[], connections=[], announce, }={}){
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
 			"dungeon": true,
 			"noteworthy": true,
-			announce,
+			announce, the,
 		}, attrs), locOf });
 		me.addChild(...floors);
 		me.addConnection(...connections);
@@ -470,10 +471,10 @@ module.exports = {
 		return me;
 	},
 	
-	Cutscene : function(mapids, { name, attrs={}, connections=[], announce, noteworthy=true }={}) {
+	Cutscene : function(mapids, { name, the=false, attrs={}, connections=[], announce, noteworthy=true }={}) {
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			noteworthy, announce,
+			noteworthy, announce, the,
 		}, attrs) });
 		me.addConnection(...connections);
 		me._typename = "Cutscene";

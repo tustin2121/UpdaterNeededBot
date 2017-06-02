@@ -29,6 +29,7 @@ let discoveries = [
 		}
 		if (this.prevLocs.includes(curr.location)) {
 			report.mapChange.recent = true;
+			report.mapChange.last = this.prevLocs[0] === curr.location;
 		} else if (curr.location.has('announce')) {
 			report.mapChange.announcement = curr.location.has('announce');
 		}
@@ -53,7 +54,90 @@ let discoveries = [
 	
 ];
 
-
+let collators = [
+	
+	// Location changes
+	function mapChange() { // Last
+		if (!this.report.mapChange) return;
+		let report = this.report.mapChange;
+		let currLoc = this.currInfo.location;
+		delete this.report.mapChange;
+		
+		if (report.announcement) {
+			return report.announcement;
+		}
+		if (!currLoc.is('noteworthy')) return;
+		
+		let area = currLoc.name;
+		let back = report.recent?'back ':'';
+		let onto = currLoc.is('inTown')?'into':'onto';
+		let the = currLoc.has('the');
+		if (the === false) the = '';
+		else if (the === true) the = 'the ';
+		else the += ' ';
+		
+		switch (report.movementType) {
+			case 'enter': {
+				let o = [
+					`We head ${back}into ${the}${area}.`,
+					`We head ${back}inside ${the}${area}.`,
+					`We go ${back}into ${the}${area}.`,
+					`We duck ${back}inside ${the}${area}.`,
+					`We're ${back}in ${the}${area} now.`,
+				];
+				return this.randA(o);
+			}
+			case 'exit': {
+				let o = [
+					`We head ${back}outside ${onto} ${the}${area}.`,
+					`We exit ${back}${onto} ${the}${area}.`,
+					`We leave, ${back}${onto} ${the}${area}.`,
+				];
+				if (report.last) o.push(`Nevermind, back outside again.`);
+				return this.randA(o);
+			}
+			case 'arrive': {
+				let o = [
+					`We arrive in ${the}${area}!`,
+					`Welcome to ${the}${area}!`,
+				];
+				return this.randA(o);
+			}
+			case 'fly': {
+				let o = [
+					`We fly to ${the}${area}!`,
+					`We hop on our flying Pokemon and arrive ${onto.slice(0,2)} ${the}${area}!`,
+				];
+				return this.randA(o);
+			}
+			case 'escape': {
+				let o;
+				if (false) {//TODO if we are delta down one escape rope...
+					o = [
+						`**We use an Escape Rope!** Back ${onto.slice(0,2)} ${the}${area}!`,
+						`**We escape rope back to the surface!** ${area}.`,
+					];
+				} else {
+					o = [
+						`**We dig out!** Back ${onto.slice(0,2)} ${the}${area}!`,
+						`**We dig out of here!** ${area}.`,
+						`**We dig our way back to ${the}${area}!**`,
+					];
+				}
+				return this.randA(o);
+			}
+			default: {
+				let o = [
+					`Now ${onto.slice(0,2)} ${the}${area}.`,
+					`${onto.charAt(0).toUpperCase()}${onto.charAt(1)} ${the}${area}.`, // In the Area.
+					`${area}.`,
+					`Welcome to ${the}${area}.`,
+				];
+				return this.randA(o);
+			}
+		}
+	},
+];
 
 
 class Reporter {
@@ -66,12 +150,14 @@ class Reporter {
 		this.memory = memoryBank;
 		
 		// Defines various information that should be kept short term
+		this.pmem = {}; // Progressive text responses memory
 		this.prevLocs = [null, null, null, null, null]; // Previous location queue
 		this.prevAreas = [null, null, null]; // Previous top-level areas
 		this.checkpoint = null;
 		
 		// Defined variables used for collecting reportable information
 		this.report = {};
+		this.collatedInfo = null;
 	}
 	
 	/** Takes the passed current API data and compares it to the stored previous API data.
@@ -88,6 +174,8 @@ class Reporter {
 	}
 	
 	collate() {
+		let texts = [];
+		
 		//TODO report newly aquired pokemon (report extended information in hover text)
 		if (false) { //TODO aquired pokemon loop
 			let mon = {}; //TODO pokemon

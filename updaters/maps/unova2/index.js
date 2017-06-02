@@ -9,13 +9,13 @@ const {
 } = require("../map.js");
 
 // Defaults for this particular region
-const Center = function(mapids, { attrs={}, locOf={}, connections=[], announce, }={}){
+const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 	if (!Array.isArray(mapids)) mapids = [mapids];
-	let me = new Node({ mapids, attrs:Object.assign({
+	let me = new Node({ name:"Pokemon Center", mapids, attrs:Object.assign({
 		"indoors": true,
 		"healing": true,
 		"shopping": true,
-		announce,
+		announce, the,
 	}, attrs), locOf:Object.assign({
 		"pc": ["4,12"],
 	}, locOf) });
@@ -32,6 +32,7 @@ const TrainLine = function(type, boarding_id) {
 		name: `Platform for ${type} Trains`,
 		mapids:[id(boarding_id,62,165)],
 		attrs:{
+			"the": true,
 			"subway":"lobby",
 			"indoors": true,
 			"shopping": true,
@@ -128,7 +129,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	}),
 	Area("Cave of Being", id(392,517,310)), // Come here to unlock Uxie, Mesprit, and the other one
 	Area("Floccesy Ranch", [id(305,444), id(306,444,255)], {
-		
+		the: false,
 	}),
 	Gatehouse(id(561,446,50), "Virbank City", 20),
 	City("Virbank City", id(174,448), {
@@ -152,6 +153,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	}),
 	Area("Virbank Complex", [id(307,456), id(308,456,256)], {
 		noteworthy: true,
+		the: false,
 		connections: [ "Virbank City" ],
 	}),
 	Gatehouse(id(182,448,12), "Virbank City", "Pokestar Studios"),
@@ -205,12 +207,13 @@ new Region({ name:"Unova", mapid:"identity" }, [
 					Floor(id(49,28,43)), // Floor 55
 				],
 			}),
-			Area("Centra Plaza", id(31,28,1), {
+			Area("Central Plaza", id(31,28,1), {
 				locOf: {
 					vending: ["20,5","21,5","22,5","23,5"],
 				},
 			}),
 			Area("Castelia Street", id(35,28,5), {
+				the: false,
 				locOf: {
 					vending: ["5,41", "6,41"],
 				},
@@ -220,6 +223,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				],
 			}),
 			Area("Mode Street", id(34,28,4), {
+				the: false,
 				attrs: {
 					"shopping": true, // Ice Creame Store
 				},
@@ -228,11 +232,13 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				],
 			}),
 			Area("Narrow Street", id(36,28,6), {
+				the: false,
 				buildings: [
 					House(id(56,28,192), { name: "Café Sonata", }),
 				],
 			}),
 			Area("Gym Street", id(32,28,2), {
+				the: false,
 				buildings: [
 					Building({
 						floors:[
@@ -254,6 +260,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				],
 			}),
 			Area("North Street", id(33,28,3), {
+				the: false,
 				locOf: {
 					vending: ["10,18","11,18"],
 				},
@@ -264,16 +271,19 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				],
 			}),
 			Area("Origin Square", id(42,28,296), {
+				the: false,
 				announce: "We surface in a small forgotten square in the middle of Castelia, where a lone tree stands...",
 				connections: [ id(286,495,293) ], // Sewers
 			}),
 			Area("Castelia Back Alley", id(43,28,297), {
+				the: 'a',
 				announce: "We surface in a Castelia back alley... some people are dancing at the far end...",
 				connections: [ id(286,495,293) ], // Sewers
 			}),
 		],
 	}),
 	Area("Liberty Garden", id(291,235), {
+		the: false,
 		locOf: {
 			vending: ["292,757","291,757"],
 		},
@@ -298,6 +308,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		attrs: { }, //TODO Explore
 	}),
 	Building({
+		the: false,
 		name: "The Royal Unova",
 		floors: [
 			Cutscene(id(41,28,179), { // Cutscene: Royal Unova Pulling out of Dock
@@ -479,6 +490,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		],
 	}),
 	Area("Join Avenue", id(197,490,376), {
+		the: false,
 		attrs: {
 			"shopping": true,
 			"indoors": true,
@@ -518,6 +530,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			}),
 			
 			Building({
+				the: false,
 				name: "Gear Station",
 				floors: [
 					Floor(id(70,62,101), { name: "Gear Station", }),
@@ -904,6 +917,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		connections: [ "Lacunosa Town", "Giant Chasm" ],
 	}),
 	Dungeon("Giant Chasm", {
+		the: true,
 		floors: [
 			Floor(id(280,230), {
 				attrs: {
@@ -958,6 +972,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		connections: [ id(321,461,333), "Undella Bay", 14 ], // Reversal Mountan
 	}),
 	Gatehouse(id(411,464,273), id(591,412,271), id(191,465,272), {
+		the: true,
 		name: "Marine Tube",
 	}),
 	City("Humilau City", id(183,465), {
@@ -997,6 +1012,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		connections: [ "Seaside Cave", "Abyssal Ruins" ],
 	}),
 	Dungeon("Abyssal Ruins", {
+		the: true,
 		floors: [
 			Floor(id(298,241,244), {
 				connections: [ "Undella Bay" ],
@@ -1046,6 +1062,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		connections: [ "Undella Town", "Abundant Shrine" ],
 	}),
 	Area("Abundant Shrine", id(545,376,190), {
+		the: true,
 		buildings: [
 			House(id(546,376,46)),
 		],
@@ -1237,6 +1254,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 // Other areas that are not part of the main map
 Unova.addNode(...[
 	Dungeon("Plasma Frigate", id(344,552,338), {
+		the: true,
 		floors: [
 			Floor(id(355,522,249)),
 			Floor(id(346,552,340)),
@@ -1253,6 +1271,7 @@ Unova.addNode(...[
 	}),
 	
 	Area("Entralink", id(435,279,117), {
+		the: true,
 		zones: [
 			Area("Entree Forest", [
 				id(436,279,119),
