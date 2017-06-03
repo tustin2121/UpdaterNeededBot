@@ -179,6 +179,11 @@ class Node {
 		this._pendingReverseConns.push(...names);
 	}
 	
+	getName() {
+		if (!this.name) return this.parent.getName();
+		return this.name;
+	}
+	
 	/** Test if this node (or its parents) has the given attribute. */
 	is(attr) {
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];

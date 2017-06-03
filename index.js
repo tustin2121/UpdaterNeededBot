@@ -15,6 +15,8 @@ const memoryFile = require('path').resolve(__dirname, "memory.json");
 const UPDATER = require('./updaters/s4-rand-white2.js');
 const TEST_UPDATER = require('./updaters/test.js');
 
+const PING_COOLDOWN = 1000*60*60; // 1 hour
+
 // const { discover } = require("./discovery.js");
 // const Reporter = require("./report.js");
 
@@ -31,6 +33,8 @@ let reporter = new Reporter(memoryBank);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+let staffChannel = null;
+let dLastPing = 0;
 let dbot = new discord.Client({
 	disabledEvents: [ //Events we completely ignore entirely
 		// 'GUILD_CREATE',
@@ -61,6 +65,7 @@ dbot.on('message', (msg)=>{
 	let [ type, ...args ] = require('./discordcmd.js')(msg, memoryBank);
 	switch (type) {
 		case 'tagin':
+			if (!staffChannel) staffChannel = msg.channel;
 			taggedIn = true;
 			msg.channel.send(`On it.`).catch((e)=>console.error('Discord Error:',e));
 			// postUpdate(`[Bot-Meta] Tagged in at ${getTimestamp()}.`, TEST_UPDATER.liveID);
@@ -104,6 +109,18 @@ dbot.on('message', (msg)=>{
 	}
 });
 dbot.login(auth.discord.token);
+reporter.alertUpdaters = function(text){
+	if (!taggedIn) return;
+	if (!staffChannel) return;
+	
+	let group = "@Live Updater ";
+	if (dLastPing + PING_COOLDOWN < Date.now()) {
+		group = "";
+	} else {
+		dLastPing = Date.now();
+	}
+	staffChannel.send(`${group}${text}`).catch((e)=>console.error('Discord Error:',e));;
+};
 
 function __reloadFile(modulename) {
 	let path = require.resolve(modulename);

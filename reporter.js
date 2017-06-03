@@ -608,6 +608,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				`**The door slams shut behind us! E4 Attempt #${this.memory.e4Attempt}!**`
 			));
 			
+			this.alertUpdaters(`We're locked into the E4! This is Attempt #${this.memory.e4Attempt}! If anyone wants to take over, now would be the time!`);
 			let warn = this.progressive('playbyplay', ` (Unfortunately, I am incapable of doing a play-by-play of this action. The stream API does not supply me with battle data.)`, '');
 			if (warn) texts.push(warn);
 		}
@@ -650,7 +651,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		if (!currLoc.is('noteworthy')) return;
 		
-		let area = currLoc.name;
+		let area = currLoc.getName();
 		let back = report.recent?'back ':'';
 		let onto = currLoc.is('inTown')?'into':'onto';
 		let the = currLoc.has('the');
@@ -673,7 +674,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				let o = [
 					`We head ${back}outside ${onto} ${the}${area}.`,
 					`We exit ${back}${onto} ${the}${area}.`,
-					`We leave, ${back}${onto} ${the}${area}.`,
+					`We leave, ${back}out ${onto} ${the}${area}.`,
+					`We journey ${back}out ${onto} ${the}${area}.`,
 				];
 				if (report.last) o.push(`Nevermind, back outside again.`);
 				return this.randA(o);
