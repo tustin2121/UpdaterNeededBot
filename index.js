@@ -7,6 +7,7 @@ const fs = require("fs");
 const discord = require("discord.js");
 const auth = require("./auth");
 const reddit = require("./redditapi.js");
+const Reporter = require("./reporter");
 const saveproxy = require("./save-proxy");
 const memoryFile = require('path').resolve(__dirname, "memory.json");
 
@@ -14,8 +15,8 @@ const memoryFile = require('path').resolve(__dirname, "memory.json");
 const UPDATER = require('./updaters/s4-rand-white2.js');
 const TEST_UPDATER = require('./updaters/test.js');
 
-const { discover } = require("./discovery.js");
-const Reporter = require("./report.js");
+// const { discover } = require("./discovery.js");
+// const Reporter = require("./report.js");
 
 try { // Make the memory file if it does not exist
 	fs.writeFileSync(memoryFile, "{}", { flag:'wx'});
@@ -26,6 +27,7 @@ let memoryBank = saveproxy(memoryFile, "\t");
 let data_curr, data_prev;
 let sorted_curr, sorted_prev;
 let taggedIn = false;
+let reporter = new Reporter(memoryBank);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -85,6 +87,7 @@ dbot.on('message', (msg)=>{
 				.catch((e)=>console.error('Discord Error:',e));
 			break;
 		case 'helpout':
+			break;
 			taggedIn = args[0];
 			let help = [];
 			if (help['catches']) help.push('give info about our catches');
@@ -199,11 +202,10 @@ function refreshInfo() {
 			return; // Cannot update this time
 		}
 		
-		if (!sorted_prev) return;
-		
 		console.log('Reporter reporting in...');
-		let reporter = new Reporter(memoryBank, sorted_curr);
-		discover(sorted_prev, sorted_curr, reporter.report.bind(reporter));
+		if (!reporter.discover(sorted_curr)) return;
+		// let reporter = new Reporter(memoryBank, sorted_curr);
+		// discover(sorted_prev, sorted_curr, reporter.report.bind(reporter));
 		
 		let update = reporter.collate();
 		if (update) {
@@ -219,10 +221,7 @@ function refreshInfo() {
 				update = reporter.collate(taggedIn); // Retrieve new partial update
 				postUpdate(`[Info] [Bot] ${update}`, UPDATER.liveID);
 			}
-			
-			// let liveID = (taggedIn)?UPDATER.liveID:TEST_UPDATER.liveID; //Live or test updater
-			
-			postUpdate(update, liveID);
+			reporter.clear();
 		} else {
 			console.log('Reporter found no update.');
 		}
@@ -249,7 +248,10 @@ function postUpdate(update, liveID) {
 	});
 }
 
+let sigint = false;
 process.on('SIGINT', ()=>{
+	if (sigint) process.exit(-1);
+	sigint = true;
 	memoryBank.forceSave();
 	postUpdate('[Meta] UpdaterNeeded shutting down.', TEST_UPDATER.liveID)
 		.then(()=>process.exit());

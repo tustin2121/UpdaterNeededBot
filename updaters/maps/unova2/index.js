@@ -13,7 +13,7 @@ const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], 
 	if (!Array.isArray(mapids)) mapids = [mapids];
 	let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
 		"indoors": true,
-		"healing": "pokecenter"
+		"healing": "pokecenter",
 		"shopping": true,
 		announce, the,
 	}, attrs), locOf:Object.assign({

@@ -22,7 +22,7 @@ module.exports = {
 		let sorted = {};
 		
 		// Sanity Test: check if this is our protagonist
-		if (data.id !== 6702 || data.secret !== 60589) {
+		if (data.id !== 32230 || data.secret !== 44970) {
 			console.error('api/run_status: Trainer ID does not match!');
 		}
 		
@@ -47,7 +47,8 @@ module.exports = {
 			sorted.allitems = {};
 			[data.items, data.items_berry, data.items_free_space, data.items_key, data.items_medicine, data.items_tm].forEach(items=>{
 				items.forEach(x=>{
-					sorted.allitems[x.name] = (sorted.allitems[x.name] || 0) + x.count;
+					let count = x.count !== undefined? x.count : 1;
+					sorted.allitems[x.name] = (sorted.allitems[x.name] || 0) + count;
 				});
 			});
 		}

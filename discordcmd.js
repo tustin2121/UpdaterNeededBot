@@ -1,8 +1,6 @@
 // discordcmd.js
 //
 
-const natural = require('natural');
-
 module.exports = function(msg, memory) {
 	if (msg.content === '_tags UpdaterNeeded_') {
 		return ['tagin'];

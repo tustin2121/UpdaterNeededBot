@@ -68,12 +68,13 @@ class Reporter {
 	discover(currInfo) {
 		this.prevInfo = this.currInfo;
 		this.currInfo = currInfo;
-		if (!this.prevInfo) return; // Can't do anything with nothing to compare to
+		if (!this.prevInfo) return false; // Can't do anything with nothing to compare to
 		
 		// Step 1, find map changes
 		discoveries.forEach(fn=>{
 			fn.call(this, this.prevInfo, this.currInfo, this.report);
 		});
+		return true;
 	}
 	
 	collate() {
@@ -84,6 +85,10 @@ class Reporter {
 		});
 		if (!texts.length) return null;
 		return texts.join(' ');
+	}
+	
+	clear() {
+		this.report = {};
 	}
 }
 
@@ -177,15 +182,15 @@ discoveries = [
 		
 		let monReports = [];
 		sameMons.forEach((pair)=>{
-			me.discoveries_party.forEach((f)=>{
-				let rep = { mon : pair.curr };
+			let rep = { mon : pair.curr };
+			discoveries_party.forEach((f)=>{
 				f.call(this, pair, rep);
-				if (Object.keys(rep).length) monReports.push(rep);
-				if (rep.hatched) {
-					report.hatched = (report.hatched||[]);
-					report.hatched.push(pair.curr);
-				}
 			});
+			if (Object.keys(rep).length) monReports.push(rep);
+			if (rep.hatched) {
+				report.hatched = (report.hatched||[]);
+				report.hatched.push(pair.curr);
+			}
 		});
 		if (monReports.length) report.monChanges = monReports;
 		
@@ -343,11 +348,11 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		*/
 		let fullText = [];
 		if (this.report.newPokemon) {
-			this.report.newPokemon.forEach((x)=>{
+			this.report.newPokemon.forEach((mon)=>{
 				//check if it is one of the MIA pokemon...
-				if (this.memory.miaPokemon[x.hash]) {
-					console.log(`FOUND POKEMON: ${x.name} (${x.species})!`)
-					delete this.memory.miaPokemon[x.hash];
+				if (this.memory.miaPokemon && this.memory.miaPokemon[mon.hash]) {
+					console.log(`FOUND POKEMON: ${mon.name} (${mon.species})!`)
+					delete this.memory.miaPokemon[mon.hash];
 					return; // Skip!
 				}
 				
@@ -355,18 +360,18 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
 				if (mon.pokerus) exInfo += `\nHas PokeRus`;
 				
-				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(x.gender)} Lv. ${x.level} ${x.species}](#info "${exInfo}")!**`+
-					` ${(!x.nicknamed)?"No nickname.":"Nickname: `"+x.name+"`"}${(x.storedIn)?" (Sent to Box #"+x.storedIn+")":""}`);
+				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
+					` ${(!mon.nicknamed)?"No nickname.":"Nickname: `"+mon.name+"`"}${(mon.storedIn)?" (Sent to Box #"+mon.storedIn+")":""}`);
 			});
 		}
 		if (this.report.hatched) {
-			this.report.hatched.forEach((x)=>{
+			this.report.hatched.forEach((mon)=>{
 				let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
 				exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
 				if (mon.pokerus) exInfo += `\nHas PokeRus`;
 				
-				fullText.push(`**The Egg hatched into a [${(mon.shiny?"shiny ":"")}${this.lowerCase(x.gender)} Lv. ${x.level} ${x.species}](#info "${exInfo}")!**`+
-					` ${(x.species===x.name)?"No nickname.":"Nickname: `"+x.name+"`"}`);
+				fullText.push(`**The Egg hatched into a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
+					` ${(mon.species===mon.name)?"No nickname.":"Nickname: `"+mon.name+"`"}`);
 			});
 		}
 		if (fullText.length) {
@@ -414,6 +419,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 					}
 				});
 			}
+			if (!text.length) return;
 			if (text.length > 1) text[text.length-1] = "and "+text[text.length-1];
 			fullText.push(name + text.join(', ') + "!");
 		});
@@ -438,11 +444,11 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		this.report.monChanges.forEach(x=>{
 			if (!x.helditem) return; //skip
 			if (x.helditem.took && x.helditem.given) {
-				fullText.push(`We take ${correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}) and give ${x.mon.gender==='Female'?"her":"him"} a ${correctCase(x.helditem.given)} to hold.`);
+				fullText.push(`We take ${this.correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}) and give ${x.mon.gender==='Female'?"her":"him"} a ${this.correctCase(x.helditem.given)} to hold.`);
 			} else if (x.took) {
-				fullText.push(`We take ${correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}).`);
+				fullText.push(`We take ${this.correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}).`);
 			} else if (x.given) {
-				fullText.push(`We give a ${correctCase(x.helditem.given)} to ${x.mon.name} (${x.mon.species}) to hold.`);
+				fullText.push(`We give a ${this.correctCase(x.helditem.given)} to ${x.mon.name} (${x.mon.species}) to hold.`);
 			}
 			if (this.report.deltaItems) { // Adjust item deltas as they're accounted for here
 				let delta = this.report.deltaItems;
@@ -479,7 +485,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		
 		function _vend(item) {
 			if (!delta[item] || delta[item] <= 0) return;
-			fullText.push(`${delta[item]} ${correctCase(item)}`)
+			fullText.push(`${delta[item]} ${this.correctCase(item)}`)
 			delete delta[item];
 		}
 	},
@@ -498,7 +504,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		if (Object.keys(delta).length === 1) {
 			let item = Object.keys(delta)[0];
 			let amount = delta[item];
-			item = correctCase(item);
+			item = this.correctCase(item);
 			if (amount === 0) return;
 			if (amount > 0) {
 				if (this.currInfo.location.has('shopping')) {
@@ -506,7 +512,6 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				} else {
 					return `**Acquired ${amount} ${item}(s)!**`;
 				}
-				return;
 			} else {
 				if (this.currInfo.location.has('shopping')) {
 					return `**Sold ${-amount} ${item}(s)!**`;
@@ -518,7 +523,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		} else {
 			let buy = [], sell = [];
 			Object.keys(delta).forEach((item, index)=>{
-				let itemName = correctCase(item);
+				let itemName = this.correctCase(item);
 				let amount = delta[item];
 				if (amount === 0) return; //Continue
 				if (amount > 0 )
@@ -531,11 +536,11 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			if (sell.length > 1) sell[sell.length-1] = "and "+sell[sell.length-1];
 			
 			if (this.currInfo.location.has('shopping')) {
-				if (buy.length) buy = rand(`We buy ${buy.join(', ')}.`);
-				if (sell.length) sell = rand(`We sell ${sell.join(', ')}.`);
+				if (buy.length) buy = this.rand(`We buy ${buy.join(', ')}.`);
+				if (sell.length) sell = this.rand(`We sell ${sell.join(', ')}.`);
 			} else {
-				if (buy.length) buy = rand(`We aquire ${buy.join(', ')}.`);
-				if (sell.length) sell = rand(`We toss ${sell.join(', ')}.`);
+				if (buy.length) buy = this.rand(`We aquire ${buy.join(', ')}.`);
+				if (sell.length) sell = this.rand(`We toss ${sell.join(', ')}.`);
 			}
 			return `**${[buy, sell].join(' ')}**`;
 		}
@@ -631,7 +636,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			}
 		}
 		return texts.join(' ');
-	}
+	},
 	
 	// Location changes
 	function mapChange() { // Last
@@ -714,3 +719,5 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 	},
 ];
+
+module.exports = Reporter;
