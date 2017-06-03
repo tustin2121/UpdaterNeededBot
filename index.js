@@ -249,5 +249,12 @@ function postUpdate(update, liveID) {
 	});
 }
 
+process.on('SIGINT', ()=>{
+	memoryBank.forceSave();
+	postUpdate('[Meta] UpdaterNeeded shutting down.', TEST_UPDATER.liveID)
+		.then(()=>process.exit());
+});
+
 enableInfo(true);
 refreshInfo();
+postUpdate('[Meta] UpdaterNeeded started.', TEST_UPDATER.liveID);

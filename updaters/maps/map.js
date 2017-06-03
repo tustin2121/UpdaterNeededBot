@@ -190,6 +190,9 @@ class Node {
 	within(attr, loc, dist=6) {
 		let a = this.locOf[attr];
 		if (!a) return false;
+		if (typeof a === 'number') {
+			return this.mapids.includes(a);
+		}
 		if (Array.isArray(a)) {
 			return a.reduce((acc, val)=>{
 				return acc || _wi(val, loc);
@@ -309,6 +312,7 @@ class Node {
 }
 Node.prototype.has = Node.prototype.is; //Alias
 Node.prototype.can = Node.prototype.is; //Alias
+Node.prototype.get = Node.prototype.is; //Alias
 
 
 /*
@@ -403,9 +407,9 @@ module.exports = {
 	/** Common Pokecenter */
 	Center : function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
-		let me = new Node({ name:"Pokemon Center", mapids, attrs:Object.assign({
+		let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
 			"indoors": true,
-			"healing": true,
+			"healing": "pokecenter",
 			announce, the,
 		}, attrs), locOf:Object.assign({
 			"pc": [],

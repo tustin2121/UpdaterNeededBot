@@ -2,7 +2,103 @@
 // A single persistent class which compares previous and current API responses and
 // generates reports on the differences.
 
-let discoveries = [
+let discoveries, discoveries_party, collators;
+
+class Reporter {
+	constructor(memoryBank={}, currInfo=null) {
+		this.pastInfo = {};
+		this.prevInfo = null;
+		this.currInfo = currInfo;
+		
+		// Defines information that needs to be kept long-term (over restarts).
+		this.memory = memoryBank;
+		
+		// Defines various information that should be kept short term
+		this.pmem = {}; // Progressive text responses memory
+		this.prevLocs = [null, null, null, null, null]; // Previous location queue
+		this.prevAreas = [null, null, null]; // Previous top-level areas
+		this.checkpoint = null;
+		
+		// Defined variables used for collecting reportable information
+		this.report = {};
+		this.collatedInfo = null;
+	}
+	
+	
+	///////////////////// Helper Functions /////////////////////
+	
+	progressive(memKey, ...opts) {
+		memKey = `%progressive.${memKey}`;
+		this.pmem[memKey] = (this.pmem[memKey] || 0) + 1;
+		let t = opts[Math.ceil(this.pmem[memKey])];
+		if (!t) t = opts[opts.length-1];
+		return t;
+	}
+	progressiveTickDown(memKey) {
+		memKey = `%progressive.${memKey}`;
+		this.pmem[memKey] = Math.max((this.pmem[memKey] || 0) - 0.25, 0);
+	}
+	
+	rand(...opts) {
+		return opts[Math.floor(Math.random()*opts.length)];
+	}
+	randA(opts) {
+		return opts[Math.floor(Math.random()*opts.length)];
+	}
+	plural(n, txt1, txtn) {
+		if (n === 1) return txt1;
+		return txtn;
+	}
+	correctCase(str) {
+		return str.split(' ')
+				.map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+				.join(' ');
+	}
+	lowerCase(str) {
+		if (typeof str === 'string') return str.toLowerCase();
+		return str;
+	}
+	
+	alertUpdaters(text) {} //Must be overridden
+	
+	///////////////////// Public Functions /////////////////////
+	
+	/** Takes the passed current API data and compares it to the stored previous API data.
+	 *  Generates a report, which is put together with a call to collate(). */
+	discover(currInfo) {
+		this.prevInfo = this.currInfo;
+		this.currInfo = currInfo;
+		if (!this.prevInfo) return; // Can't do anything with nothing to compare to
+		
+		// Step 1, find map changes
+		discoveries.forEach(fn=>{
+			fn.call(this, this.prevInfo, this.currInfo, this.report);
+		});
+	}
+	
+	collate() {
+		let texts = [];
+		collators.forEach((fn)=>{
+			let t = fn.call(this);
+			if (t) texts.push(t);
+		});
+		if (!texts.length) return null;
+		return texts.join(' ');
+	}
+}
+
+
+/** Compares two arrays to see if everything from arr1 is accounted for in arr2, and returns the difference. */
+function differenceBetween(arr1, arr2, hashFn) {
+	if (!Array.isArray(arr1) || !Array.isArray(arr2)) throw new TypeError('Pass arrays!');
+	let hash2 = {};
+	arr2.forEach(x=> hash2[hashFn(x)] = true);
+	return arr1.filter(a=> !hash2[hashFn(a)] );
+}
+
+/////////////////////////////////////////// Discoveries ////////////////////////////////////////////
+
+discoveries = [
 	function mapChange(prev, curr, report) {
 		if (prev.location === curr.location) return; // No map change
 		report.mapChange = {}; // Submit a report on the map change
@@ -24,7 +120,7 @@ let discoveries = [
 			}
 			// TODO check if we're in the pokemon center above these flySpots
 			else if (prev.location.is('dungeon') && !curr.location.is('dungeon')) {
-				report.mapChange.movementType = 'escape'; // check if used escape rope later
+				report.mapChange.movementType = 'dig'; // check if used escape rope later
 			}
 		}
 		if (this.prevLocs.includes(curr.location)) {
@@ -47,14 +143,495 @@ let discoveries = [
 			this.prevAreas.unshift(curr.location); // Put newest location on front of queue
 		}
 	},
-	//TODO aquire/release pokemon
-	//TODO discover party info
-	//TODO blackout/heal watch
-	//TODO e4/gym watch
-	
+	function aquirePokemon(prev, curr, report) {
+		let deltamons = differenceBetween(curr.allmon, prev.allmon, x=>x.hash);
+		if (deltamons.length) {
+			report.newPokemon = deltamons;
+		}
+	},
+	function releasePokemon(prev, curr, report) {
+		let deltamons = differenceBetween(curr.allmon, prev.allmon, x=>x.hash);
+		if (deltamons.length) {
+			report.lostPokemon = deltamons;
+		}
+	},
+	function itemDeltas(prev, curr, report) {
+		let deltaitems = {};
+		Object.keys(curr.allitems).forEach(x => deltaitems[x] = curr.allitems[x]);
+		Object.keys(prev.allitems).forEach(x => deltaitems[x] = (deltaitems[x] || 0) - prev.allitems[x]);
+		Object.keys(deltaitems).forEach(x =>{ if (deltaitems[x] == 0) delete deltaitems[x]; });
+		if (Object.keys(deltaitems).length) {
+			report.deltaItems = deltaitems;
+		}
+	},
+	function discoverInParty(prev, curr, report) {
+		let sameMons = [];
+		// Find our mon pars from previous party to next party.
+		for (let a = 0; a < prev.party.length; a++) {
+			for (let b = 0; b < curr.party.length; b++) {
+				if (curr.party[b].hash === prev.party[a].hash) {
+					sameMons.push({ prev:prev.party[a], curr:curr.party[b]});
+				}
+			}
+		}
+		
+		let monReports = [];
+		sameMons.forEach((pair)=>{
+			me.discoveries_party.forEach((f)=>{
+				let rep = { mon : pair.curr };
+				f.call(this, pair, rep);
+				if (Object.keys(rep).length) monReports.push(rep);
+				if (rep.hatched) {
+					report.hatched = (report.hatched||[]);
+					report.hatched.push(pair.curr);
+				}
+			});
+		});
+		if (monReports.length) report.monChanges = monReports;
+		
+		/////////////////////
+		let hpWasHealed = 0;
+		let ppWasHealed = 0;
+		sameMons.forEach(({prev:p, curr:c})=>{
+			let ppheal = 0;
+			for (let i = 0; i < c.moveInfo.length; i++) {
+				if (c.moves[i] !== p.moves[i]) continue;
+				if (c.moveInfo[i].pp === c.moveInfo[i].max_pp) {
+					if (p.moveInfo[i].pp < p.moveInfo[i].max_pp) ppheal++;
+				}
+				if (c.moveInfo[i].pp < c.moveInfo[i].max_pp) {
+					ppheal -= 5; //If there's still missing PP, we weren't healed
+				}
+			}
+			if (ppheal > 0) ppWasHealed++;
+			
+			if (p.hp < 100 && c.hp === 100) hpWasHealed++;
+		});
+		
+		console.log(`blackout discovery: pp=${ppWasHealed}, hp=${hpWasHealed}`);
+		if (ppWasHealed > 0 && hpWasHealed > 1) {
+			if ((prev.location.is('e4') && !curr.location.is('e4')) || curr.location.is('e4') === 'lobby' || curr.location.is('e4') === 'e4') {
+				report.blackout = 'e4turnover';
+			} else if (report.mapChange  && (curr.location.is('healing') === 'pokecenter' || report.mapChange.steps > 2)) {
+				// This is definitely a blackout
+				report.blackout = true;
+			} else if (curr.location.is('healing') === 'pokecenter') {
+				report.healed = 'atCenter';
+			} else if (curr.location.within('healing', curr.position)) {
+				report.healed = curr.location.get('healing');
+			} else {
+				report.healed = true;
+			}
+		}
+	},
+	function gymWatch(prev, curr, report) {
+		if (curr.location.is('gym')) {
+			if (curr.in_battle && curr.location.within('leader', curr.position, 2)) {
+				let leader = curr.location.get('leader');
+				report.gymFight = leader;
+				// let badge = curr.location.has('badge');
+			}
+			let b = curr.location.get('badge');
+			if (!prev.badges[b] && curr.badges[b]) {
+				report.badgeGet = b;
+			}
+		}
+	},
+	function e4watch(prev, curr, report) {
+		if (prev.location.is('e4') === 'lobby') {
+			if (curr.location.is('e4') === 'e4') {
+				report.e4 = 'runStarted';
+			}
+		} else if (prev.location.is('e4') !== 'lobby' && prev.location.is('e4') !== 'e4') {
+			if (curr.location.is('e4') === 'e4') {
+				report.e4 = 'runStarted';
+			}
+		} else if (prev.location.is('e4') === 'e4') {
+			if (curr.location.is('e4') === 'champion') {
+				report.e4 = 'championReach';
+			}
+		} else if (prev.location.is('e4') === 'champion') {
+			if (curr.location.is('e4') === 'hallOfFame') {
+				report.e4 = 'hallOfFame';
+			}
+		} else if (prev.location.is('e4')) {
+			if (!curr.location.is('e4')) {
+				report.e4 = 'turnover';
+			}
+		}
+		if (curr.location.is('e4')) {
+			if (curr.in_battle && curr.location.within('leader', curr.position, 6)) {
+				report.e4Fight = curr.location.get('leader');
+			}
+		}
+	},
 ];
 
-let collators = [
+discoveries_party = [
+	function levelUp({prev, curr}, report) {
+		if (prev.level < curr.level) {
+			report.levelup = curr.level;
+		}
+	},
+	function evolution({prev, curr}, report) {
+		if (prev.species !== curr.species) {
+			if (prev.species === 'Egg') {
+				report.hatched = true;
+			} else {
+				report.evolved = { from:prev.species, to:curr.species };
+			}
+		}
+	},
+	function pokerus({prev, curr}, report) {
+		if ((!prev.pokerus && curr.pokerus) || (prev.pokerus && !curr.pokerus)) {
+			report.pokerus = curr.pokerus;
+		}
+	},
+	function hpwatch({prev, curr}, report) {
+		if (prev.hp > 0 && curr.hp === 0) {
+			report.fainted = true;
+		}
+	},
+	function itemwatch({prev, curr}, report) {
+		if (prev.item !== curr.item) {
+			report.helditem = { took:prev.item, given:curr.item };
+		}
+	},
+	function moveLearn({prev, curr}, report) {
+		let moveChanges = {};
+		for (let i = 0; i < 4; i++) {
+			let a = prev.moves[i] || "_"+i;
+			let b = curr.moves[i] || "_"+i;
+			if (a === b) continue;
+			moveChanges[a] = b;
+		}
+		lblFix: // Eliminate bad duplicates
+		while (true) {
+			let keys = Object.keys(moveChanges);
+			for (let i = 0; i < keys.length; i++) {
+				let a = keys[i];
+				let b = moveChanges[a];
+				if (!moveChanges[b]) continue;
+				if (moveChanges[b] === a) {
+					 // Simple switch, delete both
+					delete moveChanges[a];
+					delete moveChanges[b];
+					continue lblFix; //Restart this mess
+				} else {
+					moveChanges[a] = moveChanges[b];
+					delete moveChanges[b];
+					continue lblFix; //Restart this mess
+				}
+			}
+			break; //If we get to here, everything should be fixed.
+		}
+		if (Object.keys(moveChanges).length) {
+			report.movelearn = moveChanges;
+		}
+	},
+];
+
+//////////////////////////////////////////// Collators /////////////////////////////////////////////
+
+collators = [
+	// Caught new pokemon
+	function newPokemon() {
+		/*
+**Caught a [male Lv. 24 Torterra](#info "Grass/Ground | Item: None | Ability: Sticky Hold | Nature: Lax, Hates to lose
+Caught In: Pokeball | Moves: ThunderPunch, Entrainment, Sacred Sword, Synthesis
+Has PokeRus")!** No nickname. (Sent to Box #1)
+		*/
+		let fullText = [];
+		if (this.report.newPokemon) {
+			this.report.newPokemon.forEach((x)=>{
+				//check if it is one of the MIA pokemon...
+				if (this.memory.miaPokemon[x.hash]) {
+					console.log(`FOUND POKEMON: ${x.name} (${x.species})!`)
+					delete this.memory.miaPokemon[x.hash];
+					return; // Skip!
+				}
+				
+				let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
+				exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
+				if (mon.pokerus) exInfo += `\nHas PokeRus`;
+				
+				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(x.gender)} Lv. ${x.level} ${x.species}](#info "${exInfo}")!**`+
+					` ${(!x.nicknamed)?"No nickname.":"Nickname: `"+x.name+"`"}${(x.storedIn)?" (Sent to Box #"+x.storedIn+")":""}`);
+			});
+		}
+		if (this.report.hatched) {
+			this.report.hatched.forEach((x)=>{
+				let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
+				exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
+				if (mon.pokerus) exInfo += `\nHas PokeRus`;
+				
+				fullText.push(`**The Egg hatched into a [${(mon.shiny?"shiny ":"")}${this.lowerCase(x.gender)} Lv. ${x.level} ${x.species}](#info "${exInfo}")!**`+
+					` ${(x.species===x.name)?"No nickname.":"Nickname: `"+x.name+"`"}`);
+			});
+		}
+		if (fullText.length) {
+			return fullText.join(' ');
+		}
+	},
+	function lostPokemon() {
+		if (this.report.lostPokemon) {
+			this.memory.miaPokemon = (this.memory.miaPokemon||{});
+			this.report.lostPokemon.forEach(x=>{
+				this.memory.miaPokemon[x.hash] = x;
+				console.log(`LOST POKEMON: ${x.name} (${x.species})!`);
+			});
+		}
+		if (this.memory.miaPokemon && this.report.mapChange) {
+			let missing = Object.keys(this.memory.miaPokemon);
+			if (!missing.length) return;
+			let names = [];
+			missing.forEach(x=>{
+				names.push(`${this.memory.miaPokemon[x].name} (${this.memory.miaPokemon[x].species})`);
+			});
+			delete this.memory.miaPokemon;
+			if (names.length > 1) names[names.length-1] = "and "+names[names.length-1];
+			return `**We may have released ${names.join(', ')}!!** (The API no longer reports ${names.length>1?"these":"this"} pokemon has present. Updater please confirm.)`;
+		}
+	},
+	
+	function partyUpdate() {
+		let fullText = [];
+		this.report.monChanges.forEach((progress)=>{
+			let mon = progress.mon;
+			let name = `${mon.name} (${progress.evolved?progress.evolved.from:mon.species}) `;
+			let text = [];
+			if (progress.levelup) text.push(`has grown to Level ${progress.levelup}`);
+			if (progress.evolved) text.push(`evolved into a ${progress.evolved.to}`);
+			if (progress.moveChanges) {
+				let ml = progress.moveChanges;
+				Object.keys(ml).forEach((m) => {
+					if (m.charAt(0) === "_") {
+						text.push(`learned ${ml[m]}`);
+					} else if (ml[m].charAt(0) === "_") {
+						text.push(`forgot ${m}`);
+					} else {
+						text.push(`learned ${ml[m]} over ${m}`);
+					}
+				});
+			}
+			if (text.length > 1) text[text.length-1] = "and "+text[text.length-1];
+			fullText.push(name + text.join(', ') + "!");
+		});
+		
+		if (!fullText.length) return;
+		return `**${fullText.join(' ')}**`;
+	},
+	function hpWatch() {
+		let fullText = [];
+		this.report.monChanges.forEach((x)=>{
+			if (x.fainted) fullText.push(`${x.mon.name} (${x.mon.species})`);
+		});
+		if (!fullText.length) return;
+		if (fullText.length > 1) fullText[fullText.length-1] = "and "+fullText[fullText.length-1];
+		return `**${fullText.join(', ')} ${fullText.length>1?"have":"has"} fainted!**`;
+	},
+	
+	
+	// Items
+	function heldItemWatch() {
+		let fullText = [];
+		this.report.monChanges.forEach(x=>{
+			if (!x.helditem) return; //skip
+			if (x.helditem.took && x.helditem.given) {
+				fullText.push(`We take ${correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}) and give ${x.mon.gender==='Female'?"her":"him"} a ${correctCase(x.helditem.given)} to hold.`);
+			} else if (x.took) {
+				fullText.push(`We take ${correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}).`);
+			} else if (x.given) {
+				fullText.push(`We give a ${correctCase(x.helditem.given)} to ${x.mon.name} (${x.mon.species}) to hold.`);
+			}
+			if (this.report.deltaItems) { // Adjust item deltas as they're accounted for here
+				let delta = this.report.deltaItems;
+				if (x.took && delta[x.took]) delta[x.took]--;
+				if (x.given && delta[x.given]) delta[x.given]++;
+			}
+		});
+		if (!fullText.length) return;
+		return `**${fullText.join(" ")}**`;
+	},
+	function itemVending() {
+		this.progressiveTickDown("vending");
+		if (!this.report.deltaItems) return;
+		if (!this.currInfo.location.within('vending', this.currInfo.position, 10)) return;
+		let fullText = [];
+		let delta = this.report.deltaItems;
+		
+		_vend('Fresh Water');
+		_vend('Soda Pop');
+		_vend('Lemonade');
+		
+		if (!fullText.length) return;
+		if (fullText.length > 1) fullText[fullText.length-1] = "and "+fullText[fullText.length-1];
+		return this.progressive("vending",
+			`**We buy ${fullText.join(", ")} from a nearby vending machine.**`
+			`We vend more items: **${fullText.join(", ")}**`,
+			`Still buying items from the vending machine: **${fullText.join(", ")}**`,
+			`Still vending: **${fullText.join(", ")}**`,
+			`♪ Vending, vending, vending... ♪ **${fullText.join(", ")}**`,
+			`♪ ...keep on keep on vending... ♫ **${fullText.join(", ")}**`,
+			`♪ ...vending, vending, vending... ♫ *AWAY!!*... **${fullText.join(", ")}**`,
+			`Vending: **${fullText.join(", ")}**`
+		);
+		
+		function _vend(item) {
+			if (!delta[item] || delta[item] <= 0) return;
+			fullText.push(`${delta[item]} ${correctCase(item)}`)
+			delete delta[item];
+		}
+	},
+	function escapeRopeCheck() {
+		if (!this.report.deltaItems || !this.report.mapChange) return;
+		if (this.report.deltaItems['Escape Rope'] < 0 && this.report.mapChange.movementType === 'dig') {
+			this.report.deltaItems['Escape Rope']++;
+			this.report.mapChange.movementType = 'escape';
+			// Report generated afterwards
+		}
+	},
+	function itemPickup() {
+		if (!this.report.deltaItems) return;
+		let delta = this.report.deltaItems;
+		if (Object.keys(delta).length === 0) return;
+		if (Object.keys(delta).length === 1) {
+			let item = Object.keys(delta)[0];
+			let amount = delta[item];
+			item = correctCase(item);
+			if (amount === 0) return;
+			if (amount > 0) {
+				if (this.currInfo.location.has('shopping')) {
+					return `**Bought ${amount} ${item}(s)!**`;
+				} else {
+					return `**Acquired ${amount} ${item}(s)!**`;
+				}
+				return;
+			} else {
+				if (this.currInfo.location.has('shopping')) {
+					return `**Sold ${-amount} ${item}(s)!**`;
+				} else {
+					// return `Used/tossed ${-amount} ${item}(s)!`;
+				}
+				return;
+			}
+		} else {
+			let buy = [], sell = [];
+			Object.keys(delta).forEach((item, index)=>{
+				let itemName = correctCase(item);
+				let amount = delta[item];
+				if (amount === 0) return; //Continue
+				if (amount > 0 )
+					buy.push(`${amount} ${itemName}`);
+				else
+					sell.push(`${amount} ${itemName}`);
+			});
+			if (!buy.length && !sell.length) return;
+			if (buy.length > 1) buy[buy.length-1] = "and "+buy[buy.length-1];
+			if (sell.length > 1) sell[sell.length-1] = "and "+sell[sell.length-1];
+			
+			if (this.currInfo.location.has('shopping')) {
+				if (buy.length) buy = rand(`We buy ${buy.join(', ')}.`);
+				if (sell.length) sell = rand(`We sell ${sell.join(', ')}.`);
+			} else {
+				if (buy.length) buy = rand(`We aquire ${buy.join(', ')}.`);
+				if (sell.length) sell = rand(`We toss ${sell.join(', ')}.`);
+			}
+			return `**${[buy, sell].join(' ')}**`;
+		}
+	},
+	
+	
+	// E4 and Gym watches
+	function blackoutHeal() {
+		let texts = [];
+		if (this.report.blackout) {
+			this.progressiveTickDown('playbyplay');
+			texts.push('**BLACKED OUT!**');
+			if (this.memory.inE4Run) {
+				this.memory.inE4Run = false;
+				texts.push(`rip E4 Attempt #${this.memory.e4Attempt}.`);
+			}
+		}
+		if (this.report.healed) {
+			texts.push(`**We heal**`);
+			switch(this.report.healed) {
+				case 'atCenter': texts.push(`at a Poké Center.`); break;
+				case 'doctor': texts.push(`thanks to a helpful doctor!`); break;
+				case 'nurse': texts.push(`thanks to a helpful nurse!`); break;
+				case 'house': texts.push(`at a heal house!`); break;
+			}
+		}
+		return texts.join(' ');
+	},
+	function gymWatch() {
+		let texts = [];
+		if (this.report.gymFight && !this.memory.inGymFight) {
+			if (!this.memory.gymAttempts) this.memory.gymAttempts = {};
+			let leader = this.report.gymFight;
+			let attempt = this.memory.gymAttempts[leader] = (this.memory.gymAttempts[leader]||0)+1;
+			let warn = this.progressive('playbyplay', ` (I can't do a play-by-play, sorry...)`, '');
+			
+			texts.push(`**Vs ${leader}!** Attempt #${attempt}!${warn}`);
+			this.alertUpdaters(`We're facing off against ${leader}! I can't play-by-play! Halp!`);
+			this.memory.inGymFight = leader;
+		}
+		if (this.memory.inGymFight && this.report.gymFight !== this.memory.inGymFight) {
+			let leader = this.memory.inGymFight;
+			this.memory.inGymFight = false;
+			if (!this.report.mapChange) { // We didn't change maps, we must have won!
+				texts.push(`**Defeated ${leader}!**`);
+			}
+		}
+		if (this.report.badgeGet) {
+			texts.push(`**Got the ${this.report.badgeGet} Badge!**`);
+		}
+		return texts.join(' ');
+	},
+	function e4Watch() {
+		if (!this.report.e4) return;
+		let texts = [];
+		let info = this.report.e4;
+		if (info === 'runStarted' && !this.memory.inE4Run) {
+			this.memory.inE4Run = true;
+			this.memory.e4Attempt = (this.memory.e4Attempt || 0) + 1;
+			texts.push(this.rand(
+				`**We're locked into the E4 for Attempt #${this.memory.e4Attempt}!**`,
+				`**We're in for E4 Attempt #${this.memory.e4Attempt}!**`,
+				`**Welcome back to the E4! Attempt #${this.memory.e4Attempt}!**`,
+				`**Hello, Elite Four! Attempt #${this.memory.e4Attempt}!**`,
+				`**The door slams shut behind us! E4 Attempt #${this.memory.e4Attempt}!**`
+			));
+			
+			let warn = this.progressive('playbyplay', ` (Unfortunately, I am incapable of doing a play-by-play of this action. The stream API does not supply me with battle data.)`, '');
+			if (warn) texts.push(warn);
+		}
+		if (this.memory.inE4Run) {
+			if (this.report.e4Fight && !this.memory.inE4Fight) {
+				let leader = this.report.e4Fight;
+				texts.push(`**Vs ${leader}!**`);
+				this.memory.inE4Fight = leader;
+			}
+			if (this.memory.inE4Fight && this.report.e4Fight !== this.memory.inE4Fight) {
+				let leader = this.memory.inE4Fight;
+				this.memory.inE4Fight = false;
+				if (!this.report.mapChange) { // We didn't change maps, we must have won!
+					texts.push(`**Defeated ${leader}!**`);
+				}
+			}
+			if (info === 'championReach') {
+				this.memory.champAttempt = (this.memory.champAttempt || 0) + 1;
+				texts.push(`**WE'RE HEADING TO THE CHAMPION!!** Champion attempt #${this.memory.champAttempt} incoming!!`);
+			}
+			if (info === 'hallOfFame') {
+				texts.push(`**We enter the HALL OF FAME!** ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`);
+				delete this.memory.champAttempt;
+				delete this.memory.e4Attempt;
+				delete this.memory.inE4Run;
+			}
+		}
+		return texts.join(' ');
+	}
 	
 	// Location changes
 	function mapChange() { // Last
@@ -111,19 +688,18 @@ let collators = [
 				return this.randA(o);
 			}
 			case 'escape': {
-				let o;
-				if (false) {//TODO if we are delta down one escape rope...
-					o = [
-						`**We use an Escape Rope!** Back ${onto.slice(0,2)} ${the}${area}!`,
-						`**We escape rope back to the surface!** ${area}.`,
-					];
-				} else {
-					o = [
-						`**We dig out!** Back ${onto.slice(0,2)} ${the}${area}!`,
-						`**We dig out of here!** ${area}.`,
-						`**We dig our way back to ${the}${area}!**`,
-					];
-				}
+				let o = [
+					`**We use an Escape Rope!** Back ${onto.slice(0,2)} ${the}${area}!`,
+					`**We escape rope back to the surface!** ${area}.`,
+				];
+				return this.randA(o);
+			}
+			case 'dig': {
+				let o = [
+					`**We dig out!** Back ${onto.slice(0,2)} ${the}${area}!`,
+					`**We dig out of here!** ${area}.`,
+					`**We dig our way back to ${the}${area}!**`,
+				];
 				return this.randA(o);
 			}
 			default: {
@@ -138,69 +714,3 @@ let collators = [
 		}
 	},
 ];
-
-
-class Reporter {
-	constructor(memoryBank={}, currInfo=null) {
-		this.pastInfo = {};
-		this.prevInfo = null;
-		this.currInfo = currInfo;
-		
-		// Defines information that needs to be kept long-term (over restarts).
-		this.memory = memoryBank;
-		
-		// Defines various information that should be kept short term
-		this.pmem = {}; // Progressive text responses memory
-		this.prevLocs = [null, null, null, null, null]; // Previous location queue
-		this.prevAreas = [null, null, null]; // Previous top-level areas
-		this.checkpoint = null;
-		
-		// Defined variables used for collecting reportable information
-		this.report = {};
-		this.collatedInfo = null;
-	}
-	
-	/** Takes the passed current API data and compares it to the stored previous API data.
-	 *  Generates a report, which is put together with a call to collate(). */
-	discover(currInfo) {
-		this.prevInfo = this.currInfo;
-		this.currInfo = currInfo;
-		if (!this.prevInfo) return; // Can't do anything with nothing to compare to
-		
-		// Step 1, find map changes
-		discoveries.forEach(fn=>{
-			fn.call(this, this.prevInfo, this.currInfo, this.report);
-		});
-	}
-	
-	collate() {
-		let texts = [];
-		
-		//TODO report newly aquired pokemon (report extended information in hover text)
-		if (false) { //TODO aquired pokemon loop
-			let mon = {}; //TODO pokemon
-			let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
-			exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
-			if (mon.pokerus) exInfo += `\nHas PokeRus`;
-			
-			let announcement = `**Caught a [${(mon.shiny?"shiny ":"")}${lowerCase(x.gender)} Lv. ${x.level} ${x.species}](#info "${exInfo}")!**`+
-				` ${(!x.nicknamed)?"No nickname.":"Nickname: `"+x.name+"`"}${(x.storedIn)?" (Sent to Box #"+x.storedIn+")":""}`;
-		}
-		/*
-**Caught a [male Lv. 24 Torterra](#info "Grass/Ground | Item: None | Ability: Sticky Hold | Nature: Lax, Hates to lose
-Caught In: Pokeball | Moves: ThunderPunch, Entrainment, Sacred Sword, Synthesis
-Has PokeRus")!** No nickname. (Sent to Box #1)
-		*/
-		
-		//TODO
-	}
-}
-
-
-/** Compares two arrays to see if everything from arr1 is accounted for in arr2, and returns the difference. */
-function differenceBetween(arr1, arr2, hashFn) {
-	if (!Array.isArray(arr1) || !Array.isArray(arr2)) throw new TypeError('Pass arrays!');
-	let hash2 = {};
-	arr2.forEach(x=> hash2[hashFn(x)] = true);
-	return arr1.filter(a=> !hash2[hashFn(a)] );
-}

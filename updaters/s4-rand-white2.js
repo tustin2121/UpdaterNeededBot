@@ -51,6 +51,17 @@ module.exports = {
 				});
 			});
 		}
+		sorted.in_battle = data.in_battle;
+		sorted.badges = {
+			Basic:	!!(data.badges & (0x1 << 0)),
+			Toxic:	!!(data.badges & (0x1 << 1)),
+			Insect:	!!(data.badges & (0x1 << 2)),
+			Bolt:	!!(data.badges & (0x1 << 3)),
+			Quake:	!!(data.badges & (0x1 << 4)),
+			Jet:	!!(data.badges & (0x1 << 5)),
+			Legend:	!!(data.badges & (0x1 << 6)),
+			Wave:	!!(data.badges & (0x1 << 7)),
+		};
 		
 		return sorted;
 		function normalizePokemon(minfo) {

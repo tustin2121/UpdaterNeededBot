@@ -11,9 +11,9 @@ const {
 // Defaults for this particular region
 const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 	if (!Array.isArray(mapids)) mapids = [mapids];
-	let me = new Node({ name:"Pokemon Center", mapids, attrs:Object.assign({
+	let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
 		"indoors": true,
-		"healing": true,
+		"healing": "pokecenter"
 		"shopping": true,
 		announce, the,
 	}, attrs), locOf:Object.assign({
@@ -100,9 +100,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 						name: "Aspertia Pokémon Gym",
 						leader: "Cheren",
 						badge: "Basic",
-						locOf: {
-							leader: "", //TODO
-						}
+						locOf: { leader: "15,2", }
 					}),
 				],
 			}),
@@ -144,6 +142,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				name: "Virbank City Gym",
 				leader: "Roxie",
 				badge: "Toxic",
+				locOf: { leader: id(176,448,120), }
 			}),
 			House(id(179,448,358), {
 				name: "Virbank Daycare",
@@ -253,9 +252,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 						name: "Castelia City Gym",
 						leader: "Burgh",
 						badge: "Insect",
-						locOf: {
-							leader: id(30,28,274),
-						}
+						locOf: { leader: id(30,28,274), }
 					}),
 				],
 			}),
@@ -378,7 +375,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	Route(3, id(477,321), {
 		buildings: [
 			House(id(479,321,28),{
-				name: "Pokemon Daycare",
+				name: "Pokémon Daycare",
 				locOf: { "pc":"9,9" },
 			}),
 			House(id(478,321,53), { attrs:{ "healing":"house", }}), // People Daycare
@@ -421,7 +418,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	}),
 	Town("Nuvema Town", id(566,389), {
 		buildings: [
-			House(id(573,389,42), { name:"Juniper Pokemon Lab" }),
+			House(id(573,389,42), { name:"Juniper Pokémon Lab" }),
 			House([id(567,389,39),id(568,389,40)], { name:"Previous Protagonist's House", attrs: {"healing":"house"} }),
 			House([id(569,389,37),id(570,389,38)]),
 			House([id(571,389,35),id(572,389,36)]),
@@ -578,9 +575,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 						name: "Nimbasa City Gym",
 						leader: "Elesa",
 						badge: "Bolt",
-						locOf: {
-							"leader": "15,6",
-						}
+						locOf: { "leader": "15,6", }
 					}),
 				],
 			}),
@@ -610,9 +605,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				name: "Driftveil City Gym",
 				leader: "Clay",
 				badge: "Quake",
-				locOf: {
-					"leader": "", //TODO
-				}
+				locOf: { leader: "46,19", }
 			}),
 		],
 		connections: [ "Driftveil Drawbridge", "Clay Tunnel", 6 ],
@@ -622,7 +615,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	}),
 	Area("PWT Plaza", id(240,191), {
 		buildings: [
-			Building("Pokemon World Tournament", {
+			Building("Pokémon World Tournament", {
 				floors: [
 					Floor(id(241,191,265), {
 						locOf: {
@@ -631,7 +624,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 						}
 					}), // Main entrance
 					Floor(id(242,191,266), {
-						announce: "**We've entered the Pokemon World Tournament's Arena! Time to battle!**"
+						announce: "**We've entered the Pokémon World Tournament's Arena! Time to battle!**"
 					})
 				],
 			})
@@ -694,9 +687,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				name: "Mistralton City Gym",
 				leader: "Skyla",
 				badge: "Jet",
-				locOf: {
-					leader: "", //TODO find location again
-				}
+				locOf: { leader: "11,3", }
 			}),
 			House(id(124,107,63), { name: "Mistralton Cargo Service", }), // Plane
 			House(id(125,107,46)),
@@ -768,12 +759,10 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			House(id(129,113,46)),
 			House(id(130,113,44), { announce: `We're in the quiz house! We're pounced on and force to answer a "Pep Quiz"!`, }),
 			House(id(131,113,46)), // Unreachable other than Winter
-			House(id(132,113,359), { name: "Pokemon Fan Club", }),
-			Gym(id(127,113,64), {
+			House(id(132,113,359), { name: "Pokémon Fan Club", }),
+			House(id(127,113,64), {
 				name: "Former Icirrus City Gym", // Memory Link here
-				locOf: {
-					"leader": "17,14",
-				}
+				locOf: { leader: "17,14", }
 			}),
 		],
 		connections: [ id(251,198,96), id(255,205), 8 ], // Twist, Dragonspiral
@@ -849,9 +838,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				name: "Opelucid City Gym",
 				leader: "Dryden",
 				badge: "Legend",
-				locOf: {
-					"leader": "15,18", //15,57,18
-				},
+				locOf: { "leader": "15,18,57", },
 			}),
 			House([id(140,120,68),id(141,120,161)]),
 			House([id(147,120,68),id(148,120,161)]),
@@ -982,9 +969,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				name: "Humilau City Gym",
 				leader: "Marlon",
 				badge: "Wave",
-				locOf: {
-					"leader": "16,5",
-				}
+				locOf: { leader: "16,5", }
 			}),
 			House(id(191,465,272), {
 				name:"Marine Tube",
@@ -1101,7 +1086,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		},
 		buildings: [
 			House(id(550,381,140), {
-				name:"Pokemon Transfer Lab",
+				name:"Pokémon Transfer Lab",
 				locOf: {
 					"pc":"7,8",
 				},
@@ -1199,7 +1184,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			Floor(id(426,264,212)),
 		],
 	}),
-	Area("Pokemon League", id(149,136,87), {
+	Area("Pokémon League", id(149,136,87), {
 		locOf: { "flySpot":"19,49" },
 		attrs: { "e4":"lobby", },
 		buildings: [
@@ -1303,7 +1288,7 @@ Unova.addNode(...[
 		name: "Load Screen",
 	}),
 	Cutscene(id(548,3783), {
-		announce: "We start a new game! Welcome to the world of Pokemon!",
+		announce: "We start a new game! Welcome to the world of Pokémon!",
 	})
 ]);
 
