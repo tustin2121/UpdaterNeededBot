@@ -277,28 +277,28 @@ let collators = [
 	
 	// Location changes
 	function mapChange() { // Last
-		if (!this.memory.lastArea) {
-			this.memory.lastArea = this.memory.location.getArea();
-		}
-		
+		// if (!this.memory.lastArea) {
+		// 	this.memory.lastArea = this.memory.location.getArea();
+		// }
+		//
 		if (!this.reports['mapchange']) return;
-		if (this.currInfo.location.has('announce')) {
-			return this.currInfo.location.has('announce');
-		}
-		
-		let area = this.currInfo.location.getArea();
-		let lastArea = this.memory.lastArea;
-		
-		if ()
-		
-		this.memory.lastArea = area;
-		
-		
-		
-		if (loc.is('inTown')) {
-			return
-		}
-		
+		// if (this.currInfo.location.has('announce')) {
+		// 	return this.currInfo.location.has('announce');
+		// }
+		//
+		// let area = this.currInfo.location.getArea();
+		// let lastArea = this.memory.lastArea;
+		//
+		// if ()
+		//
+		// this.memory.lastArea = area;
+		//
+		//
+		//
+		// if (loc.is('inTown')) {
+		// 	return
+		// }
+		//
 		
 		let loc = correctCase(this.reports['mapchange'][0].display);
 		return rand(`In ${loc}.`, `Arrived in ${loc}.`, `We walk into ${loc}.`, `${loc}.`, `Welcome to ${loc}.`);

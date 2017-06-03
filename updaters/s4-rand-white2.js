@@ -6,7 +6,7 @@ global.game = "White2";
 module.exports = {
 	// The Reddit Live Updater ID to post to
 	// liveID : "",
-	liveID : "yz50xbel2xyj",
+	liveID : "z18ujd1blvg3",
 	// Unix timestamp since when the run started
 	runStart : 1496523600,
 	
@@ -14,6 +14,8 @@ module.exports = {
 	infoSource : "https://twitchplayspokemon.tv/api/run_status",
 	// The amount of wait time between polling the infoSource for new information
 	infoUpdateDelay : 1000 * 20, //15 seconds
+	
+	region: './maps/unova2',
 	
 	// The function which parses the data into a normalized format
 	infoParse : function(data) {
@@ -27,7 +29,7 @@ module.exports = {
 		{ // Parse out location data to a standard display format:
 			const Unova = require('./maps/unova2');
 			sorted.location = Unova.find(data.map_id);
-			sorted.position = `${data.x},${data.y}`;
+			sorted.position = `${data.x},${data.z},${data.y}`;
 		}
 		{ // Collate pokemon together
 			sorted.allmon = [];

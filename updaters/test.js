@@ -3,7 +3,8 @@
 
 module.exports = {
 	// The Reddit Live Updater ID to post to
-	liveID : "ysqpsvyo0yjv", 
+	// liveID : "ysqpsvyo0yjv",
+	liveID : "z18x8cl311q8",
 	// Unix timestamp since when the run started
 	runStart : 1491685200,
 	

@@ -56,16 +56,66 @@ dbot.on('disconnect', (evt)=>{
 dbot.on('message', (msg)=>{
 	if (msg.author.id === dbot.user.id) return; //Don't rspond to own message
 	console.log('Discord Message:',msg.content);
-	switch (require('./discordcmd.js')(msg, memoryBank)) {
+	let [ type, ...args ] = require('./discordcmd.js')(msg, memoryBank);
+	switch (type) {
 		case 'tagin':
 			taggedIn = true;
 			msg.channel.send(`On it.`).catch((e)=>console.error('Discord Error:',e));
+			// postUpdate(`[Bot-Meta] Tagged in at ${getTimestamp()}.`, TEST_UPDATER.liveID);
 			break;
 		case 'tagout':
+			if (taggedIn) {
+				msg.channel.send(`Stopping.`).catch((e)=>console.error('Discord Error:',e));
+			}
 			taggedIn = false;
+			// postUpdate(`[Bot-Meta] Tagged out at ${getTimestamp()}.`, TEST_UPDATER.liveID);
+			break;
+		case 'reload':
+			let mod = args[0];
+			if (mod === 'region') mod = UPDATER.region;
+			if (__reloadFile(mod)) {
+				msg.channel.send(`Module '${mod}' reloaded.`).catch(e=>console.error('Discord Error:',e));
+			} else {
+				msg.channel.send(`Error reloading module '${mod}'!`).catch(e=>console.error('Discord Error:',e));
+			}
+			break;
+		case 'helpout-help':
+			msg.channel.send(`If you want me to help, tell me what you want me to do, and I'll post those updates to the updater myself.\n\n`
+				+ `I can give [Info] about **catch**es, I can list [Info] about our **shopping** results, I can announce **item pickups**, I can announce **level ups**, and I can announce **move learns**.`)
+				.catch((e)=>console.error('Discord Error:',e));
+			break;
+		case 'helpout':
+			taggedIn = args[0];
+			let help = [];
+			if (help['catches']) help.push('give info about our catches');
+			if (help['shopping']) help.push('list our shopping results');
+			if (help['items']) help.push('announce item aquisitions');
+			if (help['level']) help.push('announce level ups');
+			if (help['moves']) help.push('announce move learns');
+			if (help.length > 1) help[help.length-2] = "and "+help[help.length-2];
+			
+			msg.channel.send(`Ok, I'll ${help.join(', ')}. Don't hesistate to delete my updates if they get in the way.`).catch((e)=>console.error('Discord Error:',e));
+			// The [Lvl 5 male Oddish] we caught [was nicknamed `X` and was|didn't get a nickname before being] sent to Box #5.
+			// The [Lvl 10 female Rattata] we caught [was nicknamed `X`|didn't get a nickname].
+			break;
 	}
 });
 dbot.login(auth.discord.token);
+
+function __reloadFile(modulename) {
+	let path = require.resolve(modulename);
+	let _oldmodule = require.cache[path];
+	delete require.cache[path];
+	try {
+		require(modulename);
+	} catch (e) {
+		console.error(e);
+		console.log("Failed to reload module! Attempting to revert!");
+		require.cache[path] = _oldmodule;
+		return false;
+	}
+	return true;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -159,28 +209,43 @@ function refreshInfo() {
 		if (update) {
 			let ts = getTimestamp();
 			console.log('UPDATE:', `${ts} [Bot] ${update}`);
+			postUpdate(`${ts} [Bot] ${update}`, TEST_UPDATER.liveID);
 			
-			let liveID = (taggedIn)?UPDATER.liveID:TEST_UPDATER.liveID; //Live or test updater
-			
-			let p;
-			if (access.timeout < Date.now()) {
-				let token = fs.readFileSync(__dirname+"/refresh.token", {encoding:'utf8'});
-				p = reddit.getOAuth(token, auth.reddit).then((data)=>{
-					access.token = data.access_token;
-					access.timeout = Date.now() + (data.expires_in * 1000);
-					return access.token;
-				});
-			} else {
-				p = Promise.resolve(access.token);
+			if (taggedIn === true) {
+				// Fully tagged in
+				postUpdate(`${ts} [Bot] ${update}`, UPDATER.liveID);
+			} else if (taggedIn) {
+				// Partially tagged in, helping out with things
+				update = reporter.collate(taggedIn); // Retrieve new partial update
+				postUpdate(`[Info] [Bot] ${update}`, UPDATER.liveID);
 			}
-			p.then((token)=>{
-				return reddit.postUpdate(`${ts} [Bot] ${update}`, { access_token:token, liveID });
-			});
+			
+			// let liveID = (taggedIn)?UPDATER.liveID:TEST_UPDATER.liveID; //Live or test updater
+			
+			postUpdate(update, liveID);
 		} else {
 			console.log('Reporter found no update.');
 		}
 	}).catch((e)=>{
 		console.error("Error in Main:",e);
+	});
+}
+
+function postUpdate(update, liveID) {
+	if (!update || !liveID) throw new ReferenceError('Must supply update text and live updater id to send it to!');
+	let p;
+	if (access.timeout < Date.now()) {
+		let token = fs.readFileSync(__dirname+"/refresh.token", {encoding:'utf8'});
+		p = reddit.getOAuth(token, auth.reddit).then((data)=>{
+			access.token = data.access_token;
+			access.timeout = Date.now() + (data.expires_in * 1000);
+			return access.token;
+		});
+	} else {
+		p = Promise.resolve(access.token);
+	}
+	return p.then((token)=>{
+		return reddit.postUpdate(update, { access_token:token, liveID });
 	});
 }
 
