@@ -241,6 +241,7 @@ class Node {
 		if (other === this) return 0; // No steps if same node
 		
 		// First find via connnections, moving from other node to this node
+		/* // This way lies infinite loops
 		let nextNodes = []; // processing queue, bredth first search
 		let processed = [];
 		nextNodes.push(...other.connections.map(x=>{ return {n:x, s:1}; }));
@@ -254,6 +255,10 @@ class Node {
 			);
 		}
 		processed.length = 0;
+		*/
+		for (let n of other.connections) {
+			if (n === this) return 1;
+		}
 		
 		// If no connections, perform lowest common ancestor search
 		let an = this, bn = other;
@@ -280,7 +285,7 @@ class Node {
 	getArea() {
 		let p = this;
 		while (p && p.parent && p.parent !== this.region.topNode) {
-			if (p.attr['noteworthy']) break;
+			if (p.attsr['noteworthy']) break;
 			p = p.parent;
 		}
 		return p;
