@@ -180,8 +180,9 @@ class Node {
 	}
 	
 	getName() {
-		if (!this.name) return this.parent.getName();
-		return this.name;
+		if (this.name) return this.name;
+		if (this.parent) return this.parent.getName();
+		return "...someplace I don't know about...";
 	}
 	
 	/** Test if this node (or its parents) has the given attribute. */
