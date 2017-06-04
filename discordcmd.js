@@ -43,5 +43,6 @@ function parseCmd(cmd) {
 		if (!Object.keys(things).length) return ['helpout-help'];
 		return ['helpout', things];
 	}
+	return [''];
 }
 

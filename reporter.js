@@ -24,6 +24,22 @@ class Reporter {
 		this.collatedInfo = null;
 	}
 	
+	clone(other) {
+		this.pastInfo = other.pastInfo;
+		this.prevInfo = other.prevInfo;
+		this.currInfo = other.currInfo;
+		
+		this.memory = other.memory;
+		
+		this.pmem = other.pmem;
+		this.prevLocs = other.prevLocs;
+		this.prevAreas = other.prevAreas;
+		this.checkpoint = other.checkpoint;
+		
+		this.report = other.report;
+		this.collatedInfo = other.collatedInfo;
+	}
+	
 	
 	///////////////////// Helper Functions /////////////////////
 	
@@ -105,6 +121,7 @@ function differenceBetween(arr1, arr2, hashFn) {
 
 discoveries = [
 	function mapChange(prev, curr, report) {
+		console.log(require('util').inspect(curr.location, { depth: 1 }));
 		if (prev.location === curr.location) return; // No map change
 		report.mapChange = {}; // Submit a report on the map change
 		let steps = report.mapChange.steps = curr.location.getStepsTo(prev.location);
@@ -120,7 +137,13 @@ discoveries = [
 			}
 		} else if (steps > 5) {
 			// Swift momvement beyond connections
-			if (curr.location.within('flySpot', curr.position)) {
+			if (!prev.location.is('entralink') && curr.location.is('entralink')) {
+				report.mapChange.movementType = 'entralink-in';
+			}
+			if (prev.location.is("entralink") && !curr.location.is('entralink')) {
+				report.mapChange.movementType = 'entralink-out';
+			}
+			else if (curr.location.within('flySpot', curr.position)) {
 				report.mapChange.movementType = 'fly';
 			}
 			// TODO check if we're in the pokemon center above these flySpots
@@ -230,7 +253,6 @@ discoveries = [
 		}
 	},
 	function gymWatch(prev, curr, report) {
-		console.log(curr.location);
 		if (curr.location.is('gym')) {
 			console.log(`IN GYM: in_battle=${curr.in_battle} pos=${curr.position} near=${curr.location.within('leader', curr.position, 2)}`)
 			if (curr.in_battle && curr.location.within('leader', curr.position, 2)) {
@@ -544,7 +566,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				if (buy.length) buy = this.rand(`We aquire ${buy.join(', ')}.`);
 				if (sell.length) sell = this.rand(`We toss ${sell.join(', ')}.`);
 			}
-			return `**${[buy, sell].join(' ')}**`;
+			return `**${[buy, sell].join(' ').trim()}**`;
 		}
 	},
 	
@@ -708,6 +730,26 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 					`**We dig out!** Back ${onto.slice(0,2)} ${the}${area}!`,
 					`**We dig out of here!** ${area}.`,
 					`**We dig our way back to ${the}${area}!**`,
+				];
+				return this.randA(o);
+			}
+			case 'entralink-in': {
+				let o = [
+					`And we dive back into the Entralink...!`,
+					`And back we go, to the Entralink...!`,
+					`And back into the Entralink we go... weeee!!`,
+					`And we tap our watch and suddenly we are next to the Entralink tree...`,
+					`And, suddenly, Entralink...`,
+					`We check on the status of our Entralink tree...`,
+				];
+				return this.randA(o);
+			}
+			case 'entralink-out': {
+				let o = [
+					`We escape the Entralink again... ${area}`,
+					`We pop back out of the virtual world... Welcome to ${the}${area}`,
+					`We leave our ~~WOW~~ Entralink character behind and return to ${the}${area}`,
+					`We escape the grasp of the Entralink again... ${area}`,
 				];
 				return this.randA(o);
 			}

@@ -1256,6 +1256,7 @@ Unova.addNode(...[
 	}),
 	
 	Area("Entralink", id(435,279,117), {
+		attrs: { "entralink":true, },
 		the: true,
 		zones: [
 			Area("Entree Forest", [
@@ -1266,9 +1267,9 @@ Unova.addNode(...[
 				id(441,279,232),
 				id(443,279,234),
 				id(444,279,235),
-			])
+			]),
 		],
-		announce: "And we dive into the Entralink...!",
+		// announce: "And we dive into the Entralink...!",
 	}),
 	Area("Union Room", id(609,422,88)), // Connection from any Pokecenter
 	

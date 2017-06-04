@@ -23,6 +23,7 @@ class Region {
 			"e4": false,		//If the location is part of the E4 [false|lobby|e4|champion|hallOfFame] (run counting)
 			"dungeon": false,	//If the location is a cave or dungeon
 			"legendary": false, //If the location is home to a legendary pokemon, name of it
+			"entralink": false,
 			
 			"noteworthy":false,	//If the location is worthy of noting upon arrival
 			"announce":null,	//An announcement about this map, implies noteworthiness.
@@ -188,6 +189,7 @@ class Node {
 	/** Test if this node (or its parents) has the given attribute. */
 	is(attr) {
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		if (attr in {noteworthy:1, announce:1}) return false;
 		if (this.parent) return this.parent.is(attr);
 		return undefined;
 	}
@@ -216,16 +218,17 @@ class Node {
 				let [ bx, by ] = b.split(',');
 				ax = Number(ax); ay = Number(ay);
 				bx = Number(bx); by = Number(by);
-				
+				console.log(`_wi (ax=${ax},ay=${ay})(bx=${bx},by=${by})dist=${dist}`);
+				console.log(`(ax - dist < bx && bx < ax + dist) = (${ax - dist < bx} && ${bx < ax + dist})`);
+				console.log(`(ay - dist < by && by < ay + dist) = (${ay - dist < by} && ${by < ay + dist})`);
 				if (ax - dist < bx && bx < ax + dist) {
 					if (ay - dist < by && by < ay + dist) {
 						return true;
 					}
 				}
+				return false;
 			} catch (e) {
 				console.log('Error calculating within!', e);
-			} finally {
-				return false;
 			}
 		}
 	}
@@ -291,7 +294,7 @@ class Node {
 	getArea() {
 		let p = this;
 		while (p && p.parent && p.parent !== this.region.topNode) {
-			if (p.attsr['noteworthy']) break;
+			if (p.attrs['noteworthy']) break;
 			p = p.parent;
 		}
 		return p;
@@ -432,7 +435,7 @@ module.exports = {
 	/** Common Pokecenter */
 	Gym : function(mapids, { name, leader, badge, the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
-		let me = new Node({ mapids, attrs:Object.assign({
+		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
 			"gym": true,
 			"noteworthy": true,
