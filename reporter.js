@@ -230,7 +230,9 @@ discoveries = [
 		}
 	},
 	function gymWatch(prev, curr, report) {
+		console.log(curr.location);
 		if (curr.location.is('gym')) {
+			console.log(`IN GYM: in_battle=${curr.in_battle} pos=${curr.position} near=${curr.location.within('leader', curr.position, 2)}`)
 			if (curr.in_battle && curr.location.within('leader', curr.position, 2)) {
 				let leader = curr.location.get('leader');
 				report.gymFight = leader;
@@ -407,8 +409,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			let text = [];
 			if (progress.levelup) text.push(`has grown to Level ${progress.levelup}`);
 			if (progress.evolved) text.push(`evolved into a ${progress.evolved.to}`);
-			if (progress.moveChanges) {
-				let ml = progress.moveChanges;
+			if (progress.movelearn) {
+				let ml = progress.movelearn;
 				Object.keys(ml).forEach((m) => {
 					if (m.charAt(0) === "_") {
 						text.push(`learned ${ml[m]}`);
@@ -529,7 +531,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				if (amount > 0 )
 					buy.push(`${amount} ${itemName}`);
 				else
-					sell.push(`${amount} ${itemName}`);
+					sell.push(`${-amount} ${itemName}`);
 			});
 			if (!buy.length && !sell.length) return;
 			if (buy.length > 1) buy[buy.length-1] = "and "+buy[buy.length-1];
