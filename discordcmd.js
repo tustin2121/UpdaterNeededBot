@@ -1,6 +1,8 @@
 // discordcmd.js
 //
 
+const MY_MENTION_ID = '<@303732710185369601>';
+
 module.exports = function(msg, memory) {
 	if (msg.content === '_tags UpdaterNeeded_') {
 		return ['tagin'];
@@ -13,21 +15,23 @@ module.exports = function(msg, memory) {
 	if (res) return parseCmd(res[1]);
 	
 	if (msg.mentions.users.some(x=> x.id===msg.client.user.id)) {
-		if (msg.content.trim() === '') {
+		if (!msg.content.startsWith(MY_MENTION_ID)) return ['']; //ignore
+		let txt = msg.content.replace(MY_MENTION_ID, '').trim();
+		if (txt === '') {
 			return ['tagin'];
 		} else {
-			return parseCmd(msg.content);
+			return parseCmd(txt);
 		}
 	}
-	
 	return [''];
 };
 
 function parseCmd(cmd) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
-	if (/tag ?in|start/i.test(cmd)) return ['tagin'];
-	if (/tag ?out|stop/i.test(cmd)) return ['tagout'];
+	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
+	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
+	if (/^(post|update|show) (team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];
 	let res;
 	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {

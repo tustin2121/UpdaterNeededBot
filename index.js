@@ -16,6 +16,7 @@ const UPDATER = require('./updaters/s4-rand-white2.js');
 const TEST_UPDATER = require('./updaters/test.js');
 
 const PING_COOLDOWN = 1000*60*60; // 1 hour
+const REQ_COOLDOWN = 1000*30; // 30 seconds
 
 // const { discover } = require("./discovery.js");
 // const Reporter = require("./report.js");
@@ -35,6 +36,7 @@ let reporter = new Reporter(memoryBank);
 
 let staffChannel = null;
 let dLastPing = 0;
+let dLastReq = 0;
 let dbot = new discord.Client({
 	disabledEvents: [ //Events we completely ignore entirely
 		// 'GUILD_CREATE',
@@ -76,6 +78,26 @@ dbot.on('message', (msg)=>{
 			}
 			taggedIn = false;
 			// postUpdate(`[Bot-Meta] Tagged out at ${getTimestamp()}.`, TEST_UPDATER.liveID);
+			break;
+		case 'reqUpdate':
+			console.log(`${dLastReq + REQ_COOLDOWN} < ${Date.now()}`, dLastReq + REQ_COOLDOWN < Date.now());
+			if (dLastReq + REQ_COOLDOWN < Date.now()) {
+				msg.channel.send(`You requested another update too quickly. Cooldown is 30 seconds due to API rate limits.`).catch((e)=>console.error('Discord Error:',e));
+				break;
+			}
+			dLastReq = Date.now();
+			let update;
+			switch (args[0]) {
+				case 'team': 
+					update = reporter.generateUpdate('team');
+					if (update) {
+						msg.channel.send(`Posting [Info] update with team information to the updater.`).catch((e)=>console.error('Discord Error:',e));
+						postUpdate(update, UPDATER.liveID);
+					} else {
+						msg.channel.send(`Unable to collate team info at this time.`).catch((e)=>console.error('Discord Error:',e));
+					}
+					break;
+			}
 			break;
 		case 'reload':
 			let mod = args[0];

@@ -77,7 +77,34 @@ class Reporter {
 	
 	alertUpdaters(text) {} //Must be overridden
 	
-	///////////////////// Public Functions /////////////////////
+	generateExtendedInfo(mon, includeStats=false) {
+		if (mon.species === 'Egg') {
+			return 'Egg';
+		}
+		
+		let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
+		exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
+		
+		if (includeStats && mon.stats) {
+			let stats = [];
+			stats.push(`HP: ${mon.stats.hp}`);
+			stats.push(`ATK: ${mon.stats.atk}`);
+			stats.push(`DEF: ${mon.stats.def}`);
+			stats.push(`SPA: ${mon.stats.spa}`);
+			stats.push(`SPD: ${mon.stats.spd}`);
+			stats.push(`SPE: ${mon.stats.spe}`);
+			exInfo += `\n${stats.join(' | ')}`;
+		}
+		
+		let f = [];
+		if (mon.pokerus) f.push(`Has PokeRus`);
+		if (mon.shiny) f.push('Shiny');
+		if (f.length) exInfo += `\n${f.join(' | ')}`;
+		
+		return exInfo;
+	}
+	
+	///////////////////// Main Functions /////////////////////
 	
 	/** Takes the passed current API data and compares it to the stored previous API data.
 	 *  Generates a report, which is put together with a call to collate(). */
@@ -105,6 +132,24 @@ class Reporter {
 	
 	clear() {
 		this.report = {};
+	}
+	
+	///////////////////// Auxillary Functions /////////////////////
+	
+	generateUpdate(type) {
+		try {
+			if (type === 'team') {
+				let info = [];
+				this.currInfo.party.forEach(mon => {
+					let exInfo = this.generateExtendedInfo(mon, true);
+					let line = `* \`${mon.name}\` (${mon.species}) ${mon.gender==='Female'?'♀':'♂'} L${mon.level}`;
+				});
+				return `[Info] Current Party:\n\n${info.join('\n')}`;
+			}
+		} catch (e) {
+			console.error(`Error generating requested update!`, e);
+		}
+		return null;
 	}
 }
 
@@ -178,7 +223,7 @@ discoveries = [
 		}
 	},
 	function releasePokemon(prev, curr, report) {
-		let deltamons = differenceBetween(curr.allmon, prev.allmon, x=>x.hash);
+		let deltamons = differenceBetween(prev.allmon, curr.allmon, x=>x.hash);
 		if (deltamons.length) {
 			report.lostPokemon = deltamons;
 		}
@@ -380,20 +425,14 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 					return; // Skip!
 				}
 				
-				let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
-				exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
-				if (mon.pokerus) exInfo += `\nHas PokeRus`;
-				
+				let exInfo = this.generateExtendedInfo(mon);
 				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
 					` ${(!mon.nicknamed)?"No nickname.":"Nickname: `"+mon.name+"`"}${(mon.storedIn)?" (Sent to Box #"+mon.storedIn+")":""}`);
 			});
 		}
 		if (this.report.hatched) {
 			this.report.hatched.forEach((mon)=>{
-				let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
-				exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
-				if (mon.pokerus) exInfo += `\nHas PokeRus`;
-				
+				let exInfo = this.generateExtendedInfo(mon);
 				fullText.push(`**The Egg hatched into a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
 					` ${(mon.species===mon.name)?"No nickname.":"Nickname: `"+mon.name+"`"}`);
 			});
