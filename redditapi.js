@@ -8,24 +8,32 @@ const fs = require("fs");
 module.exports = {
 	getOAuth : function(refresh, { client_id, client_secret, username, password, oAuth_token, redirect_uri }) {
 		return new Promise(function(resolve, reject){
+			console.log('Updating OAuth token...');
 			let loc = url.parse(`https://www.reddit.com/api/v1/access_token`);
 			loc.method = 'POST';
 			loc.headers = {
 				"Authorization": `Basic ${new Buffer(`${client_id}:${client_secret}`).toString('base64')}`,
 			};
 			let req = http.request(loc, (res)=>{
-				console.log(`STATUS: ${res.statusCode}`);
-				console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+				// console.log(`STATUS: ${res.statusCode}`);
+				// console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
 				res.setEncoding('utf8');
 				res.on('data', (chunk) => {
-					console.log(`BODY: ${chunk}`);
+					// console.log(`BODY: ${chunk}`);
 					json += chunk;
 				});
 				res.on('end', () => {
-					console.log('No more data in response.');
-					resolve(JSON.parse(json));
+					// console.log('No more data in response.');
+					let j = JSON.parse(json);
+					if (!j.access_token) {
+						console.log('Unsuccessful response!');
+						console.log(`STATUS: ${res.statusCode}`);
+						console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+						console.log(`BODY: ${json}`);
+					}
+					resolve(j);
 				});
 			});
 			req.on('error', (e)=>{
@@ -56,18 +64,27 @@ module.exports = {
 				'User-Agent': `UpdaterNeeded bot (run by Node.js) by /u/tustin2121`,
 			};
 			let req = http.request(loc, (res)=>{
-				console.log(`STATUS: ${res.statusCode}`);
-				console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+				// console.log(`STATUS: ${res.statusCode}`);
+				// console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
 				res.setEncoding('utf8');
 				res.on('data', (chunk) => {
-					console.log(`BODY: ${chunk}`);
+					// console.log(`BODY: ${chunk}`);
 					json += chunk;
 				});
 				res.on('end', () => {
-					console.log('No more data in response.');
-					resolve(JSON.parse(json));
+					// console.log('No more data in response.');
+					let j = JSON.parse(json);
+					if (!j.success) {
+						console.log('Unsuccessful response!');
+						console.log('REQUEST: ', req.output);
+						console.log('====================================');
+						console.log(`STATUS: ${res.statusCode}`);
+						console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+						console.log(`BODY: ${json}`);
+					}
+					resolve(j);
 				});
 			});
 			req.on('error', (e)=>{
@@ -78,8 +95,8 @@ module.exports = {
 			req.write(`body=${encodeURIComponent(update)}`);
 			req.end();
 			
-			console.log('REQUEST: ', req.output);
-			console.log('====================================');
+			// console.log('REQUEST: ', req.output);
+			// console.log('====================================');
 		});
 	},
 }

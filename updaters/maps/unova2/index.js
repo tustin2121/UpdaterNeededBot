@@ -134,6 +134,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		buildings: [
 			PokeCenter(id(177,448,13)),
 			House(id(178,448,261)),
+			House(id(180,448,261)),
 			House(id(181,448,260),{
 				name: "Virbank Port",
 				connections: [ id(566,389,260) ],
@@ -142,7 +143,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				name: "Virbank City Gym",
 				leader: "Roxie",
 				badge: "Toxic",
-				locOf: { leader: id(176,448,120), }
+				locOf: { leader: "8,3", } //id(176,448,120), }
 			}),
 			House(id(179,448,358), {
 				name: "Virbank Daycare",
@@ -151,6 +152,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		connections: [ id(307,456) ],
 	}),
 	Area("Virbank Complex", [id(307,456), id(308,456,256)], {
+		attrs: { "indoors": true, "onto":"into" }, // Technically an outdoor area, but this only really matters for the prepositions
 		noteworthy: true,
 		the: false,
 		connections: [ "Virbank City" ],

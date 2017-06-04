@@ -189,7 +189,7 @@ class Node {
 	/** Test if this node (or its parents) has the given attribute. */
 	is(attr) {
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
-		if (attr in {noteworthy:1, announce:1}) return false;
+		if (attr in {noteworthy:1, announce:1, onto:1, the:1}) return false;
 		if (this.parent) return this.parent.is(attr);
 		return undefined;
 	}
@@ -197,6 +197,7 @@ class Node {
 	/** Test if this mode's coordinate attribute is within a certain range of the given value. */
 	within(attr, loc, dist=6) {
 		let a = this.locOf[attr];
+		console.log(`within(${attr}, ${loc}, ${dist}) a=${a}=>${typeof a}`);
 		if (!a) return false;
 		if (typeof a === 'number') {
 			return this.mapids.includes(a);
@@ -207,6 +208,7 @@ class Node {
 			}, false);
 		}
 		if (typeof a === 'string') {
+			if (a.indexOf(',') === -1) return this.mapids.includes(a);
 			return _wi(a, loc);
 		}
 		return false;

@@ -190,7 +190,7 @@ function getTimestamp(time) {
 }
 
 function refreshInfo() {
-	console.log("Refreshing info...");
+	console.log("================= Refreshing ====================");
 	data_prev = data_curr;
 	sorted_prev = sorted_curr;
 	data_curr = null;
@@ -264,6 +264,7 @@ function refreshInfo() {
 		} else {
 			console.log('Reporter found no update.');
 		}
+		console.log("================= Finished ====================");
 	}).catch((e)=>{
 		console.error("Error in Main:",e);
 	});
