@@ -304,7 +304,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			Floor(id(287,495,294)),
 			Floor(id(288,495,294)),
 		],
-		attrs: { }, //TODO Explore
+		attrs: { noteworthy:true, }, //TODO Explore
 	}),
 	Building({
 		the: false,

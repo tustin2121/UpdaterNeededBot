@@ -84,12 +84,15 @@ module.exports = {
 				return { id: m.id, max_pp:m.max_pp, pp:m.pp, name:m.name, type:m.type };
 			});
 			mon.level = minfo.level;
+			if (minfo.experience.current === minfo.experience.next_level) {
+				mon.level++; //Correct for level descrepency
+			}
 			if (minfo.held_item.count > 0) {
 				mon.item = minfo.held_item.name;
 			} else {
 				mon.item = null;
 			}
-			mon.gender = minfo.gender;
+			mon.gender = minfo.gender || '';
 			mon.ability = minfo.ability;
 			mon.nature = `${minfo.nature}, ${minfo.characteristic}`;
 			if (minfo.met) {

@@ -706,100 +706,111 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	function mapChange() { // Last
 		if (!this.report.mapChange) return;
 		let report = this.report.mapChange;
-		let currLoc = this.currInfo.location;
-		delete this.report.mapChange;
-		
 		if (report.announcement) {
 			return report.announcement;
 		}
-		if (!currLoc.is('noteworthy')) return;
 		
-		let area = currLoc.getName();
-		let back = report.recent?'back ':'';
-		let onto = currLoc.is('inTown')?'into':'onto';
-		let the = currLoc.has('the');
-		if (the === false) the = '';
-		else if (the === true) the = 'the ';
-		else the += ' ';
+		let currLoc = this.currInfo.location.getArea();
+		if (currLoc) {
+			if (report.newArea) {
+				return __report(currLoc);
+			}
+		} else {
+			currLoc = this.currInfo.location;
+			
+			if (!currLoc.is('noteworthy')) return;
+			return __report(currLoc);
+		}
+		return;
 		
-		switch (report.movementType) {
-			case 'enter': {
-				let o = [
-					`We head ${back}into ${the}${area}.`,
-					`We head ${back}inside ${the}${area}.`,
-					`We go ${back}into ${the}${area}.`,
-					`We duck ${back}inside ${the}${area}.`,
-					`We're ${back}in ${the}${area} now.`,
-				];
-				return this.randA(o);
-			}
-			case 'exit': {
-				let o = [
-					`We head ${back}outside ${onto} ${the}${area}.`,
-					`We exit ${back}${onto} ${the}${area}.`,
-					`We leave, ${back}out ${onto} ${the}${area}.`,
-					`We journey ${back}out ${onto} ${the}${area}.`,
-				];
-				if (report.last) o.push(`Nevermind, back outside again.`);
-				return this.randA(o);
-			}
-			case 'arrive': {
-				let o = [
-					`We arrive in ${the}${area}!`,
-					`Welcome to ${the}${area}!`,
-				];
-				return this.randA(o);
-			}
-			case 'fly': {
-				let o = [
-					`We fly to ${the}${area}!`,
-					`We hop on our flying Pokemon and arrive ${onto.slice(0,2)} ${the}${area}!`,
-				];
-				return this.randA(o);
-			}
-			case 'escape': {
-				let o = [
-					`**We use an Escape Rope!** Back ${onto.slice(0,2)} ${the}${area}!`,
-					`**We escape rope back to the surface!** ${area}.`,
-				];
-				return this.randA(o);
-			}
-			case 'dig': {
-				let o = [
-					`**We dig out!** Back ${onto.slice(0,2)} ${the}${area}!`,
-					`**We dig out of here!** ${area}.`,
-					`**We dig our way back to ${the}${area}!**`,
-				];
-				return this.randA(o);
-			}
-			case 'entralink-in': {
-				let o = [
-					`And we dive back into the Entralink...!`,
-					`And back we go, to the Entralink...!`,
-					`And back into the Entralink we go... weeee!!`,
-					`And we tap our watch and suddenly we are next to the Entralink tree...`,
-					`And, suddenly, Entralink...`,
-					`We check on the status of our Entralink tree...`,
-				];
-				return this.randA(o);
-			}
-			case 'entralink-out': {
-				let o = [
-					`We escape the Entralink again... ${area}`,
-					`We pop back out of the virtual world... Welcome to ${the}${area}`,
-					`We leave our ~~WOW~~ Entralink character behind and return to ${the}${area}`,
-					`We escape the grasp of the Entralink again... ${area}`,
-				];
-				return this.randA(o);
-			}
-			default: {
-				let o = [
-					`Now ${onto.slice(0,2)} ${the}${area}.`,
-					`${onto.charAt(0).toUpperCase()}${onto.charAt(1)} ${the}${area}.`, // In the Area.
-					`${area}.`,
-					`Welcome to ${the}${area}.`,
-				];
-				return this.randA(o);
+		function __report(currLoc){
+			let area = currLoc.getName();
+			let back = report.recent?'back ':'';
+			let onto = currLoc.has('onto') || currLoc.is('inTown')?'into':'onto';
+			let the = currLoc.has('the');
+			if (the === false) the = '';
+			else if (the === true) the = 'the ';
+			else the += ' ';
+			
+			switch (report.movementType) {
+				case 'enter': {
+					let o = [
+						`We head ${back}into ${the}${area}.`,
+						`We head ${back}inside ${the}${area}.`,
+						`We go ${back}into ${the}${area}.`,
+						`We duck ${back}inside ${the}${area}.`,
+						`We're ${back}in ${the}${area} now.`,
+					];
+					return this.randA(o);
+				}
+				case 'exit': {
+					let o = [
+						`We head ${back}outside ${onto} ${the}${area}.`,
+						`We exit ${back}${onto} ${the}${area}.`,
+						`We leave, ${back}out ${onto} ${the}${area}.`,
+						`We journey ${back}out ${onto} ${the}${area}.`,
+					];
+					if (report.last) o.push(`Nevermind, back outside again.`);
+					return this.randA(o);
+				}
+				case 'arrive': {
+					let o = [
+						`We arrive in ${the}${area}!`,
+						`Welcome to ${the}${area}!`,
+					];
+					return this.randA(o);
+				}
+				case 'fly': {
+					let o = [
+						`We fly to ${the}${area}!`,
+						`We hop on our flying Pokemon and arrive ${onto.slice(0,2)} ${the}${area}!`,
+					];
+					return this.randA(o);
+				}
+				case 'escape': {
+					let o = [
+						`**We use an Escape Rope!** Back ${onto.slice(0,2)} ${the}${area}!`,
+						`**We escape rope back to the surface!** ${area}.`,
+					];
+					return this.randA(o);
+				}
+				case 'dig': {
+					let o = [
+						`**We dig out!** Back ${onto.slice(0,2)} ${the}${area}!`,
+						`**We dig out of here!** ${area}.`,
+						`**We dig our way back to ${the}${area}!**`,
+					];
+					return this.randA(o);
+				}
+				case 'entralink-in': {
+					let o = [
+						`And we dive back into the Entralink...!`,
+						`And back we go, to the Entralink...!`,
+						`And back into the Entralink we go... weeee!!`,
+						`And we tap our watch and suddenly we are next to the Entralink tree...`,
+						`And, suddenly, Entralink...`,
+						`We check on the status of our Entralink tree...`,
+					];
+					return this.randA(o);
+				}
+				case 'entralink-out': {
+					let o = [
+						`We escape the Entralink again... ${area}`,
+						`We pop back out of the virtual world... Welcome to ${the}${area}`,
+						`We leave our ~~WOW~~ Entralink character behind and return to ${the}${area}`,
+						`We escape the grasp of the Entralink again... ${area}`,
+					];
+					return this.randA(o);
+				}
+				default: {
+					let o = [
+						`Now ${onto.slice(0,2)} ${the}${area}.`,
+						`${onto.charAt(0).toUpperCase()}${onto.charAt(1)} ${the}${area}.`, // In the Area.
+						`${area}.`,
+						`Welcome to ${the}${area}.`,
+					];
+					return this.randA(o);
+				}
 			}
 		}
 	},

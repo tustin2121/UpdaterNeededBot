@@ -190,7 +190,7 @@ function getTimestamp(time) {
 }
 
 function refreshInfo() {
-	console.log("================= Refreshing ====================");
+	console.log("================== Refreshing =====================");
 	data_prev = data_curr;
 	sorted_prev = sorted_curr;
 	data_curr = null;
