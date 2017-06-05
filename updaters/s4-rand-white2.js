@@ -83,10 +83,21 @@ module.exports = {
 			mon.moveInfo = minfo.moves.map(m=>{
 				return { id: m.id, max_pp:m.max_pp, pp:m.pp, name:m.name, type:m.type };
 			});
+			
 			mon.level = minfo.level;
-			if (minfo.experience.current === minfo.experience.next_level) {
-				mon.level++; //Correct for level descrepency
+			if (!minfo.experience.next_level && minfo.experience.remaining === -minfo.experience.current) {
+				// next level bug
+				const exptable = require('../exptable');
+				let grow_rate;
+				if (!minfo.species.growth_rate) { // growth_rate bug
+					grow_rate = exptable.dex[minfo.species.id-1];
+				} else {
+					grow_rate = minfo.species.growth_rate;
+				}
+				mon.level_reported = mon.level;
+				mon.level = exptable[grow_rate].getLevelFromExp(minfo.experience.current);
 			}
+			
 			if (minfo.held_item.count > 0) {
 				mon.item = minfo.held_item.name;
 			} else {
