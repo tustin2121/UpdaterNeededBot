@@ -99,7 +99,7 @@ class Reporter {
 		let f = [];
 		if (mon.pokerus) f.push(`Has PokeRus`);
 		if (mon.shiny) f.push('Shiny');
-		if (mon.level_reported) f.push(`API Reported Level: ${mon.level_reported}`);
+		if (mon.level_reported) f.push(`Levels: API says ${mon.level_reported}, we calculated ${mon.level_calculated}`);
 		if (f.length) exInfo += `\n${f.join(' | ')}`;
 		
 		return exInfo;
@@ -143,7 +143,12 @@ class Reporter {
 				let info = [];
 				this.currInfo.party.forEach(mon => {
 					let exInfo = this.generateExtendedInfo(mon, true);
-					let line = `* \`${mon.name}\` (${mon.species}) ${mon.gender==='Female'?'♀':'♂'} L${mon.level}`;
+					let line = `* [\`${mon.name}\` (${mon.species}) ${mon.gender==='Female'?'♀':'♂'} L${mon.level}](#info "${exInfo}")`;
+					if (mon.hp < 0) {
+						if (mon.hp === 0) line += " (fainted)"
+						else line += ` (${mon.hp}% health)`;
+					}
+					info.push(line);
 				});
 				return `[Info] Current Party:\n\n${info.join('\n')}`;
 			}

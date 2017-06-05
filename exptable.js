@@ -23,8 +23,8 @@ class ExpTable {
 		if (l) return l;
 		
 		// Slower general case
-		for (let i = 0; i < l00; i++) {
-			if (exp < this.table[i]) return i+1;
+		for (let i = 0; i < 100; i++) {
+			if (exp < this.table[i]) return i;
 		}
 		// Exception
 		return 100;

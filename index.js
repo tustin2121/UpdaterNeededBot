@@ -80,8 +80,8 @@ dbot.on('message', (msg)=>{
 			// postUpdate(`[Bot-Meta] Tagged out at ${getTimestamp()}.`, TEST_UPDATER.liveID);
 			break;
 		case 'reqUpdate':
-			console.log(`${dLastReq + REQ_COOLDOWN} < ${Date.now()}`, dLastReq + REQ_COOLDOWN < Date.now());
-			if (dLastReq + REQ_COOLDOWN < Date.now()) {
+			console.log(`${dLastReq + REQ_COOLDOWN} > ${Date.now()}`, dLastReq + REQ_COOLDOWN > Date.now());
+			if (dLastReq + REQ_COOLDOWN > Date.now()) {
 				msg.channel.send(`You requested another update too quickly. Cooldown is 30 seconds due to API rate limits.`).catch((e)=>console.error('Discord Error:',e));
 				break;
 			}
@@ -136,7 +136,7 @@ reporter.alertUpdaters = function(text){
 	if (!staffChannel) return;
 	
 	let group = "@Live Updater ";
-	if (dLastPing + PING_COOLDOWN < Date.now()) {
+	if (dLastPing + PING_COOLDOWN > Date.now()) {
 		group = "";
 	} else {
 		dLastPing = Date.now();

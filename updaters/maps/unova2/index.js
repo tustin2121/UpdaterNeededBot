@@ -453,7 +453,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			House(id(496,326,396)),
 			House(id(495,326,396)),
 			House(id(494,326,396)),
-			House(id(493,326,396)),
+			House(id(493,326,396), { attrs: { "healing":"house" } }),
 			House(id(492,326,396)),
 		],
 		connections: [ "Desert Resort", "Join Avenue" ],

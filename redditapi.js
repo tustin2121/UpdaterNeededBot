@@ -26,14 +26,22 @@ module.exports = {
 				});
 				res.on('end', () => {
 					// console.log('No more data in response.');
-					let j = JSON.parse(json);
-					if (!j.access_token) {
+					try {
+						let j = JSON.parse(json);
+						if (!j.access_token) {
+							console.log('Unsuccessful response!');
+							console.log(`STATUS: ${res.statusCode}`);
+							console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+							console.log(`BODY: ${json}`);
+						}
+						resolve(j);
+					} catch (e) {
 						console.log('Unsuccessful response!');
 						console.log(`STATUS: ${res.statusCode}`);
 						console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 						console.log(`BODY: ${json}`);
+						reject(e);
 					}
-					resolve(j);
 				});
 			});
 			req.on('error', (e)=>{
@@ -75,16 +83,24 @@ module.exports = {
 				});
 				res.on('end', () => {
 					// console.log('No more data in response.');
-					let j = JSON.parse(json);
-					if (!j.success) {
+					try {
+						let j = JSON.parse(json);
+						if (!j.success) {
+							console.log('Unsuccessful response!');
+							console.log('REQUEST: ', req.output);
+							console.log('====================================');
+							console.log(`STATUS: ${res.statusCode}`);
+							console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+							console.log(`BODY: ${json}`);
+						}
+						resolve(j);
+					} catch (e) {
 						console.log('Unsuccessful response!');
-						console.log('REQUEST: ', req.output);
-						console.log('====================================');
 						console.log(`STATUS: ${res.statusCode}`);
 						console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 						console.log(`BODY: ${json}`);
+						reject(e);
 					}
-					resolve(j);
 				});
 			});
 			req.on('error', (e)=>{

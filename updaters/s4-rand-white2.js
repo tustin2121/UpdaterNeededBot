@@ -1,6 +1,7 @@
 // updaters/s4-rand-white2.js
 // The configuration for Season 4's Randomized White 2
 
+let testi = 0;
 global.game = "White2";
 
 module.exports = {
@@ -64,6 +65,13 @@ module.exports = {
 			Wave:	!!(data.badges & (0x1 << 7)),
 		};
 		
+		const path = require('path');
+		require('fs').writeFile(path.join(__dirname,`../test/status_api.${testi}.json`), JSON.stringify(data, null, '\t'), ()=>{
+			let out = testi; // save off current value for reporting
+			console.log(`test data written to status_api.${out}.json`);
+		});
+		testi = (testi + 1) % 10;
+		
 		return sorted;
 		function normalizePokemon(minfo) {
 			let mon = {};
@@ -95,7 +103,8 @@ module.exports = {
 					grow_rate = minfo.species.growth_rate;
 				}
 				mon.level_reported = mon.level;
-				mon.level = exptable[grow_rate].getLevelFromExp(minfo.experience.current);
+				mon.level_calculated = exptable[grow_rate].getLevelFromExp(minfo.experience.current);
+				if (!minfo.box_slot) console.log(`EXP rate: (${mon.species}) lvl=${mon.level_reported}, calc=${mon.level_calculated}, exp=${minfo.experience.current}`);
 			}
 			
 			if (minfo.held_item.count > 0) {
