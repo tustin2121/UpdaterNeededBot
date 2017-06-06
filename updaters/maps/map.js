@@ -80,7 +80,9 @@ class Region {
 	
 	find(mapid) {
 		let id = this.normalizeMapId(mapid);
-		return this.nodes[id];
+		let n = this.nodes[id];
+		if (!n) return this.topNode;
+		return n;
 	}
 	findParent(parent) {
 		// TODO

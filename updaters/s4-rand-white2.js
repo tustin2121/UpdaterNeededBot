@@ -29,6 +29,7 @@ module.exports = {
 		
 		{ // Parse out location data to a standard display format:
 			const Unova = require('./maps/unova2');
+			sorted.map_id = data.map_id;
 			sorted.location = Unova.find(data.map_id);
 			sorted.position = `${data.x},${data.z},${data.y}`;
 		}
@@ -107,7 +108,7 @@ module.exports = {
 				if (!minfo.box_slot) console.log(`EXP rate: (${mon.species}) lvl=${mon.level_reported}, calc=${mon.level_calculated}, exp=${minfo.experience.current}`);
 			}
 			
-			if (minfo.held_item.count > 0) {
+			if (minfo.held_item.id > 0) {
 				mon.item = minfo.held_item.name;
 			} else {
 				mon.item = null;

@@ -93,6 +93,7 @@ dbot.on('message', (msg)=>{
 					if (update) {
 						msg.channel.send(`Posting [Info] update with team information to the updater.`).catch((e)=>console.error('Discord Error:',e));
 						postUpdate(update, UPDATER.liveID);
+						postUpdate(update, TEST_UPDATER.liveID);
 					} else {
 						msg.channel.send(`Unable to collate team info at this time.`).catch((e)=>console.error('Discord Error:',e));
 					}

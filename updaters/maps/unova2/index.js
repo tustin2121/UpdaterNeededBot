@@ -128,6 +128,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	Area("Cave of Being", id(392,517,310)), // Come here to unlock Uxie, Mesprit, and the other one
 	Area("Floccesy Ranch", [id(305,444), id(306,444,255)], {
 		the: false,
+		connections: [ "Hidden Grotto" ],
 	}),
 	Gatehouse(id(561,446,50), "Virbank City", 20),
 	City("Virbank City", id(174,448), {
@@ -358,6 +359,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				connections: [ "Nacrene City" ],
 			})
 		],
+		connections: [ "Hidden Grotto" ],
 	}),
 	City("Nacrene City", id(16,16), {
 		buildings: [
@@ -382,7 +384,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			}),
 			House(id(478,321,53), { attrs:{ "healing":"house", }}), // People Daycare
 		],
-		connections: [ "Striaton City" ],
+		connections: [ "Striaton City", "Hidden Grotto" ],
 	}),
 	Dungeon("Wellspring Cave", {
 		floors: [
@@ -402,7 +404,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		connections: [ 3, 2 ],
 	}),
 	Route(2, id(475,319), {
-		
+		connections: [ "Hidden Grotto" ],
 	}),
 	Gatehouse(id(476,319,50), "Accumula Town", 2),
 	Town("Accumula Town", id(574,397), {
@@ -589,7 +591,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		buildings: [
 			House(id(499,329,65)),
 		],
-		connections: [ "Driftveil Drawbridge" ],
+		connections: [ "Driftveil Drawbridge", "Hidden Grotto" ],
 	}),
 	Route("Driftveil Drawbridge", id(399,253,106), {
 		connections: [ 5, "Driftveil City" ],
@@ -666,7 +668,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			House(id(501,331,92), { name: "Seasons Research Lab" }), //Note: has a deerling giveaway
 			House(id(505,331,44), { attrs: { "healing":"house", } }),
 		],
-		connections: [ "Driftveil City", "Chargestone Cave", id(502,333,110) ],
+		connections: [ "Driftveil City", "Chargestone Cave", id(502,333,110), "Hidden Grotto" ],
 	}),
 	Dungeon("Chargestone Cave", {
 		floors: [
@@ -703,7 +705,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			House(id(512,337,44)), // Trade Emolga for a Gigalith
 			House(id(513,337,44), { attrs: {"healing":"house"} }),
 		],
-		connections: [ "Mistralton City", id(247,198),  ],
+		connections: [ "Mistralton City", id(247,198), "Hidden Grotto" ],
 	}),
 	Dungeon("Celestial Tower", {
 		floors: [
@@ -831,6 +833,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		locOf: {
 			"vending": ["366,169","367,169","368,169","369,169"],
 		},
+		connections: [ "Hidden Grotto" ],
 	}),
 	Gatehouse(id(144,348,50), "Opelucid City", 9),
 	City("Opelucid City", id(133,120), {
@@ -903,7 +906,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			House(id(540,370,47)),
 			House(id(542,370,47)),
 		],
-		connections: [ "Lacunosa Town", "Giant Chasm" ],
+		connections: [ "Lacunosa Town", "Giant Chasm", "Hidden Grotto" ],
 	}),
 	Dungeon("Giant Chasm", {
 		the: true,
@@ -932,17 +935,17 @@ new Region({ name:"Unova", mapid:"identity" }, [
 				}
 			}),
 		],
-		connections: [ 13 ],
+		connections: [ 13, "Hidden Grotto" ],
 	}),
 	Route(22, id(562,474), { // Terrakon is just hanging out here...? "725,139"
-		connections: [ id(281,230,184), id(333,573,337) ], // Giant Chasm, Victory Road
+		connections: [ id(281,230,184), id(333,573,337), "Hidden Grotto" ], // Giant Chasm, Victory Road
 	}),
 	Route(23, id(563,475), {
 		buildings: [
 			House(id(564,475,44), { attrs:{ "healing":"house" }, }),
 			House(id(565,475,44)),
 		],
-		connections: [ id(281,230,184) ],
+		connections: [ id(281,230,184), "Hidden Grotto" ],
 	}),
 	Gatehouse(id(541,370,12), "Undella Town", 13),
 	Town("Undella Town", id(589,412), {
@@ -1053,7 +1056,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		buildings: [
 			House(id(546,376,46)),
 		],
-		connections: [ 14 ],
+		connections: [ 14, "Hidden Grotto" ],
 	}),
 	Gatehouse(id(544,374,12), "White Forest", 14),
 	City("White Forest", id(612,424,356), {
@@ -1112,7 +1115,7 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	Route(16, id(552,383), {
 		buildings: [
 			Area("Lostlorn Forest", id(554,385,238), {
-				
+				connections: [ "Hidden Grotto" ],
 			}),
 		],
 	}),
@@ -1274,6 +1277,15 @@ Unova.addNode(...[
 		// announce: "And we dive into the Entralink...!",
 	}),
 	Area("Union Room", id(609,422,88)), // Connection from any Pokecenter
+	Area("Hidden Grotto", "518", {
+		attrs: {
+			"indoors": true,
+		},
+		connections: [ 
+			2,3,5,6,7,9,13,18,22,23,
+			"Pinwheel Forest","Giant Chasm","Abundant Shrine","Lostlorn Forest","Floccesy Ranch" 
+		],
+	}), // Connection from many routes... //TODO map these route
 	
 	// Boat transition from Virbank to Castelia. There's no such transition back.
 	Cutscene(id(566,389,260), { // No header index
@@ -1292,7 +1304,8 @@ Unova.addNode(...[
 	}),
 	Cutscene(id(548,3783), {
 		announce: "We start a new game! Welcome to the world of Pokémon!",
-	})
+	}),
+	
 ]);
 
 // Unova.find = function(mapid){

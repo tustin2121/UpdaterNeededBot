@@ -649,11 +649,14 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			texts.push(`**Vs ${leader}!** Attempt #${attempt}!${warn}`);
 			this.alertUpdaters(`We're facing off against ${leader}! I can't play-by-play! Halp!`);
 			this.memory.inGymFight = leader;
+			this.memory.inGymFight_loc = this.currInfo.map_id;
 		}
 		if (this.memory.inGymFight && this.report.gymFight !== this.memory.inGymFight) {
 			let leader = this.memory.inGymFight;
+			let gymid = this.memory.inGymFight_loc; 
 			this.memory.inGymFight = false;
-			if (!this.report.mapChange) { // We didn't change maps, we must have won!
+			delete this.memory.inGymFight_loc;
+			if (this.currInfo.map_id === gymid) { // We didn't change maps, we must have won!
 				texts.push(`**Defeated ${leader}!**`);
 			}
 		}
@@ -719,13 +722,13 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		let currLoc = this.currInfo.location.getArea();
 		if (currLoc) {
 			if (report.newArea) {
-				return __report(currLoc);
+				return __report.call(this, currLoc);
 			}
 		} else {
 			currLoc = this.currInfo.location;
 			
 			if (!currLoc.is('noteworthy')) return;
-			return __report(currLoc);
+			return __report.call(this, currLoc);
 		}
 		return;
 		
