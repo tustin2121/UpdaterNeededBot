@@ -85,6 +85,7 @@ module.exports = {
 				mon.types.push(minfo.species.type2);
 			}
 			mon.shiny = minfo.shiny;
+			mon.sparkly = minfo.sparkly;
 			mon.pokerus = minfo.pokerus.infected && !minfo.pokerus.cured;
 			mon.traded = minfo.original_trainer.id !== data.id || minfo.original_trainer.secret !== data.secret;
 			mon.name = minfo.is_egg? 'Egg' : minfo.name;

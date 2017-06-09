@@ -356,6 +356,7 @@ module.exports = {
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
+			"onto": "into",
 			noteworthy, announce, legendary, the,
 		}, attrs), locOf });
 		me.addChild(...zones);
@@ -485,6 +486,7 @@ module.exports = {
 			"indoors": true,
 			"dungeon": true,
 			"noteworthy": true,
+			"onto": "into",
 			announce, the,
 		}, attrs), locOf });
 		me.addChild(...floors);

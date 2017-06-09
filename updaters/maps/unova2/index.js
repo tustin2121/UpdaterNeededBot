@@ -1036,8 +1036,23 @@ new Region({ name:"Unova", mapid:"identity" }, [
 					"indoors": false,
 					"dungeon": false,
 				},
-				connections: [ "Lentimas Town" ],
+				connections: [ "Lentimas Town", "Strange House" ],
 			}),
+		],
+	}),
+	Dungeon("Strange House", {
+		floors: [
+			Floor(id(322,462,304)), // Main Floor
+			Floor(id(323,462,305)), // Basement
+			Floor(id(324,462,306)), // Main Floor... again?
+			Floor(id(325,462,307)), // Basement... again?
+			Floor(id(327,462,309)), // Main Floor... yet again?
+			Floor(id(326,462,308)), // Upper Floor
+			
+			Floor(id(329,462,353)), // Back Room
+			Floor(id(328,462,352)), // Back Room
+			Floor(id(330,462,354)), // Back Room
+			Floor(id(331,462,355)), // Back Room
 		],
 	}),
 	Town("Lentimas Town", id(605,458), {

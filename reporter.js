@@ -99,6 +99,7 @@ class Reporter {
 		let f = [];
 		if (mon.pokerus) f.push(`Has PokeRus`);
 		if (mon.shiny) f.push('Shiny');
+		if (mon.sparkly) f.push('Sparkly (N\'s Pokemon)');
 		if (mon.level_reported) f.push(`Levels: API says ${mon.level_reported}, we calculated ${mon.level_calculated}`);
 		if (f.length) exInfo += `\n${f.join(' | ')}`;
 		
