@@ -145,7 +145,7 @@ class Reporter {
 				this.currInfo.party.forEach(mon => {
 					let exInfo = this.generateExtendedInfo(mon, true);
 					let line = `* [\`${mon.name}\` (${mon.species}) ${mon.gender==='Female'?'♀':'♂'} L${mon.level}](#info "${exInfo}")`;
-					if (mon.hp < 0) {
+					if (mon.hp < 100) {
 						if (mon.hp === 0) line += " (fainted)"
 						else line += ` (${mon.hp}% health)`;
 					}

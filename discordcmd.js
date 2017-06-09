@@ -29,6 +29,7 @@ module.exports = function(msg, memory) {
 function parseCmd(cmd) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
+	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
 	if (/^(post|update|show) (team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];

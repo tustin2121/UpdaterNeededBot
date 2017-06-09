@@ -136,7 +136,8 @@ reporter.alertUpdaters = function(text){
 	if (!taggedIn) return;
 	if (!staffChannel) return;
 	
-	let group = "@Live Updater ";
+	// let group = "@Live Updater ";
+	let group = "<@&148087914360864768> ";
 	if (dLastPing + PING_COOLDOWN > Date.now()) {
 		group = "";
 	} else {

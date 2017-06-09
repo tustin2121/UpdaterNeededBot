@@ -15,13 +15,17 @@ const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], 
 		"indoors": true,
 		"healing": "pokecenter",
 		"shopping": true,
-		announce, the,
+		announce, the, noteworthy: true,
 	}, attrs), locOf:Object.assign({
 		"pc": ["4,12"],
 	}, locOf) });
 	me.addConnection(...connections);
 	me.addConnection("Union Room");
 	me._typename = "Center";
+	me.getName = function() {
+		if (this.parent) return `${this.parent.getName()} ${this.name}`;
+		return this.name;
+	};
 	return me;
 };
 const PokeCenter = Center;
@@ -1041,6 +1045,9 @@ new Region({ name:"Unova", mapid:"identity" }, [
 		],
 	}),
 	Dungeon("Strange House", {
+		attrs: {
+			"the": true,
+		},
 		floors: [
 			Floor(id(322,462,304)), // Main Floor
 			Floor(id(323,462,305)), // Basement
