@@ -77,6 +77,7 @@ dbot.on('message', (msg)=>{
 				msg.channel.send(`Stopping.`).catch((e)=>console.error('Discord Error:',e));
 			}
 			taggedIn = false;
+			reporter.clearHelping();
 			// postUpdate(`[Bot-Meta] Tagged out at ${getTimestamp()}.`, TEST_UPDATER.liveID);
 			break;
 		case 'reqUpdate':
@@ -111,19 +112,17 @@ dbot.on('message', (msg)=>{
 			break;
 		case 'helpout-help':
 			msg.channel.send(`If you want me to help, tell me what you want me to do, and I'll post those updates to the updater myself.\n\n`
-				+ `I can give [Info] about **catch**es, I can list [Info] about our **shopping** results, I can announce **item pickups**, I can announce **level ups**, and I can announce **move learns**.`)
+				+ `I can announce **catch**es, our **shopping** results when we leave a store, **item** pickups, or **level ups** (and move learns with them).`)
 				.catch((e)=>console.error('Discord Error:',e));
 			break;
 		case 'helpout':
-			break;
 			taggedIn = args[0];
 			let help = [];
-			if (help['catches']) help.push('give info about our catches');
-			if (help['shopping']) help.push('list our shopping results');
-			if (help['items']) help.push('announce item aquisitions');
-			if (help['level']) help.push('announce level ups');
-			if (help['moves']) help.push('announce move learns');
-			if (help.length > 1) help[help.length-2] = "and "+help[help.length-2];
+			if (taggedIn['catches']) help.push('give info about our catches');
+			if (taggedIn['shopping']) help.push('list our shopping results (when we leave the map)');
+			if (taggedIn['items']) help.push('announce item aquisitions');
+			if (taggedIn['level']) help.push('announce level ups / move learns');
+			if (help.length > 1) help[help.length-1] = "and "+help[help.length-1];
 			
 			msg.channel.send(`Ok, I'll ${help.join(', ')}. Don't hesistate to delete my updates if they get in the way.`).catch((e)=>console.error('Discord Error:',e));
 			// The [Lvl 5 male Oddish] we caught [was nicknamed `X` and was|didn't get a nickname before being] sent to Box #5.
@@ -251,8 +250,12 @@ function refreshInfo() {
 		let update = reporter.collate();
 		if (update) {
 			let ts = getTimestamp();
+			let montable = reporter.geneateCatchTable(ts);
+			if (montable) montable = '\n\n' + montable;
+			else montable = '';
+			
 			console.log('UPDATE:', `${ts} [Bot] ${update}`);
-			postUpdate(`${ts} [Bot] ${update}`, TEST_UPDATER.liveID);
+			postUpdate(`${ts} [Bot] ${update}${montable}`, TEST_UPDATER.liveID);
 			
 			if (taggedIn === true) {
 				// Fully tagged in
@@ -260,12 +263,14 @@ function refreshInfo() {
 			} else if (taggedIn) {
 				// Partially tagged in, helping out with things
 				update = reporter.collate(taggedIn); // Retrieve new partial update
-				postUpdate(`[Info] [Bot] ${update}`, UPDATER.liveID);
+				if (update) {
+					postUpdate(`${ts} [Bot] ${update}`, UPDATER.liveID);
+				}
 			}
-			reporter.clear();
 		} else {
 			console.log('Reporter found no update.');
 		}
+		reporter.clear();
 		console.log("================= Finished ====================");
 	}).catch((e)=>{
 		console.error("Error in Main:",e);

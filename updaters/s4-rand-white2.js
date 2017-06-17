@@ -22,57 +22,60 @@ module.exports = {
 	infoParse : function(data) {
 		let sorted = {};
 		
-		// Sanity Test: check if this is our protagonist
-		if (data.id !== 32230 || data.secret !== 44970) {
-			console.error('api/run_status: Trainer ID does not match!');
-		}
-		
-		{ // Parse out location data to a standard display format:
-			const Unova = require('./maps/unova2');
-			sorted.map_id = data.map_id;
-			sorted.location = Unova.find(data.map_id);
-			sorted.position = `${data.x},${data.z},${data.y}`;
-		}
-		{ // Collate pokemon together
-			sorted.allmon = [];
-			sorted.party = data.party.map(normalizePokemon);
-			sorted.allmon.push(...sorted.party);
-			data.pc.boxes.forEach(box => {
-				sorted.allmon.push(...box.box_contents.map(x => {
-					x = normalizePokemon(x);
-					x.storedIn = box.box_number;
-					return x;
-				}));
-			});
-		}
-		{ // Collate items together
-			sorted.allitems = {};
-			[data.items, data.items_berry, data.items_free_space, data.items_key, data.items_medicine, data.items_tm].forEach(items=>{
-				items.forEach(x=>{
-					let count = x.count !== undefined? x.count : 1;
-					sorted.allitems[x.name] = (sorted.allitems[x.name] || 0) + count;
+		try {
+			// Sanity Test: check if this is our protagonist
+			if (data.id !== 32230 || data.secret !== 44970) {
+				console.error('api/run_status: Trainer ID does not match!');
+			}
+			
+			{ // Parse out location data to a standard display format:
+				const Unova = require('./maps/unova2');
+				sorted.map_id = data.map_id;
+				sorted.location = Unova.find(data.map_id);
+				sorted.position = `${data.x},${data.z},${data.y}`;
+			}
+			{ // Collate pokemon together
+				sorted.allmon = [];
+				sorted.party = data.party.map(normalizePokemon);
+				sorted.allmon.push(...sorted.party);
+				data.pc.boxes.forEach(box => {
+					if (!box) return; //skip
+					sorted.allmon.push(...box.box_contents.map(x => {
+						x = normalizePokemon(x);
+						x.storedIn = box.box_number;
+						return x;
+					}));
 				});
+			}
+			{ // Collate items together
+				sorted.allitems = {};
+				[data.items, data.items_berry, data.items_free_space, data.items_key, data.items_medicine, data.items_tm].forEach(items=>{
+					items.forEach(x=>{
+						let count = x.count !== undefined? x.count : 1;
+						sorted.allitems[x.name] = (sorted.allitems[x.name] || 0) + count;
+					});
+				});
+			}
+			sorted.in_battle = data.in_battle;
+			sorted.badges = {
+				Basic:	!!(data.badges & (0x1 << 0)),
+				Toxic:	!!(data.badges & (0x1 << 1)),
+				Insect:	!!(data.badges & (0x1 << 2)),
+				Bolt:	!!(data.badges & (0x1 << 3)),
+				Quake:	!!(data.badges & (0x1 << 4)),
+				Jet:	!!(data.badges & (0x1 << 5)),
+				Legend:	!!(data.badges & (0x1 << 6)),
+				Wave:	!!(data.badges & (0x1 << 7)),
+			};
+		
+		} finally {
+			const path = require('path');
+			require('fs').writeFile(path.join(__dirname,`../test/status_api.${testi}.json`), JSON.stringify(data, null, '\t'), ()=>{
+				let out = testi; // save off current value for reporting
+				console.log(`test data written to status_api.${out}.json`);
 			});
+			testi = (testi + 1) % 10;
 		}
-		sorted.in_battle = data.in_battle;
-		sorted.badges = {
-			Basic:	!!(data.badges & (0x1 << 0)),
-			Toxic:	!!(data.badges & (0x1 << 1)),
-			Insect:	!!(data.badges & (0x1 << 2)),
-			Bolt:	!!(data.badges & (0x1 << 3)),
-			Quake:	!!(data.badges & (0x1 << 4)),
-			Jet:	!!(data.badges & (0x1 << 5)),
-			Legend:	!!(data.badges & (0x1 << 6)),
-			Wave:	!!(data.badges & (0x1 << 7)),
-		};
-		
-		const path = require('path');
-		require('fs').writeFile(path.join(__dirname,`../test/status_api.${testi}.json`), JSON.stringify(data, null, '\t'), ()=>{
-			let out = testi; // save off current value for reporting
-			console.log(`test data written to status_api.${out}.json`);
-		});
-		testi = (testi + 1) % 10;
-		
 		return sorted;
 		function normalizePokemon(minfo) {
 			let mon = {};
@@ -88,7 +91,7 @@ module.exports = {
 			mon.sparkly = minfo.sparkly;
 			mon.pokerus = minfo.pokerus.infected && !minfo.pokerus.cured;
 			mon.traded = minfo.original_trainer.id !== data.id || minfo.original_trainer.secret !== data.secret;
-			mon.name = minfo.is_egg? 'Egg' : minfo.name;
+			mon.name = minfo.is_egg? 'Egg' : minfo.name.replace(/ /i, '\xa0'); // replace pokemon names with non-breaking spaces
 			mon.moves = minfo.moves.map(m=>m.name);
 			mon.moveInfo = minfo.moves.map(m=>{
 				return { id: m.id, max_pp:m.max_pp, pp:m.pp, name:m.name, type:m.type };

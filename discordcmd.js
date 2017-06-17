@@ -42,12 +42,13 @@ function parseCmd(cmd) {
 			if (/caught|catch|pokemon/.test(x)) things['catches'] = true;
 			if (/shopping|shop|vending/.test(x)) things['shopping'] = true;
 			if (/items?|pickup/.test(x)) things['items'] = true;
-			if (/levelup|levels?/.test(x)) things['level'] = true;
-			if (/moves?|learn/.test(x)) things['moves'] = true;
+			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['level'] = true;
 		});
 		if (!Object.keys(things).length) return ['helpout-help'];
 		return ['helpout', things];
 	}
+	
+	if (/^h[ea]lp (?:me |us )?(?:out )?/i.test(cmd)) return ['helpout-help'];
 	return [''];
 }
 

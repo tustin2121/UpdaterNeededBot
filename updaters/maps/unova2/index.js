@@ -405,7 +405,16 @@ new Region({ name:"Unova", mapid:"identity" }, [
 			House([id(11,6,26),id(12,6,27)]),
 			House([id(13,6,26),id(14,6,32)]),
 		],
-		connections: [ 3, 2 ],
+		connections: [ 3, 2, "Dreamyard" ],
+	}),
+	Area("Dreamyard", id(201,152,14), {
+		attrs: {
+			the: true,
+		},
+		buildings: [
+			House(id(202,152,15))
+		],
+		connections: [ "Striaton City" ],
 	}),
 	Route(2, id(475,319), {
 		connections: [ "Hidden Grotto" ],
@@ -623,19 +632,15 @@ new Region({ name:"Unova", mapid:"identity" }, [
 	}),
 	Area("PWT Plaza", id(240,191), {
 		buildings: [
-			Building("Pokémon World Tournament", {
-				floors: [
-					Floor(id(241,191,265), {
-						locOf: {
-							"vending":["25,24","26,24"],
-							"pc":"17,7",
-						}
-					}), // Main entrance
-					Floor(id(242,191,266), {
-						announce: "**We've entered the Pokémon World Tournament's Arena! Time to battle!**"
-					})
-				],
-			})
+			House(id(241,191,265), { // PWT building entrance (192)
+				locOf: {
+					"vending":["25,24","26,24"],
+					"pc":"17,7",
+				},
+			}),
+			House(id(242,191,266), { // PWT stadium proper
+				announce: "**We've entered the Pokémon World Tournament's Arena! Time to battle!**"
+			}),
 		],
 		locOf: {
 			"vending":["204,454","205,454","206,454","207,454"],

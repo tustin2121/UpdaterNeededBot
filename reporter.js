@@ -21,6 +21,8 @@ class Reporter {
 		
 		// Defined variables used for collecting reportable information
 		this.report = {};
+		this.caughtMon = [];
+		this.shopping = {};
 		this.collatedInfo = null;
 	}
 	
@@ -75,6 +77,21 @@ class Reporter {
 		return str;
 	}
 	
+	getName(mon, skipDiff=false) {
+		let name = undefined;
+		if (this.memory.nicknames) name = this.memory.nicknames[mon.hash];
+		if (name) return name;
+		if (mon.nicknamed) name = `${mon.name} (${mon.species})`;
+		else name = `${mon.species}`;
+		
+		if (!skipDiff) { // Skip differentiation
+			//TODO test if this mon's "name" is the same as another mon's name in the party
+			// Then differentiate between them with the first-found-difference
+			// In order being: shiny, gender, level, nature, stat differences, met timestamp, met location
+		}
+		return name;
+	}
+	
 	alertUpdaters(text) {} //Must be overridden
 	
 	generateExtendedInfo(mon, includeStats=false) {
@@ -122,10 +139,10 @@ class Reporter {
 		return true;
 	}
 	
-	collate() {
+	collate(tags=null) {
 		let texts = [];
 		collators.forEach((fn)=>{
-			let t = fn.call(this);
+			let t = fn.call(this, tags);
 			if (t) texts.push(t);
 		});
 		if (!texts.length) return null;
@@ -134,6 +151,12 @@ class Reporter {
 	
 	clear() {
 		this.report = {};
+		this.caughtMon = [];
+		// Not clearing shopping
+	}
+	
+	clearHelping() {
+		this.shopping = {};
 	}
 	
 	///////////////////// Auxillary Functions /////////////////////
@@ -157,6 +180,24 @@ class Reporter {
 			console.error(`Error generating requested update!`, e);
 		}
 		return null;
+	}
+	
+	geneateCatchTable(timestamp) {
+		try {
+			if (!this.caughtMon.length) return null;
+			let output = `| Species | Name | Nick | Gender | Level | Held | Ability | Move 1 | Move 2 | Move 3 | Move 4 | Nature | Pokeball | Time Caught | Box # |\n`;
+			output +=    `| ------- | ---- | ---- | ------ |:-----:| ---- | ------- | ------ | ------ | ------ | ------ | ------ | -------- | ----------- | ----- |\n`;
+			this.caughtMon.forEach(m=>{
+				output +=`| ${m.species} | ${m.nicknamed?m.name:""} | | ${m.gender.charAt(0).toLowerCase()} `;
+				output +=`| ${m.level} | ${m.item||"none"} | ${m.ability} `;
+				output +=`| ${m.moves[0]||""} | ${m.moves[1]||""} | ${m.moves[2]||""} | ${m.moves[3]||""} `;
+				output +=`| ${m.nature.slice(0, m.nature.indexOf(',') )} | ${m.caughtIn} | ${timestamp} | ${m.storedIn} |\n`;
+			});
+			return output;
+		} catch (e) {
+			console.error('Error generating catch table!', e);
+		}
+		return `[*Error generating table*]`;
 	}
 }
 
@@ -416,12 +457,13 @@ discoveries_party = [
 
 collators = [
 	// Caught new pokemon
-	function newPokemon() {
+	function newPokemon(tags) {
 		/*
 **Caught a [male Lv. 24 Torterra](#info "Grass/Ground | Item: None | Ability: Sticky Hold | Nature: Lax, Hates to lose
 Caught In: Pokeball | Moves: ThunderPunch, Entrainment, Sacred Sword, Synthesis
 Has PokeRus")!** No nickname. (Sent to Box #1)
 		*/
+		if (tags && !tags.catches) return;
 		let fullText = [];
 		if (this.report.newPokemon) {
 			this.report.newPokemon.forEach((mon)=>{
@@ -435,6 +477,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				let exInfo = this.generateExtendedInfo(mon);
 				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
 					` ${(!mon.nicknamed)?"No nickname.":"Nickname: `"+mon.name+"`"}${(mon.storedIn)?" (Sent to Box #"+mon.storedIn+")":""}`);
+				this.caughtMon.push(mon);
 			});
 		}
 		if (this.report.hatched) {
@@ -448,7 +491,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			return fullText.join(' ');
 		}
 	},
-	function lostPokemon() {
+	function lostPokemon(tags) {
+		if (tags) return;
 		if (this.report.lostPokemon) {
 			this.memory.miaPokemon = (this.memory.miaPokemon||{});
 			this.report.lostPokemon.forEach(x=>{
@@ -461,7 +505,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			if (!missing.length) return;
 			let names = [];
 			missing.forEach(x=>{
-				names.push(`${this.memory.miaPokemon[x].name} (${this.memory.miaPokemon[x].species})`);
+				names.push(this.getName(this.memory.miaPokemon[x], true));
 			});
 			delete this.memory.miaPokemon;
 			if (names.length > 1) names[names.length-1] = "and "+names[names.length-1];
@@ -469,11 +513,13 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 	},
 	
-	function partyUpdate() {
+	function partyUpdate(tags) {
+		if (tags && !tags.level) return;
 		let fullText = [];
 		this.report.monChanges.forEach((progress)=>{
 			let mon = progress.mon;
-			let name = `${mon.name} (${progress.evolved?progress.evolved.from:mon.species}) `;
+			let name = this.getName(mon)+' ';
+			if (progress.evolved) name = `${mon.name} (${progress.evolved.from}) `;
 			let text = [];
 			if (progress.levelup) text.push(`has grown to Level ${progress.levelup}`);
 			if (progress.evolved) text.push(`evolved into a ${progress.evolved.to}`);
@@ -497,10 +543,11 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		if (!fullText.length) return;
 		return `**${fullText.join(' ')}**`;
 	},
-	function hpWatch() {
+	function hpWatch(tags) {
+		if (tags) return;
 		let fullText = [];
 		this.report.monChanges.forEach((x)=>{
-			if (x.fainted) fullText.push(`${x.mon.name} (${x.mon.species})`);
+			if (x.fainted) fullText.push(this.getName(x.mon));
 		});
 		if (!fullText.length) return;
 		if (fullText.length > 1) fullText[fullText.length-1] = "and "+fullText[fullText.length-1];
@@ -509,16 +556,17 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	
 	
 	// Items
-	function heldItemWatch() {
+	function heldItemWatch(tags) {
+		if (tags && !tags.items) return;
 		let fullText = [];
 		this.report.monChanges.forEach(x=>{
 			if (!x.helditem) return; //skip
 			if (x.helditem.took && x.helditem.given) {
-				fullText.push(`We take ${this.correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}) and give ${x.mon.gender==='Female'?"her":"him"} a ${this.correctCase(x.helditem.given)} to hold.`);
+				fullText.push(`We take ${this.correctCase(x.helditem.took)} from ${this.getName(x.mon)} and give ${x.mon.gender==='Female'?"her":"him"} a ${this.correctCase(x.helditem.given)} to hold.`);
 			} else if (x.took) {
-				fullText.push(`We take ${this.correctCase(x.helditem.took)} from ${x.mon.name} (${x.mon.species}).`);
+				fullText.push(`We take ${this.correctCase(x.helditem.took)} from ${this.getName(x.mon)}.`);
 			} else if (x.given) {
-				fullText.push(`We give a ${this.correctCase(x.helditem.given)} to ${x.mon.name} (${x.mon.species}) to hold.`);
+				fullText.push(`We give a ${this.correctCase(x.helditem.given)} to ${this.getName(x.mon)} to hold.`);
 			}
 			if (this.report.deltaItems) { // Adjust item deltas as they're accounted for here
 				let delta = this.report.deltaItems;
@@ -529,7 +577,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		if (!fullText.length) return;
 		return `**${fullText.join(" ")}**`;
 	},
-	function itemVending() {
+	function itemVending(tags) {
+		if (tags && !(tags.items || tags.shopping)) return;
 		this.progressiveTickDown("vending");
 		if (!this.report.deltaItems) return;
 		if (!this.currInfo.location.within('vending', this.currInfo.position, 10)) return;
@@ -559,7 +608,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			delete delta[item];
 		}
 	},
-	function escapeRopeCheck() {
+	function escapeRopeCheck(tags) {
+		if (tags) return;
 		if (!this.report.deltaItems || !this.report.mapChange) return;
 		if (this.report.deltaItems['Escape Rope'] < 0 && this.report.mapChange.movementType === 'dig') {
 			this.report.deltaItems['Escape Rope']++;
@@ -567,7 +617,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			// Report generated afterwards
 		}
 	},
-	function itemPickup() {
+	function itemPickup(tags) {
+		if (tags && !tags.items) return;
 		if (!this.report.deltaItems) return;
 		let delta = this.report.deltaItems;
 		if (Object.keys(delta).length === 0) return;
@@ -616,9 +667,48 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 	},
 	
+	function shopping(tags) {
+		if (!tags) return; // This section only runs when helping out
+		let delta = this.report.deltaItems;
+		if (delta) {
+			// Collate items into the shopping list
+			Object.keys(delta).forEach((item)=>{
+				this.shopping[item] = (this.shopping[item] || 0) + delta[item];
+			});
+		}
+		
+		// Only on map change
+		if (this.report.mapChange) {
+			try {
+				// Only report if the previous area had shopping
+				if (!this.prevInfo.location.has('shopping')) return;
+				
+				let buy = [], sell = [];
+				Object.keys(this.shopping).forEach((item)=>{
+					let itemName = this.correctCase(item);
+					let amount = this.shopping[item];
+					if (amount === 0) return; //Continue
+					if (amount > 0 )
+						buy.push(`${amount} ${itemName}`);
+					else
+						sell.push(`${-amount} ${itemName}`);
+				});
+				if (!buy.length && !sell.length) return;
+				if (buy.length > 1) buy[buy.length-1] = "and "+buy[buy.length-1];
+				if (sell.length > 1) sell[sell.length-1] = "and "+sell[sell.length-1];
+				if (buy.length) buy = `We bought ${buy.join(', ')}.`;
+				if (sell.length) sell = `We sold ${sell.join(', ')}.`;
+				return `**Results of our shopping spree:** ${[buy, sell].join('').trim()}`;
+			} finally {
+				// Finally, clear the shopping list
+				this.shopping = {};
+			}
+		}
+	},
 	
 	// E4 and Gym watches
-	function blackoutHeal() {
+	function blackoutHeal(tags) {
+		if (tags) return;
 		let texts = [];
 		if (this.report.blackout) {
 			this.progressiveTickDown('playbyplay');
@@ -639,7 +729,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		return texts.join(' ');
 	},
-	function gymWatch() {
+	function gymWatch(tags) {
+		if (tags) return;
 		let texts = [];
 		if (this.report.gymFight && !this.memory.inGymFight) {
 			if (!this.memory.gymAttempts) this.memory.gymAttempts = {};
@@ -666,7 +757,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		return texts.join(' ');
 	},
-	function e4Watch() {
+	function e4Watch(tags) {
+		if (tags) return;
 		if (!this.report.e4) return;
 		let texts = [];
 		let info = this.report.e4;
@@ -713,7 +805,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	},
 	
 	// Location changes
-	function mapChange() { // Last
+	function mapChange(tags) { // Last
+		if (tags) return;
 		if (!this.report.mapChange) return;
 		let report = this.report.mapChange;
 		if (report.announcement) {
