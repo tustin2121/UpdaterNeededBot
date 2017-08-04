@@ -1,0 +1,296 @@
+{
+	"area_id": 4,
+	"badges": 0,
+	"battle_kind": "Trainer",
+	"caught_list": [158, 231],
+	"coins": 0,
+	"daycare": [],
+	"enemy_trainer": {
+		"class_id": 35,
+		"id": 10,
+		"party": [{
+			"health": [18, 18],
+			"species": {
+				"id": 10,
+				"type1": "Bug",
+				"type2": "Bug",
+				"name": "CATERPIE",
+				"national_dex": 10,
+				"egg_cycles": 15,
+				"gender_ratio": 127,
+				"growth_rate": "Fast",
+				"catch_rate": 255
+			}
+		}, {
+			"health": [17, 17],
+			"species": {
+				"id": 0,
+				"name": "???"
+			}
+		}],
+		"class_name": "BUG CATCHER",
+		"name": ""
+	},
+	"evolution_is_happening": false,
+	"extra": {
+		"egg_is_ready": false
+	},
+	"gender": "Male",
+	"id": 48468,
+	"in_battle": true,
+	"items": {
+		"balls": [{
+			"id": 1,
+			"name": "MASTER BALL"
+		}],
+		"items": [{
+			"count": 1,
+			"id": 18,
+			"name": "POTION"
+		}, {
+			"count": 1,
+			"id": 173,
+			"name": "BERRY"
+		}, {
+			"count": 1,
+			"id": 9,
+			"name": "ANTIDOTE"
+		}],
+		"key": [],
+		"pc": [],
+		"tms": []
+	},
+	"level_cap": 20,
+	"map_bank": 26,
+	"map_id": 1,
+	"money": 3112,
+	"name": "JON",
+	"options": {
+		"battle_scene": "On",
+		"battle_style": "Set",
+		"frame": 3,
+		"menu_account": "On",
+		"print": "Normal",
+		"sound": "Mono",
+		"text_speed": "Fast"
+	},
+	"rival_name": "???",
+	"secret": 26346,
+	"seen_list": [10, 13, 14, 16, 19, 21, 74, 158, 161, 163, 231],
+	"time": {
+		"d": "THU",
+		"h": 20,
+		"m": 19,
+		"s": 56
+	},
+	"x": 15,
+	"y": 27,
+	"pc": {
+		"boxes": [{
+			"box_contents": [],
+			"box_name": "BOX1",
+			"box_number": 1
+		}],
+		"current_box_number": 1
+	},
+	"party": [{
+		"evs": {
+			"attack": 332,
+			"defense": 250,
+			"hp": 265,
+			"special_attack": 228,
+			"special_defense": 228,
+			"speed": 339
+		},
+		"experience": {
+			"current": 337,
+			"next_level": 409,
+			"this_level": 274,
+			"remaining": 72
+		},
+		"friendship": 82,
+		"health": [25, 25],
+		"held_item": {
+			"id": 173,
+			"name": "BERRY"
+		},
+		"is_egg": false,
+		"ivs": {
+			"attack": 1,
+			"defense": 13,
+			"special_attack": 8,
+			"special_defense": 8,
+			"speed": 10,
+			"hp": 12
+		},
+		"level": 7,
+		"met": {
+			"area_id": 1,
+			"game": "PokÃ©mon Pyrite",
+			"level": 5,
+			"area_name": "NEW BARK TOWN"
+		},
+		"moves": [{
+			"id": 10,
+			"pp": 35,
+			"pp_up": 0,
+			"name": "SCRATCH",
+			"accuracy": 255,
+			"base_power": 40,
+			"type": "Normal"
+		}, {
+			"id": 43,
+			"pp": 30,
+			"pp_up": 0,
+			"name": "LEER",
+			"accuracy": 255,
+			"base_power": 0,
+			"type": "Normal"
+		}, {
+			"id": 99,
+			"pp": 20,
+			"pp_up": 0,
+			"name": "RAGE",
+			"accuracy": 255,
+			"base_power": 20,
+			"type": "Normal"
+		}],
+		"name": "Barry",
+		"original_trainer": {
+			"gender": "Female",
+			"id": 48468,
+			"name": "JON"
+		},
+		"personality_value": 169408308,
+		"pokerus": {
+			"cured": false,
+			"days_left": 0,
+			"infected": false,
+			"strain": 0
+		},
+		"shiny": false,
+		"species": {
+			"id": 158,
+			"type1": "Water",
+			"type2": "Water",
+			"name": "TOTODILE",
+			"national_dex": 158,
+			"egg_cycles": 20,
+			"gender_ratio": 31,
+			"growth_rate": "Fast",
+			"catch_rate": 45
+		},
+		"stats": {
+			"attack": 14,
+			"defense": 15,
+			"hp": 25,
+			"special_attack": 12,
+			"special_defense": 13,
+			"speed": 12
+		},
+		"status": 0,
+		"gender": "Female"
+	}, {
+		"evs": {
+			"attack": 424,
+			"defense": 372,
+			"hp": 405,
+			"special_attack": 279,
+			"special_defense": 279,
+			"speed": 575
+		},
+		"experience": {
+			"current": 440,
+			"next_level": 583,
+			"this_level": 409,
+			"remaining": 143
+		},
+		"friendship": 91,
+		"health": [29, 33],
+		"held_item": {
+			"id": 173,
+			"name": "BERRY"
+		},
+		"is_egg": false,
+		"ivs": {
+			"attack": 10,
+			"defense": 13,
+			"hp": 6,
+			"special_attack": 0,
+			"special_defense": 0,
+			"speed": 15
+		},
+		"level": 8,
+		"met": {
+			"area_id": 45,
+			"game": "PokÃ©mon Pyrite",
+			"level": 4,
+			"area_name": "ROUTE 46"
+		},
+		"moves": [{
+			"id": 33,
+			"pp": 30,
+			"pp_up": 0,
+			"name": "TACKLE",
+			"accuracy": 242,
+			"base_power": 35,
+			"type": "Normal"
+		}, {
+			"id": 45,
+			"pp": 40,
+			"pp_up": 0,
+			"name": "GROWL",
+			"accuracy": 255,
+			"base_power": 0,
+			"type": "Normal"
+		}, {
+			"id": 111,
+			"pp": 40,
+			"pp_up": 0,
+			"name": "DEFENSE CURL",
+			"accuracy": 255,
+			"base_power": 0,
+			"type": "Normal"
+		}],
+		"name": "Snork",
+		"original_trainer": {
+			"gender": "Female",
+			"id": 48468,
+			"name": "JON"
+		},
+		"personality_value": 4185766260,
+		"pokerus": {
+			"cured": false,
+			"days_left": 0,
+			"infected": false,
+			"strain": 0
+		},
+		"shiny": false,
+		"species": {
+			"id": 231,
+			"name": "PHANPY",
+			"national_dex": 231,
+			"type1": "Ground",
+			"type2": "Ground",
+			"egg_cycles": 20,
+			"gender_ratio": 127,
+			"growth_rate": "Fast",
+			"catch_rate": 175
+		},
+		"stats": {
+			"attack": 16,
+			"defense": 17,
+			"hp": 33,
+			"special_attack": 11,
+			"special_defense": 11,
+			"speed": 14
+		},
+		"status": 0,
+		"gender": "Male"
+	}],
+	"caught": 2,
+	"seen": 11,
+	"ball_count": null,
+	"area_name": "ROUTE 30",
+	"map_name": "Route 30"
+}

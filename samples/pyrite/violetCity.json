@@ -1,0 +1,375 @@
+{
+	"area_id": 6,
+	"badges": 1,
+	"battle_kind": "None",
+	"caught_list": [63, 155],
+	"coins": 0,
+	"daycare": [],
+	"evolution_is_happening": false,
+	"extra": {
+		"egg_is_ready": false
+	},
+	"gender": "Female",
+	"id": 5031,
+	"in_battle": false,
+	"items": {
+		"balls": [{
+			"count": 7,
+			"id": 5,
+			"name": "POKÃ© BALL"
+		}],
+		"items": [{
+			"count": 2,
+			"id": 18,
+			"name": "POTION"
+		}, {
+			"count": 5,
+			"id": 173,
+			"name": "BERRY"
+		}, {
+			"count": 2,
+			"id": 9,
+			"name": "ANTIDOTE"
+		}, {
+			"count": 2,
+			"id": 13,
+			"name": "PARLYZ HEAL"
+		}, {
+			"count": 2,
+			"id": 12,
+			"name": "AWAKENING"
+		}, {
+			"count": 2,
+			"id": 74,
+			"name": "PSNCUREBERRY"
+		}, {
+			"count": 1,
+			"id": 39,
+			"name": "REVIVE"
+		}, {
+			"count": 2,
+			"id": 83,
+			"name": "BITTER BERRY"
+		}, {
+			"count": 5,
+			"id": 158,
+			"name": "FLOWER MAIL"
+		}, {
+			"count": 1,
+			"id": 49,
+			"name": "X ATTACK"
+		}, {
+			"count": 1,
+			"id": 19,
+			"name": "ESCAPE ROPE"
+		}],
+		"key": [],
+		"pc": [{
+			"count": 1,
+			"id": 17,
+			"name": "SUPER POTION"
+		}],
+		"tms": [{
+			"count": 1,
+			"id": 223,
+			"name": "TM31 MUD-SLAP"
+		}, {
+			"count": 1,
+			"id": 247,
+			"name": "HM05 FLASH"
+		}]
+	},
+	"level_cap": 30,
+	"map_bank": 10,
+	"map_id": 5,
+	"money": 6700,
+	"name": "Faith",
+	"options": {
+		"battle_scene": "On",
+		"battle_style": "Set",
+		"frame": 3,
+		"menu_account": "On",
+		"print": "Normal",
+		"sound": "Mono",
+		"text_speed": "Fast"
+	},
+	"rival_name": "Self",
+	"secret": 35806,
+	"seen_list": [10, 11, 13, 14, 16, 17, 19, 21, 23, 25, 27, 29, 32, 41, 43, 46, 54, 58, 63, 66, 69, 74, 79, 83, 84, 92, 155, 158, 161, 163, 165, 167, 177, 187, 198, 216],
+	"time": {
+		"d": "WED",
+		"h": 9,
+		"m": 55,
+		"s": 58
+	},
+	"x": 26,
+	"y": 27,
+	"pc": {
+		"boxes": [{
+			"box_contents": [],
+			"box_name": "BOX1",
+			"box_number": 1
+		}, {
+			"box_contents": [],
+			"box_name": "BOX2",
+			"box_number": 2
+		}, {
+			"box_contents": [],
+			"box_name": "BOX3",
+			"box_number": 3
+		}, {
+			"box_contents": [],
+			"box_name": "BOX4",
+			"box_number": 4
+		}],
+		"current_box_number": 1
+	},
+	"party": [{
+		"evs": {
+			"attack": 2256,
+			"defense": 1971,
+			"hp": 2047,
+			"special_attack": 2511,
+			"special_defense": 2511,
+			"speed": 2808
+		},
+		"experience": {
+			"current": 6641,
+			"next_level": 6859,
+			"this_level": 5832,
+			"remaining": 218
+		},
+		"friendship": 130,
+		"health": [41, 41],
+		"held_item": {
+			"id": 0,
+			"name": ""
+		},
+		"is_egg": false,
+		"ivs": {
+			"attack": 9,
+			"defense": 2,
+			"hp": 8,
+			"special_attack": 6,
+			"special_defense": 6,
+			"speed": 8
+		},
+		"level": 18,
+		"met": {
+			"area_id": 44,
+			"game": "PokÃ©mon Pyrite",
+			"level": 6,
+			"time_of_day": "Day",
+			"area_name": "DARK CAVE"
+		},
+		"moves": [{
+			"id": 237,
+			"pp": 15,
+			"pp_up": 0,
+			"name": "HIDDEN POWER",
+			"accuracy": 255,
+			"base_power": 57,
+			"type": "Ghost"
+		}, {
+			"id": 100,
+			"pp": 20,
+			"pp_up": 0,
+			"name": "TELEPORT",
+			"accuracy": 255,
+			"base_power": 0,
+			"type": "Psychic"
+		}],
+		"name": "Dr.Clipper",
+		"original_trainer": {
+			"gender": "Female",
+			"id": 5031,
+			"name": "Faith"
+		},
+		"personality_value": 982431079,
+		"pokerus": {
+			"cured": false,
+			"days_left": 0,
+			"infected": false,
+			"strain": 0
+		},
+		"shiny": false,
+		"species": {
+			"id": 63,
+			"name": "ABRA",
+			"national_dex": 63,
+			"type1": "Psychic",
+			"type2": "Psychic",
+			"egg_cycles": 20,
+			"gender_ratio": 63,
+			"growth_rate": "Medium Fast",
+			"catch_rate": 255
+		},
+		"stats": {
+			"attack": 17,
+			"defense": 12,
+			"hp": 41,
+			"special_attack": 46,
+			"special_defense": 28,
+			"speed": 42
+		},
+		"status": 0,
+		"gender": "Male"
+	}, {
+		"evs": {
+			"attack": 6473,
+			"defense": 5416,
+			"hp": 5908,
+			"special_attack": 4997,
+			"special_defense": 4997,
+			"speed": 7004
+		},
+		"experience": {
+			"current": 6400,
+			"next_level": 7408,
+			"this_level": 6400,
+			"remaining": 1008
+		},
+		"friendship": 146,
+		"health": [50, 50],
+		"held_item": {
+			"id": 0,
+			"name": ""
+		},
+		"is_egg": false,
+		"ivs": {
+			"attack": 4,
+			"defense": 15,
+			"hp": 5,
+			"special_attack": 11,
+			"special_defense": 11,
+			"speed": 10
+		},
+		"level": 20,
+		"met": {
+			"area_id": 1,
+			"game": "PokÃ©mon Pyrite",
+			"level": 5,
+			"area_name": "NEW BARK TOWN"
+		},
+		"moves": [{
+			"id": 52,
+			"pp": 25,
+			"pp_up": 0,
+			"name": "EMBER",
+			"accuracy": 255,
+			"base_power": 40,
+			"type": "Fire"
+		}, {
+			"id": 98,
+			"pp": 30,
+			"pp_up": 0,
+			"name": "QUICK ATTACK",
+			"accuracy": 255,
+			"base_power": 40,
+			"type": "Normal"
+		}, {
+			"id": 33,
+			"pp": 35,
+			"pp_up": 0,
+			"name": "TACKLE",
+			"accuracy": 242,
+			"base_power": 35,
+			"type": "Normal"
+		}, {
+			"id": 108,
+			"pp": 20,
+			"pp_up": 0,
+			"name": "SMOKESCREEN",
+			"accuracy": 255,
+			"base_power": 0,
+			"type": "Normal"
+		}],
+		"name": "Pyrite",
+		"original_trainer": {
+			"gender": "Female",
+			"id": 5031,
+			"name": "Faith"
+		},
+		"personality_value": 379764536,
+		"pokerus": {
+			"cured": false,
+			"days_left": 0,
+			"infected": false,
+			"strain": 0
+		},
+		"shiny": false,
+		"species": {
+			"id": 155,
+			"name": "CYNDAQUIL",
+			"national_dex": 155,
+			"type1": "Fire",
+			"type2": "Fire",
+			"egg_cycles": 20,
+			"gender_ratio": 31,
+			"growth_rate": "Fast",
+			"catch_rate": 45
+		},
+		"stats": {
+			"attack": 30,
+			"defense": 31,
+			"hp": 50,
+			"special_attack": 36,
+			"special_defense": 32,
+			"speed": 38
+		},
+		"status": 0,
+		"gender": "Male"
+	}, {
+		"experience": {
+			"current": 100,
+			"next_level": 172,
+			"this_level": 100,
+			"remaining": 72
+		},
+		"friendship": 9,
+		"health": [0, 19],
+		"held_item": {
+			"id": 0,
+			"name": ""
+		},
+		"is_egg": true,
+		"level": 5,
+		"met": {
+			"area_id": 0,
+			"game": "PokÃ©mon Pyrite",
+			"level": 0
+		},
+		"moves": [],
+		"name": "Egg",
+		"original_trainer": {
+			"id": 5031,
+			"name": "Faith"
+		},
+		"personality_value": 928811175,
+		"pokerus": {
+			"cured": false,
+			"days_left": 0,
+			"infected": false,
+			"strain": 0
+		},
+		"shiny": false,
+		"species": {
+			"id": 0,
+			"name": "Egg",
+			"national_dex": 0,
+			"type1": "???",
+			"type2": "???",
+			"egg_cycles": 10,
+			"gender_ratio": 31,
+			"growth_rate": "???",
+			"catch_rate": 190
+		},
+		"status": 0,
+		"gender": "Male"
+	}],
+	"caught": 2,
+	"seen": 36,
+	"ball_count": 7,
+	"area_name": "VIOLET CITY",
+	"map_name": "Violet City"
+}
