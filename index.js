@@ -66,6 +66,12 @@ dbot.on('message', (msg)=>{
 	console.log('Discord Message:',msg.content);
 	let [ type, ...args ] = require('./discordcmd.js')(msg, memoryBank);
 	switch (type) {
+		case 'status':
+			let uptime = Math.floor(require("process").uptime());
+			uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
+			let tg = (taggedIn?(taggedIn===true?"Yes":"Helping"):"No");
+			msg.channel.send(`Run-time UpdaterNeeded Bot present.\nUptime: ${uptime}\nTagged In: ${tg}`).catch((e)=>console.error('Discord Error:',e));
+			break;
 		case 'tagin':
 			if (!staffChannel) staffChannel = msg.channel;
 			taggedIn = true;
@@ -101,9 +107,20 @@ dbot.on('message', (msg)=>{
 					break;
 			}
 			break;
+		case 'save-mem':
+			memoryBank.forceSave();
+			msg.channel.send(`Memory bank saved to disk.`).catch(e=>console.error('Discord Error:',e));
+			break;
 		case 'reload':
 			let mod = args[0];
 			if (mod === 'region') mod = UPDATER.region;
+			if (mod === 'memory') {
+				memoryBank.dispose();
+				memoryBank = saveproxy(memoryFile, "\t");
+				reporter.memory = memoryBank;
+				msg.channel.send(`Memory bank loaded from disk.`).catch(e=>console.error('Discord Error:',e));
+				break;
+			}
 			if (__reloadFile(mod)) {
 				msg.channel.send(`Module '${mod}' reloaded.`).catch(e=>console.error('Discord Error:',e));
 			} else {

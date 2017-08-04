@@ -1313,6 +1313,9 @@ Unova.addNode(...[
 			"Pinwheel Forest","Giant Chasm","Abundant Shrine","Lostlorn Forest","Floccesy Ranch" 
 		],
 	}), // Connection from many routes... //TODO map these route
+	Area("Black Tower", [493, 483], {
+		connections: [ "White Forest" ],
+	}),
 	
 	// Boat transition from Virbank to Castelia. There's no such transition back.
 	Cutscene(id(566,389,260), { // No header index

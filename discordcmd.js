@@ -10,9 +10,10 @@ module.exports = function(msg, memory) {
 	if (msg.content.startsWith('_tags')) {
 		return ['tagout'];
 	}
+	let authed = (msg.author.id === 148100682535272448);
 	//if (/where are we/i.test(msg.content))
 	let res = /^Updater?(?:Needed)?(?:Bot)?[:,] (.*)/i.exec(msg.content);
-	if (res) return parseCmd(res[1]);
+	if (res) return parseCmd(res[1], authed);
 	
 	if (msg.mentions.users.some(x=> x.id===msg.client.user.id)) {
 		if (!msg.content.startsWith(MY_MENTION_ID)) return ['']; //ignore
@@ -20,20 +21,26 @@ module.exports = function(msg, memory) {
 		if (txt === '') {
 			return ['tagin'];
 		} else {
-			return parseCmd(txt);
+			return parseCmd(txt, authed);
 		}
 	}
 	return [''];
 };
 
-function parseCmd(cmd) {
+function parseCmd(cmd, authed=false) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
+	let res;
+	if ((res = /^reload (.*)$/.exec(cmd))) {
+		if (authed) return ['reload', res[1]];
+		else return [''];
+	}
+	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
+	
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
 	if (/^(post|update|show) (team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];
-	let res;
 	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {
 		let opts = res[1].split(/, /);

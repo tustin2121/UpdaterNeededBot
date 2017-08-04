@@ -570,8 +570,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			}
 			if (this.report.deltaItems) { // Adjust item deltas as they're accounted for here
 				let delta = this.report.deltaItems;
-				if (x.took && delta[x.took]) delta[x.took]--;
-				if (x.given && delta[x.given]) delta[x.given]++;
+				if (x.helditem.took && delta[x.helditem.took]) delta[x.helditem.took]--;
+				if (x.helditem.given && delta[x.helditem.given]) delta[x.helditem.given]++;
 			}
 		});
 		if (!fullText.length) return;
