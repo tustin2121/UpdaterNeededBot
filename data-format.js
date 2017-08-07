@@ -12,16 +12,18 @@ class Location {
 	set(opts={}) {
 		if (opts instanceof Node) {
 			this.node = opts;
-			this.map_name = opts.name || 'Mystery Zone';
+			this.map_name = opts.name || this.map_name || 'Mystery Zone';
 		} else {
+			this.map_name = opts['map_name'] || this.map_name || 'Mystery Zone';
 			this.x = opts['x'] || 0;
 			thix.y = opts['y'] || 0;
 			this.z = opts['z'] || 0;
 			this.map_bank = opts['map_bank'] || opts['mapbank'] || opts['mapBank'] || 0;
 			this.map_id = opts['map_id'] || opts['mapid'] || opts['mapId'] || 0;
 			this.area_id = opts['area_id'] || opts['areaid'] || opts['areaId'] || 0;
-			this.area_name = opts['area_name'] || opts['areaName'] || 'Mystery Zone';
-			this.map_name = opts['map_name'] || 'Mystery Zone';
+			this.area_name = opts['area_name'] || opts['areaname'] || opts['areaName'] || 'Mystery Zone';
+			this.parent_id = opts['parent_id'] || opts['parentid'] || opts['parentId'] || 0;
+			this.matrix_id = opts['matrix_id'] || opts['matrixid'] || opts ['matrixId'] || 0;
 		}
 	}
 	
@@ -74,7 +76,7 @@ class Location {
 			if (this.node) return other === this.node;
 		}
 		if (typeof other === 'string') {
-			let res = /^(\d+):(\d+).(\d)$/i.exec(other);
+			let res = /^(\d+)\:(\d+)\.(\d+)$/i.exec(other);
 			if (!res) return false;
 			return parseInt(res[2], 10) === this.map_bank
 				&& parseInt(res[3], 10) === this.map_id
@@ -106,7 +108,7 @@ class SortedData {
 		this.badges = {};
 		
 		// Pyrite
-		this.level_cap = 0;
+		this.level_cap = 100;
 	}
 }
 

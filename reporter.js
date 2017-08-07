@@ -174,7 +174,11 @@ class Reporter {
 					}
 					info.push(line);
 				});
-				return `[Info] Current Party:\n\n${info.join('\n')}`;
+				if (this.currInfo.level_cap != 100) {
+					return `[Info] Current Party (Current level cap is ${this.currInfo.level_cap}):\n\n${info.join('\n')}`;
+				} else {
+					return `[Info] Current Party:\n\n${info.join('\n')}`;
+				}
 			}
 		} catch (e) {
 			console.error(`Error generating requested update!`, e);
@@ -745,7 +749,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		if (this.memory.inGymFight && this.report.gymFight !== this.memory.inGymFight) {
 			let leader = this.memory.inGymFight;
-			let gymid = this.memory.inGymFight_loc; 
+			let gymid = this.memory.inGymFight_loc;
 			this.memory.inGymFight = false;
 			delete this.memory.inGymFight_loc;
 			if (this.currInfo.map_id === gymid) { // We didn't change maps, we must have won!

@@ -1,6 +1,8 @@
 // updaters/s4-pyrite.js
 // The configuration for Season 4's Pokemon Pyrite run
 
+const { SortedData, Pokemon } = require('../data-format');
+
 let testi = 0;
 global.game = "Pyrite";
 
@@ -20,7 +22,7 @@ module.exports = {
 	
 	// The function which parses the data into a normalized format
 	infoParse : function(data) {
-		let sorted = {};
+		let sorted = new SortedData();
 		
 		try {
 			// Sanity Test: check if this is our protagonist
@@ -29,9 +31,15 @@ module.exports = {
 			}
 			
 			{ // Parse out location data to a standard display format:
-				const Johto = require('./maps/johto');
+				sorted.location.set(data);
 				sorted.map_id = `${data.area_id}:${data.map_bank}.${data.map_id}`;
-				sorted.location = Johto.find(data.map_id);
+				
+				const Johto = require('./maps/johto');
+				let loc = Johto.find(data.location);
+				
+				
+				sorted.map_id = `${data.area_id}:${data.map_bank}.${data.map_id}`;
+				
 				sorted.position = `${data.x},${data.z},${data.y}`;
 			}
 			{ // Parse out location data to a standard display format:

@@ -7,6 +7,7 @@ const {
 	Mart, PokeMart, Gym,
 	Cutscene, Node,
 } = require("../map.js");
+const { Location } = require('../../../data-format');
 
 // Defaults for this particular region
 const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
@@ -83,9 +84,21 @@ function gameSpecific(black, white) {
 	return white;
 }
 
+const mapIdConverter = (mid)=>{
+	if (mid instanceof Location) {
+		if (mid.matrix_id) {
+			return id(mid.map_id, mid.parent_id, mid.matrix_id);
+		} else {
+			return `${mid.map_id}`;
+		}
+	}
+	if (typeof mid === 'number') return `${mid}`;
+	return mid;
+};
+
 // The region itself
 const Unova = module.exports =
-new Region({ name:"Unova", mapid:"identity" }, [
+new Region({ name:"Unova", mapidFn:mapIdConverter }, [
 	City("Aspertia City", id(163,427), {
 		buildings: [
 			House(id(167,427,257), {
@@ -1308,9 +1321,9 @@ Unova.addNode(...[
 		attrs: {
 			"indoors": true,
 		},
-		connections: [ 
+		connections: [
 			2,3,5,6,7,9,13,18,22,23,
-			"Pinwheel Forest","Giant Chasm","Abundant Shrine","Lostlorn Forest","Floccesy Ranch" 
+			"Pinwheel Forest","Giant Chasm","Abundant Shrine","Lostlorn Forest","Floccesy Ranch"
 		],
 	}), // Connection from many routes... //TODO map these route
 	Area("Black Tower", [493, 483], {

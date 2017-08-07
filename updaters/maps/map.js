@@ -4,10 +4,9 @@
 const inspect = require('util').inspect;
 
 class Region {
-	constructor({ name, mapid, handler }, nodes=[]) {
+	constructor({ name, mapidFn }, nodes=[]) {
 		this.name = name;
-		this.mapidType = mapid;
-		this.normalizeMapId = Region.createMapidHandler(mapid);
+		this.normalizeMapId = mapidFn;
 		
 		this.nodes = {};
 		this.nodesByName = {};
@@ -38,19 +37,6 @@ class Region {
 		} });
 		
 		this.addNode(...nodes);
-	}
-	
-	static createMapidHandler(mapid) {
-		switch (mapid) {
-			case "identity": return (id)=>`${id}`;
-			case "gen3": // Uses "Bank.Id" format
-				return (id)=>id;
-			case "ds":
-				return (id)=>{
-					// { matrix:int, mapid:int, parentId:int }
-					return `${id.mapid}:${id.parentId}:${id.matrix}`;
-				}
-		}
 	}
 	
 	addNode(...nodes) {
