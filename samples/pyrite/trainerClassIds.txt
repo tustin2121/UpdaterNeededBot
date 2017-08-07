@@ -4,3 +4,6 @@ class	id		Name
 9		6		Rival Fight 2
 3		1		Leader Bugsy	(L38 Cap)
 2		1		Leader Whitney	(L45 Cap)
+9		9		Rival Fight 3
+4		1		Leader Morty	(L54 Cap)
+

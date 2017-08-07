@@ -308,9 +308,56 @@ new Region({ name:"Johto", mapidFn }, [
 	}),
 	City("Ecruteak City", id(4,9,22), {
 		buildings: [
-			//TODO
+			PokeCenter(id(3)),
+			PokeMart(id(6)),
+			House(id(5), { name: "Ecruteak Dance Theater" }),
+			House(id(8)), //Item finder house
+			House(id(4)),
+			House(id(25,7), { name:"Move Tutor's House" }),
+			Gym(id(7), {
+				leader: "Morty",
+				badge: "Fog",
+				locOf: {
+					leader: "5,1",
+				}
+			})
+			Building("Tin Tower", {
+				floors: [
+					Floor(id(1)),
+					Floor(id(2)),
+				],
+			}),
+			Building("Burned Tower", {
+				floors: [
+					Floor(id(3, 13, 24)),
+					Floor(id(14)),
+				],
+			}),
 		],
 		connections: [ r(37), ],
+	}),
+	
+	//TODO Router 38 to the West
+	
+	Gatehouse(id(2,4,255), "Ecruteak City", r(42)),
+	Route(42, id(2,5,34), {
+		connections: [ "Mahogany Town", ref(3,57,35) ],
+	}),
+	Dungeon("Mt. Mortar", {
+		floors: [
+			Floor(id(3,57,35), {
+				connections: [ r(42) ],
+			}),
+			Floor(id(3,58,35)),
+			Floor(id(3,59,35)),
+			Floor(id(3,60,35)),
+		],
+	}),
+	Town("Mahogany Town", id(2,7,36), {
+		buildings: [
+			//TODO
+		],
+		connections: [ r(42), ],
 	}),
 	
 	//TODO
