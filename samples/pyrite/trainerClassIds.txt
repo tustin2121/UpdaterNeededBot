@@ -16,7 +16,19 @@ class	id		Name
 9		12		Rival Fight 4
 55		1		Rocket Executive (in Radio tower, female)
 55		1		Rocket Executive (in Radio tower, male)
+56		10		Wise Sage 1 (in Tin Tower)
+56		11		Wise Sage 2 (in Tin Tower)
+56		12		Wise Sage 3 (in Tin Tower)
+(wild pokemon 243) = Raikou
+8		1		Leader Clair (L82 Cap)
+9		15		Rival Fight 5 (in Victory Road)
+
+15		1		Elite Four Koga
+13		1		Elite Four Bruno
+11		1		Elite Four Will
+14		1		Elite Four Karen
+16		1		Champion Lance
 
 
-
+42		3		Rival Fight Final
 

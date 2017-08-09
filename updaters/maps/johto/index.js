@@ -1,65 +1,17 @@
 // Johto (GSC)
 // Includes Gen 2 Kanto
 
-const fs = require('fs');
 const {
 	Region, Town, City, Area, Route, Dungeon,
 	Building, Floor, House, Cave, Gatehouse,
 	Mart, PokeMart, Gym,
 	Cutscene, Node,
-} = require("../map.js");
-const { Location } = require('../../../data-format');
-
-// Defaults for this particular region
-
-const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
-	if (!Array.isArray(mapids)) mapids = [mapids];
-	let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
-		"indoors": true,
-		"healing": "pokecenter",
-		announce, the, noteworthy: true,
-	}, attrs), locOf:Object.assign({
-		"pc": ["9,2"],
-	}, locOf) });
-	me.addConnection(...connections);
-	// me.addConnection("Union Room");
-	me._typename = "Center";
-	me.getName = function() {
-		if (this.parent) return `${this.parent.getName()} ${this.name}`;
-		return this.name;
-	};
-	return me;
-};
-const PokeCenter = Center;
-
-
-
-// Helper functions
-const id = ()=>{
-	let currBank = 0;
-	let currArea = 0;
-	return function id( mapbank, mapid, areaid, set=true ) {
-		if (areaid===undefined && mapid===undefined) {
-			return `${currArea}:${currBank}.${mapbank}`;
-		}
-		if (areaid===undefined) {
-			return `${currArea}:${mapbank}.${mapid}`;
-		}
-		if (set) {
-			currBank = mapbank;
-			currArea = areaid;
-		}
-		return `${areaid}:${mapbank}.${mapid}`;
-	}
-}();
-function ref(mapbank, mapid, areaid) {
-	return `${areaid}:${mapbank}.${mapid}`;
-}
-function r(num) { return `Route ${num}`; }
-// function gameSpecific(black, white) {
-// 	if (global.game == "Pyrite") return black;
-// 	return white;
-// }
+	Center, PokeCenter,
+	
+	Location,
+	
+	id, ref, r, firstTime,
+} = require("./common.js");
 
 const mapidFn = (mid)=>{
 	if (mid instanceof Location) {
@@ -75,435 +27,110 @@ const mapidFn = (mid)=>{
 };
 
 // The region itself
-const Johto = module.exports =
-new Region({ name:"Johto", mapidFn }, [
-	Town("New Bark Town", id(24,4,1), {
-		buildings: [
-			House([id(24,6,1), id(7)], {
-				name: "Player's House",
-				locOf: { healing:"7,4" },
-			}),
-			House(id(9), {
-				name: "Elm's House",
-			}),
-			House(id(8)),
-			House(id(5), {
-				name: "Elm's Lab",
-				noteworthy: true,
-				locOf: { healing:"2,2" },
-			}),
-		],
-		connections: [ r(29) ],
+const Johto = module.exports = new Region({ name:"Johto", mapidFn });
+
+Johto.addNode(...require('./johto.js'));
+Johto.addNode(...require('./kanto.js'));
+
+Johto.addNode(...[
+	House(id(23,13,255), {
+		name: "Pokemon League Reception Gate",
+		connections: [ r(27), r(22), r(28), "Victory Road" ],
 	}),
-	Route(29, id(24,3,2), {
-		locOf: {
-			berrytree:"13,2",
-		}
-		connections: [ "New Bark Town", "Cherrygrove City" ],
-	}),
-	Gatehouse(id(24,13,255), r(29), r(46))
-	Town("Cherrygrove City", id(26,3,3), {
-		buildings: [
-			PokeCenter(id(5)),
-			PokeMart(id(4)),
-			House(id(6)),
-			House(id(7), { name: "Guide Gent's House", }),
-			House(id(8)),
-		],
-		connections: [ r(29), r(30) ],
-	}),
-	Route(30, id(26,1,4), {
-		buildings: [
-			House(id(9)),
-			House(id(10), { name: "Mr. Pokemon's House", }),
-		],
-		locOf: {
-			berrytree:"13,5",
-		}
-		connections: [ "Cherrygrove City", r(31) ],
-	}),
-	Route(31, id(26,2,5), {
-		connections: [ r(30), ref(3,78,44) ],
-	}),
-	Cave("Dark Cave", {
-		floors: [
-			Floor(id(3,78,44), { connections: [ r(31) ], }),
-		],
-	}),
-	Gatehouse(id(26,11,255), "Violet City", r(31)),
-	Town("Violet City", id(10,5,6), {
-		buildings: [
-			PokeCenter(id(10)),
-			PokeMart(id(6)),
-			House(id(8), { name:"Earl's Pokemon Academy", }),
-			House(id(11)),
-			House(id(9)),
-			Gym(id(7), {
-				leader: "Falkner",
-				badge: "Zypher",
-				locOf: {
-					"leader": "5,1",
-				},
-			}),
-			Dungeon("Sprout Tower", {
-				floors: [
-					Floor(id(3,1,7), { attrs:{ "dungeon":false, }}),
-					Floor(id(2)),
-					Floor(id(3)),
-				],
-			}),
-		],
-		connections: [ r(36), r(32) ],
-	}),
-	
-	Route(32, id(10,1,8), {
-		buildings: [
-			PokeCenter(id(13)),
-		],
-		connections: [ "Violet City", ref(3,37,10) ], //Union Cave
-	}),
-	Gatehouse(id(10,12,255), "Ruins of Alph", r(32)),
-	Dungeon("Ruins of Alph", {
-		floors: [
-			Floor(id(3,22,9), {
-				attrs: { "indoors":false, }
-				connections: [ ref(3,38,10)/*"Union Cave"*/ ],
-			}),
-			Floor(id(26), { name: "Arodactyle Chamber", }),
-			Floor(id(25), { name: "Omanyte Chamber", }),
-			Floor(id(24), { name: "Kabuto Chamber", }),
-			Floor(id(23), { name: "Ho-Oh Chamber", }),
-			Floor(id(27), { name: "Main Chamber", }),
-		],
-	}),
-	Cave("Union Cave", {
-		floors: [
-			Floor(id(3,37,10), {
-				connections: [ r(32), r(33), ],
-			}),
-			Floor(id(38), {
-				connections: [ ref(3,22,9) ], //Ruins of Alph
-			}),
-			Floor(id(39)),
-		],
-	}),
-	Route(33, id(8,6,11), {
-		connections: [ "Azalea Town", ref(3,37,10) ], //Union Cave
-	}),
-	Town("Azalea Town", id(8,7,12), {
-		buildings: [
-			PokeCenter(id(1)),
-			PokeMart(id(3)),
-			House(id(2)),
-			House(id(4), { name:"Kurt's House", }),
-			Dungeon("Slowpoke Well", {
-				floors: [
-					Floor(id(3,40,13)),
-					Floor(id(41)),
-				],
-			}),
-			Gym(id(8,5,12), {
-				leader: "Bugsy",
-				badge: "Hive",
-				locOf: {
-					leader: "5,7",
-				}
-			}),
-		],
-		connections: [ r(33), ],
-	}),
-	Gatehouse(id(11,22,255), "Ilex Forest", "Azalea Town"),
-	Area("Ilex Forest", id(3,52,14), {
-		attr: { dungeon:true, },
-		noteworthy: true,
-	}),
-	Gatehouse(id(11,23,255), "Ilex Forest", r(34)),
-	Route(34, id(11,1,15), {
-		buildings: [
-			House(id(24), {
-				name:"Daycare",
-				locOf: { pc:"7,2", },
-				noteworthy:true,
-			}),
-		],
-		connections: [ "Goldenrod City" ],
-	}),
-	City("Goldenrod City", id(11,2,16), {
-		buildings: [
-			PokeCenter(id(20)),
-			House(id(19), { name:"Game Corner", noteworthy:true }),
-			House(id(6)), //Bill's house?
-			House(id(10), { attr:{ "namerater":true } }),
-			House(id(5)), //Friendship House
-			House(id(4), { name:"Bike Shop"} ),
-			House(id(7), { name:"Goldenrod City Train Station" }),
-			House(id(9)),
-			House(id(8), { name:"Flower Shop" }),
-			Gym(id(3), {
-				leader: "Whitney",
-				badge: "Plain",
-				locOf: {
-					leader: "8,3",
-				},
-			}),
-			Building({
-				name: "Goldenrod City Department Store",
-				attrs: { "shopping":true },
-				floors: [
-					Floor(id(11)),
-					Floor(id(12)),
-					Floor(id(13)),
-					Floor(id(14)),
-					Floor(id(15)),
-					Floor(id(16), {
-						locOf:{
-							vending:["9,2","10,2","11,2"]
-						},
-					}),
-					Floor(id(18)), // Rooftop
-					Floor(id(17), { // Elevator
-						connections: [ ref(3,55,16) ],
-					}),
-				]
-			}),
-			Building({
-				name: "Radio Tower",
-				floors: [
-					Floor(id(3,17,17)),
-					Floor(id(18)),
-					Floor(id(19)),
-					Floor(id(20)),
-					Floor(id(21)),
-				],
-			}),
-			Building({
-				name: "Underground",
-				floors: [
-					Floor(id(3,54,16)), //Entrance
-					Floor(id(53)),	// Hallway
-					Floor(id(55), { // Dept Store Basement (in another map bank)
-						connections: [ ref(11,17,16) ],
-					}),
-					Floor(id(56), {
-						locOf: {
-							leader: "12,8", //Director
-						}
-					}), //BF2
-					Floor(id(54)), //BF3
-				],
-			}),
-		],
-		connections: [ r(34) ],
-	}),
-	Gatehouse(id(10,44,255), "Goldenrod City", r(35)),
-	Route(35, id(10,2,18), {
-		connections: [ r(36) ],
-	}),
-	Gatehouse(id(10,15,255), "National Park", r(35), {
-		locOf: { pc:["7,1"] },
-	}),
-	Area("National Park", id(3,15,19), {}),
-	Gatehouse(id(10,15,255), "National Park", r(36), {
-		locOf: { pc:["9,1"] },
-	}),
-	Route(36, id(10,3,20), {
-		connections: [ "Violet City", r(35), r(37) ],
-	}),
-	Gatehouse(id(10,16,255), "Ruins of Alph", r(36)),
-	Route(37, id(14,4,21), {
-		connections: [ r(36), "Ecruteak City" ],
-	}),
-	City("Ecruteak City", id(4,9,22), {
-		buildings: [
-			PokeCenter(id(3)),
-			PokeMart(id(6)),
-			House(id(5), { name: "Ecruteak Dance Theater" }),
-			House(id(8)), //Item finder house
-			House(id(4)),
-			House(id(25,7), { name:"Move Tutor's House" }),
-			Gym(id(7), {
-				leader: "Morty",
-				badge: "Fog",
-				locOf: {
-					leader: "5,1",
-				}
-			})
-			Building("Tin Tower", {
-				floors: [
-					Floor(id(1)),
-					Floor(id(2)),
-					//TODO
-				],
-			}),
-			Building("Burned Tower", {
-				floors: [
-					Floor(id(3, 13, 24)),
-					Floor(id(14)),
-				],
-			}),
-		],
-		connections: [ r(37), ],
-	}),
-	
-	Gatehouse(id(2,4,255), "Ecruteak City", r(42), {
-		name: "Ecruteak City Eastern Gatehouse",
-	}),
-	Route(42, id(2,5,34), {
-		connections: [ "Mahogany Town", ref(3,57,35) ],
-	}),
-	Dungeon("Mt. Mortar", {
-		floors: [
-			Floor(id(3,57,35), {
-				connections: [ r(42) ],
-			}),
-			Floor(id(3,58,35)),
-			Floor(id(3,59,35)),
-			Floor(id(3,60,35)),
-		],
-	}),
-	Town("Mahogany Town", id(2,7,36), {
-		buildings: [
-			PokeCenter(id(3)),
-			Gym(id(2), {
-				leader: "Pryce",
-				badge: "Glacier",
-				locOf: {
-					leader: "2,3",
-				}
-			}),
-			House(id(1)),
-			House(id(3, 48, 36), { // Rocket Hideout
-				attrs:{ shopping:true, }
-				connections: [ ref(3,49,36) ],
-			}),
-			Building("Rocket Hideout", {
-				attrs: { "dungeon": true, },
-				floors: [
-					Floor(id(49), {
-						connections: [ ref(3,48,36) ],
-					}),
-					Floor(id(50)),
-					Floor(id(51)),
-				],
-			}),
-		],
-		connections: [ r(42), ],
-	}),
-	Gatehouse(id(9,3,255), "Mahogany Town", r(43)),
-	Route(43, id(9,5,37), {
-		buildings: [
-			House(id(9,4,255)), //Toll house
-		],
-		connections: [ "Lake of Rage" ],
-	}),
-	Area("Lake of Rage", id(9,6,38), {
-		buildings: [
-			House(id(2), { name:"Fishing Guru's House", }),
-			House(id(1)), //House in the back
-		],
-		locOf: {
-			leader: "18,22", //gyarados
+	Area("Victory Road", id(3,91,89), {
+		attrs: {
+			indoors: true,
+			dungeon: true,
+			noteworthy: true,
+			"onto": "into",
 		},
-		connections: [ r(43) ],
+		connections: [ ref(23,13,255) ],
 	}),
-	
-	Gatehouse(id(1,9,255), "Ecruteak City", r(38), {
-		name: "Ecruteak City Western Gatehouse",
-	}),
-	Route(38, id(1,12,25), {
-		connections: [ r(39) ],
-	}),
-	Route(39, id(1,13,26), {
-		buildings: [
-			House(id(11)), // House
-			House(id(10)), // Stable
-		],
-		connections: [ r(38), "Olivine City" ],
-	}),
-	City("Olivine City", id(1,14,27), {
-		buildings: [
-			PokeCenter(id(1)),
-			PokeMart(id(8)),
-			Gym(id(2), {
-				leader: "Jasmine",
-				badge: "Mineral",
-				locOf: {
-					leader: "5,3",
+	Building("Indigo Plateau", {
+		floors: [
+			Floor(id(16,1,90), {
+				// Sub Area: Y<24 - Indigo Plateau
+				// Sub Area: Y>24 - Indigo Plateau East Garden
+				attrs: {
+					indoors: false,
+					announce: (loc, reporter)=>{
+						if (loc.y > 24) return "We step outside into the east garden of the Indigo Plateau. Several trainers are resting here between E4 attempts.";
+						if (reporter.isFirstTime("indigo")) {
+							return "We emerge from Victory Road! **We've arrived at the Indigo Plateau!**";
+						}
+						return null;
+					},
+				},
+				connections: [ "Victory Road" ],
+			}),
+			Floor(id(16,2,91), { //Entryway
+				attrs: {
+					"e4":"lobby",
+					healing: true,
+					shopping: true,
+					locOf: {
+						"pc": "7,7",
+					}
 				},
 			}),
-			House(id(6)),
-			House(id(7), { name:"Olivine Cafe", }),
-			House(id(3)),
-			House(id(5)),
-			Building("Glitter Lighthouse", {
-				floors: [
-					Floor(id(3,42,28)),
-					Floor(id(43)),
-					Floor(id(44)),
-					Floor(id(45)),
-					Floor(id(46)),
-					Floor(id(47)), //Top
-				],
+			Floor(id(16,3,91), {
+				attrs: {
+					"e4":"e4",
+					leader:"Koga",
+				},
+				locOf: { leader:"5,7", },
 			}),
-			House([id(15,8,27), id(1)]),
-		],
-		connections: [ r(39), r(40) ],
-	}),
-	Route(40, id(22,1,30), {
-		connections: [ r(41) ],
-	}),
-	Gatehouse(id(22,15,255), "Battle Tower", r(40)),
-	Building({
-		name: "Battle Tower",
-		floors: [
-			Floor(id(22,16,29), {
-				attrs: { indoors:false, },
+			Floor(id(16,5,91), {
+				attrs: {
+					"e4":"e4",
+					leader:"Bruno",
+				},
+				locOf: { leader:"5,7", },
 			}),
-			Floor(id(11)), //Lobby
-			Floor(id(13), { //Elevator
-				announce: "We've entered the battle tower challenge!",
+			Floor(id(16,4,91), {
+				attrs: {
+					"e4":"e4",
+					leader:"Will",
+				},
+				locOf: { leader:"5,7", },
 			}),
-			Floor(id(14)), //Hallway
-			Floor(id(12)), //Battle Room
-		],
-	}),
-	Route(41, id(22,2,32), {
-		connections: [ r(40), ref(3,67,31), "Cianwood City" ],
-	}),
-	Dungeon("Whirl Islands", {
-		floors: [
-			Floor(id(3,67,31)),
-			Floor(id(71)),
-			Floor(id(72)),
-			Floor(id(73)),
-			Floor(id(68)),
-			Floor(id(66)),
-			Floor(id(69)),
-		],
-		connections: [ r(40) ],
-	}),
-	City("Cianwood City", id(22,3,33), {
-		buildings: [
-			PokeCenter(id(6)),
-			House(id(7), { attrs:{ shopping:true, } }),
-			House(id(4)), //Shuckle House
-			House(id(9)),
-			House(id(8), { name:"Cianwood Photo Studio" }),
-			House(id(10), { name:"The Pokeseer's House" }),
-			Gym(id(5), {
-				leader: "Chuck",
-				badge: "Storm",
-				locOf: {
-					leader: "4,1",
+			Floor(id(16,6,91), {
+				attrs: {
+					"e4":"e4",
+					leader:"Karen",
+				},
+				locOf: { leader:"5,7", },
+			}),
+			Floor(id(16,7,91), {
+				attrs: {
+					"e4":"champion",
+					leader:"Lance",
+				},
+				locOf: { leader:"5,3", },
+			}),
+			Floor(id(16,8,91), {
+				attrs: {
+					"e4":"hallOfFame",
 				},
 			}),
+			Floor(id(0,0,91), {
+				//credits
+				announce: "The credits play!",
+			}),
 		],
-		connections: [ r(40) ],
 	}),
 	
-	//TODO Go to Tin Tower
 	
-	Route(46, id(5, 9, 45)),
+	// Mt. Silver
+	Route(28, id(19,1,95), {
+		attrs: {
+			announce: firstTime(id(1), "We step out onto Route 28 towards Mt. Silver, and are immedately spooted by our rival!"),
+		},
+		connections: [ ref(23,13,255) ],
+	}),
 ]);
+
+//TODO Map out ALL Fly Spots
+//TODO Find a way to report teleporting from the League to New Bark Town
 
 Johto.resolve();

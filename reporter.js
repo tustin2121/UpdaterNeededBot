@@ -45,6 +45,14 @@ class Reporter {
 	
 	///////////////////// Helper Functions /////////////////////
 	
+	isFirstTime(memKey) {
+		if (!this.memory.firstTime) this.memory.firstTime = {};
+		if (!this.memory.firstTime[memKey]) {
+			this.memory.firstTime[memKey] = true;
+			return true;
+		}
+		return false;
+	}
 	progressive(memKey, ...opts) {
 		memKey = `%progressive.${memKey}`;
 		this.pmem[memKey] = (this.pmem[memKey] || 0) + 1;
@@ -248,14 +256,20 @@ discoveries = [
 				report.mapChange.movementType = 'dig'; // check if used escape rope later
 			}
 		}
-		if (this.prevLocs.includes(curr.location)) {
+		if (this.prevLocs.includes(curr.location.node)) {
 			report.mapChange.recent = true;
-			report.mapChange.last = this.prevLocs[0] === curr.location;
+			report.mapChange.last = this.prevLocs[0] === curr.location.node;
 		} else if (curr.location.has('announce')) {
-			report.mapChange.announcement = curr.location.has('announce');
+			let announce = curr.location.has('announce');
+			if (typeof announce === 'function') {
+				announce = announce.call(curr.location.node, curr.location, this);
+			}
+			if (typeof announce === 'string') {
+				report.mapChange.announcement = announce;
+			}
 		}
 		this.prevLocs.pop(); // Pop oldest location
-		this.prevLocs.unshift(curr.location); // Put newest location on front of queue
+		this.prevLocs.unshift(curr.location.node); // Put newest location on front of queue
 		
 		let area = curr.location.getArea();
 		if (this.prevAreas[0] !== area) {
