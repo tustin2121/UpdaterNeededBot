@@ -6,4 +6,17 @@ class	id		Name
 2		1		Leader Whitney	(L45 Cap)
 9		9		Rival Fight 3
 4		1		Leader Morty	(L54 Cap)
+51		4		Rocket Executive (in Hideout, male)
+55		2		Rocket Executive (in Hideout, female)
+5		1		Leader Pryce	(L60 Cap)
+67		1		Urkio
+7		1		Leader Chuck	(L63 Cap)
+6		1		Leader Jasmine	(L73 Cap)
+51		3		Rocket Executive (pretending to be Radio Director)
+9		12		Rival Fight 4
+55		1		Rocket Executive (in Radio tower, female)
+55		1		Rocket Executive (in Radio tower, male)
+
+
+
 

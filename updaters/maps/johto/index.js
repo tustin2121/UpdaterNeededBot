@@ -271,18 +271,25 @@ new Region({ name:"Johto", mapidFn }, [
 				floors: [
 					Floor(id(3,17,17)),
 					Floor(id(18)),
+					Floor(id(19)),
+					Floor(id(20)),
+					Floor(id(21)),
 				],
 			}),
 			Building({
 				name: "Underground",
 				floors: [
 					Floor(id(3,54,16)), //Entrance
-					Floor(id(53)),
+					Floor(id(53)),	// Hallway
 					Floor(id(55), { // Dept Store Basement (in another map bank)
 						connections: [ ref(11,17,16) ],
 					}),
-					Floor(id(56)), //BF2
-					Floor(id(54)),
+					Floor(id(56), {
+						locOf: {
+							leader: "12,8", //Director
+						}
+					}), //BF2
+					Floor(id(54)), //BF3
 				],
 			}),
 		],
@@ -325,6 +332,7 @@ new Region({ name:"Johto", mapidFn }, [
 				floors: [
 					Floor(id(1)),
 					Floor(id(2)),
+					//TODO
 				],
 			}),
 			Building("Burned Tower", {
@@ -337,9 +345,9 @@ new Region({ name:"Johto", mapidFn }, [
 		connections: [ r(37), ],
 	}),
 	
-	//TODO Router 38 to the West
-	
-	Gatehouse(id(2,4,255), "Ecruteak City", r(42)),
+	Gatehouse(id(2,4,255), "Ecruteak City", r(42), {
+		name: "Ecruteak City Eastern Gatehouse",
+	}),
 	Route(42, id(2,5,34), {
 		connections: [ "Mahogany Town", ref(3,57,35) ],
 	}),
@@ -355,12 +363,145 @@ new Region({ name:"Johto", mapidFn }, [
 	}),
 	Town("Mahogany Town", id(2,7,36), {
 		buildings: [
-			//TODO
+			PokeCenter(id(3)),
+			Gym(id(2), {
+				leader: "Pryce",
+				badge: "Glacier",
+				locOf: {
+					leader: "2,3",
+				}
+			}),
+			House(id(1)),
+			House(id(3, 48, 36), { // Rocket Hideout
+				attrs:{ shopping:true, }
+				connections: [ ref(3,49,36) ],
+			}),
+			Building("Rocket Hideout", {
+				attrs: { "dungeon": true, },
+				floors: [
+					Floor(id(49), {
+						connections: [ ref(3,48,36) ],
+					}),
+					Floor(id(50)),
+					Floor(id(51)),
+				],
+			}),
 		],
 		connections: [ r(42), ],
 	}),
+	Gatehouse(id(9,3,255), "Mahogany Town", r(43)),
+	Route(43, id(9,5,37), {
+		buildings: [
+			House(id(9,4,255)), //Toll house
+		],
+		connections: [ "Lake of Rage" ],
+	}),
+	Area("Lake of Rage", id(9,6,38), {
+		buildings: [
+			House(id(2), { name:"Fishing Guru's House", }),
+			House(id(1)), //House in the back
+		],
+		locOf: {
+			leader: "18,22", //gyarados
+		},
+		connections: [ r(43) ],
+	}),
 	
-	//TODO
+	Gatehouse(id(1,9,255), "Ecruteak City", r(38), {
+		name: "Ecruteak City Western Gatehouse",
+	}),
+	Route(38, id(1,12,25), {
+		connections: [ r(39) ],
+	}),
+	Route(39, id(1,13,26), {
+		buildings: [
+			House(id(11)), // House
+			House(id(10)), // Stable
+		],
+		connections: [ r(38), "Olivine City" ],
+	}),
+	City("Olivine City", id(1,14,27), {
+		buildings: [
+			PokeCenter(id(1)),
+			PokeMart(id(8)),
+			Gym(id(2), {
+				leader: "Jasmine",
+				badge: "Mineral",
+				locOf: {
+					leader: "5,3",
+				},
+			}),
+			House(id(6)),
+			House(id(7), { name:"Olivine Cafe", }),
+			House(id(3)),
+			House(id(5)),
+			Building("Glitter Lighthouse", {
+				floors: [
+					Floor(id(3,42,28)),
+					Floor(id(43)),
+					Floor(id(44)),
+					Floor(id(45)),
+					Floor(id(46)),
+					Floor(id(47)), //Top
+				],
+			}),
+			House([id(15,8,27), id(1)]),
+		],
+		connections: [ r(39), r(40) ],
+	}),
+	Route(40, id(22,1,30), {
+		connections: [ r(41) ],
+	}),
+	Gatehouse(id(22,15,255), "Battle Tower", r(40)),
+	Building({
+		name: "Battle Tower",
+		floors: [
+			Floor(id(22,16,29), {
+				attrs: { indoors:false, },
+			}),
+			Floor(id(11)), //Lobby
+			Floor(id(13), { //Elevator
+				announce: "We've entered the battle tower challenge!",
+			}),
+			Floor(id(14)), //Hallway
+			Floor(id(12)), //Battle Room
+		],
+	}),
+	Route(41, id(22,2,32), {
+		connections: [ r(40), ref(3,67,31), "Cianwood City" ],
+	}),
+	Dungeon("Whirl Islands", {
+		floors: [
+			Floor(id(3,67,31)),
+			Floor(id(71)),
+			Floor(id(72)),
+			Floor(id(73)),
+			Floor(id(68)),
+			Floor(id(66)),
+			Floor(id(69)),
+		],
+		connections: [ r(40) ],
+	}),
+	City("Cianwood City", id(22,3,33), {
+		buildings: [
+			PokeCenter(id(6)),
+			House(id(7), { attrs:{ shopping:true, } }),
+			House(id(4)), //Shuckle House
+			House(id(9)),
+			House(id(8), { name:"Cianwood Photo Studio" }),
+			House(id(10), { name:"The Pokeseer's House" }),
+			Gym(id(5), {
+				leader: "Chuck",
+				badge: "Storm",
+				locOf: {
+					leader: "4,1",
+				},
+			}),
+		],
+		connections: [ r(40) ],
+	}),
+	
+	//TODO Go to Tin Tower
 	
 	Route(46, id(5, 9, 45)),
 ]);
