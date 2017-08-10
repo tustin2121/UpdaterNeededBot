@@ -7,6 +7,7 @@ const {
 	Mart, PokeMart, Gym,
 	Cutscene, Node,
 	Center, PokeCenter,
+	SingleCave, SingleDungeon, Cave1, Dungeon1,
 	
 	Location,
 	
@@ -15,6 +16,187 @@ const {
 
 module.exports = [
 	Route(22, id(23,2,88), {
-		connections: [ ref(23,13,255) ],
+		connections: [ ref(23,13,255), "Viridian City", ],
 	}),
+	City("Viridian City", id(23,3,49), {
+		buildings: [
+			PokeCenter(id(9)),
+			PokeMart(id(8)),
+			House(id(5)),
+			House([id(6),id(7)], {
+				name: "Trainer House",
+				locOf: { pc:"2,2" },
+			}),
+			Gym(id(4), {
+				leader: "Blue",
+				leaderClass: 0, //TODO
+				badge: "Earth",
+				locOf: {
+					leader: "5,2",
+				},
+			}),
+		],
+		connections: [ r(22), r(1), r(2) ],
+	}),
+	Route(1, id(13,1,48), {
+		connections: [ "Viridian City", "Pallet Town" ],
+	}),
+	Town("Pallet Town", id(13,2,47), {
+		buildings: [
+			House([id(3),id(4)], { name:"Red's House" }),
+			House(id(5), { name:"Blue's House" }),
+			House(id(6), { name:"Oak's Lab" }),
+		],
+		connections: [ r(1), r(21) ],
+	}),
+	
+	Route(2, id(23,1,50), {
+		buildings: [
+			House(id(11)),
+		],
+		connections: [ "Viridian City", "Diglett's Cave", "Viridian Forest", "Pewter City" ],
+	}),
+	SingleCave("Diglett's Cave", id(3,84,63), {
+		connections: [ r(2) ],
+	}),
+	Gatehouse(id(23,12,255), "Viridian Forest", r(2)),
+	SingleCave("Viridian Forest", id(3,90,51), {
+		connections: [ r(2) ],
+	}),
+	
+	City("Pewter City", id(14,2,52), {
+		buildings: [
+			PokeCenter(id(6)),
+			PokeMart(id(5)),
+			House(id(8)),
+			House(id(3)),
+			Gym(id(4), {
+				leader: "Brock",
+				leaderClass: 17,
+				badge: "Boulder",
+				locOf: {
+					leader: "5,1",
+				}
+			}),
+		],
+		connections: [ r(2), r(3) ],
+	}),
+	Route(3, id(14,1,53), {
+		connections: [ "Pewter City", "Mt. Moon" ],
+		
+	}),
+	Cave("Mt. Moon", id(3,85,54), {
+		buildings: [
+			Area("Mt. Moon Square", id(15,10,54), {
+				buildings: [
+					House(id(11), { attrs:{ shopping:true } }),
+				],
+				attrs: {
+					indoors: false,
+				},
+			})
+		],
+		connections: [ r(3), r(4) ],
+	}),
+	Route(4, id(7,12,55), {
+		connections: [ "Mt. Moon", "Cerulean City" ],
+	}),
+	City("Cerulean City", id(7,17,56), {
+		buildings: [
+			PokeCenter(id(4)),
+			PokeMart(id(7)),
+			House(id(3)),
+			House(id(1)),
+			House(id(2)),
+			Gym(id(6), {
+				leader: "Misty",
+				leaderClass: 0, //TODO
+				badge: "Cascade",
+				locOf: {
+					leader: "5,2",
+				},
+			}),
+			Cave("Cerulean Cave",{
+				floors:[
+					Floor(id(12,13,56)),
+					Floor(id(1,4,56)), //Team Rocket Hideout
+				],
+			}),
+		],
+		connections: [ r(4), r(9) ],
+	}),
+	Route(24, id(7,15,57), {
+		connections: [ r(25), "Cerulean City" ],
+	}),
+	Route(25, id(7,16,58), {
+		buildings: [
+			House(id(11), { name:"Sea Cottage", })
+		],
+		connections: [ r(24) ],
+	}),
+	Route(5, id(25, 1, 59), { //For some reason, this name is not signposted anywhere in Pyrite
+		buildings: [
+			House(id(15)),
+			House(ref(25,13,255), {
+				connections: [ "Underground Path" ],
+			}),
+		],
+		connections: [ "Cerulean City" ],
+	}),
+	Route(9, id(7,13,66), {
+		connections: [ "Cerulean City", ref(3,87,67), r(10) ], //Rock Tunnel
+	}),
+	Route(10, id(7,14,68), { //Another route that doesn't signpost
+		buildings: [
+			PokeCenter(id(8)),
+			House(id(7, 10, 69), { name: "Kanto Power Plant", }),
+		],
+		connections: [ r(9), ref(3,87,67) ],
+	}),
+	Cave("Rock Tunnel", {
+		floors: [
+			Floor(id(3,87,67)),
+			Floor(id(88)),
+		],
+		connections: [ r(9), r(10) ],
+	}),
+	Town("Lavender Town", id(18,4,70), {
+		//TODO
+	}),
+	
+	
+	SingleCave("Underground Path", id(3,86,255), {
+		connections: [ ref(25,13,59), ref(25,14,255) ],
+	}),
+	City("Saffron City", id(25,2,73), {
+		buildings: [
+			PokeCenter(id(6)),
+			PokeMart(id(5)),
+			House([id(11, id(12))], { name:"Copycat's House" }),
+			House(id(8)),
+			House(id(10), { name:"Silph Co. Building" }),
+			House(id(9), {
+				name:"Saffron City Magnet Train Station",
+				connections: [ ref(11,7,16) ],
+			}),
+			House(ref(25,14,255), {
+				connections: [ "Underground Path" ],
+			}),
+			House(id(3), { name:"Fighting Dojo" }),
+			Gym(id(4), {
+				leader: "Sabrina",
+				badge: "Marsh",
+				leaderClass: 0,
+				locOf: {
+					leader: "11,8",
+				}
+			})
+		],
+	})
+	
+	
+	Route(21, id(6,7,87), {
+		connections: [ "Pallet Town" ],
+	}),
+	
 ];

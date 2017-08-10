@@ -29,6 +29,9 @@ class	id		Name
 14		1		Elite Four Karen
 16		1		Champion Lance
 
+17		1		Leader Brock
+42		3		Rival Fight 6 (in Mt Moon)
+(wild pokemon 150) = Mewtwo
 
-42		3		Rival Fight Final
+42		3		Rival Fight 6 (on Route 22??)
 

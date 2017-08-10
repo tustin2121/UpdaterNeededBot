@@ -7,6 +7,7 @@ const {
 	Mart, PokeMart, Gym,
 	Cutscene, Node,
 	Center, PokeCenter,
+	SingleCave, SingleDungeon, Cave1, Dungeon1,
 	
 	Location,
 	
@@ -153,7 +154,7 @@ module.exports = [
 		connections: [ r(33), ],
 	}),
 	Gatehouse(id(11,22,255), "Ilex Forest", "Azalea Town"),
-	Area("Ilex Forest", id(3,52,14), {
+	SingleCave("Ilex Forest", id(3,52,14), {
 		attr: { dungeon:true, },
 		noteworthy: true,
 	}),
@@ -176,7 +177,10 @@ module.exports = [
 			House(id(10), { attr:{ "namerater":true } }),
 			House(id(5)), //Friendship House
 			House(id(4), { name:"Bike Shop"} ),
-			House(id(7), { name:"Goldenrod City Train Station" }),
+			House(id(7), {
+				name:"Goldenrod City Magnet Train Station",
+				connections: [ ref(25,2,73) ],
+			}),
 			House(id(9)),
 			House(id(8), { name:"Flower Shop" }),
 			Gym(id(3), {
@@ -505,14 +509,7 @@ module.exports = [
 	Route(27, id(24,2,93), {
 		buildings: [
 			House(id(12)),
-			Area("Tohjo Falls", id(3,83,94), {
-				attrs: {
-					indoors: true,
-					dungeon: true,
-					noteworthy: true,
-					"onto": "into",
-				},
-			}),
+			SingleCave("Tohjo Falls", id(3,83,94)),
 		],
 		connections: [ "New Bark Town", r(26) ],
 	}),

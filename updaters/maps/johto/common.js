@@ -24,6 +24,27 @@ const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], 
 };
 const PokeCenter = Center;
 
+/** Single Map Dungeon */
+const SingleCave = function(name, mapids, { the=true, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
+	if (!Array.isArray(mapids)) mapids = [mapids];
+	if (legendary) locOf.legendary = legendary.loc;
+	let me = new Node({ name, mapids, attrs:Object.assign({
+		"indoors": true,
+		"dungeon": true,
+		"noteworthy": true,
+		"onto": "into",
+		noteworthy, announce, legendary, the,
+	}, attrs), locOf });
+	me.addChild(...zones);
+	me.addChild(...buildings);
+	me.addConnection(...connections);
+	me._typename = "Area";
+	return me;
+};
+const SingleDungeon = SingleCave;
+const Cave1 = SingleCave;
+const Dungeon1 = SingleDungeon;
+
 // Helper functions
 const id = ()=>{
 	let currBank = 0;
@@ -64,5 +85,6 @@ module.exports = Object.assign({},
 	require("../map.js"),
 	require('../../../data-format').Location,
 	Center, PokeCenter,
+	SingleCave, SingleDungeon, Cave1, Dungeon1,
 	id, ref, r, firstTime,
 );

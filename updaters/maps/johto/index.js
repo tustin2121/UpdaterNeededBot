@@ -7,6 +7,7 @@ const {
 	Mart, PokeMart, Gym,
 	Cutscene, Node,
 	Center, PokeCenter,
+	SingleCave, SingleDungeon, Cave1, Dungeon1,
 	
 	Location,
 	
@@ -37,13 +38,7 @@ Johto.addNode(...[
 		name: "Pokemon League Reception Gate",
 		connections: [ r(27), r(22), r(28), "Victory Road" ],
 	}),
-	Area("Victory Road", id(3,91,89), {
-		attrs: {
-			indoors: true,
-			dungeon: true,
-			noteworthy: true,
-			"onto": "into",
-		},
+	SingleCave("Victory Road", id(3,91,89), {
 		connections: [ ref(23,13,255) ],
 	}),
 	Building("Indigo Plateau", {
