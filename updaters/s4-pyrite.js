@@ -6,12 +6,15 @@ const movePPTable = require('../data/gen2/movetable');
 
 let testi = 0;
 global.game = "Pyrite";
+global.gen = 2;
 
 function correctCase(str) {
 	if (typeof str !== 'string') return str;
-	return str.split(' ')
+	str = str.split(' ')
 			.map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
 			.join(' ');
+	if (str.startsWith("Tm")) str = "TM"+str.substr(2);
+	return str;
 }
 function ofSet(...items) {
 	let set = {};
@@ -102,6 +105,8 @@ module.exports = {
 				[data.items.balls, data.items.items, data.items.tms, data.items.key]
 					.forEach(processItemList(sorted.items_bag));
 				[data.item.pc].forEach(processItemList(sorted.items_pc));
+				
+				sorted.ball_count = data.ball_count || 0;
 			}
 			{ // Sort battle data
 				sorted.in_battle = data.in_battle;
@@ -149,6 +154,18 @@ module.exports = {
 				Volcano:	!!(data.badges & (0x1 << 0xD)),
 				Earth:		!!(data.badges & (0x1 << 0xE)),
 			};
+			
+			if (data.time) {
+				sorted.time = {
+					ofDay : ()=>{
+						if (data.time.h >= 20) return "night";
+						if (data.time.h >= 12) return "day";
+						if (data.time.h >= 6) return "morning";
+						return "night";
+					}(),
+					ofWeek : data.time.d.toLowerCase(),
+				};
+			}
 		
 		} finally {
 			const path = require('path');
@@ -162,7 +179,7 @@ module.exports = {
 		
 		
 		function normalizePokemon(minfo) {
-			let mon = {};
+			let mon = new Pokemon();
 			
 			mon.species = minfo.is_egg? 'Egg': correctCase(minfo.species.name);
 			mon.name = minfo.is_egg? 'Egg' : sanatizeName(minfo.name);
@@ -193,7 +210,7 @@ module.exports = {
 					id: m.id,
 					max_pp: maxPP, //m.max_pp,
 					pp: m.pp,
-					name: m.name,
+					name: correctCase(m.name),
 					type: m.type
 				};
 			});
@@ -215,30 +232,17 @@ module.exports = {
 			
 			if (minfo.held_item.id > 0) {
 				mon.item = correctCase(minfo.held_item.name);
+				sorted.addItemOnPokemon(mon.item);
 			} else {
 				mon.item = null;
 			}
+			
 			mon.gender = minfo.gender || '';
-			mon.ability = minfo.ability;
-			mon.nature = `${minfo.nature}, ${minfo.characteristic}`;
-			if (minfo.met) {
-				mon.caughtIn = minfo.met.caught_in;
-			}
 			if (minfo.health) {
 				if (minfo.health[0] === 0) mon.hp = 0;
 				else mon.hp = Math.max(1, Math.floor((minfo.health[0] / minfo.health[1])*100)); //At least 1% HP if not fainted
 			}
-			if (minfo.stats) {
-				mon.stats = {
-					atk: minfo.stats.attack,
-					def: minfo.stats.defense,
-					hp: minfo.stats.hp,
-					spa: minfo.stats.special_attack,
-					spd: minfo.stats.special_defense,
-					spe: minfo.stats.speed,
-				};
-			}
-			// mon.hash = minfo.personality_value | (minfo.ivs.attack | minfo.ivs.defense<<2 | minfo.ivs.hp<<4 | minfo.ivs.special_attack<<6 | minfo.ivs.special_defense<<8 | minfo.ivs.speed<<10);
+			if (minfo.stats) { mon.stats = minfo.stats; }
 			mon.hash = minfo.personality_value;
 			mon._isEvolving = minfo.is_evolving || false;
 			return mon;

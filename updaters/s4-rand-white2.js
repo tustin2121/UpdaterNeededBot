@@ -3,6 +3,7 @@
 
 let testi = 0;
 global.game = "White2";
+global.gen = 5;
 
 module.exports = {
 	// The Reddit Live Updater ID to post to

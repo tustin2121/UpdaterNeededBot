@@ -247,7 +247,16 @@ module.exports = [
 	Gatehouse(id(10,15,255), "National Park", r(35), {
 		locOf: { pc:["7,1"] },
 	}),
-	Area("National Park", id(3,15,19), {}),
+	Area("National Park", [id(3,15,19), id(16)], {
+		announce: (loc, reporter)=>{
+			// A different map is used for the bug contest
+			if (loc.map_id === 16 && !reporter.memory['bugCatching']) {
+				reporter.memory['bugCatching'] = true;
+				return "**We've entered a bug catching contest!**";
+			}
+			return null;
+		},
+	}),
 	Gatehouse(id(10,15,255), "National Park", r(36), {
 		locOf: { pc:["9,1"] },
 	}),
@@ -276,14 +285,21 @@ module.exports = [
 			})
 			Building("Tin Tower Entrance", {
 				floors: [
-					Floor(id(1)),
-					Floor(id(2)),
+					Floor(id(1)), //1F
+					Floor(id(2)), //B1F
 				],
 			}),
 			Building("Tin Tower", {
 				floors: [
 					Floor(id(3,4,23)),
-					
+					Floor(id(5)), //Floors 2-9 are unreachable in Pyrite?
+					Floor(id(6)),
+					Floor(id(7)),
+					Floor(id(8)),
+					Floor(id(9)),
+					Floor(id(10)),
+					Floor(id(11)),
+					Floor(id(12)),
 				],
 			}),
 			Building("Burned Tower", {

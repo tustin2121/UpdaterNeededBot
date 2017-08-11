@@ -1,9 +1,12 @@
 // updaters/s4-blazed-glazed.js
 // The configuration for Season 4's Blazed Glazed
 
+global.game = "BlazedGlazed";
+global.gen = 3;
+
 module.exports = {
 	// The Reddit Live Updater ID to post to
-	liveID : "yp65jgm0fxu9", 
+	liveID : "yp65jgm0fxu9",
 	// liveID : "ysqpsvyo0yjv",  // Test updater
 	// Unix timestamp since when the run started
 	runStart : 1491685200,

@@ -108,6 +108,7 @@ class SortedData {
 		// Battle data
 		this.in_battle = false;
 		this.trainer = null;
+		this.wildmon = null;
 		
 		// Cutscene data
 		this.in_cutscene = false;
@@ -116,7 +117,20 @@ class SortedData {
 		this.badges = {};
 		
 		// Pyrite
+		this.time = null;
 		this.level_cap = 100;
+	}
+	
+	addItemToBag(name, count=1) {
+		this.inventory[name] = (this.inventory[name] || 0) + count;
+		this.items_bag[name] = (this.items_bag[name] || 0) + count;
+	}
+	addItemToPC(name, count=1) {
+		this.inventory[name] = (this.inventory[name] || 0) + count;
+		this.items_pc[name] = (this.items_pc[name] || 0) + count;
+	}
+	addItemOnPokemon(name) {
+		this.inventory[name] = (this.inventory[name] || 0)++;
 	}
 }
 
@@ -125,9 +139,9 @@ class Pokemon {
 		this._name = '';
 		this.nicknamed = false;
 		
-		this.gender = 'U';
-		this.nature = 'None, none';
-		this.caughtIn = 'Notaball';
+		this.gender = '';
+		this.nature = '';
+		this.caughtIn = '';
 		this.ability = '';
 		
 		this.hp = 100;
@@ -173,12 +187,42 @@ class Pokemon {
 	get stats() { return this._stats; }
 	set stats(val){
 		if (typeof val !== 'object') throw TypeError('Cannot set stats to something not an object literal!');
-		this._stats.atk = val.atk || 0;
-		this._stats.def = val.def || 0;
-		this._stats.spe = val.spe || 0;
-		this._stats.spa = val.spa || 0;
-		this._stats.spd = val.spd || 0;
-		this._stats.hp  = val.hp  || 0;
+		this._stats.atk = val.atk || val.attack || 0;
+		this._stats.def = val.def || val.defense || 0;
+		this._stats.spe = val.spe || val.speed || 0;
+		this._stats.spa = val.spa || val.special_attack || 0;
+		this._stats.spd = val.spd || val.special_defense || 0;
+		this._stats.hp  = val.hp  || val.hit_points || 0;
+	}
+	
+	getExtendedInfo(includeStats=false) {
+		if (this.species === 'Egg') return 'Egg';
+		
+		let exInfo = `${this.types.join('/')}`;
+		if (global.gen > 1) exInfo += ` | Item: ${this.item?this.item:"None"}`;
+		if (global.gen > 2) exInfo += ` | Ability: ${this.ability}`;
+		if (global.gen > 2) exInfo += ` | Nature: ${this.nature}`;
+		if (global.gen > 2) exInfo += `\nCaught In: ${this.caughtIn}`;
+		exInfo += ` | Moves: ${this.moves.join(', ')}`;
+		
+		if (includeStats) {
+			let stats = [];
+			stats.push(`HP: ${this.stats.hp}`);
+			stats.push(`ATK: ${this.stats.atk}`);
+			stats.push(`DEF: ${this.stats.def}`);
+			stats.push(`SPA: ${this.stats.spa}`);
+			stats.push(`SPD: ${this.stats.spd}`);
+			stats.push(`SPE: ${this.stats.spe}`);
+			exInfo += `\n${stats.join(' | ')}`;
+		}
+		
+		let f = [];
+		if (this.pokerus) f.push(`Has PokeRus`);
+		if (this.shiny) f.push('Shiny');
+		if (this.sparkly) f.push('Sparkly (N\'s Pokemon)');
+		if (this.level_reported) f.push(`Levels: API says ${this.level_reported}, we calculated ${this.level_calculated}`);
+		if (f.length) exInfo += `\n${f.join(' | ')}`;
+		return exInfo;
 	}
 }
 

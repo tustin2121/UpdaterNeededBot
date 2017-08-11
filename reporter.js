@@ -102,33 +102,10 @@ class Reporter {
 	
 	alertUpdaters(text) {} //Must be overridden
 	
+	specialReport() {} //Must be overridden
+	
 	generateExtendedInfo(mon, includeStats=false) {
-		if (mon.species === 'Egg') {
-			return 'Egg';
-		}
-		
-		let exInfo = `${mon.types.join('/')} | Item: ${mon.item?mon.item:"None"} | Ability: ${mon.ability} | Nature: ${mon.nature}\n`;
-		exInfo += `Caught In: ${mon.caughtIn} | Moves: ${mon.moves.join(', ')}`;
-		
-		if (includeStats && mon.stats) {
-			let stats = [];
-			stats.push(`HP: ${mon.stats.hp}`);
-			stats.push(`ATK: ${mon.stats.atk}`);
-			stats.push(`DEF: ${mon.stats.def}`);
-			stats.push(`SPA: ${mon.stats.spa}`);
-			stats.push(`SPD: ${mon.stats.spd}`);
-			stats.push(`SPE: ${mon.stats.spe}`);
-			exInfo += `\n${stats.join(' | ')}`;
-		}
-		
-		let f = [];
-		if (mon.pokerus) f.push(`Has PokeRus`);
-		if (mon.shiny) f.push('Shiny');
-		if (mon.sparkly) f.push('Sparkly (N\'s Pokemon)');
-		if (mon.level_reported) f.push(`Levels: API says ${mon.level_reported}, we calculated ${mon.level_calculated}`);
-		if (f.length) exInfo += `\n${f.join(' | ')}`;
-		
-		return exInfo;
+		return mon.getExtendedInfo(includeStats);
 	}
 	
 	///////////////////// Main Functions /////////////////////

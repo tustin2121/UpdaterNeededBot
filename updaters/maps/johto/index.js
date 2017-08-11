@@ -34,6 +34,17 @@ Johto.addNode(...require('./johto.js'));
 Johto.addNode(...require('./kanto.js'));
 
 Johto.addNode(...[
+	Cutscene(id(0,0,0), {
+		announce: (loc, reporter)=>{
+			let str = "**The game has been reset!**",
+			if (loc.x === 255) return `${str} On the title screen!`;
+			if (reporter.currInfo.in_battle && !reporter.currInfo.trainer && !reporter.currInfo.wildmon)
+				return `${str} Evidently, this game pak is designed only for use on the Game Boy Color.`;
+			return str;
+		}
+	}),
+	
+	
 	Building("Fast Ship S.S. Aqua", {
 		attrs: {
 			the:true,
@@ -145,6 +156,9 @@ Johto.addNode(...[
 	
 	// Mt. Silver
 	Route(28, id(19,1,95), {
+		buildings: [
+			House(id(4)),
+		],
 		attrs: {
 			announce: firstTime(id(1), "We step out onto Route 28 towards Mt. Silver, and are immedately spooted by our rival!"),
 		},
@@ -184,5 +198,6 @@ Johto.addNode(...[
 
 //TODO Map out ALL Fly Spots
 //TODO Find a way to report teleporting from the League to New Bark Town
+//TODO look through this: https://github.com/pret/pokecrystal/blob/700321a7fb2d6c852ffc91cc0b8867526cb76813/constants/map_constants.asm#L50
 
 Johto.resolve();
