@@ -34,6 +34,34 @@ Johto.addNode(...require('./johto.js'));
 Johto.addNode(...require('./kanto.js'));
 
 Johto.addNode(...[
+	Building("Fast Ship S.S. Aqua", {
+		attrs: {
+			the:true,
+			announce: (loc, reporter)=>{
+				let lastLoc = reporter.prevInfo.location;
+				if (lastLoc.map_bank !== loc.map_bank) {
+					if (lastLoc.area_id === 62) { //Vermilion
+						return "We hop aboard the Fast Ship SS Aqua, heading to Olivine!";
+					} else if (lastLoc.area_id === 27) { //Olivine
+						return "We board the SS Aqua! Onward to Vermilion!!";
+					}
+				}
+				return null;
+			},
+		},
+		floors: [
+			Floor(id(15, 3, 96), {
+				connections: [ ref(15,1,27), ref(15,2,62) ],
+			}),
+			Floor(id(4)),
+			Floor(id(5), {
+				locOf: { pc:"0,1" },
+			}),
+			Floor(id(6)),
+			Floor(id(7)),
+		],
+	}),
+	
 	House(id(23,13,255), {
 		name: "Pokemon League Reception Gate",
 		connections: [ r(27), r(22), r(28), "Victory Road" ],

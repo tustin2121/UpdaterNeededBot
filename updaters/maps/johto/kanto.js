@@ -161,9 +161,26 @@ module.exports = [
 		connections: [ r(9), r(10) ],
 	}),
 	Town("Lavender Town", id(18,4,70), {
-		//TODO
+		buildings: [
+			PokeCenter(id(5)),
+			PokeMart(id(10)),
+			House(id(8)),
+			House(id(9), { attrs:{ "namerater":true } }),
+			House(id(7), { name:"Lavender Volunteer Pokemon House" }),
+			House(id(11), { name:"Soul House" }),
+			House(id(18,12,71), {
+				name: "Kanto Radio Tower",
+				locOf:{ pc:"2,1" },
+			}),
+		],
+		connections: [ r(10), r(8), r(12) ],
 	}),
-	
+	Route(8, id(18,1,65), {
+		connections: [ "Lavender Town" ],
+	}),
+	Gatehouse(id(18,13,255), "Saffron City", r(8), {
+		name: "Saffron City Eastern Gatehouse",
+	}),
 	
 	SingleCave("Underground Path", id(3,86,255), {
 		connections: [ ref(25,13,59), ref(25,14,255) ],
@@ -186,13 +203,101 @@ module.exports = [
 			Gym(id(4), {
 				leader: "Sabrina",
 				badge: "Marsh",
-				leaderClass: 0,
+				leaderClass: 35,
 				locOf: {
 					leader: "11,8",
 				}
 			})
 		],
-	})
+	}),
+	
+	Gatehouse(id(12,12,255), "Saffron City", r(6), {
+		name: "Saffron City Southern Gatehouse",
+	}),
+	Route(6, id(12,1,61), {
+		connections: [ "Vermilion City" ],
+	}),
+	City("Vermilion City", id(12,3,62), {
+		buildings: [
+			PokeCenter(id(5)),
+			PokeMart(id(9)),
+			House(id(4)),
+			House(id(8)),
+			House(id(10)),
+			House(id(7), { name:"Pokemon Fan Club" }),
+			Gym(id(11), {
+				leader: "Lt. Surge",
+				badge: "Thunder",
+				leaderClass:
+				locOf: {
+					leader: "5,0",
+				},
+			}),
+			House([id(15,2,62), id(9)], {
+				connections: [ ref(15, 3, 96) ],
+			}),
+		],
+		connections: [ r(6), r(11), "Diglett's Cave" ],
+	}),
+	Route(11, id(12,2,74), {
+		connections: [ "Vermilion City", r(12) ],
+	}),
+	Route(12, id(18,2,75), {
+		buildings: [
+			House(id(14)),
+		],
+		connections: [ r(11), "Lavender Town", r(13) ],
+	}),
+	
+	Gatehouse(id(21,25,255), "Saffron City", r(7), {
+		name: "Saffron City Western Gatehouse",
+	}),
+	Route(7, id(21,1,64), {
+		connections: [ "Celadon City" ],
+	}),
+	City("Celadon City", id(21,4,72), {
+		buildings: [
+			PokeCenter(id(17)),
+			House(id(19), { name:"Celedon Game Corner", }),
+			House(id(20)), //Reward house
+			House(id(22)), //Restaraunt
+			Building({
+				name: "Celadon Mansion",
+				floors: [
+					Floor(id(12)),
+					Floor(id(13)),
+					Floor(id(14)),
+					Floor(id(15)),
+					Floor(id(16)), //Penthouse
+				],
+			}),
+			Building({
+				name: "Celadon Department Store",
+				floors: [
+					Floor(id(5)),
+					Floor(id(6)),
+					Floor(id(7)),
+					Floor(id(8)),
+					Floor(id(9)),
+					Floor(id(10), {
+						attrs: {
+							vending: ["8,2","10,2","11,2"],
+						}
+					}),
+					Floor(id(11)), // Elevator
+				],
+			}),
+			Gym(id(), {
+				leader: "Erika",
+				leaderClass: 21,
+				badge: "Rainbow",
+				locOf: {
+					leader: "5,3",
+				},
+			}),
+		],
+	}),
+	
 	
 	
 	Route(21, id(6,7,87), {

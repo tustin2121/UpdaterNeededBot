@@ -398,7 +398,9 @@ module.exports = [
 					Floor(id(47)), //Top
 				],
 			}),
-			House([id(15,8,27), id(1)]),
+			House([id(15,8,27), id(1)], {
+				connections: [ ref(15,3,96) ],
+			}),
 		],
 		connections: [ r(39), r(40) ],
 	}),

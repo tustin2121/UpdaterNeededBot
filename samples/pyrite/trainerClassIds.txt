@@ -32,6 +32,9 @@ class	id		Name
 17		1		Leader Brock
 42		3		Rival Fight 6 (in Mt Moon)
 (wild pokemon 150) = Mewtwo
+35		1		Leader Sabrina
+19		1		Leader Lt. Surge
+21		1		Leader Erika
 
 42		3		Rival Fight 6 (on Route 22??)
 

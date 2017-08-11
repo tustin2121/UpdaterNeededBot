@@ -73,13 +73,16 @@ function firstTime(key, phrase) {
 			return phrase,
 		}
 		return null;
-	},
+	};
 }
-// function gameSpecific(black, white) {
-// 	if (global.game == "Pyrite") return black;
-// 	return white;
-// }
-
+function uponEnteringMapBank(bank, phrase) {
+	return (loc, reporter)=>{
+		if (reporter.prevInfo.location.map_bank !== loc.map_bank) {
+			return phrase;
+		}
+		return null;
+	};
+}
 
 module.exports = Object.assign({},
 	require("../map.js"),
