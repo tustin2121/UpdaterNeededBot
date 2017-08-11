@@ -35,6 +35,15 @@ class	id		Name
 35		1		Leader Sabrina
 19		1		Leader Lt. Surge
 21		1		Leader Erika
+26		1		Leader Janine
+(wild pokemon 144) = Articuno
+(wild pokemon 145) = Zapdos
+(wild pokemon 146) = Moltres
+46		1		Leader Blaine
+64		1		Leader Blue
+18		1		Leader Misty
+(wild pokemon 151) = Mew
 
-42		3		Rival Fight 6 (on Route 22??)
+42		3		Rival Fight 6 (on Route 22)
+63		1		Pokemon Trainer Red
 

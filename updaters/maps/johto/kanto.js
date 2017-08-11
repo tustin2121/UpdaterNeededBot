@@ -29,10 +29,10 @@ module.exports = [
 			}),
 			Gym(id(4), {
 				leader: "Blue",
-				leaderClass: 0, //TODO
+				leaderClass: 64, //TODO
 				badge: "Earth",
 				locOf: {
-					leader: "5,2",
+					leader: "5,3",
 				},
 			}),
 		],
@@ -86,6 +86,7 @@ module.exports = [
 		
 	}),
 	Cave("Mt. Moon", id(3,85,54), {
+		announce: firstTime(id(85), "We step into Mt. Moon, and are immedately spooted by our rival, who challenges us to a battle!"),
 		buildings: [
 			Area("Mt. Moon Square", id(15,10,54), {
 				buildings: [
@@ -110,7 +111,7 @@ module.exports = [
 			House(id(2)),
 			Gym(id(6), {
 				leader: "Misty",
-				leaderClass: 0, //TODO
+				leaderClass: 18, //TODO
 				badge: "Cascade",
 				locOf: {
 					leader: "5,2",
@@ -118,7 +119,12 @@ module.exports = [
 			}),
 			Cave("Cerulean Cave",{
 				floors:[
-					Floor(id(12,13,56)),
+					Floor(id(12,13,56), {
+						legendary: {
+							name: "Mewtwo",
+							loc: "19,30",
+						},
+					}),
 					Floor(id(1,4,56)), //Team Rocket Hideout
 				],
 			}),
@@ -248,6 +254,15 @@ module.exports = [
 		],
 		connections: [ r(11), "Lavender Town", r(13) ],
 	}),
+	Route(13, id(12,1,76), {
+		connections: [ r(14), r(12) ],
+	}),
+	Route(14, id(17,2,77), {
+		connections: [ r(15), r(13)],
+	}),
+	Route(15, id(17,3,78), {
+		connections: [ r(14) ], //Gatehouse to Fuchsia
+	}),
 	
 	Gatehouse(id(21,25,255), "Saffron City", r(7), {
 		name: "Saffron City Western Gatehouse",
@@ -296,12 +311,90 @@ module.exports = [
 				},
 			}),
 		],
+		connections: [ r(7), r(16) ],
 	}),
-	
-	
-	
+	Route(16, id(21,2,79), {
+		buildings: [
+			House(id(23)),
+			House(id(21,24,255), { name:"Cycling Road North Gatehouse", }),
+		],
+		connections: [ "Celedon City", r(17) ],
+	}),
+	Route(17, id(21,3,80), {
+		connections: [ r(16) ],
+	}),
+	Gatehouse(id(21,26,255), r(17), r(18), {
+		name: "Cycling Road South Gatehouse",
+	}),
+	Route(18, id(17,4,81), {
+		connections: [ "Fuchsia City" ],
+	}),
+	City("Fuchsia City", id(17, 5, 82), {
+		buildings: [
+			PokeCenter(id(10)),
+			PokeMart(id(6)),
+			House(id(9)),
+			House(id(12) { name:"Safari Zone Warden's House" }),
+			House(id(7)), //Empty bar?
+			Gym(id(8), {
+				leader: "Janine",
+				leaderClass: 26,
+				badge: "Soul",
+				locOf: {
+					leader: "14,6",
+				},
+			}),
+		],
+		connections: [ r(18), r(19) ],
+	}),
+	Gatehouse(id(17,13,255), "Fuchsia City", r(15)),
+	Gatehouse(id(6,3,255), "Fuchsia City", r(19)),
+	Route(19, id(6,5,83), {
+		connections: [ r(20) ],
+	}),
+	Route(20, id(6,6,84), {
+		buildings: [
+			Dungeon("Seafoam Islands", {
+				floors: [
+					Floor(id(6,4,85), { // Ice Island
+						legendary: {
+							name: "Articuno",
+							loc: "8,14",
+						},
+					}),
+					Floor(id(7,9,85), { // Heat Island
+						legendary: {
+							name: "Moltres",
+							loc: "58,44",
+						},
+					}),
+					Floor(id(7,5,85), { // Dark Island
+						legendary: {
+							name: "Zapdos",
+							loc: "55,34",
+						}
+					})
+				],
+			}),
+		],
+		connections: [ r(19), "Cinnabar Island" ],
+	}),
+	Town("Cinnabar Island", id(6,8,86), {
+		buildings: [
+			PokeCenter(id(1)),
+			Gym(id(2), {
+				leader: "Blaine",
+				leaderClass: 46,
+				badge: "Volcano",
+				locOf: {
+					leader: "3,3",
+				},
+			}),
+		],
+		connections: [ r(20), r(21) ],
+	}),
 	Route(21, id(6,7,87), {
-		connections: [ "Pallet Town" ],
+		connections: [ "Pallet Town", "Cinnabar Island" ],
 	}),
 	
 ];

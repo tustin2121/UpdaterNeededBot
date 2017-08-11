@@ -100,7 +100,7 @@ module.exports = {
 			mon.level = minfo.level;
 			if (!minfo.experience.next_level && minfo.experience.remaining === -minfo.experience.current) {
 				// next level bug
-				const exptable = require('../exptable');
+				const exptable = require('../data/exptable');
 				let grow_rate;
 				if (!minfo.species.growth_rate) { // growth_rate bug
 					grow_rate = exptable.dex[minfo.species.id-1];

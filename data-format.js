@@ -88,6 +88,9 @@ class Location {
 
 class SortedData {
 	constructor() {
+		this.my_name = "Red";
+		this.rival_name = "Blue";
+		
 		// Location data
 		this.map_id = 0; //number or string representing the map id
 		this.location = new Location();
@@ -97,12 +100,17 @@ class SortedData {
 		this.party = [];
 		
 		// Item data
-		this.bagitems = {};
-		this.allitems = {};
+		this.inventory = {}; //List of ALL items available, bag/pc/pokemon
+		this.items_bag = {};
+		this.items_pc = {};
 		this.ball_count = 0;
 		
 		// Battle data
 		this.in_battle = false;
+		this.trainer = null;
+		
+		// Cutscene data
+		this.in_cutscene = false;
 		
 		// Progress data
 		this.badges = {};
@@ -147,8 +155,8 @@ class Pokemon {
 	
 	get name() { return this._name; }
 	set name(val) {
-		val = val.replace(/ /i, '\xA0'); // Replace spaces with non-breaking spaces
-		val = val.replace('Ê', 'Pk').replace('Ë', 'Mn'); //
+		// val = val.replace(/ /i, '\xA0'); // Replace spaces with non-breaking spaces
+		// val = val.replace('π', 'Pk').replace('µ', 'Mn'); //
 		this._name = val;
 	}
 	

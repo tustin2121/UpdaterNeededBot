@@ -136,20 +136,49 @@ Johto.addNode(...[
 					"e4":"hallOfFame",
 				},
 			}),
-			Floor(id(0,0,91), {
-				//credits
+			Cutscene(id(0,0,91), {
+				attrs: { credits: true, },
 				announce: "The credits play!",
 			}),
 		],
 	}),
-	
 	
 	// Mt. Silver
 	Route(28, id(19,1,95), {
 		attrs: {
 			announce: firstTime(id(1), "We step out onto Route 28 towards Mt. Silver, and are immedately spooted by our rival!"),
 		},
-		connections: [ ref(23,13,255) ],
+		connections: [ ref(23,13,255), ref(19,2,46) ],
+	}),
+	Cave("Silver Cave", {
+		floors:[
+			Floor(id(19,2,46), {
+				buildings: [
+					PokeCenter(id(3)),
+				],
+				connections: [ r(28) ],
+			}),
+			Floor(id(3,74,46), {
+				announce: firstTime(id(74), "We take our first step into the dark depths of Mt. Silver!"),
+			}),
+			Floor(id(75)),
+			Floor(id(76), {
+				announce: firstTime(id(76), "We reach the top of Mt. Silver! We can see an older boy in a red cap standing on the summit not far off..."),
+				locOf: {
+					leader: "9,10",
+				}
+			}),
+			Floor(id(77), {
+				legendary: {
+					name: "Mew",
+					loc: "7,12",
+				},
+			}),
+			Cutscene(id(0,0,46), {
+				attrs: { credits: true, },
+				announce: "**Defeated Red! The credits play again!** ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ",
+			}),
+		],
 	}),
 ]);
 
