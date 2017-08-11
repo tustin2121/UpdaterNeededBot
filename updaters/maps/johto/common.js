@@ -9,10 +9,11 @@ const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], 
 	let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
 		"indoors": true,
 		"healing": "pokecenter",
-		announce, the, noteworthy: true,
+		the, noteworthy: true,
 	}, attrs), locOf:Object.assign({
 		"pc": ["9,2"],
 	}, locOf) });
+	me.announce = announce;
 	me.addConnection(...connections);
 	// me.addConnection("Union Room");
 	me._typename = "Center";
@@ -33,8 +34,9 @@ const SingleCave = function(name, mapids, { the=true, attrs={}, locOf={}, buildi
 		"dungeon": true,
 		"noteworthy": true,
 		"onto": "into",
-		noteworthy, announce, legendary, the,
+		noteworthy, legendary, the,
 	}, attrs), locOf });
+	me.announce = announce;
 	me.addChild(...zones);
 	me.addChild(...buildings);
 	me.addConnection(...connections);

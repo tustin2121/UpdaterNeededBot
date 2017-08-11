@@ -25,7 +25,6 @@ class Region {
 			"entralink": false,
 			
 			"noteworthy":false,	//If the location is worthy of noting upon arrival
-			"announce":null,	//An announcement about this map, implies noteworthiness.
 		},locOf:{
 			"vending": false,	//If the location has vending machines (water, lemonade, soda) [false|coord or array of coords]
 			"healing": false,	//If the location offers field healing [false|coord or array of coords=doctors or field healing]
@@ -95,12 +94,33 @@ class Node {
 		this.children = [];
 		this.connections = [];
 		
+		// These functions act as announcements
+		this._enter = null;
+		this._exit  = null;
+		
 		this._pendingConnections = [];
 		this._pendingReverseConns = [];
 		
 		Object.defineProperty(this, '_typename', { writable:true, value:"Generic" });
 		
 		// if (this.region) this.region.addNode(this);
+	}
+	
+	get onEnter() { return this._enter || ()=>{}; }
+	get onLeave() { return this._exit  || ()=>{}; }
+	
+	set announce(val){
+		if (!val) return; //Ignore
+		if (typeof val === 'function') {
+			this._enter = val;
+		}
+		if (typeof val === 'string') {
+			this._enter = ()=>val;
+		}
+		if (typeof val !== 'object') {
+			this._enter = val.enter || val.onEnter || val.in;
+			this._exit  = val.leave || val.onLeave || val.exit || val.onExit || val.out;
+		}
 	}
 	
 	toString() {
@@ -176,8 +196,9 @@ class Node {
 	
 	/** Test if this node (or its parents) has the given attribute. */
 	is(attr) {
+		if (attr === 'announce') return !!this._enter || !!this._exit ;
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
-		if (attr in {noteworthy:1, announce:1, onto:1, the:1}) return false;
+		if (attr in {noteworthy:1, onto:1, the:1}) return false;
 		if (this.parent) return this.parent.is(attr);
 		return undefined;
 	}
@@ -343,8 +364,9 @@ module.exports = {
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"onto": "into",
-			noteworthy, announce, legendary, the,
+			noteworthy, legendary, the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addChild(...zones);
 		me.addChild(...buildings);
 		me.addConnection(...connections);
@@ -356,8 +378,9 @@ module.exports = {
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"inTown": true,
 			"noteworthy": true,
-			announce, the,
+			the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addChild(...buildings);
 		me.addConnection(...exits);
 		me.addConnection(...connections);
@@ -368,8 +391,9 @@ module.exports = {
 	Building : function({ name, the=true, attrs={}, locOf={}, floors=[], connections=[], announce, }){
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
-			announce, the,
+			the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addChild(...floors);
 		me.addConnection(...connections);
 		me._typename = "Building";
@@ -379,8 +403,9 @@ module.exports = {
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			announce, legendary, the,
+			legendary, the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "Floor";
 		return me;
@@ -391,8 +416,9 @@ module.exports = {
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
-			announce, legendary, the,
+			legendary, the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "House";
 		return me;
@@ -403,8 +429,9 @@ module.exports = {
 		let me = new Node({ mapids, attrs:Object.assign({
 			"indoors": true,
 			"shopping": true,
-			announce, the,
+			the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "Mart";
 		return me;
@@ -415,10 +442,11 @@ module.exports = {
 		let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
 			"indoors": true,
 			"healing": "pokecenter",
-			announce, the,
+			the,
 		}, attrs), locOf:Object.assign({
 			"pc": [],
 		}, locOf) });
+		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "Center";
 		return me;
@@ -430,8 +458,9 @@ module.exports = {
 			"indoors": true,
 			"gym": true,
 			"noteworthy": true,
-			leader, badge, announce, the,
+			leader, badge, the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "Gym";
 		return me;
@@ -443,8 +472,9 @@ module.exports = {
 		if (!name) name = `${from} Gatehouse`;
 		if (typeof to === "number") to = `Route ${to}`;
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			announce, the,
+			the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addConnection(from, to);
 		me.addReverseConnection(from, to);
 		me.addConnection(...connections);
@@ -458,8 +488,9 @@ module.exports = {
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"noteworthy": true,
-			announce, legendary, the,
+			legendary, the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addChild(...buildings);
 		me.addConnection(...exits);
 		me.addConnection(...connections);
@@ -473,8 +504,9 @@ module.exports = {
 			"dungeon": true,
 			"noteworthy": true,
 			"onto": "into",
-			announce, the,
+			the,
 		}, attrs), locOf });
+		me.announce = announce;
 		me.addChild(...floors);
 		me.addConnection(...connections);
 		me._typename = "Dungeon";
@@ -484,8 +516,9 @@ module.exports = {
 	Cutscene : function(mapids, { name, the=false, attrs={}, connections=[], announce, noteworthy=true }={}) {
 		if (!Array.isArray(mapids)) mapids = [mapids];
 		let me = new Node({ name, mapids, attrs:Object.assign({
-			noteworthy, announce, the,
+			noteworthy, the,
 		}, attrs) });
+		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "Cutscene";
 		return me;

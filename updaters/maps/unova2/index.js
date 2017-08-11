@@ -16,10 +16,11 @@ const Center = function(mapids, { the=true, attrs={}, locOf={}, connections=[], 
 		"indoors": true,
 		"healing": "pokecenter",
 		"shopping": true,
-		announce, the, noteworthy: true,
+		the, noteworthy: true,
 	}, attrs), locOf:Object.assign({
 		"pc": ["4,12"],
 	}, locOf) });
+	me.announce = announce;
 	me.addConnection(...connections);
 	me.addConnection("Union Room");
 	me._typename = "Center";

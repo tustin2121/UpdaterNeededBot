@@ -248,7 +248,7 @@ module.exports = [
 		locOf: { pc:["7,1"] },
 	}),
 	Area("National Park", [id(3,15,19), id(16)], {
-		announce: (loc, reporter)=>{
+		announce: (reporter, { loc })=>{
 			// A different map is used for the bug contest
 			if (loc.map_id === 16 && !reporter.memory['bugCatching']) {
 				reporter.memory['bugCatching'] = true;

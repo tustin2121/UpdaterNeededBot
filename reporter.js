@@ -236,14 +236,10 @@ discoveries = [
 		if (this.prevLocs.includes(curr.location.node)) {
 			report.mapChange.recent = true;
 			report.mapChange.last = this.prevLocs[0] === curr.location.node;
-		} else if (curr.location.has('announce')) {
-			let announce = curr.location.has('announce');
-			if (typeof announce === 'function') {
-				announce = announce.call(curr.location.node, curr.location, this);
-			}
-			if (typeof announce === 'string') {
-				report.mapChange.announcement = announce;
-			}
+		}
+		if (curr.location.node && prev.location.node) {
+			report.mapChange.announceLeaving = prev.location.node.onLeave(this, { prev, curr, loc:curr.location });
+			report.mapChange.announceEntering = curr.location.node.onEnter(this, { prev, curr, loc:curr.location });
 		}
 		this.prevLocs.pop(); // Pop oldest location
 		this.prevLocs.unshift(curr.location.node); // Put newest location on front of queue
@@ -800,12 +796,16 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	},
 	
 	// Location changes
+	function leavingAnnouncement(tags) {
+		if (tags) return;
+		if (report.announceLeaving) return report.announceLeaving;
+	},
 	function mapChange(tags) { // Last
 		if (tags) return;
 		if (!this.report.mapChange) return;
 		let report = this.report.mapChange;
-		if (report.announcement) {
-			return report.announcement;
+		if (report.announceEntering) {
+			return report.announceEntering;
 		}
 		
 		let currLoc = this.currInfo.location.getArea();
