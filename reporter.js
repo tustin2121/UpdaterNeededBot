@@ -270,8 +270,8 @@ discoveries = [
 	},
 	function itemDeltas(prev, curr, report) {
 		let deltaitems = {};
-		Object.keys(curr.allitems).forEach(x => deltaitems[x] = curr.allitems[x]);
-		Object.keys(prev.allitems).forEach(x => deltaitems[x] = (deltaitems[x] || 0) - prev.allitems[x]);
+		Object.keys(curr.inventory).forEach(x => deltaitems[x] = curr.inventory[x]);
+		Object.keys(prev.inventory).forEach(x => deltaitems[x] = (deltaitems[x] || 0) - prev.inventory[x]);
 		Object.keys(deltaitems).forEach(x =>{ if (deltaitems[x] == 0) delete deltaitems[x]; });
 		if (Object.keys(deltaitems).length) {
 			report.deltaItems = deltaitems;
@@ -289,6 +289,7 @@ discoveries = [
 		}
 		
 		let monReports = [];
+		let aliveMons = 0;
 		sameMons.forEach((pair)=>{
 			let rep = { mon : pair.curr };
 			discoveries_party.forEach((f)=>{
@@ -299,8 +300,11 @@ discoveries = [
 				report.hatched = (report.hatched||[]);
 				report.hatched.push(pair.curr);
 			}
+			if (pair.curr.hp > 0) aliveMons++;
 		});
 		if (monReports.length) report.monChanges = monReports;
+		
+		if (aliveMons === 0) report.blackout = true; //blackout condition
 		
 		/////////////////////
 		let hpWasHealed = 0;
@@ -337,20 +341,64 @@ discoveries = [
 			}
 		}
 	},
-	function gymWatch(prev, curr, report) {
-		if (curr.location.is('gym')) {
-			console.log(`IN GYM: in_battle=${curr.in_battle} pos=${curr.position} near=${curr.location.within('leader', curr.position, 2)}`)
-			if (curr.in_battle && curr.location.within('leader', curr.position, 2)) {
-				let leader = curr.location.get('leader');
-				report.gymFight = leader;
-				// let badge = curr.location.has('badge');
-			}
-			let b = curr.location.get('badge');
-			if (!prev.badges[b] && curr.badges[b]) {
-				report.badgeGet = b;
+	function battleWatch(prev, curr, report) {
+		if (curr.in_battle) {
+			if (curr.trainer) {
+				if (curr.trainer.isRival) {
+					report.battle = { type:"rival", name:curr.trainer.displayName, party:curr.trainer.id };
+				} 
+				else if (curr.trainer.isLeader) {
+					report.battle = { type:"leader", name:curr.trainer.displayName };
+				} 
+				else if (curr.trainer.isE4) {
+					report.battle = { type:"e4", name:curr.trainer.displayName };
+					report.e4Fight = curr.trainer.name;
+				} 
+				else if (curr.trainer.isChampion) {
+					report.battle = { type:"champ", name:curr.trainer.displayName };
+					report.e4Fight = curr.trainer.name;
+				} 
+				else {
+					report.battle = { type:"trainer", name:curr.trainer.displayName };
+				}
+				if (report.battle) {
+					Object.assign(report.battle, {
+						numPokemon: curr.trainer.numPokemon,
+						numHealthy: curr.trainer.numHealthy,
+						activeMon: curr.trainer.activeMon,
+					});
+				}
+			} 
+			else if (curr.wildmon) {
+				if (curr.wildmon.isLegendary) {
+					report.battle = { type:"legendary", name:curr.wildmon.name };
+				} else {
+					report.battle = { type:"wild", name:curr.wildmon.name };
+				}
 			}
 		}
 	},
+	function badgeWatch(prev, curr, report) {
+		for (let badge in curr.badges) {
+			if (!prev.badges[badge] && curr.badges[badge]) {
+				report.badgeGet = badge;
+			}
+		}
+	},
+	// function gymWatch(prev, curr, report) {
+	// 	if (curr.location.is('gym')) {
+	// 		console.log(`IN GYM: in_battle=${curr.in_battle} pos=${curr.position} near=${curr.location.within('leader', curr.position, 2)}`)
+	// 		if (curr.in_battle && curr.location.within('leader', curr.position, 2)) {
+	// 			let leader = curr.location.get('leader');
+	// 			report.gymFight = leader;
+	// 			// let badge = curr.location.has('badge');
+	// 		}
+	// 		let b = curr.location.get('badge');
+	// 		if (!prev.badges[b] && curr.badges[b]) {
+	// 			report.badgeGet = b;
+	// 		}
+	// 	}
+	// },
 	function e4watch(prev, curr, report) {
 		if (prev.location.is('e4') === 'lobby') {
 			if (curr.location.is('e4') === 'e4') {
@@ -373,11 +421,11 @@ discoveries = [
 				report.e4 = 'turnover';
 			}
 		}
-		if (curr.location.is('e4')) {
-			if (curr.in_battle && curr.location.within('leader', curr.position, 6)) {
-				report.e4Fight = curr.location.get('leader');
-			}
-		}
+		// if (curr.location.is('e4')) {
+		// 	if (curr.in_battle && curr.location.within('leader', curr.position, 6)) {
+		// 		report.e4Fight = curr.location.get('leader');
+		// 	}
+		// }
 	},
 ];
 
@@ -702,13 +750,17 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	function blackoutHeal(tags) {
 		if (tags) return;
 		let texts = [];
-		if (this.report.blackout) {
+		if (this.report.blackout && !this.memory.blackout) {
+			this.memory.blackout = true; // Remember, so we don't double report it
 			this.progressiveTickDown('playbyplay');
 			texts.push('**BLACKED OUT!**');
 			if (this.memory.inE4Run) {
 				this.memory.inE4Run = false;
 				texts.push(`rip E4 Attempt #${this.memory.e4Attempt}.`);
 			}
+		}
+		else if (this.memory.blackout && !this.report.blackout) {
+			this.memory.blackout = false;
 		}
 		if (this.report.healed) {
 			texts.push(`**We heal**`);
@@ -721,6 +773,78 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		return texts.join(' ');
 	},
+	function battleWatch(tags) {
+		if (tags) return;
+		let texts = [];
+		if (this.report.battle && !this.memory.battle) {
+			if (this.memory.attempts) this.memory.attempts = {};
+			switch (this.battle.type) {
+				case 'rival': {
+					let name = this.report.battle.name;
+					let key = `rival${this.report.battle.party}`;
+					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
+					if (attempt > 1) {
+						texts.push(`**Vs Rival ${name}!** Attempt #${attempt}!`);
+					} else {
+						texts.push(`**Vs Rival ${name}!**`);
+					}
+					
+					this.alertUpdaters(`We're in a fight with our rival! (Attempt #${attempt}) I'm not going to play-by-play, but you're welcome to if you wish.`);
+					this.memory.battle = this.report.battle;
+				} break;
+				case 'leader': {
+					let name = this.report.battle.name;
+					let key = `gym${this.report.battle.party}`;
+					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
+					if (attempt > 1) {
+						texts.push(`**Vs ${name}!** Attempt #${attempt}!`);
+					} else {
+						texts.push(`**Vs ${name}!**`);
+					}
+					
+					this.alertUpdaters(`We're facing off against ${name}! (Attempt #${attempt}) I'm not going to play-by-play, but you're welcome to if you wish.`);
+					this.memory.battle = this.report.battle;
+				} break;
+				case 'e4': {
+					texts.push(`**Vs ${this.report.battle.name}!**`);
+					// Don't alert updates for every e4 battle
+					this.memory.battle = this.report.battle;
+				} break;
+				case 'champ': {
+					texts.push(`**Vs ${this.report.battle.name}!** Attempt #${this.memory.champAttempt}!!`);
+					this.memory.battle = this.report.battle;
+				} break;
+				case 'legendary': {
+					let name = this.report.battle.name;
+					let key = `legendary_${name}`;
+					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
+					if (attempt > 1) {
+						texts.push(`**Vs Wild ${name}!** Attempt #${attempt}!`);
+					} else {
+						texts.push(`**Vs Wild ${name}!**`);
+					}
+					
+					this.alertUpdaters(`We've encountered ${name} on stream!`);
+					this.memory.battle = this.report.battle;
+				} break;
+			}
+		}
+		else if (this.memory.battle) {
+			if (!this.report.battle) { //Battle is over!
+				if (!this.report.blackout) {
+					texts.push(`**Defeated ${this.memory.name}!**`);
+				} // else, our blackout is already reported
+				delete this.memory.battle;
+			} else {
+				//TODO update on fainted foe mons
+			}
+		}
+		if (this.report.badgeGet) {
+			texts.push(`**Got the ${this.report.badgeGet} Badge!**`);
+		}
+		return texts.join(' ');
+	},
+	/*
 	function gymWatch(tags) {
 		if (tags) return;
 		let texts = [];
@@ -749,6 +873,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		return texts.join(' ');
 	},
+	*/
 	function e4Watch(tags) {
 		if (tags) return;
 		if (!this.report.e4) return;
@@ -765,11 +890,12 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				`**The door slams shut behind us! E4 Attempt #${this.memory.e4Attempt}!**`
 			));
 			
-			this.alertUpdaters(`We're locked into the E4! This is Attempt #${this.memory.e4Attempt}! If anyone wants to take over, now would be the time!`);
-			let warn = this.progressive('playbyplay', ` (Unfortunately, I am incapable of doing a play-by-play of this action. The stream API does not supply me with battle data.)`, '');
-			if (warn) texts.push(warn);
+			this.alertUpdaters(`We're locked into the E4! This is Attempt #${this.memory.e4Attempt}.`, (this.memory.e4Attempt===1));
+			// let warn = this.progressive('playbyplay', ` (Unfortunately, I am incapable of doing a play-by-play of this action. The stream API does not supply me with battle data.)`, '');
+			// if (warn) texts.push(warn);
 		}
 		if (this.memory.inE4Run) {
+			/*
 			if (this.report.e4Fight && !this.memory.inE4Fight) {
 				let leader = this.report.e4Fight;
 				texts.push(`**Vs ${leader}!**`);
@@ -782,9 +908,11 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 					texts.push(`**Defeated ${leader}!**`);
 				}
 			}
+			*/
 			if (info === 'championReach') {
 				this.memory.champAttempt = (this.memory.champAttempt || 0) + 1;
 				texts.push(`**WE'RE HEADING TO THE CHAMPION!!** Champion attempt #${this.memory.champAttempt} incoming!!`);
+				this.alertUpdaters(`**We've reached the champion's chamber!** Someone might want to play-by-play!!`, true);
 			}
 			if (info === 'hallOfFame') {
 				texts.push(`**We enter the HALL OF FAME!** ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`);

@@ -148,16 +148,18 @@ dbot.on('message', (msg)=>{
 	}
 });
 dbot.login(auth.discord.token);
-reporter.alertUpdaters = function(text){
+reporter.alertUpdaters = function(text, ping=false){
 	if (!taggedIn) return;
 	if (!staffChannel) return;
 	
 	// let group = "@Live Updater ";
 	let group = "<@&148087914360864768> ";
-	if (dLastPing + PING_COOLDOWN > Date.now()) {
-		group = "";
-	} else {
-		dLastPing = Date.now();
+	if (ping) {
+		if (dLastPing + PING_COOLDOWN > Date.now()) {
+			group = "";
+		} else {
+			dLastPing = Date.now();
+		}
 	}
 	staffChannel.send(`${group}${text}`).catch((e)=>console.error('Discord Error:',e));;
 };

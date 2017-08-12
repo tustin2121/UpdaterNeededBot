@@ -118,7 +118,24 @@ module.exports = {
 						id: data.enemy_trainer.id,
 						className: correctCase(data.enemy_trainer.class_name),
 						name: correctCase(data.enemy_trainer.name),
+						
+						numPokemon: data.enemy_trainer.party.length,
+						numHealthy: 0,
 					};
+					if (data.enemy_trainer.party.length) {
+						let mon = data.enemy_trainer.party[0];
+						// Assuming that the top of the party is the currently active mon
+						sorted.trainer.activeMon = {
+							id: mon.species.national_dex,
+							name: correctCase(mon.species.name),
+							hp: Math.max(1, Math.floor((mon.health[0] / mon.health[1])*100)), //At least 1% HP if not fainted
+						};
+						if (mon.health[0] === 0) sorted.trainer.activeMon.hp = 0;
+						
+						sorted.trainer.numHealthy = data.enemy_trainer.party.reduce((total, mon)=>(total+(mon.health[0]===0)?0:1), 0);
+					}
+					
+					
 					sorted.trainer.isRival = !!rivalClasses[sorted.trainer.class];
 					sorted.trainer.isLeader = !!leaderClasses[sorted.trainer.class];
 					sorted.trainer.isE4 = !!e4Classes[sorted.trainer.class];

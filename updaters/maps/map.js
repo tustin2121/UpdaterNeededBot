@@ -60,7 +60,7 @@ class Region {
 	resolve() {
 		// console.log(this.nodesByName);
 		this.topNode.__finalize1(12, this);
-		console.log(inspect(this.nodes, { depth:1 }));
+		// console.log(inspect(this.nodes, { depth:1 }));
 		this.topNode.__finalize2(12, this);
 	}
 	
