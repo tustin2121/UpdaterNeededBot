@@ -60,6 +60,7 @@ class Region {
 	resolve() {
 		// console.log(this.nodesByName);
 		this.topNode.__finalize1(12, this);
+		console.log(inspect(this.nodes, { depth:1 }));
 		this.topNode.__finalize2(12, this);
 	}
 	
@@ -106,8 +107,8 @@ class Node {
 		// if (this.region) this.region.addNode(this);
 	}
 	
-	get onEnter() { return this._enter || ()=>{}; }
-	get onLeave() { return this._exit  || ()=>{}; }
+	get onEnter() { return this._enter || (()=>{}); }
+	get onLeave() { return this._exit  || (()=>{}); }
 	
 	set announce(val){
 		if (!val) return; //Ignore
@@ -388,7 +389,14 @@ module.exports = {
 		return me;
 	},
 	/** Multistory/Room Building */
-	Building : function({ name, the=true, attrs={}, locOf={}, floors=[], connections=[], announce, }){
+	Building : function(arg1, arg2){
+		if (typeof arg1 !== 'string' && arg2 === undefined) {
+			arg2 = arg1;
+		} else {
+			arg2.name = arg1;
+		}
+		const { name, the=true, attrs={}, locOf={}, floors=[], connections=[], announce, } = arg2;
+		
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
 			the,
@@ -397,6 +405,7 @@ module.exports = {
 		me.addChild(...floors);
 		me.addConnection(...connections);
 		me._typename = "Building";
+		if (!me.children.length) throw new Error('Invalid Building setup! No floors provided!');
 		return me;
 	},
 	Floor : function(mapids, { name, the=false, attrs={}, locOf={}, connections=[], announce, legendary, }={}){
@@ -510,6 +519,7 @@ module.exports = {
 		me.addChild(...floors);
 		me.addConnection(...connections);
 		me._typename = "Dungeon";
+		if (!me.children.length) throw new Error('Invalid Dungeon setup! No floors provided!');
 		return me;
 	},
 	

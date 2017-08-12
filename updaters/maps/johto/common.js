@@ -48,7 +48,7 @@ const Cave1 = SingleCave;
 const Dungeon1 = SingleDungeon;
 
 // Helper functions
-const id = ()=>{
+const id = (()=>{
 	let currBank = 0;
 	let currArea = 0;
 	return function id( mapbank, mapid, areaid, set=true ) {
@@ -64,7 +64,7 @@ const id = ()=>{
 		}
 		return `${areaid}:${mapbank}.${mapid}`;
 	}
-}();
+})();
 function ref(mapbank, mapid, areaid) {
 	return `${areaid}:${mapbank}.${mapid}`;
 }
@@ -72,7 +72,7 @@ function r(num) { return `Route ${num}`; }
 function firstTime(key, phrase) {
 	return ({ reporter })=>{
 		if (reporter.isFirstTime(key)) {
-			return phrase,
+			return phrase;
 		}
 		return null;
 	};
@@ -88,8 +88,10 @@ function uponEnteringMapBank(bank, phrase) {
 
 module.exports = Object.assign({},
 	require("../map.js"),
-	require('../../../data-format').Location,
-	Center, PokeCenter,
-	SingleCave, SingleDungeon, Cave1, Dungeon1,
-	id, ref, r, firstTime,
+	require('../../../data-format'),
+	{
+		Center, PokeCenter,
+		SingleCave, SingleDungeon, Cave1, Dungeon1,
+		id, ref, r, firstTime,
+	}
 );

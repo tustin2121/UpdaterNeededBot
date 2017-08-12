@@ -9,7 +9,7 @@ global.game = "Pyrite";
 global.gen = 2;
 
 function correctCase(str) {
-	if (typeof str !== 'string') return str;
+	if (typeof str !== 'string' || !str.length) return str;
 	str = str.split(' ')
 			.map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
 			.join(' ');
@@ -44,7 +44,8 @@ module.exports = {
 	runStart : 1502571600,
 	
 	// The Stream API URL to poll
-	infoSource : "https://twitchplayspokemon.tv/api/run_status",
+	// infoSource : "https://twitchplayspokemon.tv/api/run_status",
+	infoSource : "https://tppleague.me/tools/run_status.json",
 	// The amount of wait time between polling the infoSource for new information
 	infoUpdateDelay : 1000 * 20, //20 seconds
 	
@@ -69,13 +70,14 @@ module.exports = {
 				sorted.map_id = `${data.area_id}:${data.map_bank}.${data.map_id}`;
 				
 				const Johto = require('./maps/johto');
-				let loc = Johto.find(data.location);
+				let loc = Johto.find(sorted.location);
 				if (loc._typename === "Cutscene") {
 					// Confirm cutscene
 					if (sorted.location.x === 255 && sorted.location.y === 0) {
 						sorted.in_cutscene = true;
 					}
 				}
+				sorted.location.set(loc);
 			}
 			{ // Collate pokemon together
 				sorted.party = data.party.map(normalizePokemon);
@@ -104,7 +106,7 @@ module.exports = {
 				
 				[data.items.balls, data.items.items, data.items.tms, data.items.key]
 					.forEach(processItemList(sorted.items_bag));
-				[data.item.pc].forEach(processItemList(sorted.items_pc));
+				[data.items.pc].forEach(processItemList(sorted.items_pc));
 				
 				sorted.ball_count = data.ball_count || 0;
 			}
@@ -157,12 +159,12 @@ module.exports = {
 			
 			if (data.time) {
 				sorted.time = {
-					ofDay : ()=>{
+					ofDay : (()=>{
 						if (data.time.h >= 20) return "night";
 						if (data.time.h >= 12) return "day";
 						if (data.time.h >= 6) return "morning";
 						return "night";
-					}(),
+					})(),
 					ofWeek : data.time.d.toLowerCase(),
 				};
 			}

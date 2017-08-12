@@ -204,9 +204,9 @@ function differenceBetween(arr1, arr2, hashFn) {
 discoveries = [
 	function mapChange(prev, curr, report) {
 		console.log(require('util').inspect(curr.location, { depth: 1 }));
-		if (prev.location === curr.location) return; // No map change
+		if (prev.location.equals(curr.location)) return; // No map change
 		report.mapChange = {}; // Submit a report on the map change
-		let steps = report.mapChange.steps = curr.location.getStepsTo(prev.location);
+		let steps = report.mapChange.steps = curr.location.node.getStepsTo(prev.location.node);
 		if (steps <= 1) {
 			// Simple movement between rooms
 			if (curr.location.is('indoors')) {

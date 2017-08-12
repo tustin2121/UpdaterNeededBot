@@ -12,7 +12,7 @@ const saveproxy = require("./save-proxy");
 const memoryFile = require('path').resolve(__dirname, "memory.json");
 
 // const UPDATER = require('./updaters/test.js');
-const UPDATER = require('./updaters/s4-rand-white2.js');
+const UPDATER = require('./updaters/s4-pyrite.js');
 const TEST_UPDATER = require('./updaters/test.js');
 
 const PING_COOLDOWN = 1000*60*60; // 1 hour

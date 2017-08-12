@@ -16,7 +16,7 @@ class Location {
 		} else {
 			this.map_name = opts['map_name'] || this.map_name || 'Mystery Zone';
 			this.x = opts['x'] || 0;
-			thix.y = opts['y'] || 0;
+			this.y = opts['y'] || 0;
 			this.z = opts['z'] || 0;
 			this.map_bank = opts['map_bank'] || opts['mapbank'] || opts['mapBank'] || 0;
 			this.map_id = opts['map_id'] || opts['mapid'] || opts['mapId'] || 0;
@@ -130,7 +130,7 @@ class SortedData {
 		this.items_pc[name] = (this.items_pc[name] || 0) + count;
 	}
 	addItemOnPokemon(name) {
-		this.inventory[name] = (this.inventory[name] || 0)++;
+		this.inventory[name] = (this.inventory[name] || 0) + 1;
 	}
 }
 

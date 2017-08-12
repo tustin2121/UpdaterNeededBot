@@ -19,12 +19,13 @@ const mapidFn = (mid)=>{
 		return `${mid.area_id}:${mid.map_bank}.${mid.map_id}`;
 	}
 	if (typeof mid === 'string') {
-		let res = /^(\d+)\:(\d+)\.(\d+)$/i.exec(other);
-		if (!res) return 'invalid';
+		let res = /^(\d+)\:(\d+)\.(\d+)$/i.exec(mid);
+		if (!res) throw new Error(`Invalid ID: ${mid}`);//return 'invalid';
 		return mid;
 	}
-	if (typeof mid === 'number') return `invalid`;
-	return 'invalid';
+	if (typeof mid === 'number') throw new Error(`Invalid ID: ${mid}`);//return `invalid`;
+	throw new Error(`Invalid ID: ${mid}`);
+	// return 'invalid';
 };
 
 // The region itself
@@ -36,7 +37,7 @@ Johto.addNode(...require('./kanto.js'));
 Johto.addNode(...[
 	Cutscene(id(0,0,0), {
 		announce: ({ curr, loc })=>{
-			let str = "**The game has been reset!**",
+			let str = "**The game has been reset!**";
 			if (loc.x === 255) return `${str} On the title screen!`;
 			if (curr.in_battle && !curr.trainer && !curr.wildmon)
 				return `${str} Evidently, this game pak is designed only for use on the Game Boy Color.`;

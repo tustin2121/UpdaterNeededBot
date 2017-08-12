@@ -29,7 +29,7 @@ module.exports = [
 			}),
 			Gym(id(4), {
 				leader: "Blue",
-				leaderClass: 64, //TODO
+				leaderClass: 64,
 				badge: "Earth",
 				locOf: {
 					leader: "5,3",
@@ -85,7 +85,7 @@ module.exports = [
 		connections: [ "Pewter City", "Mt. Moon" ],
 		
 	}),
-	Cave("Mt. Moon", id(3,85,54), {
+	Cave1("Mt. Moon", id(3,85,54), {
 		announce: firstTime(id(85), "We step into Mt. Moon, and are immedately spooted by our rival, who challenges us to a battle!"),
 		buildings: [
 			Area("Mt. Moon Square", id(15,10,54), {
@@ -111,7 +111,7 @@ module.exports = [
 			House(id(2)),
 			Gym(id(6), {
 				leader: "Misty",
-				leaderClass: 18, //TODO
+				leaderClass: 18,
 				badge: "Cascade",
 				locOf: {
 					leader: "5,2",
@@ -140,7 +140,7 @@ module.exports = [
 		],
 		connections: [ r(24) ],
 	}),
-	Route(5, id(25, 1, 59), { //For some reason, this name is not signposted anywhere in Pyrite
+	Route(5, id(25,1,59), { //For some reason, this name is not signposted anywhere in Pyrite
 		buildings: [
 			House(id(15)),
 			House(ref(25,13,255), {
@@ -189,13 +189,13 @@ module.exports = [
 	}),
 	
 	SingleCave("Underground Path", id(3,86,255), {
-		connections: [ ref(25,13,59), ref(25,14,255) ],
+		connections: [ ref(25,13,255), ref(25,14,255) ],
 	}),
 	City("Saffron City", id(25,2,73), {
 		buildings: [
 			PokeCenter(id(6)),
 			PokeMart(id(5)),
-			House([id(11, id(12))], { name:"Copycat's House" }),
+			House([id(11), id(12)], { name:"Copycat's House" }),
 			House(id(8)),
 			House(id(10), { name:"Silph Co. Building" }),
 			House(id(9), {
@@ -213,7 +213,7 @@ module.exports = [
 				locOf: {
 					leader: "11,8",
 				}
-			})
+			}),
 		],
 	}),
 	
@@ -234,7 +234,7 @@ module.exports = [
 			Gym(id(11), {
 				leader: "Lt. Surge",
 				badge: "Thunder",
-				leaderClass:
+				leaderClass: 19,
 				locOf: {
 					leader: "5,0",
 				},
@@ -273,7 +273,7 @@ module.exports = [
 	City("Celadon City", id(21,4,72), {
 		buildings: [
 			PokeCenter(id(17)),
-			House(id(19), { name:"Celedon Game Corner", }),
+			House(id(19), { name:"Celadon Game Corner", }),
 			House(id(20)), //Reward house
 			House(id(22)), //Restaraunt
 			Building({
@@ -302,7 +302,7 @@ module.exports = [
 					Floor(id(11)), // Elevator
 				],
 			}),
-			Gym(id(), {
+			Gym(id(21), {
 				leader: "Erika",
 				leaderClass: 21,
 				badge: "Rainbow",
@@ -318,7 +318,7 @@ module.exports = [
 			House(id(23)),
 			House(id(21,24,255), { name:"Cycling Road North Gatehouse", }),
 		],
-		connections: [ "Celedon City", r(17) ],
+		connections: [ "Celadon City", r(17) ],
 	}),
 	Route(17, id(21,3,80), {
 		connections: [ r(16) ],
@@ -334,7 +334,7 @@ module.exports = [
 			PokeCenter(id(10)),
 			PokeMart(id(6)),
 			House(id(9)),
-			House(id(12) { name:"Safari Zone Warden's House" }),
+			House(id(12), { name:"Safari Zone Warden's House" }),
 			House(id(7)), //Empty bar?
 			Gym(id(8), {
 				leader: "Janine",

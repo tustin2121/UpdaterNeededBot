@@ -36,10 +36,10 @@ module.exports = [
 	Route(29, id(24,3,2), {
 		locOf: {
 			berrytree:"13,2",
-		}
+		},
 		connections: [ "New Bark Town", "Cherrygrove City" ],
 	}),
-	Gatehouse(id(24,13,255), r(29), r(46))
+	Gatehouse(id(24,13,255), r(29), r(46)),
 	Town("Cherrygrove City", id(26,3,3), {
 		buildings: [
 			PokeCenter(id(5)),
@@ -57,7 +57,7 @@ module.exports = [
 		],
 		locOf: {
 			berrytree:"13,5",
-		}
+		},
 		connections: [ "Cherrygrove City", r(31) ],
 	}),
 	Route(31, id(26,2,5), {
@@ -106,7 +106,7 @@ module.exports = [
 	Dungeon("Ruins of Alph", {
 		floors: [
 			Floor(id(3,22,9), {
-				attrs: { "indoors":false, }
+				attrs: { "indoors":false, },
 				connections: [ ref(3,38,10)/*"Union Cave"*/ ],
 			}),
 			House(id(28), { name: "Ruins of Alph Research Center" }),
@@ -294,7 +294,7 @@ module.exports = [
 			},
 		},
 	}),
-	Gatehouse(id(10,15,255), "National Park", r(36), {
+	Gatehouse(id(10,17,255), "National Park", r(36), {
 		locOf: { pc:["9,1"] },
 	}),
 	Route(36, id(10,3,20), {
@@ -319,7 +319,7 @@ module.exports = [
 				locOf: {
 					leader: "5,1",
 				}
-			})
+			}),
 			Building("Tin Tower Entrance", {
 				floors: [
 					Floor(id(1)), //1F
@@ -378,13 +378,13 @@ module.exports = [
 			}),
 			House(id(1)),
 			House(id(3, 48, 36), { // Rocket Hideout
-				attrs:{ shopping:true, }
+				attrs:{ shopping:true, },
 				connections: [ ref(3,49,36) ],
 			}),
 			Building("Rocket Hideout", {
 				attrs: { "dungeon": true, },
 				floors: [
-					Floor(id(49), {
+					Floor(id(3,49,36), {
 						connections: [ ref(3,48,36) ],
 					}),
 					Floor(id(50)),
@@ -516,7 +516,7 @@ module.exports = [
 		connections: [ r(40) ],
 	}),
 	
-	Route(44, id(2,6,39) {
+	Route(44, id(2,6,39), {
 		connections: [ "Mahogany Town", ref(3,61,40) ],
 	}),
 	Cave("Ice Path", {
