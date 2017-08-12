@@ -238,8 +238,9 @@ discoveries = [
 			report.mapChange.last = this.prevLocs[0] === curr.location.node;
 		}
 		if (curr.location.node && prev.location.node) {
-			report.mapChange.announceLeaving = prev.location.node.onLeave(this, { prev, curr, loc:curr.location });
-			report.mapChange.announceEntering = curr.location.node.onEnter(this, { prev, curr, loc:curr.location });
+			let args = { reporter:this, prev, curr, loc:curr.location };
+			report.mapChange.announceLeaving = prev.location.node.onLeave(args);
+			report.mapChange.announceEntering = curr.location.node.onEnter(args);
 		}
 		this.prevLocs.pop(); // Pop oldest location
 		this.prevLocs.unshift(curr.location.node); // Put newest location on front of queue

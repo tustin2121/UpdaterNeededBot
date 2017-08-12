@@ -35,10 +35,10 @@ Johto.addNode(...require('./kanto.js'));
 
 Johto.addNode(...[
 	Cutscene(id(0,0,0), {
-		announce: (loc, reporter)=>{
+		announce: ({ curr, loc })=>{
 			let str = "**The game has been reset!**",
 			if (loc.x === 255) return `${str} On the title screen!`;
-			if (reporter.currInfo.in_battle && !reporter.currInfo.trainer && !reporter.currInfo.wildmon)
+			if (curr.in_battle && !curr.trainer && !curr.wildmon)
 				return `${str} Evidently, this game pak is designed only for use on the Game Boy Color.`;
 			return str;
 		}
@@ -48,8 +48,8 @@ Johto.addNode(...[
 	Building("Fast Ship S.S. Aqua", {
 		attrs: {
 			the:true,
-			announce: (loc, reporter)=>{
-				let lastLoc = reporter.prevInfo.location;
+			announce: ({ prev, loc })=>{
+				let lastLoc = prev.location;
 				if (lastLoc.map_bank !== loc.map_bank) {
 					if (lastLoc.area_id === 62) { //Vermilion
 						return "We hop aboard the Fast Ship SS Aqua, heading to Olivine!";
@@ -87,7 +87,7 @@ Johto.addNode(...[
 				// Sub Area: Y>24 - Indigo Plateau East Garden
 				attrs: {
 					indoors: false,
-					announce: (loc, reporter)=>{
+					announce: ({ reporter, loc })=>{
 						if (loc.y > 24) return "We step outside into the east garden of the Indigo Plateau. Several trainers are resting here between E4 attempts.";
 						if (reporter.isFirstTime("indigo")) {
 							return "We emerge from Victory Road! **We've arrived at the Indigo Plateau!**";
@@ -159,9 +159,7 @@ Johto.addNode(...[
 		buildings: [
 			House(id(4)),
 		],
-		attrs: {
-			announce: firstTime(id(1), "We step out onto Route 28 towards Mt. Silver, and are immedately spooted by our rival!"),
-		},
+		announce: firstTime(id(1), "We step out onto Route 28 towards Mt. Silver, and are immedately spooted by our rival!"),
 		connections: [ ref(23,13,255), ref(19,2,46) ],
 	}),
 	Cave("Silver Cave", {

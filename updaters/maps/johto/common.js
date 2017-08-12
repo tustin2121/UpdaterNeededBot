@@ -70,7 +70,7 @@ function ref(mapbank, mapid, areaid) {
 }
 function r(num) { return `Route ${num}`; }
 function firstTime(key, phrase) {
-	return (loc, reporter)=>{
+	return ({ reporter })=>{
 		if (reporter.isFirstTime(key)) {
 			return phrase,
 		}
@@ -78,8 +78,8 @@ function firstTime(key, phrase) {
 	};
 }
 function uponEnteringMapBank(bank, phrase) {
-	return (loc, reporter)=>{
-		if (reporter.prevInfo.location.map_bank !== loc.map_bank) {
+	return ({ loc, prev })=>{
+		if (prev.location.map_bank !== loc.map_bank) {
 			return phrase;
 		}
 		return null;

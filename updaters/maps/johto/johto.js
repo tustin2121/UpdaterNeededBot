@@ -109,11 +109,39 @@ module.exports = [
 				attrs: { "indoors":false, }
 				connections: [ ref(3,38,10)/*"Union Cave"*/ ],
 			}),
-			Floor(id(26), { name: "Arodactyle Chamber", }),
-			Floor(id(25), { name: "Omanyte Chamber", }),
-			Floor(id(24), { name: "Kabuto Chamber", }),
+			House(id(28), { name: "Ruins of Alph Research Center" }),
+			Floor(id(27), { name: "Inner Chamber", }),
+			// Puzzle Chambers
 			Floor(id(23), { name: "Ho-Oh Chamber", }),
-			Floor(id(27), { name: "Main Chamber", }),
+			Floor(id(24), { name: "Kabuto Chamber", }),
+			Floor(id(25), { name: "Omanyte Chamber", }),
+			Floor(id(26), { name: "Aerodactyl Chamber", }),
+			// Item Rooms
+			Floor(id(29), {
+				announce: firstTime(id(29), "We step through a hole in the back wall of the Ho-Oh Chamber and find a bunch of items in the room!"),
+			}),
+			Floor(id(30), { // "Escape"
+				announce: firstTime(id(30), "We step through a hole in the back wall of the Kabuto Chamber and find a bunch of items in the room!"),
+			}),
+			Floor(id(31), {
+				announce: firstTime(id(31), "We step through a hole in the back wall of the Omanyte Chamber and find a bunch of items in the room!"),
+			}),
+			Floor(id(32), {
+				announce: firstTime(id(32), "We step through a hole in the back wall of the Aerodactyl Chamber and find a bunch of items in the room!"),
+			}),
+			// Word Rooms
+			Floor(id(33), {
+				announce: firstTime(id(33), `We fall down the hole in the back of the item chamber and land on a bunch of words on the ground! "We humans must learn to walk in harmony with them. We depart for their sakes."... `),
+			}),
+			Floor(id(34), {
+				announce: firstTime(id(33), `We fall down the hole in the back of the item chamber and land on a bunch of words on the ground! "Our words shall remain here for the ages"... `),
+			}),
+			Floor(id(35), {
+				announce: firstTime(id(33), `We fall down the hole in the back of the item chamber and land on a bunch of words on the ground! "They possess great insight and refuse the outside world"... `),
+			}),
+			Floor(id(36), {
+				announce: firstTime(id(33), `We fall down the hole in the back of the item chamber and land on a bunch of words on the ground! "This we shall erect a Pokemon statue outside"... `),
+			}),
 		],
 	}),
 	Cave("Union Cave", {
@@ -224,17 +252,20 @@ module.exports = [
 			Building({
 				name: "Underground",
 				floors: [
-					Floor(id(3,54,16)), //Entrance
-					Floor(id(53)),	// Hallway
+					Floor(id(3,54,16), { //Underground Entrances / Switch Room
+						//SUBAREA: Y<19 = Switch Room
+						//SUBAREA: Y>19 & X>12 = South Entrance
+						//SUBAREA: Y>19 & X<12 = North Entrance
+					}),
+					Floor(id(53)),	// Hallway/Warehouse Entrance
 					Floor(id(55), { // Dept Store Basement (in another map bank)
 						connections: [ ref(11,17,16) ],
 					}),
-					Floor(id(56), {
+					Floor(id(56), { // Underground Warehouse
 						locOf: {
 							leader: "12,8", //Director
 						}
 					}), //BF2
-					Floor(id(54)), //BF3
 				],
 			}),
 		],
@@ -248,13 +279,19 @@ module.exports = [
 		locOf: { pc:["7,1"] },
 	}),
 	Area("National Park", [id(3,15,19), id(16)], {
-		announce: (reporter, { loc })=>{
-			// A different map is used for the bug contest
-			if (loc.map_id === 16 && !reporter.memory['bugCatching']) {
-				reporter.memory['bugCatching'] = true;
-				return "**We've entered a bug catching contest!**";
-			}
-			return null;
+		announce: {
+			enter: ({ reporter, loc })=>{
+				// A different map is used for the bug contest
+				if (loc.map_id === 16 && !reporter.memory['bugCatching']) {
+					reporter.memory['bugCatching'] = true;
+					return "**We've entered a bug catching contest!**";
+				}
+				return null;
+			},
+			exit: ()=>{
+				if (reporter.memory['bugCatching'])
+					reporter.memory['bugCatching'] = false;
+			},
 		},
 	}),
 	Gatehouse(id(10,15,255), "National Park", r(36), {
@@ -323,9 +360,9 @@ module.exports = [
 			Floor(id(3,57,35), {
 				connections: [ r(42) ],
 			}),
-			Floor(id(3,58,35)),
-			Floor(id(3,59,35)),
-			Floor(id(3,60,35)),
+			Floor(id(58)),
+			Floor(id(59)),
+			Floor(id(60)),
 		],
 	}),
 	Town("Mahogany Town", id(2,7,36), {
@@ -443,13 +480,19 @@ module.exports = [
 	}),
 	Dungeon("Whirl Islands", {
 		floors: [
-			Floor(id(3,67,31)),
-			Floor(id(71)),
-			Floor(id(72)),
-			Floor(id(73)),
-			Floor(id(68)),
-			Floor(id(66)),
-			Floor(id(69)),
+			Floor(id(3,67,31)), //NW
+			Floor(id(68)), //SW
+			Floor(id(66)), //NW
+			Floor(id(69)), //Cave
+			Floor(id(70)), //SE
+			Floor(id(71)), //B1F
+			Floor(id(72)), //B2F
+			Floor(id(73), { //Lugia Chamber
+				legendary: {
+					name: "Lugia",
+					loc: "10,7", //?
+				}
+			}),
 		],
 		connections: [ r(40) ],
 	}),
@@ -481,10 +524,10 @@ module.exports = [
 			Floor(id(3,61,40), {
 				connections: [ r(44), "Blackthorn City" ],
 			}),
-			Floor(id(62)),
-			Floor(id(63)),
-			Floor(id(65)),
-			Floor(id(64)),
+			Floor(id(62)), //BF1
+			Floor(id(63)), //BF2 Mahogany side
+			Floor(id(65)), //BF3
+			Floor(id(64)), //BF2 Blackthorn side
 		],
 	}),
 	City("Blackthorn City", id(5,10,41), {
@@ -520,7 +563,7 @@ module.exports = [
 	Route(45, id(5,8,43), {
 		connections: [ "Blackthorn City", ref(3,79,44) ], //Dark Cave
 	}),
-	Route(46, id(5, 9, 45), {
+	Route(46, id(5,9,45), {
 		connections: [ ref(3,78,44) ], //Dark Cave
 	}),
 	
