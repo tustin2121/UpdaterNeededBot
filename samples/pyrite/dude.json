@@ -1,0 +1,290 @@
+{
+    "area_id": 2,
+    "area_name": "Route 29",
+    "badges": 0,
+    "ball_count": 5,
+    "battle_kind": "Wild",
+    "caught": 1,
+    "caught_list": [
+        158
+    ],
+    "coins": 0,
+    "daycare": [],
+    "evolution_is_happening": false,
+    "extra": {
+        "egg_is_ready": false
+    },
+    "gender": "Female",
+    "id": 25756,
+    "in_battle": true,
+    "items": {
+        "balls": [
+            {
+                "count": 5,
+                "id": 5,
+                "name": "Pok\u00e9 Ball"
+            }
+        ],
+        "items": [
+            {
+                "count": 1,
+                "id": 9,
+                "name": "Antidote"
+            },
+            {
+                "count": 2,
+                "id": 74,
+                "name": "Psncureberry"
+            },
+            {
+                "count": 1,
+                "id": 18,
+                "name": "Potion"
+            }
+        ],
+        "key": [],
+        "pc": [],
+        "tms": []
+    },
+    "level_cap": 20,
+    "map_bank": 24,
+    "map_id": 3,
+    "map_name": "Route 29",
+    "money": 3484,
+    "name": "DUDE",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Set",
+        "frame": 1,
+        "menu_account": "On",
+        "print": "Normal",
+        "sound": "Mono",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "evs": {
+                "attack": 1721,
+                "defense": 1574,
+                "hp": 1640,
+                "special_attack": 1344,
+                "special_defense": 1344,
+                "speed": 1842
+            },
+            "experience": {
+                "current": 1660,
+                "next_level": 1757,
+                "remaining": 97,
+                "this_level": 1382
+            },
+            "friendship": 106,
+            "gender": "Male",
+            "health": [
+                35,
+                36
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "ivs": {
+                "attack": 6,
+                "defense": 1,
+                "hp": 6,
+                "special_attack": 6,
+                "special_defense": 6,
+                "speed": 11
+            },
+            "level": 12,
+            "met": {
+                "area_id": 1,
+                "area_name": "New Bark Town",
+                "game": "Pok\u00e9mon Pyrite",
+                "level": 5,
+                "time_of_day": "Day"
+            },
+            "moves": [
+                {
+                    "accuracy": 255,
+                    "base_power": 40,
+                    "id": 10,
+                    "name": "Scratch",
+                    "pp": 29,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 255,
+                    "base_power": 0,
+                    "id": 43,
+                    "name": "Leer",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 255,
+                    "base_power": 20,
+                    "id": 99,
+                    "name": "Rage",
+                    "pp": 18,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 255,
+                    "base_power": 40,
+                    "id": 55,
+                    "name": "Water Gun",
+                    "pp": 22,
+                    "pp_up": 0,
+                    "type": "Water"
+                }
+            ],
+            "name": "TOTODILE",
+            "original_trainer": {
+                "gender": "Female",
+                "id": 25756,
+                "name": "EWWYPPP"
+            },
+            "personality_value": 1656639548,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "shiny": false,
+            "species": {
+                "catch_rate": 45,
+                "egg_cycles": 20,
+                "gender_ratio": 31,
+                "growth_rate": "Fast",
+                "id": 158,
+                "name": "Totodile",
+                "national_dex": 158,
+                "type1": "Water",
+                "type2": "Water"
+            },
+            "stats": {
+                "attack": 23,
+                "defense": 21,
+                "hp": 36,
+                "special_attack": 17,
+                "special_defense": 18,
+                "speed": 19
+            },
+            "status": 0
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "BOX1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX14",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 1
+    },
+    "rival_name": "JRJII..",
+    "secret": 33145,
+    "seen": 10,
+    "seen_list": [
+        10,
+        11,
+        13,
+        16,
+        19,
+        152,
+        158,
+        161,
+        165,
+        187
+    ],
+    "time": {
+        "d": "TUE",
+        "h": 12,
+        "m": 0,
+        "s": 47
+    },
+    "wild_species": {
+        "catch_rate": 235,
+        "egg_cycles": 15,
+        "gender_ratio": 127,
+        "growth_rate": "Fast",
+        "id": 19,
+        "name": "Rattata",
+        "national_dex": 19,
+        "type1": "Normal",
+        "type2": "Normal"
+    },
+    "x": 50,
+    "y": 11
+}

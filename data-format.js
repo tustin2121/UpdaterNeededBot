@@ -136,7 +136,7 @@ class SortedData {
 
 class Pokemon {
 	constructor() {
-		this._name = '';
+		this.name = '';
 		this.nicknamed = false;
 		
 		this.gender = '';
@@ -167,18 +167,11 @@ class Pokemon {
 		this._isEvolving = false;
 	}
 	
-	get name() { return this._name; }
-	set name(val) {
-		// val = val.replace(/ /i, '\xA0'); // Replace spaces with non-breaking spaces
-		// val = val.replace('π', 'Pk').replace('µ', 'Mn'); //
-		this._name = val;
-	}
-	
 	/** If this pokemon is currently valid for consideration of changes.
 	 *  If this is false on the current set, do not report any changes. */
 	get valid() {
 		if (this._isEvolving) return false;
-		if (this._name.indexOf('_') > -1) return false; //Currently nicknaming (gen 1/2)
+		if (this.name.indexOf('-') > -1) return false; //Currently nicknaming (gen 1/2)
 		return true;
 	}
 	

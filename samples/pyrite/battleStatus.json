@@ -1,0 +1,284 @@
+{
+	"area_id": 2,
+	"badges": 0,
+	"battle_kind": "Wild",
+	"caught_list": [
+		158
+	],
+	"coins": 0,
+	"daycare": [],
+	"evolution_is_happening": false,
+	"extra": {
+		"egg_is_ready": false
+	},
+	"gender": "Female",
+	"id": 25756,
+	"in_battle": true,
+	"items": {
+		"balls": [],
+		"items": [
+			{
+				"count": 1,
+				"id": 9,
+				"name": "Antidote"
+			},
+			{
+				"count": 2,
+				"id": 74,
+				"name": "Psncureberry"
+			}
+		],
+		"key": [
+			{
+				"id": 69,
+				"name": "Mystery Egg"
+			}
+		],
+		"pc": [],
+		"tms": []
+	},
+	"level_cap": 20,
+	"map_bank": 24,
+	"map_id": 3,
+	"money": 3484,
+	"name": "EWWYPPP",
+	"options": {
+		"battle_scene": "On",
+		"battle_style": "Set",
+		"frame": 1,
+		"menu_account": "On",
+		"print": "Normal",
+		"sound": "Mono",
+		"text_speed": "Fast"
+	},
+	"rival_name": "???",
+	"secret": 33145,
+	"seen_list": [
+		10,
+		11,
+		13,
+		16,
+		19,
+		152,
+		158,
+		161,
+		165,
+		187
+	],
+	"time": {
+		"d": "TUE",
+		"h": 11,
+		"m": 35,
+		"s": 10
+	},
+	"wild_species": {
+		"id": 161,
+		"name": "Sentret",
+		"national_dex": 161,
+		"type1": "Normal",
+		"type2": "Normal",
+		"egg_cycles": 15,
+		"gender_ratio": 127,
+		"growth_rate": "Fast",
+		"catch_rate": 235
+	},
+	"x": 7,
+	"y": 0,
+	"pc": {
+		"boxes": [
+			{
+				"box_contents": [],
+				"box_name": "BOX1",
+				"box_number": 1
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX2",
+				"box_number": 2
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX3",
+				"box_number": 3
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX4",
+				"box_number": 4
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX5",
+				"box_number": 5
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX6",
+				"box_number": 6
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX7",
+				"box_number": 7
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX8",
+				"box_number": 8
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX9",
+				"box_number": 9
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX10",
+				"box_number": 10
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX11",
+				"box_number": 11
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX12",
+				"box_number": 12
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX13",
+				"box_number": 13
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX14",
+				"box_number": 14
+			}
+		],
+		"current_box_number": 1
+	},
+	"party": [
+		{
+			"evs": {
+				"attack": 1337,
+				"defense": 1248,
+				"hp": 1300,
+				"special_attack": 1024,
+				"special_defense": 1024,
+				"speed": 1483
+			},
+			"experience": {
+				"current": 1410,
+				"next_level": 1757,
+				"this_level": 1382,
+				"remaining": 347
+			},
+			"friendship": 105,
+			"health": [
+				36,
+				36
+			],
+			"held_item": {
+				"id": 0,
+				"name": ""
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 6,
+				"defense": 1,
+				"special_attack": 6,
+				"special_defense": 6,
+				"speed": 11,
+				"hp": 6
+			},
+			"level": 12,
+			"met": {
+				"area_id": 1,
+				"game": "Pokémon Pyrite",
+				"level": 5,
+				"time_of_day": "Day",
+				"area_name": "New Bark Town"
+			},
+			"moves": [
+				{
+					"id": 10,
+					"pp": 35,
+					"pp_up": 0,
+					"name": "Scratch",
+					"accuracy": 255,
+					"base_power": 40,
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"pp_up": 0,
+					"name": "Leer",
+					"accuracy": 255,
+					"base_power": 0,
+					"type": "Normal"
+				},
+				{
+					"id": 99,
+					"pp": 20,
+					"pp_up": 0,
+					"name": "Rage",
+					"accuracy": 255,
+					"base_power": 20,
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"pp_up": 0,
+					"name": "Water Gun",
+					"accuracy": 255,
+					"base_power": 40,
+					"type": "Water"
+				}
+			],
+			"name": "TOTODILE",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 25756,
+				"name": "EWWYPPP"
+			},
+			"personality_value": 1656639548,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"shiny": false,
+			"species": {
+				"id": 158,
+				"type1": "Water",
+				"type2": "Water",
+				"name": "Totodile",
+				"national_dex": 158,
+				"egg_cycles": 20,
+				"gender_ratio": 31,
+				"growth_rate": "Fast",
+				"catch_rate": 45
+			},
+			"stats": {
+				"attack": 23,
+				"defense": 21,
+				"hp": 36,
+				"special_attack": 17,
+				"special_defense": 18,
+				"speed": 19
+			},
+			"status": 0,
+			"gender": "Male"
+		}
+	],
+	"caught": 1,
+	"seen": 10,
+	"ball_count": 0,
+	"area_name": "Route 29",
+	"map_name": "Route 29"
+}

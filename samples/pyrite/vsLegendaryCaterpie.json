@@ -1,0 +1,679 @@
+{
+	"area_id": 4,
+	"badges": 0,
+	"battle_kind": "Wild",
+	"caught_list": [
+		13,
+		16,
+		74,
+		158,
+		161
+	],
+	"coins": 0,
+	"daycare": [],
+	"evolution_is_happening": false,
+	"extra": {
+		"egg_is_ready": false
+	},
+	"gender": "Female",
+	"id": 25756,
+	"in_battle": true,
+	"items": {
+		"balls": [
+			{
+				"count": 12,
+				"id": 5,
+				"name": "Poké Ball"
+			}
+		],
+		"items": [
+			{
+				"count": 1,
+				"id": 9,
+				"name": "Antidote"
+			},
+			{
+				"count": 2,
+				"id": 74,
+				"name": "Psncureberry"
+			},
+			{
+				"count": 3,
+				"id": 18,
+				"name": "Potion"
+			},
+			{
+				"count": 2,
+				"id": 173,
+				"name": "Berry"
+			}
+		],
+		"key": [],
+		"pc": [],
+		"tms": []
+	},
+	"level_cap": 20,
+	"map_bank": 26,
+	"map_id": 1,
+	"money": 688,
+	"name": "EWWYPPP",
+	"options": {
+		"battle_scene": "On",
+		"battle_style": "Set",
+		"frame": 1,
+		"menu_account": "Off",
+		"print": "Lighter",
+		"sound": "Stereo",
+		"text_speed": "Fast"
+	},
+	"rival_name": "JRJII..",
+	"secret": 33145,
+	"seen_list": [
+		10,
+		11,
+		13,
+		16,
+		19,
+		21,
+		25,
+		46,
+		74,
+		152,
+		158,
+		161,
+		165,
+		187,
+		231
+	],
+	"time": {
+		"d": "TUE",
+		"h": 14,
+		"m": 10,
+		"s": 7
+	},
+	"wild_species": {
+		"id": 10,
+		"name": "Caterpie",
+		"national_dex": 10,
+		"type1": "Bug",
+		"type2": "Bug",
+		"egg_cycles": 15,
+		"gender_ratio": 127,
+		"growth_rate": "Fast",
+		"catch_rate": 255
+	},
+	"x": 19,
+	"y": 40,
+	"pc": {
+		"boxes": [
+			{
+				"box_contents": [],
+				"box_name": "BOX1",
+				"box_number": 1
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX2",
+				"box_number": 2
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX3",
+				"box_number": 3
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX4",
+				"box_number": 4
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX5",
+				"box_number": 5
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX6",
+				"box_number": 6
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX7",
+				"box_number": 7
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX8",
+				"box_number": 8
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX9",
+				"box_number": 9
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX10",
+				"box_number": 10
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX11",
+				"box_number": 11
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX12",
+				"box_number": 12
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX13",
+				"box_number": 13
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX14",
+				"box_number": 14
+			}
+		],
+		"current_box_number": 1
+	},
+	"party": [
+		{
+			"evs": {
+				"attack": 3767,
+				"defense": 3216,
+				"hp": 3301,
+				"special_attack": 2754,
+				"special_defense": 2754,
+				"speed": 3933
+			},
+			"experience": {
+				"current": 3642,
+				"next_level": 3930,
+				"this_level": 3276,
+				"remaining": 288
+			},
+			"friendship": 116,
+			"health": [
+				0,
+				46
+			],
+			"held_item": {
+				"id": 0,
+				"name": ""
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 6,
+				"defense": 1,
+				"hp": 6,
+				"special_attack": 6,
+				"special_defense": 6,
+				"speed": 11
+			},
+			"level": 16,
+			"met": {
+				"area_id": 1,
+				"game": "Pokémon Pyrite",
+				"level": 5,
+				"time_of_day": "Day",
+				"area_name": "New Bark Town"
+			},
+			"moves": [
+				{
+					"id": 44,
+					"pp": 17,
+					"pp_up": 0,
+					"name": "Bite",
+					"accuracy": 255,
+					"base_power": 60,
+					"type": "Dark"
+				},
+				{
+					"id": 43,
+					"pp": 29,
+					"pp_up": 0,
+					"name": "Leer",
+					"accuracy": 255,
+					"base_power": 0,
+					"type": "Normal"
+				},
+				{
+					"id": 99,
+					"pp": 15,
+					"pp_up": 0,
+					"name": "Rage",
+					"accuracy": 255,
+					"base_power": 20,
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 19,
+					"pp_up": 0,
+					"name": "Water Gun",
+					"accuracy": 255,
+					"base_power": 40,
+					"type": "Water"
+				}
+			],
+			"name": "TOTODILE",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 25756,
+				"name": "EWWYPPP"
+			},
+			"personality_value": 1656639548,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"shiny": false,
+			"species": {
+				"id": 158,
+				"name": "Totodile",
+				"national_dex": 158,
+				"type1": "Water",
+				"type2": "Water",
+				"egg_cycles": 20,
+				"gender_ratio": 31,
+				"growth_rate": "Fast",
+				"catch_rate": 45
+			},
+			"stats": {
+				"attack": 30,
+				"defense": 28,
+				"hp": 46,
+				"special_attack": 23,
+				"special_defense": 24,
+				"speed": 24
+			},
+			"status": 0,
+			"gender": "Male"
+		},
+		{
+			"evs": {
+				"attack": 23,
+				"defense": 17,
+				"hp": 17,
+				"special_attack": 17,
+				"special_defense": 17,
+				"speed": 10
+			},
+			"experience": {
+				"current": 76,
+				"next_level": 100,
+				"this_level": 51,
+				"remaining": 24
+			},
+			"friendship": 71,
+			"health": [
+				0,
+				17
+			],
+			"held_item": {
+				"id": 0,
+				"name": ""
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 6,
+				"defense": 7,
+				"hp": 7,
+				"special_attack": 3,
+				"special_defense": 3,
+				"speed": 7
+			},
+			"level": 4,
+			"met": {
+				"area_id": 2,
+				"game": "Pokémon Pyrite",
+				"level": 4,
+				"area_name": "Route 29"
+			},
+			"moves": [
+				{
+					"id": 33,
+					"pp": 33,
+					"pp_up": 0,
+					"name": "Tackle",
+					"accuracy": 242,
+					"base_power": 35,
+					"type": "Normal"
+				},
+				{
+					"id": 111,
+					"pp": 39,
+					"pp_up": 0,
+					"name": "Defense Curl",
+					"accuracy": 255,
+					"base_power": 0,
+					"type": "Normal"
+				}
+			],
+			"name": "HHHIIIIHGH",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 25756,
+				"name": "EWWYPPP"
+			},
+			"personality_value": 1165413852,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"shiny": false,
+			"species": {
+				"id": 161,
+				"name": "Sentret",
+				"national_dex": 161,
+				"type1": "Normal",
+				"type2": "Normal",
+				"egg_cycles": 15,
+				"gender_ratio": 127,
+				"growth_rate": "Fast",
+				"catch_rate": 235
+			},
+			"stats": {
+				"attack": 9,
+				"defense": 8,
+				"hp": 17,
+				"special_attack": 8,
+				"special_defense": 8,
+				"speed": 7
+			},
+			"status": 0,
+			"gender": "Female"
+		},
+		{
+			"evs": {
+				"attack": 23,
+				"defense": 17,
+				"hp": 17,
+				"special_attack": 17,
+				"special_defense": 17,
+				"speed": 10
+			},
+			"experience": {
+				"current": 89,
+				"next_level": 125,
+				"this_level": 64,
+				"remaining": 36
+			},
+			"friendship": 71,
+			"health": [
+				0,
+				17
+			],
+			"held_item": {
+				"id": 112,
+				"name": "Everstone"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 6,
+				"defense": 10,
+				"hp": 3,
+				"special_attack": 11,
+				"special_defense": 11,
+				"speed": 11
+			},
+			"level": 4,
+			"met": {
+				"area_id": 45,
+				"game": "Pokémon Pyrite",
+				"level": 4,
+				"area_name": "Route 46"
+			},
+			"moves": [
+				{
+					"id": 33,
+					"pp": 17,
+					"pp_up": 0,
+					"name": "Tackle",
+					"accuracy": 242,
+					"base_power": 35,
+					"type": "Normal"
+				}
+			],
+			"name": "XXYYY  WWP",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 25756,
+				"name": "EWWYPPP"
+			},
+			"personality_value": 819346048,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"shiny": false,
+			"species": {
+				"id": 74,
+				"name": "Geodude",
+				"national_dex": 74,
+				"type1": "Rock",
+				"type2": "Ground",
+				"egg_cycles": 15,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"catch_rate": 200
+			},
+			"stats": {
+				"attack": 11,
+				"defense": 13,
+				"hp": 17,
+				"special_attack": 8,
+				"special_defense": 8,
+				"speed": 7
+			},
+			"status": 0,
+			"gender": "Female"
+		},
+		{
+			"evs": {
+				"attack": 23,
+				"defense": 17,
+				"hp": 17,
+				"special_attack": 17,
+				"special_defense": 17,
+				"speed": 10
+			},
+			"experience": {
+				"current": 102,
+				"next_level": 172,
+				"this_level": 100,
+				"remaining": 70
+			},
+			"friendship": 80,
+			"health": [
+				0,
+				20
+			],
+			"held_item": {
+				"id": 0,
+				"name": ""
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 11,
+				"defense": 9,
+				"hp": 14,
+				"special_attack": 12,
+				"special_defense": 12,
+				"speed": 5
+			},
+			"level": 5,
+			"met": {
+				"area_id": 4,
+				"game": "Pokémon Pyrite",
+				"level": 4,
+				"area_name": "Route 30"
+			},
+			"moves": [
+				{
+					"id": 40,
+					"pp": 33,
+					"pp_up": 0,
+					"name": "Poison Sting",
+					"accuracy": 255,
+					"base_power": 15,
+					"type": "Poison"
+				},
+				{
+					"id": 81,
+					"pp": 38,
+					"pp_up": 0,
+					"name": "String Shot",
+					"accuracy": 242,
+					"base_power": 0,
+					"type": "Bug"
+				}
+			],
+			"name": "WEEDLE",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 25756,
+				"name": "EWWYPPP"
+			},
+			"personality_value": 2855637788,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"shiny": false,
+			"species": {
+				"id": 13,
+				"name": "Weedle",
+				"national_dex": 13,
+				"type1": "Bug",
+				"type2": "Poison",
+				"egg_cycles": 15,
+				"gender_ratio": 127,
+				"growth_rate": "Fast",
+				"catch_rate": 255
+			},
+			"stats": {
+				"attack": 9,
+				"defense": 8,
+				"hp": 20,
+				"special_attack": 8,
+				"special_defense": 8,
+				"speed": 10
+			},
+			"status": 0,
+			"gender": "Male"
+		},
+		{
+			"evs": {
+				"attack": 30,
+				"defense": 35,
+				"hp": 45,
+				"special_attack": 20,
+				"special_defense": 20,
+				"speed": 45
+			},
+			"experience": {
+				"current": 100,
+				"next_level": 172,
+				"this_level": 100,
+				"remaining": 72
+			},
+			"friendship": 70,
+			"health": [
+				5,
+				19
+			],
+			"held_item": {
+				"id": 0,
+				"name": ""
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 10,
+				"defense": 0,
+				"special_attack": 5,
+				"special_defense": 5,
+				"speed": 10,
+				"hp": 1
+			},
+			"level": 5,
+			"met": {
+				"area_id": 4,
+				"game": "Pokémon Pyrite",
+				"level": 5,
+				"area_name": "Route 30"
+			},
+			"moves": [
+				{
+					"id": 33,
+					"pp": 26,
+					"pp_up": 0,
+					"name": "Tackle",
+					"accuracy": 242,
+					"base_power": 35,
+					"type": "Normal"
+				},
+				{
+					"id": 28,
+					"pp": 7,
+					"pp_up": 0,
+					"name": "Sand-Attack",
+					"accuracy": 255,
+					"base_power": 0,
+					"type": "Ground"
+				}
+			],
+			"name": "PIDGEY",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 25756,
+				"name": "EWWYPPP"
+			},
+			"personality_value": 1108204572,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"shiny": false,
+			"species": {
+				"id": 16,
+				"type1": "Normal",
+				"type2": "Flying",
+				"name": "Pidgey",
+				"national_dex": 16,
+				"egg_cycles": 15,
+				"gender_ratio": 127,
+				"growth_rate": "Fast",
+				"catch_rate": 235
+			},
+			"stats": {
+				"attack": 10,
+				"defense": 9,
+				"hp": 19,
+				"special_attack": 9,
+				"special_defense": 9,
+				"speed": 11
+			},
+			"status": 0,
+			"gender": "Male"
+		}
+	],
+	"caught": 5,
+	"seen": 15,
+	"ball_count": 12,
+	"area_name": "Route 30",
+	"map_name": "Route 30"
+}

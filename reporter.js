@@ -171,7 +171,7 @@ class Reporter {
 		return null;
 	}
 	
-	geneateCatchTable(timestamp) {
+/*	geneateCatchTable(timestamp) {
 		try {
 			if (!this.caughtMon.length) return null;
 			let output = `| Species | Name | Nick | Gender | Level | Held | Ability | Move 1 | Move 2 | Move 3 | Move 4 | Nature | Pokeball | Time Caught | Box # |\n`;
@@ -181,6 +181,24 @@ class Reporter {
 				output +=`| ${m.level} | ${m.item||"none"} | ${m.ability} `;
 				output +=`| ${m.moves[0]||""} | ${m.moves[1]||""} | ${m.moves[2]||""} | ${m.moves[3]||""} `;
 				output +=`| ${m.nature.slice(0, m.nature.indexOf(',') )} | ${m.caughtIn} | ${timestamp} | ${m.storedIn} |\n`;
+			});
+			return output;
+		} catch (e) {
+			console.error('Error generating catch table!', e);
+		}
+		return `[*Error generating table*]`;
+	} */
+	geneateCatchTable(timestamp) {
+		try {
+			if (!this.caughtMon.length) return null;
+			let output = `| Species | Name | Nick | Gender | Level | Held | Move 1 | Move 2 | Move 3 | Move 4 | Pokeball | Time Caught | Box # |\n`;
+			output +=    `| ------- | ---- | ---- | ------ |:-----:| ---- | ------ | ------ | ------ | ------ | -------- | ----------- | ----- |\n`;
+			this.caughtMon.forEach(m=>{
+				output +=`| ${m.species} | ${m.name} | | ${m.gender.charAt(0).toLowerCase()} `;
+				output +=`| ${m.level} | ${m.item||"none"} `;
+				output +=`| ${m.moves[0]||""} | ${m.moves[1]||""} | ${m.moves[2]||""} | ${m.moves[3]||""} `;
+				output +=`| `; //Pokeball info can't be known in Gen 2
+				output +=`| ${timestamp} | ${m.storedIn} |\n`;
 			});
 			return output;
 		} catch (e) {
@@ -245,7 +263,7 @@ discoveries = [
 		this.prevLocs.pop(); // Pop oldest location
 		this.prevLocs.unshift(curr.location.node); // Put newest location on front of queue
 		
-		let area = curr.location.getArea();
+		let area = curr.location.node.getArea();
 		if (this.prevAreas[0] !== area) {
 			report.mapChange.newArea = true;
 			if (this.prevAreas.includes(area)) {
@@ -332,12 +350,14 @@ discoveries = [
 			} else if (report.mapChange  && (curr.location.is('healing') === 'pokecenter' || report.mapChange.steps > 2)) {
 				// This is definitely a blackout
 				report.blackout = true;
-			} else if (curr.location.is('healing') === 'pokecenter') {
-				report.healed = 'atCenter';
-			} else if (curr.location.within('healing', curr.position)) {
-				report.healed = curr.location.get('healing');
-			} else {
-				report.healed = true;
+			} else if (!this.memory.blackout) {
+				if (curr.location.is('healing') === 'pokecenter') {
+					report.healed = 'atCenter';
+				} else if (curr.location.within('healing', curr.position)) {
+					report.healed = curr.location.get('healing');
+				} else {
+					report.healed = true;
+				}
 			}
 		}
 	},
@@ -515,8 +535,20 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				}
 				
 				let exInfo = this.generateExtendedInfo(mon);
+				let paren = [];
+				if (mon.item) {
+					paren.push(`Holding one ${mon.item}.`);
+					if (this.report.deltaItems) {
+						//Account for item acquisition
+						this.report.deltaItems[mon.item]--; 
+					}
+				}
+				if (mon.storedIn) paren.push(`Sent to Box #${mon.storedIn}.`);
+				if (paren.length) paren = ` (${paren.join(' ')}`;
+				else paren = '';
+				
 				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
-					` ${(!mon.nicknamed)?"No nickname.":"Nickname: `"+mon.name+"`"}${(mon.storedIn)?" (Sent to Box #"+mon.storedIn+")":""}`);
+					` ${(!mon.nicknamed)?"No nickname.":"Nickname: `"+mon.name+"`"}${paren}`);
 				this.caughtMon.push(mon);
 			});
 		}
@@ -608,11 +640,11 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			} else if (x.given) {
 				fullText.push(`We give a ${this.correctCase(x.helditem.given)} to ${this.getName(x.mon)} to hold.`);
 			}
-			if (this.report.deltaItems) { // Adjust item deltas as they're accounted for here
-				let delta = this.report.deltaItems;
-				if (x.helditem.took && delta[x.helditem.took]) delta[x.helditem.took]--;
-				if (x.helditem.given && delta[x.helditem.given]) delta[x.helditem.given]++;
-			}
+			// if (this.report.deltaItems) { // Adjust item deltas as they're accounted for here
+			// 	let delta = this.report.deltaItems;
+			// 	if (x.helditem.took && delta[x.helditem.took]) delta[x.helditem.took]--;
+			// 	if (x.helditem.given && delta[x.helditem.given]) delta[x.helditem.given]++;
+			// }
 		});
 		if (!fullText.length) return;
 		return `**${fullText.join(" ")}**`;
@@ -746,39 +778,12 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 	},
 	
-	// E4 and Gym watches
-	function blackoutHeal(tags) {
-		if (tags) return;
-		let texts = [];
-		if (this.report.blackout && !this.memory.blackout) {
-			this.memory.blackout = true; // Remember, so we don't double report it
-			this.progressiveTickDown('playbyplay');
-			texts.push('**BLACKED OUT!**');
-			if (this.memory.inE4Run) {
-				this.memory.inE4Run = false;
-				texts.push(`rip E4 Attempt #${this.memory.e4Attempt}.`);
-			}
-		}
-		else if (this.memory.blackout && !this.report.blackout) {
-			this.memory.blackout = false;
-		}
-		if (this.report.healed) {
-			texts.push(`**We heal**`);
-			switch(this.report.healed) {
-				case 'atCenter': texts.push(`at a Poké Center.`); break;
-				case 'doctor': texts.push(`thanks to a helpful doctor!`); break;
-				case 'nurse': texts.push(`thanks to a helpful nurse!`); break;
-				case 'house': texts.push(`at a heal house!`); break;
-			}
-		}
-		return texts.join(' ');
-	},
 	function battleWatch(tags) {
 		if (tags) return;
 		let texts = [];
 		if (this.report.battle && !this.memory.battle) {
-			if (this.memory.attempts) this.memory.attempts = {};
-			switch (this.battle.type) {
+			if (!this.memory.attempts) this.memory.attempts = {};
+			switch (this.report.battle.type) {
 				case 'rival': {
 					let name = this.report.battle.name;
 					let key = `rival${this.report.battle.party}`;
@@ -831,8 +836,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		else if (this.memory.battle) {
 			if (!this.report.battle) { //Battle is over!
-				if (!this.report.blackout) {
-					texts.push(`**Defeated ${this.memory.name}!**`);
+				if (!this.report.blackout && !this.memory.blackout) {
+					texts.push(`**Defeated ${this.memory.battle.name}!**`);
 				} // else, our blackout is already reported
 				delete this.memory.battle;
 			} else {
@@ -841,6 +846,34 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 		}
 		if (this.report.badgeGet) {
 			texts.push(`**Got the ${this.report.badgeGet} Badge!**`);
+		}
+		return texts.join(' ');
+	},
+	
+	// E4 and Gym watches
+	function blackoutHeal(tags) {
+		if (tags) return;
+		let texts = [];
+		if (this.report.blackout && !this.memory.blackout) {
+			this.memory.blackout = true; // Remember, so we don't double report it
+			this.progressiveTickDown('playbyplay');
+			texts.push('**BLACKED OUT!**');
+			if (this.memory.inE4Run) {
+				this.memory.inE4Run = false;
+				texts.push(`rip E4 Attempt #${this.memory.e4Attempt}.`);
+			}
+		}
+		else if (this.memory.blackout && !this.report.blackout) {
+			this.memory.blackout = false;
+		}
+		if (this.report.healed) {
+			texts.push(`**We heal**`);
+			switch(this.report.healed) {
+				case 'atCenter': texts.push(`at a Poké Center.`); break;
+				case 'doctor': texts.push(`thanks to a helpful doctor!`); break;
+				case 'nurse': texts.push(`thanks to a helpful nurse!`); break;
+				case 'house': texts.push(`at a heal house!`); break;
+			}
 		}
 		return texts.join(' ');
 	},
@@ -927,7 +960,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	// Location changes
 	function leavingAnnouncement(tags) {
 		if (tags) return;
-		if (report.announceLeaving) return report.announceLeaving;
+		if (this.report.announceLeaving) return this.report.announceLeaving;
 	},
 	function mapChange(tags) { // Last
 		if (tags) return;
@@ -937,7 +970,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			return report.announceEntering;
 		}
 		
-		let currLoc = this.currInfo.location.getArea();
+		let currLoc = this.currInfo.location.node.getArea();
 		if (currLoc) {
 			if (report.newArea) {
 				return __report.call(this, currLoc);

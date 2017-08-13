@@ -63,7 +63,8 @@ dbot.on('disconnect', (evt)=>{
 });
 dbot.on('message', (msg)=>{
 	if (msg.author.id === dbot.user.id) return; //Don't rspond to own message
-	console.log('Discord Message:',msg.content);
+	if (msg.channel.id != 266878339346726913) return; //Ignore non-staff channel (note, not triple equals since id is not a 'number', but a 'snowflake')
+	console.log(`Discord Message: [${msg.channel.id}|${msg.channel.id==266878339346726913}] ${msg.content}`);
 	let [ type, ...args ] = require('./discordcmd.js')(msg, memoryBank);
 	switch (type) {
 		case 'status':

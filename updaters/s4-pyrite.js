@@ -25,7 +25,7 @@ function ofSet(...items) {
 }
 function sanatizeName(val) {
 	val = val.replace(/ /i, '\xA0'); // Replace spaces with non-breaking spaces
-	val = val.replace('π', 'Pk').replace('µ', 'Mn'); // Replace symbols
+	val = val.replace('π', 'ᵖᵏ').replace('µ', 'ᵐᶰ'); // Replace symbols
 	return val;
 }
 
@@ -44,8 +44,8 @@ module.exports = {
 	runStart : 1502571600,
 	
 	// The Stream API URL to poll
-	// infoSource : "https://twitchplayspokemon.tv/api/run_status",
-	infoSource : "https://tppleague.me/tools/run_status.json",
+	infoSource : "https://twitchplayspokemon.tv/api/run_status",
+	// infoSource : "https://tppleague.me/tools/run_status.json",
 	// The amount of wait time between polling the infoSource for new information
 	infoUpdateDelay : 1000 * 20, //20 seconds
 	
@@ -57,7 +57,7 @@ module.exports = {
 		
 		try {
 			// Sanity Test: check if this is our protagonist
-			if (data.id !== 32230 || data.secret !== 44970) {
+			if (data.id !== 25756 || data.secret !== 33145) {
 				console.error('api/run_status: Trainer ID does not match!');
 			}
 			sorted.my_name = sanatizeName(data.name);
@@ -80,15 +80,16 @@ module.exports = {
 				sorted.location.set(loc);
 			}
 			{ // Collate pokemon together
-				sorted.party = data.party.map(normalizePokemon);
+				sorted.party = data.party.map(normalizePokemon).filter(x=>x);
 				sorted.allmon.push(...sorted.party);
 				data.pc.boxes.forEach(box => {
 					if (!box) return; //skip
 					sorted.allmon.push(...box.box_contents.map(x => {
 						x = normalizePokemon(x);
+						if (!x) return null;
 						x.storedIn = box.box_number;
 						return x;
-					}));
+					}).filter(x=>x));
 				});
 			}
 			if (data.items)
@@ -151,7 +152,7 @@ module.exports = {
 						id : data.wild_species.national_dex,
 						name : correctCase(data.wild_species.name),
 					};
-					sorted.wildmon.isLegendary = !!legendaryMons[sorted.wildmon.id];
+					sorted.wildmon.isLegendary = !!legendaryMons[data.wild_species.national_dex];
 				}
 			}
 			sorted.badges = {
@@ -196,13 +197,16 @@ module.exports = {
 		}
 		return sorted;
 		
-		
 		function normalizePokemon(minfo) {
+			// Skip pokemon being actively named
+			if (!minfo.name || minfo.name.indexOf('-') > -1) return null;
+			
 			let mon = new Pokemon();
 			
 			mon.species = minfo.is_egg? 'Egg': correctCase(minfo.species.name);
 			mon.name = minfo.is_egg? 'Egg' : sanatizeName(minfo.name);
-			mon.nicknamed = minfo.name === minfo.species.name;
+			mon.nicknamed = minfo.name !== minfo.species.name.toUpperCase();
+			// console.log(mon.name, ' = ', minfo.name, ' => ', minfo.species.name, 'nicked=', mon.nicknamed);
 			
 			mon.dexid = minfo.species.national_dex;
 			mon.types = [ minfo.species.type1 ];
