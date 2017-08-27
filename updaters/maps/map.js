@@ -118,7 +118,7 @@ class Node {
 		if (typeof val === 'string') {
 			this._enter = ()=>val;
 		}
-		if (typeof val !== 'object') {
+		if (typeof val === 'object') {
 			this._enter = val.enter || val.onEnter || val.in;
 			this._exit  = val.leave || val.onLeave || val.exit || val.onExit || val.out;
 		}
@@ -399,6 +399,7 @@ module.exports = {
 		
 		let me = new Node({ name, attrs:Object.assign({
 			"indoors": true,
+			"noteworthy": (name !== undefined),
 			the,
 		}, attrs), locOf });
 		me.announce = announce;
@@ -425,6 +426,7 @@ module.exports = {
 		if (legendary) locOf.legendary = legendary.loc;
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
+			"noteworthy": (name !== undefined),
 			legendary, the,
 		}, attrs), locOf });
 		me.announce = announce;
@@ -435,9 +437,10 @@ module.exports = {
 	/** Common Pokemart */
 	Mart : function(mapids, { the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
-		let me = new Node({ mapids, attrs:Object.assign({
+		let me = new Node({ mapids, name:"mart", attrs:Object.assign({
 			"indoors": true,
 			"shopping": true,
+			"noteworthy": true,
 			the,
 		}, attrs), locOf });
 		me.announce = announce;
@@ -451,6 +454,7 @@ module.exports = {
 		let me = new Node({ name:"Pokémon Center", mapids, attrs:Object.assign({
 			"indoors": true,
 			"healing": "pokecenter",
+			"noteworthy": true,
 			the,
 		}, attrs), locOf:Object.assign({
 			"pc": [],

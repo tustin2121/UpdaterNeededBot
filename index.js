@@ -146,18 +146,25 @@ dbot.on('message', (msg)=>{
 			// The [Lvl 5 male Oddish] we caught [was nicknamed `X` and was|didn't get a nickname before being] sent to Box #5.
 			// The [Lvl 10 female Rattata] we caught [was nicknamed `X`|didn't get a nickname].
 			break;
+		case 'shutup':
+			switch(args[0]) {
+				case 'coffee':
+					msg.channel.send(`I'm not your goddammed waiter.`);
+					break;
+			}
+			break;
 	}
 });
 dbot.login(auth.discord.token);
 reporter.alertUpdaters = function(text, ping=false){
-	if (!taggedIn) return;
+	if (taggedIn !== true) return;
 	if (!staffChannel) return;
 	
 	// let group = "@Live Updater ";
-	let group = "<@&148087914360864768> ";
+	let group = "";
 	if (ping) {
-		if (dLastPing + PING_COOLDOWN > Date.now()) {
-			group = "";
+		if (dLastPing + PING_COOLDOWN < Date.now()) {
+			group = "<@&148087914360864768> ";
 		} else {
 			dLastPing = Date.now();
 		}

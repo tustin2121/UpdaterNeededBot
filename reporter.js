@@ -277,7 +277,14 @@ discoveries = [
 	function aquirePokemon(prev, curr, report) {
 		let deltamons = differenceBetween(curr.allmon, prev.allmon, x=>x.hash);
 		if (deltamons.length) {
-			report.newPokemon = deltamons;
+			// Ignore new mons when in a battle
+			if (curr.in_battle) {
+				let hash = {};
+				deltamons.forEach(x=>hash[x.hash] = true);
+				curr.allmon = curr.allmon.filter(x=>!hash[x.hash]);
+			} else {
+				report.newPokemon = deltamons;
+			}
 		}
 	},
 	function releasePokemon(prev, curr, report) {
@@ -365,11 +372,15 @@ discoveries = [
 		if (curr.in_battle) {
 			if (curr.trainer) {
 				if (curr.trainer.isRival) {
-					report.battle = { type:"rival", name:curr.trainer.displayName, party:curr.trainer.id };
+					report.battle = { 
+						type:"rival", 
+						name:curr.trainer.displayName, 
+						party:curr.trainer.id,
+					};
 				} 
 				else if (curr.trainer.isLeader) {
 					report.battle = { type:"leader", name:curr.trainer.displayName };
-				} 
+				}
 				else if (curr.trainer.isE4) {
 					report.battle = { type:"e4", name:curr.trainer.displayName };
 					report.e4Fight = curr.trainer.name;
@@ -377,6 +388,9 @@ discoveries = [
 				else if (curr.trainer.isChampion) {
 					report.battle = { type:"champ", name:curr.trainer.displayName };
 					report.e4Fight = curr.trainer.name;
+				} 
+				else if (curr.trainer.isMtSilverFight) {
+					report.battle = { type:"mtsilver", name:curr.trainer.displayName };
 				} 
 				else {
 					report.battle = { type:"trainer", name:curr.trainer.displayName };
@@ -473,6 +487,18 @@ discoveries_party = [
 		if (prev.hp > 0 && curr.hp === 0) {
 			report.fainted = true;
 		}
+		// Check self-destruct
+		curr.moveInfo.forEach((m, i)=>{
+			switch (m.name.toLowerCase()) {
+				case 'selfdestruct':
+				case 'self-destruct':
+				case 'explosion':
+					if (prev.moveInfo[i].pp > curr.moveInfo[i].pp) {
+						report.fainted = 'kapow';
+					}
+					break;
+			}
+		});
 	},
 	function itemwatch({prev, curr}, report) {
 		if (prev.item !== curr.item) {
@@ -511,6 +537,23 @@ discoveries_party = [
 			report.movelearn = moveChanges;
 		}
 	},
+	function storageWatch({prev, curr}, report) {
+		if (prev.storedIn !== curr.storedIn) {
+			if (typeof curr.storedIn === 'number') {
+				if (typeof prev.storedIn !== 'number') {
+					report.storageChange = 'into pc';
+				}
+			} else if (curr.storedIn === 'daycare') {
+				report.storageChange = 'into daycare';
+			} else {
+				if (typeof prev.storedIn === 'number') {
+					report.storageChange = 'from pc';
+				} else if (prev.storedIn === 'daycare'){
+					report.storageChange = 'from daycare';
+				}
+			}
+		}
+	},
 ];
 
 //////////////////////////////////////////// Collators /////////////////////////////////////////////
@@ -544,7 +587,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 					}
 				}
 				if (mon.storedIn) paren.push(`Sent to Box #${mon.storedIn}.`);
-				if (paren.length) paren = ` (${paren.join(' ')}`;
+				if (paren.length) paren = ` (${paren.join(' ')})`;
 				else paren = '';
 				
 				fullText.push(`**Caught a [${(mon.shiny?"shiny ":"")}${this.lowerCase(mon.gender)} Lv. ${mon.level} ${mon.species}](#info "${exInfo}")!**`+
@@ -618,12 +661,17 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	function hpWatch(tags) {
 		if (tags) return;
 		let fullText = [];
+		let kapow = false;
 		this.report.monChanges.forEach((x)=>{
 			if (x.fainted) fullText.push(this.getName(x.mon));
+			if (x.fainted==='kapow') kapow = true;
 		});
 		if (!fullText.length) return;
+		
+		let fainted = 'fainted';
+		if (kapow && fullText.length===1) fainted = 'exploded itself!';
 		if (fullText.length > 1) fullText[fullText.length-1] = "and "+fullText[fullText.length-1];
-		return `**${fullText.join(', ')} ${fullText.length>1?"have":"has"} fainted!**`;
+		return `**${fullText.join(', ')} ${fullText.length>1?"have":"has"} ${fainted}!**`;
 	},
 	
 	
@@ -786,12 +834,12 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			switch (this.report.battle.type) {
 				case 'rival': {
 					let name = this.report.battle.name;
-					let key = `rival${this.report.battle.party}`;
+					let key = `rival_${this.report.battle.party}`;
 					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
 					if (attempt > 1) {
-						texts.push(`**Vs Rival ${name}!** Attempt #${attempt}!`);
+						texts.push(`**Vs ${name}!** Attempt #${attempt}!`);
 					} else {
-						texts.push(`**Vs Rival ${name}!**`);
+						texts.push(`**Vs ${name}!**`);
 					}
 					
 					this.alertUpdaters(`We're in a fight with our rival! (Attempt #${attempt}) I'm not going to play-by-play, but you're welcome to if you wish.`);
@@ -799,7 +847,7 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				} break;
 				case 'leader': {
 					let name = this.report.battle.name;
-					let key = `gym${this.report.battle.party}`;
+					let key = `gym_${this.report.battle.name}`;
 					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
 					if (attempt > 1) {
 						texts.push(`**Vs ${name}!** Attempt #${attempt}!`);
@@ -808,6 +856,19 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 					}
 					
 					this.alertUpdaters(`We're facing off against ${name}! (Attempt #${attempt}) I'm not going to play-by-play, but you're welcome to if you wish.`);
+					this.memory.battle = this.report.battle;
+				} break;
+				case 'mtsilver': {
+					let name = this.report.battle.name;
+					let key = `red`;
+					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
+					if (attempt > 1) {
+						texts.push(`**We reach the summit of Mt. Silver again! Vs ${name}!** Attempt #${attempt}!`);
+					} else {
+						texts.push(`**We reach the summit of Mt. Silver! Vs ${name}!**`);
+					}
+					
+					this.alertUpdaters(`We're facing off against Mt. Silver's ${name}! (Attempt #${attempt}) I'm not going to play-by-play, but you're welcome to if you wish.`);//, true);
 					this.memory.battle = this.report.battle;
 				} break;
 				case 'e4': {
@@ -835,13 +896,23 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			}
 		}
 		else if (this.memory.battle) {
-			if (!this.report.battle) { //Battle is over!
-				if (!this.report.blackout && !this.memory.blackout) {
+			if (this.report.battle) { //Battle is over!
+				let prev = this.memory.battle;
+				let curr = this.report.battle;
+				if (prev.numHealthy > curr.numHealthy) {
+					texts.push(`We knock out the foe's ${prev.activeMon.name}!`);
+				}
+				if (this.report.battle.numHealthy === 0) {
+					texts.push(`**Defeated ${this.memory.battle.name}!**`);
+					this.memory.battle.defeatReported = true;
+				}
+				Object.assign(this.memory.battle, this.report.battle);
+			} else {
+				
+				if (!this.report.blackout && !this.memory.blackout && !this.memory.battle.defeatReported) {
 					texts.push(`**Defeated ${this.memory.battle.name}!**`);
 				} // else, our blackout is already reported
 				delete this.memory.battle;
-			} else {
-				//TODO update on fainted foe mons
 			}
 		}
 		if (this.report.badgeGet) {
@@ -970,17 +1041,24 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			return report.announceEntering;
 		}
 		
-		let currLoc = this.currInfo.location.node.getArea();
-		if (currLoc) {
-			if (report.newArea) {
-				return __report.call(this, currLoc);
-			}
-		} else {
-			currLoc = this.currInfo.location;
-			
-			if (!currLoc.is('noteworthy')) return;
+		// let currLoc = this.currInfo.location.node.getArea();
+		// if (currLoc && report.newArea) {
+		// 	return __report.call(this, currLoc);
+		// } else {
+		let currLoc = this.currInfo.location.node;
+		let prevLoc = this.prevInfo.location.node;
+		
+		// Complex series of equations to figure out if a location is or is not noteworthy:
+		let noteworthy = (()=>{
+			if (report.newArea) return true;
+			if (currLoc.is('noteworthy') && prevLoc.is('noteworthy')) return true;
+			return false;
+		})();
+		
+		if (noteworthy) {
 			return __report.call(this, currLoc);
 		}
+		// }
 		return;
 		
 		function __report(currLoc){

@@ -271,7 +271,7 @@ module.exports = [
 		],
 		connections: [ r(34) ],
 	}),
-	Gatehouse(id(10,44,255), "Goldenrod City", r(35)),
+	Gatehouse(id(10,14,255), "Goldenrod City", r(35)),
 	Route(35, id(10,2,18), {
 		connections: [ r(36) ],
 	}),
@@ -301,7 +301,7 @@ module.exports = [
 		connections: [ "Violet City", r(35), r(37) ],
 	}),
 	Gatehouse(id(10,16,255), "Ruins of Alph", r(36)),
-	Route(37, id(14,4,21), {
+	Route(37, id(10,4,21), {
 		connections: [ r(36), "Ecruteak City" ],
 	}),
 	City("Ecruteak City", id(4,9,22), {

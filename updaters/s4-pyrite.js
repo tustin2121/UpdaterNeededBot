@@ -19,20 +19,27 @@ function correctCase(str) {
 function ofSet(...items) {
 	let set = {};
 	for (let i = 0; i < items.length; i++) {
-		set[i] = true;
+		set[items[i]] = true;
 	}
 	return set;
 }
 function sanatizeName(val) {
 	val = val.replace(/ /i, '\xA0'); // Replace spaces with non-breaking spaces
-	val = val.replace('π', 'ᵖᵏ').replace('µ', 'ᵐᶰ'); // Replace symbols
+	val = val.replace('π', 'ᵖᵏ').replace('Π', 'ᵖᵏ').replace('\u00ca', 'ᵖᵏ'); // Replace symbols
+	val = val.replace('µ', 'ᵐᶰ').replace('Μ', 'ᵐᶰ').replace('Ë', 'ᵐᶰ'); // Replace symbols
 	return val;
 }
 
-const rivalClasses = ofSet(9,42);
-const leaderClasses = ofSet(1,2,3,4,5,6,7,8, 17,18,19,21,26,35,46,64);
-const e4Classes = ofSet(11,13,14,15);
-const champClass = ofSet(16);
+// const rivalClasses = ofSet(9,42);
+// const leaderClasses = ofSet(1,2,3,4,5,6,7,8, 17,18,19,21,26,35,46,64);
+// const e4Classes = ofSet(11,13,14,15);
+// const champClass = ofSet(16);
+
+const rivalClasses = ofSet(8,41);
+const leaderClasses = ofSet(0,1,2,3,4,5,6,7, 16,17,18,20,25,34,45,63);
+const e4Classes = ofSet(10,12,13,14);
+const champClass = ofSet(15);
+const redClass = ofSet(62);
 
 const legendaryMons = ofSet(144,145,146, 150,151, 243,244,245, 249,250,251);
 
@@ -47,7 +54,7 @@ module.exports = {
 	infoSource : "https://twitchplayspokemon.tv/api/run_status",
 	// infoSource : "https://tppleague.me/tools/run_status.json",
 	// The amount of wait time between polling the infoSource for new information
-	infoUpdateDelay : 1000 * 20, //20 seconds
+	infoUpdateDelay : 1000 * 15, //15 seconds
 	
 	region: './maps/johto',
 	
@@ -91,6 +98,14 @@ module.exports = {
 						return x;
 					}).filter(x=>x));
 				});
+				if (data.daycare) {
+					data.daycare.forEach(x=>{
+						x = normalizePokemon(x);
+						if (!x) return null;
+						x.storedIn = 'daycare';
+						return x;
+					});
+				}
 			}
 			if (data.items)
 			{ // Collate items together
@@ -117,15 +132,18 @@ module.exports = {
 					sorted.trainer = {
 						"class": data.enemy_trainer.class_id,
 						id: data.enemy_trainer.id,
-						className: correctCase(data.enemy_trainer.class_name),
+						className: correctCase(sanatizeName(data.enemy_trainer.class_name)),
 						name: correctCase(data.enemy_trainer.name),
 						
 						numPokemon: data.enemy_trainer.party.length,
 						numHealthy: 0,
 					};
 					if (data.enemy_trainer.party.length) {
-						let mon = data.enemy_trainer.party[0];
-						// Assuming that the top of the party is the currently active mon
+						let active = data.enemy_trainer.party.filter((x)=>{
+							return x.active; //(x.health[0] > 0 && x.species.id > 0);
+						});
+						let mon = active[0];
+						
 						sorted.trainer.activeMon = {
 							id: mon.species.national_dex,
 							name: correctCase(mon.species.name),
@@ -133,19 +151,24 @@ module.exports = {
 						};
 						if (mon.health[0] === 0) sorted.trainer.activeMon.hp = 0;
 						
-						sorted.trainer.numHealthy = data.enemy_trainer.party.reduce((total, mon)=>(total+(mon.health[0]===0)?0:1), 0);
+						sorted.trainer.numHealthy = 0; 
+						data.enemy_trainer.party.forEach((x)=>{
+							if (x.health[0] > 0) sorted.trainer.numHealthy++;
+						});
 					}
-					
 					
 					sorted.trainer.isRival = !!rivalClasses[sorted.trainer.class];
 					sorted.trainer.isLeader = !!leaderClasses[sorted.trainer.class];
 					sorted.trainer.isE4 = !!e4Classes[sorted.trainer.class];
 					sorted.trainer.isChampion = !!champClass[sorted.trainer.class];
+					sorted.trainer.isMtSilverFight = !!redClass[sorted.trainer.class];
 					
 					if (sorted.trainer.isRival) {
 						sorted.trainer.name = sorted.rival_name;
 					}
 					sorted.trainer.displayName = `${sorted.trainer.className} ${sorted.trainer.name}`.trim();
+					
+					console.log('Fight:', sorted.trainer);
 				}
 				if (data.wild_species) {
 					sorted.wildmon = {
@@ -193,13 +216,13 @@ module.exports = {
 				let out = testi; // save off current value for reporting
 				console.log(`test data written to status_api.${out}.json`);
 			});
-			testi = (testi + 1) % 10;
+			testi = (testi + 1) % 50;
 		}
 		return sorted;
 		
 		function normalizePokemon(minfo) {
 			// Skip pokemon being actively named
-			if (!minfo.name || minfo.name.indexOf('-') > -1) return null;
+			if (!minfo.name || minfo.name.indexOf('_') > -1) return null;
 			
 			let mon = new Pokemon();
 			

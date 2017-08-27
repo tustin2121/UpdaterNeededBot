@@ -56,6 +56,7 @@ function parseCmd(cmd, authed=false) {
 	}
 	
 	if (/^h[ea]lp (?:me |us )?(?:out )?/i.test(cmd)) return ['helpout-help'];
+	if (/cof+ee|cofveve|tea|earl ?gr[ea]y/i.test(cmd)) return ['shutup', 'coffee'];
 	return [''];
 }
 

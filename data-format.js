@@ -167,6 +167,13 @@ class Pokemon {
 		this._isEvolving = false;
 	}
 	
+	equals(other) {
+		if (other instanceof Pokemon) {
+			return other.hash === this.hash;
+		}
+		return false;
+	}
+	
 	/** If this pokemon is currently valid for consideration of changes.
 	 *  If this is false on the current set, do not report any changes. */
 	get valid() {
