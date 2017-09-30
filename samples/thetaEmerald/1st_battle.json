@@ -1,0 +1,325 @@
+{
+    "area_id": 18,
+    "area_name": "Route 103",
+    "badges": 0,
+    "ball_count": 0,
+    "battle_kind": "Trainer",
+    "caught": 1,
+    "caught_list": [
+        255
+    ],
+    "coins": 0,
+    "daycare": [],
+    "enemy_party": [
+        {
+            "active": true,
+            "health": [
+                24,
+                24
+            ],
+            "species": {
+                "abilities": [
+                    "Torrent",
+                    "Damp"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 20,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 283,
+                "name": "Mudkip",
+                "national_dex": 258,
+                "type1": "Water",
+                "type2": "Water"
+            }
+        }
+    ],
+    "enemy_trainers": [
+        {
+            "class_id": 50,
+            "class_name": "\u03c0\u00b5 Trainer",
+            "id": 526,
+            "name": "Brendan",
+            "pic_id": 71
+        }
+    ],
+    "evolution_is_happening": false,
+    "gender": "Female",
+    "id": 51890,
+    "in_battle": true,
+    "items": {
+        "balls": [],
+        "berries": [],
+        "items": [
+            {
+                "count": 1,
+                "id": 13,
+                "name": "Potion"
+            }
+        ],
+        "key": [],
+        "pc": [],
+        "tms": []
+    },
+    "level_cap": 250,
+    "map_bank": 0,
+    "map_id": 18,
+    "map_name": "Route 103",
+    "money": 25000,
+    "name": "ACCPPQ",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "button_mode": "Normal",
+        "frame": 1,
+        "sound": "Stereo",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Blaze",
+            "active": true,
+            "buffs": {
+                "accuracy": 6,
+                "attack": 6,
+                "defense": 6,
+                "evasion": 6,
+                "hp": 6,
+                "special_attack": 6,
+                "special_defense": 6,
+                "speed": 6
+            },
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 2,
+                "defense": 0,
+                "hp": 5,
+                "special_attack": 1,
+                "special_defense": 1,
+                "speed": 6
+            },
+            "experience": {
+                "current": 686,
+                "next_level": 742,
+                "remaining": 56,
+                "this_level": 560
+            },
+            "friendship": 102,
+            "gender": "Male",
+            "health": [
+                27,
+                31
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "????????"
+            },
+            "is_egg": false,
+            "ivs": {
+                "attack": 12,
+                "defense": 6,
+                "hp": 23,
+                "special_attack": 3,
+                "special_defense": 6,
+                "speed": 27
+            },
+            "language": 514,
+            "level": 10,
+            "marking": "",
+            "met": {
+                "area_name": "Route 101",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "Emerald",
+                "level": 5,
+                "map_id": 16
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 35,
+                    "id": 64,
+                    "name": "Peck",
+                    "pp": 31,
+                    "pp_up": 0,
+                    "type": "Flying"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 10,
+                    "name": "Scratch",
+                    "pp": 32,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 52,
+                    "name": "Ember",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Fire"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 28,
+                    "name": "Sand-Attack",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Ground"
+                }
+            ],
+            "name": "AAABBijjlt",
+            "nature": "Gentle",
+            "original_trainer": {
+                "gender": "Female",
+                "id": 51890,
+                "name": "ACCPPQ",
+                "secret": 49705
+            },
+            "personality_value": 3685893446,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Blaze",
+                    "Speed Boost"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 20,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 280,
+                "name": "Torchic",
+                "national_dex": 255,
+                "type1": "Fire",
+                "type2": "Fire"
+            },
+            "stats": {
+                "attack": 18,
+                "defense": 11,
+                "hp": 31,
+                "special_attack": 19,
+                "special_defense": 16,
+                "speed": 16
+            },
+            "status": 0
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "Box1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box14",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 1
+    },
+    "secret": 49705,
+    "security_key": 1019505488,
+    "seen": 14,
+    "seen_list": [
+        10,
+        16,
+        187,
+        255,
+        258,
+        261,
+        263,
+        278,
+        399,
+        422,
+        509,
+        519,
+        570,
+        659
+    ],
+    "time": {
+        "h": 10,
+        "m": 50
+    },
+    "x": 10,
+    "y": 2
+}

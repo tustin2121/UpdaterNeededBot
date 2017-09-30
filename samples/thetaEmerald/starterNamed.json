@@ -1,0 +1,258 @@
+{
+    "area_id": 0,
+    "badges": 0,
+    "ball_count": 0,
+    "caught": 1,
+    "caught_list": [
+        255
+    ],
+    "coins": 0,
+    "daycare": [],
+    "evolution_is_happening": false,
+    "gender": "Female",
+    "id": 51890,
+    "in_battle": false,
+    "items": {
+        "balls": [],
+        "berries": [],
+        "items": [
+            {
+                "count": 1,
+                "id": 13,
+                "name": "Potion"
+            }
+        ],
+        "key": [],
+        "pc": [],
+        "tms": []
+    },
+    "level_cap": 250,
+    "map_bank": 1,
+    "map_id": 4,
+    "map_name": "Littleroot Town",
+    "money": 50000,
+    "name": "ACCPPQ",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "button_mode": "Normal",
+        "frame": 1,
+        "sound": "Mono",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Blaze",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 0,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 1
+            },
+            "experience": {
+                "current": 152,
+                "next_level": 179,
+                "remaining": 27,
+                "this_level": 135
+            },
+            "friendship": 70,
+            "gender": "Male",
+            "health": [
+                20,
+                20
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "????????"
+            },
+            "is_egg": false,
+            "ivs": {
+                "attack": 12,
+                "defense": 6,
+                "hp": 23,
+                "special_attack": 3,
+                "special_defense": 6,
+                "speed": 27
+            },
+            "language": 514,
+            "level": 5,
+            "marking": "",
+            "met": {
+                "area_name": "Route 101",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "Emerald",
+                "level": 5,
+                "map_id": 16
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 45,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 10,
+                    "name": "Scratch",
+                    "pp": 35,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 52,
+                    "name": "Ember",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Fire"
+                }
+            ],
+            "name": "AAABBijjlt",
+            "nature": "Gentle",
+            "original_trainer": {
+                "gender": "Female",
+                "id": 51890,
+                "name": "ACCPPQ",
+                "secret": 49705
+            },
+            "personality_value": 3685893446,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Blaze",
+                    "Speed Boost"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 20,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 280,
+                "name": "Torchic",
+                "national_dex": 255,
+                "type1": "Fire",
+                "type2": "Fire"
+            },
+            "stats": {
+                "attack": 11,
+                "defense": 8,
+                "hp": 20,
+                "special_attack": 12,
+                "special_defense": 11,
+                "speed": 10
+            },
+            "status": 0
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "Box1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box14",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 1
+    },
+    "secret": 49705,
+    "security_key": 2269283822,
+    "seen": 2,
+    "seen_list": [
+        255,
+        263
+    ],
+    "time": {
+        "h": 10,
+        "m": 8
+    },
+    "x": 6,
+    "y": 5
+}

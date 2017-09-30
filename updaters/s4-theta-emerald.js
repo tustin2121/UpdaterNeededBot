@@ -29,6 +29,31 @@ function sanatizeName(val) {
 	return val;
 }
 
+const rivalClasses = ofSet(...[
+	0x207, 0x290, 0x291, 0x292, 0x293, 0x294, //Wally
+	0x208, 0x209, 0x20A, 0x20B, 0x20C, 0x20D, 0x20E, 0x20F, 0x210, //Brendan
+	0x257, 0x295, 0x296, 0x297, //Brendan (2)
+]);
+const leaderClasses = ofSet(0x109, 0x10A, 0x10B, 0x10C, 0x10D, 0x10E, 0x10F, 0x110);
+const e4Classes = ofSet(...[
+	0x105, 0x106, 0x107, 0x108, //First Time
+	0x353, 0x354, 0x355, 0x356, //Rematch
+]);
+const champClass = ofSet(0x14F);
+const teamLeaderClass = ofSet(...[
+	0x259, 0x25A, 0x2DE, //Maxie
+	0x022, // Archie
+]);
+
+const legendaryMons = ofSet(...[
+	144,145,146, 150,151,
+	243,244,245, 249,250,251,
+	377,378,379, 380,381, 382,383,384, 385, 386,
+	480,481,482, 483,484,485, 486, 487, 488,489,490,491,492,493,
+	494,638,639,640,647, 641,642,645, 643,644,646, 648,649,
+	716,717,718, 719,720,721
+]);
+
 
 module.exports = {
 	// The Reddit Live Updater ID to post to
@@ -49,25 +74,43 @@ module.exports = {
 		let sorted = new SortedData();
 		try {
 			// Sanity Test: check if this is our protagonist
-			if (data.id !== 6702 || data.secret !== 60589) {
+			if (data.id !== 51890 || data.secret !== 49705) {
 				console.error('api/run_status: Trainer ID does not match!');
 			}
 			sorted.my_name = sanatizeName(data.name);
-			sorted.rival_name = sanatizeName(data.rival_name);
+			sorted.rival_name = "Brendan";
 			
 			{ // Parse out location data to a standard display format:
+				sorted.location.set(data);
+				sorted.map_id = `${data.map_bank}.${data.map_id}`;
+				
 				let areaid = data.area_id;
 				let name = data.area_name;
 				let x = data.x;
 				let y = data.y;
 				let mapbank = data.map_bank;
 				let mapid = data.map_id;
-				sorted.location = {
+				sorted.loc_ex = {
 					display: `${name}`,
 					mapid: `${areaid}:${mapbank}.${mapid}`,
 					mapbank: `${mapbank}.${mapid}`,
 				};
-				sorted.location = categorizeLocation(sorted.location);
+				
+				const Hoenn = require('./maps/hoenn');
+				let loc = Hoenn.find(sorted.location);
+				if (!loc) {
+					const { Node } = require('./maps/map');
+					loc = new Node({ 
+						name:correctCase(name), 
+						mapids:[`${mapbank}.${mapid}`],
+						attrs: {
+							noteworthy: false,
+						},
+						region: Hoenn,
+						parent: Hoenn.topnode,
+					});
+				}
+				sorted.location.set(loc);
 			}
 			{ // Collate pokemon together
 				sorted.party = data.party.map(normalizePokemon).filter(x=>x);
@@ -111,18 +154,35 @@ module.exports = {
 			}
 			{ // Sort battle data
 				sorted.in_battle = data.in_battle;
-				if (data.enemy_trainer) {
+				if (data.enemy_trainers && data.enemy_party) {
 					sorted.trainer = {
-						"class": data.enemy_trainer.class_id,
-						id: data.enemy_trainer.id,
-						className: correctCase(sanatizeName(data.enemy_trainer.class_name)),
-						name: correctCase(data.enemy_trainer.name),
+						trainers: [],
 						
-						numPokemon: data.enemy_trainer.party.length,
+						numPokemon: data.enemy_party.length,
 						numHealthy: 0,
 					};
-					if (data.enemy_trainer.party.length) {
-						let active = data.enemy_trainer.party.filter((x)=>{
+					for (let t of data.enemy_trainers) {
+						let Tr = {
+							id: t.id,
+							className: correctCase(sanatizeName(t.class_name)),
+							name: correctCase(t.name),
+						};
+						
+						sorted.trainer.isRival = !!rivalClasses[t.id];
+						sorted.trainer.isLeader = !!leaderClasses[t.id];
+						sorted.trainer.isE4 = !!e4Classes[t.id];
+						sorted.trainer.isChampion = !!champClass[t.id];
+						sorted.trainer.isTeamLeader = !!teamLeaderClass[t.id]; 
+						
+						sorted.trainer.displayName = `${sorted.trainer.className} ${sorted.trainer.name}`.trim();
+						
+						sorted.trainer.trainers.push(Tr);
+					}
+					sorted.trainer.isDouble = (sorted.trainer.trailers.length > 1);
+					sorted.trainer.id = sorted.trainer.trailers.join(',');
+					
+					if (data.enemy_party.length) {
+						let active = data.enemy_party.filter((x)=>{
 							return x.active; //(x.health[0] > 0 && x.species.id > 0);
 						});
 						let mon = active[0];
@@ -135,21 +195,11 @@ module.exports = {
 						if (mon.health[0] === 0) sorted.trainer.activeMon.hp = 0;
 						
 						sorted.trainer.numHealthy = 0; 
-						data.enemy_trainer.party.forEach((x)=>{
+						data.enemy_party.forEach((x)=>{
 							if (x.health[0] > 0) sorted.trainer.numHealthy++;
 						});
 					}
 					
-					sorted.trainer.isRival = !!rivalClasses[sorted.trainer.class];
-					sorted.trainer.isLeader = !!leaderClasses[sorted.trainer.class];
-					sorted.trainer.isE4 = !!e4Classes[sorted.trainer.class];
-					sorted.trainer.isChampion = !!champClass[sorted.trainer.class];
-					sorted.trainer.isMtSilverFight = !!redClass[sorted.trainer.class];
-					
-					if (sorted.trainer.isRival) {
-						sorted.trainer.name = sorted.rival_name;
-					}
-					sorted.trainer.displayName = `${sorted.trainer.className} ${sorted.trainer.name}`.trim();
 					
 					console.log('Fight:', sorted.trainer);
 				}
@@ -181,7 +231,6 @@ module.exports = {
 						if (data.time.h >= 6) return "morning";
 						return "night";
 					})(),
-					ofWeek : data.time.d.toLowerCase(),
 				};
 			}
 			
@@ -218,7 +267,7 @@ module.exports = {
 			});
 			
 			mon.level = minfo.level;
-			f (!minfo.experience.next_level && minfo.experience.remaining === -minfo.experience.current) {
+			if (!minfo.experience.next_level && minfo.experience.remaining === -minfo.experience.current) {
 				// next level bug
 				const exptable = require('../data/exptable');
 				let grow_rate;
@@ -248,66 +297,6 @@ module.exports = {
 			mon.hash = minfo.personality_value;
 			mon._isEvolving = minfo.is_evolving || false;
 			return mon;
-		}
-		
-		function categorizeLocation(location) {
-			const pcs = [], marts = [];
-			const e4_lobby = [], e4_start = [], e4_champ = [], e4_hof = [];
-			pcs.push('2.2'); marts.push('2.4'); //Oldale Town
-			pcs.push('8.4'); marts.push('8.6'); // Petalburg City
-			
-			
-			
-			
-			
-			pcs.push('7.0'); marts.push('7.1'); //Chocco Town
-			pcs.push('11.5'); marts.push('11.7'); //Ocean View City
-			pcs.push('12.2'); marts.push('12.4'); //Serenity Isle
-			pcs.push('8.4'); marts.push('8.6'); // Northcoast Town
-			pcs.push('13.6'); marts.push('10.7'); // Cape Azure
-			pcs.push('9.11'); marts.push('9.13'); // Southerly City
-			pcs.push('14.9'); marts.push('14.9'); // Palmtree Resort
-			pcs.push('5.4'); marts.push('5.0'); // Geminite Village
-			pcs.push('4.5'); marts.push('4.4'); // Stormy City
-			pcs.push('10.5'); marts.push('13.16'); marts.push('13.17'); marts.push('13.18'); marts.push('13.19'); marts.push('13.20'); // Seaspray Town
-			pcs.push('15.2'); marts.push('15.5'); // Darkwood Town
-			pcs.push('15.1'); pcs.push('16.12'); // Path of Victory
-			
-			pcs.push('16.10'); marts.push('16.10'); e4_lobby.push('16.10') // Tunod League
-			e4_start.push('16.0');
-			
-			pcs.push('24.54'); marts.push('25.2'); // Cherrygrove City
-			pcs.push('24.55'); //marts.push('25.2'); // Violet City
-			pcs.push('24.56'); //marts.push('25.2'); // Ecruteak City
-			pcs.push('26.73'); //marts.push('25.2'); // Olivine City
-			pcs.push('26.71'); marts.push('26.6'); // Mahogany Town
-			pcs.push('26.82'); //marts.push('25.2'); // Blackthorn City
-			pcs.push('26.80'); //marts.push('25.2'); // Azalia Town
-			pcs.push('26.78'); marts.push('17.0'); // Goldenrod Town
-			pcs.push('26.86'); //marts.push('25.2'); // Whitewood City
-			pcs.push('26.76'); marts.push('10.6'); // Cianwood City
-			pcs.push('26.84'); //marts.push('25.2'); // Evergreen Town
-			pcs.push('3.1');  // Victory Road Center
-			
-			pcs.push('26.87'); marts.push('26.87'); e4_lobby.push('26.87') // Johto League
-			e4_start.push('16.5');
-			
-			pcs.push('26.72'); marts.push('26.72'); // Reefen Isle
-			pcs.push('26.79'); marts.push('26.79'); // Nitro Isle
-			pcs.push('26.74'); marts.push('26.74'); // Olcan Isle
-			pcs.push('26.77'); marts.push('26.77'); // Kolo Isle
-			pcs.push('26.81'); marts.push('26.81'); marts.push('26.50'); // Alpha Isle
-			pcs.push('26.83'); marts.push('26.83'); marts.push('13.9'); // Reign Isle
-			
-			location.isCenter = pcs.includes(location.mapbank);
-			location.isMart = marts.includes(location.mapbank);
-			
-			location.isE4Lobby = e4_lobby.includes(location.mapbank);
-			location.isE4RunStart = e4_start.includes(location.mapbank);
-			location.isE4Champ = e4_champ.includes(location.mapbank);
-			location.isHallOfFame = e4_hof.includes(location.mapbank);
-			
-			return location;
 		}
 	},
 	

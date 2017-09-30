@@ -30,10 +30,10 @@ const Center = function(mapid1, mapid2, { the=true, attrs={}, locOf={}, connecti
 const PokeCenter = Center;
 const Others = function(...mapids){
 	if (!Array.isArray(mapids)) mapids = [mapids];
-	let me = new Node({ name, mapids, attrs:Object.assign({
+	let me = new Node({ mapids, attrs:Object.assign({
 		"indoors": true,
 		"noteworthy": false,
-	}, attrs), locOf });
+	}) });
 	me._typename = "Others";
 	return me;
 };
@@ -58,10 +58,10 @@ function firstTime(key, phrase) {
 
 const mapidFn = (mid)=>{
 	if (mid instanceof Location) {
-		return `${mid.area_id}:${mid.map_bank}.${mid.map_id}`;
+		return `${mid.map_bank}.${mid.map_id}`;
 	}
 	if (typeof mid === 'string') {
-		let res = /^(\d+)\:(\d+)\.(\d+)$/i.exec(mid);
+		let res = /^(\d+)\.(\d+)$/i.exec(mid);
 		if (!res) throw new Error(`Invalid ID: ${mid}`);//return 'invalid';
 		return mid;
 	}
@@ -75,7 +75,7 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 	Town("Littleroot Town", id(0,9), {
 		buildings: [
 			House([id(1,0), id(1,1)], { name: "Brenden's House", }),
-			House([id(1,2), id(1,4)], { name: "May's House", }),
+			House([id(1,2), id(1,3)], { name: "May's House", }),
 			House(id(1,4), { name: "Birch's Lab", }),
 		],
 		locOf: { flySpot: ["5,9","14,9"], },
@@ -494,12 +494,12 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 	Route("Underwater", [
 		id(0,50), id(0,51), id(0,52), id(0,53),
 		id(0,54), id(0,56), //No way to get here
-		id(24,5), //Sootopolis
+		id(24,5), //Sootopolis City
 	], {
 		buildings: [
 			House(id(24,26)),
 		],
-		exits: [ "Sootopolis" ],
+		exits: [ "Sootopolis City" ],
 	}),
 	Route(124, id(0,39), {
 		buildings: [
@@ -531,10 +531,10 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 	Route(132, id(0,47), {
 		exits: [ "Pacifidlog Town", r(133) ],
 	}),
-	Route(133, id(0,47), {
+	Route(133, id(0,48), {
 		exits: [ r(134) ],
 	}),
-	Route(134, id(0,47), {
+	Route(134, id(0,49), {
 		exits: [ "Slateport City" ],
 	}),
 	
@@ -564,7 +564,7 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 			Floor(id(24,41)),
 			Floor(id(24,42)),
 		],
-		connections: [ "Sootopolis" ],
+		connections: [ "Sootopolis City" ],
 	}),
 	Dungeon("Granite Cave", {
 		floors: [
@@ -682,7 +682,6 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 			Floor(id(24,80)),
 			Floor(id(24,81)),
 			Floor(id(24,82)),
-			Floor(id(24,83)),
 			Floor(id(24,84)),
 			Floor(id(24,85)),
 		],
@@ -708,7 +707,6 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 				id(26, 5),id(26, 6),id(26, 7),id(26, 8),
 				id(26,14),id(26,15),id(26,16),id(26,17),id(26,18),id(26,19),
 				id(26,20),id(26,21),id(26,22),id(26,23),id(26,24),id(26,25),id(26,26),id(26,27),id(26,28),id(26,29),
-				id(26,30),id(26,31),id(26,32),id(26,33),id(26,34),id(26,35),id(26,36),id(26,37),id(26,38),id(26,39),
 				id(26,30),id(26,31),id(26,32),id(26,33),id(26,34),id(26,35),id(26,36),id(26,37),id(26,38),id(26,39),
 				id(26,40),id(26,41),id(26,42),id(26,43),id(26,44),id(26,45),id(26,46),id(26,47),id(26,48),id(26,49),
 				id(26,50),id(26,51),id(26,52),id(26,53),id(26,54),id(26,55),

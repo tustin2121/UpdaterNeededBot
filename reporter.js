@@ -381,6 +381,13 @@ discoveries = [
 				else if (curr.trainer.isLeader) {
 					report.battle = { type:"leader", name:curr.trainer.displayName };
 				}
+				else if (curr.trainer.isTeamLeader) {
+					report.battle = { 
+						type:"teamLead", 
+						name:curr.trainer.displayName,
+						party:curr.trainer.id,
+					};
+				}
 				else if (curr.trainer.isE4) {
 					report.battle = { type:"e4", name:curr.trainer.displayName };
 					report.e4Fight = curr.trainer.name;
@@ -848,6 +855,19 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				case 'leader': {
 					let name = this.report.battle.name;
 					let key = `gym_${this.report.battle.name}`;
+					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
+					if (attempt > 1) {
+						texts.push(`**Vs ${name}!** Attempt #${attempt}!`);
+					} else {
+						texts.push(`**Vs ${name}!**`);
+					}
+					
+					this.alertUpdaters(`We're facing off against ${name}! (Attempt #${attempt}) I'm not going to play-by-play, but you're welcome to if you wish.`);
+					this.memory.battle = this.report.battle;
+				} break;
+				case 'teamLead': {
+					let name = this.report.battle.name;
+					let key = `team_${this.report.battle.party}`;
 					let attempt = this.memory.attempts[key] = (this.memory.attempts[key]||0)+1;
 					if (attempt > 1) {
 						texts.push(`**Vs ${name}!** Attempt #${attempt}!`);
