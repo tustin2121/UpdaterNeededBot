@@ -148,6 +148,9 @@ class Node {
 			if (typeof conn === "number") conn = `Route ${conn}`;
 			let map = region.nodesByName[conn];
 			if (!map) map = region.nodes[conn];
+			// if (!map.mapids.length && map.children.length) {
+			// 	map = map.children[0];
+			// }
 			if (map) {
 				this.connections.push(map);
 			} else {
@@ -160,6 +163,9 @@ class Node {
 			if (typeof conn === "number") conn = `Route ${conn}`;
 			let map = region.nodesByName[conn];
 			if (!map) map = region.nodes[conn];
+			// if (!map.mapids.length && map.children.length) {
+			// 	map = map.children[0];
+			// }
 			if (map) {
 				map.connections.push(this);
 			} else {
@@ -506,6 +512,7 @@ module.exports = {
 		me.announce = announce;
 		me.addChild(...buildings);
 		me.addConnection(...exits);
+		me.addReverseConnection(...exits);
 		me.addConnection(...connections);
 		me._typename = "Route";
 		return me;
@@ -526,6 +533,24 @@ module.exports = {
 		if (!me.children.length) throw new Error('Invalid Dungeon setup! No floors provided!');
 		return me;
 	},
+	/** Single Map Dungeon */
+	SingleCave : function(name, mapids, { the=true, attrs={}, locOf={}, buildings=[], zones=[], connections=[], announce, legendary, noteworthy=false }={}){
+		if (!Array.isArray(mapids)) mapids = [mapids];
+		if (legendary) locOf.legendary = legendary.loc;
+		let me = new Node({ name, mapids, attrs:Object.assign({
+			"indoors": true,
+			"dungeon": true,
+			"noteworthy": true,
+			"onto": "into",
+			noteworthy, legendary, the,
+		}, attrs), locOf });
+		me.announce = announce;
+		me.addChild(...zones);
+		me.addChild(...buildings);
+		me.addConnection(...connections);
+		me._typename = "Area";
+		return me;
+	},
 	
 	Cutscene : function(mapids, { name, the=false, attrs={}, connections=[], announce, noteworthy=true }={}) {
 		if (!Array.isArray(mapids)) mapids = [mapids];
@@ -544,4 +569,6 @@ module.exports.City = module.exports.Town;
 module.exports.PokeMart = module.exports.Mart;
 module.exports.PokeCenter = module.exports.Center;
 module.exports.Cave = module.exports.Dungeon;
-
+module.exports.SingleDungeon = module.exports.SingleCave;
+module.exports.Cave1 = module.exports.SingleCave;
+module.exports.Dungeon1 = module.exports.SingleDungeon;
