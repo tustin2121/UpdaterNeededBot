@@ -178,8 +178,8 @@ module.exports = {
 						
 						sorted.trainer.trainers.push(Tr);
 					}
-					sorted.trainer.isDouble = (sorted.trainer.trailers.length > 1);
-					sorted.trainer.id = sorted.trainer.trailers.join(',');
+					sorted.trainer.isDouble = (sorted.trainer.trainers.length > 1);
+					sorted.trainer.id = sorted.trainer.trainers.join(',');
 					
 					if (data.enemy_party.length) {
 						let active = data.enemy_party.filter((x)=>{

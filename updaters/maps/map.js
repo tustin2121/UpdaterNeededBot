@@ -473,6 +473,7 @@ module.exports = {
 	/** Common Pokecenter */
 	Gym : function(mapids, { name, leader, badge, the=true, attrs={}, locOf={}, connections=[], announce, }={}){
 		if (!Array.isArray(mapids)) mapids = [mapids];
+		if (!name) name = "Gym";
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
 			"gym": true,
@@ -482,6 +483,10 @@ module.exports = {
 		me.announce = announce;
 		me.addConnection(...connections);
 		me._typename = "Gym";
+		me.getName = function() {
+			if (this.parent) return `${this.parent.getName()} ${this.name}`;
+			return this.name;
+		};
 		return me;
 	},
 	

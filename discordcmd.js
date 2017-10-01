@@ -40,7 +40,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
-	if (/^(post|update|show) (team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];
+	if (/^(post|update|show) ((current|curr) )?(team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];
 	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {
 		let opts = res[1].split(/, /);
@@ -56,7 +56,7 @@ function parseCmd(cmd, authed=false) {
 	}
 	
 	if (/^h[ea]lp (?:me |us )?(?:out )?/i.test(cmd)) return ['helpout-help'];
-	if (/cof+ee|cofveve|tea|earl ?gr[ea]y/i.test(cmd)) return ['shutup', 'coffee'];
+	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y/i.test(cmd)) return ['shutup', 'coffee'];
 	return [''];
 }
 
