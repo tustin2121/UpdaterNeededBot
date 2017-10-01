@@ -174,12 +174,26 @@ module.exports = {
 						sorted.trainer.isChampion = !!champClass[t.id];
 						sorted.trainer.isTeamLeader = !!teamLeaderClass[t.id]; 
 						
-						sorted.trainer.displayName = `${sorted.trainer.className} ${sorted.trainer.name}`.trim();
+						if (!sorted.trainer.displayName) {
+							sorted.trainer.displayName = `${Tr.className} ${Tr.name}`.trim();
+						} else {
+							sorted.trainer.displayName += `& ${Tr.className} ${Tr.name}`.trim();
+						}
+						if (Tr.id !== 0) {
+							if (!sorted.trainer.id) {
+								sorted.trainer.id = Tr.id;
+							} else {
+								if (!Array.isArray(sorted.trainer.id))
+									sorted.trainer.id = [ sorted.trainer.id ];
+								sorted.trainer.id.push(Tr.id);
+							}
+						}
+						
 						
 						sorted.trainer.trainers.push(Tr);
 					}
 					sorted.trainer.isDouble = (sorted.trainer.trainers.length > 1);
-					sorted.trainer.id = sorted.trainer.trainers.join(',');
+					// sorted.trainer.id = sorted.trainer.trainers.map(x=>x.id);
 					
 					if (data.enemy_party.length) {
 						let active = data.enemy_party.filter((x)=>{
