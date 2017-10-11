@@ -41,7 +41,7 @@ const e4Classes = ofSet(...[
 ]);
 const champClass = ofSet(0x14F);
 const teamLeaderClass = ofSet(...[
-	0x259, 0x25A, 0x2DE, //Maxie
+	0x259, 0x25A, 0x2DE, 734, //Maxie
 	0x022, // Archie
 ]);
 
@@ -58,7 +58,10 @@ const legendaryMons = ofSet(...[
 module.exports = {
 	// The Reddit Live Updater ID to post to
 	liveID : "zmxw6yogfa8q",
-	// liveID : "ysqpsvyo0yjv",  // Test updater
+	
+	// The Discord LiveUpdater channel snowflake
+	discordID: '366698530343223306',
+	
 	// Unix timestamp since when the run started
 	runStart : 1506805200,
 	
@@ -303,6 +306,10 @@ module.exports = {
 			}
 			mon.gender = minfo.gender || '';
 			mon.ability = minfo.ability || '';
+			mon.nature = `${minfo.nature}`;
+			if (minfo.met) {
+				mon.caughtIn = minfo.met.caught_in;
+			}
 			if (minfo.health) {
 				if (minfo.health[0] === 0) mon.hp = 0;
 				else mon.hp = Math.max(1, Math.floor((minfo.health[0] / minfo.health[1])*100)); //At least 1% HP if not fainted

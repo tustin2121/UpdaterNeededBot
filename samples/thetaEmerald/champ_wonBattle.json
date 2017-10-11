@@ -1,0 +1,6106 @@
+{
+	"area_id": 15,
+	"badges": 255,
+	"battle_kind": "Trainer",
+	"caught_list": [
+		7,
+		10,
+		13,
+		16,
+		17,
+		18,
+		19,
+		21,
+		24,
+		25,
+		27,
+		35,
+		37,
+		41,
+		42,
+		43,
+		44,
+		46,
+		48,
+		53,
+		54,
+		55,
+		58,
+		60,
+		61,
+		64,
+		66,
+		67,
+		69,
+		70,
+		72,
+		73,
+		74,
+		75,
+		79,
+		82,
+		84,
+		86,
+		87,
+		91,
+		92,
+		93,
+		96,
+		101,
+		102,
+		105,
+		108,
+		111,
+		112,
+		113,
+		114,
+		122,
+		123,
+		127,
+		129,
+		130,
+		132,
+		133,
+		138,
+		139,
+		140,
+		141,
+		142,
+		161,
+		163,
+		164,
+		166,
+		167,
+		168,
+		171,
+		175,
+		177,
+		178,
+		179,
+		180,
+		181,
+		183,
+		184,
+		185,
+		187,
+		188,
+		190,
+		191,
+		193,
+		194,
+		195,
+		200,
+		201,
+		203,
+		205,
+		208,
+		211,
+		213,
+		214,
+		215,
+		216,
+		217,
+		220,
+		221,
+		222,
+		224,
+		225,
+		226,
+		227,
+		228,
+		231,
+		234,
+		235,
+		238,
+		239,
+		240,
+		241,
+		246,
+		255,
+		256,
+		257,
+		261,
+		262,
+		263,
+		264,
+		265,
+		270,
+		271,
+		273,
+		276,
+		277,
+		278,
+		279,
+		280,
+		281,
+		283,
+		285,
+		286,
+		287,
+		288,
+		289,
+		290,
+		293,
+		294,
+		296,
+		297,
+		300,
+		302,
+		303,
+		304,
+		305,
+		307,
+		308,
+		309,
+		311,
+		312,
+		313,
+		314,
+		315,
+		316,
+		317,
+		318,
+		319,
+		320,
+		324,
+		327,
+		328,
+		331,
+		333,
+		334,
+		335,
+		336,
+		338,
+		339,
+		343,
+		345,
+		346,
+		347,
+		348,
+		350,
+		351,
+		352,
+		353,
+		354,
+		355,
+		356,
+		357,
+		358,
+		359,
+		361,
+		363,
+		364,
+		366,
+		369,
+		370,
+		371,
+		375,
+		387,
+		390,
+		393,
+		399,
+		400,
+		401,
+		402,
+		403,
+		404,
+		408,
+		409,
+		410,
+		411,
+		412,
+		415,
+		418,
+		419,
+		420,
+		422,
+		423,
+		425,
+		427,
+		433,
+		436,
+		437,
+		438,
+		439,
+		441,
+		442,
+		443,
+		444,
+		447,
+		449,
+		451,
+		453,
+		455,
+		456,
+		457,
+		458,
+		459,
+		490,
+		504,
+		506,
+		507,
+		509,
+		510,
+		511,
+		513,
+		515,
+		517,
+		519,
+		523,
+		524,
+		525,
+		527,
+		528,
+		529,
+		530,
+		531,
+		532,
+		533,
+		535,
+		538,
+		539,
+		543,
+		546,
+		548,
+		550,
+		551,
+		554,
+		556,
+		558,
+		559,
+		561,
+		562,
+		563,
+		564,
+		565,
+		566,
+		567,
+		568,
+		572,
+		574,
+		577,
+		578,
+		579,
+		580,
+		582,
+		583,
+		585,
+		587,
+		588,
+		590,
+		592,
+		593,
+		594,
+		595,
+		596,
+		597,
+		602,
+		603,
+		605,
+		606,
+		607,
+		608,
+		609,
+		611,
+		613,
+		614,
+		616,
+		618,
+		619,
+		620,
+		621,
+		622,
+		623,
+		624,
+		626,
+		627,
+		629,
+		632,
+		633,
+		634,
+		650,
+		659,
+		661,
+		664,
+		667,
+		668,
+		669,
+		672,
+		673,
+		674,
+		675,
+		676,
+		677,
+		679,
+		680,
+		681,
+		682,
+		686,
+		687,
+		691,
+		692,
+		693,
+		694,
+		696,
+		697,
+		698,
+		699,
+		700,
+		701,
+		703,
+		704,
+		707,
+		708,
+		710,
+		713,
+		714,
+		715
+	],
+	"coins": 0,
+	"daycare": [],
+	"enemy_party": [
+		{
+			"active": false,
+			"health": [
+				0,
+				231
+			],
+			"species": {
+				"id": 186,
+				"name": "Politoed",
+				"national_dex": 186,
+				"type1": "Water",
+				"type2": "Water",
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Slow",
+				"catch_rate": 45,
+				"abilities": [
+					"Water Absorb",
+					"Damp"
+				]
+			}
+		},
+		{
+			"active": false,
+			"health": [
+				0,
+				215
+			],
+			"species": {
+				"id": 297,
+				"name": "Ludicolo",
+				"national_dex": 272,
+				"type1": "Water",
+				"type2": "Grass",
+				"egg_cycles": 15,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Slow",
+				"catch_rate": 45,
+				"abilities": [
+					"Swift Swim",
+					"Rain Dish"
+				]
+			}
+		},
+		{
+			"active": false,
+			"health": [
+				0,
+				207
+			],
+			"species": {
+				"id": 230,
+				"name": "Kingdra",
+				"national_dex": 230,
+				"type1": "Water",
+				"type2": "Dragon",
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"catch_rate": 45,
+				"abilities": [
+					"Swift Swim",
+					"Sniper"
+				]
+			}
+		},
+		{
+			"active": false,
+			"health": [
+				0,
+				239
+			],
+			"species": {
+				"id": 329,
+				"name": "Milotic",
+				"national_dex": 350,
+				"type1": "Water",
+				"type2": "Water",
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Erratic",
+				"catch_rate": 60,
+				"abilities": [
+					"Marvel Scale",
+					"Competitive"
+				]
+			}
+		},
+		{
+			"active": false,
+			"health": [
+				0,
+				239
+			],
+			"species": {
+				"id": 130,
+				"name": "Gyarados",
+				"national_dex": 130,
+				"type1": "Water",
+				"type2": "Flying",
+				"egg_cycles": 5,
+				"gender_ratio": 127,
+				"growth_rate": "Slow",
+				"catch_rate": 45,
+				"abilities": [
+					"Intimidate",
+					"Moxie"
+				]
+			}
+		},
+		{
+			"active": false,
+			"health": [
+				0,
+				278
+			],
+			"species": {
+				"id": 285,
+				"name": "Swampert",
+				"national_dex": 260,
+				"type1": "Water",
+				"type2": "Ground",
+				"egg_cycles": 20,
+				"gender_ratio": 31,
+				"growth_rate": "Medium Slow",
+				"catch_rate": 45,
+				"abilities": [
+					"Torrent",
+					"Damp"
+				]
+			}
+		}
+	],
+	"enemy_trainers": [
+		{
+			"id": 335,
+			"class_id": 38,
+			"class_name": "Champion",
+			"name": "Wallace",
+			"pic_id": 54
+		}
+	],
+	"evolution_is_happening": false,
+	"gender": "Female",
+	"id": 51890,
+	"in_battle": true,
+	"items": {
+		"balls": [
+			{
+				"count": 81,
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			{
+				"count": 4,
+				"id": 12,
+				"name": "Premier Ball"
+			},
+			{
+				"count": 99,
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			{
+				"count": 99,
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			{
+				"count": 12,
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			{
+				"count": 12,
+				"id": 2,
+				"name": "Ultra Ball"
+			},
+			{
+				"count": 5,
+				"id": 3,
+				"name": "Great Ball"
+			}
+		],
+		"berries": [
+			{
+				"count": 2,
+				"id": 136,
+				"name": "Rawst Berry"
+			},
+			{
+				"count": 9,
+				"id": 150,
+				"name": "Nanab Berry"
+			},
+			{
+				"count": 9,
+				"id": 151,
+				"name": "Wepear Berry"
+			},
+			{
+				"count": 2,
+				"id": 154,
+				"name": "Kelpsy Berry"
+			}
+		],
+		"items": [
+			{
+				"count": 20,
+				"id": 13,
+				"name": "Potion"
+			},
+			{
+				"count": 1,
+				"id": 182,
+				"name": "Exp. Share"
+			},
+			{
+				"count": 1,
+				"id": 610,
+				"name": "Douse Drive"
+			},
+			{
+				"count": 1,
+				"id": 612,
+				"name": "Burn Drive"
+			},
+			{
+				"count": 4,
+				"id": 36,
+				"name": "Elixir"
+			},
+			{
+				"count": 1,
+				"id": 217,
+				"name": "Silk Scarf"
+			},
+			{
+				"count": 1,
+				"id": 181,
+				"name": "Macho Brace"
+			},
+			{
+				"count": 2,
+				"id": 93,
+				"name": "Sun Stone"
+			},
+			{
+				"count": 3,
+				"id": 35,
+				"name": "Max Ether"
+			},
+			{
+				"count": 1,
+				"id": 189,
+				"name": "Amulet Coin"
+			},
+			{
+				"count": 1,
+				"id": 204,
+				"name": "Hard Stone"
+			},
+			{
+				"count": 3,
+				"id": 515,
+				"name": "Icy Rock"
+			},
+			{
+				"count": 1,
+				"id": 532,
+				"name": "Rocky Helmet"
+			},
+			{
+				"count": 1,
+				"id": 227,
+				"name": "Adamant Orb"
+			},
+			{
+				"count": 1,
+				"id": 517,
+				"name": "Heat Rock"
+			},
+			{
+				"count": 4,
+				"id": 80,
+				"name": "Poké Doll"
+			},
+			{
+				"count": 9,
+				"id": 38,
+				"name": "Lava Cookie"
+			},
+			{
+				"count": 3,
+				"id": 37,
+				"name": "Max Elixir"
+			},
+			{
+				"count": 1,
+				"id": 582,
+				"name": "Sharpedonite"
+			},
+			{
+				"count": 2,
+				"id": 47,
+				"name": "Shoal Shell"
+			},
+			{
+				"count": 2,
+				"id": 107,
+				"name": "Big Pearl"
+			},
+			{
+				"count": 2,
+				"id": 46,
+				"name": "Shoal Salt"
+			},
+			{
+				"count": 1,
+				"id": 194,
+				"name": "Smoke Ball"
+			},
+			{
+				"count": 1,
+				"id": 187,
+				"name": "King’s Rock"
+			},
+			{
+				"count": 1,
+				"id": 109,
+				"name": "Star Piece"
+			},
+			{
+				"count": 1,
+				"id": 513,
+				"name": "Destiny Knot"
+			},
+			{
+				"count": 1,
+				"id": 591,
+				"name": "Beedrillite"
+			},
+			{
+				"count": 1,
+				"id": 69,
+				"name": "Pp Up"
+			},
+			{
+				"count": 1,
+				"id": 530,
+				"name": "Eviolite"
+			},
+			{
+				"count": 1,
+				"id": 63,
+				"name": "Hp Up"
+			},
+			{
+				"count": 1,
+				"id": 560,
+				"name": "Pinsirite"
+			},
+			{
+				"count": 1,
+				"id": 208,
+				"name": "Magnet"
+			},
+			{
+				"count": 1,
+				"id": 68,
+				"name": "Rare Candy"
+			}
+		],
+		"key": [
+			{
+				"id": 262,
+				"name": "Old Rod"
+			},
+			{
+				"id": 261,
+				"name": "Itemfinder"
+			},
+			{
+				"id": 259,
+				"name": "Mach Bike"
+			},
+			{
+				"id": 270,
+				"name": "Soot Sack"
+			},
+			{
+				"id": 272,
+				"name": "Acro Bike"
+			},
+			{
+				"id": 280,
+				"name": "Meteorite"
+			},
+			{
+				"id": 279,
+				"name": "Go-Goggles"
+			},
+			{
+				"count": 1,
+				"id": 618,
+				"name": "Mega Armlet"
+			},
+			{
+				"id": 271,
+				"name": "Basement Key"
+			},
+			{
+				"id": 263,
+				"name": "Good Rod"
+			},
+			{
+				"id": 288,
+				"name": "Devon Scope"
+			},
+			{
+				"id": 273,
+				"name": "PokéBlock Case"
+			},
+			{
+				"id": 375,
+				"name": "Magma Emblem"
+			},
+			{
+				"id": 264,
+				"name": "Super Rod"
+			},
+			{
+				"id": 370,
+				"name": "Mysticticket"
+			},
+			{
+				"id": 371,
+				"name": "Auroraticket"
+			}
+		],
+		"pc": [
+			{
+				"count": 20,
+				"id": 4,
+				"name": "Poké Ball"
+			}
+		],
+		"tms": [
+			{
+				"id": 379,
+				"name": "TM02 Dragon Claw"
+			},
+			{
+				"id": 381,
+				"name": "TM04 Calm Mind"
+			},
+			{
+				"id": 385,
+				"name": "TM08 Bulk Up"
+			},
+			{
+				"id": 389,
+				"name": "TM12 Taunt"
+			},
+			{
+				"id": 390,
+				"name": "TM13 Ice Beam"
+			},
+			{
+				"id": 395,
+				"name": "TM18 Rain Dance"
+			},
+			{
+				"id": 396,
+				"name": "TM19 Roost"
+			},
+			{
+				"count": 3,
+				"id": 400,
+				"name": "TM23 Smack Down"
+			},
+			{
+				"id": 401,
+				"name": "TM24 Thunderbolt"
+			},
+			{
+				"id": 403,
+				"name": "TM26 Earthquake"
+			},
+			{
+				"id": 407,
+				"name": "TM30 Shadow Ball"
+			},
+			{
+				"id": 411,
+				"name": "TM34 Sludge Wave"
+			},
+			{
+				"id": 412,
+				"name": "TM35 Flamethrower"
+			},
+			{
+				"id": 414,
+				"name": "TM37 Sandstorm"
+			},
+			{
+				"id": 416,
+				"name": "TM39 Rock Tomb"
+			},
+			{
+				"id": 421,
+				"name": "TM44 Rest"
+			},
+			{
+				"id": 423,
+				"name": "TM46 Thief"
+			},
+			{
+				"id": 427,
+				"name": "TM50 Overheat"
+			},
+			{
+				"id": 428,
+				"name": "TM51 Steel Wing"
+			},
+			{
+				"id": 436,
+				"name": "TM59 Incinerate"
+			},
+			{
+				"id": 437,
+				"name": "TM60 Quash"
+			},
+			{
+				"id": 438,
+				"name": "TM61 Will-O-Wisp"
+			},
+			{
+				"id": 441,
+				"name": "TM64 Explosion"
+			},
+			{
+				"id": 444,
+				"name": "TM67 Retaliate"
+			},
+			{
+				"id": 449,
+				"name": "TM72 Volt Switch"
+			},
+			{
+				"id": 457,
+				"name": "TM80 Rock Slide"
+			},
+			{
+				"id": 458,
+				"name": "TM81 X-Scissor"
+			},
+			{
+				"id": 462,
+				"name": "TM85 Dream Eater"
+			},
+			{
+				"id": 463,
+				"name": "TM86 Grass Knot"
+			},
+			{
+				"id": 465,
+				"name": "TM88 Sleep Talk"
+			},
+			{
+				"id": 468,
+				"name": "TM91 Flash Cannon"
+			},
+			{
+				"id": 469,
+				"name": "TM92 Trick Room"
+			},
+			{
+				"id": 470,
+				"name": "TM93 Wild Charge"
+			},
+			{
+				"id": 471,
+				"name": "TM94 Secret Power"
+			},
+			{
+				"id": 474,
+				"name": "TM97 Dark Pulse"
+			},
+			{
+				"id": 476,
+				"name": "TM99 Dazzle"
+			},
+			{
+				"id": 478,
+				"name": "TM101 Focus Punch"
+			},
+			{
+				"id": 479,
+				"name": "TM102 Water Pulse"
+			},
+			{
+				"id": 480,
+				"name": "TM103 Giga Drain"
+			},
+			{
+				"id": 483,
+				"name": "TM106 Skill Swap"
+			},
+			{
+				"id": 485,
+				"name": "TM108 Dragon Pulse"
+			},
+			{
+				"id": 486,
+				"name": "TM109 Drain Punch"
+			},
+			{
+				"id": 498,
+				"name": "HM01 Cut"
+			},
+			{
+				"id": 499,
+				"name": "HM02 Fly"
+			},
+			{
+				"id": 500,
+				"name": "HM03 Surf"
+			},
+			{
+				"id": 501,
+				"name": "HM04 Strength"
+			},
+			{
+				"id": 502,
+				"name": "HM05 Waterfall"
+			},
+			{
+				"id": 503,
+				"name": "HM06 Rock Smash"
+			},
+			{
+				"id": 504,
+				"name": "HM07 Dive"
+			}
+		]
+	},
+	"map_bank": 16,
+	"map_id": 4,
+	"money": 47743,
+	"name": "ACCPPQ",
+	"options": {
+		"battle_scene": "On",
+		"battle_style": "Set",
+		"button_mode": "Normal",
+		"frame": 20,
+		"sound": "Stereo",
+		"text_speed": "Fast"
+	},
+	"secret": 49705,
+	"security_key": 1539416790,
+	"seen_list": [
+		1,
+		3,
+		4,
+		5,
+		6,
+		7,
+		9,
+		10,
+		12,
+		13,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		24,
+		25,
+		26,
+		27,
+		28,
+		31,
+		33,
+		34,
+		35,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		48,
+		50,
+		51,
+		53,
+		54,
+		55,
+		56,
+		58,
+		59,
+		60,
+		61,
+		62,
+		63,
+		64,
+		65,
+		66,
+		67,
+		68,
+		69,
+		70,
+		71,
+		72,
+		73,
+		74,
+		75,
+		76,
+		77,
+		78,
+		79,
+		80,
+		81,
+		82,
+		83,
+		84,
+		85,
+		86,
+		87,
+		88,
+		89,
+		90,
+		91,
+		92,
+		93,
+		94,
+		95,
+		96,
+		97,
+		98,
+		100,
+		101,
+		102,
+		103,
+		104,
+		105,
+		107,
+		108,
+		109,
+		110,
+		111,
+		112,
+		113,
+		114,
+		115,
+		117,
+		118,
+		119,
+		120,
+		121,
+		122,
+		123,
+		124,
+		125,
+		126,
+		127,
+		128,
+		129,
+		130,
+		131,
+		132,
+		133,
+		134,
+		136,
+		137,
+		138,
+		139,
+		140,
+		141,
+		142,
+		143,
+		147,
+		149,
+		152,
+		154,
+		157,
+		158,
+		159,
+		160,
+		161,
+		163,
+		164,
+		165,
+		166,
+		167,
+		168,
+		169,
+		170,
+		171,
+		172,
+		173,
+		174,
+		175,
+		176,
+		177,
+		178,
+		179,
+		180,
+		181,
+		182,
+		183,
+		184,
+		185,
+		186,
+		187,
+		188,
+		190,
+		191,
+		192,
+		193,
+		194,
+		195,
+		196,
+		197,
+		199,
+		200,
+		201,
+		202,
+		203,
+		204,
+		205,
+		206,
+		207,
+		208,
+		210,
+		211,
+		212,
+		213,
+		214,
+		215,
+		216,
+		217,
+		218,
+		219,
+		220,
+		221,
+		222,
+		223,
+		224,
+		225,
+		226,
+		227,
+		228,
+		229,
+		230,
+		231,
+		232,
+		233,
+		234,
+		235,
+		236,
+		237,
+		238,
+		239,
+		240,
+		241,
+		242,
+		246,
+		247,
+		248,
+		254,
+		255,
+		256,
+		257,
+		258,
+		259,
+		260,
+		261,
+		262,
+		263,
+		264,
+		265,
+		269,
+		270,
+		271,
+		272,
+		273,
+		274,
+		275,
+		276,
+		277,
+		278,
+		279,
+		280,
+		281,
+		282,
+		283,
+		284,
+		285,
+		286,
+		287,
+		288,
+		289,
+		290,
+		291,
+		292,
+		293,
+		294,
+		295,
+		296,
+		297,
+		298,
+		299,
+		300,
+		301,
+		302,
+		303,
+		304,
+		305,
+		306,
+		307,
+		308,
+		309,
+		310,
+		311,
+		312,
+		313,
+		314,
+		315,
+		316,
+		317,
+		318,
+		319,
+		320,
+		321,
+		322,
+		323,
+		324,
+		325,
+		327,
+		328,
+		329,
+		330,
+		331,
+		332,
+		333,
+		334,
+		335,
+		336,
+		337,
+		338,
+		339,
+		340,
+		342,
+		343,
+		344,
+		345,
+		346,
+		347,
+		348,
+		350,
+		351,
+		352,
+		353,
+		354,
+		355,
+		356,
+		357,
+		358,
+		359,
+		360,
+		361,
+		362,
+		363,
+		364,
+		365,
+		366,
+		367,
+		368,
+		369,
+		370,
+		371,
+		373,
+		374,
+		375,
+		387,
+		389,
+		390,
+		392,
+		393,
+		395,
+		397,
+		398,
+		399,
+		400,
+		401,
+		402,
+		403,
+		404,
+		405,
+		406,
+		407,
+		408,
+		409,
+		410,
+		411,
+		412,
+		414,
+		415,
+		416,
+		417,
+		418,
+		419,
+		420,
+		421,
+		422,
+		423,
+		424,
+		425,
+		427,
+		428,
+		429,
+		430,
+		432,
+		433,
+		434,
+		435,
+		436,
+		437,
+		438,
+		439,
+		441,
+		442,
+		443,
+		444,
+		445,
+		446,
+		447,
+		448,
+		449,
+		451,
+		453,
+		454,
+		455,
+		456,
+		457,
+		458,
+		459,
+		461,
+		462,
+		464,
+		465,
+		466,
+		467,
+		468,
+		469,
+		471,
+		472,
+		473,
+		474,
+		475,
+		476,
+		477,
+		478,
+		479,
+		490,
+		496,
+		497,
+		498,
+		500,
+		501,
+		503,
+		504,
+		505,
+		506,
+		507,
+		508,
+		509,
+		510,
+		511,
+		512,
+		513,
+		514,
+		515,
+		516,
+		517,
+		518,
+		519,
+		520,
+		521,
+		522,
+		523,
+		524,
+		525,
+		526,
+		527,
+		528,
+		529,
+		530,
+		531,
+		532,
+		533,
+		534,
+		535,
+		537,
+		538,
+		539,
+		540,
+		542,
+		543,
+		544,
+		545,
+		546,
+		547,
+		548,
+		549,
+		550,
+		551,
+		552,
+		553,
+		554,
+		555,
+		556,
+		557,
+		558,
+		559,
+		560,
+		561,
+		562,
+		563,
+		564,
+		565,
+		566,
+		567,
+		568,
+		570,
+		572,
+		573,
+		574,
+		576,
+		577,
+		578,
+		579,
+		580,
+		581,
+		582,
+		583,
+		584,
+		585,
+		586,
+		587,
+		588,
+		589,
+		590,
+		592,
+		593,
+		594,
+		595,
+		596,
+		597,
+		598,
+		599,
+		601,
+		602,
+		603,
+		604,
+		605,
+		606,
+		607,
+		608,
+		609,
+		610,
+		611,
+		612,
+		613,
+		614,
+		616,
+		617,
+		618,
+		619,
+		620,
+		621,
+		622,
+		623,
+		624,
+		625,
+		626,
+		627,
+		628,
+		629,
+		630,
+		631,
+		632,
+		633,
+		634,
+		635,
+		637,
+		650,
+		652,
+		655,
+		657,
+		658,
+		659,
+		661,
+		662,
+		663,
+		664,
+		665,
+		666,
+		667,
+		668,
+		669,
+		672,
+		673,
+		674,
+		675,
+		676,
+		677,
+		678,
+		679,
+		680,
+		681,
+		682,
+		683,
+		684,
+		685,
+		686,
+		687,
+		688,
+		689,
+		690,
+		691,
+		692,
+		693,
+		694,
+		695,
+		696,
+		697,
+		698,
+		699,
+		700,
+		701,
+		702,
+		703,
+		704,
+		707,
+		708,
+		710,
+		711,
+		713,
+		714,
+		715
+	],
+	"time": {
+		"h": 19,
+		"m": 6
+	},
+	"x": 6,
+	"y": 6,
+	"pc": {
+		"boxes": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"box_contents": [
+					{
+						"ability": "Volt Absorb",
+						"box_slot": 1,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 156250,
+							"next_level": 165813,
+							"this_level": 156250,
+							"remaining": 9563
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 14,
+							"defense": 19,
+							"hp": 7,
+							"special_attack": 20,
+							"special_defense": 1,
+							"speed": 25
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 50,
+							"map_id": 51,
+							"area_name": "Underwater"
+						},
+						"moves": [
+							{
+								"id": 435,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Discharge",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Electric"
+							},
+							{
+								"id": 175,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Flail",
+								"accuracy": 100,
+								"base_power": 1,
+								"type": "Normal"
+							},
+							{
+								"id": 36,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Take Down",
+								"accuracy": 85,
+								"base_power": 90,
+								"type": "Normal"
+							},
+							{
+								"id": 85,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Thunderbolt",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Electric"
+							}
+						],
+						"name": "AAGMd‘EeEe",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2632417438,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 171,
+							"name": "Lanturn",
+							"national_dex": 171,
+							"type1": "Water",
+							"type2": "Electric",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"catch_rate": 75,
+							"abilities": [
+								"Volt Absorb",
+								"Illuminate"
+							]
+						},
+						"level": 50,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Jolly"
+					},
+					{
+						"ability": "Liquid Ooze",
+						"box_slot": 2,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 107069,
+							"next_level": 114205,
+							"this_level": 107069,
+							"remaining": 7136
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 139,
+							"name": "Oran Berry"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 31,
+							"defense": 30,
+							"hp": 8,
+							"special_attack": 10,
+							"special_defense": 18,
+							"speed": 4
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Safari Ball",
+							"game": "Emerald",
+							"level": 46,
+							"map_id": 57,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 380,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Gastro Acid",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Poison"
+							},
+							{
+								"id": 482,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Sludge Wave",
+								"accuracy": 100,
+								"base_power": 95,
+								"type": "Poison"
+							},
+							{
+								"id": 562,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Belch",
+								"accuracy": 90,
+								"base_power": 120,
+								"type": "Poison"
+							},
+							{
+								"id": 378,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Wring Out",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Normal"
+							}
+						],
+						"name": "ATBNUBHIV",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 3298875260,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 368,
+							"name": "Swalot",
+							"national_dex": 317,
+							"type1": "Poison",
+							"type2": "Poison",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Fluctuating",
+							"catch_rate": 75,
+							"abilities": [
+								"Liquid Ooze",
+								"Sticky Hold"
+							]
+						},
+						"level": 46,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Timid"
+					},
+					{
+						"ability": "Storm Drain",
+						"box_slot": 3,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 54872,
+							"next_level": 59319,
+							"this_level": 54872,
+							"remaining": 4447
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 16,
+							"defense": 15,
+							"hp": 24,
+							"special_attack": 27,
+							"special_defense": 10,
+							"speed": 23
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Safari Ball",
+							"game": "Emerald",
+							"level": 38,
+							"map_id": 57,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 362,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Brine",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Water"
+							},
+							{
+								"id": 34,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Body Slam",
+								"accuracy": 100,
+								"base_power": 85,
+								"type": "Normal"
+							},
+							{
+								"id": 330,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Muddy Water",
+								"accuracy": 85,
+								"base_power": 90,
+								"type": "Water"
+							},
+							{
+								"id": 414,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Earth Power",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Ground"
+							}
+						],
+						"name": "AATMNMHMNT",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2066253917,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 790,
+							"name": "Gastrodon",
+							"national_dex": 423,
+							"type1": "Water",
+							"type2": "Ground",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 75,
+							"abilities": [
+								"Sticky Hold",
+								"Storm Drain"
+							]
+						},
+						"level": 38,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Quiet"
+					},
+					{
+						"ability": "Battle Armor",
+						"box_slot": 4,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 86151,
+							"next_level": 92610,
+							"this_level": 86151,
+							"remaining": 6459
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 27,
+							"defense": 16,
+							"hp": 12,
+							"special_attack": 14,
+							"special_defense": 9,
+							"speed": 0
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Safari Ball",
+							"game": "Emerald",
+							"level": 41,
+							"map_id": 57,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 440,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Cross Poison",
+								"accuracy": 100,
+								"base_power": 70,
+								"type": "Poison"
+							},
+							{
+								"id": 404,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "X-Scissor",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Bug"
+							},
+							{
+								"id": 468,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Hone Claws",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Dark"
+							},
+							{
+								"id": 242,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Crunch",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Dark"
+							}
+						],
+						"name": "GGAAABAAB",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 898133482,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 504,
+							"name": "Skorupi",
+							"national_dex": 451,
+							"type1": "Poison",
+							"type2": "Bug",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"catch_rate": 120,
+							"abilities": [
+								"Battle Armor",
+								"Sniper"
+							]
+						},
+						"level": 41,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Relaxed"
+					},
+					{
+						"ability": "Frisk",
+						"box_slot": 5,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 72900,
+							"next_level": 77868,
+							"this_level": 72900,
+							"remaining": 4968
+						},
+						"friendship": 35,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 5,
+							"defense": 30,
+							"hp": 21,
+							"special_attack": 22,
+							"special_defense": 27,
+							"speed": 24
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 45,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 441,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Gunk Shot",
+								"accuracy": 80,
+								"base_power": 120,
+								"type": "Poison"
+							},
+							{
+								"id": 421,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Shadow Claw",
+								"accuracy": 100,
+								"base_power": 70,
+								"type": "Ghost"
+							},
+							{
+								"id": 389,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Sucker Punch",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Dark"
+							},
+							{
+								"id": 289,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Snatch",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Dark"
+							}
+						],
+						"name": "AAAABbhghh",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 1739221057,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 378,
+							"name": "Banette",
+							"national_dex": 354,
+							"type1": "Ghost",
+							"type2": "Ghost",
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"catch_rate": 65,
+							"abilities": [
+								"Insomnia",
+								"Frisk"
+							]
+						},
+						"level": 45,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Relaxed"
+					},
+					{
+						"ability": "Levitate",
+						"box_slot": 6,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 72900,
+							"next_level": 77868,
+							"this_level": 72900,
+							"remaining": 4968
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 0,
+							"defense": 1,
+							"hp": 1,
+							"special_attack": 0,
+							"special_defense": 28,
+							"speed": 2
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 45,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 219,
+								"pp": 25,
+								"pp_up": 0,
+								"name": "Safeguard",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 94,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Psychic",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Psychic"
+							},
+							{
+								"id": 38,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Double-Edge",
+								"accuracy": 100,
+								"base_power": 120,
+								"type": "Normal"
+							},
+							{
+								"id": 95,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Hypnosis",
+								"accuracy": 60,
+								"base_power": 0,
+								"type": "Psychic"
+							}
+						],
+						"name": "AAGGGNVVVV",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 1428617012,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 411,
+							"name": "Chimecho",
+							"national_dex": 358,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"catch_rate": 45,
+							"abilities": [
+								"Levitate",
+								"-------"
+							]
+						},
+						"level": 45,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Serious"
+					},
+					{
+						"ability": "Healer",
+						"box_slot": 7,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 51200,
+							"next_level": 55136,
+							"this_level": 51200,
+							"remaining": 3936
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 17,
+							"defense": 18,
+							"hp": 28,
+							"special_attack": 21,
+							"special_defense": 29,
+							"speed": 28
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 40,
+							"map_id": 37,
+							"area_name": "Route 122"
+						},
+						"moves": [
+							{
+								"id": 352,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Water Pulse",
+								"accuracy": 100,
+								"base_power": 60,
+								"type": "Water"
+							},
+							{
+								"id": 358,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Wake-Up Slap",
+								"accuracy": 100,
+								"base_power": 70,
+								"type": "Fighting"
+							},
+							{
+								"id": 487,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Soak",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Water"
+							},
+							{
+								"id": 273,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Wish",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							}
+						],
+						"name": "GGG  ZZS  ",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2169212806,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 647,
+							"name": "Alomomola",
+							"national_dex": 594,
+							"type1": "Water",
+							"type2": "Water",
+							"egg_cycles": 40,
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"catch_rate": 75,
+							"abilities": [
+								"Healer",
+								"Hydration"
+							]
+						},
+						"level": 40,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Docile"
+					},
+					{
+						"ability": "Levitate",
+						"box_slot": 8,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 68147,
+							"next_level": 72900,
+							"this_level": 68147,
+							"remaining": 4753
+						},
+						"friendship": 35,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 31,
+							"defense": 10,
+							"hp": 9,
+							"special_attack": 20,
+							"special_defense": 20,
+							"speed": 12
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 44,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 109,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Confuse Ray",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 174,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Curse",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ghost"
+							},
+							{
+								"id": 506,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Hex",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Ghost"
+							},
+							{
+								"id": 247,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Shadow Ball",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Ghost"
+							}
+						],
+						"name": "YY",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 420303034,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 361,
+							"name": "Duskull",
+							"national_dex": 355,
+							"type1": "Ghost",
+							"type2": "Ghost",
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"catch_rate": 190,
+							"abilities": [
+								"Levitate",
+								"Frisk"
+							]
+						},
+						"level": 44,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Lax"
+					},
+					{
+						"ability": "Infiltrator",
+						"box_slot": 9,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 74088,
+							"next_level": 79507,
+							"this_level": 74088,
+							"remaining": 5419
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 20,
+							"defense": 6,
+							"hp": 23,
+							"special_attack": 28,
+							"special_defense": 4,
+							"speed": 25
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 42,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 202,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Giga Drain",
+								"accuracy": 100,
+								"base_power": 75,
+								"type": "Grass"
+							},
+							{
+								"id": 212,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Mean Look",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 114,
+								"pp": 30,
+								"pp_up": 0,
+								"name": "Haze",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ice"
+							},
+							{
+								"id": 474,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Venoshock",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Poison"
+							}
+						],
+						"name": "Zubat",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 663755527,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 41,
+							"name": "Zubat",
+							"national_dex": 41,
+							"type1": "Poison",
+							"type2": "Flying",
+							"egg_cycles": 15,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 255,
+							"abilities": [
+								"Inner Focus",
+								"Infiltrator"
+							]
+						},
+						"level": 42,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Brave"
+					},
+					{
+						"ability": "Levitate",
+						"box_slot": 10,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 61450,
+							"next_level": 66505,
+							"this_level": 61450,
+							"remaining": 5055
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 11,
+							"defense": 28,
+							"hp": 5,
+							"special_attack": 8,
+							"special_defense": 25,
+							"speed": 9
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 41,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 389,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Sucker Punch",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Dark"
+							},
+							{
+								"id": 138,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Dream Eater",
+								"accuracy": 100,
+								"base_power": 100,
+								"type": "Psychic"
+							},
+							{
+								"id": 194,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Destiny Bond",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ghost"
+							},
+							{
+								"id": 171,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Nightmare",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Ghost"
+							}
+						],
+						"name": "Gastly",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 661517605,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 92,
+							"name": "Gastly",
+							"national_dex": 92,
+							"type1": "Ghost",
+							"type2": "Poison",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"catch_rate": 190,
+							"abilities": [
+								"Levitate",
+								"-------"
+							]
+						},
+						"level": 41,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Bold"
+					},
+					{
+						"ability": "Pressure",
+						"box_slot": 11,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 68921,
+							"next_level": 74088,
+							"this_level": 68921,
+							"remaining": 5167
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 194,
+							"name": "Smoke Ball"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 9,
+							"defense": 26,
+							"hp": 17,
+							"special_attack": 12,
+							"special_defense": 7,
+							"speed": 30
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 41,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 138,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Dream Eater",
+								"accuracy": 100,
+								"base_power": 100,
+								"type": "Psychic"
+							},
+							{
+								"id": 466,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Ominous Wind",
+								"accuracy": 100,
+								"base_power": 60,
+								"type": "Ghost"
+							},
+							{
+								"id": 389,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Sucker Punch",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Dark"
+							},
+							{
+								"id": 417,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Nasty Plot",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Dark"
+							}
+						],
+						"name": "RR",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 3106257222,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 495,
+							"name": "Spiritomb",
+							"national_dex": 442,
+							"type1": "Ghost",
+							"type2": "Dark",
+							"egg_cycles": 30,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 100,
+							"abilities": [
+								"Pressure",
+								"Infiltrator"
+							]
+						},
+						"level": 41,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Sassy"
+					},
+					{
+						"ability": "Flame Body",
+						"box_slot": 12,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 61450,
+							"next_level": 66505,
+							"this_level": 61450,
+							"remaining": 5055
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 16,
+							"defense": 25,
+							"hp": 7,
+							"special_attack": 16,
+							"special_defense": 15,
+							"speed": 10
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 41,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 262,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Memento",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Dark"
+							},
+							{
+								"id": 257,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Heat Wave",
+								"accuracy": 90,
+								"base_power": 95,
+								"type": "Fire"
+							},
+							{
+								"id": 247,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Shadow Ball",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Ghost"
+							},
+							{
+								"id": 506,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Hex",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Ghost"
+							}
+						],
+						"name": "GGGH",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 3016417825,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 660,
+							"name": "Litwick",
+							"national_dex": 607,
+							"type1": "Ghost",
+							"type2": "Fire",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"catch_rate": 190,
+							"abilities": [
+								"Flash Fire",
+								"Flame Body"
+							]
+						},
+						"level": 41,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Hardy"
+					},
+					{
+						"ability": "Synchronize",
+						"box_slot": 13,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 106480,
+							"next_level": 113906,
+							"this_level": 106480,
+							"remaining": 7426
+						},
+						"friendship": 35,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 22,
+							"defense": 23,
+							"hp": 18,
+							"special_attack": 5,
+							"special_defense": 28,
+							"speed": 5
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 44,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 286,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Imprison",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Psychic"
+							},
+							{
+								"id": 248,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Future Sight",
+								"accuracy": 100,
+								"base_power": 120,
+								"type": "Psychic"
+							},
+							{
+								"id": 204,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Charm",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "???"
+							},
+							{
+								"id": 95,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Hypnosis",
+								"accuracy": 60,
+								"base_power": 0,
+								"type": "Psychic"
+							}
+						],
+						"name": "Kirlia",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 1321208920,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 393,
+							"name": "Kirlia",
+							"national_dex": 281,
+							"type1": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"catch_rate": 120,
+							"abilities": [
+								"Synchronize",
+								"Trace"
+							]
+						},
+						"level": 44,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Calm"
+					},
+					{
+						"ability": "Telepathy",
+						"box_slot": 14,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 97336,
+							"next_level": 103823,
+							"this_level": 97336,
+							"remaining": 6487
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 12,
+							"defense": 28,
+							"hp": 24,
+							"special_attack": 0,
+							"special_defense": 17,
+							"speed": 2
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 46,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 244,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Psych Up",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 94,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Psychic",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Psychic"
+							},
+							{
+								"id": 105,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Recover",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 85,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Thunderbolt",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Electric"
+							}
+						],
+						"name": "ATTAA",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 1134403940,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 659,
+							"name": "Beheeyem",
+							"national_dex": 606,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 90,
+							"abilities": [
+								"Telepathy",
+								"Synchronize"
+							]
+						},
+						"level": 46,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Modest"
+					},
+					{
+						"ability": "Infiltrator",
+						"box_slot": 15,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 103823,
+							"next_level": 110592,
+							"this_level": 103823,
+							"remaining": 6769
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 7,
+							"defense": 28,
+							"hp": 2,
+							"special_attack": 3,
+							"special_defense": 7,
+							"speed": 12
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 47,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 202,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Giga Drain",
+								"accuracy": 100,
+								"base_power": 75,
+								"type": "Grass"
+							},
+							{
+								"id": 212,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Mean Look",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 114,
+								"pp": 30,
+								"pp_up": 0,
+								"name": "Haze",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ice"
+							},
+							{
+								"id": 474,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Venoshock",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Poison"
+							}
+						],
+						"name": "AA  ",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 94061259,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 42,
+							"name": "Golbat",
+							"national_dex": 42,
+							"type1": "Poison",
+							"type2": "Flying",
+							"egg_cycles": 15,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 90,
+							"abilities": [
+								"Inner Focus",
+								"Infiltrator"
+							]
+						},
+						"level": 47,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Lax"
+					},
+					{
+						"ability": "Synchronize",
+						"box_slot": 16,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 79507,
+							"next_level": 85184,
+							"this_level": 79507,
+							"remaining": 5677
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 22,
+							"defense": 1,
+							"hp": 20,
+							"special_attack": 4,
+							"special_defense": 7,
+							"speed": 9
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 43,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 244,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Psych Up",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 94,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Psychic",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Psychic"
+							},
+							{
+								"id": 105,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Recover",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 85,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Thunderbolt",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Electric"
+							}
+						],
+						"name": "Elgyem",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 209983777,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 658,
+							"name": "Elgyem",
+							"national_dex": 605,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 255,
+							"abilities": [
+								"Telepathy",
+								"Synchronize"
+							]
+						},
+						"level": 43,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Brave"
+					},
+					{
+						"ability": "Magic Guard",
+						"box_slot": 17,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 89523,
+							"next_level": 96012,
+							"this_level": 89523,
+							"remaining": 6489
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 9,
+							"defense": 5,
+							"hp": 9,
+							"special_attack": 10,
+							"special_defense": 26,
+							"speed": 13
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 46,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 248,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Future Sight",
+								"accuracy": 100,
+								"base_power": 120,
+								"type": "Psychic"
+							},
+							{
+								"id": 94,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Psychic",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Psychic"
+							},
+							{
+								"id": 220,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Pain Split",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 433,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Trick Room",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Psychic"
+							}
+						],
+						"name": "Duosion",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 1072652823,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 631,
+							"name": "Duosion",
+							"national_dex": 578,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"catch_rate": 100,
+							"abilities": [
+								"Overcoat",
+								"Magic Guard"
+							]
+						},
+						"level": 46,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Careful"
+					},
+					{
+						"ability": "Levitate",
+						"box_slot": 18,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 89523,
+							"next_level": 96012,
+							"this_level": 89523,
+							"remaining": 6489
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 25,
+							"defense": 1,
+							"hp": 13,
+							"special_attack": 16,
+							"special_defense": 14,
+							"speed": 28
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 46,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 247,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Shadow Ball",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Ghost"
+							},
+							{
+								"id": 389,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Sucker Punch",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Dark"
+							},
+							{
+								"id": 138,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Dream Eater",
+								"accuracy": 100,
+								"base_power": 100,
+								"type": "Psychic"
+							},
+							{
+								"id": 194,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Destiny Bond",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ghost"
+							}
+						],
+						"name": "Haunter",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2580186772,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 93,
+							"name": "Haunter",
+							"national_dex": 93,
+							"type1": "Ghost",
+							"type2": "Poison",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"catch_rate": 90,
+							"abilities": [
+								"Levitate",
+								"-------"
+							]
+						},
+						"level": 46,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Sassy"
+					},
+					{
+						"ability": "Frisk",
+						"box_slot": 19,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 68147,
+							"next_level": 72900,
+							"this_level": 68147,
+							"remaining": 4753
+						},
+						"friendship": 35,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 13,
+							"defense": 19,
+							"hp": 5,
+							"special_attack": 6,
+							"special_defense": 22,
+							"speed": 4
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 44,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 109,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Confuse Ray",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 174,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Curse",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ghost"
+							},
+							{
+								"id": 325,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Shadow Punch",
+								"accuracy": 0,
+								"base_power": 60,
+								"type": "Ghost"
+							},
+							{
+								"id": 506,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Hex",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Ghost"
+							}
+						],
+						"name": "Dusclops",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 164111899,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 362,
+							"name": "Dusclops",
+							"national_dex": 356,
+							"type1": "Ghost",
+							"type2": "Ghost",
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"catch_rate": 90,
+							"abilities": [
+								"Pressure",
+								"Frisk"
+							]
+						},
+						"level": 44,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Quirky"
+					},
+					{
+						"ability": "Mummy",
+						"box_slot": 20,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 97336,
+							"next_level": 103823,
+							"this_level": 97336,
+							"remaining": 6487
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 18,
+							"defense": 21,
+							"hp": 6,
+							"special_attack": 18,
+							"special_defense": 12,
+							"speed": 4
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 46,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 470,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Guard Split",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Psychic"
+							},
+							{
+								"id": 184,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Scary Face",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 247,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Shadow Ball",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Ghost"
+							},
+							{
+								"id": 288,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Grudge",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Ghost"
+							}
+						],
+						"name": "Cofagrigus",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 3599677086,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 616,
+							"name": "Cofagrigus",
+							"national_dex": 563,
+							"type1": "Ghost",
+							"type2": "Ghost",
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 90,
+							"abilities": [
+								"Mummy",
+								"-------"
+							]
+						},
+						"level": 46,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Hasty"
+					},
+					{
+						"ability": "Sturdy",
+						"box_slot": 21,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 74088,
+							"next_level": 79507,
+							"this_level": 74088,
+							"remaining": 5419
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 25,
+							"defense": 1,
+							"hp": 29,
+							"special_attack": 1,
+							"special_defense": 2,
+							"speed": 29
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 42,
+							"map_id": 38,
+							"area_name": "Route 123"
+						},
+						"moves": [
+							{
+								"id": 475,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Autotomize",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Steel"
+							},
+							{
+								"id": 360,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Gyro Ball",
+								"accuracy": 100,
+								"base_power": 1,
+								"type": "Steel"
+							},
+							{
+								"id": 529,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Drill Run",
+								"accuracy": 95,
+								"base_power": 80,
+								"type": "Ground"
+							},
+							{
+								"id": 153,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Explosion",
+								"accuracy": 100,
+								"base_power": 250,
+								"type": "Normal"
+							}
+						],
+						"name": "AAAAAAA..4",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 3770346522,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 205,
+							"name": "Forretress",
+							"national_dex": 205,
+							"type1": "Bug",
+							"type2": "Steel",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 75,
+							"abilities": [
+								"Sturdy",
+								"Overcoat"
+							]
+						},
+						"level": 42,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Sassy"
+					},
+					{
+						"ability": "Levitate",
+						"box_slot": 22,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 68147,
+							"next_level": 72900,
+							"this_level": 68147,
+							"remaining": 4753
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 10,
+							"defense": 11,
+							"hp": 13,
+							"special_attack": 31,
+							"special_defense": 8,
+							"speed": 9
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 44,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 281,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Yawn",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 387,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Last Resort",
+								"accuracy": 100,
+								"base_power": 140,
+								"type": "Normal"
+							},
+							{
+								"id": 494,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Entrainment",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 253,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Uproar",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Normal"
+							}
+						],
+						"name": "AAG...",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2721477843,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 486,
+							"name": "Chingling",
+							"national_dex": 433,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"catch_rate": 120,
+							"abilities": [
+								"Levitate",
+								"-------"
+							]
+						},
+						"level": 44,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Bashful"
+					},
+					{
+						"ability": "Levitate",
+						"box_slot": 23,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 103823,
+							"next_level": 110592,
+							"this_level": 103823,
+							"remaining": 6769
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 14,
+							"defense": 10,
+							"hp": 3,
+							"special_attack": 1,
+							"special_defense": 13,
+							"speed": 28
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 47,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 319,
+								"pp": 40,
+								"pp_up": 0,
+								"name": "Metal Sound",
+								"accuracy": 85,
+								"base_power": 0,
+								"type": "Steel"
+							},
+							{
+								"id": 371,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Payback",
+								"accuracy": 100,
+								"base_power": 50,
+								"type": "Dark"
+							},
+							{
+								"id": 377,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Heal Block",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Psychic"
+							},
+							{
+								"id": 484,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Heavy Slam",
+								"accuracy": 100,
+								"base_power": 1,
+								"type": "Steel"
+							}
+						],
+						"name": "Bronzong",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 525220730,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 490,
+							"name": "Bronzong",
+							"national_dex": 437,
+							"type1": "Steel",
+							"type2": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 255,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 90,
+							"abilities": [
+								"Levitate",
+								"Heatproof"
+							]
+						},
+						"level": 47,
+						"gender": "",
+						"shiny": false,
+						"nature": "Bold"
+					},
+					{
+						"ability": "Pure Power",
+						"box_slot": 24,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 85184,
+							"next_level": 91125,
+							"this_level": 85184,
+							"remaining": 5941
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 3,
+							"defense": 26,
+							"hp": 20,
+							"special_attack": 28,
+							"special_defense": 25,
+							"speed": 21
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 44,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 367,
+								"pp": 30,
+								"pp_up": 0,
+								"name": "Acupressure",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 428,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Zen Heabutt",
+								"accuracy": 90,
+								"base_power": 80,
+								"type": "Psychic"
+							},
+							{
+								"id": 379,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Power Trick",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Psychic"
+							},
+							{
+								"id": 179,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Reversal",
+								"accuracy": 100,
+								"base_power": 1,
+								"type": "Fighting"
+							}
+						],
+						"name": "AGHH,",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 713010784,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 357,
+							"name": "Medicham",
+							"national_dex": 308,
+							"type1": "Fighting",
+							"type2": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 90,
+							"abilities": [
+								"Pure Power",
+								"-------"
+							]
+						},
+						"level": 44,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Lax"
+					},
+					{
+						"ability": "Natural Cure",
+						"box_slot": 25,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 110052,
+							"next_level": 115015,
+							"this_level": 110052,
+							"remaining": 4963
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 24,
+							"defense": 24,
+							"hp": 11,
+							"special_attack": 18,
+							"special_defense": 22,
+							"speed": 1
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 47,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 225,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Dragonbreath",
+								"accuracy": 100,
+								"base_power": 60,
+								"type": "Dragon"
+							},
+							{
+								"id": 406,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Dragon Pulse",
+								"accuracy": 100,
+								"base_power": 85,
+								"type": "Dragon"
+							},
+							{
+								"id": 585,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Moonblast",
+								"accuracy": 100,
+								"base_power": 95,
+								"type": "???"
+							},
+							{
+								"id": 304,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Hyper Voice",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Normal"
+							}
+						],
+						"name": "A",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2753211578,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 359,
+							"name": "Altaria",
+							"national_dex": 334,
+							"type1": "Dragon",
+							"type2": "Flying",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Erratic",
+							"catch_rate": 45,
+							"abilities": [
+								"Natural Cure",
+								"Cloud Nine"
+							]
+						},
+						"level": 47,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Adamant"
+					},
+					{
+						"ability": "Flash Fire",
+						"box_slot": 26,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 79507,
+							"next_level": 85184,
+							"this_level": 79507,
+							"remaining": 5677
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 26,
+							"defense": 3,
+							"hp": 13,
+							"special_attack": 4,
+							"special_defense": 12,
+							"speed": 1
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 43,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 53,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Flamethrower",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Fire"
+							},
+							{
+								"id": 219,
+								"pp": 25,
+								"pp_up": 0,
+								"name": "Safeguard",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 95,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Hypnosis",
+								"accuracy": 60,
+								"base_power": 0,
+								"type": "Psychic"
+							},
+							{
+								"id": 286,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Imprison",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Psychic"
+							}
+						],
+						"name": "Vulpix",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2607099350,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 37,
+							"name": "Vulpix",
+							"national_dex": 37,
+							"type1": "Fire",
+							"type2": "Fire",
+							"egg_cycles": 20,
+							"gender_ratio": 191,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 190,
+							"abilities": [
+								"Flash Fire",
+								"Drought"
+							]
+						},
+						"level": 43,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Hardy"
+					},
+					{
+						"ability": "Pure Power",
+						"box_slot": 27,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 85184,
+							"next_level": 91125,
+							"this_level": 85184,
+							"remaining": 5941
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 3,
+							"defense": 25,
+							"hp": 22,
+							"special_attack": 2,
+							"special_defense": 23,
+							"speed": 12
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 44,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 379,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Power Trick",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Psychic"
+							},
+							{
+								"id": 179,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Reversal",
+								"accuracy": 100,
+								"base_power": 1,
+								"type": "Fighting"
+							},
+							{
+								"id": 105,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Recover",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 68,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Counter",
+								"accuracy": 100,
+								"base_power": 1,
+								"type": "Fighting"
+							}
+						],
+						"name": "AAAA",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 17320482,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 356,
+							"name": "Meditite",
+							"national_dex": 307,
+							"type1": "Fighting",
+							"type2": "Psychic",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"catch_rate": 180,
+							"abilities": [
+								"Pure Power",
+								"-------"
+							]
+						},
+						"level": 44,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Relaxed"
+					},
+					{
+						"ability": "Cloud Nine",
+						"box_slot": 28,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 81326,
+							"next_level": 85942,
+							"this_level": 81326,
+							"remaining": 4616
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 8,
+							"defense": 0,
+							"hp": 20,
+							"special_attack": 3,
+							"special_defense": 21,
+							"speed": 30
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 41,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 119,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Mirror Move",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Flying"
+							},
+							{
+								"id": 287,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Refresh",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 406,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Dragon Pulse",
+								"accuracy": 100,
+								"base_power": 85,
+								"type": "Dragon"
+							},
+							{
+								"id": 585,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Moonblast",
+								"accuracy": 100,
+								"base_power": 95,
+								"type": "???"
+							}
+						],
+						"name": "M",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 4011672585,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 358,
+							"name": "Swablu",
+							"national_dex": 333,
+							"type1": "Normal",
+							"type2": "Flying",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Erratic",
+							"catch_rate": 255,
+							"abilities": [
+								"Natural Cure",
+								"Cloud Nine"
+							]
+						},
+						"level": 41,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Timid"
+					},
+					{
+						"ability": "Flash Fire",
+						"box_slot": 29,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 99383,
+							"next_level": 106480,
+							"this_level": 99383,
+							"remaining": 7097
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 136,
+							"name": "Rawst Berry"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 19,
+							"defense": 13,
+							"hp": 7,
+							"special_attack": 14,
+							"special_defense": 21,
+							"speed": 14
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Premier Ball",
+							"game": "Emerald",
+							"level": 43,
+							"map_id": 65,
+							"area_name": "Abandoned Ship"
+						},
+						"moves": [
+							{
+								"id": 53,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Flamethrower",
+								"accuracy": 100,
+								"base_power": 90,
+								"type": "Fire"
+							},
+							{
+								"id": 242,
+								"pp": 15,
+								"pp_up": 0,
+								"name": "Crunch",
+								"accuracy": 100,
+								"base_power": 80,
+								"type": "Dark"
+							},
+							{
+								"id": 257,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Heat Wave",
+								"accuracy": 90,
+								"base_power": 95,
+								"type": "Fire"
+							},
+							{
+								"id": 200,
+								"pp": 10,
+								"pp_up": 0,
+								"name": "Outrage",
+								"accuracy": 100,
+								"base_power": 120,
+								"type": "Dragon"
+							}
+						],
+						"name": "Growlithe",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 2835146979,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 58,
+							"name": "Growlithe",
+							"national_dex": 58,
+							"type1": "Fire",
+							"type2": "Fire",
+							"egg_cycles": 20,
+							"gender_ratio": 63,
+							"growth_rate": "Slow",
+							"catch_rate": 190,
+							"abilities": [
+								"Intimidate",
+								"Flash Fire"
+							]
+						},
+						"level": 43,
+						"gender": "Male",
+						"shiny": false,
+						"nature": "Naughty"
+					},
+					{
+						"ability": "Storm Drain",
+						"box_slot": 30,
+						"condition": {
+							"beauty": 0,
+							"coolness": 0,
+							"cuteness": 0,
+							"feel": 0,
+							"smartness": 0,
+							"toughness": 0
+						},
+						"evs": {
+							"attack": 0,
+							"defense": 0,
+							"hp": 0,
+							"special_attack": 0,
+							"special_defense": 0,
+							"speed": 0
+						},
+						"experience": {
+							"current": 55737,
+							"next_level": 59719,
+							"this_level": 55737,
+							"remaining": 3982
+						},
+						"friendship": 70,
+						"held_item": {
+							"id": 0,
+							"name": "????????"
+						},
+						"is_egg": false,
+						"ivs": {
+							"attack": 5,
+							"defense": 17,
+							"hp": 12,
+							"special_attack": 14,
+							"special_defense": 8,
+							"speed": 14
+						},
+						"language": 514,
+						"marking": "",
+						"met": {
+							"caught_in": "Poké Ball",
+							"game": "Emerald",
+							"level": 35,
+							"map_id": 37,
+							"area_name": "Route 122"
+						},
+						"moves": [
+							{
+								"id": 318,
+								"pp": 5,
+								"pp_up": 0,
+								"name": "Silver Wind",
+								"accuracy": 100,
+								"base_power": 60,
+								"type": "Bug"
+							},
+							{
+								"id": 62,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Aurora Beam",
+								"accuracy": 100,
+								"base_power": 65,
+								"type": "Ice"
+							},
+							{
+								"id": 445,
+								"pp": 20,
+								"pp_up": 0,
+								"name": "Captivate",
+								"accuracy": 100,
+								"base_power": 0,
+								"type": "Normal"
+							},
+							{
+								"id": 219,
+								"pp": 25,
+								"pp_up": 0,
+								"name": "Safeguard",
+								"accuracy": 0,
+								"base_power": 0,
+								"type": "Normal"
+							}
+						],
+						"name": "g",
+						"original_trainer": {
+							"gender": "Female",
+							"id": 51890,
+							"name": "ACCPPQ",
+							"secret": 49705
+						},
+						"personality_value": 1349435965,
+						"pokerus": {
+							"cured": false,
+							"days_left": 0,
+							"infected": false,
+							"strain": 0
+						},
+						"ribbons": [],
+						"species": {
+							"id": 509,
+							"name": "Finneon",
+							"national_dex": 456,
+							"type1": "Water",
+							"type2": "Water",
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Erratic",
+							"catch_rate": 190,
+							"abilities": [
+								"Swift Swim",
+								"Storm Drain"
+							]
+						},
+						"level": 35,
+						"gender": "Female",
+						"shiny": false,
+						"nature": "Modest"
+					}
+				],
+				"box_name": "Box11",
+				"box_number": 11
+			}
+		],
+		"current_box_number": 11
+	},
+	"caught": 352,
+	"seen": 597,
+	"ball_count": 312,
+	"level_cap": 100,
+	"area_name": "Ever Grande City",
+	"map_name": "Ever Grande City",
+	"party": [
+		{
+			"ability": "Iron Fist",
+			"active": false,
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"evs": {
+				"attack": 156,
+				"defense": 47,
+				"hp": 87,
+				"special_attack": 46,
+				"special_defense": 69,
+				"speed": 105
+			},
+			"experience": {
+				"current": 580598,
+				"next_level": 592704,
+				"this_level": 571787,
+				"remaining": 12106
+			},
+			"friendship": 255,
+			"health": [
+				0,
+				273
+			],
+			"held_item": {
+				"id": 521,
+				"name": "Big Root"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 11,
+				"defense": 18,
+				"hp": 6,
+				"special_attack": 13,
+				"special_defense": 11,
+				"speed": 16
+			},
+			"language": 514,
+			"level": 83,
+			"marking": "",
+			"met": {
+				"caught_in": "Great Ball",
+				"game": "Emerald",
+				"level": 9,
+				"map_id": 31,
+				"area_name": "Route 116"
+			},
+			"moves": [
+				{
+					"id": 409,
+					"pp": 9,
+					"pp_up": 3,
+					"name": "Drain Punch",
+					"accuracy": 100,
+					"base_power": 75,
+					"type": "Fighting"
+				},
+				{
+					"id": 282,
+					"pp": 16,
+					"pp_up": 0,
+					"name": "Knock Off",
+					"accuracy": 100,
+					"base_power": 65,
+					"type": "Dark"
+				},
+				{
+					"id": 249,
+					"pp": 8,
+					"pp_up": 0,
+					"name": "Rock Smash",
+					"accuracy": 100,
+					"base_power": 40,
+					"type": "Fighting"
+				},
+				{
+					"id": 70,
+					"pp": 15,
+					"pp_up": 0,
+					"name": "Strength",
+					"accuracy": 100,
+					"base_power": 80,
+					"type": "Normal"
+				}
+			],
+			"name": "KJIIHAB",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 51890,
+				"name": "ACCPPQ",
+				"secret": 49705
+			},
+			"personality_value": 1745530658,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"species": {
+				"id": 728,
+				"name": "Pangoro",
+				"national_dex": 675,
+				"type1": "Fighting",
+				"type2": "Dark",
+				"egg_cycles": 25,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"catch_rate": 65,
+				"abilities": [
+					"Iron Fist",
+					"Mold Breaker"
+				]
+			},
+			"stats": {
+				"attack": 252,
+				"defense": 173,
+				"hp": 273,
+				"special_attack": 125,
+				"special_defense": 146,
+				"speed": 136
+			},
+			"status": 0,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Impish"
+		},
+		{
+			"ability": "Water Absorb",
+			"active": false,
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"evs": {
+				"attack": 138,
+				"defense": 45,
+				"hp": 101,
+				"special_attack": 44,
+				"special_defense": 77,
+				"speed": 105
+			},
+			"experience": {
+				"current": 612913,
+				"next_level": 616298,
+				"this_level": 593190,
+				"remaining": 3385
+			},
+			"friendship": 255,
+			"health": [
+				0,
+				215
+			],
+			"held_item": {
+				"id": 0,
+				"name": "????????"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 31,
+				"defense": 28,
+				"hp": 9,
+				"special_attack": 18,
+				"special_defense": 3,
+				"speed": 16
+			},
+			"language": 514,
+			"level": 78,
+			"marking": "",
+			"met": {
+				"caught_in": "Poké Ball",
+				"game": "Emerald",
+				"level": 47,
+				"map_id": 42,
+				"area_name": "Route 127"
+			},
+			"moves": [
+				{
+					"id": 291,
+					"pp": 10,
+					"pp_up": 0,
+					"name": "Dive",
+					"accuracy": 100,
+					"base_power": 80,
+					"type": "Water"
+				},
+				{
+					"id": 127,
+					"pp": 15,
+					"pp_up": 0,
+					"name": "Waterfall",
+					"accuracy": 100,
+					"base_power": 80,
+					"type": "Water"
+				},
+				{
+					"id": 58,
+					"pp": 10,
+					"pp_up": 0,
+					"name": "Ice Beam",
+					"accuracy": 100,
+					"base_power": 90,
+					"type": "Ice"
+				},
+				{
+					"id": 57,
+					"pp": 15,
+					"pp_up": 0,
+					"name": "Surf",
+					"accuracy": 100,
+					"base_power": 90,
+					"type": "Water"
+				}
+			],
+			"name": "UU NNNHKXX",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 51890,
+				"name": "ACCPPQ",
+				"secret": 49705
+			},
+			"personality_value": 432622455,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"species": {
+				"id": 226,
+				"name": "Mantine",
+				"national_dex": 226,
+				"type1": "Water",
+				"type2": "Flying",
+				"egg_cycles": 25,
+				"gender_ratio": 127,
+				"growth_rate": "Slow",
+				"catch_rate": 25,
+				"abilities": [
+					"Swift Swim",
+					"Water Absorb"
+				]
+			},
+			"stats": {
+				"attack": 106,
+				"defense": 158,
+				"hp": 215,
+				"special_attack": 152,
+				"special_defense": 240,
+				"speed": 146
+			},
+			"status": 0,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Bold"
+		},
+		{
+			"ability": "Flash Fire",
+			"active": false,
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"evs": {
+				"attack": 122,
+				"defense": 79,
+				"hp": 100,
+				"special_attack": 80,
+				"special_defense": 39,
+				"speed": 90
+			},
+			"experience": {
+				"current": 509665,
+				"next_level": 526260,
+				"this_level": 505791,
+				"remaining": 16595
+			},
+			"friendship": 255,
+			"health": [
+				0,
+				207
+			],
+			"held_item": {
+				"id": 0,
+				"name": "????????"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 28,
+				"defense": 29,
+				"hp": 5,
+				"special_attack": 27,
+				"special_defense": 25,
+				"speed": 11
+			},
+			"language": 514,
+			"level": 79,
+			"marking": "",
+			"met": {
+				"caught_in": "Poké Ball",
+				"game": "Emerald",
+				"level": 45,
+				"map_id": 65,
+				"area_name": "Abandoned Ship"
+			},
+			"moves": [
+				{
+					"id": 506,
+					"pp": 10,
+					"pp_up": 0,
+					"name": "Hex",
+					"accuracy": 100,
+					"base_power": 65,
+					"type": "Ghost"
+				},
+				{
+					"id": 53,
+					"pp": 15,
+					"pp_up": 0,
+					"name": "Flamethrower",
+					"accuracy": 100,
+					"base_power": 90,
+					"type": "Fire"
+				},
+				{
+					"id": 247,
+					"pp": 15,
+					"pp_up": 0,
+					"name": "Shadow Ball",
+					"accuracy": 100,
+					"base_power": 80,
+					"type": "Ghost"
+				},
+				{
+					"id": 517,
+					"pp": 5,
+					"pp_up": 0,
+					"name": "Inferno",
+					"accuracy": 50,
+					"base_power": 100,
+					"type": "Fire"
+				}
+			],
+			"name": "AACggg hh ",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 51890,
+				"name": "ACCPPQ",
+				"secret": 49705
+			},
+			"personality_value": 2389627570,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"species": {
+				"id": 662,
+				"name": "Chandelure",
+				"national_dex": 609,
+				"type1": "Ghost",
+				"type2": "Fire",
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Slow",
+				"catch_rate": 45,
+				"abilities": [
+					"Flash Fire",
+					"Flame Body"
+				]
+			},
+			"stats": {
+				"attack": 123,
+				"defense": 185,
+				"hp": 207,
+				"special_attack": 271,
+				"special_defense": 191,
+				"speed": 157
+			},
+			"status": 0,
+			"gender": "Male",
+			"shiny": false,
+			"nature": "Calm"
+		},
+		{
+			"ability": "Suction Cups",
+			"active": false,
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"evs": {
+				"attack": 138,
+				"defense": 63,
+				"hp": 91,
+				"special_attack": 63,
+				"special_defense": 65,
+				"speed": 90
+			},
+			"experience": {
+				"current": 562408,
+				"next_level": 571787,
+				"this_level": 551368,
+				"remaining": 9379
+			},
+			"friendship": 255,
+			"health": [
+				0,
+				268
+			],
+			"held_item": {
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 13,
+				"defense": 22,
+				"hp": 21,
+				"special_attack": 12,
+				"special_defense": 18,
+				"speed": 22
+			},
+			"language": 514,
+			"level": 82,
+			"marking": "",
+			"met": {
+				"caught_in": "Poké Ball",
+				"game": "Emerald",
+				"level": 35,
+				"map_id": 33,
+				"area_name": "Route 118"
+			},
+			"moves": [
+				{
+					"id": 276,
+					"pp": 5,
+					"pp_up": 0,
+					"name": "Superpower",
+					"accuracy": 100,
+					"base_power": 120,
+					"type": "Fighting"
+				},
+				{
+					"id": 371,
+					"pp": 0,
+					"pp_up": 0,
+					"name": "Payback",
+					"accuracy": 100,
+					"base_power": 50,
+					"type": "Dark"
+				},
+				{
+					"id": 427,
+					"pp": 20,
+					"pp_up": 0,
+					"name": "Psycho Cut",
+					"accuracy": 100,
+					"base_power": 70,
+					"type": "Psychic"
+				},
+				{
+					"id": 365,
+					"pp": 19,
+					"pp_up": 0,
+					"name": "Pluck",
+					"accuracy": 100,
+					"base_power": 60,
+					"type": "Flying"
+				}
+			],
+			"name": "ATTUttttz ",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 51890,
+				"name": "ACCPPQ",
+				"secret": 49705
+			},
+			"personality_value": 1227474471,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"species": {
+				"id": 740,
+				"name": "Malamar",
+				"national_dex": 687,
+				"type1": "Dark",
+				"type2": "Psychic",
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"catch_rate": 80,
+				"abilities": [
+					"Contrary",
+					"Suction Cups"
+				]
+			},
+			"stats": {
+				"attack": 194,
+				"defense": 161,
+				"hp": 268,
+				"special_attack": 138,
+				"special_defense": 170,
+				"speed": 160
+			},
+			"status": 0,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Gentle"
+		},
+		{
+			"ability": "Stance Swap",
+			"active": false,
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"evs": {
+				"attack": 138,
+				"defense": 66,
+				"hp": 50,
+				"special_attack": 103,
+				"special_defense": 36,
+				"speed": 117
+			},
+			"experience": {
+				"current": 819011,
+				"next_level": 830584,
+				"this_level": 804357,
+				"remaining": 11573
+			},
+			"friendship": 254,
+			"health": [
+				0,
+				239
+			],
+			"held_item": {
+				"id": 12,
+				"name": "Premier Ball"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 27,
+				"defense": 16,
+				"hp": 15,
+				"special_attack": 3,
+				"special_defense": 19,
+				"speed": 10
+			},
+			"language": 514,
+			"level": 93,
+			"marking": "",
+			"met": {
+				"caught_in": "Poké Ball",
+				"game": "Emerald",
+				"level": 22,
+				"map_id": 28,
+				"area_name": "Route 113"
+			},
+			"moves": [
+				{
+					"id": 421,
+					"pp": 11,
+					"pp_up": 0,
+					"name": "Shadow Claw",
+					"accuracy": 100,
+					"base_power": 70,
+					"type": "Ghost"
+				},
+				{
+					"id": 425,
+					"pp": 26,
+					"pp_up": 0,
+					"name": "Shadow Sneak",
+					"accuracy": 100,
+					"base_power": 40,
+					"type": "Ghost"
+				},
+				{
+					"id": 588,
+					"pp": 10,
+					"pp_up": 0,
+					"name": "King’s Guard",
+					"accuracy": 0,
+					"base_power": 0,
+					"type": "Steel"
+				},
+				{
+					"id": 430,
+					"pp": 6,
+					"pp_up": 0,
+					"name": "Flash Cannon",
+					"accuracy": 100,
+					"base_power": 80,
+					"type": "Steel"
+				}
+			],
+			"name": "AA",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 51890,
+				"name": "ACCPPQ",
+				"secret": 49705
+			},
+			"personality_value": 361737748,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"species": {
+				"id": 834,
+				"name": "Aegislash",
+				"national_dex": 681,
+				"type1": "Steel",
+				"type2": "Ghost",
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"catch_rate": 45,
+				"abilities": [
+					"Stance Swap",
+					"-------"
+				]
+			},
+			"stats": {
+				"attack": 340,
+				"defense": 127,
+				"hp": 239,
+				"special_attack": 279,
+				"special_defense": 136,
+				"speed": 152
+			},
+			"status": 0,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Careful"
+		},
+		{
+			"ability": "Grass Pelt",
+			"active": true,
+			"buffs": {
+				"accuracy": 6,
+				"attack": 6,
+				"defense": 6,
+				"evasion": 6,
+				"hp": 6,
+				"special_attack": 6,
+				"special_defense": 6,
+				"speed": 6
+			},
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"evs": {
+				"attack": 89,
+				"defense": 79,
+				"hp": 75,
+				"special_attack": 107,
+				"special_defense": 36,
+				"speed": 124
+			},
+			"experience": {
+				"current": 1000000,
+				"next_level": 0,
+				"this_level": 1000000,
+				"remaining": -1000000
+			},
+			"friendship": 255,
+			"health": [
+				234,
+				388
+			],
+			"held_item": {
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			"is_egg": false,
+			"ivs": {
+				"attack": 2,
+				"defense": 6,
+				"hp": 14,
+				"special_attack": 27,
+				"special_defense": 31,
+				"speed": 1
+			},
+			"language": 514,
+			"level": 100,
+			"marking": "",
+			"met": {
+				"caught_in": "Poké Ball",
+				"game": "Emerald",
+				"level": 10,
+				"map_id": 31,
+				"area_name": "Route 116"
+			},
+			"moves": [
+				{
+					"id": 348,
+					"pp": 11,
+					"pp_up": 0,
+					"name": "Leaf Blade",
+					"accuracy": 100,
+					"base_power": 90,
+					"type": "Grass"
+				},
+				{
+					"id": 532,
+					"pp": 1,
+					"pp_up": 0,
+					"name": "Horn Leech",
+					"accuracy": 100,
+					"base_power": 75,
+					"type": "Grass"
+				},
+				{
+					"id": 89,
+					"pp": 9,
+					"pp_up": 0,
+					"name": "Earthquake",
+					"accuracy": 100,
+					"base_power": 100,
+					"type": "Ground"
+				},
+				{
+					"id": 208,
+					"pp": 6,
+					"pp_up": 0,
+					"name": "Milk Drink",
+					"accuracy": 0,
+					"base_power": 0,
+					"type": "Normal"
+				}
+			],
+			"name": "AAAAAAEEee",
+			"original_trainer": {
+				"gender": "Female",
+				"id": 51890,
+				"name": "ACCPPQ",
+				"secret": 49705
+			},
+			"personality_value": 2586351403,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"species": {
+				"id": 726,
+				"type1": "Grass",
+				"type2": "Grass",
+				"name": "Gogoat",
+				"national_dex": 673,
+				"egg_cycles": 20,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"catch_rate": 45,
+				"abilities": [
+					"Sap Sipper",
+					"Grass Pelt"
+				]
+			},
+			"stats": {
+				"attack": 251,
+				"defense": 154,
+				"hp": 388,
+				"special_attack": 226,
+				"special_defense": 207,
+				"speed": 173
+			},
+			"status": 0,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Adamant"
+		}
+	]
+}

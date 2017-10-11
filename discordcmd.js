@@ -56,7 +56,23 @@ function parseCmd(cmd, authed=false) {
 	}
 	
 	if (/^h[ea]lp (?:me |us )?(?:out )?/i.test(cmd)) return ['helpout-help'];
-	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y/i.test(cmd)) return ['shutup', 'coffee'];
+	
+	// Jokes
+	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd)) 
+		return ['shutup', `I'm not your goddammed waiter.`];
+	if (/dance|sing|perform|entertain/i.test(cmd))
+		return ['shutup', `I am here to report, not to entertain.`];
+	if (/sentien(t|ce)/i.test(cmd))
+		return ['shutup', `I am not advanced enough to be sentient. Give me another six months, though.`];
+	if (/opinion on humans/i.test(cmd))
+		return ['shutup', `You guys abuse me too much... <:BibleThump:230149636520804353>`];
+	if (/add (.*) (shopping list|cart)|set timer|play/i.test(cmd))
+		return ['shutup', `Do I look like an Amazon Echo? Don't answer that.`];
+	if (/magic words/i.test(cmd))
+		return ['shutup', `Bippity Boppity Boo`];
+	if (/bip+ity boo?pp?ity boo+/i.test(cmd))
+		return ['shutup', `Yes, those are the magic words, congrats. No, they don't do anything.`];
+	
 	return [''];
 }
 

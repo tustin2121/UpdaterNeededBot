@@ -254,11 +254,37 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 	}),
 	City("Sootopolis City", id(0,7), {
 		buildings: [
-			Gym([id(15,0), id(15,1)], {
+			// Gym([id(15,0), id(15,1)], {
+			// 	leader: "Juan", //Wallace
+			// 	badge: "Rain",
+			// 	leaderClass: 0x110,
+			// 	locOf: { leader: "23,7" },
+			// }),
+			Gym(id(15,0), {
 				leader: "Juan", //Wallace
 				badge: "Rain",
 				leaderClass: 0x110,
 				locOf: { leader: "23,7" },
+				announce: ({prev, curr})=>{
+					if (prev.location.map_bank !== 15 && prev.location.map_id !== 1) {
+						return `We enter the Sootopolis City Gym!`;
+					}
+					return '';
+				},
+			}),
+			Gym(id(15,1), {
+				announce: ({prev, curr})=>{
+					if (prev.location.y < 0x08 || curr.location.y < 0x08) {
+						return `We failed the third puzzle.`;
+					}
+					if (prev.location.y < 0x10 || curr.location.y < 0x10) {
+						return `We failed the second puzzle.`;
+					}
+					if (prev.location.y < 0x14 || curr.location.y < 0x14) {
+						return `We failed the first puzzle.`;
+					}
+					return '';
+				},
 			}),
 			PokeCenter(id(15,2), id(15,3)),
 			PokeMart(id(15,4)),
@@ -267,6 +293,7 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 		locOf: { flySpot: "43,32", },
 	}),
 	City("Ever Grande City", id(0,8), {
+		attrs:{ "e4":"lobby" },
 		buildings: [
 			PokeCenter(id(16,12), id(16,13)),
 			Building("Pokemon League", {
@@ -279,7 +306,9 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 							locOf: { "pc":"6,2", },
 						},
 					}),
-					Floor(id(16,14), {  }),
+					Floor(id(16,14), { 
+						attrs:{ "e4":"lobby" },
+					}),
 					Floor(id(16,9), {
 						attrs:{ "e4":"e4" },
 					}),
@@ -446,7 +475,7 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 	}),
 	Route(117, id(0,32), {
 		buildings: [
-			House(id(22,0), { name:"Daycare" }),
+			House(id(22,0), { name:"Daycare", the:true }),
 		],
 		exits: [ "Verdanturf Town", "Mauville City" ],
 	}),
@@ -456,6 +485,7 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 	Route(119, id(0,34), {
 		buildings: [
 			Building("Weather Institute", {
+				the: true,
 				floors: [
 					Floor(id(32,0)),
 					Floor(id(32,1)),
@@ -692,6 +722,20 @@ new Region({ name:"Hoenn", mapidFn:mapidFn }, [
 			Floor(id(24,95)),
 			Floor(id(24,96)),
 			Floor(id(24,97)),
+		],
+	}),
+	Dungeon("Seafloor Cavern", {
+		floors: [
+			Floor(id(24,27)),
+			Floor(id(24,28)),
+			Floor(id(24,29)),
+			Floor(id(24,30)),
+			Floor(id(24,31)),
+			Floor(id(24,32)),
+			Floor(id(24,33)),
+			Floor(id(24,34)),
+			Floor(id(24,35)),
+			Floor(id(24,36)),
 		],
 	}),
 	

@@ -6,6 +6,10 @@ module.exports = {
 	// liveID : "ysqpsvyo0yjv",
 	// liveID : "z18x8cl311q8",
 	liveID : "zp33mop6axqp",
+	
+	// The Discord LiveUpdater channel snowflake
+	discordID: '367499647410765824',
+	
 	// Unix timestamp since when the run started
 	runStart : 1506805200,
 	

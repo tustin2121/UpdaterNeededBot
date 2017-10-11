@@ -189,6 +189,8 @@ class Reporter {
 		return `[*Error generating table*]`;
 	} */
 	geneateCatchTable(timestamp) {
+		return '';
+		/*
 		try {
 			if (!this.caughtMon.length) return null;
 			let output = `| Species | Name | Nick | Gender | Level | Held | Move 1 | Move 2 | Move 3 | Move 4 | Pokeball | Time Caught | Box # |\n`;
@@ -197,7 +199,7 @@ class Reporter {
 				output +=`| ${m.species} | ${m.name} | | ${m.gender.charAt(0).toLowerCase()} `;
 				output +=`| ${m.level} | ${m.item||"none"} `;
 				output +=`| ${m.moves[0]||""} | ${m.moves[1]||""} | ${m.moves[2]||""} | ${m.moves[3]||""} `;
-				output +=`| `; //Pokeball info can't be known in Gen 2
+				output +=`| ${m.caughtIn} `; //Pokeball info can't be known in Gen 2
 				output +=`| ${timestamp} | ${m.storedIn} |\n`;
 			});
 			return output;
@@ -205,6 +207,7 @@ class Reporter {
 			console.error('Error generating catch table!', e);
 		}
 		return `[*Error generating table*]`;
+		*/
 	}
 }
 
@@ -458,7 +461,8 @@ discoveries = [
 				report.e4 = 'hallOfFame';
 			}
 		} else if (prev.location.is('e4')) {
-			if (!curr.location.is('e4')) {
+			if (!curr.location.is('e4') || (curr.location.is('e4') === 'lobby' && prev.location.is('e4') !== 'lobby')) {
+				report.blackout = 'e4turnover';
 				report.e4 = 'turnover';
 			}
 		}
@@ -1051,13 +1055,15 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 	// Location changes
 	function leavingAnnouncement(tags) {
 		if (tags) return;
-		if (this.report.announceLeaving) return this.report.announceLeaving;
+		if (this.report.announceLeaving !== undefined) {
+			return this.report.announceLeaving;
+		}
 	},
 	function mapChange(tags) { // Last
 		if (tags) return;
 		if (!this.report.mapChange) return;
 		let report = this.report.mapChange;
-		if (report.announceEntering) {
+		if (report.announceEntering !== undefined) {
 			return report.announceEntering;
 		}
 		

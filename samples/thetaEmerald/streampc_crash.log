@@ -1,0 +1,751 @@
+================== Refreshing =====================
+Parsing info...
+Parsed.
+Reporter reporting in...
+Location {
+  node: 
+   Node { name: 'Mossdeep City',
+     region: Region (Hoenn),
+     mapids: [Array],
+     attrs: [Object],
+     locOf: [Object],
+     parent: Node [--](Mystery Zone),
+     children: 5,
+     connections: 3,
+     _enter: null,
+     _exit: null },
+  map_name: 'Mossdeep City',
+  x: 13,
+  y: 22,
+  z: 0,
+  map_bank: 0,
+  map_id: 6,
+  area_id: 13,
+  area_name: 'Mossdeep City',
+  parent_id: 0,
+  matrix_id: 0 }
+blackout discovery: pp=0, hp=0
+Reporter found no update.
+================= Finished ====================
+test data written to status_api.43.json
+================== Refreshing =====================
+Error in Main: SyntaxError: Unexpected token c in JSON at position 409115
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.res.on (/home/tustin/updaterneeded/index.js:253:19)
+    at emitNone (events.js:110:20)
+    at IncomingMessage.emit (events.js:207:7)
+    at endReadableNT (_stream_readable.js:1047:12)
+    at _combinedTickCallback (internal/process/next_tick.js:102:11)
+    at process._tickCallback (internal/process/next_tick.js:161:9)
+================== Refreshing =====================
+Request Failed. Status Code: 503
+Error in Main: Error: Request Failed. Status Code: 503
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 503
+Error in Main: Error: Request Failed. Status Code: 503
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 503
+Error in Main: Error: Request Failed. Status Code: 503
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 503
+Error in Main: Error: Request Failed. Status Code: 503
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 503
+Error in Main: Error: Request Failed. Status Code: 503
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 502
+Error in Main: Error: Request Failed. Status Code: 502
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 502
+Error in Main: Error: Request Failed. Status Code: 502
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 502
+Error in Main: Error: Request Failed. Status Code: 502
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 504
+Error in Main: Error: Request Failed. Status Code: 504
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 404
+Error in Main: Error: Request Failed. Status Code: 404
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Request Failed. Status Code: 404
+Error in Main: Error: Request Failed. Status Code: 404
+    at ClientRequest.http.get (/home/tustin/updaterneeded/index.js:238:13)
+    at Object.onceWrapper (events.js:316:30)
+    at emitOne (events.js:115:13)
+    at ClientRequest.emit (events.js:210:7)
+    at HTTPParser.parserOnIncomingClient (_http_client.js:564:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+    at TLSSocket.socketOnData (_http_client.js:453:20)
+    at emitOne (events.js:115:13)
+    at TLSSocket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+================== Refreshing =====================
+Parsing info...
+Parsed.
+Reporter reporting in...
+Location {
+  node: 
+   Node { name: 'Mossdeep City',
+     region: Region (Hoenn),
+     mapids: [Array],
+     attrs: [Object],
+     locOf: [Object],
+     parent: Node [--](Mystery Zone),
+     children: 5,
+     connections: 3,
+     _enter: null,
+     _exit: null },
+  map_name: 'Mossdeep City',
+  x: 13,
+  y: 22,
+  z: 0,
+  map_bank: 0,
+  map_id: 6,
+  area_id: 13,
+  area_name: 'Mossdeep City',
+  parent_id: 0,
+  matrix_id: 0 }
+blackout discovery: pp=0, hp=0
+LOST POKEMON: AAHHHHHHHH (Flabébé)!
+LOST POKEMON: AAABBijjlt (Blaziken)!
+LOST POKEMON: ATTWEECMSS (Mareep)!
+LOST POKEMON: Shinx (Shinx)!
+LOST POKEMON: DDDWwwww (Xatu)!
+LOST POKEMON: AAAAAAAAAA (Deerling)!
+LOST POKEMON: AAAAAAAAAA (Sylveon)!
+LOST POKEMON: AONPPPPJ (Poochyena)!
+LOST POKEMON: T (Togepi)!
+LOST POKEMON: ....,,,,,  (Weedle)!
+LOST POKEMON: A  ,,, SZT (Zigzagoon)!
+LOST POKEMON: Wurmple (Wurmple)!
+LOST POKEMON:    . (Spritzee)!
+LOST POKEMON: HIBDWDDLL (Hoothoot)!
+LOST POKEMON: AGGHHCCIJ  (Hoppip)!
+LOST POKEMON: Bellsprout (Bellsprout)!
+LOST POKEMON: Bidoof (Bidoof)!
+LOST POKEMON: TTWTUCC (Poliwag)!
+LOST POKEMON: Plusle (Plusle)!
+LOST POKEMON: AAAAAAAAVV (Minun)!
+LOST POKEMON: Uc0 (Lombre)!
+LOST POKEMON: TTTmmeeek (Chatot)!
+LOST POKEMON: ATTUttttz  (Inkay)!
+LOST POKEMON: AATTVVc”11 (Emolga)!
+LOST POKEMON: AAYYYEYYZ (Pinsir)!
+LOST POKEMON: Kecleon (Kecleon)!
+LOST POKEMON: AZZ        (Foongus)!
+LOST POKEMON: BB  Y (Tropius)!
+LOST POKEMON: Goomy (Goomy)!
+LOST POKEMON: AAYXQ (Carnivine)!
+LOST POKEMON: AAAAL (Scyther)!
+LOST POKEMON: AA (Skorupi)!
+LOST POKEMON: AAA. (Arbok)!
+LOST POKEMON: Gloom (Gloom)!
+LOST POKEMON: NNQZ WWW (Weepinbell)!
+LOST POKEMON: Castform (Castform)!
+LOST POKEMON: DXXXWZZ (Absol)!
+LOST POKEMON: AAOOON (Rufflet)!
+LOST POKEMON: Pawniard (Pawniard)!
+LOST POKEMON: DQWV (Scraggy)!
+LOST POKEMON: DA OOOVVDY (Mienfoo)!
+LOST POKEMON: TYVMUU (Vullaby)!
+LOST POKEMON: AA (Stantler)!
+LOST POKEMON: Shuppet (Shuppet)!
+LOST POKEMON: AAAATvvoo♂ (Wooper)!
+LOST POKEMON: “??994E. (Persian)!
+LOST POKEMON: AAG,, ,    (Liepard)!
+LOST POKEMON: AWPPQK vi  (Mightyena)!
+LOST POKEMON: ADwwppsss  (Drowzee)!
+LOST POKEMON: AMGGHIC (Linoone)!
+LOST POKEMON: ATTYIIIL   (Psyduck)!
+LOST POKEMON: AEEE (Girafarig)!
+LOST POKEMON: AWW G MXET (Buneary)!
+LOST POKEMON: Pikachu (Pikachu)!
+LOST POKEMON:  ZZDPPPPJ (Pidgeotto)!
+LOST POKEMON: BBEXEC (Tangela)!
+LOST POKEMON: AAANYYYYY (Croagunk)!
+LOST POKEMON: ALLFFFFLKR (Bibarel)!
+LOST POKEMON: Quagsire (Quagsire)!
+LOST POKEMON: AMMMMAW (Quagsire)!
+LOST POKEMON: ATTTTGGGT (Quagsire)!
+LOST POKEMON: AAAAAUUUUU (Croagunk)!
+LOST POKEMON: APPK...UB. (Shellos)!
+LOST POKEMON: Shellos (Shellos)!
+LOST POKEMON: AAABBUUUCG (Breloom)!
+LOST POKEMON: AH (Quagsire)!
+LOST POKEMON: Skorupi (Skorupi)!
+LOST POKEMON: GJJ,, ,GG (Exeggcute)!
+LOST POKEMON: ATTMMHCCVV (Exeggcute)!
+LOST POKEMON: AAAAGGMMMM (Houndour)!
+LOST POKEMON: AAAAAHHMM (Noctowl)!
+LOST POKEMON: Sunkern (Sunkern)!
+LOST POKEMON: Ledian (Ledian)!
+LOST POKEMON: AHGMOQ (Noctowl)!
+LOST POKEMON: ACHICBAHG  (Aipom)!
+LOST POKEMON: Sunkern (Sunkern)!
+LOST POKEMON: Sunkern (Sunkern)!
+LOST POKEMON: TMMMMMNUNT (Ariados)!
+LOST POKEMON: Sunkern (Sunkern)!
+LOST POKEMON:  //qqq Y (Shellos)!
+LOST POKEMON: TABVNoi♀‘‘ (Barboach)!
+LOST POKEMON: AATMNMHMNT (Gastrodon)!
+LOST POKEMON: ATBNUBHIV (Swalot)!
+LOST POKEMON: Yanma (Yanma)!
+LOST POKEMON: GGAAABAAB (Skorupi)!
+LOST POKEMON: AAAABbhghh (Banette)!
+LOST POKEMON: AAGGGNVVVV (Chimecho)!
+LOST POKEMON: GGG  ZZS   (Alomomola)!
+LOST POKEMON: YY (Duskull)!
+LOST POKEMON: Zubat (Zubat)!
+LOST POKEMON: Gastly (Gastly)!
+LOST POKEMON: RR (Spiritomb)!
+LOST POKEMON: GGGH (Litwick)!
+LOST POKEMON: Kirlia (Kirlia)!
+LOST POKEMON: ATTAA (Beheeyem)!
+LOST POKEMON: AA   (Golbat)!
+LOST POKEMON: Elgyem (Elgyem)!
+LOST POKEMON: Duosion (Duosion)!
+LOST POKEMON: Haunter (Haunter)!
+LOST POKEMON: Dusclops (Dusclops)!
+LOST POKEMON: Cofagrigus (Cofagrigus)!
+LOST POKEMON: Lampent (Lampent)!
+LOST POKEMON: AAG... (Chingling)!
+LOST POKEMON: Bronzong (Bronzong)!
+LOST POKEMON: AGHH, (Medicham)!
+LOST POKEMON: A (Altaria)!
+LOST POKEMON: Vulpix (Vulpix)!
+LOST POKEMON: AAAA (Meditite)!
+LOST POKEMON: M (Swablu)!
+LOST POKEMON: Growlithe (Growlithe)!
+LOST POKEMON: g (Finneon)!
+LOST POKEMON: Persian (Persian)!
+LOST POKEMON: HHOIPWW (Phanpy)!
+LOST POKEMON: BHHH (Herdier)!
+LOST POKEMON: UWWYUAR (Minccino)!
+LOST POKEMON: DE (Illumise)!
+LOST POKEMON: Joltik (Joltik)!
+LOST POKEMON: KJIIHAB (Pancham)!
+LOST POKEMON: Sudowoodo (Sudowoodo)!
+LOST POKEMON: Furfrou (Furfrou)!
+LOST POKEMON: Turtwig (Turtwig)!
+LOST POKEMON: Kricketune (Kricketune)!
+LOST POKEMON: AAAZ (Pansear)!
+LOST POKEMON: ACCI TTTTT (Pansage)!
+LOST POKEMON: FTT (Panpour)!
+LOST POKEMON: BBBUU (Mr. Mime)!
+LOST POKEMON: AA (Luxio)!
+LOST POKEMON: A (Machop)!
+LOST POKEMON: AWWWS (Tentacruel)!
+LOST POKEMON: AR SNNP (Hawlucha)!
+LOST POKEMON: ..  XZ.UTW (Munna)!
+LOST POKEMON: Audino (Audino)!
+LOST POKEMON: Bbbbeeeee  (Ditto)!
+LOST POKEMON: CCVYV (Tentacool)!
+LOST POKEMON: Cvu’‘/!! (Carbink)!
+LOST POKEMON: AFEIKACVRR (Bagon)!
+LOST POKEMON: AAddee33DS (Karrablast)!
+LOST POKEMON: Lickitung (Lickitung)!
+LOST POKEMON: A (Seviper)!
+LOST POKEMON: AAAA (Shelmet)!
+LOST POKEMON: AAUWWWWWQ  (Druddigon)!
+LOST POKEMON: GGGMGGG (Venipede)!
+LOST POKEMON: AAAATWWWPV (Ferroseed)!
+LOST POKEMON:  SSDDWTMS  (Larvitar)!
+LOST POKEMON: OOOOOY (Maractus)!
+LOST POKEMON: Awdd””““ “ (Torkoal)!
+LOST POKEMON:  ATP (Geodude)!
+LOST POKEMON: AAGD (Geodude)!
+LOST POKEMON: Bonsly (Bonsly)!
+LOST POKEMON: AAAAHN (Smeargle)!
+LOST POKEMON: AABBBCCC (Ducklett)!
+LOST POKEMON: A XEEGMMRY (Mime Jr.)!
+LOST POKEMON: ACF  FFY (Throh)!
+LOST POKEMON: Geodude (Geodude)!
+LOST POKEMON: APmm  (Geodude)!
+LOST POKEMON: r-RQqq///N (Graveler)!
+LOST POKEMON: BGmm (Mantyke)!
+LOST POKEMON: GGNNNNN (Electrode)!
+LOST POKEMON: AA (Aegislash)!
+LOST POKEMON: AAAAABAAB (Shinx)!
+LOST POKEMON: Spinarak (Spinarak)!
+LOST POKEMON: Whismur (Whismur)!
+LOST POKEMON: A (Drifloon)!
+LOST POKEMON: AA (Phantump)!
+LOST POKEMON: Purrloin (Purrloin)!
+LOST POKEMON: AAAAAAAATT (Makuhita)!
+LOST POKEMON: Roggenrola (Roggenrola)!
+LOST POKEMON: Aron (Aron)!
+LOST POKEMON: Woobat (Woobat)!
+LOST POKEMON: GG (Kricketot)!
+LOST POKEMON: SSS (Gothita)!
+LOST POKEMON: AB  YYp (Solosis)!
+LOST POKEMON: AAAAAAAAAA (Oddish)!
+LOST POKEMON: TTTT (Electrike)!
+LOST POKEMON: TZZTTTTxxx (Trubbish)!
+LOST POKEMON: Gulpin (Gulpin)!
+LOST POKEMON: , (Cherubi)!
+LOST POKEMON: Volbeat (Volbeat)!
+LOST POKEMON: AAA (Roselia)!
+LOST POKEMON: AGGG  (Deerling)!
+LOST POKEMON: AABBBBBBRR (Litleo)!
+LOST POKEMON: Slaking (Slaking)!
+LOST POKEMON: Ampharos (Ampharos)!
+LOST POKEMON: ABBQS    L (Sharpedo)!
+LOST POKEMON: AAAAAAEEee (Gogoat)!
+LOST POKEMON: AA (Reuniclus)!
+LOST POKEMON: AAA (Dusclops)!
+within(vending, undefined, 10) a=undefined=>undefined
+UPDATE: 4d 21h 40m [Bot] **We toss 1 Pecha Berry, 1 Tinymushroom, 1 Poké Ball, 1 Rawst Berry, 1 Great Ball, 1 Potion, 1 Sun Stone, 1 Hard Stone, 1 Max Revive, 1 Chill Drive, 1 Cheri Berry, 1 Mystic Water, 1 Shed Shell, 5 Oran Berry, 1 Smoke Ball, 1 Metal Powder, 3 Persim Berry, 1 Black Belt, 1 Everstone, and 1 Ampharosite.**
+================= Finished ====================
+test data written to status_api.44.json
+================== Refreshing =====================
+Parsing info...
+Parsed.
+Reporter reporting in...
+Location {
+  node: 
+   Node { name: 'Mossdeep City',
+     region: Region (Hoenn),
+     mapids: [Array],
+     attrs: [Object],
+     locOf: [Object],
+     parent: Node [--](Mystery Zone),
+     children: 5,
+     connections: 3,
+     _enter: null,
+     _exit: null },
+  map_name: 'Mossdeep City',
+  x: 8,
+  y: 23,
+  z: 0,
+  map_bank: 0,
+  map_id: 6,
+  area_id: 13,
+  area_name: 'Mossdeep City',
+  parent_id: 0,
+  matrix_id: 0 }
+blackout discovery: pp=0, hp=0
+Reporter found no update.
+================= Finished ====================
+test data written to status_api.45.json
+================== Refreshing =====================
+Parsing info...
+Parsed.
+Reporter reporting in...
+Location {
+  node: 
+   Node { name: 'Mossdeep City',
+     region: Region (Hoenn),
+     mapids: [Array],
+     attrs: [Object],
+     locOf: [Object],
+     parent: Node [--](Mystery Zone),
+     children: 5,
+     connections: 3,
+     _enter: null,
+     _exit: null },
+  map_name: 'Mossdeep City',
+  x: 8,
+  y: 28,
+  z: 0,
+  map_bank: 0,
+  map_id: 6,
+  area_id: 13,
+  area_name: 'Mossdeep City',
+  parent_id: 0,
+  matrix_id: 0 }
+blackout discovery: pp=0, hp=0
+FOUND POKEMON: AAHHHHHHHH (Flabébé)!
+FOUND POKEMON: AAABBijjlt (Blaziken)!
+FOUND POKEMON: ATTWEECMSS (Mareep)!
+FOUND POKEMON: Shinx (Shinx)!
+FOUND POKEMON: DDDWwwww (Xatu)!
+FOUND POKEMON: AAAAAAAAAA (Deerling)!
+FOUND POKEMON: AAAAAAAAAA (Sylveon)!
+FOUND POKEMON: AONPPPPJ (Poochyena)!
+FOUND POKEMON: T (Togepi)!
+FOUND POKEMON: ....,,,,,  (Weedle)!
+FOUND POKEMON: A  ,,, SZT (Zigzagoon)!
+FOUND POKEMON: Wurmple (Wurmple)!
+FOUND POKEMON:    . (Spritzee)!
+within(vending, undefined, 10) a=undefined=>undefined
+UPDATE: 4d 21h 41m [Bot] **We aquire 1 Potion, and 1 Sun Stone.**
+================= Finished ====================
+test data written to status_api.46.json
+================== Refreshing =====================
+Parsing info...
+Parsed.
+Reporter reporting in...
+Location {
+  node: 
+   Node { name: 'Mossdeep City',
+     region: Region (Hoenn),
+     mapids: [Array],
+     attrs: [Object],
+     locOf: [Object],
+     parent: Node [--](Mystery Zone),
+     children: 5,
+     connections: 3,
+     _enter: null,
+     _exit: null },
+  map_name: 'Mossdeep City',
+  x: 8,
+  y: 30,
+  z: 0,
+  map_bank: 0,
+  map_id: 6,
+  area_id: 13,
+  area_name: 'Mossdeep City',
+  parent_id: 0,
+  matrix_id: 0 }
+blackout discovery: pp=0, hp=0
+Reporter found no update.
+================= Finished ====================
+test data written to status_api.47.json

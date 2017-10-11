@@ -53,13 +53,35 @@ let dbot = new discord.Client({
 		// 'RELATIONSHIP_ADD',
 		// 'RELATIONSHIP_REMOVE',
 	],
+	autoReconnect: true,
 });
 dbot.on('error', (err)=> console.error('DISCORD BOT ERROR: '+err.stack));
 dbot.on('warn', (err)=> console.error('DISCORD BOT WARNING: '+err));
 dbot.on('ready', ()=> console.log('Discord bot has connected and is ready.'));
 dbot.on('disconnect', (evt)=>{
 	console.log(`Discord bot has disconnected with code ${evt.code}: ${evt.reason}. Reconnecting...`);
-	// dbot.login(auth.discord.token);
+	try {
+		let inspect = require('util').inspect;
+		let info = '======= Disconnection Event =========\n';
+		info += inspect(evt, { depth: null, showHidden: true, showProxy: true });
+		info += '\n\n======== Bot State ========\n';
+		info += inspect(dbot, { depth: null, showHidden: true, showProxy: true });
+		
+		let now = Date.now();
+		let y = now.getFullYear();
+		let m = ('00'+now.getMonth()+1).slice(-2);
+		let d = ('00'+now.getDate()).slice(-2);
+		let h = ('00'+now.getHours()).slice(-2);
+		let min = ('00'+now.getMinutes()).slice(-2);
+		let s = ('00'+now.getSeconds()).slice(-2);
+		let outfile = require('path').resolve(__dirname, `disconnects/${y}${m}${d}_${h}${min}${s}.log`);
+		fs.writeFile(outfile, info, 'utf8', (err)=>{
+			console.log(`Wrote disconnect log with error: `, err);
+		});
+	} catch (e) {
+		console.log(`Error writing disconnect log!: `, e);
+	}
+	dbot.destroy().then(()=>dbot.login(auth.discord.token));
 });
 dbot.on('message', (msg)=>{
 	if (msg.author.id === dbot.user.id) return; //Don't rspond to own message
@@ -77,7 +99,7 @@ dbot.on('message', (msg)=>{
 			if (!staffChannel) staffChannel = msg.channel;
 			taggedIn = true;
 			msg.channel.send(`On it.`).catch((e)=>console.error('Discord Error:',e));
-			// postUpdate(`[Bot-Meta] Tagged in at ${getTimestamp()}.`, TEST_UPDATER.liveID);
+			// postUpdate(`[Bot-Meta] Tagged in at ${getTimestamp()}.`, TEST_UPDATER);
 			break;
 		case 'tagout':
 			if (taggedIn) {
@@ -85,7 +107,7 @@ dbot.on('message', (msg)=>{
 			}
 			taggedIn = false;
 			reporter.clearHelping();
-			// postUpdate(`[Bot-Meta] Tagged out at ${getTimestamp()}.`, TEST_UPDATER.liveID);
+			// postUpdate(`[Bot-Meta] Tagged out at ${getTimestamp()}.`, TEST_UPDATER);
 			break;
 		case 'reqUpdate':
 			console.log(`${dLastReq + REQ_COOLDOWN} > ${Date.now()}`, dLastReq + REQ_COOLDOWN > Date.now());
@@ -100,8 +122,8 @@ dbot.on('message', (msg)=>{
 					update = reporter.generateUpdate('team');
 					if (update) {
 						msg.channel.send(`Posting [Info] update with team information to the updater.`).catch((e)=>console.error('Discord Error:',e));
-						postUpdate(update, UPDATER.liveID);
-						postUpdate(update, TEST_UPDATER.liveID);
+						postUpdate(update, UPDATER);
+						postUpdate(update, TEST_UPDATER);
 					} else {
 						msg.channel.send(`Unable to collate team info at this time.`).catch((e)=>console.error('Discord Error:',e));
 					}
@@ -147,11 +169,7 @@ dbot.on('message', (msg)=>{
 			// The [Lvl 10 female Rattata] we caught [was nicknamed `X`|didn't get a nickname].
 			break;
 		case 'shutup':
-			switch(args[0]) {
-				case 'coffee':
-					msg.channel.send(`I'm not your goddammed waiter.`);
-					break;
-			}
+			msg.channel.send(args[0]);
 			break;
 	}
 });
@@ -282,16 +300,16 @@ function refreshInfo() {
 			else montable = '';
 			
 			console.log('UPDATE:', `${ts} [Bot] ${update}`);
-			postUpdate(`${ts} [Bot] ${update}${montable}`, TEST_UPDATER.liveID);
+			postUpdate(`${ts} [Bot] ${update}${montable}`, TEST_UPDATER);
 			
 			if (taggedIn === true) {
 				// Fully tagged in
-				postUpdate(`${ts} [Bot] ${update}`, UPDATER.liveID);
+				postUpdate(`${ts} [Bot] ${update}`, UPDATER);
 			} else if (taggedIn) {
 				// Partially tagged in, helping out with things
 				update = reporter.collate(taggedIn); // Retrieve new partial update
 				if (update) {
-					postUpdate(`${ts} [Bot] ${update}`, UPDATER.liveID);
+					postUpdate(`${ts} [Bot] ${update}`, UPDATER);
 				}
 			}
 		} else {
@@ -304,22 +322,38 @@ function refreshInfo() {
 	});
 }
 
-function postUpdate(update, liveID) {
-	if (!update || !liveID) throw new ReferenceError('Must supply update text and live updater id to send it to!');
-	let p;
-	if (access.timeout < Date.now()) {
-		let token = fs.readFileSync(__dirname+"/refresh.token", {encoding:'utf8'});
-		p = reddit.getOAuth(token, auth.reddit).then((data)=>{
-			access.token = data.access_token;
-			access.timeout = Date.now() + (data.expires_in * 1000);
-			return access.token;
+function postUpdate(update, desination) {
+	if (!update || !desination) throw new ReferenceError('Must supply update text and live updater id to send it to!');
+	let promises = [];
+	if (desination.liveID) {
+		let p;
+		if (access.timeout < Date.now()) {
+			let token = fs.readFileSync(__dirname+"/refresh.token", {encoding:'utf8'});
+			p = reddit.getOAuth(token, auth.reddit).then((data)=>{
+				access.token = data.access_token;
+				access.timeout = Date.now() + (data.expires_in * 1000);
+				return access.token;
+			});
+		} else {
+			p = Promise.resolve(access.token);
+		}
+		p.then((token)=>{
+			return reddit.postUpdate(update, { access_token:token, liveID:desination.liveID });
 		});
-	} else {
-		p = Promise.resolve(access.token);
+		promises.push(p);
 	}
-	return p.then((token)=>{
-		return reddit.postUpdate(update, { access_token:token, liveID });
-	});
+	if (desination.discordID) {
+		try {
+			promises.push(
+				dbot.channels.get(desination.discordID)
+					.send(update)
+					.catch((e)=>console.error('Discord Update Error:',e))
+			);
+		} catch (e) {
+			console.error('Null Discord Error');
+		}
+	}
+	return Promise.all(promises);
 }
 
 let sigint = false;
@@ -327,10 +361,10 @@ process.on('SIGINT', ()=>{
 	if (sigint) process.exit(-1);
 	sigint = true;
 	memoryBank.forceSave();
-	postUpdate('[Meta] UpdaterNeeded shutting down.', TEST_UPDATER.liveID)
+	postUpdate('[Meta] UpdaterNeeded shutting down.', TEST_UPDATER)
 		.then(()=>process.exit());
 });
 
 enableInfo(true);
 refreshInfo();
-postUpdate('[Meta] UpdaterNeeded started.', TEST_UPDATER.liveID);
+postUpdate('[Meta] UpdaterNeeded started.', TEST_UPDATER);

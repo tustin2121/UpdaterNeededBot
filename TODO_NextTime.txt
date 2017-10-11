@@ -1,0 +1,14 @@
+When UpdaterNeeded gets an overhaul:
+	- E4 are to be tagged 'e1', 'e2', 'e3', and 'e4', and if the tag goes down, we've blacked out.
+	  For gen5+, just mark them all 'e4' anyway.
+	- Report if we're fighting trainers/wild mon on the route. Store in memory, so as not to report
+	  it multiple times. Clear the flag when we reach a town.
+	- Instead of "noteworthiness", all map nodes worth reporting on are given an announcement enter
+	  and leaving, which will be parsed and randomized.
+		- Gym('into the', 
+		  Parses out 'into', and knows its inside. Parses out 'the' and knows it should be prefaced with 'the'.
+	- Store more battle reporting states. Do not claim "We defeated X" more than once.
+	- 
+	
+	- Create a "learning" mode, which reads the 
+	
