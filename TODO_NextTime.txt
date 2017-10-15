@@ -8,7 +8,6 @@ When UpdaterNeeded gets an overhaul:
 		- Gym('into the', 
 		  Parses out 'into', and knows its inside. Parses out 'the' and knows it should be prefaced with 'the'.
 	- Store more battle reporting states. Do not claim "We defeated X" more than once.
-	- 
+	- Add +1 to the personality_value of any Shedinja, to avoid the nincada evolution clone bug.
 	
-	- Create a "learning" mode, which reads the 
-	
+	- Create a "learning" mode, which reads the mapbank and id on the fly to make a rudimentery map.
