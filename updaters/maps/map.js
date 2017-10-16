@@ -545,7 +545,6 @@ module.exports = {
 		let me = new Node({ name, mapids, attrs:Object.assign({
 			"indoors": true,
 			"dungeon": true,
-			"noteworthy": true,
 			"onto": "into",
 			noteworthy, legendary, the,
 		}, attrs), locOf });

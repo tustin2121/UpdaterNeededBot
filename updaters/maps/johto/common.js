@@ -32,7 +32,6 @@ const SingleCave = function(name, mapids, { the=true, attrs={}, locOf={}, buildi
 	let me = new Node({ name, mapids, attrs:Object.assign({
 		"indoors": true,
 		"dungeon": true,
-		"noteworthy": true,
 		"onto": "into",
 		noteworthy, legendary, the,
 	}, attrs), locOf });

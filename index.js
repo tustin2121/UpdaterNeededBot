@@ -118,7 +118,7 @@ dbot.on('message', (msg)=>{
 			dLastReq = Date.now();
 			let update;
 			switch (args[0]) {
-				case 'team': 
+				case 'team':
 					update = reporter.generateUpdate('team');
 					if (update) {
 						msg.channel.send(`Posting [Info] update with team information to the updater.`).catch((e)=>console.error('Discord Error:',e));
@@ -187,7 +187,7 @@ reporter.alertUpdaters = function(text, ping=false){
 			dLastPing = Date.now();
 		}
 	}
-	staffChannel.send(`${group}${text}`).catch((e)=>console.error('Discord Error:',e));;
+	staffChannel.send(`${group}${text}`).catch((e)=>console.error('Discord Error:',e));
 };
 
 function __reloadFile(modulename) {
