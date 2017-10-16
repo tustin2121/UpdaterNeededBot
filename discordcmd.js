@@ -5,7 +5,7 @@ const MY_MENTION_ID = '<@303732710185369601>';
 
 module.exports = function(msg, memory) {
 	if (msg.content === '_tags UpdaterNeeded_') {
-		return ['tagin'];
+		return ['tagin', true];
 	}
 	if (msg.content.startsWith('_tags')) {
 		return ['tagout'];
@@ -38,7 +38,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
-	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
+	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin', false];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
 	if (/^(post|update|show) ((current|curr) )?(team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];
 	
@@ -58,7 +58,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^h[ea]lp (?:me |us )?(?:out )?/i.test(cmd)) return ['helpout-help'];
 	
 	// Jokes
-	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd)) 
+	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
 		return ['shutup', `I'm not your goddammed waiter.`];
 	if (/dance|sing|perform|entertain/i.test(cmd))
 		return ['shutup', `I am here to report, not to entertain.`];
