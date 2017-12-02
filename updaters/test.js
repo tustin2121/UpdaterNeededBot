@@ -5,7 +5,8 @@ module.exports = {
 	// The Reddit Live Updater ID to post to
 	// liveID : "ysqpsvyo0yjv",
 	// liveID : "z18x8cl311q8",
-	liveID : "zp33mop6axqp",
+	// liveID : "zp33mop6axqp", //ϴ Emerald
+	liveID : "1005psxpf4gwu", //Ultra Sun
 	
 	// The Discord LiveUpdater channel snowflake
 	discordID: '367499647410765824',

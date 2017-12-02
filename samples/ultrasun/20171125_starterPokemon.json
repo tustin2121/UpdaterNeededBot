@@ -1,0 +1,330 @@
+{
+    "caught": 1,
+    "caught_list": [
+        728
+    ],
+    "daycare": [],
+    "gender": "Male",
+    "id": 57263,
+    "items": {
+        "berries": [],
+        "free_space": [],
+        "items": [],
+        "key": [],
+        "medicine": [],
+        "rotom_powers": [],
+        "tms": [],
+        "z_crystals": []
+    },
+    "level_cap": 100,
+    "map_id": 5,
+    "money": 5000,
+    "name": "Rrwq:",
+    "options": {
+        "battle_scene": "Off",
+        "battle_style": "Set",
+        "box_mode": "Automatic",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Torrent",
+            "affection": 0,
+            "characteristic": "Likes to run",
+            "checksum": 11522,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 4169245312,
+            "enjoyment": 0,
+            "evs": {
+                "attack": 0,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 0
+            },
+            "experience": {
+                "current": 135,
+                "next_level": 179,
+                "remaining": 44,
+                "this_level": 135
+            },
+            "form": 0,
+            "friendship": 73,
+            "fullness": 0,
+            "gender": "Male",
+            "health": [
+                13,
+                20
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "is_nicknamed": false,
+            "ivs": {
+                "attack": 16,
+                "defense": 8,
+                "hp": 8,
+                "special_attack": 22,
+                "special_defense": 19,
+                "speed": 30
+            },
+            "language": 2,
+            "level": 5,
+            "met": {
+                "area_id": 8,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2017-11-25",
+                "game": 32,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 1,
+                    "max_pp": 35,
+                    "name": "Pound",
+                    "pp": 34,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 55,
+                    "max_pp": 25,
+                    "name": "Water Gun",
+                    "pp": 25,
+                    "type": "Water"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 45,
+                    "max_pp": 40,
+                    "name": "Growl",
+                    "pp": 39,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 0,
+                    "id": 0,
+                    "max_pp": 0,
+                    "name": "???",
+                    "pp": 0,
+                    "type": "???"
+                }
+            ],
+            "name": "Popplio",
+            "nature": "Careful",
+            "original_trainer": {
+                "gender": "Female",
+                "id": 57263,
+                "name": "Rrwq:",
+                "secret": 10183
+            },
+            "personality_value": 1111507700,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 45,
+                "egg_cycles": 15,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 728,
+                "name": "Popplio",
+                "national_dex": 728,
+                "type1": "Water",
+                "type2": "Water"
+            },
+            "stats": {
+                "attack": 11,
+                "defense": 10,
+                "hp": 20,
+                "special_attack": 10,
+                "special_defense": 12,
+                "speed": 10
+            },
+            "status": ""
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "Box 2",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 3",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 4",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 5",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 6",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 7",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 8",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 9",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 10",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 11",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 12",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 13",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 14",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 15",
+                "box_number": 14
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 16",
+                "box_number": 15
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 17",
+                "box_number": 16
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 18",
+                "box_number": 17
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 19",
+                "box_number": 18
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 20",
+                "box_number": 19
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 21",
+                "box_number": 20
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 22",
+                "box_number": 21
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 23",
+                "box_number": 22
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 24",
+                "box_number": 23
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 25",
+                "box_number": 24
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 26",
+                "box_number": 25
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 27",
+                "box_number": 26
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 28",
+                "box_number": 27
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 29",
+                "box_number": 28
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 30",
+                "box_number": 29
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 31",
+                "box_number": 30
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 32",
+                "box_number": 31
+            }
+        ]
+    },
+    "secret": 10183,
+    "seen": 2,
+    "seen_list": [
+        728,
+        734
+    ],
+    "x": 19979.23,
+    "y": 15224.789,
+    "z": 11.9375
+}

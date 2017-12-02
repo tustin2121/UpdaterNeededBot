@@ -1,0 +1,153 @@
+{
+    "caught": 0,
+    "caught_list": [],
+    "daycare": [],
+    "gender": "Male",
+    "id": 57263,
+    "items": {
+        "berries": [],
+        "free_space": [],
+        "items": [],
+        "key": [],
+        "medicine": [],
+        "rotom_powers": [],
+        "tms": [],
+        "z_crystals": []
+    },
+    "level_cap": 100,
+    "map_id": 35,
+    "money": 5000,
+    "name": "Rrwq:",
+    "options": {
+        "battle_scene": "Off",
+        "battle_style": "Set",
+        "box_mode": "Automatic",
+        "text_speed": "Fast"
+    },
+    "party": [],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "Box 2",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 3",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 4",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 5",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 6",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 7",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 8",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 9",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 10",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 11",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 12",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 13",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 14",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 15",
+                "box_number": 14
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 16",
+                "box_number": 15
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 17",
+                "box_number": 16
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 18",
+                "box_number": 17
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 19",
+                "box_number": 18
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 20",
+                "box_number": 19
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 21",
+                "box_number": 20
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 22",
+                "box_number": 21
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 23",
+                "box_number": 22
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 24",
+                "box_number": 23
+            }
+        ]
+    },
+    "secret": 10183,
+    "seen": 0,
+    "seen_list": [],
+    "x": 2400,
+    "y": 2160,
+    "z": 4.9375
+}
