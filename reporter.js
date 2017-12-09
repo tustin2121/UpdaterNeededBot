@@ -1039,7 +1039,8 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 			*/
 			if (info === 'championReach') {
 				this.memory.champAttempt = (this.memory.champAttempt || 0) + 1;
-				texts.push(`**WE'RE HEADING TO THE CHAMPION!!** Champion attempt #${this.memory.champAttempt} incoming!!`);
+				// texts.push(`**WE'RE HEADING TO THE CHAMPION!!** Champion attempt #${this.memory.champAttempt} incoming!!`);
+				texts.push(`**We climb the stairs to THE CHAMPION'S THRONE!!** Champion attempt #${this.memory.champAttempt} incoming!!`);
 				this.alertUpdaters(`**We've reached the champion's chamber!** Someone might want to play-by-play!!`, true);
 			}
 			if (info === 'hallOfFame') {
@@ -1168,10 +1169,10 @@ Has PokeRus")!** No nickname. (Sent to Box #1)
 				}
 				default: {
 					let o = [
-						`Now ${onto.slice(0,2)} ${the}${area}.`,
-						`${onto.charAt(0).toUpperCase()}${onto.charAt(1)} ${the}${area}.`, // In the Area.
-						`${area}.`,
-						`Welcome to ${the}${area}.`,
+						`Now ${onto.slice(0,2)} ${the}${area}[.](#m${this.currInfo.location.map_id} "map_id=${this.currInfo.location.map_id}")`,
+						`${onto.charAt(0).toUpperCase()}${onto.charAt(1)} ${the}${area}[.](#m${this.currInfo.location.map_id} "map_id=${this.currInfo.location.map_id}")`, // In the Area.
+						`${area}[.](#m${this.currInfo.location.map_id} "map_id=${this.currInfo.location.map_id}")`,
+						`Welcome to ${the}${area}[.](#m${this.currInfo.location.map_id} "map_id=${this.currInfo.location.map_id}")`,
 					];
 					return this.randA(o);
 				}

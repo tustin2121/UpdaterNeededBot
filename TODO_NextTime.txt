@@ -11,3 +11,187 @@ When UpdaterNeeded gets an overhaul:
 	- Add +1 to the personality_value of any Shedinja, to avoid the nincada evolution clone bug.
 	
 	- Create a "learning" mode, which reads the mapbank and id on the fly to make a rudimentery map.
+
+
+
+	- Handle certain items as special cases:
+		- Items begining with "Roto", when given, are reported as Rotom doing his Roto Lottery.
+		- Items ending with "m Z" are all forced to 1 total after tabulation. (Z Crystals can multiply 
+		  to be held by any pokemon, and it is still in your bag regardless)
+		- Items, when lost in battle, are reported as being used.
+	- If the bot is unable to retrive a valid API twice in a row, the bot will post to #staff:
+		`Alert: Unable to retrieve API update: 503 (Failed retrievals: 3)`
+		- This message will be edited instead of posting several times. Once the API returns, the message
+		  will be crossed out:
+		  `Alert: ~~Unable to retrieve API update: 503~~ API has returned after 23 failed retrievals. Resuming normal operation.`
+	- Break up all reporting into "modules":
+		- API Monitoring Module - monitors the API for certain descrepencies in reporting.
+			- This module reads "API disturbance" legder items from other modules, and logs them
+			  after the final pass. None of its ledger items are to be translated by the Typesetter.
+			- `Alert: The Overlay may have just been restarted. API disturbance rate is high.`
+		- Pokemon Module - responsible for discovering new pokemon, keeping track of missing pokemon, 
+		  keeping track of null boxes, keeping track of daycare, etc.
+			- If a pokemon disappears and cannot be explained by monitored API disturbances, the bot
+			  should report in #staff that it has detected a missing pokemon, and ask to confirm if
+			  this pokemon has been released. 
+			  `Alert: The following pokemon cannot be found in the API: ${miaPokemonList}
+			  No API anomolies are currently detected, so this may be a release, or the pokemon may 
+			  have gone somewhere that the API does not cover. If this is a release, please reply with
+			  `updater, confirm a56b7`. Otherwise, please respond `updater, deny a56b7`
+			  and I will say nothing, and you can report it yourself. If no response, I will report
+			  the possibility to the updater in 5 minutes time.`
+			  
+			  If the release is confirmed, it will report it immedeately. If it is denied, it will 
+			  not report it. If neither, it will report as a "maybe release" after waiting for about 
+			  5 minutes or two map changes. The above message will be edited as the timer ticks down,
+			  and when one of the resolutions occurs, it will cross itself out.
+			- If the pokemon is found in this time period, the message above will cross itself out:
+			  `Alert: ~~The following pokemon cannot be found in the API: ${miaPokemonList}~~
+			  The pokemon have been found again.`
+			- If only a subset of the pokemon have been discovered, the miaPokemonList will be
+			  modified.
+			- One of the monitored API disturbances includes null PC boxes.
+			- One of the monitored API disturbances includes if more than 5 pokemon vanish or appear
+			  in one update period.
+			- Rule: If "pokemon lost" and "pokemon gained", they do not match personality_value, and
+			  they are sitting in the same spot, then assume that the Pokemon has been traded.
+		- Party Module - responsible for discovering differences in the party, including level changes,
+		  move learns, name changes, hatches, evolutions, etc.
+			- `Alert: The party has drastically changed in one update cycle. I am assuming this is a
+			  temporary team and withholding party updates until the party is restored. If this is
+			  somehow a new perminant team, please reply with `updater, deny 903h6`.`
+			- The above can happen for things like the bug catching contest, a catching tutorial, 
+			  a battle tent situation, etc.
+			- This will put a "temporary team" ledger item in the list, which will also stop the
+			  Pokemon Module from reporting catches or releases.
+			- A drastic change includes more than one party member changing personality_value, species,
+			  or vanishing, more than one party member changing level to either level 50 or level 100.
+			- When the party is restored, the above #staff notice is crossed out and adds `Team has 
+			  been restored`.
+			- If someone denies this, the temporary state is reset, and the module accepts this as 
+			  the new current party and releases a deluge of withheld reports about it. The above 
+			  update is crossed out and adds `Team is now accepted as the new norm.`
+		- Item Module - responsible for keeping tabs on all items across bag, pc, and held by pokemon.
+		  This includes buying, selling, obtaining, using items.
+			- The item module records all item deltas as gains and losses on first pass. It then refines
+			  these into buying, selling, giving, using, etc based on context in the second pass.
+		- Location Module - responsible for reporting movement between maps, assigning importance based on
+		  the type of location.
+			- This module will always at least report the current location as a "staying in [location]"
+			  ledger item, but at 0 importance, so that the Timing Module can allow us to say stuff 
+			  about how we're putzing around some person's house for a while.
+			- Ledger items which indicate "move to [location]" have the location we just left as well.
+			  This is to allow exit announcements to be made, and guesses to be made as to how we
+			  got to this location (using map node distance).
+			- Nodes in the map that do not have a specific announcement are marked at 0.5 importance.
+			- This module keeps track of the last checkpoint location, and puts a ledger note specifying
+			  if we have returned to that checkpoint location. The map will need to specify pokecenters
+			  as checkpoint locations (and specify mom's location as the default checkpoint). The game
+			  information will also have to flag whether checkpoints are on arrivial (gen2+) or on heal, 
+			  and whether they use heal cutscene (gen5+) or not.
+		- Health Module - responsible for tracking when blackouts occur, as well as when a pokemon 
+		  faints or is healed.
+			- Reports changes in health and move PP to the ledger, at importance 0. These are used by
+			  the item module as context for item use.
+		- E4 Module - Keeps track of E4 runs, including champion battles.
+			- E4/Champ Attempt counts are stored in this module's memory.
+		- Gym Module - Keeps track of important battles, including gyms, team bosses, and legendaries.
+			- Other attempt counts are stored in this module's memory.
+		- Battle Module - Keeps track of battles in general, including the ability to refine the reporting
+		  of the E4 and Gym modules. (Optional)
+			- Whether this module is enabled is based on whether the API supports reporting enemies.
+			- During fights, it reports to the ledger the presense of the fight as a "fighting [X]" item.
+		- Politics Module - This monitors chat for tpp bot reporting a change of input mode, and reports 
+		  the start and end of Democracy to the updater.
+			- While in demo mode, the module outputs a special ledger item that always sorts first and
+			  cannot be dropped from the ledger, though it does not count as a reportable item. 
+			  This item reports as the "[D]" at the start of an update.
+			- tpp	Inputting is now in democracy mode!
+			- tpp	Inputting is now in anarchy mode!
+			- Inputting mode is stored in memory, but is assumed to be anarchy if not available.
+		- Chat Module - Monitors chat for reaction reporting.
+			- Example ledger items include "chat has increased/decreased speed", "emote is trending", 
+			  "more/less inputs".
+		- Timing Module - Keeps track of time between updates, and promotes the importance of an 
+		  otherwise unimportant update if too long has been spent without an update.
+	- Modules all keep their own non-volitile memory, inside separate objects stored in the memory bank.
+	- Modules work like this:
+		- The API is parsed and normalized. The chat is also collected and filtered.
+		- The normalized API and chat info are passed through all of the modules' first pass, where 
+		  the modules discover things independently of one another. As the modules discover items, 
+		  all of their discoveries are logged in a "ledger".
+			- This ledger is a single update item, like "lost 1 [item]", and "moved to [location]".
+			  Each update item has an importance, nominally 1. Items of little importance have 0, and
+			  items of high importance (like gym battles) are 2.
+		- This ledger is now passed through the modules again on a second pass, where modules
+		  apply a list of rules to the ledger to reduce its size.
+			- These rules turn simple update items into more complex update items. 
+			  Like "lost 1 Hard Stone" and "Onix item changed from null to Hard Stone" into
+			  "Gave Onix a Hard Stone to hold". Or "lost 1 pokeball" and "in a wild battle with Aipom" 
+			  into "threw 1 pokeball at a wild Aipom".
+			- This second pass happens multiple times, until the ledger changes size no more, 
+			  min 2 passes, max 10 passes.
+		- This ledger is now sorted on importance and reporting order, and items with importance 
+		  lower than 1 are dropped.
+		- This ledger goes to the Typesetter now, which turns all of the items into elequent english,
+		  and will then post it to updating mediums.
+			- The Typesetter will choose from a randomized list of phrases for each item type, and 
+			  plug in variables as needed.
+			- The Typesetter is also responsible for formatting for Reddit or Discord, using rich
+			  embeds for the latter case.
+	- Allow memory modification from the control channel, but only by me:
+		User: `updater, modify e4 memory: attempts = 4`
+		Bot:  `Memory modification confirmed.`
+	- Allow confirmation and denying of certain things the bot can screw up:
+		User: `updater, confirm 36js42`
+		Bot:  `Query 36js42 confirmed by @[User]`
+		User: `updater, deny 245jd`
+		Bot:  `Query 245jd denied by @[User]`
+		- This is to have accountability if they screw around with the bot.
+		- User: `updater, confirm 03862`
+		  Bot:  `That query does not exist or has since expired.`
+	- Allow saving off of debug data:
+		User: `updater, save debug data`
+		Bot:  `Last 5 update cycles have been saved off under the name 972jh5yhg02j_X.json. Please 
+			   state for reference what the problem was.`
+	- Have a list of banned users, who are banned for abusing these functions.
+	- `Alert: We are locked into the E4! This is Attempt #9.`
+	- `Alert: @Live Updater **We've reached the champion's chamber!** Our current viable party: 
+	  Venasaur, PSN, 50% HP | Crobat, 2% HP. Feel free to take over to play-by-play!`
+		- When this alert goes up, the updater will automatically post the team info to the updater.
+	- Print debug information into the off-duty updater, after two newlines.
+		- 
+
+- Debug Page:
+	- There will be a debug page, which shows the entire update cycle, for the last 20 update cycles.
+	- The page formats a given update cycle to look nice and be readable, with things like the ledger
+	  being shown as a list of square beige boxes with the type and parameter of each ledger item,
+	  and a list of rules which have transformed the ledger, and which items they added/deleted/modified.
+	- Each update cycle will have:
+		- a "fetch" stage, which can error on getting from the API or error with connections to chat
+		- a "parse" stage, when the API is normalized, and the chat is filtered
+		- a "discovery" stage, when the first pass through the modules is done, creating the initial ledger
+		- a "refine" stage, where the bulk of the work takes place, as the ledger goes through 
+		  multiple passes in the modules.
+			- each pass will have its own section, where on the left, the initial ledger is displayed,
+			  in the middle, where the applied rules are shown, and on the right, the after ledger 
+			  is shown
+			- The last pass should have no rules applied if done correctly.
+		- a "typesetting" stage, where the ledger items are sorted, pruned, and translated to english.
+		- a "module memory" section shows the state of module memory at the end of this cycle.
+		- a result at the bottom shows the resulting update posted to the reddit updater.
+		- There should also be a textbox which holds the raw json of this debug data, for copying 
+		  for later review.
+
+
+
+
+rule("Pokeballs lost in battle are thrown at the opponent",
+	(ledger)=>ledger.has('LostItem').with('type', 'ball') && ledger.has('InBattle'),
+	(ledger)=>{
+		let item = ledger.getLast('LostItem').remove();
+		ledger.add(new UsedBallInBattle(item));
+	});
+
+
+There needs to be a big stream of creating this.

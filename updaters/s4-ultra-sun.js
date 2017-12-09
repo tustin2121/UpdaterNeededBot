@@ -445,7 +445,7 @@ function makeRegion() {
 		new Node({ mapids:['253'], name:"Pokémon League: Olivia's Rock Chamber", attrs: { "e4":"e4", 'indoors':true, 'onto':'into', 'the':true, } }),
 		new Node({ mapids:['254'], name:"Pokémon League: Acerola's Ghost Chamber", attrs: { "e4":"e4", 'indoors':true, 'onto':'into', 'the':true, } }),
 		new Node({ mapids:['255'], name:"Pokémon League: Kahili's Flying Chamber", attrs: { "e4":"e4", 'indoors':true, 'onto':'into', 'the':true, } }),
-		new Node({ mapids:['256'], name:"Pokémon League: Champion's Plynth", attrs: { "e4":"champ", 'the':true, } }),
+		new Node({ mapids:['256'], name:"Pokémon League: Champion's Plynth", attrs: { "e4":"champion", 'the':true, } }),
 		new Node({ mapids:['257'], name:"Pokémon League", attrs: { "e4":"hallOfFame" } }),
 		
 		new Node({ mapids:['258'], name:"Malie City", }),

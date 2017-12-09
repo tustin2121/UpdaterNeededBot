@@ -1,0 +1,11650 @@
+{
+	"inE4Run": true,
+	"e4Attempt": 19,
+	"champAttempt": 11,
+	"blackout": false,
+	"miaPokemon": {
+		"7450241": {
+			"name": "Gible",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Dream Ball",
+			"ability": "Sand Veil",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Outrage"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 200,
+					"pp": 10,
+					"name": "Outrage",
+					"type": "Dragon"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Gible",
+			"dexid": 443,
+			"types": [
+				"Dragon",
+				"Ground"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 7450241,
+			"_isEvolving": false
+		},
+		"56268156": {
+			"name": "TogedemaruNN",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Lightning Rod",
+			"hp": 100,
+			"moves": [
+				"Spark",
+				"Nuzzle",
+				"Magnet Rise",
+				"Discharge"
+			],
+			"moveInfo": [
+				{
+					"id": 209,
+					"pp": 19,
+					"name": "Spark",
+					"type": "Electric"
+				},
+				{
+					"id": 609,
+					"pp": 20,
+					"name": "Nuzzle",
+					"type": "Electric"
+				},
+				{
+					"id": 393,
+					"pp": 10,
+					"name": "Magnet Rise",
+					"type": "Electric"
+				},
+				{
+					"id": 435,
+					"pp": 15,
+					"name": "Discharge",
+					"type": "Electric"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Togedemaru",
+			"dexid": 777,
+			"types": [
+				"Electric",
+				"Steel"
+			],
+			"level": 30,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 56268156,
+			"_isEvolving": false
+		},
+		"83625129": {
+			"name": "Gigalith",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Timid",
+			"caughtIn": "Poké Ball",
+			"ability": "Sturdy",
+			"hp": 100,
+			"moves": [
+				"Smack Down",
+				"Rock Slide",
+				"Sandstorm",
+				"Stealth Rock"
+			],
+			"moveInfo": [
+				{
+					"id": 479,
+					"pp": 15,
+					"name": "Smack Down",
+					"type": "Rock"
+				},
+				{
+					"id": 157,
+					"pp": 10,
+					"name": "Rock Slide",
+					"type": "Rock"
+				},
+				{
+					"id": 201,
+					"pp": 10,
+					"name": "Sandstorm",
+					"type": "Rock"
+				},
+				{
+					"id": 446,
+					"pp": 20,
+					"name": "Stealth Rock",
+					"type": "Rock"
+				}
+			],
+			"_stats": {
+				"atk": 117,
+				"def": 118,
+				"hp": 137,
+				"spa": 67,
+				"spd": 80,
+				"spe": 39
+			},
+			"species": "Gigalith",
+			"dexid": 526,
+			"types": [
+				"Rock"
+			],
+			"level": 43,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 83625129,
+			"_isEvolving": false
+		},
+		"121989680": {
+			"name": "コイキング",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Calm",
+			"caughtIn": "Poké Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 11,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 121989680,
+			"_isEvolving": false
+		},
+		"126698424": {
+			"name": "Popplio",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Torrent",
+			"hp": 100,
+			"moves": [
+				"Pound",
+				"Water Gun",
+				"Growl",
+				"Disarming Voice"
+			],
+			"moveInfo": [
+				{
+					"id": 1,
+					"pp": 35,
+					"name": "Pound",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 574,
+					"pp": 15,
+					"name": "Disarming Voice",
+					"type": "Fairy"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Popplio",
+			"dexid": 728,
+			"types": [
+				"Water"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 126698424,
+			"_isEvolving": false
+		},
+		"257980034": {
+			"name": "Lillipup",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Brave",
+			"caughtIn": "Quick Ball",
+			"ability": "Vital Spirit",
+			"hp": 100,
+			"moves": [
+				"Odor Sleuth",
+				"Bite",
+				"Baby-Doll Eyes",
+				"Helping Hand"
+			],
+			"moveInfo": [
+				{
+					"id": 316,
+					"pp": 40,
+					"name": "Odor Sleuth",
+					"type": "Normal"
+				},
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 608,
+					"pp": 30,
+					"name": "Baby-Doll Eyes",
+					"type": "Fairy"
+				},
+				{
+					"id": 270,
+					"pp": 20,
+					"name": "Helping Hand",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Lillipup",
+			"dexid": 506,
+			"types": [
+				"Normal"
+			],
+			"level": 12,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 257980034,
+			"_isEvolving": false
+		},
+		"270380082": {
+			"name": "Sir reggi",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Gentle",
+			"caughtIn": "Poké Ball",
+			"ability": "Strong Jaw",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Leer",
+				"Pursuit"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Yungoos",
+			"dexid": 734,
+			"types": [
+				"Normal"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 270380082,
+			"_isEvolving": false
+		},
+		"273290916": {
+			"name": "255nTtsss",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Rash",
+			"caughtIn": "Poké Ball",
+			"ability": "Effect Spore",
+			"hp": 100,
+			"moves": [
+				"Astonish",
+				"Flash",
+				"Moonlight",
+				"Mega Drain"
+			],
+			"moveInfo": [
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				},
+				{
+					"id": 148,
+					"pp": 19,
+					"name": "Flash",
+					"type": "Normal"
+				},
+				{
+					"id": 236,
+					"pp": 3,
+					"name": "Moonlight",
+					"type": "Fairy"
+				},
+				{
+					"id": 72,
+					"pp": 15,
+					"name": "Mega Drain",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Morelull",
+			"dexid": 755,
+			"types": [
+				"Grass",
+				"Fairy"
+			],
+			"level": 15,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 273290916,
+			"_isEvolving": false
+		},
+		"286233543": {
+			"name": "Lickit",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Mild",
+			"caughtIn": "Ultra Ball",
+			"ability": "Oblivious",
+			"hp": 100,
+			"moves": [
+				"Refresh",
+				"Screech",
+				"Power Whip",
+				"Wring Out"
+			],
+			"moveInfo": [
+				{
+					"id": 287,
+					"pp": 20,
+					"name": "Refresh",
+					"type": "Normal"
+				},
+				{
+					"id": 103,
+					"pp": 40,
+					"name": "Screech",
+					"type": "Normal"
+				},
+				{
+					"id": 438,
+					"pp": 9,
+					"name": "Power Whip",
+					"type": "Grass"
+				},
+				{
+					"id": 378,
+					"pp": 5,
+					"name": "Wring Out",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Lickitung",
+			"dexid": 108,
+			"types": [
+				"Normal"
+			],
+			"level": 58,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 286233543,
+			"_isEvolving": false
+		},
+		"289633553": {
+			"name": "Skarmory",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Naughty",
+			"caughtIn": "Poké Ball",
+			"ability": "Sturdy",
+			"hp": 100,
+			"moves": [
+				"Air Cutter",
+				"Fury Attack",
+				"Feint",
+				"Swift"
+			],
+			"moveInfo": [
+				{
+					"id": 314,
+					"pp": 25,
+					"name": "Air Cutter",
+					"type": "Flying"
+				},
+				{
+					"id": 31,
+					"pp": 20,
+					"name": "Fury Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 364,
+					"pp": 10,
+					"name": "Feint",
+					"type": "Normal"
+				},
+				{
+					"id": 129,
+					"pp": 20,
+					"name": "Swift",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Skarmory",
+			"dexid": 227,
+			"types": [
+				"Steel",
+				"Flying"
+			],
+			"level": 27,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 289633553,
+			"_isEvolving": false
+		},
+		"330594526": {
+			"name": "マーイーカ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quiet",
+			"caughtIn": "Poké Ball",
+			"ability": "Suction Cups",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Peck",
+				"Constrict",
+				"Reflect"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 64,
+					"pp": 35,
+					"name": "Peck",
+					"type": "Flying"
+				},
+				{
+					"id": 132,
+					"pp": 35,
+					"name": "Constrict",
+					"type": "Normal"
+				},
+				{
+					"id": 115,
+					"pp": 20,
+					"name": "Reflect",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Inkay",
+			"dexid": 686,
+			"types": [
+				"Dark",
+				"Psychic"
+			],
+			"level": 5,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 330594526,
+			"_isEvolving": false
+		},
+		"350958786": {
+			"name": "Diglett",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Relaxed",
+			"caughtIn": "Great Ball",
+			"ability": "Tangling Hair",
+			"hp": 100,
+			"moves": [
+				"Metal Claw",
+				"Growl",
+				"Astonish",
+				"Mud-Slap"
+			],
+			"moveInfo": [
+				{
+					"id": 232,
+					"pp": 35,
+					"name": "Metal Claw",
+					"type": "Steel"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				},
+				{
+					"id": 189,
+					"pp": 10,
+					"name": "Mud-Slap",
+					"type": "Ground"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Diglett",
+			"dexid": 50,
+			"types": [
+				"Ground",
+				"Steel"
+			],
+			"level": 11,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 350958786,
+			"_isEvolving": false
+		},
+		"355509967": {
+			"name": "Goupix",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Snow Cloak",
+			"hp": 100,
+			"moves": [
+				"Powder Snow",
+				"Feint Attack"
+			],
+			"moveInfo": [
+				{
+					"id": 181,
+					"pp": 25,
+					"name": "Powder Snow",
+					"type": "Ice"
+				},
+				{
+					"id": 185,
+					"pp": 20,
+					"name": "Feint Attack",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Vulpix",
+			"dexid": 37,
+			"types": [
+				"Ice"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 355509967,
+			"_isEvolving": false
+		},
+		"375650026": {
+			"name": "Tapu Bulu",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Mild",
+			"caughtIn": "Ultra Ball",
+			"ability": "Grassy Surge",
+			"hp": 100,
+			"moves": [
+				"Nature’s Madness",
+				"Zen Headbutt",
+				"Megahorn",
+				"Skull Bash"
+			],
+			"moveInfo": [
+				{
+					"id": 717,
+					"pp": 9,
+					"name": "Nature’s Madness",
+					"type": "Fairy"
+				},
+				{
+					"id": 428,
+					"pp": 12,
+					"name": "Zen Headbutt",
+					"type": "Psychic"
+				},
+				{
+					"id": 224,
+					"pp": 8,
+					"name": "Megahorn",
+					"type": "Bug"
+				},
+				{
+					"id": 130,
+					"pp": 8,
+					"name": "Skull Bash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tapu Bulu",
+			"dexid": 787,
+			"types": [
+				"Grass",
+				"Fairy"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 375650026,
+			"_isEvolving": false
+		},
+		"429540934": {
+			"name": "Skarmory",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Impish",
+			"caughtIn": "Quick Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Air Cutter",
+				"Fury Attack",
+				"Feint",
+				"Swift"
+			],
+			"moveInfo": [
+				{
+					"id": 314,
+					"pp": 25,
+					"name": "Air Cutter",
+					"type": "Flying"
+				},
+				{
+					"id": 31,
+					"pp": 20,
+					"name": "Fury Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 364,
+					"pp": 10,
+					"name": "Feint",
+					"type": "Normal"
+				},
+				{
+					"id": 129,
+					"pp": 20,
+					"name": "Swift",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Skarmory",
+			"dexid": 227,
+			"types": [
+				"Steel",
+				"Flying"
+			],
+			"level": 26,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 429540934,
+			"_isEvolving": false
+		},
+		"467537794": {
+			"name": "ベトベター",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Bold",
+			"caughtIn": "Poké Ball",
+			"ability": "Poison Touch",
+			"hp": 100,
+			"moves": [
+				"Disable",
+				"Minimize",
+				"Poison Fang",
+				"Knock Off"
+			],
+			"moveInfo": [
+				{
+					"id": 50,
+					"pp": 20,
+					"name": "Disable",
+					"type": "Normal"
+				},
+				{
+					"id": 107,
+					"pp": 10,
+					"name": "Minimize",
+					"type": "Normal"
+				},
+				{
+					"id": 305,
+					"pp": 15,
+					"name": "Poison Fang",
+					"type": "Poison"
+				},
+				{
+					"id": 282,
+					"pp": 20,
+					"name": "Knock Off",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Grimer",
+			"dexid": 88,
+			"types": [
+				"Poison",
+				"Dark"
+			],
+			"level": 29,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 467537794,
+			"_isEvolving": false
+		},
+		"470842194": {
+			"name": "ダンバル",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Jolly",
+			"caughtIn": "Ultra Ball",
+			"ability": "Clear Body",
+			"hp": 100,
+			"moves": [
+				"Take Down"
+			],
+			"moveInfo": [
+				{
+					"id": 36,
+					"pp": 20,
+					"name": "Take Down",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Beldum",
+			"dexid": 374,
+			"types": [
+				"Steel",
+				"Psychic"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 470842194,
+			"_isEvolving": false
+		},
+		"494311254": {
+			"name": "Abra",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Poké Ball",
+			"ability": "Synchronize",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 6,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 494311254,
+			"_isEvolving": false
+		},
+		"503862240": {
+			"name": "!ewwiirrrr!!",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Jolly",
+			"caughtIn": "Great Ball",
+			"ability": "Anger Point",
+			"hp": 100,
+			"moves": [
+				"Take Down",
+				"Zen Headbutt",
+				"Swagger",
+				"Thrash"
+			],
+			"moveInfo": [
+				{
+					"id": 36,
+					"pp": 16,
+					"name": "Take Down",
+					"type": "Normal"
+				},
+				{
+					"id": 428,
+					"pp": 12,
+					"name": "Zen Headbutt",
+					"type": "Psychic"
+				},
+				{
+					"id": 207,
+					"pp": 15,
+					"name": "Swagger",
+					"type": "Normal"
+				},
+				{
+					"id": 37,
+					"pp": 5,
+					"name": "Thrash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tauros",
+			"dexid": 128,
+			"types": [
+				"Normal"
+			],
+			"level": 57,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 503862240,
+			"_isEvolving": false
+		},
+		"513020151": {
+			"name": "Dunsparce",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Impish",
+			"caughtIn": "Ultra Ball",
+			"ability": "Serene Grace",
+			"hp": 100,
+			"moves": [
+				"Roost",
+				"Take Down",
+				"Coil",
+				"Ancient Power"
+			],
+			"moveInfo": [
+				{
+					"id": 355,
+					"pp": 10,
+					"name": "Roost",
+					"type": "Flying"
+				},
+				{
+					"id": 36,
+					"pp": 20,
+					"name": "Take Down",
+					"type": "Normal"
+				},
+				{
+					"id": 489,
+					"pp": 20,
+					"name": "Coil",
+					"type": "Poison"
+				},
+				{
+					"id": 246,
+					"pp": 5,
+					"name": "Ancient Power",
+					"type": "Rock"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Dunsparce",
+			"dexid": 206,
+			"types": [
+				"Normal"
+			],
+			"level": 48,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 513020151,
+			"_isEvolving": false
+		},
+		"514498443": {
+			"name": "Caterpie",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Mild",
+			"caughtIn": "Poké Ball",
+			"ability": "Shield Dust",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"String Shot"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 81,
+					"pp": 40,
+					"name": "String Shot",
+					"type": "Bug"
+				}
+			],
+			"_stats": {
+				"atk": 7,
+				"def": 6,
+				"hp": 15,
+				"spa": 6,
+				"spd": 6,
+				"spe": 8
+			},
+			"species": "Caterpie",
+			"dexid": 10,
+			"types": [
+				"Bug"
+			],
+			"level": 3,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 514498443,
+			"_isEvolving": false
+		},
+		"524790973": {
+			"name": "Nosferalto",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Naive",
+			"caughtIn": "Dusk Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Mean Look",
+				"Leech Life",
+				"Haze",
+				"Venoshock"
+			],
+			"moveInfo": [
+				{
+					"id": 212,
+					"pp": 5,
+					"name": "Mean Look",
+					"type": "Normal"
+				},
+				{
+					"id": 141,
+					"pp": 10,
+					"name": "Leech Life",
+					"type": "Bug"
+				},
+				{
+					"id": 114,
+					"pp": 30,
+					"name": "Haze",
+					"type": "Ice"
+				},
+				{
+					"id": 474,
+					"pp": 10,
+					"name": "Venoshock",
+					"type": "Poison"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Golbat",
+			"dexid": 42,
+			"types": [
+				"Poison",
+				"Flying"
+			],
+			"level": 44,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 524790973,
+			"_isEvolving": false
+		},
+		"549467964": {
+			"name": "Pikipek",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Gentle",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Drill Peck",
+				"Bullet Seed",
+				"Feather Dance",
+				"Hyper Voice"
+			],
+			"moveInfo": [
+				{
+					"id": 65,
+					"pp": 20,
+					"name": "Drill Peck",
+					"type": "Flying"
+				},
+				{
+					"id": 331,
+					"pp": 30,
+					"name": "Bullet Seed",
+					"type": "Grass"
+				},
+				{
+					"id": 297,
+					"pp": 15,
+					"name": "Feather Dance",
+					"type": "Flying"
+				},
+				{
+					"id": 304,
+					"pp": 10,
+					"name": "Hyper Voice",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pikipek",
+			"dexid": 731,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 55,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 549467964,
+			"_isEvolving": false
+		},
+		"558790174": {
+			"name": "Medicham",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Jolly",
+			"caughtIn": "Ultra Ball",
+			"ability": "Pure Power",
+			"hp": 100,
+			"moves": [
+				"Power Trick",
+				"Reversal",
+				"Recover",
+				"Counter"
+			],
+			"moveInfo": [
+				{
+					"id": 379,
+					"pp": 10,
+					"name": "Power Trick",
+					"type": "Psychic"
+				},
+				{
+					"id": 179,
+					"pp": 15,
+					"name": "Reversal",
+					"type": "Fighting"
+				},
+				{
+					"id": 105,
+					"pp": 10,
+					"name": "Recover",
+					"type": "Normal"
+				},
+				{
+					"id": 68,
+					"pp": 20,
+					"name": "Counter",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Medicham",
+			"dexid": 308,
+			"types": [
+				"Fighting",
+				"Psychic"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 558790174,
+			"_isEvolving": false
+		},
+		"564612391": {
+			"name": "Goélise",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Docile",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 564612391,
+			"_isEvolving": false
+		},
+		"569202232": {
+			"name": "Abra",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quiet",
+			"caughtIn": "Heal Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 569202232,
+			"_isEvolving": false
+		},
+		"570936165": {
+			"name": "Quagsire",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Hasty",
+			"caughtIn": "Ultra Ball",
+			"ability": "Water Absorb",
+			"hp": 100,
+			"moves": [
+				"Rain Dance",
+				"Mist",
+				"Haze",
+				"Muddy Water"
+			],
+			"moveInfo": [
+				{
+					"id": 240,
+					"pp": 5,
+					"name": "Rain Dance",
+					"type": "Water"
+				},
+				{
+					"id": 54,
+					"pp": 30,
+					"name": "Mist",
+					"type": "Ice"
+				},
+				{
+					"id": 114,
+					"pp": 30,
+					"name": "Haze",
+					"type": "Ice"
+				},
+				{
+					"id": 330,
+					"pp": 10,
+					"name": "Muddy Water",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Quagsire",
+			"dexid": 195,
+			"types": [
+				"Water",
+				"Ground"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 570936165,
+			"_isEvolving": false
+		},
+		"576313734": {
+			"name": "Starstrike",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Naughty",
+			"caughtIn": "Premier Ball",
+			"ability": "Illuminate",
+			"hp": 100,
+			"moves": [
+				"Recover",
+				"Psywave",
+				"Swift",
+				"Bubble Beam"
+			],
+			"moveInfo": [
+				{
+					"id": 105,
+					"pp": 10,
+					"name": "Recover",
+					"type": "Normal"
+				},
+				{
+					"id": 149,
+					"pp": 15,
+					"name": "Psywave",
+					"type": "Psychic"
+				},
+				{
+					"id": 129,
+					"pp": 20,
+					"name": "Swift",
+					"type": "Normal"
+				},
+				{
+					"id": 61,
+					"pp": 20,
+					"name": "Bubble Beam",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Staryu",
+			"dexid": 120,
+			"types": [
+				"Water"
+			],
+			"level": 21,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 576313734,
+			"_isEvolving": false
+		},
+		"582874909": {
+			"name": "Tumptump",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Calm",
+			"caughtIn": "Poké Ball",
+			"ability": "Natural Cure",
+			"hp": 100,
+			"moves": [
+				"Shadow Claw",
+				"Horn Leech",
+				"X-Scissor",
+				"Wood Hammer"
+			],
+			"moveInfo": [
+				{
+					"id": 421,
+					"pp": 15,
+					"name": "Shadow Claw",
+					"type": "Ghost"
+				},
+				{
+					"id": 532,
+					"pp": 10,
+					"name": "Horn Leech",
+					"type": "Grass"
+				},
+				{
+					"id": 404,
+					"pp": 15,
+					"name": "X-Scissor",
+					"type": "Bug"
+				},
+				{
+					"id": 452,
+					"pp": 15,
+					"name": "Wood Hammer",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 268,
+				"def": 200,
+				"hp": 300,
+				"spa": 158,
+				"spd": 236,
+				"spe": 173
+			},
+			"species": "Trevenant",
+			"dexid": 709,
+			"types": [
+				"Ghost",
+				"Grass"
+			],
+			"level": 100,
+			"item": "Grassium Z",
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": true,
+			"traded": true,
+			"hash": 582874909,
+			"_isEvolving": false,
+			"level_reported": 100,
+			"level_calculated": 99
+		},
+		"585879158": {
+			"name": "Miraculous",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Bashful",
+			"caughtIn": "Poké Ball",
+			"ability": "Natural Cure",
+			"hp": 100,
+			"moves": [
+				"Swift",
+				"Bubble Beam",
+				"Camouflage",
+				"Gyro Ball"
+			],
+			"moveInfo": [
+				{
+					"id": 129,
+					"pp": 20,
+					"name": "Swift",
+					"type": "Normal"
+				},
+				{
+					"id": 61,
+					"pp": 20,
+					"name": "Bubble Beam",
+					"type": "Water"
+				},
+				{
+					"id": 293,
+					"pp": 20,
+					"name": "Camouflage",
+					"type": "Normal"
+				},
+				{
+					"id": 360,
+					"pp": 5,
+					"name": "Gyro Ball",
+					"type": "Steel"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Staryu",
+			"dexid": 120,
+			"types": [
+				"Water"
+			],
+			"level": 24,
+			"item": "Stardust",
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 585879158,
+			"_isEvolving": false
+		},
+		"591307569": {
+			"name": "Magikarp,,~~",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Lax",
+			"caughtIn": "Luxury Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash",
+				"Tackle",
+				"Flail"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 175,
+					"pp": 15,
+					"name": "Flail",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 36,
+			"item": null,
+			"storedIn": 8,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 591307569,
+			"_isEvolving": false
+		},
+		"608667213": {
+			"name": "IS FFQÉ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Bashful",
+			"caughtIn": "Poké Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Payback",
+				"Sludge Bomb",
+				"Gunk Shot",
+				"Brick Break"
+			],
+			"moveInfo": [
+				{
+					"id": 371,
+					"pp": 10,
+					"name": "Payback",
+					"type": "Dark"
+				},
+				{
+					"id": 188,
+					"pp": 10,
+					"name": "Sludge Bomb",
+					"type": "Poison"
+				},
+				{
+					"id": 441,
+					"pp": 5,
+					"name": "Gunk Shot",
+					"type": "Poison"
+				},
+				{
+					"id": 280,
+					"pp": 15,
+					"name": "Brick Break",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 242,
+				"def": 181,
+				"hp": 325,
+				"spa": 142,
+				"spd": 235,
+				"spe": 148
+			},
+			"species": "Muk",
+			"dexid": 89,
+			"types": [
+				"Poison",
+				"Dark"
+			],
+			"level": 98,
+			"item": "Darkinium Z",
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": true,
+			"traded": false,
+			"hash": 608667213,
+			"_isEvolving": false
+		},
+		"647577234": {
+			"name": "Taupiqueur",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Mild",
+			"caughtIn": "Poké Ball",
+			"ability": "Sand Veil",
+			"hp": 100,
+			"moves": [
+				"Metal Claw",
+				"Growl",
+				"Astonish",
+				"Mud-Slap"
+			],
+			"moveInfo": [
+				{
+					"id": 232,
+					"pp": 35,
+					"name": "Metal Claw",
+					"type": "Steel"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				},
+				{
+					"id": 189,
+					"pp": 10,
+					"name": "Mud-Slap",
+					"type": "Ground"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Diglett",
+			"dexid": 50,
+			"types": [
+				"Ground",
+				"Steel"
+			],
+			"level": 10,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 647577234,
+			"_isEvolving": false
+		},
+		"657207344": {
+			"name": "ディグダ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Sassy",
+			"caughtIn": "Quick Ball",
+			"ability": "Sand Veil",
+			"hp": 100,
+			"moves": [
+				"Sucker Punch",
+				"Mud-Slap",
+				"Magnitude",
+				"Bulldoze"
+			],
+			"moveInfo": [
+				{
+					"id": 389,
+					"pp": 5,
+					"name": "Sucker Punch",
+					"type": "Dark"
+				},
+				{
+					"id": 189,
+					"pp": 10,
+					"name": "Mud-Slap",
+					"type": "Ground"
+				},
+				{
+					"id": 222,
+					"pp": 30,
+					"name": "Magnitude",
+					"type": "Ground"
+				},
+				{
+					"id": 523,
+					"pp": 20,
+					"name": "Bulldoze",
+					"type": "Ground"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Diglett",
+			"dexid": 50,
+			"types": [
+				"Ground",
+				"Steel"
+			],
+			"level": 23,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 657207344,
+			"_isEvolving": false
+		},
+		"675771653": {
+			"name": "Sylveon",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Modest",
+			"caughtIn": "Poké Ball",
+			"ability": "Cute Charm",
+			"hp": 100,
+			"moves": [
+				"Swift",
+				"Fairy Wind",
+				"Bite",
+				"Draining Kiss"
+			],
+			"moveInfo": [
+				{
+					"id": 129,
+					"pp": 20,
+					"name": "Swift",
+					"type": "Normal"
+				},
+				{
+					"id": 584,
+					"pp": 30,
+					"name": "Fairy Wind",
+					"type": "Fairy"
+				},
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 577,
+					"pp": 10,
+					"name": "Draining Kiss",
+					"type": "Fairy"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Sylveon",
+			"dexid": 700,
+			"types": [
+				"Fairy"
+			],
+			"level": 32,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 675771653,
+			"_isEvolving": false
+		},
+		"687534233": {
+			"name": "Rattata",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Timid",
+			"caughtIn": "Poké Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Tail Whip",
+				"Quick Attack"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 39,
+					"pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				},
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Rattata",
+			"dexid": 19,
+			"types": [
+				"Dark",
+				"Normal"
+			],
+			"level": 6,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 687534233,
+			"_isEvolving": false
+		},
+		"714204135": {
+			"name": "Wingull",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Hydration",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 6,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 714204135,
+			"_isEvolving": false
+		},
+		"717863599": {
+			"name": "!!",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Bold",
+			"caughtIn": "Ultra Ball",
+			"ability": "Psychic Surge",
+			"hp": 100,
+			"moves": [
+				"Nature’s Madness",
+				"Extrasensory",
+				"Flatter",
+				"Moonblast"
+			],
+			"moveInfo": [
+				{
+					"id": 717,
+					"pp": 6,
+					"name": "Nature’s Madness",
+					"type": "Fairy"
+				},
+				{
+					"id": 326,
+					"pp": 11,
+					"name": "Extrasensory",
+					"type": "Psychic"
+				},
+				{
+					"id": 260,
+					"pp": 8,
+					"name": "Flatter",
+					"type": "Dark"
+				},
+				{
+					"id": 585,
+					"pp": 10,
+					"name": "Moonblast",
+					"type": "Fairy"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tapu Lele",
+			"dexid": 786,
+			"types": [
+				"Psychic",
+				"Fairy"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 717863599,
+			"_isEvolving": false
+		},
+		"768922899": {
+			"name": "Stufful",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Careful",
+			"caughtIn": "Ultra Ball",
+			"ability": "Klutz",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Leer",
+				"Bide"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 117,
+					"pp": 10,
+					"name": "Bide",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Stufful",
+			"dexid": 759,
+			"types": [
+				"Normal",
+				"Fighting"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 768922899,
+			"_isEvolving": false
+		},
+		"818011874": {
+			"name": "Dewpider",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Naughty",
+			"caughtIn": "Poké Ball",
+			"ability": "Water Bubble",
+			"hp": 100,
+			"moves": [
+				"Bubble",
+				"Infestation",
+				"Spider Web",
+				"Bug Bite"
+			],
+			"moveInfo": [
+				{
+					"id": 145,
+					"pp": 30,
+					"name": "Bubble",
+					"type": "Water"
+				},
+				{
+					"id": 611,
+					"pp": 20,
+					"name": "Infestation",
+					"type": "Bug"
+				},
+				{
+					"id": 169,
+					"pp": 10,
+					"name": "Spider Web",
+					"type": "Bug"
+				},
+				{
+					"id": 450,
+					"pp": 20,
+					"name": "Bug Bite",
+					"type": "Bug"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Dewpider",
+			"dexid": 751,
+			"types": [
+				"Water",
+				"Bug"
+			],
+			"level": 14,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 818011874,
+			"_isEvolving": false
+		},
+		"828336037": {
+			"name": "Pinsir",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Modest",
+			"caughtIn": "Poké Ball",
+			"ability": "Hyper Cutter",
+			"hp": 100,
+			"moves": [
+				"Seismic Toss",
+				"Harden",
+				"Revenge",
+				"Vital Throw"
+			],
+			"moveInfo": [
+				{
+					"id": 69,
+					"pp": 20,
+					"name": "Seismic Toss",
+					"type": "Fighting"
+				},
+				{
+					"id": 106,
+					"pp": 30,
+					"name": "Harden",
+					"type": "Normal"
+				},
+				{
+					"id": 279,
+					"pp": 10,
+					"name": "Revenge",
+					"type": "Fighting"
+				},
+				{
+					"id": 233,
+					"pp": 10,
+					"name": "Vital Throw",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pinsir",
+			"dexid": 127,
+			"types": [
+				"Bug"
+			],
+			"level": 21,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 828336037,
+			"_isEvolving": false
+		},
+		"848679751": {
+			"name": "UN2WFUNWCUWU",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Lax",
+			"caughtIn": "Great Ball",
+			"ability": "Fluffy",
+			"hp": 100,
+			"moves": [
+				"Hammer Arm",
+				"Thrash",
+				"Pain Split",
+				"Double-Edge"
+			],
+			"moveInfo": [
+				{
+					"id": 359,
+					"pp": 10,
+					"name": "Hammer Arm",
+					"type": "Fighting"
+				},
+				{
+					"id": 37,
+					"pp": 10,
+					"name": "Thrash",
+					"type": "Normal"
+				},
+				{
+					"id": 220,
+					"pp": 17,
+					"name": "Pain Split",
+					"type": "Normal"
+				},
+				{
+					"id": 38,
+					"pp": 14,
+					"name": "Double-Edge",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Bewear",
+			"dexid": 760,
+			"types": [
+				"Normal",
+				"Fighting"
+			],
+			"level": 61,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 848679751,
+			"_isEvolving": false
+		},
+		"909518142": {
+			"name": "メレシー",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Sassy",
+			"caughtIn": "Ultra Ball",
+			"ability": "Clear Body",
+			"hp": 100,
+			"moves": [
+				"Guard Split",
+				"Ancient Power",
+				"Flail",
+				"Skill Swap"
+			],
+			"moveInfo": [
+				{
+					"id": 470,
+					"pp": 10,
+					"name": "Guard Split",
+					"type": "Psychic"
+				},
+				{
+					"id": 246,
+					"pp": 5,
+					"name": "Ancient Power",
+					"type": "Rock"
+				},
+				{
+					"id": 175,
+					"pp": 15,
+					"name": "Flail",
+					"type": "Normal"
+				},
+				{
+					"id": 285,
+					"pp": 10,
+					"name": "Skill Swap",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Carbink",
+			"dexid": 703,
+			"types": [
+				"Rock",
+				"Fairy"
+			],
+			"level": 43,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 909518142,
+			"_isEvolving": false
+		},
+		"922951989": {
+			"name": "AYYYYYSS ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quiet",
+			"caughtIn": "Poké Ball",
+			"ability": "Vital Spirit",
+			"hp": 94,
+			"moves": [
+				"Stone Edge",
+				"Brick Break",
+				"Rock Slide",
+				"Crunch"
+			],
+			"moveInfo": [
+				{
+					"id": 444,
+					"pp": 4,
+					"name": "Stone Edge",
+					"type": "Rock"
+				},
+				{
+					"id": 280,
+					"pp": 14,
+					"name": "Brick Break",
+					"type": "Fighting"
+				},
+				{
+					"id": 157,
+					"pp": 10,
+					"name": "Rock Slide",
+					"type": "Rock"
+				},
+				{
+					"id": 242,
+					"pp": 15,
+					"name": "Crunch",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 299,
+				"def": 180,
+				"hp": 301,
+				"spa": 147,
+				"spd": 167,
+				"spe": 178
+			},
+			"species": "Lycanroc",
+			"dexid": 745,
+			"types": [
+				"Rock"
+			],
+			"level": 94,
+			"item": "Comet Shard",
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": true,
+			"traded": false,
+			"hash": 922951989,
+			"_isEvolving": false
+		},
+		"940209419": {
+			"name": "Inkay",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Bashful",
+			"caughtIn": "Poké Ball",
+			"ability": "Contrary",
+			"hp": 100,
+			"moves": [
+				"Topsy-Turvy",
+				"Psybeam",
+				"Foul Play",
+				"Reflect"
+			],
+			"moveInfo": [
+				{
+					"id": 576,
+					"pp": 20,
+					"name": "Topsy-Turvy",
+					"type": "Dark"
+				},
+				{
+					"id": 60,
+					"pp": 20,
+					"name": "Psybeam",
+					"type": "Psychic"
+				},
+				{
+					"id": 492,
+					"pp": 15,
+					"name": "Foul Play",
+					"type": "Dark"
+				},
+				{
+					"id": 115,
+					"pp": 20,
+					"name": "Reflect",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Inkay",
+			"dexid": 686,
+			"types": [
+				"Dark",
+				"Psychic"
+			],
+			"level": 30,
+			"item": "X Defense",
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 940209419,
+			"_isEvolving": false
+		},
+		"1034628738": {
+			"name": "Cutiefly",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Honey Gather",
+			"hp": 100,
+			"moves": [
+				"Sweet Scent",
+				"Bug Buzz",
+				"Dazzling Gleam",
+				"Aromatherapy"
+			],
+			"moveInfo": [
+				{
+					"id": 230,
+					"pp": 20,
+					"name": "Sweet Scent",
+					"type": "Normal"
+				},
+				{
+					"id": 405,
+					"pp": 10,
+					"name": "Bug Buzz",
+					"type": "Bug"
+				},
+				{
+					"id": 605,
+					"pp": 10,
+					"name": "Dazzling Gleam",
+					"type": "Fairy"
+				},
+				{
+					"id": 312,
+					"pp": 5,
+					"name": "Aromatherapy",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Cutiefly",
+			"dexid": 742,
+			"types": [
+				"Bug",
+				"Fairy"
+			],
+			"level": 38,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1034628738,
+			"_isEvolving": false
+		},
+		"1041663804": {
+			"name": "Zorkam",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Naive",
+			"caughtIn": "Poké Ball",
+			"ability": "Illusion",
+			"hp": 100,
+			"moves": [
+				"Sucker Punch",
+				"Extrasensory",
+				"Dark Pulse",
+				"Copycat"
+			],
+			"moveInfo": [
+				{
+					"id": 389,
+					"pp": 5,
+					"name": "Sucker Punch",
+					"type": "Dark"
+				},
+				{
+					"id": 326,
+					"pp": 20,
+					"name": "Extrasensory",
+					"type": "Psychic"
+				},
+				{
+					"id": 399,
+					"pp": 15,
+					"name": "Dark Pulse",
+					"type": "Dark"
+				},
+				{
+					"id": 383,
+					"pp": 20,
+					"name": "Copycat",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 6,
+				"def": 6,
+				"hp": 12,
+				"spa": 6,
+				"spd": 5,
+				"spe": 6
+			},
+			"species": "Zorua",
+			"dexid": 570,
+			"types": [
+				"Dark"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1041663804,
+			"_isEvolving": false
+		},
+		"1049849680": {
+			"name": "Mickey",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Poké Ball",
+			"ability": "Thick Fat",
+			"hp": 100,
+			"moves": [
+				"Bite",
+				"Pursuit",
+				"Hyper Fang",
+				"Assurance"
+			],
+			"moveInfo": [
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				},
+				{
+					"id": 158,
+					"pp": 15,
+					"name": "Hyper Fang",
+					"type": "Normal"
+				},
+				{
+					"id": 372,
+					"pp": 10,
+					"name": "Assurance",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Raticate",
+			"dexid": 20,
+			"types": [
+				"Dark",
+				"Normal"
+			],
+			"level": 20,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1049849680,
+			"_isEvolving": false
+		},
+		"1111507700": {
+			"name": "NNL4 NNNND  ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Careful",
+			"caughtIn": "Poké Ball",
+			"ability": "Torrent",
+			"hp": 100,
+			"moves": [
+				"Shadow Ball",
+				"Scald",
+				"Sparkling Aria",
+				"Dazzling Gleam"
+			],
+			"moveInfo": [
+				{
+					"id": 247,
+					"pp": 15,
+					"name": "Shadow Ball",
+					"type": "Ghost"
+				},
+				{
+					"id": 503,
+					"pp": 15,
+					"name": "Scald",
+					"type": "Water"
+				},
+				{
+					"id": 664,
+					"pp": 10,
+					"name": "Sparkling Aria",
+					"type": "Water"
+				},
+				{
+					"id": 605,
+					"pp": 10,
+					"name": "Dazzling Gleam",
+					"type": "Fairy"
+				}
+			],
+			"_stats": {
+				"atk": 196,
+				"def": 179,
+				"hp": 285,
+				"spa": 254,
+				"spd": 289,
+				"spe": 187
+			},
+			"species": "Primarina",
+			"dexid": 730,
+			"types": [
+				"Water",
+				"Fairy"
+			],
+			"level": 98,
+			"item": "Primarium Z",
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": true,
+			"traded": false,
+			"hash": 1111507700,
+			"_isEvolving": false
+		},
+		"1116510880": {
+			"name": "Diglett",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Docile",
+			"caughtIn": "Nest Ball",
+			"ability": "Sand Veil",
+			"hp": 100,
+			"moves": [
+				"Sand Attack",
+				"Metal Claw",
+				"Growl",
+				"Astonish"
+			],
+			"moveInfo": [
+				{
+					"id": 28,
+					"pp": 15,
+					"name": "Sand Attack",
+					"type": "Ground"
+				},
+				{
+					"id": 232,
+					"pp": 35,
+					"name": "Metal Claw",
+					"type": "Steel"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Diglett",
+			"dexid": 50,
+			"types": [
+				"Ground",
+				"Steel"
+			],
+			"level": 8,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1116510880,
+			"_isEvolving": false
+		},
+		"1147205737": {
+			"name": "Wingull",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Careful",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 7,
+			"item": "Pretty Wing",
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1147205737,
+			"_isEvolving": false
+		},
+		"1158348206": {
+			"name": "ドククラゲ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Impish",
+			"caughtIn": "Poké Ball",
+			"ability": "Clear Body",
+			"hp": 100,
+			"moves": [
+				"Acid Spray",
+				"Bubble Beam",
+				"Barrier",
+				"Poison Jab"
+			],
+			"moveInfo": [
+				{
+					"id": 491,
+					"pp": 20,
+					"name": "Acid Spray",
+					"type": "Poison"
+				},
+				{
+					"id": 61,
+					"pp": 20,
+					"name": "Bubble Beam",
+					"type": "Water"
+				},
+				{
+					"id": 112,
+					"pp": 20,
+					"name": "Barrier",
+					"type": "Psychic"
+				},
+				{
+					"id": 398,
+					"pp": 20,
+					"name": "Poison Jab",
+					"type": "Poison"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tentacruel",
+			"dexid": 73,
+			"types": [
+				"Water",
+				"Poison"
+			],
+			"level": 33,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1158348206,
+			"_isEvolving": false
+		},
+		"1194896477": {
+			"name": "Manglouton",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Calm",
+			"caughtIn": "Poké Ball",
+			"ability": "Stakeout",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Leer",
+				"Pursuit"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Yungoos",
+			"dexid": 734,
+			"types": [
+				"Normal"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1194896477,
+			"_isEvolving": false
+		},
+		"1215418580": {
+			"name": "Brasil love",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Bashful",
+			"caughtIn": "Poké Ball",
+			"ability": "Chlorophyll",
+			"hp": 100,
+			"moves": [
+				"Mega Drain",
+				"Synthesis",
+				"Magical Leaf",
+				"Stun Spore"
+			],
+			"moveInfo": [
+				{
+					"id": 72,
+					"pp": 15,
+					"name": "Mega Drain",
+					"type": "Grass"
+				},
+				{
+					"id": 235,
+					"pp": 5,
+					"name": "Synthesis",
+					"type": "Grass"
+				},
+				{
+					"id": 345,
+					"pp": 20,
+					"name": "Magical Leaf",
+					"type": "Grass"
+				},
+				{
+					"id": 78,
+					"pp": 30,
+					"name": "Stun Spore",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Petilil",
+			"dexid": 548,
+			"types": [
+				"Grass"
+			],
+			"level": 25,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1215418580,
+			"_isEvolving": false
+		},
+		"1224627014": {
+			"name": "ピチュー",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Static",
+			"hp": 100,
+			"moves": [
+				"Thunder Shock",
+				"Charm",
+				"Tail Whip"
+			],
+			"moveInfo": [
+				{
+					"id": 84,
+					"pp": 30,
+					"name": "Thunder Shock",
+					"type": "Electric"
+				},
+				{
+					"id": 204,
+					"pp": 20,
+					"name": "Charm",
+					"type": "Fairy"
+				},
+				{
+					"id": 39,
+					"pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pichu",
+			"dexid": 172,
+			"types": [
+				"Electric"
+			],
+			"level": 6,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1224627014,
+			"_isEvolving": false
+		},
+		"1248773446": {
+			"name": "Gible",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quiet",
+			"caughtIn": "Ultra Ball",
+			"ability": "Sand Veil",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Sand Tomb"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 328,
+					"pp": 15,
+					"name": "Sand Tomb",
+					"type": "Ground"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Gible",
+			"dexid": 443,
+			"types": [
+				"Dragon",
+				"Ground"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1248773446,
+			"_isEvolving": false
+		},
+		"1253739520": {
+			"name": "Mudbray",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quiet",
+			"caughtIn": "Great Ball",
+			"ability": "Stamina",
+			"hp": 100,
+			"moves": [
+				"Mud-Slap",
+				"Mud Sport",
+				"Rototiller",
+				"Bulldoze"
+			],
+			"moveInfo": [
+				{
+					"id": 189,
+					"pp": 10,
+					"name": "Mud-Slap",
+					"type": "Ground"
+				},
+				{
+					"id": 300,
+					"pp": 15,
+					"name": "Mud Sport",
+					"type": "Ground"
+				},
+				{
+					"id": 563,
+					"pp": 10,
+					"name": "Rototiller",
+					"type": "Ground"
+				},
+				{
+					"id": 523,
+					"pp": 20,
+					"name": "Bulldoze",
+					"type": "Ground"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Mudbray",
+			"dexid": 749,
+			"types": [
+				"Ground"
+			],
+			"level": 14,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1253739520,
+			"_isEvolving": false
+		},
+		"1275185297": {
+			"name": "ケーシィ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Gentle",
+			"caughtIn": "Quick Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1275185297,
+			"_isEvolving": false
+		},
+		"1288503657": {
+			"name": "A",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Bashful",
+			"caughtIn": "Ultra Ball",
+			"ability": "Aura Break",
+			"hp": 100,
+			"moves": [
+				"Land’s Wrath",
+				"Glare",
+				"Safeguard",
+				"Dragon Breath"
+			],
+			"moveInfo": [
+				{
+					"id": 616,
+					"pp": 0,
+					"name": "Land’s Wrath",
+					"type": "Ground"
+				},
+				{
+					"id": 137,
+					"pp": 9,
+					"name": "Glare",
+					"type": "Normal"
+				},
+				{
+					"id": 219,
+					"pp": 8,
+					"name": "Safeguard",
+					"type": "Normal"
+				},
+				{
+					"id": 225,
+					"pp": 4,
+					"name": "Dragon Breath",
+					"type": "Dragon"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Zygarde",
+			"dexid": 718,
+			"types": [
+				"Dragon",
+				"Ground"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1288503657,
+			"_isEvolving": false
+		},
+		"1304711330": {
+			"name": "Jirachi",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Naive",
+			"caughtIn": "Cherish Ball",
+			"ability": "Serene Grace",
+			"hp": 100,
+			"moves": [
+				"Future Sight",
+				"Cosmic Power",
+				"Last Resort",
+				"Doom Desire"
+			],
+			"moveInfo": [
+				{
+					"id": 248,
+					"pp": 10,
+					"name": "Future Sight",
+					"type": "Psychic"
+				},
+				{
+					"id": 322,
+					"pp": 20,
+					"name": "Cosmic Power",
+					"type": "Psychic"
+				},
+				{
+					"id": 387,
+					"pp": 5,
+					"name": "Last Resort",
+					"type": "Normal"
+				},
+				{
+					"id": 353,
+					"pp": 5,
+					"name": "Doom Desire",
+					"type": "Steel"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Jirachi",
+			"dexid": 385,
+			"types": [
+				"Steel",
+				"Psychic"
+			],
+			"level": 100,
+			"item": null,
+			"storedIn": 7,
+			"shiny": true,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1304711330,
+			"_isEvolving": false,
+			"level_reported": 100,
+			"level_calculated": 99
+		},
+		"1331988569": {
+			"name": "Roberts",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Impish",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Peck",
+				"Growl",
+				"Leer",
+				"Pursuit"
+			],
+			"moveInfo": [
+				{
+					"id": 64,
+					"pp": 35,
+					"name": "Peck",
+					"type": "Flying"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Spearow",
+			"dexid": 21,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1331988569,
+			"_isEvolving": false
+		},
+		"1355392827": {
+			"name": "Castform",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Forecast",
+			"hp": 100,
+			"moves": [
+				"Powder Snow",
+				"Rain Dance",
+				"Sunny Day",
+				"Hail"
+			],
+			"moveInfo": [
+				{
+					"id": 181,
+					"pp": 25,
+					"name": "Powder Snow",
+					"type": "Ice"
+				},
+				{
+					"id": 240,
+					"pp": 5,
+					"name": "Rain Dance",
+					"type": "Water"
+				},
+				{
+					"id": 241,
+					"pp": 5,
+					"name": "Sunny Day",
+					"type": "Fire"
+				},
+				{
+					"id": 258,
+					"pp": 10,
+					"name": "Hail",
+					"type": "Ice"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Castform",
+			"dexid": 351,
+			"types": [
+				"Normal"
+			],
+			"level": 25,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1355392827,
+			"_isEvolving": false
+		},
+		"1387674167": {
+			"name": "Miltank ous",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Modest",
+			"caughtIn": "Poké Ball",
+			"ability": "Scrappy",
+			"hp": 100,
+			"moves": [
+				"Captivate",
+				"Gyro Ball",
+				"Heal Bell",
+				"Wake-Up Slap"
+			],
+			"moveInfo": [
+				{
+					"id": 445,
+					"pp": 20,
+					"name": "Captivate",
+					"type": "Normal"
+				},
+				{
+					"id": 360,
+					"pp": 5,
+					"name": "Gyro Ball",
+					"type": "Steel"
+				},
+				{
+					"id": 215,
+					"pp": 5,
+					"name": "Heal Bell",
+					"type": "Normal"
+				},
+				{
+					"id": 358,
+					"pp": 10,
+					"name": "Wake-Up Slap",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Miltank",
+			"dexid": 241,
+			"types": [
+				"Normal"
+			],
+			"level": 57,
+			"item": "Moomoo Milk",
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1387674167,
+			"_isEvolving": false
+		},
+		"1413632558": {
+			"name": "yungoos",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Docile",
+			"caughtIn": "Poké Ball",
+			"ability": "Strong Jaw",
+			"hp": 100,
+			"moves": [
+				"Tackle"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Yungoos",
+			"dexid": 734,
+			"types": [
+				"Normal"
+			],
+			"level": 2,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1413632558,
+			"_isEvolving": false
+		},
+		"1425686071": {
+			"name": "AAAA%",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Adaptability",
+			"hp": 100,
+			"moves": [
+				"Sand Attack",
+				"Odor Sleuth",
+				"Bide",
+				"Bite"
+			],
+			"moveInfo": [
+				{
+					"id": 28,
+					"pp": 15,
+					"name": "Sand Attack",
+					"type": "Ground"
+				},
+				{
+					"id": 316,
+					"pp": 40,
+					"name": "Odor Sleuth",
+					"type": "Normal"
+				},
+				{
+					"id": 117,
+					"pp": 10,
+					"name": "Bide",
+					"type": "Normal"
+				},
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Gumshoos",
+			"dexid": 735,
+			"types": [
+				"Normal"
+			],
+			"level": 20,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1425686071,
+			"_isEvolving": false
+		},
+		"1467780479": {
+			"name": "Salandit",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Corrosion",
+			"hp": 100,
+			"moves": [
+				"Ember",
+				"Sweet Scent",
+				"Dragon Rage",
+				"Smog"
+			],
+			"moveInfo": [
+				{
+					"id": 52,
+					"pp": 25,
+					"name": "Ember",
+					"type": "Fire"
+				},
+				{
+					"id": 230,
+					"pp": 20,
+					"name": "Sweet Scent",
+					"type": "Normal"
+				},
+				{
+					"id": 82,
+					"pp": 10,
+					"name": "Dragon Rage",
+					"type": "Dragon"
+				},
+				{
+					"id": 123,
+					"pp": 20,
+					"name": "Smog",
+					"type": "Poison"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Salandit",
+			"dexid": 757,
+			"types": [
+				"Poison",
+				"Fire"
+			],
+			"level": 19,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1467780479,
+			"_isEvolving": false
+		},
+		"1528574095": {
+			"name": "Porygon",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Modest",
+			"caughtIn": "Poké Ball",
+			"ability": "Download",
+			"hp": 100,
+			"moves": [
+				"Conversion 2",
+				"Tackle",
+				"Conversion",
+				"Sharpen"
+			],
+			"moveInfo": [
+				{
+					"id": 176,
+					"pp": 30,
+					"name": "Conversion 2",
+					"type": "Normal"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 160,
+					"pp": 30,
+					"name": "Conversion",
+					"type": "Normal"
+				},
+				{
+					"id": 159,
+					"pp": 30,
+					"name": "Sharpen",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Porygon",
+			"dexid": 137,
+			"types": [
+				"Normal"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1528574095,
+			"_isEvolving": false
+		},
+		"1590336011": {
+			"name": "ゴローニャ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Hasty",
+			"caughtIn": "Great Ball",
+			"ability": "Magnet Pull",
+			"hp": 100,
+			"moves": [
+				"Rock Throw",
+				"Smack Down",
+				"Thunder Punch",
+				"Self-Destruct"
+			],
+			"moveInfo": [
+				{
+					"id": 88,
+					"pp": 15,
+					"name": "Rock Throw",
+					"type": "Rock"
+				},
+				{
+					"id": 479,
+					"pp": 15,
+					"name": "Smack Down",
+					"type": "Rock"
+				},
+				{
+					"id": 9,
+					"pp": 15,
+					"name": "Thunder Punch",
+					"type": "Electric"
+				},
+				{
+					"id": 120,
+					"pp": 5,
+					"name": "Self-Destruct",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Golem",
+			"dexid": 76,
+			"types": [
+				"Rock",
+				"Electric"
+			],
+			"level": 29,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1590336011,
+			"_isEvolving": false
+		},
+		"1595559824": {
+			"name": "Lapras",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Modest",
+			"caughtIn": "Lure Ball",
+			"ability": "Water Absorb",
+			"hp": 100,
+			"moves": [
+				"Dragon Dance",
+				"Freeze-Dry",
+				"Dragon Pulse",
+				"Whirlpool"
+			],
+			"moveInfo": [
+				{
+					"id": 349,
+					"pp": 20,
+					"name": "Dragon Dance",
+					"type": "Dragon"
+				},
+				{
+					"id": 573,
+					"pp": 20,
+					"name": "Freeze-Dry",
+					"type": "Ice"
+				},
+				{
+					"id": 406,
+					"pp": 10,
+					"name": "Dragon Pulse",
+					"type": "Dragon"
+				},
+				{
+					"id": 250,
+					"pp": 15,
+					"name": "Whirlpool",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Lapras",
+			"dexid": 131,
+			"types": [
+				"Water",
+				"Ice"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 6,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1595559824,
+			"_isEvolving": false
+		},
+		"1599888237": {
+			"name": "Mawile",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Serious",
+			"caughtIn": "Ultra Ball",
+			"ability": "Intimidate",
+			"hp": 100,
+			"moves": [
+				"Astonish",
+				"Fake Tears",
+				"Bite",
+				"Sweet Scent"
+			],
+			"moveInfo": [
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				},
+				{
+					"id": 313,
+					"pp": 20,
+					"name": "Fake Tears",
+					"type": "Dark"
+				},
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 230,
+					"pp": 20,
+					"name": "Sweet Scent",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Mawile",
+			"dexid": 303,
+			"types": [
+				"Steel",
+				"Fairy"
+			],
+			"level": 14,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1599888237,
+			"_isEvolving": false
+		},
+		"1621066417": {
+			"name": "Wingull",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Quick Ball",
+			"ability": "Hydration",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 5,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1621066417,
+			"_isEvolving": false
+		},
+		"1622504271": {
+			"name": "6667R RB  ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "Levitate",
+			"hp": 100,
+			"moves": [
+				"Energy Ball",
+				"Zap Cannon",
+				"Thunderbolt",
+				"X-Scissor"
+			],
+			"moveInfo": [
+				{
+					"id": 412,
+					"pp": 10,
+					"name": "Energy Ball",
+					"type": "Grass"
+				},
+				{
+					"id": 192,
+					"pp": 5,
+					"name": "Zap Cannon",
+					"type": "Electric"
+				},
+				{
+					"id": 85,
+					"pp": 15,
+					"name": "Thunderbolt",
+					"type": "Electric"
+				},
+				{
+					"id": 404,
+					"pp": 15,
+					"name": "X-Scissor",
+					"type": "Bug"
+				}
+			],
+			"_stats": {
+				"atk": 169,
+				"def": 205,
+				"hp": 265,
+				"spa": 284,
+				"spd": 170,
+				"spe": 136
+			},
+			"species": "Vikavolt",
+			"dexid": 738,
+			"types": [
+				"Bug",
+				"Electric"
+			],
+			"level": 95,
+			"item": "Electrium Z",
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": true,
+			"traded": false,
+			"hash": 1622504271,
+			"_isEvolving": false
+		},
+		"1624882795": {
+			"name": "アママイコ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Quick Ball",
+			"ability": "Leaf Guard",
+			"hp": 100,
+			"moves": [
+				"Rapid Spin",
+				"Razor Leaf",
+				"Sweet Scent",
+				"Magical Leaf"
+			],
+			"moveInfo": [
+				{
+					"id": 229,
+					"pp": 40,
+					"name": "Rapid Spin",
+					"type": "Normal"
+				},
+				{
+					"id": 75,
+					"pp": 25,
+					"name": "Razor Leaf",
+					"type": "Grass"
+				},
+				{
+					"id": 230,
+					"pp": 20,
+					"name": "Sweet Scent",
+					"type": "Normal"
+				},
+				{
+					"id": 345,
+					"pp": 20,
+					"name": "Magical Leaf",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Steenee",
+			"dexid": 762,
+			"types": [
+				"Grass"
+			],
+			"level": 21,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1624882795,
+			"_isEvolving": false
+		},
+		"1651564411": {
+			"name": "Seviper",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Naive",
+			"caughtIn": "Poké Ball",
+			"ability": "Shed Skin",
+			"hp": 100,
+			"moves": [
+				"Wrap",
+				"Swagger"
+			],
+			"moveInfo": [
+				{
+					"id": 35,
+					"pp": 20,
+					"name": "Wrap",
+					"type": "Normal"
+				},
+				{
+					"id": 207,
+					"pp": 15,
+					"name": "Swagger",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Seviper",
+			"dexid": 336,
+			"types": [
+				"Poison"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1651564411,
+			"_isEvolving": false
+		},
+		"1658766354": {
+			"name": "Trevenant",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Jolly",
+			"caughtIn": "Great Ball",
+			"ability": "Frisk",
+			"hp": 100,
+			"moves": [
+				"Shadow Claw",
+				"Ingrain",
+				"Feint Attack",
+				"Leech Seed"
+			],
+			"moveInfo": [
+				{
+					"id": 421,
+					"pp": 15,
+					"name": "Shadow Claw",
+					"type": "Ghost"
+				},
+				{
+					"id": 275,
+					"pp": 20,
+					"name": "Ingrain",
+					"type": "Grass"
+				},
+				{
+					"id": 185,
+					"pp": 20,
+					"name": "Feint Attack",
+					"type": "Dark"
+				},
+				{
+					"id": 73,
+					"pp": 10,
+					"name": "Leech Seed",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Trevenant",
+			"dexid": 709,
+			"types": [
+				"Ghost",
+				"Grass"
+			],
+			"level": 24,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1658766354,
+			"_isEvolving": false
+		},
+		"1669437469": {
+			"name": "Fearow",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Sassy",
+			"caughtIn": "Ultra Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Aerial Ace",
+				"Mirror Move",
+				"Assurance",
+				"Agility"
+			],
+			"moveInfo": [
+				{
+					"id": 332,
+					"pp": 20,
+					"name": "Aerial Ace",
+					"type": "Flying"
+				},
+				{
+					"id": 119,
+					"pp": 20,
+					"name": "Mirror Move",
+					"type": "Flying"
+				},
+				{
+					"id": 372,
+					"pp": 10,
+					"name": "Assurance",
+					"type": "Dark"
+				},
+				{
+					"id": 97,
+					"pp": 30,
+					"name": "Agility",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Fearow",
+			"dexid": 22,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 29,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1669437469,
+			"_isEvolving": false
+		},
+		"1670558012": {
+			"name": "A7",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Docile",
+			"caughtIn": "Dive Ball",
+			"ability": "Water Absorb",
+			"hp": 100,
+			"moves": [
+				"Water Gun",
+				"Hypnosis",
+				"Bubble",
+				"Double Slap"
+			],
+			"moveInfo": [
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 95,
+					"pp": 20,
+					"name": "Hypnosis",
+					"type": "Psychic"
+				},
+				{
+					"id": 145,
+					"pp": 29,
+					"name": "Bubble",
+					"type": "Water"
+				},
+				{
+					"id": 3,
+					"pp": 10,
+					"name": "Double Slap",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Poliwag",
+			"dexid": 60,
+			"types": [
+				"Water"
+			],
+			"level": 17,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1670558012,
+			"_isEvolving": false
+		},
+		"1691008799": {
+			"name": "Minior",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Rash",
+			"caughtIn": "Quick Ball",
+			"ability": "Shields Down",
+			"hp": 100,
+			"moves": [
+				"Power Gem",
+				"Double-Edge",
+				"Shell Smash",
+				"Explosion"
+			],
+			"moveInfo": [
+				{
+					"id": 408,
+					"pp": 20,
+					"name": "Power Gem",
+					"type": "Rock"
+				},
+				{
+					"id": 38,
+					"pp": 15,
+					"name": "Double-Edge",
+					"type": "Normal"
+				},
+				{
+					"id": 504,
+					"pp": 15,
+					"name": "Shell Smash",
+					"type": "Normal"
+				},
+				{
+					"id": 153,
+					"pp": 5,
+					"name": "Explosion",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Minior",
+			"dexid": 774,
+			"types": [
+				"Rock",
+				"Flying"
+			],
+			"level": 35,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1691008799,
+			"_isEvolving": false
+		},
+		"1699230076": {
+			"name": "Honedge",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Relaxed",
+			"caughtIn": "Nest Ball",
+			"ability": "No Guard",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Swords Dance",
+				"Wide Guard",
+				"Shadow Sneak"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 14,
+					"pp": 20,
+					"name": "Swords Dance",
+					"type": "Normal"
+				},
+				{
+					"id": 469,
+					"pp": 10,
+					"name": "Wide Guard",
+					"type": "Rock"
+				},
+				{
+					"id": 425,
+					"pp": 30,
+					"name": "Shadow Sneak",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Honedge",
+			"dexid": 679,
+			"types": [
+				"Steel",
+				"Ghost"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1699230076,
+			"_isEvolving": false
+		},
+		"1709818073": {
+			"name": "Tapu KokoGFF",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Calm",
+			"caughtIn": "Poké Ball",
+			"ability": "Electric Surge",
+			"hp": 100,
+			"moves": [
+				"Nature’s Madness",
+				"Discharge",
+				"Agility",
+				"Electro Ball"
+			],
+			"moveInfo": [
+				{
+					"id": 717,
+					"pp": 2,
+					"name": "Nature’s Madness",
+					"type": "Fairy"
+				},
+				{
+					"id": 435,
+					"pp": 6,
+					"name": "Discharge",
+					"type": "Electric"
+				},
+				{
+					"id": 97,
+					"pp": 25,
+					"name": "Agility",
+					"type": "Psychic"
+				},
+				{
+					"id": 486,
+					"pp": 6,
+					"name": "Electro Ball",
+					"type": "Electric"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tapu Koko",
+			"dexid": 785,
+			"types": [
+				"Electric",
+				"Fairy"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1709818073,
+			"_isEvolving": false
+		},
+		"1734950455": {
+			"name": "Zubat",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Docile",
+			"caughtIn": "Great Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Absorb",
+				"Supersonic",
+				"Astonish"
+			],
+			"moveInfo": [
+				{
+					"id": 71,
+					"pp": 25,
+					"name": "Absorb",
+					"type": "Grass"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				},
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Zubat",
+			"dexid": 41,
+			"types": [
+				"Poison",
+				"Flying"
+			],
+			"level": 8,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1734950455,
+			"_isEvolving": false
+		},
+		"1741437812": {
+			"name": "",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Calm",
+			"caughtIn": "Dive Ball",
+			"ability": "Rain Dish",
+			"hp": 100,
+			"moves": [
+				"Poison Sting",
+				"Aqua Ring"
+			],
+			"moveInfo": [
+				{
+					"id": 40,
+					"pp": 35,
+					"name": "Poison Sting",
+					"type": "Poison"
+				},
+				{
+					"id": 392,
+					"pp": 20,
+					"name": "Aqua Ring",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tentacool",
+			"dexid": 72,
+			"types": [
+				"Water",
+				"Poison"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1741437812,
+			"_isEvolving": false
+		},
+		"1755799771": {
+			"name": "AANUUSMN",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Lonely",
+			"caughtIn": "Poké Ball",
+			"ability": "Sheer Force",
+			"hp": 100,
+			"moves": [
+				"Air Slash",
+				"Crush Claw",
+				"Sky Drop",
+				"Whirlwind"
+			],
+			"moveInfo": [
+				{
+					"id": 403,
+					"pp": 12,
+					"name": "Air Slash",
+					"type": "Flying"
+				},
+				{
+					"id": 306,
+					"pp": 10,
+					"name": "Crush Claw",
+					"type": "Normal"
+				},
+				{
+					"id": 507,
+					"pp": 8,
+					"name": "Sky Drop",
+					"type": "Flying"
+				},
+				{
+					"id": 18,
+					"pp": 20,
+					"name": "Whirlwind",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Braviary",
+			"dexid": 628,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 57,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1755799771,
+			"_isEvolving": false
+		},
+		"1797677856": {
+			"name": "Buneary",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "Limber",
+			"hp": 100,
+			"moves": [
+				"Fake Out",
+				"Ice Punch",
+				"Power-Up Punch",
+				"Cosmic Power"
+			],
+			"moveInfo": [
+				{
+					"id": 252,
+					"pp": 10,
+					"name": "Fake Out",
+					"type": "Normal"
+				},
+				{
+					"id": 8,
+					"pp": 15,
+					"name": "Ice Punch",
+					"type": "Ice"
+				},
+				{
+					"id": 612,
+					"pp": 20,
+					"name": "Power-Up Punch",
+					"type": "Fighting"
+				},
+				{
+					"id": 322,
+					"pp": 20,
+					"name": "Cosmic Power",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Buneary",
+			"dexid": 427,
+			"types": [
+				"Normal"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1797677856,
+			"_isEvolving": false
+		},
+		"1818976345": {
+			"name": "Meowth",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "Pickup",
+			"hp": 100,
+			"moves": [
+				"Scratch",
+				"Growl",
+				"Bite"
+			],
+			"moveInfo": [
+				{
+					"id": 10,
+					"pp": 35,
+					"name": "Scratch",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Meowth",
+			"dexid": 52,
+			"types": [
+				"Dark"
+			],
+			"level": 8,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1818976345,
+			"_isEvolving": false
+		},
+		"1867685768": {
+			"name": "Pancham",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Mild",
+			"caughtIn": "Poké Ball",
+			"ability": "Mold Breaker",
+			"hp": 100,
+			"moves": [
+				"Karate Chop",
+				"Comet Punch",
+				"Slash",
+				"Circle Throw"
+			],
+			"moveInfo": [
+				{
+					"id": 2,
+					"pp": 25,
+					"name": "Karate Chop",
+					"type": "Fighting"
+				},
+				{
+					"id": 4,
+					"pp": 15,
+					"name": "Comet Punch",
+					"type": "Normal"
+				},
+				{
+					"id": 163,
+					"pp": 20,
+					"name": "Slash",
+					"type": "Normal"
+				},
+				{
+					"id": 509,
+					"pp": 10,
+					"name": "Circle Throw",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pancham",
+			"dexid": 674,
+			"types": [
+				"Fighting"
+			],
+			"level": 26,
+			"item": "Mental Herb",
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1867685768,
+			"_isEvolving": false
+		},
+		"1877805686": {
+			"name": "AKKK     SSX",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Gentle",
+			"caughtIn": "Poké Ball",
+			"ability": "Disguise",
+			"hp": 100,
+			"moves": [
+				"Feint Attack",
+				"Charm",
+				"Slash",
+				"Shadow Claw"
+			],
+			"moveInfo": [
+				{
+					"id": 185,
+					"pp": 20,
+					"name": "Feint Attack",
+					"type": "Dark"
+				},
+				{
+					"id": 204,
+					"pp": 20,
+					"name": "Charm",
+					"type": "Fairy"
+				},
+				{
+					"id": 163,
+					"pp": 20,
+					"name": "Slash",
+					"type": "Normal"
+				},
+				{
+					"id": 421,
+					"pp": 15,
+					"name": "Shadow Claw",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Mimikyu",
+			"dexid": 778,
+			"types": [
+				"Ghost",
+				"Fairy"
+			],
+			"level": 40,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1877805686,
+			"_isEvolving": false
+		},
+		"1885539108": {
+			"name": "Zygarde NV",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Lax",
+			"caughtIn": "Poké Ball",
+			"ability": "Aura Break",
+			"hp": 100,
+			"moves": [
+				"Crunch",
+				"Earthquake",
+				"Camouflage",
+				"Dragon Pulse"
+			],
+			"moveInfo": [
+				{
+					"id": 242,
+					"pp": 15,
+					"name": "Crunch",
+					"type": "Dark"
+				},
+				{
+					"id": 89,
+					"pp": 10,
+					"name": "Earthquake",
+					"type": "Ground"
+				},
+				{
+					"id": 293,
+					"pp": 20,
+					"name": "Camouflage",
+					"type": "Normal"
+				},
+				{
+					"id": 406,
+					"pp": 10,
+					"name": "Dragon Pulse",
+					"type": "Dragon"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Zygarde",
+			"dexid": 718,
+			"types": [
+				"Dragon",
+				"Ground"
+			],
+			"level": 63,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 1885539108,
+			"_isEvolving": false
+		},
+		"1920577025": {
+			"name": "Spinarak",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Brave",
+			"caughtIn": "Nest Ball",
+			"ability": "Swarm",
+			"hp": 100,
+			"moves": [
+				"Poison Sting",
+				"String Shot",
+				"Constrict"
+			],
+			"moveInfo": [
+				{
+					"id": 40,
+					"pp": 35,
+					"name": "Poison Sting",
+					"type": "Poison"
+				},
+				{
+					"id": 81,
+					"pp": 40,
+					"name": "String Shot",
+					"type": "Bug"
+				},
+				{
+					"id": 132,
+					"pp": 35,
+					"name": "Constrict",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Spinarak",
+			"dexid": 167,
+			"types": [
+				"Bug",
+				"Poison"
+			],
+			"level": 2,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1920577025,
+			"_isEvolving": false
+		},
+		"1932401765": {
+			"name": "Magikarp",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Lonely",
+			"caughtIn": "Quick Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1932401765,
+			"_isEvolving": false
+		},
+		"1967581483": {
+			"name": "ケーシィ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Rash",
+			"caughtIn": "Quick Ball",
+			"ability": "Synchronize",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 6,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 1967581483,
+			"_isEvolving": false
+		},
+		"2020464314": {
+			"name": "Raticate",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Modest",
+			"caughtIn": "Quick Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Bite",
+				"Pursuit",
+				"Hyper Fang",
+				"Assurance"
+			],
+			"moveInfo": [
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				},
+				{
+					"id": 158,
+					"pp": 15,
+					"name": "Hyper Fang",
+					"type": "Normal"
+				},
+				{
+					"id": 372,
+					"pp": 10,
+					"name": "Assurance",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 36,
+				"def": 37,
+				"hp": 68,
+				"spa": 26,
+				"spd": 44,
+				"spe": 39
+			},
+			"species": "Raticate",
+			"dexid": 20,
+			"types": [
+				"Dark",
+				"Normal"
+			],
+			"level": 22,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2020464314,
+			"_isEvolving": false
+		},
+		"2022764198": {
+			"name": "Stunfisk",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Careful",
+			"caughtIn": "Ultra Ball",
+			"ability": "Static",
+			"hp": 100,
+			"moves": [
+				"Muddy Water",
+				"Thunderbolt",
+				"Revenge",
+				"Flail"
+			],
+			"moveInfo": [
+				{
+					"id": 330,
+					"pp": 10,
+					"name": "Muddy Water",
+					"type": "Water"
+				},
+				{
+					"id": 85,
+					"pp": 15,
+					"name": "Thunderbolt",
+					"type": "Electric"
+				},
+				{
+					"id": 279,
+					"pp": 10,
+					"name": "Revenge",
+					"type": "Fighting"
+				},
+				{
+					"id": 175,
+					"pp": 15,
+					"name": "Flail",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Stunfisk",
+			"dexid": 618,
+			"types": [
+				"Ground",
+				"Electric"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2022764198,
+			"_isEvolving": false
+		},
+		"2030352102": {
+			"name": "Hoothoot",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Calm",
+			"caughtIn": "Poké Ball",
+			"ability": "Insomnia",
+			"hp": 100,
+			"moves": [
+				"Reflect",
+				"Air Slash",
+				"Uproar",
+				"Roost"
+			],
+			"moveInfo": [
+				{
+					"id": 115,
+					"pp": 20,
+					"name": "Reflect",
+					"type": "Psychic"
+				},
+				{
+					"id": 403,
+					"pp": 15,
+					"name": "Air Slash",
+					"type": "Flying"
+				},
+				{
+					"id": 253,
+					"pp": 10,
+					"name": "Uproar",
+					"type": "Normal"
+				},
+				{
+					"id": 355,
+					"pp": 10,
+					"name": "Roost",
+					"type": "Flying"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Hoothoot",
+			"dexid": 163,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 37,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2030352102,
+			"_isEvolving": false
+		},
+		"2054169764": {
+			"name": "Kyu",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Relaxed",
+			"caughtIn": "Repeat Ball",
+			"ability": "Drought",
+			"hp": 100,
+			"moves": [
+				"Ember"
+			],
+			"moveInfo": [
+				{
+					"id": 52,
+					"pp": 25,
+					"name": "Ember",
+					"type": "Fire"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Vulpix",
+			"dexid": 37,
+			"types": [
+				"Fire"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2054169764,
+			"_isEvolving": false
+		},
+		"2075354232": {
+			"name": "Abra",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Modest",
+			"caughtIn": "Quick Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2075354232,
+			"_isEvolving": false
+		},
+		"2124354099": {
+			"name": "Rattata",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Gentle",
+			"caughtIn": "Poké Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Tail Whip"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 39,
+					"pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Rattata",
+			"dexid": 19,
+			"types": [
+				"Dark",
+				"Normal"
+			],
+			"level": 2,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2124354099,
+			"_isEvolving": false
+		},
+		"2134886257": {
+			"name": "Mareanie",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Bold",
+			"caughtIn": "Lure Ball",
+			"ability": "Regenerator",
+			"hp": 100,
+			"moves": [
+				"Poison Sting",
+				"Haze",
+				"Stockpile"
+			],
+			"moveInfo": [
+				{
+					"id": 40,
+					"pp": 35,
+					"name": "Poison Sting",
+					"type": "Poison"
+				},
+				{
+					"id": 114,
+					"pp": 30,
+					"name": "Haze",
+					"type": "Ice"
+				},
+				{
+					"id": 254,
+					"pp": 20,
+					"name": "Stockpile",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 5,
+				"def": 6,
+				"hp": 12,
+				"spa": 6,
+				"spd": 6,
+				"spe": 6
+			},
+			"species": "Mareanie",
+			"dexid": 747,
+			"types": [
+				"Poison",
+				"Water"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2134886257,
+			"_isEvolving": false
+		},
+		"2146206619": {
+			"name": "Chikorita",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Poké Ball",
+			"ability": "Overgrow",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Growl"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Chikorita",
+			"dexid": 152,
+			"types": [
+				"Grass"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2146206619,
+			"_isEvolving": false
+		},
+		"2146951387": {
+			"name": "ルチャブル",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Unburden",
+			"hp": 100,
+			"moves": [
+				"Wing Attack",
+				"Roost",
+				"Aerial Ace",
+				"Encore"
+			],
+			"moveInfo": [
+				{
+					"id": 17,
+					"pp": 35,
+					"name": "Wing Attack",
+					"type": "Flying"
+				},
+				{
+					"id": 355,
+					"pp": 10,
+					"name": "Roost",
+					"type": "Flying"
+				},
+				{
+					"id": 332,
+					"pp": 20,
+					"name": "Aerial Ace",
+					"type": "Flying"
+				},
+				{
+					"id": 227,
+					"pp": 5,
+					"name": "Encore",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Hawlucha",
+			"dexid": 701,
+			"types": [
+				"Fighting",
+				"Flying"
+			],
+			"level": 22,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2146951387,
+			"_isEvolving": false
+		},
+		"2185166374": {
+			"name": "Yungoos",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Lonely",
+			"caughtIn": "Poké Ball",
+			"ability": "Stakeout",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Leer",
+				"Pursuit"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Yungoos",
+			"dexid": 734,
+			"types": [
+				"Normal"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2185166374,
+			"_isEvolving": false
+		},
+		"2189639898": {
+			"name": "ロコン",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Lonely",
+			"caughtIn": "Ultra Ball",
+			"ability": "Snow Cloak",
+			"hp": 100,
+			"moves": [
+				"Powder Snow"
+			],
+			"moveInfo": [
+				{
+					"id": 181,
+					"pp": 25,
+					"name": "Powder Snow",
+					"type": "Ice"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Vulpix",
+			"dexid": 37,
+			"types": [
+				"Ice"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2189639898,
+			"_isEvolving": false
+		},
+		"2231163268": {
+			"name": "Cutiefly",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Adamant",
+			"caughtIn": "Great Ball",
+			"ability": "Shield Dust",
+			"hp": 100,
+			"moves": [
+				"Absorb",
+				"Fairy Wind",
+				"Stun Spore"
+			],
+			"moveInfo": [
+				{
+					"id": 71,
+					"pp": 25,
+					"name": "Absorb",
+					"type": "Grass"
+				},
+				{
+					"id": 584,
+					"pp": 30,
+					"name": "Fairy Wind",
+					"type": "Fairy"
+				},
+				{
+					"id": 78,
+					"pp": 30,
+					"name": "Stun Spore",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Cutiefly",
+			"dexid": 742,
+			"types": [
+				"Bug",
+				"Fairy"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2231163268,
+			"_isEvolving": false
+		},
+		"2240117414": {
+			"name": "ピチュー",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Gentle",
+			"caughtIn": "Ultra Ball",
+			"ability": "Static",
+			"hp": 100,
+			"moves": [
+				"Thunder Shock",
+				"Charm"
+			],
+			"moveInfo": [
+				{
+					"id": 84,
+					"pp": 30,
+					"name": "Thunder Shock",
+					"type": "Electric"
+				},
+				{
+					"id": 204,
+					"pp": 20,
+					"name": "Charm",
+					"type": "Fairy"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pichu",
+			"dexid": 172,
+			"types": [
+				"Electric"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2240117414,
+			"_isEvolving": false
+		},
+		"2248280944": {
+			"name": "mmmmnnnnoppm",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Sassy",
+			"caughtIn": "Poké Ball",
+			"ability": "Pickup",
+			"hp": 100,
+			"moves": [
+				"Scratch",
+				"Growl",
+				"Bite"
+			],
+			"moveInfo": [
+				{
+					"id": 10,
+					"pp": 33,
+					"name": "Scratch",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 39,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 44,
+					"pp": 20,
+					"name": "Bite",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Meowth",
+			"dexid": 52,
+			"types": [
+				"Dark"
+			],
+			"level": 6,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2248280944,
+			"_isEvolving": false
+		},
+		"2251826845": {
+			"name": "Riolu",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Hasty",
+			"caughtIn": "Poké Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Foresight",
+				"Quick Attack",
+				"Endure"
+			],
+			"moveInfo": [
+				{
+					"id": 193,
+					"pp": 40,
+					"name": "Foresight",
+					"type": "Normal"
+				},
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 203,
+					"pp": 10,
+					"name": "Endure",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Riolu",
+			"dexid": 447,
+			"types": [
+				"Fighting"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2251826845,
+			"_isEvolving": false
+		},
+		"2259194184": {
+			"name": "MeowthIIIIC",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Mild",
+			"caughtIn": "Poké Ball",
+			"ability": "Fur Coat",
+			"hp": 100,
+			"moves": [
+				"Power Gem",
+				"Slash",
+				"Bite",
+				"Fake Out"
+			],
+			"moveInfo": [
+				{
+					"id": 408,
+					"pp": 19,
+					"name": "Power Gem",
+					"type": "Rock"
+				},
+				{
+					"id": 163,
+					"pp": 19,
+					"name": "Slash",
+					"type": "Normal"
+				},
+				{
+					"id": 44,
+					"pp": 22,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 252,
+					"pp": 10,
+					"name": "Fake Out",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Persian",
+			"dexid": 53,
+			"types": [
+				"Dark"
+			],
+			"level": 38,
+			"item": null,
+			"storedIn": 6,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2259194184,
+			"_isEvolving": false
+		},
+		"2270829021": {
+			"name": " YE %:8 8",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "Shed Skin",
+			"hp": 100,
+			"moves": [
+				"Harden"
+			],
+			"moveInfo": [
+				{
+					"id": 106,
+					"pp": 30,
+					"name": "Harden",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Metapod",
+			"dexid": 11,
+			"types": [
+				"Bug"
+			],
+			"level": 22,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2270829021,
+			"_isEvolving": false
+		},
+		"2275134591": {
+			"name": "コイキング",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Ultra Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2275134591,
+			"_isEvolving": false
+		},
+		"2319553449": {
+			"name": "ヤドン",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Bold",
+			"caughtIn": "Poké Ball",
+			"ability": "Oblivious",
+			"hp": 100,
+			"moves": [
+				"Curse",
+				"Yawn",
+				"Tackle",
+				"Growl"
+			],
+			"moveInfo": [
+				{
+					"id": 174,
+					"pp": 10,
+					"name": "Curse",
+					"type": "Normal"
+				},
+				{
+					"id": 281,
+					"pp": 10,
+					"name": "Yawn",
+					"type": "Normal"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Slowpoke",
+			"dexid": 79,
+			"types": [
+				"Water",
+				"Psychic"
+			],
+			"level": 5,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2319553449,
+			"_isEvolving": false
+		},
+		"2345182842": {
+			"name": "Kombat",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Lax",
+			"caughtIn": "Ultra Ball",
+			"ability": "Bulletproof",
+			"hp": 100,
+			"moves": [
+				"Sky Uppercut",
+				"Clanging Scales",
+				"Dragon Dance",
+				"Dragon Claw"
+			],
+			"moveInfo": [
+				{
+					"id": 327,
+					"pp": 15,
+					"name": "Sky Uppercut",
+					"type": "Fighting"
+				},
+				{
+					"id": 691,
+					"pp": 5,
+					"name": "Clanging Scales",
+					"type": "Dragon"
+				},
+				{
+					"id": 349,
+					"pp": 20,
+					"name": "Dragon Dance",
+					"type": "Dragon"
+				},
+				{
+					"id": 337,
+					"pp": 15,
+					"name": "Dragon Claw",
+					"type": "Dragon"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Kommo-o",
+			"dexid": 784,
+			"types": [
+				"Dragon",
+				"Fighting"
+			],
+			"level": 63,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2345182842,
+			"_isEvolving": false
+		},
+		"2347588286": {
+			"name": "Rattata",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Timid",
+			"caughtIn": "Poké Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Tail Whip",
+				"Quick Attack",
+				"Focus Energy"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 39,
+					"pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				},
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 116,
+					"pp": 30,
+					"name": "Focus Energy",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Rattata",
+			"dexid": 19,
+			"types": [
+				"Dark",
+				"Normal"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2347588286,
+			"_isEvolving": false
+		},
+		"2367993164": {
+			"name": "リオル",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Moon Ball",
+			"ability": "Prankster",
+			"hp": 100,
+			"moves": [
+				"High Jump Kick",
+				"Meteor Mash",
+				"Bullet Punch",
+				"Crunch"
+			],
+			"moveInfo": [
+				{
+					"id": 136,
+					"pp": 10,
+					"name": "High Jump Kick",
+					"type": "Fighting"
+				},
+				{
+					"id": 309,
+					"pp": 10,
+					"name": "Meteor Mash",
+					"type": "Steel"
+				},
+				{
+					"id": 418,
+					"pp": 30,
+					"name": "Bullet Punch",
+					"type": "Steel"
+				},
+				{
+					"id": 242,
+					"pp": 15,
+					"name": "Crunch",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Riolu",
+			"dexid": 447,
+			"types": [
+				"Fighting"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2367993164,
+			"_isEvolving": false
+		},
+		"2381481723": {
+			"name": "ケーシィ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Rash",
+			"caughtIn": "Quick Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2381481723,
+			"_isEvolving": false
+		},
+		"2398957411": {
+			"name": " w~~~~~~~",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Timid",
+			"caughtIn": "Poké Ball",
+			"ability": "Water Veil",
+			"hp": 100,
+			"moves": [
+				"Rest",
+				"Water Spout",
+				"Amnesia",
+				"Dive"
+			],
+			"moveInfo": [
+				{
+					"id": 156,
+					"pp": 9,
+					"name": "Rest",
+					"type": "Psychic"
+				},
+				{
+					"id": 323,
+					"pp": 5,
+					"name": "Water Spout",
+					"type": "Water"
+				},
+				{
+					"id": 133,
+					"pp": 19,
+					"name": "Amnesia",
+					"type": "Psychic"
+				},
+				{
+					"id": 291,
+					"pp": 9,
+					"name": "Dive",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wailord",
+			"dexid": 321,
+			"types": [
+				"Water"
+			],
+			"level": 44,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2398957411,
+			"_isEvolving": false
+		},
+		"2415949317": {
+			"name": "AAAABXQQQQAA",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Poké Ball",
+			"ability": "Shell Armor",
+			"hp": 100,
+			"moves": [
+				"Flail",
+				"Endure",
+				"Iron Defense",
+				"Flamethrower"
+			],
+			"moveInfo": [
+				{
+					"id": 175,
+					"pp": 15,
+					"name": "Flail",
+					"type": "Normal"
+				},
+				{
+					"id": 203,
+					"pp": 7,
+					"name": "Endure",
+					"type": "Normal"
+				},
+				{
+					"id": 334,
+					"pp": 13,
+					"name": "Iron Defense",
+					"type": "Steel"
+				},
+				{
+					"id": 53,
+					"pp": 14,
+					"name": "Flamethrower",
+					"type": "Fire"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Turtonator",
+			"dexid": 776,
+			"types": [
+				"Fire",
+				"Dragon"
+			],
+			"level": 32,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2415949317,
+			"_isEvolving": false
+		},
+		"2428811257": {
+			"name": "Trevenant",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Rash",
+			"caughtIn": "Dusk Ball",
+			"ability": "Frisk",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Confuse Ray",
+				"Feint Attack",
+				"Shadow Claw"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 109,
+					"pp": 10,
+					"name": "Confuse Ray",
+					"type": "Ghost"
+				},
+				{
+					"id": 185,
+					"pp": 20,
+					"name": "Feint Attack",
+					"type": "Dark"
+				},
+				{
+					"id": 421,
+					"pp": 15,
+					"name": "Shadow Claw",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 7,
+				"def": 6,
+				"hp": 12,
+				"spa": 6,
+				"spd": 5,
+				"spe": 6
+			},
+			"species": "Trevenant",
+			"dexid": 709,
+			"types": [
+				"Ghost",
+				"Grass"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2428811257,
+			"_isEvolving": false
+		},
+		"2465723823": {
+			"name": "Heracross",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Careful",
+			"caughtIn": "Great Ball",
+			"ability": "Swarm",
+			"hp": 100,
+			"moves": [
+				"Take Down",
+				"Megahorn",
+				"Close Combat",
+				"Reversal"
+			],
+			"moveInfo": [
+				{
+					"id": 36,
+					"pp": 18,
+					"name": "Take Down",
+					"type": "Normal"
+				},
+				{
+					"id": 224,
+					"pp": 9,
+					"name": "Megahorn",
+					"type": "Bug"
+				},
+				{
+					"id": 370,
+					"pp": 5,
+					"name": "Close Combat",
+					"type": "Fighting"
+				},
+				{
+					"id": 179,
+					"pp": 15,
+					"name": "Reversal",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Heracross",
+			"dexid": 214,
+			"types": [
+				"Bug",
+				"Fighting"
+			],
+			"level": 55,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2465723823,
+			"_isEvolving": false
+		},
+		"2466018336": {
+			"name": "ケロマツ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Adamant",
+			"caughtIn": "Poké Ball",
+			"ability": "Torrent",
+			"hp": 100,
+			"moves": [
+				"Pound",
+				"Growl"
+			],
+			"moveInfo": [
+				{
+					"id": 1,
+					"pp": 35,
+					"name": "Pound",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Froakie",
+			"dexid": 656,
+			"types": [
+				"Water"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 6,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2466018336,
+			"_isEvolving": false
+		},
+		"2482710775": {
+			"name": "Ekans",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Bold",
+			"caughtIn": "Poké Ball",
+			"ability": "Shed Skin",
+			"hp": 100,
+			"moves": [
+				"Wrap",
+				"Leer",
+				"Poison Sting"
+			],
+			"moveInfo": [
+				{
+					"id": 35,
+					"pp": 20,
+					"name": "Wrap",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 40,
+					"pp": 35,
+					"name": "Poison Sting",
+					"type": "Poison"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Ekans",
+			"dexid": 23,
+			"types": [
+				"Poison"
+			],
+			"level": 6,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2482710775,
+			"_isEvolving": false
+		},
+		"2516427400": {
+			"name": "Eevee",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Timid",
+			"caughtIn": "Great Ball",
+			"ability": "Run Away",
+			"hp": 100,
+			"moves": [
+				"Helping Hand",
+				"Growl",
+				"Tackle",
+				"Tail Whip"
+			],
+			"moveInfo": [
+				{
+					"id": 270,
+					"pp": 20,
+					"name": "Helping Hand",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 39,
+					"pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Eevee",
+			"dexid": 133,
+			"types": [
+				"Normal"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2516427400,
+			"_isEvolving": false
+		},
+		"2555863304": {
+			"name": "Magikarp",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 5,
+				"def": 6,
+				"hp": 11,
+				"spa": 5,
+				"spd": 5,
+				"spe": 5
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2555863304,
+			"_isEvolving": false
+		},
+		"2573379914": {
+			"name": "NNNSSSSSOMCC",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Bold",
+			"caughtIn": "Poké Ball",
+			"ability": "Infiltrator",
+			"hp": 100,
+			"moves": [
+				"Supersonic",
+				"Tackle",
+				"Absorb",
+				"Gust"
+			],
+			"moveInfo": [
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 71,
+					"pp": 25,
+					"name": "Absorb",
+					"type": "Grass"
+				},
+				{
+					"id": 16,
+					"pp": 35,
+					"name": "Gust",
+					"type": "Flying"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Noibat",
+			"dexid": 714,
+			"types": [
+				"Flying",
+				"Dragon"
+			],
+			"level": 11,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2573379914,
+			"_isEvolving": false
+		},
+		"2583422198": {
+			"name": "Tritox",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Mild",
+			"caughtIn": "Great Ball",
+			"ability": "Corrosion",
+			"hp": 100,
+			"moves": [
+				"Ember",
+				"Sweet Scent",
+				"Dragon Rage",
+				"Smog"
+			],
+			"moveInfo": [
+				{
+					"id": 52,
+					"pp": 25,
+					"name": "Ember",
+					"type": "Fire"
+				},
+				{
+					"id": 230,
+					"pp": 20,
+					"name": "Sweet Scent",
+					"type": "Normal"
+				},
+				{
+					"id": 82,
+					"pp": 10,
+					"name": "Dragon Rage",
+					"type": "Dragon"
+				},
+				{
+					"id": 123,
+					"pp": 20,
+					"name": "Smog",
+					"type": "Poison"
+				}
+			],
+			"_stats": {
+				"atk": 21,
+				"def": 19,
+				"hp": 47,
+				"spa": 36,
+				"spd": 24,
+				"spe": 34
+			},
+			"species": "Salandit",
+			"dexid": 757,
+			"types": [
+				"Poison",
+				"Fire"
+			],
+			"level": 18,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2583422198,
+			"_isEvolving": false
+		},
+		"2584190996": {
+			"name": "Electrike",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Timid",
+			"caughtIn": "Ultra Ball",
+			"ability": "Lightning Rod",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Thunder Wave",
+				"Thunder Fang",
+				"Discharge"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 86,
+					"pp": 20,
+					"name": "Thunder Wave",
+					"type": "Electric"
+				},
+				{
+					"id": 422,
+					"pp": 15,
+					"name": "Thunder Fang",
+					"type": "Electric"
+				},
+				{
+					"id": 435,
+					"pp": 15,
+					"name": "Discharge",
+					"type": "Electric"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Electrike",
+			"dexid": 309,
+			"types": [
+				"Electric"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2584190996,
+			"_isEvolving": false
+		},
+		"2612969489": {
+			"name": "Drifloon",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Naughty",
+			"caughtIn": "Poké Ball",
+			"ability": "Unburden",
+			"hp": 100,
+			"moves": [
+				"Acrobatics",
+				"Shadow Ball",
+				"Substitute",
+				"Destiny Bond"
+			],
+			"moveInfo": [
+				{
+					"id": 512,
+					"pp": 24,
+					"name": "Acrobatics",
+					"type": "Flying"
+				},
+				{
+					"id": 247,
+					"pp": 24,
+					"name": "Shadow Ball",
+					"type": "Ghost"
+				},
+				{
+					"id": 164,
+					"pp": 16,
+					"name": "Substitute",
+					"type": "Normal"
+				},
+				{
+					"id": 194,
+					"pp": 8,
+					"name": "Destiny Bond",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Drifloon",
+			"dexid": 425,
+			"types": [
+				"Ghost",
+				"Flying"
+			],
+			"level": 5,
+			"item": "Eviolite",
+			"storedIn": 9,
+			"shiny": true,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2612969489,
+			"_isEvolving": false
+		},
+		"2616096742": {
+			"name": "Yungoos",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Lonely",
+			"caughtIn": "Poké Ball",
+			"ability": "Strong Jaw",
+			"hp": 100,
+			"moves": [
+				"Tackle"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Yungoos",
+			"dexid": 734,
+			"types": [
+				"Normal"
+			],
+			"level": 2,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2616096742,
+			"_isEvolving": false
+		},
+		"2638676066": {
+			"name": "Relicanth",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Serious",
+			"caughtIn": "Poké Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Ancient Power",
+				"Mud Sport",
+				"Tackle",
+				"Harden"
+			],
+			"moveInfo": [
+				{
+					"id": 246,
+					"pp": 5,
+					"name": "Ancient Power",
+					"type": "Rock"
+				},
+				{
+					"id": 300,
+					"pp": 15,
+					"name": "Mud Sport",
+					"type": "Ground"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 106,
+					"pp": 30,
+					"name": "Harden",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Relicanth",
+			"dexid": 369,
+			"types": [
+				"Water",
+				"Rock"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2638676066,
+			"_isEvolving": false
+		},
+		"2654914602": {
+			"name": "Finneon",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Docile",
+			"caughtIn": "Great Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Water Gun",
+				"Attract",
+				"Rain Dance",
+				"Gust"
+			],
+			"moveInfo": [
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 213,
+					"pp": 15,
+					"name": "Attract",
+					"type": "Normal"
+				},
+				{
+					"id": 240,
+					"pp": 5,
+					"name": "Rain Dance",
+					"type": "Water"
+				},
+				{
+					"id": 16,
+					"pp": 35,
+					"name": "Gust",
+					"type": "Flying"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Finneon",
+			"dexid": 456,
+			"types": [
+				"Water"
+			],
+			"level": 17,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2654914602,
+			"_isEvolving": false
+		},
+		"2677098123": {
+			"name": "Buneary",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Relaxed",
+			"caughtIn": "Poké Ball",
+			"ability": "Klutz",
+			"hp": 100,
+			"moves": [
+				"Defense Curl",
+				"Splash",
+				"Pound",
+				"Foresight"
+			],
+			"moveInfo": [
+				{
+					"id": 111,
+					"pp": 40,
+					"name": "Defense Curl",
+					"type": "Normal"
+				},
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				},
+				{
+					"id": 1,
+					"pp": 35,
+					"name": "Pound",
+					"type": "Normal"
+				},
+				{
+					"id": 193,
+					"pp": 40,
+					"name": "Foresight",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Buneary",
+			"dexid": 427,
+			"types": [
+				"Normal"
+			],
+			"level": 2,
+			"item": null,
+			"storedIn": 1,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 2677098123,
+			"_isEvolving": false
+		},
+		"2694618703": {
+			"name": "Klink",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Adamant",
+			"caughtIn": "Poké Ball",
+			"ability": "Plus",
+			"hp": 100,
+			"moves": [
+				"Vice Grip"
+			],
+			"moveInfo": [
+				{
+					"id": 11,
+					"pp": 30,
+					"name": "Vice Grip",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Klink",
+			"dexid": 599,
+			"types": [
+				"Steel"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2694618703,
+			"_isEvolving": false
+		},
+		"2702248439": {
+			"name": "Jangmo-o",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Careful",
+			"caughtIn": "Ultra Ball",
+			"ability": "Bulletproof",
+			"hp": 100,
+			"moves": [
+				"Tackle"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Jangmo-o",
+			"dexid": 782,
+			"types": [
+				"Dragon"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2702248439,
+			"_isEvolving": false
+		},
+		"2711816860": {
+			"name": "Caterpie",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "Shield Dust",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"String Shot"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 81,
+					"pp": 40,
+					"name": "String Shot",
+					"type": "Bug"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Caterpie",
+			"dexid": 10,
+			"types": [
+				"Bug"
+			],
+			"level": 2,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2711816860,
+			"_isEvolving": false
+		},
+		"2728391485": {
+			"name": "Meowth",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Timid",
+			"caughtIn": "Poké Ball",
+			"ability": "Pickup",
+			"hp": 100,
+			"moves": [
+				"Scratch",
+				"Growl",
+				"Bite"
+			],
+			"moveInfo": [
+				{
+					"id": 10,
+					"pp": 35,
+					"name": "Scratch",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Meowth",
+			"dexid": 52,
+			"types": [
+				"Dark"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2728391485,
+			"_isEvolving": false
+		},
+		"2819020989": {
+			"name": "キャモメ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Modest",
+			"caughtIn": "Net Ball",
+			"ability": "Hydration",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Roost"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 355,
+					"pp": 10,
+					"name": "Roost",
+					"type": "Flying"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2819020989,
+			"_isEvolving": false
+		},
+		"2830496118": {
+			"name": "ヤヤコマ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quiet",
+			"caughtIn": "Luxury Ball",
+			"ability": "Big Pecks",
+			"hp": 100,
+			"moves": [
+				"Quick Attack",
+				"Peck",
+				"Agility",
+				"Flail"
+			],
+			"moveInfo": [
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 64,
+					"pp": 35,
+					"name": "Peck",
+					"type": "Flying"
+				},
+				{
+					"id": 97,
+					"pp": 30,
+					"name": "Agility",
+					"type": "Psychic"
+				},
+				{
+					"id": 175,
+					"pp": 15,
+					"name": "Flail",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Fletchling",
+			"dexid": 661,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 17,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2830496118,
+			"_isEvolving": false
+		},
+		"2846714316": {
+			"name": "Mareep",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Hasty",
+			"caughtIn": "Nest Ball",
+			"ability": "Static",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Thunder Wave",
+				"Thunder Shock",
+				"Cotton Spore"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 86,
+					"pp": 20,
+					"name": "Thunder Wave",
+					"type": "Electric"
+				},
+				{
+					"id": 84,
+					"pp": 30,
+					"name": "Thunder Shock",
+					"type": "Electric"
+				},
+				{
+					"id": 178,
+					"pp": 40,
+					"name": "Cotton Spore",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Mareep",
+			"dexid": 179,
+			"types": [
+				"Electric"
+			],
+			"level": 12,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2846714316,
+			"_isEvolving": false
+		},
+		"2897402444": {
+			"name": "ベトベター",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Careful",
+			"caughtIn": "Dusk Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Shadow Sneak",
+				"Pursuit",
+				"Curse",
+				"Mean Look"
+			],
+			"moveInfo": [
+				{
+					"id": 425,
+					"pp": 30,
+					"name": "Shadow Sneak",
+					"type": "Ghost"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				},
+				{
+					"id": 174,
+					"pp": 10,
+					"name": "Curse",
+					"type": "Normal"
+				},
+				{
+					"id": 212,
+					"pp": 5,
+					"name": "Mean Look",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Grimer",
+			"dexid": 88,
+			"types": [
+				"Poison",
+				"Dark"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2897402444,
+			"_isEvolving": false
+		},
+		"2921758129": {
+			"name": "Poliking",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Naughty",
+			"caughtIn": "Poké Ball",
+			"ability": "Damp",
+			"hp": 100,
+			"moves": [
+				"Bubble",
+				"Double Slap",
+				"Rain Dance",
+				"Body Slam"
+			],
+			"moveInfo": [
+				{
+					"id": 145,
+					"pp": 30,
+					"name": "Bubble",
+					"type": "Water"
+				},
+				{
+					"id": 3,
+					"pp": 10,
+					"name": "Double Slap",
+					"type": "Normal"
+				},
+				{
+					"id": 240,
+					"pp": 5,
+					"name": "Rain Dance",
+					"type": "Water"
+				},
+				{
+					"id": 34,
+					"pp": 15,
+					"name": "Body Slam",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Poliwag",
+			"dexid": 60,
+			"types": [
+				"Water"
+			],
+			"level": 21,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2921758129,
+			"_isEvolving": false
+		},
+		"2973065614": {
+			"name": "Firewater",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Serious",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2973065614,
+			"_isEvolving": false
+		},
+		"2991825405": {
+			"name": "キャモメ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic",
+				"Wing Attack"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				},
+				{
+					"id": 17,
+					"pp": 35,
+					"name": "Wing Attack",
+					"type": "Flying"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 2991825405,
+			"_isEvolving": false
+		},
+		"3063755442": {
+			"name": "Pichu",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Lax",
+			"caughtIn": "Great Ball",
+			"ability": "Static",
+			"hp": 100,
+			"moves": [
+				"Thunder Shock",
+				"Charm"
+			],
+			"moveInfo": [
+				{
+					"id": 84,
+					"pp": 30,
+					"name": "Thunder Shock",
+					"type": "Electric"
+				},
+				{
+					"id": 204,
+					"pp": 20,
+					"name": "Charm",
+					"type": "Fairy"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pichu",
+			"dexid": 172,
+			"types": [
+				"Electric"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3063755442,
+			"_isEvolving": false
+		},
+		"3070513807": {
+			"name": "OLDEN",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Sassy",
+			"caughtIn": "Quick Ball",
+			"ability": "Early Bird",
+			"hp": 100,
+			"moves": [
+				"Safeguard",
+				"Mach Punch",
+				"Silver Wind",
+				"Comet Punch"
+			],
+			"moveInfo": [
+				{
+					"id": 219,
+					"pp": 25,
+					"name": "Safeguard",
+					"type": "Normal"
+				},
+				{
+					"id": 183,
+					"pp": 30,
+					"name": "Mach Punch",
+					"type": "Fighting"
+				},
+				{
+					"id": 318,
+					"pp": 5,
+					"name": "Silver Wind",
+					"type": "Bug"
+				},
+				{
+					"id": 4,
+					"pp": 15,
+					"name": "Comet Punch",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Ledian",
+			"dexid": 166,
+			"types": [
+				"Bug",
+				"Flying"
+			],
+			"level": 27,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3070513807,
+			"_isEvolving": false
+		},
+		"3091348550": {
+			"name": "ニャース",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Timid",
+			"caughtIn": "Poké Ball",
+			"ability": "Technician",
+			"hp": 100,
+			"moves": [
+				"Scratch",
+				"Growl"
+			],
+			"moveInfo": [
+				{
+					"id": 10,
+					"pp": 35,
+					"name": "Scratch",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Meowth",
+			"dexid": 52,
+			"types": [
+				"Dark"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3091348550,
+			"_isEvolving": false
+		},
+		"3204692082": {
+			"name": "Yamask",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Relaxed",
+			"caughtIn": "Poké Ball",
+			"ability": "Mummy",
+			"hp": 100,
+			"moves": [
+				"Astonish",
+				"Protect",
+				"Disable"
+			],
+			"moveInfo": [
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				},
+				{
+					"id": 182,
+					"pp": 10,
+					"name": "Protect",
+					"type": "Normal"
+				},
+				{
+					"id": 50,
+					"pp": 20,
+					"name": "Disable",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Yamask",
+			"dexid": 562,
+			"types": [
+				"Ghost"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3204692082,
+			"_isEvolving": false
+		},
+		"3227241451": {
+			"name": "Grubbin",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Hasty",
+			"caughtIn": "Quick Ball",
+			"ability": "Swarm",
+			"hp": 100,
+			"moves": [
+				"Vice Grip"
+			],
+			"moveInfo": [
+				{
+					"id": 11,
+					"pp": 30,
+					"name": "Vice Grip",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Grubbin",
+			"dexid": 736,
+			"types": [
+				"Bug"
+			],
+			"level": 3,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3227241451,
+			"_isEvolving": false
+		},
+		"3256441416": {
+			"name": "#76genders",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Lax",
+			"caughtIn": "Quick Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Peck",
+				"Growl",
+				"Leer",
+				"Pursuit"
+			],
+			"moveInfo": [
+				{
+					"id": 64,
+					"pp": 35,
+					"name": "Peck",
+					"type": "Flying"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Spearow",
+			"dexid": 21,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 8,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3256441416,
+			"_isEvolving": false
+		},
+		"3261590199": {
+			"name": "K?     !!  ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Impish",
+			"caughtIn": "Premier Ball",
+			"ability": "Guts",
+			"hp": 100,
+			"moves": [
+				"Sandstorm",
+				"Screech",
+				"Chip Away",
+				"Rock Slide"
+			],
+			"moveInfo": [
+				{
+					"id": 201,
+					"pp": 10,
+					"name": "Sandstorm",
+					"type": "Rock"
+				},
+				{
+					"id": 103,
+					"pp": 39,
+					"name": "Screech",
+					"type": "Normal"
+				},
+				{
+					"id": 498,
+					"pp": 20,
+					"name": "Chip Away",
+					"type": "Normal"
+				},
+				{
+					"id": 157,
+					"pp": 10,
+					"name": "Rock Slide",
+					"type": "Rock"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Larvitar",
+			"dexid": 246,
+			"types": [
+				"Rock",
+				"Ground"
+			],
+			"level": 20,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3261590199,
+			"_isEvolving": false
+		},
+		"3274589729": {
+			"name": "Tapu Finiq Q",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Misty Surge",
+			"hp": 100,
+			"moves": [
+				"Nature’s Madness",
+				"Muddy Water",
+				"Aqua Ring",
+				"Hydro Pump"
+			],
+			"moveInfo": [
+				{
+					"id": 717,
+					"pp": 0,
+					"name": "Nature’s Madness",
+					"type": "Fairy"
+				},
+				{
+					"id": 330,
+					"pp": 0,
+					"name": "Muddy Water",
+					"type": "Water"
+				},
+				{
+					"id": 392,
+					"pp": 7,
+					"name": "Aqua Ring",
+					"type": "Water"
+				},
+				{
+					"id": 56,
+					"pp": 0,
+					"name": "Hydro Pump",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tapu Fini",
+			"dexid": 788,
+			"types": [
+				"Water",
+				"Fairy"
+			],
+			"level": 60,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3274589729,
+			"_isEvolving": false
+		},
+		"3280310802": {
+			"name": "Wingull",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 5,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3280310802,
+			"_isEvolving": false
+		},
+		"3302510760": {
+			"name": "マケンカニ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Lax",
+			"caughtIn": "Ultra Ball",
+			"ability": "Iron Fist",
+			"hp": 100,
+			"moves": [
+				"Rock Smash",
+				"Leer",
+				"Pursuit",
+				"Bubble Beam"
+			],
+			"moveInfo": [
+				{
+					"id": 249,
+					"pp": 15,
+					"name": "Rock Smash",
+					"type": "Fighting"
+				},
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				},
+				{
+					"id": 61,
+					"pp": 20,
+					"name": "Bubble Beam",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Crabrawler",
+			"dexid": 739,
+			"types": [
+				"Fighting"
+			],
+			"level": 20,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3302510760,
+			"_isEvolving": false
+		},
+		"3316674414": {
+			"name": "ケーシィ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Adamant",
+			"caughtIn": "Poké Ball",
+			"ability": "Inner Focus",
+			"hp": 100,
+			"moves": [
+				"Teleport"
+			],
+			"moveInfo": [
+				{
+					"id": 100,
+					"pp": 20,
+					"name": "Teleport",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Abra",
+			"dexid": 63,
+			"types": [
+				"Psychic"
+			],
+			"level": 8,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3316674414,
+			"_isEvolving": false
+		},
+		"3368220536": {
+			"name": "Karpador",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Calm",
+			"caughtIn": "Ultra Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3368220536,
+			"_isEvolving": false
+		},
+		"3368908863": {
+			"name": "Fomantis",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Poké Ball",
+			"ability": "Leaf Guard",
+			"hp": 100,
+			"moves": [
+				"Fury Cutter"
+			],
+			"moveInfo": [
+				{
+					"id": 210,
+					"pp": 20,
+					"name": "Fury Cutter",
+					"type": "Bug"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Fomantis",
+			"dexid": 753,
+			"types": [
+				"Grass"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 2,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3368908863,
+			"_isEvolving": false
+		},
+		"3387211689": {
+			"name": "Magikarp",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Mild",
+			"caughtIn": "Great Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 11,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3387211689,
+			"_isEvolving": false
+		},
+		"3389489276": {
+			"name": "Petilil",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Lax",
+			"caughtIn": "Quick Ball",
+			"ability": "Chlorophyll",
+			"hp": 100,
+			"moves": [
+				"Stun Spore",
+				"Giga Drain",
+				"Aromatherapy",
+				"Helping Hand"
+			],
+			"moveInfo": [
+				{
+					"id": 78,
+					"pp": 30,
+					"name": "Stun Spore",
+					"type": "Grass"
+				},
+				{
+					"id": 202,
+					"pp": 10,
+					"name": "Giga Drain",
+					"type": "Grass"
+				},
+				{
+					"id": 312,
+					"pp": 5,
+					"name": "Aromatherapy",
+					"type": "Grass"
+				},
+				{
+					"id": 270,
+					"pp": 20,
+					"name": "Helping Hand",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Petilil",
+			"dexid": 548,
+			"types": [
+				"Grass"
+			],
+			"level": 32,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3389489276,
+			"_isEvolving": false
+		},
+		"3416474588": {
+			"name": "Arbo",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Impish",
+			"caughtIn": "Poké Ball",
+			"ability": "Intimidate",
+			"hp": 100,
+			"moves": [
+				"Bite",
+				"Glare",
+				"Screech",
+				"Acid"
+			],
+			"moveInfo": [
+				{
+					"id": 44,
+					"pp": 25,
+					"name": "Bite",
+					"type": "Dark"
+				},
+				{
+					"id": 137,
+					"pp": 30,
+					"name": "Glare",
+					"type": "Normal"
+				},
+				{
+					"id": 103,
+					"pp": 40,
+					"name": "Screech",
+					"type": "Normal"
+				},
+				{
+					"id": 51,
+					"pp": 30,
+					"name": "Acid",
+					"type": "Poison"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Arbok",
+			"dexid": 24,
+			"types": [
+				"Poison"
+			],
+			"level": 22,
+			"item": "Balm Mushroom",
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3416474588,
+			"_isEvolving": false
+		},
+		"3433502628": {
+			"name": "Gengar",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Sassy",
+			"caughtIn": "Quick Ball",
+			"ability": "Cursed Body",
+			"hp": 100,
+			"moves": [
+				"Shadow Punch",
+				"Confuse Ray",
+				"Sucker Punch",
+				"Payback"
+			],
+			"moveInfo": [
+				{
+					"id": 325,
+					"pp": 20,
+					"name": "Shadow Punch",
+					"type": "Ghost"
+				},
+				{
+					"id": 109,
+					"pp": 10,
+					"name": "Confuse Ray",
+					"type": "Ghost"
+				},
+				{
+					"id": 389,
+					"pp": 5,
+					"name": "Sucker Punch",
+					"type": "Dark"
+				},
+				{
+					"id": 371,
+					"pp": 10,
+					"name": "Payback",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Gengar",
+			"dexid": 94,
+			"types": [
+				"Ghost",
+				"Poison"
+			],
+			"level": 31,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3433502628,
+			"_isEvolving": false
+		},
+		"3451766672": {
+			"name": "Rowlet",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Careful",
+			"caughtIn": "Poké Ball",
+			"ability": "Overgrow",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Leafage"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 670,
+					"pp": 40,
+					"name": "Leafage",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Rowlet",
+			"dexid": 722,
+			"types": [
+				"Grass",
+				"Flying"
+			],
+			"level": 1,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3451766672,
+			"_isEvolving": false
+		},
+		"3454832622": {
+			"name": "ヤドン",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Adamant",
+			"caughtIn": "Poké Ball",
+			"ability": "Own Tempo",
+			"hp": 100,
+			"moves": [
+				"Headbutt",
+				"Disable",
+				"Zen Headbutt",
+				"Water Pulse"
+			],
+			"moveInfo": [
+				{
+					"id": 29,
+					"pp": 15,
+					"name": "Headbutt",
+					"type": "Normal"
+				},
+				{
+					"id": 50,
+					"pp": 20,
+					"name": "Disable",
+					"type": "Normal"
+				},
+				{
+					"id": 428,
+					"pp": 15,
+					"name": "Zen Headbutt",
+					"type": "Psychic"
+				},
+				{
+					"id": 352,
+					"pp": 20,
+					"name": "Water Pulse",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Slowpoke",
+			"dexid": 79,
+			"types": [
+				"Water",
+				"Psychic"
+			],
+			"level": 33,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3454832622,
+			"_isEvolving": false
+		},
+		"3457168155": {
+			"name": "Trumbeak",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Impish",
+			"caughtIn": "Nest Ball",
+			"ability": "Skill Link",
+			"hp": 100,
+			"moves": [
+				"Supersonic",
+				"Pluck",
+				"Roost",
+				"Fury Attack"
+			],
+			"moveInfo": [
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				},
+				{
+					"id": 365,
+					"pp": 20,
+					"name": "Pluck",
+					"type": "Flying"
+				},
+				{
+					"id": 355,
+					"pp": 10,
+					"name": "Roost",
+					"type": "Flying"
+				},
+				{
+					"id": 31,
+					"pp": 20,
+					"name": "Fury Attack",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Trumbeak",
+			"dexid": 732,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 25,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3457168155,
+			"_isEvolving": false
+		},
+		"3471156974": {
+			"name": "Qqq al’’’nnn",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Premier Ball",
+			"ability": "Guts",
+			"hp": 100,
+			"moves": [
+				"Wake-Up Slap",
+				"Dual Chop",
+				"Submission",
+				"Bulk Up"
+			],
+			"moveInfo": [
+				{
+					"id": 358,
+					"pp": 10,
+					"name": "Wake-Up Slap",
+					"type": "Fighting"
+				},
+				{
+					"id": 530,
+					"pp": 14,
+					"name": "Dual Chop",
+					"type": "Dragon"
+				},
+				{
+					"id": 66,
+					"pp": 18,
+					"name": "Submission",
+					"type": "Fighting"
+				},
+				{
+					"id": 339,
+					"pp": 18,
+					"name": "Bulk Up",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Machoke",
+			"dexid": 67,
+			"types": [
+				"Fighting"
+			],
+			"level": 45,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3471156974,
+			"_isEvolving": false
+		},
+		"3483989703": {
+			"name": "Shellder",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Adamant",
+			"caughtIn": "Poké Ball",
+			"ability": "Skill Link",
+			"hp": 100,
+			"moves": [
+				"Whirlpool",
+				"Brine",
+				"Iron Defense",
+				"Ice Beam"
+			],
+			"moveInfo": [
+				{
+					"id": 250,
+					"pp": 15,
+					"name": "Whirlpool",
+					"type": "Water"
+				},
+				{
+					"id": 362,
+					"pp": 10,
+					"name": "Brine",
+					"type": "Water"
+				},
+				{
+					"id": 334,
+					"pp": 15,
+					"name": "Iron Defense",
+					"type": "Steel"
+				},
+				{
+					"id": 58,
+					"pp": 10,
+					"name": "Ice Beam",
+					"type": "Ice"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Shellder",
+			"dexid": 90,
+			"types": [
+				"Water"
+			],
+			"level": 55,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3483989703,
+			"_isEvolving": false
+		},
+		"3499530631": {
+			"name": "Cranidos",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Bashful",
+			"caughtIn": "Poké Ball",
+			"ability": "Mold Breaker",
+			"hp": 100,
+			"moves": [
+				"Leer",
+				"Focus Energy",
+				"Pursuit",
+				"Take Down"
+			],
+			"moveInfo": [
+				{
+					"id": 43,
+					"pp": 30,
+					"name": "Leer",
+					"type": "Normal"
+				},
+				{
+					"id": 116,
+					"pp": 30,
+					"name": "Focus Energy",
+					"type": "Normal"
+				},
+				{
+					"id": 228,
+					"pp": 20,
+					"name": "Pursuit",
+					"type": "Dark"
+				},
+				{
+					"id": 36,
+					"pp": 20,
+					"name": "Take Down",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Cranidos",
+			"dexid": 408,
+			"types": [
+				"Rock"
+			],
+			"level": 15,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3499530631,
+			"_isEvolving": false
+		},
+		"3542521202": {
+			"name": "Ditto",
+			"nicknamed": true,
+			"gender": "",
+			"nature": "Adamant",
+			"caughtIn": "Great Ball",
+			"ability": "Limber",
+			"hp": 100,
+			"moves": [
+				"Transform"
+			],
+			"moveInfo": [
+				{
+					"id": 144,
+					"pp": 10,
+					"name": "Transform",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Ditto",
+			"dexid": 132,
+			"types": [
+				"Normal"
+			],
+			"level": 29,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3542521202,
+			"_isEvolving": false
+		},
+		"3560762249": {
+			"name": "Metapod",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Shed Skin",
+			"hp": 100,
+			"moves": [
+				"Harden"
+			],
+			"moveInfo": [
+				{
+					"id": 106,
+					"pp": 30,
+					"name": "Harden",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Metapod",
+			"dexid": 11,
+			"types": [
+				"Bug"
+			],
+			"level": 5,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3560762249,
+			"_isEvolving": false
+		},
+		"3569534042": {
+			"name": "Ariados",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "Insomnia",
+			"hp": 100,
+			"moves": [
+				"Shadow Sneak",
+				"Fury Swipes",
+				"Night Shade",
+				"Absorb"
+			],
+			"moveInfo": [
+				{
+					"id": 425,
+					"pp": 30,
+					"name": "Shadow Sneak",
+					"type": "Ghost"
+				},
+				{
+					"id": 154,
+					"pp": 15,
+					"name": "Fury Swipes",
+					"type": "Normal"
+				},
+				{
+					"id": 101,
+					"pp": 15,
+					"name": "Night Shade",
+					"type": "Ghost"
+				},
+				{
+					"id": 71,
+					"pp": 25,
+					"name": "Absorb",
+					"type": "Grass"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Ariados",
+			"dexid": 168,
+			"types": [
+				"Bug",
+				"Poison"
+			],
+			"level": 23,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3569534042,
+			"_isEvolving": false
+		},
+		"3600831376": {
+			"name": "Wingull",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Docile",
+			"caughtIn": "Poké Ball",
+			"ability": "Hydration",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Water Gun",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Wingull",
+			"dexid": 278,
+			"types": [
+				"Water",
+				"Flying"
+			],
+			"level": 7,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3600831376,
+			"_isEvolving": false
+		},
+		"3635136608": {
+			"name": "Pikipek",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Modest",
+			"caughtIn": "Poké Ball",
+			"ability": "Skill Link",
+			"hp": 100,
+			"moves": [
+				"Growl",
+				"Echoed Voice",
+				"Rock Smash",
+				"Supersonic"
+			],
+			"moveInfo": [
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 497,
+					"pp": 15,
+					"name": "Echoed Voice",
+					"type": "Normal"
+				},
+				{
+					"id": 249,
+					"pp": 15,
+					"name": "Rock Smash",
+					"type": "Fighting"
+				},
+				{
+					"id": 48,
+					"pp": 20,
+					"name": "Supersonic",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pikipek",
+			"dexid": 731,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 13,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3635136608,
+			"_isEvolving": false
+		},
+		"3638122640": {
+			"name": "Dewpider",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quiet",
+			"caughtIn": "Poké Ball",
+			"ability": "Water Bubble",
+			"hp": 100,
+			"moves": [
+				"Infestation",
+				"Spider Web",
+				"Bug Bite",
+				"Bubble Beam"
+			],
+			"moveInfo": [
+				{
+					"id": 611,
+					"pp": 20,
+					"name": "Infestation",
+					"type": "Bug"
+				},
+				{
+					"id": 169,
+					"pp": 10,
+					"name": "Spider Web",
+					"type": "Bug"
+				},
+				{
+					"id": 450,
+					"pp": 20,
+					"name": "Bug Bite",
+					"type": "Bug"
+				},
+				{
+					"id": 61,
+					"pp": 20,
+					"name": "Bubble Beam",
+					"type": "Water"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Dewpider",
+			"dexid": 751,
+			"types": [
+				"Water",
+				"Bug"
+			],
+			"level": 17,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3638122640,
+			"_isEvolving": false
+		},
+		"3659139114": {
+			"name": "kk ",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Sassy",
+			"caughtIn": "Poké Ball",
+			"ability": "Cloud Nine",
+			"hp": 100,
+			"moves": [
+				"Water Pulse",
+				"Disable",
+				"Screech",
+				"Zen Headbutt"
+			],
+			"moveInfo": [
+				{
+					"id": 352,
+					"pp": 20,
+					"name": "Water Pulse",
+					"type": "Water"
+				},
+				{
+					"id": 50,
+					"pp": 20,
+					"name": "Disable",
+					"type": "Normal"
+				},
+				{
+					"id": 103,
+					"pp": 40,
+					"name": "Screech",
+					"type": "Normal"
+				},
+				{
+					"id": 428,
+					"pp": 15,
+					"name": "Zen Headbutt",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Psyduck",
+			"dexid": 54,
+			"types": [
+				"Water"
+			],
+			"level": 25,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3659139114,
+			"_isEvolving": false
+		},
+		"3700102171": {
+			"name": "Metapod",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Great Ball",
+			"ability": "Shed Skin",
+			"hp": 100,
+			"moves": [
+				"Harden"
+			],
+			"moveInfo": [
+				{
+					"id": 106,
+					"pp": 30,
+					"name": "Harden",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Metapod",
+			"dexid": 11,
+			"types": [
+				"Bug"
+			],
+			"level": 16,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3700102171,
+			"_isEvolving": false
+		},
+		"3748294977": {
+			"name": "Skarmory",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Docile",
+			"caughtIn": "Great Ball",
+			"ability": "Sturdy",
+			"hp": 100,
+			"moves": [
+				"Air Cutter",
+				"Fury Attack",
+				"Feint",
+				"Swift"
+			],
+			"moveInfo": [
+				{
+					"id": 314,
+					"pp": 25,
+					"name": "Air Cutter",
+					"type": "Flying"
+				},
+				{
+					"id": 31,
+					"pp": 20,
+					"name": "Fury Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 364,
+					"pp": 10,
+					"name": "Feint",
+					"type": "Normal"
+				},
+				{
+					"id": 129,
+					"pp": 20,
+					"name": "Swift",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Skarmory",
+			"dexid": 227,
+			"types": [
+				"Steel",
+				"Flying"
+			],
+			"level": 26,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3748294977,
+			"_isEvolving": false
+		},
+		"3762431725": {
+			"name": "EPICBUTTHOLE",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Adamant",
+			"caughtIn": "Dive Ball",
+			"ability": "Swift Swim",
+			"hp": 100,
+			"moves": [
+				"Splash",
+				"Tackle"
+			],
+			"moveInfo": [
+				{
+					"id": 150,
+					"pp": 40,
+					"name": "Splash",
+					"type": "Normal"
+				},
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 13,
+				"def": 21,
+				"hp": 32,
+				"spa": 9,
+				"spd": 13,
+				"spe": 29
+			},
+			"species": "Magikarp",
+			"dexid": 129,
+			"types": [
+				"Water"
+			],
+			"level": 15,
+			"item": null,
+			"storedIn": null,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3762431725,
+			"_isEvolving": false
+		},
+		"3764058819": {
+			"name": "Buneary",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Hasty",
+			"caughtIn": "Poké Ball",
+			"ability": "Run Away",
+			"hp": 100,
+			"moves": [
+				"Jump Kick",
+				"Endure",
+				"Pound",
+				"Quick Attack"
+			],
+			"moveInfo": [
+				{
+					"id": 26,
+					"pp": 10,
+					"name": "Jump Kick",
+					"type": "Fighting"
+				},
+				{
+					"id": 203,
+					"pp": 10,
+					"name": "Endure",
+					"type": "Normal"
+				},
+				{
+					"id": 1,
+					"pp": 35,
+					"name": "Pound",
+					"type": "Normal"
+				},
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Buneary",
+			"dexid": 427,
+			"types": [
+				"Normal"
+			],
+			"level": 23,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3764058819,
+			"_isEvolving": false
+		},
+		"3837052562": {
+			"name": "Igglybuff",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Calm",
+			"caughtIn": "Ultra Ball",
+			"ability": "Competitive",
+			"hp": 100,
+			"moves": [
+				"Defense Curl",
+				"Pound",
+				"Sweet Kiss",
+				"Copycat"
+			],
+			"moveInfo": [
+				{
+					"id": 111,
+					"pp": 40,
+					"name": "Defense Curl",
+					"type": "Normal"
+				},
+				{
+					"id": 1,
+					"pp": 35,
+					"name": "Pound",
+					"type": "Normal"
+				},
+				{
+					"id": 186,
+					"pp": 10,
+					"name": "Sweet Kiss",
+					"type": "Fairy"
+				},
+				{
+					"id": 383,
+					"pp": 20,
+					"name": "Copycat",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Igglybuff",
+			"dexid": 174,
+			"types": [
+				"Normal",
+				"Fairy"
+			],
+			"level": 12,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3837052562,
+			"_isEvolving": false
+		},
+		"3837993767": {
+			"name": "Jangmo-o",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Calm",
+			"caughtIn": "Love Ball",
+			"ability": "Bulletproof",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Dragon Breath",
+				"Counter",
+				"Reversal"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 225,
+					"pp": 20,
+					"name": "Dragon Breath",
+					"type": "Dragon"
+				},
+				{
+					"id": 68,
+					"pp": 20,
+					"name": "Counter",
+					"type": "Fighting"
+				},
+				{
+					"id": 179,
+					"pp": 15,
+					"name": "Reversal",
+					"type": "Fighting"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Jangmo-o",
+			"dexid": 782,
+			"types": [
+				"Dragon"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3837993767,
+			"_isEvolving": false
+		},
+		"3845608159": {
+			"name": "Tyrunt",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Naughty",
+			"caughtIn": "Poké Ball",
+			"ability": "Strong Jaw",
+			"hp": 100,
+			"moves": [
+				"Roar",
+				"Stomp",
+				"Bide",
+				"Stealth Rock"
+			],
+			"moveInfo": [
+				{
+					"id": 46,
+					"pp": 20,
+					"name": "Roar",
+					"type": "Normal"
+				},
+				{
+					"id": 23,
+					"pp": 20,
+					"name": "Stomp",
+					"type": "Normal"
+				},
+				{
+					"id": 117,
+					"pp": 10,
+					"name": "Bide",
+					"type": "Normal"
+				},
+				{
+					"id": 446,
+					"pp": 20,
+					"name": "Stealth Rock",
+					"type": "Rock"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Tyrunt",
+			"dexid": 696,
+			"types": [
+				"Rock",
+				"Dragon"
+			],
+			"level": 15,
+			"item": null,
+			"storedIn": 4,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3845608159,
+			"_isEvolving": false
+		},
+		"3856798665": {
+			"name": "Handy",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Bashful",
+			"caughtIn": "Poké Ball",
+			"ability": "Pickup",
+			"hp": 100,
+			"moves": [
+				"Agility",
+				"Sand Attack",
+				"Astonish",
+				"Baton Pass"
+			],
+			"moveInfo": [
+				{
+					"id": 97,
+					"pp": 30,
+					"name": "Agility",
+					"type": "Psychic"
+				},
+				{
+					"id": 28,
+					"pp": 15,
+					"name": "Sand Attack",
+					"type": "Ground"
+				},
+				{
+					"id": 310,
+					"pp": 15,
+					"name": "Astonish",
+					"type": "Ghost"
+				},
+				{
+					"id": 226,
+					"pp": 40,
+					"name": "Baton Pass",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Aipom",
+			"dexid": 190,
+			"types": [
+				"Normal"
+			],
+			"level": 13,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3856798665,
+			"_isEvolving": false
+		},
+		"3875007008": {
+			"name": "Natu",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Naughty",
+			"caughtIn": "Great Ball",
+			"ability": "Early Bird",
+			"hp": 100,
+			"moves": [
+				"Lucky Chant",
+				"Stored Power",
+				"Ominous Wind",
+				"Confuse Ray"
+			],
+			"moveInfo": [
+				{
+					"id": 381,
+					"pp": 29,
+					"name": "Lucky Chant",
+					"type": "Normal"
+				},
+				{
+					"id": 500,
+					"pp": 9,
+					"name": "Stored Power",
+					"type": "Psychic"
+				},
+				{
+					"id": 466,
+					"pp": 5,
+					"name": "Ominous Wind",
+					"type": "Ghost"
+				},
+				{
+					"id": 109,
+					"pp": 9,
+					"name": "Confuse Ray",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Natu",
+			"dexid": 177,
+			"types": [
+				"Psychic",
+				"Flying"
+			],
+			"level": 23,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 3875007008,
+			"_isEvolving": false
+		},
+		"3891330258": {
+			"name": "Lapras",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Adamant",
+			"caughtIn": "Poké Ball",
+			"ability": "Hydration",
+			"hp": 100,
+			"moves": [
+				"Sing",
+				"Growl",
+				"Water Gun",
+				"Freeze-Dry"
+			],
+			"moveInfo": [
+				{
+					"id": 47,
+					"pp": 15,
+					"name": "Sing",
+					"type": "Normal"
+				},
+				{
+					"id": 45,
+					"pp": 40,
+					"name": "Growl",
+					"type": "Normal"
+				},
+				{
+					"id": 55,
+					"pp": 25,
+					"name": "Water Gun",
+					"type": "Water"
+				},
+				{
+					"id": 573,
+					"pp": 20,
+					"name": "Freeze-Dry",
+					"type": "Ice"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Lapras",
+			"dexid": 131,
+			"types": [
+				"Water",
+				"Ice"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3891330258,
+			"_isEvolving": false
+		},
+		"3913747783": {
+			"name": "Haunter",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Levitate",
+			"hp": 100,
+			"moves": [
+				"Dark Pulse",
+				"Destiny Bond",
+				"Hex",
+				"Nightmare"
+			],
+			"moveInfo": [
+				{
+					"id": 399,
+					"pp": 15,
+					"name": "Dark Pulse",
+					"type": "Dark"
+				},
+				{
+					"id": 194,
+					"pp": 5,
+					"name": "Destiny Bond",
+					"type": "Ghost"
+				},
+				{
+					"id": 506,
+					"pp": 10,
+					"name": "Hex",
+					"type": "Ghost"
+				},
+				{
+					"id": 171,
+					"pp": 15,
+					"name": "Nightmare",
+					"type": "Ghost"
+				}
+			],
+			"_stats": {
+				"atk": 136,
+				"def": 126,
+				"hp": 231,
+				"spa": 266,
+				"spd": 146,
+				"spe": 226
+			},
+			"species": "Haunter",
+			"dexid": 93,
+			"types": [
+				"Ghost",
+				"Poison"
+			],
+			"level": 100,
+			"item": "Everstone",
+			"storedIn": null,
+			"shiny": true,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3913747783,
+			"_isEvolving": false,
+			"level_reported": 100,
+			"level_calculated": 99
+		},
+		"3928837510": {
+			"name": "Fletchling",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Relaxed",
+			"caughtIn": "Great Ball",
+			"ability": "Big Pecks",
+			"hp": 100,
+			"moves": [
+				"Quick Attack",
+				"Peck",
+				"Agility",
+				"Flail"
+			],
+			"moveInfo": [
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 64,
+					"pp": 35,
+					"name": "Peck",
+					"type": "Flying"
+				},
+				{
+					"id": 97,
+					"pp": 30,
+					"name": "Agility",
+					"type": "Psychic"
+				},
+				{
+					"id": 175,
+					"pp": 15,
+					"name": "Flail",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Fletchling",
+			"dexid": 661,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 18,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3928837510,
+			"_isEvolving": false
+		},
+		"3941919089": {
+			"name": "コラッタ",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Quirky",
+			"caughtIn": "Poké Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Tail Whip",
+				"Quick Attack",
+				"Focus Energy"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 39,
+					"pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				},
+				{
+					"id": 98,
+					"pp": 30,
+					"name": "Quick Attack",
+					"type": "Normal"
+				},
+				{
+					"id": 116,
+					"pp": 30,
+					"name": "Focus Energy",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Rattata",
+			"dexid": 19,
+			"types": [
+				"Dark",
+				"Normal"
+			],
+			"level": 9,
+			"item": null,
+			"storedIn": 11,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3941919089,
+			"_isEvolving": false
+		},
+		"3967141956": {
+			"name": "コータス",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Jolly",
+			"caughtIn": "Poké Ball",
+			"ability": "White Smoke",
+			"hp": 100,
+			"moves": [
+				"Flame Wheel",
+				"Curse",
+				"Lava Plume",
+				"Body Slam"
+			],
+			"moveInfo": [
+				{
+					"id": 172,
+					"pp": 25,
+					"name": "Flame Wheel",
+					"type": "Fire"
+				},
+				{
+					"id": 174,
+					"pp": 10,
+					"name": "Curse",
+					"type": "Normal"
+				},
+				{
+					"id": 436,
+					"pp": 15,
+					"name": "Lava Plume",
+					"type": "Fire"
+				},
+				{
+					"id": 34,
+					"pp": 15,
+					"name": "Body Slam",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Torkoal",
+			"dexid": 324,
+			"types": [
+				"Fire"
+			],
+			"level": 27,
+			"item": null,
+			"storedIn": 7,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3967141956,
+			"_isEvolving": false
+		},
+		"3971467024": {
+			"name": "Granbull",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Adamant",
+			"caughtIn": "Great Ball",
+			"ability": "Quick Feet",
+			"hp": 100,
+			"moves": [
+				"Lick",
+				"Headbutt",
+				"Roar",
+				"Rage"
+			],
+			"moveInfo": [
+				{
+					"id": 122,
+					"pp": 30,
+					"name": "Lick",
+					"type": "Ghost"
+				},
+				{
+					"id": 29,
+					"pp": 15,
+					"name": "Headbutt",
+					"type": "Normal"
+				},
+				{
+					"id": 46,
+					"pp": 20,
+					"name": "Roar",
+					"type": "Normal"
+				},
+				{
+					"id": 99,
+					"pp": 20,
+					"name": "Rage",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Granbull",
+			"dexid": 210,
+			"types": [
+				"Fairy"
+			],
+			"level": 41,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3971467024,
+			"_isEvolving": false
+		},
+		"3983119823": {
+			"name": "Ledian",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Bold",
+			"caughtIn": "Quick Ball",
+			"ability": "Swarm",
+			"hp": 100,
+			"moves": [
+				"Safeguard",
+				"Mach Punch",
+				"Silver Wind",
+				"Comet Punch"
+			],
+			"moveInfo": [
+				{
+					"id": 219,
+					"pp": 25,
+					"name": "Safeguard",
+					"type": "Normal"
+				},
+				{
+					"id": 183,
+					"pp": 30,
+					"name": "Mach Punch",
+					"type": "Fighting"
+				},
+				{
+					"id": 318,
+					"pp": 5,
+					"name": "Silver Wind",
+					"type": "Bug"
+				},
+				{
+					"id": 4,
+					"pp": 15,
+					"name": "Comet Punch",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Ledian",
+			"dexid": 166,
+			"types": [
+				"Bug",
+				"Flying"
+			],
+			"level": 28,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 3983119823,
+			"_isEvolving": false
+		},
+		"4058836968": {
+			"name": "Steenee",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Impish",
+			"caughtIn": "Poké Ball",
+			"ability": "Oblivious",
+			"hp": 100,
+			"moves": [
+				"Play Nice",
+				"Rapid Spin",
+				"Razor Leaf",
+				"Sweet Scent"
+			],
+			"moveInfo": [
+				{
+					"id": 589,
+					"pp": 20,
+					"name": "Play Nice",
+					"type": "Normal"
+				},
+				{
+					"id": 229,
+					"pp": 40,
+					"name": "Rapid Spin",
+					"type": "Normal"
+				},
+				{
+					"id": 75,
+					"pp": 25,
+					"name": "Razor Leaf",
+					"type": "Grass"
+				},
+				{
+					"id": 230,
+					"pp": 20,
+					"name": "Sweet Scent",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Steenee",
+			"dexid": 762,
+			"types": [
+				"Grass"
+			],
+			"level": 20,
+			"item": null,
+			"storedIn": 3,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 4058836968,
+			"_isEvolving": false
+		},
+		"4098436898": {
+			"name": "Zoroark",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Naive",
+			"caughtIn": "Poké Ball",
+			"ability": "Illusion",
+			"hp": 100,
+			"moves": [
+				"Agility",
+				"Embargo",
+				"Punishment",
+				"Nasty Plot"
+			],
+			"moveInfo": [
+				{
+					"id": 97,
+					"pp": 29,
+					"name": "Agility",
+					"type": "Psychic"
+				},
+				{
+					"id": 373,
+					"pp": 15,
+					"name": "Embargo",
+					"type": "Dark"
+				},
+				{
+					"id": 386,
+					"pp": 4,
+					"name": "Punishment",
+					"type": "Dark"
+				},
+				{
+					"id": 417,
+					"pp": 20,
+					"name": "Nasty Plot",
+					"type": "Dark"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Zoroark",
+			"dexid": 571,
+			"types": [
+				"Dark"
+			],
+			"level": 55,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 4098436898,
+			"_isEvolving": false
+		},
+		"4102371058": {
+			"name": "Diglett",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Relaxed",
+			"caughtIn": "Poké Ball",
+			"ability": "Tangling Hair",
+			"hp": 100,
+			"moves": [
+				"Metal Claw",
+				"Magnitude",
+				"Bulldoze",
+				"Mud Bomb"
+			],
+			"moveInfo": [
+				{
+					"id": 232,
+					"pp": 35,
+					"name": "Metal Claw",
+					"type": "Steel"
+				},
+				{
+					"id": 222,
+					"pp": 30,
+					"name": "Magnitude",
+					"type": "Ground"
+				},
+				{
+					"id": 523,
+					"pp": 20,
+					"name": "Bulldoze",
+					"type": "Ground"
+				},
+				{
+					"id": 426,
+					"pp": 10,
+					"name": "Mud Bomb",
+					"type": "Ground"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Diglett",
+			"dexid": 50,
+			"types": [
+				"Ground",
+				"Steel"
+			],
+			"level": 25,
+			"item": null,
+			"storedIn": 9,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 4102371058,
+			"_isEvolving": false
+		},
+		"4102650949": {
+			"name": "Pichu",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Brave",
+			"caughtIn": "Great Ball",
+			"ability": "Static",
+			"hp": 100,
+			"moves": [
+				"Thunder Shock",
+				"Charm",
+				"Electric Terrain"
+			],
+			"moveInfo": [
+				{
+					"id": 84,
+					"pp": 30,
+					"name": "Thunder Shock",
+					"type": "Electric"
+				},
+				{
+					"id": 204,
+					"pp": 20,
+					"name": "Charm",
+					"type": "Fairy"
+				},
+				{
+					"id": 604,
+					"pp": 10,
+					"name": "Electric Terrain",
+					"type": "Electric"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Pichu",
+			"dexid": 172,
+			"types": [
+				"Electric"
+			],
+			"level": 0,
+			"item": null,
+			"storedIn": 6,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 4102650949,
+			"_isEvolving": false
+		},
+		"4115119965": {
+			"name": "Poliwhirl",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Rash",
+			"caughtIn": "Quick Ball",
+			"ability": "Damp",
+			"hp": 100,
+			"moves": [
+				"Bubble",
+				"Double Slap",
+				"Rain Dance",
+				"Body Slam"
+			],
+			"moveInfo": [
+				{
+					"id": 145,
+					"pp": 30,
+					"name": "Bubble",
+					"type": "Water"
+				},
+				{
+					"id": 3,
+					"pp": 10,
+					"name": "Double Slap",
+					"type": "Normal"
+				},
+				{
+					"id": 240,
+					"pp": 5,
+					"name": "Rain Dance",
+					"type": "Water"
+				},
+				{
+					"id": 34,
+					"pp": 15,
+					"name": "Body Slam",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Poliwhirl",
+			"dexid": 61,
+			"types": [
+				"Water"
+			],
+			"level": 25,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 4115119965,
+			"_isEvolving": false
+		},
+		"4215246762": {
+			"name": "Flabébé",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Relaxed",
+			"caughtIn": "Luxury Ball",
+			"ability": "Flower Veil",
+			"hp": 100,
+			"moves": [
+				"Tackle",
+				"Vine Whip",
+				"Fairy Wind",
+				"Lucky Chant"
+			],
+			"moveInfo": [
+				{
+					"id": 33,
+					"pp": 35,
+					"name": "Tackle",
+					"type": "Normal"
+				},
+				{
+					"id": 22,
+					"pp": 25,
+					"name": "Vine Whip",
+					"type": "Grass"
+				},
+				{
+					"id": 584,
+					"pp": 30,
+					"name": "Fairy Wind",
+					"type": "Fairy"
+				},
+				{
+					"id": 381,
+					"pp": 30,
+					"name": "Lucky Chant",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Flabébé",
+			"dexid": 669,
+			"types": [
+				"Fairy"
+			],
+			"level": 12,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 4215246762,
+			"_isEvolving": false
+		},
+		"4224865360": {
+			"name": "Fearow",
+			"nicknamed": true,
+			"gender": "Male",
+			"nature": "Bold",
+			"caughtIn": "Poké Ball",
+			"ability": "Keen Eye",
+			"hp": 100,
+			"moves": [
+				"Aerial Ace",
+				"Mirror Move",
+				"Assurance",
+				"Agility"
+			],
+			"moveInfo": [
+				{
+					"id": 332,
+					"pp": 20,
+					"name": "Aerial Ace",
+					"type": "Flying"
+				},
+				{
+					"id": 119,
+					"pp": 20,
+					"name": "Mirror Move",
+					"type": "Flying"
+				},
+				{
+					"id": 372,
+					"pp": 10,
+					"name": "Assurance",
+					"type": "Dark"
+				},
+				{
+					"id": 97,
+					"pp": 30,
+					"name": "Agility",
+					"type": "Psychic"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Fearow",
+			"dexid": 22,
+			"types": [
+				"Normal",
+				"Flying"
+			],
+			"level": 29,
+			"item": null,
+			"storedIn": 5,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": false,
+			"hash": 4224865360,
+			"_isEvolving": false
+		},
+		"4287763706": {
+			"name": "Grimer",
+			"nicknamed": true,
+			"gender": "Female",
+			"nature": "Naive",
+			"caughtIn": "Poké Ball",
+			"ability": "Gluttony",
+			"hp": 100,
+			"moves": [
+				"Pound",
+				"Poison Gas",
+				"Harden"
+			],
+			"moveInfo": [
+				{
+					"id": 1,
+					"pp": 35,
+					"name": "Pound",
+					"type": "Normal"
+				},
+				{
+					"id": 139,
+					"pp": 40,
+					"name": "Poison Gas",
+					"type": "Poison"
+				},
+				{
+					"id": 106,
+					"pp": 30,
+					"name": "Harden",
+					"type": "Normal"
+				}
+			],
+			"_stats": {
+				"atk": 0,
+				"def": 0,
+				"hp": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
+			},
+			"species": "Grimer",
+			"dexid": 88,
+			"types": [
+				"Poison",
+				"Dark"
+			],
+			"level": 6,
+			"item": null,
+			"storedIn": 10,
+			"shiny": false,
+			"sparkly": false,
+			"shadow": false,
+			"pokerus": false,
+			"traded": true,
+			"hash": 4287763706,
+			"_isEvolving": false
+		}
+	}
+}

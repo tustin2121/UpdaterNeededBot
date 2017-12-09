@@ -344,9 +344,10 @@ function postUpdate(update, desination) {
 	}
 	if (desination.discordID) {
 		try {
+			let update2 = update.replace(/\[\.\]\(\#[^\)]+\)/, '.');
 			promises.push(
 				dbot.channels.get(desination.discordID)
-					.send(update)
+					.send(update2)
 					.catch((e)=>console.error('Discord Update Error:',e))
 			);
 		} catch (e) {
