@@ -1,5 +1,5 @@
-// redditapi.js
-// 
+// api/reddit.js
+//
 
 const url = require("url");
 const http = require("https");
