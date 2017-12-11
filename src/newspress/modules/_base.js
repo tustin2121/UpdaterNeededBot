@@ -2,17 +2,13 @@
 // The base classes for the module and ledger system
 
 class ReportingModule {
-	constructor() {
-		
+	constructor(config, memory) {
+		this.initConfig = config;
+		this.memory = memory;
 	}
+	
 	firstPass() {}
 	secondPass() {}
 }
 
-class LedgerItem {
-	constructor(name) {
-		this.name = name;
-	}
-}
-
-module.exports = { ReportingModule, LedgerItem };
+module.exports = { ReportingModule };

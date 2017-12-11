@@ -1,5 +1,30 @@
-// reporter/index.js
+// newspress/index.js
 // The heart of the update reporter system
+
+const { Ledger } = require('./ledger');
+
+/** A newspress system which uses the game API and chat records to generate an update. */
+class UpdaterPress {
+	constructor({ modconfig, memory, api, chat }) {
+		this.memory = memory;
+		this.apiProducer = api;
+		this.chatProducer = chat;
+		
+		this.modules = [];
+		for (let modname in Object.keys(modconfig)) {
+			let ModClass = require(`./modules/${modname}`);
+			let modmem = this.memory.modules[modname];
+			let mod = new ModClass(modconfig[modname], modmem)
+			this.modules.push(  );
+		}
+	}
+}
+
+/** A newspress system which uses multiple sub-presses to update a mutli-game run. */
+class MultiUpdaterPress {
+	
+}
+
 
 /*
 - Modules work like this:

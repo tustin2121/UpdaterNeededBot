@@ -170,7 +170,9 @@ function parseCmd(cmd, authed=false) {
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
-	if (/^(post|update|show) ((current|curr) )?(team|party)( (info|stats?))?/i.test(cmd)) return ['reqUpdate', 'team'];
+	if ((res = /^(post|update|show) (([\w-]+) )?(teams?|party|parties)( (info|stats?))?/i.exec(cmd))) {
+		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
+	} 
 	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {
 		let opts = res[1].split(/, /);

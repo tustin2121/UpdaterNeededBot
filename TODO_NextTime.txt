@@ -13,6 +13,8 @@ When UpdaterNeeded gets an overhaul:
 	- Create a "learning" mode, which reads the mapbank and id on the fly to make a rudimentery map.
 
 
+	- Handle dual runs!
+		- The below module system will have two instances running, one for each game in a dual run.
 
 	- Handle certain items as special cases:
 		- Items begining with "Roto", when given, are reported as Rotom doing his Roto Lottery.
