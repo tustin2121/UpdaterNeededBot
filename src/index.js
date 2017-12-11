@@ -48,9 +48,20 @@ class UpdaterBot {
 	get taggedIn() { return this.memory.taggedIn; }
 	set taggedIn(val) { this.memory.taggedIn = val; }
 	
-	
+	/** Alerts the updating staff channel, with an optional ping. */
 	alertUpdaters(text, ping) {
 		this.staff.alertUpdaters(text, ping);
+	}
+	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
+	queryUpdaters(text) {
+		this.staff.queryUpdaters(text);
+	}
+	
+	/** Queries whether a given optional feature or tweak needs to be done for this run. */
+	runOption(opt) {
+		switch (opt) {
+			case 'correctCase': //TODO
+		}
 	}
 	
 	getTimestamp(time) {

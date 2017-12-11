@@ -8,15 +8,15 @@ class LedgerItem {
 	
 	get name() { return this.constructor.name; }
 	
-	toDebugXml(hkey) {
+	toXml(hkey) {
 		let xml = `<ledgeritem `;
-		if (hkey) xml += `key=${hkey}`;
+		if (hkey) xml += `key="${hkey}" `;
 		xml += `name="${this.name}" importance="${this.importance}">`;
 		for (let key in this){
 			if (key === 'importance') continue;
 			let val = this[key];
-			if (val.toDebugXml) {
-				xml += val.toDebugXml(key);
+			if (val.toXml) {
+				xml += val.toXml(key);
 			} else {
 				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;
 			}
