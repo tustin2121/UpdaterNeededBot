@@ -1,7 +1,13 @@
 // logging.js
 // logging setup
 
+const path = require('path');
+const mkdirp = require('mkdirp');
 const log4js = require('log4js');
+
+try {
+	mkdirp.sync(path.resolve(__dirname, '../logs/output'));
+} catch (e) {}
 
 log4js.configure({
 	appenders: {
@@ -14,9 +20,11 @@ log4js.configure({
 		},
 		file: {
 			type: 'file',
-			filename: `logs/output/runlog.log`,
+			filename: `../logs/output/runlog.log`,
 			maxLogSize: 8 * 1024 * 1024, // 8Mb
-			backups: 30,
+			backups: 20,
+			compress: true,
+			keepFileExt: true,
 			layout: {
 				type: 'pattern',
 				pattern: `%r %p [%c] %m`,

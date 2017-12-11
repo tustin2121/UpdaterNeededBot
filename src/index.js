@@ -7,6 +7,7 @@ global.getLogger = require('./logging');
 
 const fs = require("fs");
 const path = require('path');
+const mkdirp = require('mkdirp');
 const saveProxy = require('./save-proxy');
 
 const LOGGER = getLogger('MAIN');
@@ -18,7 +19,7 @@ const MEMORY_FILE = path.resolve(__dirname, '../memory', 'memory.json');
 LOGGER.info('Starting UpdaterNeeded.');
 
 try { // Make the memory file if it does not exist
-	fs.mkdirSync(path.dirname(MEMORY_FILE));
+	mkdirp.sync(path.dirname(MEMORY_FILE));
 	fs.writeFileSync(MEMORY_FILE, '{}', { flag:'wx'});
 } catch (e) {}
 
@@ -36,7 +37,8 @@ process.on('SIGINT', ()=>{
 ////////////////////////////////////////////////////////////////////////////////
 
 class UpdaterBot {
-	constructor() {
+	constructor(runConfig) {
+		this.runConfig = runConfig;
 		this.memory = saveProxy(MEMORY_FILE, "\t");
 		this.staff = require('./control');
 		
@@ -52,7 +54,7 @@ class UpdaterBot {
 	}
 	
 	getTimestamp(time) {
-		let elapsed = ((time || Date.now()) - new Date(UPDATER.runStart*1000).getTime()) / 1000;
+		let elapsed = ((time || Date.now()) - new Date(this.runConfig.runStart*1000).getTime()) / 1000;
 		let n		= (elapsed < 0)?"T-":"";
 		elapsed 	= Math.abs(elapsed);
 		let days    = Math.floor(elapsed / 86400);
