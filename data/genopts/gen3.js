@@ -1,0 +1,17 @@
+// data/genopts/gen3.js
+// Defines the default generation options for a Gen 3 run
+
+module.exports = {
+	contest: true,
+	characteristics: false,
+	infinteTM: false,
+	hubE4: false,
+	'3d': false,
+	
+	badgeNames: [
+		"Stone", "Knuckle", "Dynamo", "Heat", "Balance", "Feather", "Mind", "Rain",
+	],
+	e4Names: [ "Sidney", "Pheobe", "Glacia", "Drake" ],
+	champName: "Steven",
+	correctCase: true,
+};

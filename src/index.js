@@ -9,6 +9,7 @@ const fs = require("fs");
 const path = require('path');
 const mkdirp = require('mkdirp');
 const saveProxy = require('./save-proxy');
+const UpdaterBot = require('./bot');
 
 const LOGGER = getLogger('MAIN');
 
@@ -34,57 +35,4 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-////////////////////////////////////////////////////////////////////////////////
-
-class UpdaterBot {
-	constructor(runConfig) {
-		this.runConfig = runConfig;
-		this.memory = saveProxy(MEMORY_FILE, "\t");
-		this.staff = require('./control');
-		
-		this.postUpdate(`[Meta] UpdaterNeeded started.`, { test:true });
-	}
-	
-	get taggedIn() { return this.memory.taggedIn; }
-	set taggedIn(val) { this.memory.taggedIn = val; }
-	
-	/** Alerts the updating staff channel, with an optional ping. */
-	alertUpdaters(text, ping) {
-		this.staff.alertUpdaters(text, ping);
-	}
-	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
-	queryUpdaters(text) {
-		this.staff.queryUpdaters(text);
-	}
-	
-	/** Queries whether a given optional feature or tweak needs to be done for this run. */
-	runOption(opt) {
-		switch (opt) {
-			case 'correctCase': //TODO
-		}
-	}
-	
-	getTimestamp(time) {
-		let elapsed = ((time || Date.now()) - new Date(this.runConfig.runStart*1000).getTime()) / 1000;
-		let n		= (elapsed < 0)?"T-":"";
-		elapsed 	= Math.abs(elapsed);
-		let days    = Math.floor(elapsed / 86400);
-	    let hours   = Math.floor(elapsed / 3600 % 24);
-	    let minutes = Math.floor(elapsed / 60 % 60);
-	    // let seconds = Math.floor(elapsed % 60);
-	    
-	    return `${n}${days}d ${hours}h ${minutes}m`;
-	}
-	
-	reloadMemory() {
-		this.memory.dispose();
-		this.memory = saveProxy(MEMORY_FILE, "\t");
-		LOGGER.info(`Reloaded Memory from disk.`);
-	}
-	shutdown() {
-		this.memory.forceSave();
-	}
-}
-
 global.Bot = new UpdaterBot();
-
