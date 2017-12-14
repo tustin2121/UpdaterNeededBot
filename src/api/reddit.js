@@ -8,44 +8,44 @@ const fs = require("fs");
 module.exports = {
 	getOAuth : function(refresh, { client_id, client_secret, username, password, oAuth_token, redirect_uri }) {
 		return new Promise(function(resolve, reject){
-			console.log('Updating OAuth token...');
+			LOGGER.log('Updating OAuth token...');
 			let loc = url.parse(`https://www.reddit.com/api/v1/access_token`);
 			loc.method = 'POST';
 			loc.headers = {
 				"Authorization": `Basic ${new Buffer(`${client_id}:${client_secret}`).toString('base64')}`,
 			};
 			let req = http.request(loc, (res)=>{
-				// console.log(`STATUS: ${res.statusCode}`);
-				// console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+				// LOGGER.log(`STATUS: ${res.statusCode}`);
+				// LOGGER.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
 				res.setEncoding('utf8');
 				res.on('data', (chunk) => {
-					// console.log(`BODY: ${chunk}`);
+					// LOGGER.log(`BODY: ${chunk}`);
 					json += chunk;
 				});
 				res.on('end', () => {
-					// console.log('No more data in response.');
+					// LOGGER.log('No more data in response.');
 					try {
 						let j = JSON.parse(json);
 						if (!j.access_token) {
-							console.log('Unsuccessful response!');
-							console.log(`STATUS: ${res.statusCode}`);
-							console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-							console.log(`BODY: ${json}`);
+							LOGGER.log('Unsuccessful response!');
+							LOGGER.debug(`STATUS: ${res.statusCode}`);
+							LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
+							LOGGER.debug(`BODY: ${json}`);
 						}
 						resolve(j);
 					} catch (e) {
-						console.log('Unsuccessful response!');
-						console.log(`STATUS: ${res.statusCode}`);
-						console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-						console.log(`BODY: ${json}`);
+						LOGGER.log('Unsuccessful response!');
+						LOGGER.debug(`STATUS: ${res.statusCode}`);
+						LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
+						LOGGER.debug(`BODY: ${json}`);
 						reject(e);
 					}
 				});
 			});
 			req.on('error', (e)=>{
-				console.error(`problem with request: ${e.message}`);
+				LOGGER.error(`problem with request: ${e.message}`);
 				reject(e);
 			});
 			if (refresh) {
@@ -72,47 +72,47 @@ module.exports = {
 				'User-Agent': `UpdaterNeeded bot (run by Node.js) by /u/tustin2121`,
 			};
 			let req = http.request(loc, (res)=>{
-				// console.log(`STATUS: ${res.statusCode}`);
-				// console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+				// LOGGER.log(`STATUS: ${res.statusCode}`);
+				// LOGGER.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
 				res.setEncoding('utf8');
 				res.on('data', (chunk) => {
-					// console.log(`BODY: ${chunk}`);
+					// LOGGER.log(`BODY: ${chunk}`);
 					json += chunk;
 				});
 				res.on('end', () => {
-					// console.log('No more data in response.');
+					// LOGGER.log('No more data in response.');
 					try {
 						let j = JSON.parse(json);
 						if (!j.success) {
-							console.log('Unsuccessful response!');
-							console.log('REQUEST: ', req.output);
-							console.log('====================================');
-							console.log(`STATUS: ${res.statusCode}`);
-							console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-							console.log(`BODY: ${json}`);
+							LOGGER.log('Unsuccessful response!');
+							LOGGER.debug('REQUEST: ', req.output);
+							LOGGER.debug('====================================');
+							LOGGER.debug(`STATUS: ${res.statusCode}`);
+							LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
+							LOGGER.debug(`BODY: ${json}`);
 						}
 						resolve(j);
 					} catch (e) {
-						console.log('Unsuccessful response!');
-						console.log(`STATUS: ${res.statusCode}`);
-						console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-						console.log(`BODY: ${json}`);
+						LOGGER.log('Unsuccessful response!');
+						LOGGER.debug(`STATUS: ${res.statusCode}`);
+						LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
+						LOGGER.debug(`BODY: ${json}`);
 						reject(e);
 					}
 				});
 			});
 			req.on('error', (e)=>{
-				console.error(`problem with request: ${e.message}`);
+				LOGGER.error(`problem with request: ${e.message}`);
 				reject(e);
 			});
 			// req.write(JSON.stringify( {'api_type':'json', 'body': update} ));
 			req.write(`body=${encodeURIComponent(update)}`);
 			req.end();
 			
-			// console.log('REQUEST: ', req.output);
-			// console.log('====================================');
+			// LOGGER.log('REQUEST: ', req.output);
+			// LOGGER.log('====================================');
 		});
 	},
 }

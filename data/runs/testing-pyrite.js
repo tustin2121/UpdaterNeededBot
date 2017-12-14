@@ -29,7 +29,7 @@ module.exports = {
 		updatePeriod: 1000 * 15,
 		
 		// The Stream API URL to poll
-		apiSrc: "https://twitchplayspokemon.tv/api/run_status",
+		apiSrc: "http://localhost:1337/",
 		// The amount of wait time between polling the apiSrc for new information
 		apiPollPeriod: 1000 * 15, //15 seconds
 		
@@ -53,8 +53,8 @@ module.exports = {
 		Location: {},
 		Health: {},
 		E4: {},
-		Gym: false, //disabled
-		Battle: false, //disabled
+		Gym: {},
+		Battle: {},
 		Politics: {},
 		Chat: {},
 		Timing: {},

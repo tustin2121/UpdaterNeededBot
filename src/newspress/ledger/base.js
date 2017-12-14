@@ -2,8 +2,15 @@
 // Base ledger item classes
 
 class LedgerItem {
-	constructor(imp=1) {
+	constructor(imp=1, { helps=null, flavor=null }={}) {
+		// The importance level of this item. Ranges from 0 to 2.
 		this.importance = imp;
+		// When the bot is helping, this identifies ledger items which are posted while doing so.
+		// Can be 'catches','shopping','items','level', or null
+		this.helptype = helps;
+		// The "flavor" of a ledger item provides more context for the Typesetter for when it is
+		// translating this item into English.
+		this.flavor = flavor;
 	}
 	
 	get name() { return this.constructor.name; }
@@ -11,7 +18,7 @@ class LedgerItem {
 	toXml(hkey) {
 		let xml = `<ledgeritem `;
 		if (hkey) xml += `key="${hkey}" `;
-		xml += `name="${this.name}" importance="${this.importance}">`;
+		xml += `name="${this.name}" imp="${this.importance}">`;
 		for (let key in this){
 			if (key === 'importance') continue;
 			let val = this[key];

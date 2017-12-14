@@ -26,7 +26,7 @@ module.exports = {
 		// Unix timestamp since when the run started
 		runStart: 1511643600,
 		// The amount of time between searching for updates
-		updatePeriod: 1000 * 15, 
+		updatePeriod: 1000 * 15,
 		
 		// The Stream API URL to poll
 		apiSrc: "https://twitchplayspokemon.tv/api/run_status",
@@ -42,7 +42,6 @@ module.exports = {
 		liveID: "zr4lmzz2p2tp",
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: '366698530343223306',
-		
 	},
 	
 	// The list of active modules and their configurations

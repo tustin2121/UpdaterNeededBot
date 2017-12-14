@@ -12,6 +12,7 @@ class UpdaterPress {
 		
 		this.modules = [];
 		for (let modname in Object.keys(modconfig)) {
+			if (modconfig[modname] === false) continue; //disabled
 			let ModClass = require(`./modules/${modname}`);
 			let modmem = this.memory.modules[modname];
 			let mod = new ModClass(modconfig[modname], modmem)
