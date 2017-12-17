@@ -23,40 +23,16 @@ module.exports = {
 		},
 	},
 	run: {
-		// Unix timestamp since when the run started
 		runStart: 1511643600,
-		// The amount of time between searching for updates
 		updatePeriod: 1000 * 15,
 		
-		// The Stream API URL to poll
-		apiSrc: "https://twitchplayspokemon.tv/api/run_status",
-		// The amount of wait time between polling the apiSrc for new information
-		apiPollPeriod: 1000 * 15, //15 seconds
-		
-		// The Chat URL to connect to via irc
-		chatSrc: "",
-		// The irc channel to join when connected via irc (auth data is in the auth folder)
-		chatChannel: "#twitchplayspokemon",
-		
-		// The Reddit Live Updater ID to report to
 		liveID: "zr4lmzz2p2tp",
-		// The Discord LiveUpdater channel snowflake to report to
 		discordID: '366698530343223306',
 	},
 	
 	// The list of active modules and their configurations
 	modules: {
-		ApiMonitoring: {},
-		Pokemon: {},
-		Party: {},
-		Item: {},
-		Location: {},
-		Health: {},
-		E4: {},
 		Gym: false, //disabled
 		Battle: false, //disabled
-		Politics: {},
-		Chat: {},
-		Timing: {},
 	},
 };

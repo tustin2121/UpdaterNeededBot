@@ -36,17 +36,106 @@ function sanatizeName(val) {
 }
 
 function correctCase(str) {
-	if (!Bot.runOption('correctCase')) return str; 
+	if (!Bot.runOpts('correctCase')) return str;
 	// TODO
-	return str; 
+	return str;
 }
 
+function checkNicknamed(name, species) {
+	if (Bot.runOpts('correctCase')) species = species.toUpperCase();
+	return name !== species;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Pokemon {
-	constructor(mon={}) {
-		this.name = 
+	constructor(mon) {
+		this.name = '';
+		this.species = '';
+		this.nicknamed = false;
+		
+		this.gender = '';
+		this.nature = '';
+		this.caughtIn = '';
+		this.ability = '';
+		
+		this.hp = 100;
+		this.moves = [];
+		this.moveInfo = [];
+		if (Bot.runOpts('specialSplit')) {
+			this._stats = {atk:0,def:0,hp:0,spa:0,spd:0,spe:0};
+		} else {
+			this._stats = {atk:0,def:0,hp:0,sp:0,spe:0};
+		}
+		
+		this.dexid = -1;
+		this.types = [];
+		
+		this.level = 0;
+		this.item = null;
+		this.storedIn = {};
+		
+		this.shiny = false;
+		this.sparkly = false;
+		this.shadow = false;
+		this.pokerus = null; //true = infected, false = cured, null = never had
+		this.traded = false;
+		
+		this.hash = 0;
+		
+		if (typeof mon !== 'object') return this;
+		
+		this.hash = read(mon, `personality_value`);
+		this.name = mon.name || mon.nickname || '';
+		this.species = (mon.species && mon.species.name) || '';
+		this.nicknamed = !!(mon.nicknamed || checkNicknamed(this.name, this.species) || false);
+		this.name = sanatizeName(this.name);
+		
+		// Fix shedinja bug:
+		if (this.species.toLowerCase() === `shedinja`) this.hash++;
+		
+		this.dexid = read(mon.species, `national_dex`) || this.dexid;
+		this.types.push(mon.species.type1);
+		if (mon.species.type1 !== mon.species.type2) this.types.push(mon.species.type2);
+		if (mon.met) {
+			this.caughtIn = read(mon.met, `caught_in`);
+		}
+		this.stats = mon.stats; //uses setter below
+		
+		if (mon.health) {
+			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
+			if (mon.health[0] !== 0) this.hp = Math.max(this.health, 1); //At least 1% HP if not fainted
+		}
+		
+		if (Bot.runOpts('gender')) this.gender = mon.gender || this.gender;
+		if (Bot.runOpts('heldItem')) {
+			let item = read(mon, `held_item`) || mon.item || {};
+			if (item.id > 0) this.item = item.name;
+		}
+		if (Bot.runOpts('pokerus') && mon.pokerus) {
+			if (mon.pokerus.infected) this.pokerus = true;
+			if (mon.pokerus.cured) this.pokerus = false;
+		}
+		if (Bot.runOpts('shiny')) this.shiny = mon.shiny;
+		if (Bot.runOpts('abilities')) this.ability = mon.ability;
+		
+		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
+		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
+	}
+	
+	get stats() { return this._stats; }
+	set stats(val){
+		if (typeof val !== 'object') throw TypeError('Cannot set stats to something not an object literal!');
+		this._stats.atk = val.atk || val.attack || 0;
+		this._stats.def = val.def || val.defense || 0;
+		this._stats.spe = val.spe || val.speed || 0;
+		if (Bot.runOpts('specialSplit')) {
+			this._stats.spa = val.spa || val.special_attack || 0;
+			this._stats.spd = val.spd || val.special_defense || 0;
+		} else {
+			this._stats.sp = val.sp || val.special || 0;
+		}
+		this._stats.hp  = val.hp  || val.hit_points || 0;
 	}
 }
 
@@ -155,7 +244,7 @@ class Location {
 		if (!this.node) return false;
 		return this.node.within(attr, loc, dist);
 	}
-*/	
+*/
 	
 }
 

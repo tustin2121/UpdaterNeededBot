@@ -1,6 +1,8 @@
 // api/reddit.js
 //
 
+const LOGGER = getLogger('Reddit');
+
 const url = require("url");
 const http = require("https");
 const fs = require("fs");

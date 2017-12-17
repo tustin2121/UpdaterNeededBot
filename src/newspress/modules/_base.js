@@ -11,7 +11,7 @@ class ReportingModule {
 	 * The first pass of this module. This pass takes in the API and Chat and outputs
 	 * simple ledger items into the passed ledger.
 	 */
-	firstPass(ledger, { api, chat }) {}
+	firstPass(ledger, { prev_api, curr_api, curr_chat }) {}
 	
 	/**
 	 * The second pass of this module. This pass goes through transformation rules
