@@ -39,4 +39,5 @@ class PokemonNotYetNamed extends LedgerItem {
 
 module.exports = {
 	PokemonGained, PokemonIsMissing, PokemonLost,
+	PokemonNotYetNamed,
 };

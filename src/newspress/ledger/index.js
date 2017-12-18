@@ -45,4 +45,5 @@ module.exports = Object.assign({
 	Ledger,
 }, ...[
 	require('./base'),
+	require('./Pokemon'),
 ]);

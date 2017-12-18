@@ -4,11 +4,21 @@
 const fs = require("fs");
 const path = require('path');
 const mkdirp = require('mkdirp');
+const auth = require("../.auth");
+const Discord = require("discord.js");
+const RedditAPI = require("./api/reddit");
+const { createDebugUrl } = require('./debugxml');
+
+const REDDIT_LIMIT = 4096;
+const DISCORD_LIMIT = 2000;
 
 const MEMORY_DIR = path.resolve(__dirname, '../memory');
 const MEMORY_APPEND = path.resolve(__dirname, '../memory', 'append');
+const AUTH_DIR = path.resolve(__dirname, '../.auth');
 
 const LOGGER = getLogger('UpdaterBot');
+
+let access = { token:"", timeout:0 };
 
 class UpdaterBot {
 	constructor(runConfig) {
@@ -65,7 +75,7 @@ class UpdaterBot {
 	
 	/** Saves and shuts down the updater bot. */
 	shutdown() {
-		this.memory.forceSave();
+		this.saveMemory();
 		//TODO: postUpdate('[Meta] UpdaterNeeded shutting down.', TEST_UPDATER).then(()=>process.exit());
 	}
 	
@@ -104,9 +114,95 @@ class UpdaterBot {
 	 * @param embeds - an object with embeds for a given type of destination (reddit/discord)
 	 * @param debugXml - The packed xml for this update, posted to the debug updater
 	 */
-	postUpdate({ text, dest='tagged', embeds, debugXml }={}) {
+	postUpdate({ text, ledger, dest='tagged', embeds, debugXml }={}) {
 		// TODO
 		// TODO return promise
+		if (!text && !ledger) throw new ReferenceError('Must supply update text!');
+		let promises = [];
+		let mainLive, mainDiscord, testLive, testDiscord;
+		switch(dest) {
+			case 'tagged':
+				mainLive = mainDiscord = this.taggedIn;
+				testLive = testDiscord = true;
+				break;
+			case 'forced':
+				mainLive = mainDiscord = true;
+				testLive = testDiscord = true;
+				break;
+			case 'debug':
+				mainLive = mainDiscord = false;
+				testLive = testDiscord = true;
+				break;
+			case 'main':
+				mainLive = mainDiscord = true;
+				testLive = testDiscord = false;
+				break;
+		}
+		let ts = this.getTimestamp();
+		let debugUrl = createDebugUrl(debugUrl) || '';
+		//////////////////////////////////////////
+		if (mainLive) {
+			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
+				let info = embeds.reddit[id];
+				return `[${txt}](#info ${info})`;
+			});
+			updateText = `${ts} [Bot] ${updateText}`;
+			promises.push(postReddit(this.runConfig.run.liveID, updateText));
+		}
+		if (mainDiscord) {
+			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
+				if (embeds.discord.length > 1) return `${txt}[${id}]`;
+				return txt;
+			});
+			updateText = `${ts} [Bot] ${updateText}`;
+			promises.push(postDiscord(this.runConfig.run.liveID, updateText, embeds.discord));
+		}
+		if (testLive) {
+			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
+				let info = embeds.reddit[id];
+				return `[${txt}](#info ${info})`;
+			});
+			// if (updateText.length + )
+			updateText = `${ts} [[Bot](${debugUrl})] ${updateText}`;
+			promises.push(postReddit(this.runConfig.run.liveID, updateText));
+		}
+		if (testDiscord) {
+			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
+				if (embeds.discord.length > 1) return `${txt}[${id}]`;
+				return txt;
+			});
+			updateText = `${ts} [Bot] ${updateText}`;
+			promises.push(postDiscord(this.runConfig.run.liveID, updateText, embeds.discord));
+		}
+		return Promise.all(promises);
+		
+		function postReddit(id, updateText) {
+			let p;
+			if (access.timeout < Date.now()) {
+				let token = fs.readFileSync(path.join(AUTH_DIR, 'refresh.token'));
+				p = RedditAPI.getOAuth(token, auth.reddit).then((data)=>{
+					access.token = data.access_token;
+					access.timeout = Date.now() + (data.expires_in * 1000);
+					return access.token;
+				});
+			} else {
+				p = Promise.resolve(access.token);
+			}
+			p.then((token)=>{
+				return RedditAPI.postUpdate(updateText, { access_token:token, liveID:id });
+			});
+			return p;
+		}
+		function postDiscord(id, updateText, embed) {
+			try {
+				let dbot = this.staff.dbot;
+				let p = dbot.channels.get(id)
+					.send(updateText, embed);
+				return p;
+			} catch (e) {
+				return Promise.reject(e);
+			}
+		}
 	}
 	postDebug(text) {
 		return this.postUpdate({ text, dest:'debug' });

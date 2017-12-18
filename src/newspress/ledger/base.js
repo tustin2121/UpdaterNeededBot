@@ -16,19 +16,24 @@ class LedgerItem {
 	get name() { return this.constructor.name; }
 	
 	toXml(hkey) {
-		let xml = `<ledgeritem `;
+		let xml = `<LedgerItem `;
 		if (hkey) xml += `key="${hkey}" `;
-		xml += `name="${this.name}" imp="${this.importance}">`;
+		xml += `name="${this.name}" imp="${this.importance}" `;
+		if (this.helptype) xml += `helps="${this.helptype}" `;
+		if (this.flavor) xml += `flavor="${this.flavor}" `;
+		xml += `>`;
 		for (let key in this){
 			if (key === 'importance') continue;
 			let val = this[key];
+			if (val === undefined) continue;
+			
 			if (val.toXml) {
 				xml += val.toXml(key);
 			} else {
 				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;
 			}
 		}
-		xml += `</ledgeritem>`;
+		xml += `</LedgerItem>`;
 		return xml;
 	}
 }

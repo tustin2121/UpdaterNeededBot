@@ -46,6 +46,11 @@ module.exports = {
 		liveID: null,
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: null,
+		
+		// The Reddit Live Updater ID to report test information to
+		testLiveID: null,
+		// The Discord channel snowflake to report test information to
+		testDiscordID: null,
 	},
 	
 	// The list of active modules and their configurations
