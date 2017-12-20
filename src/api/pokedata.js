@@ -137,6 +137,15 @@ class Pokemon {
 		}
 		this._stats.hp  = val.hp  || val.hit_points || 0;
 	}
+	
+	toXml(hkey) {
+		let xml = `<pokemon `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `hash="${this.hash}">`;
+		// if ()
+		xml += `</pokemon>`;
+		return xml;
+	}
 }
 
 
