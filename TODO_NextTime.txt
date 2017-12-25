@@ -95,10 +95,17 @@ When UpdaterNeeded gets an overhaul:
 		  faints or is healed.
 			- Reports changes in health and move PP to the ledger, at importance 0. These are used by
 			  the item module as context for item use.
+		- PC Module - responsible for keeping track of PC activities beyond those involving pokemon
+		  or items.
+			- For example: PC Box name changes, and Active PC box changes.
+		- Options Module - responsible for reporting changes to options.
+			- This includes changes to the level cap.
+		- Real Time Module - responsible for reporting changes to the time.
 		- E4 Module - Keeps track of E4 runs, including champion battles.
 			- E4/Champ Attempt counts are stored in this module's memory.
 		- Gym Module - Keeps track of important battles, including gyms, team bosses, and legendaries.
 			- Other attempt counts are stored in this module's memory.
+			- This includes reporting Badge changes
 		- Battle Module - Keeps track of battles in general, including the ability to refine the reporting
 		  of the E4 and Gym modules. (Optional)
 			- Whether this module is enabled is based on whether the API supports reporting enemies.

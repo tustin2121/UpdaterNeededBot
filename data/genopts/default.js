@@ -40,6 +40,30 @@ module.exports = {
 	e4Names: [],
 	// The name of the champion
 	champName: "",
+	// The (default) name of the player's rival
+	rivalName: "",
+	
+	// Trainer classes to mark specially
+	trainerClasses: {
+		// The following have special handling available
+		rival: [],
+		leader: [],
+		e4: [],
+		champ: [],
+	},
+	// Wild pokemon species to mark specially
+	legendarySpecies: [
+		// Legendary Pokemon
+		144,145,146, 150,151,
+		243,244,245, 249,250,251,
+		377,378,379, 380,381, 382,383,384, 385, 386,
+		480,481,482, 483,484,485, 486, 487, 488,489,490,491,492,493,
+		494,638,639,640,647, 641,642,645, 643,644,646, 648,649,
+		716,717,718, 719,720,721,
+		785,786,787,788, 789,790,791,792, 800,801,
+		// Ultra Beasts
+		793,794,795,796,797,798,779, 803,804,805,806,
+	],
 	
 	/* Tweaks */
 	// If pokemon, item, and location names should have their case corrected.

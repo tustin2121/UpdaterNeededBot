@@ -11,5 +11,6 @@ module.exports = {
 	],
 	e4Names: [ "Aaron", "Bertha", "Flint", "Lucian" ],
 	champName: "Cynthia",
+	rivalName: "Pearl",
 	correctCase: true,
 };

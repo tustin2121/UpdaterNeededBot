@@ -148,27 +148,21 @@ class Pokemon {
 	}
 }
 
-
-
-class Location {
+class SortedLocation {
 	constructor() {
 		this.node = null;
 		this.set();
 	}
 	
 	set(opts={}) {
-		if (opts instanceof Node) {
-			this.node = opts;
-		} else {
-			this.map_name = read(opts, 'map_name') || '<Undisclosed Location>';
-			this.area_name = read(opts, 'area_name') || '<Undisclosed Area>';
-			this.area_id = read(opts, 'area_id');
-			this.map_bank = read(opts, 'map_bank');
-			this.map_id = read(opts, 'map_id') || 0;
-			this.x = read(opts, 'x') || 0;
-			this.y = read(opts, 'y') || 0;
-			this.z = read(opts, 'z');
-		}
+		this.map_name = read(opts, 'map_name') || '<Undisclosed Location>';
+		this.area_name = read(opts, 'area_name') || '<Undisclosed Area>';
+		this.area_id = read(opts, 'area_id');
+		this.map_bank = read(opts, 'map_bank');
+		this.map_id = read(opts, 'map_id') || 0;
+		this.x = read(opts, 'x') || 0;
+		this.y = read(opts, 'y') || 0;
+		this.z = read(opts, 'z');
 	}
 	
 	get bank_id() {
@@ -197,7 +191,7 @@ class Location {
 	}
 	
 	equals(other) {
-		if (other instanceof Location) {
+		if (other instanceof SortedLocation) {
 			if (this.node) {
 				return other.node === this.node;
 			} else {
@@ -205,9 +199,6 @@ class Location {
 					&& other.map_id === this.map_id
 					&& other.area_id === this.area_id;
 			}
-		}
-		if (other instanceof Node) {
-			if (this.node) return other === this.node;
 		}
 		// if (typeof other === 'string') {
 		// 	let res = /^(\d+)\:(\d+)\.(\d+)$/i.exec(other);
@@ -218,43 +209,281 @@ class Location {
 		// }
 		return false;
 	}
-	
-	
-/*	// Passthrough methods
-	getName() {
-		let name = null;
-		if (this.node) {
-			name = this.node.getName();
-			if (name && name.startsWith('...')) name = null;
+}
+
+class SortedPokemon {
+	constructor(data, game) {
+		this._map = {};
+		
+		this._party = [];
+		this._pc = [];
+		this._daycare = [];
+		
+		if (data.party) {
+			for (let i = 0; i < data.party.langth; i++) {
+				let p = new Pokemon(data.party[i]);
+				p.storedIn = 'party:'+i;
+				this._map[p.hash] = p;
+				this._party.push(p);
+			}
 		}
-		return this.map_name || this.area_name;
+		if (data.pc) {
+			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
+				let box = data.pc.boxes[bn];
+				let b = [];
+				for (let i = 0; i < box.box_contents.length; i++) {
+					let p = new Pokemon(box.box_contents[i]);
+					p.storedIn = `box:${box.box_number||bn}-${box.box_contents[i].box_slot||i}`;
+					this._map[p.hash] = p;
+					b.push(p);
+				}
+				this._pc.push(b);
+			}
+		}
+		if (data.daycare) {
+			for (let i = 0; i < data.daycare.langth; i++) {
+				let p = new Pokemon(data.daycare[i]);
+				p.storedIn = 'daycare:'+i;
+				this._map[p.hash] = p;
+				this._daycare.push(p);
+			}
+		}
 	}
-	is(attr) {
-		if (!this.node) return false;
-		return this.node.is(attr);
-	}
-	has(attr) {
-		if (!this.node) return false;
-		return this.node.has(attr);
-	}
-	can(attr) {
-		if (!this.node) return false;
-		return this.node.can(attr);
-	}
-	get(attr) {
-		if (!this.node) return false;
-		return this.node.get(attr);
-	}
-	locationOf(item) {
-		if (!this.node) return false;
-		return this.node.locationOf(item);
-	}
-	within(attr, loc, dist) {
-		if (!this.node) return false;
-		return this.node.within(attr, loc, dist);
-	}
-*/
 	
+	get party() { return this._party; }
+	get all() { return Object.values(this._map); }
+	
+	find(predicate) {
+		let list = [];
+		for (let p in this._map) {
+			if (predicate(p)) list.push(p);
+		}
+		return list;
+	}
+}
+
+class Item {
+	constructor(data) {
+		this.name = data.name;
+		this.id = data.id;
+		this.pockets = new Set();
+	}
+	get isTM() { return this.pockets.has('tms'); }
+	get inPC() { return this.pockets.has('pc') && this.pockets.size === 1; }
+	get isHeld() { return this.pockets.has('held'); }
+}
+
+class SortedInventory {
+	constructor(data, game) {
+		/** An inventory of all items present on the character. */
+		this._inv = {};
+		/** An index of item information. */
+		this._dex = {};
+		
+		this.bag = {};
+		this.held = {};
+		this.pc = {};
+		
+		if (data.items) {
+			for (let pname in data.items) {
+				let pocket = data.items[pname];
+				for (let item of pocket) {
+					this.add(item, pname);
+				}
+			}
+		}
+		
+		if (data.party) {
+			for (let p of data.party) {
+				if (p.held_item) {
+					this.add(p.held_item, 'held');
+				}
+			}
+		}
+		if (data.pc) {
+			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
+				let box = data.pc.boxes[bn];
+				for (let p of box.box_contents) {
+					if (p.held_item) {
+						this.add(p.held_item, 'held');
+					}
+				}
+			}
+		}
+		if (data.daycare) {
+			for (let p of data.daycare) {
+				if (p.held_item) {
+					this.add(p.held_item, 'held');
+				}
+			}
+		}
+	}
+	
+	add(itemData, pocketName) {
+		if (!itemData || !itemData.id) return;
+		
+		let item = this._dex[itemData.id] || new Item(itemData);
+		let count = (this._inv[itemData.id] || 0) + (itemData.count||1);
+		this._dex[itemData.id] = item;
+		this._inv[itemData.id] = count;
+		switch (pocketName) {
+			case 'pc':
+				this.pc[itemData.id] = (this.pc[itemData.id]||0) + (itemData.count||1);
+				break;
+			case 'held':
+				this.held[itemData.id] = (this.held[itemData.id]||0) + (itemData.count||1);
+				break;
+			default:
+				this.bag[itemData.id] = (this.bag[itemData.id]||0) + (itemData.count||1);
+				break;
+		}
+		item.pockets.add(pocketName);
+	}
+}
+
+class SortedBattle {
+	constructor(data, game) {
+		this.in_battle = data.in_battle;
+		this.trainer = null;
+		this.party = null;
+		this.active = null;
+		this.classes = {};
+		
+		let enemy_trainer = read(data, 'enemy_trainer', 'enemy_trainers');
+		if (enemy_trainer) {
+			this.trainer = [];
+			if (!Array.isArray(enemy_trainer)) {
+				enemy_trainer = [enemy_trainer];
+			}
+			for (let t of enemy_trainer) {
+				this.trainer.push({
+					'class': t.class_id,
+					'id': t.id,
+					'className': correctCase(sanatizeName(t.class_name)),
+					'name': correctCase(sanatizeName(t.name)),
+				});
+			}
+		}
+		if (data.enemy_party) {
+			this.party = [];
+			for (let p of data.enemy_party) {
+				let poke = {
+					active: p.active,
+					hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+					species: p.species.name,
+					dexid: read(p.species, 'national_dex', 'id'),
+				}
+				if (p.health[0] === 0) poke.hp = 0;
+				this.party.push(poke);
+			}
+		}
+		else if (data.wild_species) {
+			this.party = [];
+			if (Array.isArray(data.wild_species)) {
+				for (let p of data.wild_species) {
+					let poke = {
+						active: true,
+						// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						species: p.name,
+						dexid: read(p, 'national_dex', 'id'),
+					};
+					// if (p.health[0] === 0) poke.hp = 0;
+					this.party.push(poke);
+				}
+			} else {
+				let p = data.wild_species;
+				let poke = {
+					active: true,
+					// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+					species: p.name,
+					dexid: read(p, 'national_dex', 'id'),
+				};
+				// if (p.health[0] === 0) poke.hp = 0;
+				this.party.push(poke);
+			}
+		}
+		
+		// Determine trainer classes
+		this.isImportant = false;
+		if (this.trainer) {
+			let types = Bot.runOpts('trainerClasses', game);
+			for (let type in types) {
+				for (let trainer of this.trainer) {
+					this.classes[type] = !!types[type][trainer.class];
+					this.isImportant |= this.classes[type];
+				}
+			}
+		}
+	}
+	get isRival() { return !!this.classes['rival']; }
+	get isLeader() { return !!this.classes['leader']; }
+	get isE4() { return !!this.classes['e4']; }
+	get isChampion() { return !!this.classes['champ']; }
+	
+	get displayName() {
+		let name = [];
+		for (let trainer of this.trainer) {
+			name.push(`${trainer.className} ${trainer.name}`).trim();
+		}
+		if (name.length > 2) {
+			name[name.length-1] = `and ${name[name.length-1]}`;
+			return name.join(', ');
+		} else {
+			return name.join(' and ');
+		}
+	}
+}
+
+class SortedData {
+	constructor(data, game) {
+		if (typeof data !== 'object') throw new ReferenceError();
+		this._name = data.name || '';
+		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
+		
+		this._pokemon = new SortedPokemon(data);
+		this._inventory = new SortedInventory(data);
+		
+		this._battle = new SortedBattle(data);
+		
+		this.badges = {};
+		this.numBadges = 0;
+		if (data.badges !== undefined) {
+			let badges = Bot.runOpts('badgeNames', game);
+			for (let i = 0; i < badges.length; i++) {
+				let name = badges[i];
+				this.badges[name] = !!(data.badges & (0x1 << i));
+				if (this.badges[name]) this.numBadges++;
+			}
+		}
+		
+		if (data.time && data.time.h) {
+			this.timeOfDay = (()=>{
+				if (data.time.h >= 20) return 'night';
+				if (data.time.h >= 12) return 'day';
+				if (data.time.h >= 6) return 'morning';
+				return 'night';
+			})();
+		}
+		
+		this.rawData = data;
+		this._rawGameIdx = game;
+	}
+	
+	get badgeProgress() {
+		return this.numBadges / Bot.runOpts('badgeNames', this._rawGameIdx).length;
+	}
+	
+	get name() { return this._name; }
+	get rival_name() { return this._rival; }
+	
+	get pokemon() { return this._pokemon; }
+	get inventory() { return this._inventory; }
+	get inv() { return this._inventory; }
+	get battle() { return this._battle; }
+	
+	get in_battle() {
+		return this._battle.in_battle;
+	}
 }
 
 

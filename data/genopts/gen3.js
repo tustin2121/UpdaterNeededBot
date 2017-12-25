@@ -13,5 +13,6 @@ module.exports = {
 	],
 	e4Names: [ "Sidney", "Pheobe", "Glacia", "Drake" ],
 	champName: "Steven",
+	rivalName: "{{gender|May|Brendan}}",
 	correctCase: true,
 };

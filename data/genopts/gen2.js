@@ -17,5 +17,6 @@ module.exports = {
 	],
 	e4Names: [ "Will", "Koga", "Bruno", "Karen" ],
 	champName: "Lance",
+	rivalName: "???",
 	correctCase: true,
 };

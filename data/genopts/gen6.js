@@ -7,4 +7,5 @@ module.exports = {
 	],
 	e4Names: [ "Malva", "Siebold", "Wikstrom", "Drasna" ],
 	champName: "Diantha",
+	rivalName: "{{gender|Serena|Calem}}",
 };

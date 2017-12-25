@@ -5,4 +5,5 @@ module.exports = {
 	badgeNames: null,
 	e4Names: [ "Hala", "Olivia", "Acerola", "Kahili" ],
 	champName: null,
+	rivalName: "Hau",
 };

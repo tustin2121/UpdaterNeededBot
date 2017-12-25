@@ -7,4 +7,5 @@ module.exports = {
 	],
 	e4Names: [ "Shauntal", "Marshal", "Grimsley", "Caitlin" ],
 	champName: "Iris",
+	rivalName: "Hugh",
 };

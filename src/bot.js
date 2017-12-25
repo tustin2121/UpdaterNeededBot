@@ -49,6 +49,18 @@ class UpdaterBot {
 					require('../data/genopts/gen'+game.gen),
 					game.opts || {});
 				
+				if (game.opts['trainerClasses']) {
+					let trc = {};
+					for (let cl in game.opts['trainerClasses']) {
+						let set = {};
+						for (let id of game.opts['trainerClasses'][cl]) {
+							set[id] = true;
+						}
+						trc[cl] = set;
+					}
+					game.opts['trainerClasses'] = trc;
+				}
+				
 				LOGGER.info(`Discovered game${i} in run config.`);
 			}
 			

@@ -24,7 +24,16 @@ class Ledger {
 		if (i > -1) this.list.splice(i, 1);
 	}
 	
-	
+	toXml(hkey) {
+		let xml = `<Ledger `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `>`;
+		for (let item of this.list){
+			xml += item.toXml();
+		}
+		xml += `</Ledger>`;
+		return xml;
+	}
 }
 
 class DebugLogs {
