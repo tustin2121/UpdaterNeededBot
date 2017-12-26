@@ -101,7 +101,6 @@ class RuleInstance {
 		let list = this.workingList;
 		this.workingList = [];
 		for (let item of list) {
-			if (!item[prop]) continue;
 			if (item[prop] !== val) continue;
 			this.workingList.push(item);
 		}
@@ -125,6 +124,7 @@ class RuleInstance {
 		this.ledger.addItem(item);
 	}
 }
+RuleInstance.prototype.remove = RuleInstance.prototype.getAndRemove;
 
 /*
 new Rule("Pokeballs lost in battle are thrown at the opponent")
