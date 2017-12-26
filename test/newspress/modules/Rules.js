@@ -359,7 +359,7 @@ describe('Rule', function(){
 			r1.should.have.been.calledOnce();
 		});
 		
-		it('will all select items regardless of parameters without ".with()"', function(){
+		it('will select all items regardless of parameters without ".with()"', function(){
 			const r1 = sinon.spy((ledger)=>{
 				let m = ledger.get(0);
 				m.should.be.an.Array().with.length(4);
