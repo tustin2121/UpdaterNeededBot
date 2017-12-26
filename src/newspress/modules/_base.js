@@ -1,4 +1,4 @@
-// reporter/modules/_base.js
+// newspress/modules/_base.js
 // The base classes for the module and ledger system
 
 class ReportingModule {
@@ -38,8 +38,9 @@ class Rule {
 		let inst = new RuleInstance(this, ledger);
 		LOGGER.trace(`Testing rule "${this.name}"`);
 		for (let cond of this.conditions) {
-			cond(inst);
-			if (inst.getResult() !== true) return; //No match, go no further
+			let res = cond(inst);
+			if (inst.getResult() !== true)
+			 	if (res !== true) return; //No match, go no further
 		}
 		LOGGER.debug(`Applying rule "${this.name}"`);
 		for (let res of this.resultBlocks) {

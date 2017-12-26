@@ -1,12 +1,15 @@
 // newspress/ledger/index.js
 // The Ledger class, and exports of all ledger item classes
 
+const { LedgerItem } = require('./base');
+
 class Ledger {
 	constructor() {
 		this.list = [];
 		this.debuglog = new DebugLogs();
 	}
 	get log(){ return this.debuglog; }
+	get length() { return this.list.length; }
 	
 	findAllItemsWithName(name) {
 		let res = [];
@@ -17,11 +20,15 @@ class Ledger {
 		}
 		return res;
 	}
-	add(item) { this.list.push(item); }
-	addItem(item) { this.list.push(item); }
+	addItem(item) {
+		if (!(item instanceof LedgerItem))
+			throw new TypeError('Added item must be a LedgerItem');
+		this.list.push(item);
+	}
 	removeItem(item) {
 		let i = this.list.indexOf(item);
-		if (i > -1) this.list.splice(i, 1);
+		if (i > -1) return this.list.splice(i, 1);
+		return null;
 	}
 	
 	toXml(hkey) {
@@ -35,6 +42,8 @@ class Ledger {
 		return xml;
 	}
 }
+Ledger.prototype.add = Ledger.prototype.addItem;
+Ledger.prototype.remove = Ledger.prototype.removeItem;
 
 class DebugLogs {
 	constructor() {
