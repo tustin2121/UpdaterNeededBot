@@ -4,9 +4,12 @@
 const fs = require("fs");
 const path = require('path');
 const mkdirp = require('mkdirp');
-const auth = require("../.auth");
+const auth = require('../.auth');
+
 const Discord = require("discord.js");
 const RedditAPI = require("./api/reddit");
+const StreamAPI = require("./api/stream");
+const ChatAPI = require("./api/chat");
 const { createDebugUrl } = require('./debugxml');
 
 const REDDIT_LIMIT = 4096;
@@ -79,16 +82,18 @@ class UpdaterBot {
 		
 		// this.memory = saveProxy(MEMORY_FILE, "\t");
 		this.staff = require('./control');
+		this.streamApi = new StreamAPI(this.runConfig.run.apiSrc, this.runConfig.run.apiPollPeriod);
+		this.chatApi = new ChatAPI(this.runConfig.run.chatSrc, this.runConfig.run.chatChannel);
 		
-		this._updateInterval = setInterval(this.run.bind(this), this.runConfig.infoUpdateDelay);
+		this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 		
-		this.postUpdate(`[Meta] UpdaterNeeded started.`, { test:true });
+		this.postUpdate(`[Meta] UpdaterNeeded started.`, { dest:'debug' });
 	}
 	
 	/** Saves and shuts down the updater bot. */
 	shutdown() {
 		this.saveMemory();
-		//TODO: postUpdate('[Meta] UpdaterNeeded shutting down.', TEST_UPDATER).then(()=>process.exit());
+		this.postUpdate('[Meta] UpdaterNeeded shutting down.', { dest:'debug' }).then(()=>process.exit());
 	}
 	
 	/** Queries whether a given generation, game, or run option is set. */
@@ -98,6 +103,25 @@ class UpdaterBot {
 		let val = config.opts[opt];
 		if (val === undefined) throw new Error(`Could not get run option '${opt}': Invalid option!`);
 		return val;
+	}
+	
+	////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * The heart of UpdaterNeeded. This is the update cycle, which runs every X seconds, defined in
+	 * the run config. This loop is what creates the ledger and runs through all of the modules, and
+	 * then posts the update at the end of it, if there is an update to post.
+	 */
+	run() {
+		try {
+			LOGGER.trace(`Update cycle starting.`);
+			
+			
+			
+			LOGGER.trace(`Update cycle complete.`);
+		} catch (e) {
+			LOGGER.error(`Error in update cycle!`, e);
+		}
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
@@ -278,3 +302,4 @@ class UpdaterBot {
 	}
 	
 }
+module.exports = UpdaterBot;

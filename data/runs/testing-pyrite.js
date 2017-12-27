@@ -26,7 +26,7 @@ module.exports = {
 		// Unix timestamp since when the run started
 		runStart : 1502571600,
 		// The amount of time between searching for updates
-		updatePeriod: 1000 * 15,
+		updatePeriod: 1000 * 5,
 		
 		// The Stream API URL to poll
 		apiSrc: "http://localhost:1337/",

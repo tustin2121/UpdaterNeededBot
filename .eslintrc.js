@@ -17,7 +17,7 @@ module.exports = {
 	        jsx: true, // enable JSX
 	        experimentalObjectRestSpread: true,
 	    },
-	    ecmaVersion: 6,
+	    ecmaVersion: 2017,
 	    // sourceType: "module"
 	},
 	globals: {

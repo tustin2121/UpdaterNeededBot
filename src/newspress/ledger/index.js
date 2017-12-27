@@ -4,22 +4,18 @@
 const { LedgerItem } = require('./base');
 
 class Ledger {
-	constructor() {
-		this.list = [];
-		this.debuglog = new DebugLogs();
+	constructor(clone=null) {
+		if (clone) {
+			this.list = clone.list.slice(); //make a new list of the same ledger items
+			this.debuglog = clone.debuglog; //copy the reference of the debug log
+		} else {
+			this.list = [];
+			this.debuglog = new DebugLogs();
+		}
 	}
 	get log(){ return this.debuglog; }
 	get length() { return this.list.length; }
 	
-	findAllItemsWithName(name) {
-		let res = [];
-		for (let item of this.list) {
-			if (item.name === name) {
-				res.push(item);
-			}
-		}
-		return res;
-	}
 	addItem(item) {
 		if (!(item instanceof LedgerItem))
 			throw new TypeError('Added item must be a LedgerItem');
@@ -30,6 +26,17 @@ class Ledger {
 		if (i > -1) return this.list.splice(i, 1);
 		return null;
 	}
+	
+	findAllItemsWithName(name) {
+		let res = [];
+		for (let item of this.list) {
+			if (item.name === name) {
+				res.push(item);
+			}
+		}
+		return res;
+	}
+	
 	
 	toXml(hkey) {
 		let xml = `<Ledger `;

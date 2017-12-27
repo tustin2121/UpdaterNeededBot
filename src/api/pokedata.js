@@ -435,8 +435,10 @@ class SortedBattle {
 }
 
 class SortedData {
-	constructor(data, game) {
+	constructor({ data, code=200, game=0 }) {
 		if (typeof data !== 'object') throw new ReferenceError();
+		this.httpCode = code;
+		
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
 		
@@ -486,4 +488,7 @@ class SortedData {
 	}
 }
 
-
+module.exports = {
+	SortedData, SortedBattle, SortedPokemon, SortedInventory, SortedLocation,
+	Pokemon, Item,
+};

@@ -141,4 +141,8 @@ module.exports = {
 		return p;
 	},
 	getQuery(id) { return queryDict[id]; },
+	
+	reconnect() {
+		dbot.destroy().then(()=>dbot.login(auth.discord.token));
+	},
 };
