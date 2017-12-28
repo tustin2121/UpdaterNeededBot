@@ -5,7 +5,7 @@ const { LedgerItem } = require('./base');
 
 class Ledger {
 	constructor(clone=null) {
-		if (clone) {
+		if (clone instanceof Ledger) {
 			this.list = clone.list.slice(); //make a new list of the same ledger items
 			this.debuglog = clone.debuglog; //copy the reference of the debug log
 		} else {
@@ -27,6 +27,7 @@ class Ledger {
 		return null;
 	}
 	
+	/** Finds all items with the given name. */
 	findAllItemsWithName(name) {
 		let res = [];
 		for (let item of this.list) {
@@ -37,6 +38,15 @@ class Ledger {
 		return res;
 	}
 	
+	/** Sorts the ledger and drops all items below 1 importance. */
+	finalize() {
+		this.list.sort(LedgerItem.compare);
+		let i = 0;
+		for (i = 0; i < this.list.length; i++) {
+			if (this.list[i].importance < 1) break;
+		}
+		this.list.length = i;
+	}
 	
 	toXml(hkey) {
 		let xml = `<Ledger `;

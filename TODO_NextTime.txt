@@ -123,6 +123,8 @@ When UpdaterNeeded gets an overhaul:
 			  "more/less inputs".
 		- Timing Module - Keeps track of time between updates, and promotes the importance of an
 		  otherwise unimportant update if too long has been spent without an update.
+			- Provide a discord command `timer/timing off`, to disable this module temporarily. It
+			  will turn back on on request or when next fully tagged in.
 	- Modules all keep their own non-volitile memory, inside separate objects stored in the memory bank.
 	- Modules work like this:
 		- The API is parsed and normalized. The chat is also collected and filtered.

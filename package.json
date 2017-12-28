@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.2.1",
+    "irc": "^0.5.2",
     "log4js": "^2.3.12",
     "mkdirp": "^0.5.1"
   },
