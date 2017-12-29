@@ -46,4 +46,13 @@ class ChatAPI {
 	handleMessage(nick, to, text, msg) {
 		
 	}
+	
+	getStats() {
+		let lines = this.linebuffer;
+		let inputs = this.inputbuffer;
+		this.linebuffer = [];
+		this.inputbuffer = {};
+		
+		return { lines, inputs };
+	}
 }

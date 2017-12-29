@@ -1,6 +1,8 @@
 // newspress/ledger/index.js
 // The Ledger class, and exports of all ledger item classes
 
+const hash = require('object-hash');
+
 const { LedgerItem } = require('./base');
 
 class Ledger {
@@ -15,6 +17,8 @@ class Ledger {
 	}
 	get log(){ return this.debuglog; }
 	get length() { return this.list.length; }
+	
+	hash() { return hash(this.list); }
 	
 	addItem(item) {
 		if (!(item instanceof LedgerItem))

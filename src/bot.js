@@ -11,6 +11,7 @@ const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
 const { createDebugUrl } = require('./debugxml');
+const { UpdaterPress } = require('./newspress');
 
 const REDDIT_LIMIT = 4096;
 const DISCORD_LIMIT = 2000;
@@ -29,7 +30,8 @@ class UpdaterBot {
 			const defConfig = require('../data/runs/default');
 			
 			if (!runConfig.game0) throw 'Invalid config: no game0 setup!';
-			for (let i = 0; true; i++) {
+			let i = 0;
+			for (i = 0; true; i++) {
 				let game = runConfig['game'+i];
 				if (!game) break;
 				
@@ -74,16 +76,25 @@ class UpdaterBot {
 			
 			runConfig.run = Object.assign({}, defConfig.run, runConfig.run);
 			runConfig.modules = Object.assign({}, defConfig.modules, runConfig.modules||{});
+			runConfig.numGames = i;
 		} catch (e) {
 			throw new Error(e);
 		}
 		this.runConfig = runConfig;
 		LOGGER.info(`Run config valid.`);
 		
+		this.loadMemory();
+		
 		// this.memory = saveProxy(MEMORY_FILE, "\t");
 		this.staff = require('./control');
 		this.streamApi = new StreamAPI(this.runConfig.run.apiSrc, this.runConfig.run.apiPollPeriod);
 		this.chatApi = new ChatAPI(this.runConfig.run.chatSrc, this.runConfig.run.chatChannel);
+		this.press = new UpdaterPress({
+			modconfig: this.runConfig.modules,
+			memory: this.memory,
+			api: this.streamApi,
+			chat: this.chatApi,
+		});
 		
 		this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 		
@@ -113,15 +124,23 @@ class UpdaterBot {
 	 * then posts the update at the end of it, if there is an update to post.
 	 */
 	run() {
+		LOGGER.trace(`Update cycle starting.`);
 		try {
-			LOGGER.trace(`Update cycle starting.`);
-			
-			
-			
-			LOGGER.trace(`Update cycle complete.`);
+			for (let i = 0; true; i++) {
+				let game = this.runConfig['game'+i];
+				if (!game) break;
+				
+				let curr_api = this.streamApi.getInfo(i);
+				let prev_api = this.streamApi.getPrevInfo(i);
+				let chat = this.chatApi.getStats();
+				
+				let ledger = new Ledger();
+				
+			}
 		} catch (e) {
 			LOGGER.error(`Error in update cycle!`, e);
 		}
+		LOGGER.trace(`Update cycle complete.`);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////

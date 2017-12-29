@@ -5,27 +5,70 @@ const { Ledger } = require('./ledger');
 
 /** A newspress system which uses the game API and chat records to generate an update. */
 class UpdaterPress {
-	constructor({ modconfig, memory, api, chat }) {
+	constructor({ modconfig, memory, api, chat, game=0 }) {
 		this.memory = memory;
 		this.apiProducer = api;
 		this.chatProducer = chat;
+		this.gameIndex = game;
+		
+		this.lastLedger = new Ledger();
 		
 		this.modules = [];
-		for (let modname in Object.keys(modconfig)) {
+		for (let modname in modconfig) {
 			if (modconfig[modname] === false) continue; //disabled
 			let ModClass = require(`./modules/${modname}`);
-			let modmem = this.memory[`mod_${modname}`];
+			let modmem = this.memory[`mod${game}_${modname}`];
 			let mod = new ModClass(modconfig[modname], modmem)
-			this.modules.push(  );
+			this.modules.push( mod );
 		}
+	}
+	
+	run() {
+		let ledger = new Ledger();
+		let data = {
+			curr_api : this.apiProducer.getInfo(this.gameIndex),
+			prev_api : this.apiProducer.getPrevInfo(this.gameIndex),
+			curr_chat: (this.gameIndex === 0)? this.chatProducer.getStats() : null,
+		};
+		
+		// First Pass
+		for (let mod of this.modules) {
+			mod.firstPass(ledger, data);
+		}
+		
+		// Second Pass
+		let hash = ledger.hash();
+		for (let i = 0; i < 10; i++) {
+			for (let mod of this.modules) {
+				mod.secondPass(ledger);
+			}
+			
+			let nhash = ledger.hash();
+			if (hash === nhash) break; //If the ledger hasn't changed, break
+			hash = nhash;
+		}
+		
+		// Passed ledger to the Typesetter
+		ledger.finalize();
+		this.lastLedger = ledger;
 	}
 }
 
 /** A newspress system which uses multiple sub-presses to update a mutli-game run. */
-class MultiUpdaterPress {
+class UpdaterPressPool {
+	constructor({ numGames, modconfig, memory, api, chat }) {
+		this.pool = [];
+		for (let i = 0; i < numGames; i++) {
+			this.pool.push(new UpdaterPress({ modconfig, memory, api, chat, game:i }));
+		}
+	}
 	
+	run() {
+		
+	}
 }
 
+module.exports = { UpdaterPress, UpdaterPressPool };
 
 /*
 - Modules work like this:
