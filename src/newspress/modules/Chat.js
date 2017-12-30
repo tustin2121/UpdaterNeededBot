@@ -19,4 +19,4 @@ class ChatModule extends ReportingModule {
 	}
 }
 
-
+module.exports = ChatModule;

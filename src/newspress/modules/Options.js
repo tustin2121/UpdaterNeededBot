@@ -19,4 +19,4 @@ class OptionsModule extends ReportingModule {
 	}
 }
 
-
+module.exports = OptionsModule;

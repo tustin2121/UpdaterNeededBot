@@ -56,4 +56,8 @@ function getLogger(category) {
 	return logger;
 }
 
+getLogger.shutdown = ()=>{
+	return new Promise((r, e)=>{ log4js.shutdown(r); });
+}
+
 module.exports = getLogger;

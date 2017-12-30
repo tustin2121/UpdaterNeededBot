@@ -20,4 +20,4 @@ class E4Module extends ReportingModule {
 	}
 }
 
-
+module.exports = E4Module;

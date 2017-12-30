@@ -20,4 +20,4 @@ class TimingModule extends ReportingModule {
 	}
 }
 
-
+module.exports = TimingModule;

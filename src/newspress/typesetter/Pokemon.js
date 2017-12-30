@@ -20,7 +20,8 @@ module.exports = {
 		// mon = the missing pokemon
 		default: (args)=>{
 			let mon = args.mon;
-			let a = `<b>Caught a <info>${mon.gender} Lv. ${mon.level} ${mon.species}</info>!</b> Nickname: \`${mon.name}\``;
+			let ext = mon.getExtendedInfo().replace(/"/g, `''`);
+			let a = `<b>Caught a <info ext="${ext}">${mon.gender} Lv. ${mon.level} ${mon.species}</info>!</b> Nickname: \`${mon.name}\``;
 			if (mon.box) a += ` (Sent to Box #${mon.box}.)`;
 			return a;
 		},

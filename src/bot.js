@@ -11,7 +11,8 @@ const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
 const { createDebugUrl } = require('./debugxml');
-const { UpdaterPress } = require('./newspress');
+const { UpdaterPressPool } = require('./newspress');
+const { formatFor } = require('./newspress/typesetter');
 
 const REDDIT_LIMIT = 4096;
 const DISCORD_LIMIT = 2000;
@@ -26,6 +27,7 @@ let access = { token:"", timeout:0 };
 
 class UpdaterBot {
 	constructor(runConfig) {
+		if (!runConfig) throw new Error('No run config provided!');
 		try { // Verify the run configuration is viable
 			const defConfig = require('../data/runs/default');
 			
@@ -71,8 +73,6 @@ class UpdaterBot {
 			
 			if (!runConfig.run) throw 'Invalid config: no run setup!';
 			if (typeof runConfig.run.runStart !== 'number') throw 'Invalid run config: invalid run start date! Must be a unix timestamp!';
-			if (runConfig.run.liveID === undefined) throw 'Invalid run config: liveID is not supplied!';
-			if (runConfig.run.discordID === undefined) throw 'Invalid run config: discordID is not supplied!';
 			
 			runConfig.run = Object.assign({}, defConfig.run, runConfig.run);
 			runConfig.modules = Object.assign({}, defConfig.modules, runConfig.modules||{});
@@ -89,7 +89,8 @@ class UpdaterBot {
 		this.staff = require('./control');
 		this.streamApi = new StreamAPI(this.runConfig.run.apiSrc, this.runConfig.run.apiPollPeriod);
 		this.chatApi = new ChatAPI(this.runConfig.run.chatSrc, this.runConfig.run.chatChannel);
-		this.press = new UpdaterPress({
+		this.press = new UpdaterPressPool({
+			numGames : runConfig.numGames,
 			modconfig: this.runConfig.modules,
 			memory: this.memory,
 			api: this.streamApi,
@@ -98,13 +99,16 @@ class UpdaterBot {
 		
 		this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 		
-		this.postUpdate(`[Meta] UpdaterNeeded started.`, { dest:'debug' });
+		this.postDebug(`[Meta] UpdaterNeeded started.`);
 	}
 	
 	/** Saves and shuts down the updater bot. */
 	shutdown() {
 		this.saveMemory();
-		this.postUpdate('[Meta] UpdaterNeeded shutting down.', { dest:'debug' }).then(()=>process.exit());
+		this.postDebug('[Meta] UpdaterNeeded shutting down.')
+			.then(()=>getLogger.shutdown)
+			.then(()=>process.exit());
+			//TODO Figure out why the postDebug() promise is resolving before it should!
 	}
 	
 	/** Queries whether a given generation, game, or run option is set. */
@@ -114,6 +118,13 @@ class UpdaterBot {
 		let val = config.opts[opt];
 		if (val === undefined) throw new Error(`Could not get run option '${opt}': Invalid option!`);
 		return val;
+	}
+	
+	/** Gets the game configuration for the given game. */
+	gameInfo(game=0) {
+		let config = this.runConfig['game'+game];
+		if (!config) throw new Error(`Could not get game config for game '${game}': Invalid game index '${game}'!`);
+		return config;
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
@@ -130,12 +141,13 @@ class UpdaterBot {
 				let game = this.runConfig['game'+i];
 				if (!game) break;
 				
-				let curr_api = this.streamApi.getInfo(i);
-				let prev_api = this.streamApi.getPrevInfo(i);
-				let chat = this.chatApi.getStats();
+				let update = this.press.run();
+				if (update) this.postUpdate({ text:update, })
 				
-				let ledger = new Ledger();
-				
+				if (this.isHelping) {
+					update = this.press.runHelp();
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
 			}
 		} catch (e) {
 			LOGGER.error(`Error in update cycle!`, e);
@@ -149,9 +161,15 @@ class UpdaterBot {
 	get taggedIn() { return this.memory.global.taggedIn; }
 	set taggedIn(val) { this.memory.global.taggedIn = val; }
 	
+	/** If this update is helping. */
+	get isHelping() {
+		// We're helping when we're partially tagged in, ie a truthy value that is not true.
+		return this.memory.global.taggedIn && this.memory.global.taggedIn !== true;
+	}
+	
 	/** Gets the current timestamp for this run. */
 	getTimestamp(time) {
-		let elapsed = ((time || Date.now()) - new Date(this.runConfig.runStart*1000).getTime()) / 1000;
+		let elapsed = ((time || Date.now()) - new Date(this.runConfig.run.runStart*1000).getTime()) / 1000;
 		let n		= (elapsed < 0)?"T-":"";
 		elapsed 	= Math.abs(elapsed);
 		let days    = Math.floor(elapsed / 86400);
@@ -166,18 +184,17 @@ class UpdaterBot {
 	 * @param text - The main text of the update. This is echoed everywhere.
 	 * @param dest - Destination target: 'debug'= debug updater only, 'tagged'= both when tagged in,
 	 * 				'forced'= post to both regardless, 'main'= main updater only (used when helping)
-	 * @param embeds - an object with embeds for a given type of destination (reddit/discord)
+	 * @param extras - an object with extra information to embed in the update
 	 * @param debugXml - The packed xml for this update, posted to the debug updater
 	 */
-	postUpdate({ text, ledger, dest='tagged', embeds, debugXml }={}) {
-		// TODO
-		// TODO return promise
-		if (!text && !ledger) throw new ReferenceError('Must supply update text!');
+	postUpdate({ text, dest='tagged', debugXml }={}) {
+		if (!text) throw new ReferenceError('Must supply update text!');
+		LOGGER.warn(`Update [=>${dest}]: ${text}`);
 		let promises = [];
 		let mainLive, mainDiscord, testLive, testDiscord;
 		switch(dest) {
 			case 'tagged':
-				mainLive = mainDiscord = this.taggedIn;
+				mainLive = mainDiscord = (this.taggedIn === true);
 				testLive = testDiscord = true;
 				break;
 			case 'forced':
@@ -194,47 +211,41 @@ class UpdaterBot {
 				break;
 		}
 		let ts = this.getTimestamp();
-		let debugUrl = createDebugUrl(debugUrl) || '';
+		let debugUrl = createDebugUrl(debugXml) || '';
 		//////////////////////////////////////////
-		if (mainLive) {
-			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
-				let info = embeds.reddit[id];
-				return `[${txt}](#info ${info})`;
-			});
-			updateText = `${ts} [Bot] ${updateText}`;
+		if (mainLive && this.runConfig.run.liveID) {
+			let update = formatFor.reddt(text);
+			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(postReddit(this.runConfig.run.liveID, updateText));
 		}
-		if (mainDiscord) {
-			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
-				if (embeds.discord.length > 1) return `${txt}[${id}]`;
-				return txt;
-			});
-			updateText = `${ts} [Bot] ${updateText}`;
-			promises.push(postDiscord(this.runConfig.run.liveID, updateText, embeds.discord));
+		if (mainDiscord && this.runConfig.run.discordID) {
+			let update = formatFor.discord(text);
+			let updateText = `${ts} [Bot] ${update.text}`;
+			promises.push(postDiscord(this.runConfig.run.discordID, updateText, update.embeds));
 		}
-		if (testLive) {
-			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
-				let info = embeds.reddit[id];
-				return `[${txt}](#info ${info})`;
-			});
+		if (testLive && this.runConfig.run.testLiveID) {
+			let update = formatFor.reddt(text);
 			// if (updateText.length + )
-			updateText = `${ts} [[Bot](${debugUrl})] ${updateText}`;
-			promises.push(postReddit(this.runConfig.run.liveID, updateText));
+			let updateText = `${ts} [[Bot](${debugUrl})] ${update.text}`;
+			promises.push(postReddit(this.runConfig.run.testLiveID, updateText));
 		}
-		if (testDiscord) {
-			let updateText = text.replace(/<info id="(\d+)">(.+?)<\/info>/ig, (match, id, txt)=>{
-				if (embeds.discord.length > 1) return `${txt}[${id}]`;
-				return txt;
-			});
-			updateText = `${ts} [Bot] ${updateText}`;
-			promises.push(postDiscord(this.runConfig.run.liveID, updateText, embeds.discord));
+		if (testDiscord && this.runConfig.run.testDiscordID) {
+			let update = formatFor.discord(text);
+			let updateText = `${ts} [Bot] ${update.text}`;
+			promises.push(postDiscord(this.runConfig.run.testDiscordID, updateText, update.embeds));
 		}
+		LOGGER.trace(`Update: num promises = ${promises.length}`);
 		return Promise.all(promises);
 		
 		function postReddit(id, updateText) {
 			let p;
 			if (access.timeout < Date.now()) {
-				let token = fs.readFileSync(path.join(AUTH_DIR, 'refresh.token'));
+				let token;
+				try {
+					token = fs.readFileSync(path.join(AUTH_DIR, 'refresh.token'));
+				} catch (e) {
+					if (e.code === 'ENOENT') token = undefined;
+				}
 				p = RedditAPI.getOAuth(token, auth.reddit).then((data)=>{
 					access.token = data.access_token;
 					access.timeout = Date.now() + (data.expires_in * 1000);

@@ -20,4 +20,4 @@ class PokemonModule extends ReportingModule {
 	}
 }
 
-
+module.exports = PokemonModule;

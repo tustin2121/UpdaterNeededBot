@@ -52,6 +52,19 @@ class Ledger {
 		this.list.length = i;
 	}
 	
+	/** Trims out all ledger items that are not helpful for the given help options. */
+	trimToHelpfulItems(helpOpts={}) {
+		// Make a new list of items that will be our ledger list when we're done.
+		let list = [];
+		for (let item of this.list) {
+			// Check if the item's helptype is one of the help options we've been given
+			if (helpOpts[item.helptype]) {
+				list.push(item);
+			}
+		}
+		this.list = list;
+	}
+	
 	toXml(hkey) {
 		let xml = `<Ledger `;
 		if (hkey) xml += `key="${hkey}" `;

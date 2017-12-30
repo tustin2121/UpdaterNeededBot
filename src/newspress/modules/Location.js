@@ -20,4 +20,4 @@ class LocationModule extends ReportingModule {
 	}
 }
 
-
+module.exports = LocationModule;

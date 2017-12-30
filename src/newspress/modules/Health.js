@@ -20,4 +20,4 @@ class HealthModule extends ReportingModule {
 	}
 }
 
-
+module.exports = HealthModule;

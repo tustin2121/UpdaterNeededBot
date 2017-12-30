@@ -18,6 +18,8 @@ class StreamAPI {
 		this.currInfo = [];
 		/** The sorted stream data from the last update cycle. */
 		this.prevInfo = [];
+		
+		this.refresh();
 	}
 	
 	async refresh() {
@@ -66,8 +68,8 @@ function http_get(url) {
 			if (statusCode !== 200) {
 				error = new Error(`Request Failed. Status Code: ${statusCode}`);
 				error.statusCode = statusCode;
-			} else if (!/^application\/json/.test(contentType)) {
-				error = new Error(`Invalid content-type. Expected application/json but received ${contentType}`);
+			// } else if (!/^application\/json/.test(contentType)) {
+			// 	error = new Error(`Invalid content-type. Expected application/json but received ${contentType}`);
 			}
 			if (error) {
 				LOGGER.error(error.message);

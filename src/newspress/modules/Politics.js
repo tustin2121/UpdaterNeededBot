@@ -21,4 +21,4 @@ class PoliticsModule extends ReportingModule {
 	}
 }
 
-
+module.exports = PoliticsModule;

@@ -20,4 +20,4 @@ class PCModule extends ReportingModule {
 	}
 }
 
-
+module.exports = PCModule;

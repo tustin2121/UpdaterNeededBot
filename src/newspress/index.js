@@ -2,6 +2,7 @@
 // The heart of the update reporter system
 
 const { Ledger } = require('./ledger');
+const { typeset } = require('./typesetter');
 
 /** A newspress system which uses the game API and chat records to generate an update. */
 class UpdaterPress {
@@ -23,6 +24,7 @@ class UpdaterPress {
 		}
 	}
 	
+	/** Starts a new ledger and runs an update cycle.  */
 	run() {
 		let ledger = new Ledger();
 		let data = {
@@ -31,12 +33,12 @@ class UpdaterPress {
 			curr_chat: (this.gameIndex === 0)? this.chatProducer.getStats() : null,
 		};
 		
-		// First Pass
+		// First Pass: Note all changes and important context into ledger items
 		for (let mod of this.modules) {
 			mod.firstPass(ledger, data);
 		}
 		
-		// Second Pass
+		// Second Pass: Modify the ledger items into more useful things
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {
 			for (let mod of this.modules) {
@@ -48,9 +50,31 @@ class UpdaterPress {
 			hash = nhash;
 		}
 		
-		// Passed ledger to the Typesetter
+		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();
 		this.lastLedger = ledger;
+		
+		// Pass ledger to the TypeSetter
+		let update = typeset(ledger);
+		if (!update || !update.length) return null;
+		
+		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
+		return prefix + ' ' + update;
+	}
+	
+	/** Gets helpful items from a previous ledger. */
+	runHelp(helpOpts) {
+		// Generate a clone ledger
+		let ledger = new Ledger(this.lastLedger);
+		// And trim the ledger to only the helpful ledger items
+		ledger.trimToHelpfulItems(helpOpts);
+		
+		// Pass ledger to the TypeSetter
+		let update = typeset(ledger);
+		if (!update || !update.length) return null;
+		
+		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
+		return prefix + ' ' + update;
 	}
 }
 
@@ -64,7 +88,23 @@ class UpdaterPressPool {
 	}
 	
 	run() {
-		
+		let updates = [];
+		for (let press of this.pool) {
+			let up = press.run();
+			if (up) updates.push(up);
+		}
+		if (!updates.length) return null;
+		return updates.join('\n\n');
+	}
+	
+	runHelp() {
+		let updates = [];
+		for (let press of this.pool) {
+			let up = press.runHelp();
+			if (up) updates.push(up);
+		}
+		if (!updates.length) return null;
+		return updates.join('\n\n');
 	}
 }
 

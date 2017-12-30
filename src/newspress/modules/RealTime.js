@@ -19,4 +19,4 @@ class RealTimeModule extends ReportingModule {
 	}
 }
 
-
+module.exports = RealTimeModule;

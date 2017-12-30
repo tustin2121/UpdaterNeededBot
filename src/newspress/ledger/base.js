@@ -1,42 +1,6 @@
 // newspress/ledger/base.js
 // Base ledger item classes
 
-// const PRIMES = [
-// 	7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
-// 	71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137,
-// 	139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,
-// ];
-// function hashValue(val) {
-// 	switch(typeof val) {
-// 		case 'number':
-// 			if (Number.isInteger(val)) {
-// 				return val * 19;
-// 			} else {
-// 				return hashStr(val.toFixed(6));
-// 			}
-// 		case 'string': return hashStr(val);
-// 		case 'boolean': return (val)?7:11;
-// 		case 'undefined': return 2;
-// 	}
-// 	if (val === null) return 3;
-// 	if (typeof val !== 'object') return 31;
-// 	let h = 5;
-// 	for (let k in val) {
-// 		h = (h << 5) - h + hashStr(k)
-// 		h = (h << 5) - h + hashValue(val[k]);
-// 	}
-// 	return h;
-//
-// 	function hashStr(str){
-// 		let h = 0;
-// 		for (let i = 0; i < str.length; i++) {
-// 			h = (h << 5) - h + (str[i] | 0);
-// 		}
-// 		return h;
-// 	}
-// }
-
-
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
 		// The importance level of this item. Ranges from 0 to 2.
@@ -52,31 +16,6 @@ class LedgerItem {
 	}
 	
 	get name() { return this.constructor.name; }
-	
-	// get hash() {
-	// 	let hash = hashStr(this.constructor.name);
-	// 	hash |= hashStr(this.flavor) * 17;
-	// 	for (let key in this) {
-	// 		 hashValue(this[key])
-	//
-	// 		if (key === 'importance') continue;
-	// 		if (key === 'helptype') continue;
-	// 		if (key === 'flavor') continue;
-	// 		if (key === '_sort') continue;
-	// 		let val = this[key];
-	// 		switch(typeof val) {
-	// 		}
-	// 	}
-	// 	return hash;
-	//
-	// 	function hashStr(str){
-	// 		let h = 0;
-	// 		for (let i = 0; i < str.length; i++) {
-	// 			h = (h << 5) - h + str[i] | 0;
-	// 		}
-	// 		return h;
-	// 	}
-	// }
 	
 	toXml(hkey) {
 		let xml = `<LedgerItem `;

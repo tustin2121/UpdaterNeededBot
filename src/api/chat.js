@@ -56,3 +56,4 @@ class ChatAPI {
 		return { lines, inputs };
 	}
 }
+module.exports = ChatAPI;

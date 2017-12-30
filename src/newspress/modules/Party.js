@@ -20,4 +20,4 @@ class PartyModule extends ReportingModule {
 	}
 }
 
-
+module.exports = PartyModule;

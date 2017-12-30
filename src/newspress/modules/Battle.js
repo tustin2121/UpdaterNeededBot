@@ -20,4 +20,4 @@ class BattleModule extends ReportingModule {
 	}
 }
 
-
+module.exports = BattleModule;

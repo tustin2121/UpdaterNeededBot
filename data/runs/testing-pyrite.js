@@ -8,10 +8,12 @@ module.exports = {
 		name: "Pyrite",
 		// The name of the base game being played
 		base: "Crystal",
+		// The prefix on updates related to this run, or null if no prefix is needed.
+		prefix: null,
 		// The generation of this game
 		gen: 2,
 		// The region to use as the map
-		regionMap: 'johto',
+		regionMap: null,//'johto',
 		// Trainer information
 		trainer: {
 			id: 25756,
@@ -39,9 +41,8 @@ module.exports = {
 		chatChannel: "#twitchplayspokemon",
 		
 		// The Reddit Live Updater ID to post to
-		liveID : "z380f0na2tyd",
-		// The Discord LiveUpdater channel snowflake
-		discordID: null,
+		liveID : "1005psxpf4gwu",
+		testLiveID: "1005psxpf4gwu",
 	},
 	
 	// The list of active modules and their configurations

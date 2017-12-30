@@ -21,4 +21,4 @@ class GymModule extends ReportingModule {
 	}
 }
 
-
+module.exports = GymModule;

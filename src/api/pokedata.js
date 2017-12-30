@@ -65,7 +65,7 @@ class Pokemon {
 		if (Bot.runOpts('specialSplit')) {
 			this._stats = {atk:0,def:0,hp:0,spa:0,spd:0,spe:0};
 		} else {
-			this._stats = {atk:0,def:0,hp:0,sp:0,spe:0};
+			this._stats = {atk:0,def:0,hp:0,spl:0,spe:0};
 		}
 		
 		this.dexid = -1;
@@ -117,6 +117,7 @@ class Pokemon {
 			if (mon.pokerus.cured) this.pokerus = false;
 		}
 		if (Bot.runOpts('shiny')) this.shiny = mon.shiny;
+		if (Bot.runOpts('sparkly')) this.sparkly = mon.sparkly;
 		if (Bot.runOpts('abilities')) this.ability = mon.ability;
 		
 		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
@@ -133,9 +134,43 @@ class Pokemon {
 			this._stats.spa = val.spa || val.special_attack || 0;
 			this._stats.spd = val.spd || val.special_defense || 0;
 		} else {
-			this._stats.sp = val.sp || val.special || 0;
+			this._stats.spl = val.spl || val.sp || val.spa || val.spd || val.special || 0;
 		}
 		this._stats.hp  = val.hp  || val.hit_points || 0;
+	}
+	
+	getExtendedInfo(includeStats=true) {
+		if (this.species === 'Egg') return 'Egg';
+		
+		let exInfo = `${this.types.join('/')}`;
+		if (Bot.runOpts('heldItem')) exInfo += ` | Item: ${this.item?this.item:"None"}`;
+		if (Bot.runOpts('abilities')) exInfo += ` | Ability: ${this.ability}`;
+		if (Bot.runOpts('natures')) exInfo += ` | Nature: ${this.nature}`;
+		if (Bot.runOpts('caughtInfo')) exInfo += `\nCaught In: ${this.caughtIn}`;
+		exInfo += ` | Moves: ${this.moves.join(', ')}`;
+		
+		if (includeStats) {
+			let stats = [];
+			stats.push(`HP: ${this.stats.hp}`);
+			stats.push(`ATK: ${this.stats.atk}`);
+			stats.push(`DEF: ${this.stats.def}`);
+			if (Bot.runOpts('specialSplit')) {
+				stats.push(`SPA: ${this.stats.spa}`);
+				stats.push(`SPD: ${this.stats.spd}`);
+			} else {
+				stats.push(`SPL: ${this.stats.spl}`);
+			}
+			stats.push(`SPE: ${this.stats.spe}`);
+			exInfo += `\n${stats.join(' | ')}`;
+		}
+		
+		let f = [];
+		if (Bot.runOpts('pokerus') && this.pokerus) f.push(`Has PokeRus`);
+		if (Bot.runOpts('shiny') && this.shiny) f.push('Shiny');
+		if (Bot.runOpts('sparkly') && this.sparkly) f.push('Sparkly (N\'s Pokemon)');
+		// if (this.level_reported) f.push(`Levels: API says ${mon.level_reported}, we calculated ${mon.level_calculated}`);
+		if (f.length) exInfo += `\n${f.join(' | ')}`;
+		return exInfo;
 	}
 	
 	toXml(hkey) {

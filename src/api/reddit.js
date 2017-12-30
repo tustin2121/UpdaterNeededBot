@@ -3,9 +3,12 @@
 
 const LOGGER = getLogger('Reddit');
 
-const url = require("url");
-const http = require("https");
 const fs = require("fs");
+const url = require("url");
+const path = require('path');
+const http = require("https");
+
+const AUTH_DIR = path.resolve(__dirname, '../../.auth');
 
 module.exports = {
 	getOAuth : function(refresh, { client_id, client_secret, username, password, oAuth_token, redirect_uri }) {
@@ -51,15 +54,17 @@ module.exports = {
 				reject(e);
 			});
 			if (refresh) {
+				LOGGER.trace('grant_type=refresh_token');
 				req.write(`grant_type=refresh_token&refresh_token=${refresh}`);
 			} else {
+				LOGGER.trace('grant_type=authorization_code');
 				req.write(`grant_type=authorization_code&code=${oAuth_token}&redirect_uri=${redirect_uri}`);
 				// req.write(`grant_type=password&username=${username}&password=${password}`);
 			}
 			req.end();
 		}).then((json)=>{
 			if (json.refresh_token) {
-				fs.writeFile(__dirname+"/refresh.token", json.refresh_token);
+				fs.writeFileSync(path.resolve(AUTH_DIR, "refresh.token"), json.refresh_token);
 			}
 			return json;
 		});
@@ -74,7 +79,7 @@ module.exports = {
 				'User-Agent': `UpdaterNeeded bot (run by Node.js) by /u/tustin2121`,
 			};
 			let req = http.request(loc, (res)=>{
-				// LOGGER.log(`STATUS: ${res.statusCode}`);
+				LOGGER.trace(`STATUS: ${res.statusCode}`);
 				// LOGGER.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
@@ -95,6 +100,7 @@ module.exports = {
 							LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
 							LOGGER.debug(`BODY: ${json}`);
 						}
+						LOGGER.trace(`Posted successfully!`);
 						resolve(j);
 					} catch (e) {
 						LOGGER.log('Unsuccessful response!');
@@ -112,6 +118,7 @@ module.exports = {
 			// req.write(JSON.stringify( {'api_type':'json', 'body': update} ));
 			req.write(`body=${encodeURIComponent(update)}`);
 			req.end();
+			LOGGER.trace(`END`);
 			
 			// LOGGER.log('REQUEST: ', req.output);
 			// LOGGER.log('====================================');

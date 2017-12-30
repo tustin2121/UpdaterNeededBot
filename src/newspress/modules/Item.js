@@ -20,4 +20,4 @@ class ItemModule extends ReportingModule {
 	}
 }
 
-
+module.exports = ItemModule;

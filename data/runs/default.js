@@ -9,6 +9,8 @@ module.exports = {
 		name: "SuperName", //Where the game being played is 'Pokemon SuperName'
 		// The name of the base game being played
 		base: "Name", //Where the game SuperName is based on is 'Pokemon Name'
+		// The prefix on updates related to this run, or null if no prefix is needed.
+		prefix: null, //"[T]"/"[M]" for example, for multi-runs
 		// The generation of this game
 		gen: 0,
 		// The region to use as the map
