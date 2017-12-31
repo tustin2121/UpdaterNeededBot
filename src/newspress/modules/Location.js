@@ -2,6 +2,7 @@
 // The Location reporting module
 
 const { ReportingModule, Rule } = require('./_base');
+const { LocationContext, LocationChanged } = require('../ledger/Location');
 
 const RULES = [];
 
@@ -16,7 +17,13 @@ class LocationModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		ledger.add(new LocationContext(curr.location));
 		
+		if (!curr.location.equals(prev.location)) {
+			let item = new LocationChanged(prev.location, curr.location)
+			item.flavor = 'nomap';
+			ledger.add(item);
+		}
 	}
 }
 

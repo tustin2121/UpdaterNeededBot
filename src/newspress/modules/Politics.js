@@ -19,6 +19,10 @@ class PoliticsModule extends ReportingModule {
 		// tpp	Inputting is now in democracy mode!
 		// tpp	Inputting is now in anarchy mode!
 	}
+	
+	secondPass(ledger) {
+		RULES.forEach(rule=> rule.apply(ledger) );
+	}
 }
 
 module.exports = PoliticsModule;

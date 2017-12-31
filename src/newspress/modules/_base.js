@@ -18,6 +18,12 @@ class ReportingModule {
 	 * defined by this module and transforms the ledger.
 	 */
 	secondPass(ledger) {}
+	
+	/**
+	 * The final pass of this module. The ledger should be no longer edited, and
+	 * final actions should be performed here in relation to the data's final state.
+	 */
+	finalPass(ledger) {}
 }
 
 ////////////////////////////////////////////////////////////////////////////////

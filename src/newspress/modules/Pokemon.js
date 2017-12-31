@@ -2,6 +2,7 @@
 // The Pokemon reporting module
 
 const { ReportingModule, Rule } = require('./_base');
+const { PokemonGained, PokemonIsMissing } = require('../ledger/Pokemon');
 
 const RULES = [];
 
@@ -16,7 +17,26 @@ class PokemonModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		// Retrieve the pokemon delta between previous and current
+		let delta = curr.pokemon.getDelta(prev.pokemon);
 		
+		// Note all Pokemon aquisitions
+		for (let mon of delta.added) {
+			ledger.add(new PokemonGained(mon));
+		}
+		// Note all Pokemon missings
+		for (let mon of delta.removed) {
+			ledger.add(new PokemonIsMissing(mon));
+		}
+	}
+	
+	secondPass(ledger) {
+		RULES.forEach(rule=> rule.apply(ledger) );
+	}
+	
+	finalPass(ledger) {
+		let missing = ledger.findAllItemsWithName('PokemonIsMissing');
+		//TODO do a query to the updaters, and handle the event where the bot dies before the query is resolved or timed out
 	}
 }
 

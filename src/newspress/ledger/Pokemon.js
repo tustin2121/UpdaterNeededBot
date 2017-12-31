@@ -1,4 +1,4 @@
-// newspress/ledger/pokemon.js
+// newspress/ledger/Pokemon.js
 // Various ledger items related to pokemon themselves
 
 const { LedgerItem } = require('./base');

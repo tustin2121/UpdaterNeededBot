@@ -18,6 +18,10 @@ class TimingModule extends ReportingModule {
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
 		
 	}
+	
+	secondPass(ledger) {
+		RULES.forEach(rule=> rule.apply(ledger) );
+	}
 }
 
 module.exports = TimingModule;

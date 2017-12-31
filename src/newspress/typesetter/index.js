@@ -7,6 +7,7 @@ const LOGGER = getLogger('TypeSetter');
 
 const phrasebook = Object.assign({}, ...[
 	require('./Pokemon'),
+	require('./Location'),
 ]);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

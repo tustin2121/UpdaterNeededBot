@@ -124,6 +124,10 @@ class Pokemon {
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
 	}
 	
+	toString() {
+		return `${this.name} (${this.species})`;
+	}
+	
 	get stats() { return this._stats; }
 	set stats(val){
 		if (typeof val !== 'object') throw TypeError('Cannot set stats to something not an object literal!');
@@ -184,9 +188,9 @@ class Pokemon {
 }
 
 class SortedLocation {
-	constructor() {
+	constructor(data) {
 		this.node = null;
-		this.set();
+		this.set(data);
 	}
 	
 	set(opts={}) {
@@ -198,6 +202,10 @@ class SortedLocation {
 		this.x = read(opts, 'x') || 0;
 		this.y = read(opts, 'y') || 0;
 		this.z = read(opts, 'z');
+	}
+	
+	toString() {
+		return this.map_name;
 	}
 	
 	get bank_id() {
@@ -244,6 +252,7 @@ class SortedLocation {
 		// }
 		return false;
 	}
+	
 }
 
 class SortedPokemon {
@@ -294,6 +303,16 @@ class SortedPokemon {
 			if (predicate(p)) list.push(p);
 		}
 		return list;
+	}
+	
+	getDelta(prev) {
+		let ad = Object.keys(this._map).filter(x=>!!prev._map[x]);
+		let rm = Object.keys(prev._map).filter(x=>!!this._map[x]);
+		
+		return {
+			added: ad.map(x=>this._map[x]),
+			removed: rm.map(x=>prev._map[x]),
+		}
 	}
 }
 
@@ -477,6 +496,8 @@ class SortedData {
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
 		
+		this._location = new SortedLocation(data);
+		
 		this._pokemon = new SortedPokemon(data);
 		this._inventory = new SortedInventory(data);
 		
@@ -510,6 +531,7 @@ class SortedData {
 		return this.numBadges / Bot.runOpts('badgeNames', this._rawGameIdx).length;
 	}
 	
+	get location() { return this._location; }
 	get name() { return this._name; }
 	get rival_name() { return this._rival; }
 	
