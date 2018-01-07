@@ -2,7 +2,7 @@
 // The Location reporting module
 
 const { ReportingModule, Rule } = require('./_base');
-const { LocationContext, LocationChanged } = require('../ledger/Location');
+const { LocationContext, MapContext, LocationChanged } = require('../ledger/Location');
 
 const RULES = [];
 
@@ -17,6 +17,13 @@ class LocationModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		let region = Bot.gameInfo().regionMap;
+		if (region) {
+			let node = region.find(curr.location);
+			if (node) {
+				ledger.add(new MapContext(node));
+			}
+		}
 		ledger.add(new LocationContext(curr.location));
 		
 		if (!curr.location.equals(prev.location)) {

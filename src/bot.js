@@ -43,7 +43,7 @@ class UpdaterBot {
 				if (game.regionMap === undefined) throw `Invalid config: game${i} has no regionMap defined! Should be null or valid region!`;
 				if (game.regionMap !== null) {
 					try {
-						require(`../data/region/${game.regionMap}`);
+						game.regionMap = require(`../data/region/${game.regionMap}`);
 					} catch (e) {
 						throw `Invalid config: game${i} requires an invalid region map!`;
 					}

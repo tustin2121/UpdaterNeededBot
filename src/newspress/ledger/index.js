@@ -98,4 +98,5 @@ module.exports = Object.assign({
 }, ...[
 	require('./base'),
 	require('./Pokemon'),
+	require('./Location'),
 ]);

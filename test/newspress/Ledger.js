@@ -161,4 +161,38 @@ describe('Ledger', function(){
 			ledger.list[6].should.be.an.instanceOf(TestItemD);
 		});
 	});
+	
+	describe('#hash', function(){
+		let ledger;
+		
+		beforeEach(function(){
+			ledger = createTestLedger([
+				new TestItemB(),
+				new TestItemD('world'),
+				new TestItemB(),
+				new TestContextItem(),
+				new TestItemC(),
+				new TestItemA(),
+				new TestItemB(),
+				new TestItemD('hello'),
+				new TestContextItem(),
+			]);
+		});
+		
+		it('should generate a hex string', function(){
+			let h = ledger.hash();
+			
+			h.should.be.a.String();
+			for(let i = 0; i < h.length; i+=4) {
+				let n = Number.parseInt(h.substr(i, 4), 16);
+				n.should.be.a.Number();
+			}
+		});
+		
+		it('should generate the same hash each time', function(){
+			let h = ledger.hash();
+			
+			should.ok(h === ledger.hash(), `Hash does not match!`);
+		});
+	});
 });
