@@ -33,13 +33,15 @@ class Ledger {
 	
 	/** Finds all items with the given name. */
 	findAllItemsWithName(name) {
-		let res = [];
+		return this.list.filter(item => item.name === name);
+	}
+	
+	getNumberOfImportantItems() {
+		let i = 0;
 		for (let item of this.list) {
-			if (item.name === name) {
-				res.push(item);
-			}
+			if (item.important >= 1) i++;
 		}
-		return res;
+		return i;
 	}
 	
 	/** Sorts the ledger and drops all items below 1 importance. */
@@ -99,4 +101,5 @@ module.exports = Object.assign({
 	require('./base'),
 	require('./Pokemon'),
 	require('./Location'),
+	require('./Options'),
 ]);

@@ -53,9 +53,6 @@ class UpdaterPress {
 		for (let mod of this.modules) {
 			mod.finalPass(ledger);
 		}
-		if (hash !== ledger.hash()) {
-			throw new Error('Ledger was edited during the final pass!')
-		}
 		
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();

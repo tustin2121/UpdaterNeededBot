@@ -87,7 +87,7 @@ function getPhrase(item) {
 	
 	let phrase = pdict[item.flavor || 'default'];
 	if (typeof phrase === 'function') {
-		phrase = phrase(item);
+		phrase = phrase(item, { fillText });
 	}
 	if (Array.isArray(phrase)) {
 		phrase = phrase[Math.floor(Math.random()*phrase.length)];
