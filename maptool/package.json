@@ -2,13 +2,20 @@
   "name": "maptool",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "tustin2121",
   "license": "ISC",
+  "window": {
+	"title": "Maptool",
+	"width": 1260, "height": 640,
+	"position": "center",
+	"resizable": true
+},
   "dependencies": {
-    "bytebuffer": "^5.0.1"
+    "bytebuffer": "^5.0.1",
+    "nw": "^0.27.3-sdk"
   }
 }

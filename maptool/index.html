@@ -1,0 +1,28 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<div class="hidden">
+		<input id="openPath" type="file" nwworkingdir="../data/region" />
+	</div>
+	<div id="newDialog" class="dialog">
+		<div class="dialogInner">
+			<label>Save path: <input name="savePath" type="file" nwworkingdir="../data/region" nwsaveas /></label>
+			<label>Region Name: <input type="text" name="name"/></label>
+			<label>Map Type:
+				<input type="radio" name="idtype" value="banked"/> Banked (gen 1-3)
+				<input type="radio" name="idtype" value="single"/> Single (gen 4+)
+			</label>
+			<label><button name="okBtn">Create</button></label>
+		</div>
+	</div>
+	<div id="sidebar">
+		<ul id="maptree"></ul>
+		<div id="proppane"></div>
+	</div>
+	<canvas id="map"></canvas>
+</body>
+</html>
