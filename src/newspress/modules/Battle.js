@@ -16,7 +16,11 @@ class BattleModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
-		
+		let pb = prev.battle;
+		let cb = prev.battle;
+		if (cb.in_battle) {
+			
+		}
 	}
 	
 	secondPass(ledger) {
