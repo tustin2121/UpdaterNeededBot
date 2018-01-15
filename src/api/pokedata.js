@@ -456,6 +456,7 @@ class SortedBattle {
 				this.party.push(poke);
 			}
 		}
+		this.active = this.party.filter(p=>p.active);
 		
 		// Determine trainer classes
 		this.isImportant = false;
@@ -474,10 +475,12 @@ class SortedBattle {
 	get isE4() { return !!this.classes['e4']; }
 	get isChampion() { return !!this.classes['champ']; }
 	
+	get isLegendary() { return !!this.classes['legendary']; } //TODO
+	
 	get displayName() {
 		let name = [];
 		for (let trainer of this.trainer) {
-			name.push(`${trainer.className} ${trainer.name}`).trim();
+			name.push(`${trainer.className} ${trainer.name}`.trim());
 		}
 		if (name.length > 2) {
 			name[name.length-1] = `and ${name[name.length-1]}`;
@@ -485,6 +488,18 @@ class SortedBattle {
 		} else {
 			return name.join(' and ');
 		}
+	}
+	get attemptId() {
+		let name = [];
+		for (let trainer of this.trainer) {
+			name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
+		}
+		if (!name.length) {
+			for (let p of this.party) {
+				name.push(`pk${p.dexid}`);
+			}
+		}
+		return name.join(';');
 	}
 }
 

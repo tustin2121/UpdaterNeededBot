@@ -13,7 +13,7 @@ const RULES = [];
 class BattleModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory);
-		
+		this.memory.attempts = this.memory.attempts || {};
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -24,15 +24,21 @@ class BattleModule extends ReportingModule {
 		}
 		
 		if (cb.in_battle && !pb.in_battle) {
-			ledger.addItem(new BattleStarted(cb));
+			let attempt = 0;
+			if (cb.isImportant) {
+				attempt = this.memory.attempts[cb.attemptId];
+			}
+			ledger.addItem(new BattleStarted(cb, attempt));
 		}
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
 			return;
 		}
 		
-		// let healthy = cb.enemy_party.;
-		
+		let healthy = cb.party.filter(p=>p.hp);
+		if (healthy.length === 0) {
+			ledger.addItem(new BattleEnded(pb, false));
+		}
 	}
 	
 	secondPass(ledger) {

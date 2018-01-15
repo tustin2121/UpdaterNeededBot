@@ -22,9 +22,10 @@ class BattleContext extends LedgerItem {
 }
 
 class BattleStarted extends LedgerItem {
-	constructor(battle) {
+	constructor(battle, attempt=0) {
 		super(battle.isImportant?2:0.9);
 		this.battle = battle;
+		this.attempt = attempt;
 	}
 }
 
