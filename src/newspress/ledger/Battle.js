@@ -21,6 +21,9 @@ class BattleContext extends LedgerItem {
 	}
 }
 
+/**
+ * An item indicating that a battle has started.
+ */
 class BattleStarted extends LedgerItem {
 	constructor(battle, attempt=0) {
 		super(battle.isImportant?2:0.9);
@@ -40,6 +43,9 @@ class BattleEnded extends LedgerItem {
 	}
 }
 
+/**
+ * Tells us when an enemy has fainted
+ */
 class EnemyFainted extends LedgerItem {
 	constructor(battle, enemy) {
 		super(battle.isImportant?2:0.9);
@@ -48,6 +54,13 @@ class EnemyFainted extends LedgerItem {
 	}
 }
 
+/**
+ */
+class BadgeGet extends LedgerItem {
+	constructor(badgeName) {
+		this.badge = badgeName;
+	}
+}
 
 
 
@@ -55,6 +68,6 @@ class EnemyFainted extends LedgerItem {
 
 
 module.exports = {
-	BattleContext,
-	BattleStarted, BattleEnded,
+	BattleContext, BattleStarted, BattleEnded, EnemyFainted,
+	BadgeGet,
 };
