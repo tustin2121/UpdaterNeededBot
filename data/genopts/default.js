@@ -36,6 +36,9 @@ module.exports = {
 	// If this generation supports 3D movement (resolve the Z axis)
 	'3d': true,
 	
+	// If this generation requires external move information, the link to extdata file is here
+	moveInfo: false,
+	
 	// The names of the badges in this game, in the order of the bits that represent them
 	badgeNames: [],
 	// The names of the e4 members, in order of apperance (line) or from left to right (hub)

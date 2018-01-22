@@ -17,6 +17,9 @@ class PokemonModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		//TODO put pokemon boxes in memory and use them instead of previous
+		//TODO if boxes are missing, that is an ApiDisturbance
+		
 		// Retrieve the pokemon delta between previous and current
 		let delta = curr.pokemon.getDelta(prev.pokemon);
 		

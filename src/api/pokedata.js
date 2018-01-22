@@ -46,6 +46,29 @@ function checkNicknamed(name, species) {
 	return name !== species;
 }
 
+function fillMoveInfo(data) {
+	if (!Bot.runOpts('moveInfo')) return data;
+	try {
+		// Gen 2 stores only current and number of PP Ups. We have to calculate max.
+		let moveTable = require(`../../data/extdat/${Bot.runOpts('moveInfo')}`);
+		data = Object.assign({}, moveTable[data.id], data);
+		
+		// If there are PP Up's applied, increase by 20% of the max
+		if (data.pp_up) {
+			let ppUp = data.maxPP / 5;
+			// Gen 1 and 2 reduced this from 8 to 7, so it wouldn't overflow.
+			// https://github.com/pret/pokecrystal/blob/217b7b8d9ba0d243ccbd9d4ae0a5b3ac7ab856e8/items/item_effects.asm#L3161
+			if (ppUp === 8) ppUp = 7;
+			data.maxPP += ppUp * data.pp_up;
+		}
+		
+		return data;
+	} catch (e) {
+		getLogger('POKEDATA').error('Error filling moveInfo!', e);
+		return data;
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Pokemon {
@@ -101,6 +124,18 @@ class Pokemon {
 			this.caughtIn = read(mon.met, `caught_in`);
 		}
 		this.stats = mon.stats; //uses setter below
+		
+		this.moves = mon.moves.map(m=> correctCase(m.name) );
+		this.moveInfo = mon.moves.map(m=>{
+			m = fillMoveInfo(m);
+			return {
+				id: m.id,
+				max_pp: m.max_pp,
+				pp: m.pp,
+				name: correctCase(m.name),
+				type: m.type
+			};
+		});
 		
 		if (mon.health) {
 			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
@@ -263,6 +298,8 @@ class SortedPokemon {
 		this._pc = [];
 		this._daycare = [];
 		
+		this.hasNullBoxes = false;
+		
 		if (data.party) {
 			for (let i = 0; i < data.party.langth; i++) {
 				let p = new Pokemon(data.party[i]);
@@ -272,6 +309,7 @@ class SortedPokemon {
 			}
 		}
 		if (data.pc) {
+			//TODO handle null boxes
 			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 				let box = data.pc.boxes[bn];
 				let b = [];
@@ -550,6 +588,7 @@ class SortedData {
 	get name() { return this._name; }
 	get rival_name() { return this._rival; }
 	
+	get party() { return this._pokemon._party; }
 	get pokemon() { return this._pokemon; }
 	get inventory() { return this._inventory; }
 	get inv() { return this._inventory; }

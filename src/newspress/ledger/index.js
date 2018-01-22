@@ -99,7 +99,10 @@ module.exports = Object.assign({
 	Ledger,
 }, ...[
 	require('./base'),
+	require('./ApiMonitoring'),
 	require('./Pokemon'),
+	require('./Party'),
 	require('./Location'),
 	require('./Options'),
+	require('./Battle'),
 ]);

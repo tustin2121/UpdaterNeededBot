@@ -19,6 +19,8 @@ class StreamAPI {
 		/** The sorted stream data from the last update cycle. */
 		this.prevInfo = [];
 		
+		//TODO fill in "currInfo" with the last-saved API update
+		
 		this.refresh();
 	}
 	
@@ -28,6 +30,7 @@ class StreamAPI {
 		try {
 			LOGGER.trace(`Requesting Stream API refresh.`);
 			let data = await http_get(this.updateUrl);
+			//TODO save data to a rotating file
 			LOGGER.trace(`Retrieved Stream API. About to parse.`);
 			if (Array.isArray(data)) {
 				for (let i = 0; i < data.length; i++) {

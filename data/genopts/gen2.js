@@ -11,6 +11,8 @@ module.exports = {
 	hubE4: false,
 	'3d': false,
 	
+	moveInfo: 'gen2/movetable.js',
+	
 	badgeNames: [
 		"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
 		"Boulder", "Cascade", "Thunder", "Rainbow", "Marsh", "Soul", "Volcano", "Earth",

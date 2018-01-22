@@ -113,6 +113,45 @@ class RuleInstance {
 		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
+	/**
+	 * Filters a previously found list of items to ones with the same property as a given previous
+	 * match. This function may reduce the size of the previous match.
+	 */
+	withSame(prop, asIdx=-1) {
+		if (this.lastResult === false) return; //do nothing
+		if (!this.workingList || !this.workingList.length) {
+			this.lastResult = false;
+			return;
+		}
+		if (asIdx < 0) asIdx = this.matchedItems.length + asIdx;
+		let list = this.workingList;
+		let asList = this.matchedItems[asIdx];
+		this.matchedItems[asIdx] = [];
+		let keep = new Set();
+		for (let asItem of asList) {
+			let keepAs = false;
+			for (let item of list) {
+				if (asItem[prop] === item[prop]) {
+					keep.add(item);
+					keepAs = true;
+				}
+			}
+			if (keepAs) {
+				this.matchedItems[asIdx].push(asItem);
+			}
+		}
+		this.workingList = Array.from(keep);
+		this.lastResult = (this.workingList.length > 0 && this.matchedItems[asIdx].length > 0);
+		return this;
+	}
+	
+	ofFlavor(flavor) {
+		return this.with('flavor', flavor);
+	}
+	ofNoFlavor() {
+		return this.with('flavor', null);
+	}
+	
 	/** Gets a previously found item. */
 	get(idx) {
 		return this.matchedItems[idx];
