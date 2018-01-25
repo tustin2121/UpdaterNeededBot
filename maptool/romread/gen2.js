@@ -71,9 +71,16 @@ class Gen2Reader extends GBReader {
 			// Read in all of the map headers for this bank
 			let mapTable = this.readStridedData(ptr, MAP_HEADER_BYTES, ((bankTable[b+1] - ptr)/MAP_HEADER_BYTES) || 12);
 			// Go through each map header and read in the info for it.
-			for (let m = 0; m < mapTable.length; m++) {
+			for (let m = 0; m < mapTable.length; m++)
+			try {
 				let mapHeader = mapTable[m].buffer;
 				let mapHeaderReader = mapTable[m];
+				if (mapHeader[0] !== 0x25) {
+					//If a map header doesn't start with the bank 0x25, then it's probably not map header data anymore
+					console.log(`Non 0x25 ${b+1}.${m+1}`);
+					break; 
+				}
+				
 				let info = { //basic info from map header 1
 					bank: b+1, map: m+1,
 					areaId: mapHeader[5],
@@ -99,7 +106,7 @@ class Gen2Reader extends GBReader {
 					}
 				}
 				
-				// Move the read cursor to mapheader 2
+				// Move the read cursor to map data header
 				this.offset = GBReader.sameBankPtrToLinear(OFFSETS.MapHeaders, mapHeaderReader.readUint16(3))
 				this.skip(); // Skip boarder block info
 				// Width and height are stored as blocks (2x2 walking tiles)
@@ -113,13 +120,13 @@ class Gen2Reader extends GBReader {
 				
 				let conns = this.readUint8(); //Read connections
 				info.conns = {};
-				if (conns & NORTH) info.conns.n = readConnectionInfo();
-				if (conns & SOUTH) info.conns.s = readConnectionInfo();
-				if (conns &  WEST) info.conns.w = readConnectionInfo();
-				if (conns &  EAST) info.conns.e = readConnectionInfo();
+				if (conns & NORTH) info.conns.n = readConnectionInfo.call(this);
+				if (conns & SOUTH) info.conns.s = readConnectionInfo.call(this);
+				if (conns &  WEST) info.conns.w = readConnectionInfo.call(this);
+				if (conns &  EAST) info.conns.e = readConnectionInfo.call(this);
 				
 				// Move the read cursor to the map event header
-				this.offset = GBReader.sameBankPtrToLinear(OFFSETS.MapHeaders, eventHeader);
+				this.offset = GBReader.romBankAddrToLinear(scriptBank, eventHeader);
 				this.skip(2); //Skip two bytes of filler
 				let w_len = this.readUint8(); //Read length of warp list
 				for (let w = 0; w < w_len; w++) {
@@ -133,6 +140,10 @@ class Gen2Reader extends GBReader {
 				}
 				
 				bankData[m+1] = info;
+			} catch (e) {
+				console.error(`Error reading map, skipping! Bank ${b+1}, Map ${m+1}: `, e);
+				bankData[m+1] = { bank:b+1, map:m+1, error:'Invalid map data' };
+				continue;
 			}
 			mapData[b+1] = bankData;
 		}
