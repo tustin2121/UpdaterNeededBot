@@ -37,7 +37,7 @@ function makeMenu() {
 						currFile = file;
 						load(data);
 					} catch (e) {
-						
+						console.log('Error!', e);
 					}
 				});
 				chooser.trigger('click');
@@ -46,7 +46,19 @@ function makeMenu() {
 		submenu.append(new nw.MenuItem({ type:'separator' }));
 		submenu.append(new nw.MenuItem({ label:'Load Maps from ROM...',
 			click() {
-				
+				let chooser = $('#openPath');
+				chooser.unbind('change').on('change', ()=>{
+					try {
+						const { Gen2Reader } = require('./romread');
+						let file = chooser.val();
+						let reader = new Gen2Reader(file);
+						reader.load();
+						console.log(reader);
+					} catch (e) {
+						console.log('Error!', e);
+					}
+				});
+				chooser.trigger('click');
 			}
 	 	}));
 		

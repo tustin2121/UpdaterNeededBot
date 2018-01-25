@@ -32,10 +32,10 @@ class RomReader {
 	get length() { return this.data.limit; }
 	
 	get offset() { return this.data.offset; }
-	set offset(val) { 
+	set offset(val) {
 		if (val === undefined) throw new TypeError('Offset is being set to undefined!');
 		if (typeof val !== 'number') throw new TypeError(`Illegal value for offset: ${val}!`);
-		this.data.offset = val; 
+		this.data.offset = val;
 	}
 	
 	readFloat(offset) { return this.data.readFloat32(offset); }
@@ -71,9 +71,9 @@ class GBReader extends RomReader {
 	
 	readStridedData(offset, stride, len=0, lenIsMax=false) {
 		let choppedData = [];
-		for (let i = 0; (i < len || len <= 0) && (offset + (stride * (i+1))) <= this.data.length; i++) {
-			let chunk = this.data.slice(offset + (stride * i), offset + (stride * (i+1)));
-			if ((len <= 0 || lenIsMax) && chunk[0] == 0xFF) {
+		for (let i = 0; (i < len || len <= 0) && (offset + (stride * (i+1))) <= this.data.limit; i++) {
+			let chunk = this.data.copy(offset + (stride * i), offset + (stride * (i+1)));
+			if ((len <= 0 || lenIsMax) && chunk.readByte(0) == -1) {
 				break;
 			}
 			choppedData.push(chunk);
@@ -83,15 +83,15 @@ class GBReader extends RomReader {
 	readText(offset, limit) {
 		let advance = (offset === undefined);
 		offset = offset || this.data.offset;
-		limit = limit || this.data.length - offset;
-		if (offset >= this.data.length || limit === 0) return '';
+		limit = limit || this.data.limit - offset;
+		if (offset >= this.data.limit || limit === 0) return '';
 		
 		let str = [];
-		for (let i = offset; i < this.data.length; i++) {
-			if (i >= this.data.length) break;
+		for (let i = offset; i < this.data.limit; i++) {
+			if (i >= this.data.limit) break;
 			let char = this.readUint8(i);
 			if (char === this.STR_TERM) break;
-			str.push(this.CHARMAP[c] || ' ');
+			str.push(this.CHARMAP[char] || ' ');
 		}
 		//Note: .length before join, because CHARMAP might not have 1 character long result
 		if (advance) this.data.skip(str.length);
@@ -144,7 +144,7 @@ class DSReader extends RomReader {
 		}
 		return val;
 	}
-	
+	/*
 	readVector2(offset) {
 		let advance = (offset === undefined);
 		offset = offset || this.data.offset;
@@ -220,7 +220,7 @@ class DSReader extends RomReader {
 		}
 		if (advance) this.data.skip(4*12);
 		return mat;
-	}
+	}*/
 }
 
 module.exports = { RomReader, GBReader, DSReader, }

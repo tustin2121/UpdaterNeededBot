@@ -45,20 +45,20 @@ class Gen2Reader extends GBReader {
 		
 		// Read in spawn points (a list with an FF sentinal)
 		let spawnPoints = {};
-		this.readStridedData(OFFSETS.SpawnPointList, 4).map(data=>{
-			let bank = data[0];
-			let id = data[1];
+		this.readStridedData(OFFSETS.SpawnPointList, 4, 0x200, true).map(data=>{
+			let bank = data.readByte(0);
+			let id = data.readByte(1);
 			spawnPoints[bank] = spawnPoints[bank] || {};
 			spawnPoints[bank][id] = {
-				y : data[2],
-				x : data[3],
+				y : data.readByte(2),
+				x : data.readByte(3),
 			};
 		});
 		
 		const MAP_HEADER_BYTES = 9;
 		// Determine number of banks (First pointer points past the end of the list)
 		//const MAP_BANKS = 26;
-		const MAP_BANKS = (this.readUint16(OFFSETS.MapHeaders) - OFFSETS.MapHeaders) / 2;
+		const MAP_BANKS = (this.readUint16(OFFSETS.MapHeaders) - (OFFSETS.MapHeaders & 0xFFFF)) / 2;
 		
 		// Read the map header pointers
 		let bankTable = this.readStridedData(OFFSETS.MapHeaders, 2, MAP_BANKS)
@@ -72,7 +72,8 @@ class Gen2Reader extends GBReader {
 			let mapTable = this.readStridedData(ptr, MAP_HEADER_BYTES, ((bankTable[b+1] - ptr)/MAP_HEADER_BYTES) || 12);
 			// Go through each map header and read in the info for it.
 			for (let m = 0; m < mapTable.length; m++) {
-				let mapHeader = mapTable[m];
+				let mapHeader = mapTable[m].buffer;
+				let mapHeaderReader = mapTable[m];
 				let info = { //basic info from map header 1
 					bank: b+1, map: m+1,
 					areaId: mapHeader[5],
@@ -99,12 +100,14 @@ class Gen2Reader extends GBReader {
 				}
 				
 				// Move the read cursor to mapheader 2
-				this.offset = GBReader.sameBankPtrToLinear(OFFSETS.MapHeaders, mapHeader.readUint16(3))
+				this.offset = GBReader.sameBankPtrToLinear(OFFSETS.MapHeaders, mapHeaderReader.readUint16(3))
 				this.skip(); // Skip boarder block info
 				// Width and height are stored as blocks (2x2 walking tiles)
 				info.height = this.readUint8() * 2;
-				info.width = this.readUint8() * 2; 
-				this.skip(3+3); // Skip block, script pointers
+				info.width = this.readUint8() * 2;
+				this.skip(3); // Skip block pointer
+				let scriptBank = this.readUint8();
+				this.skip(2); // Skip script pointers
 				
 				let eventHeader = this.readUint16(); // Read event pointer
 				
