@@ -5,6 +5,9 @@ const { ReportingModule, Rule } = require('./_base');
 const {
 	MonLeveledUp, MonEvolved, MonHatched, MonPokerusInfected, MonPokerusCured,
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
+	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
+	MonGiveItem, MonTakeItem, MonSwapItem,
+	ApiDisturbance,
 } = require('../ledger');
 
 const RULES = [];
@@ -15,7 +18,7 @@ const RULES = [];
  */
 class PartyModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory);
+		super(config, memory, 1);
 		
 	}
 	
@@ -67,9 +70,61 @@ class PartyModule extends ReportingModule {
 			}
 			
 			// Moves (Learns and PP)
-			//TODO if all four moves change, that is an ApiDisturbance
+			{
+				let movePairs = [];
+				for (let i = 0; i < 4; i++) {
+					let p = prev.moveInfo[i] || { id:0 };
+					let c = curr.moveInfo[i] || { id:0 };
+					movePairs.push({ p, c });
+				}
+				// Eliminate duplicates
+				lblFix:
+				while(true) {
+					let numChanges = 0;
+					for (let a = 0; a < movePairs.length; a++) {
+						for (let b = 0; b < movePairs.length; b++) {
+							if (movePairs[a].p.id === movePairs[b].c.id &&
+								movePairs[a].c.id === movePairs[b].p.id)
+							{
+								let temp = movePairs[b].c;
+								movePairs[b].c = movePairs[a].c;
+								movePairs[a].c = temp;
+								continue lblFix;
+							}
+						}
+					}
+					break;
+				}
+				
+				for (let pair of movePairs) {
+					if (!pair.p.id && pair.c.id) {
+						ledger.addItem(new MonLearnedMove(curr, pair.c.name));
+					} else if (pair.p.id && !pair.c.id) {
+						ledger.addItem(new MonForgotMove(curr, pair.p.name));
+					} else if (pair.p.id !== pair.c.id) {
+						ledger.addItem(new MonLearnedMoveOverOldMove(curr, pair.c.name, pair.p.name));
+					} else {
+						if (pair.c.pp < pair.p.pp) {
+							ledger.addItem(new MonLostPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
+						} else if (pair.c.pp > pair.p.pp) {
+							ledger.addItem(new MonHealedPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
+						}
+						if (pair.c.max_pp < pair.p.max_pp) {
+							ledger.addItem(new MonPPUp(curr, pair.c.name, pair.c.pp, pair.p.pp));
+						}
+					}
+				}
+			}
 			
-			//TODO
+			// Items
+			if (!prev.item && curr.item) {
+				ledger.addItem(new MonGiveItem(curr, curr.item));
+			} else if (prev.item && !curr.item) {
+				ledger.addItem(new MonTakeItem(curr, prev.item));
+			} else if (prev.item !== curr.item) {
+				ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
+			}
+			
 			
 		}
 		

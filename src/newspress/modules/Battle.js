@@ -12,7 +12,7 @@ const RULES = [];
  */
 class BattleModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory);
+		super(config, memory, 1);
 		this.memory.attempts = this.memory.attempts || {};
 	}
 	

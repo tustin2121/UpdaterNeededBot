@@ -71,15 +71,17 @@ class MonRevived extends PartyItem {
 class MonHealedHP extends PartyItem {
 	constructor(mon, prevHP) {
 		super(mon, 0); //context item
+		this.currHP = mon.hp;
 		this.prevHP = prevHP;
 	}
 }
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonHealedPP extends PartyItem {
-	constructor(mon, move, prevPP) {
+	constructor(mon, move, currPP, prevPP) {
 		super(mon, 0); //context item
 		this.move = move;
+		this.currPP = currPP;
 		this.prevPP = prevPP;
 	}
 }
@@ -88,16 +90,78 @@ class MonHealedPP extends PartyItem {
 class MonLostHP extends PartyItem {
 	constructor(mon, prevHP) {
 		super(mon, 0); //context item
+		this.currHP = mon.hp;
 		this.prevHP = prevHP;
 	}
 }
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonLostPP extends PartyItem {
-	constructor(mon, move, prevPP) {
+	constructor(mon, move, currPP, prevPP) {
 		super(mon, 0); //context item
 		this.move = move;
+		this.currPP = currPP;
 		this.prevPP = prevPP;
+	}
+}
+
+/** Indicates that a pokemon has had their move PP healed. */
+class MonPPUp extends PartyItem {
+	constructor(mon, move, currMax, prevMax) {
+		super(mon, 0); //context item
+		this.move = move;
+		this.currMax = currMax;
+		this.prevMax = prevMax;
+	}
+}
+
+/** Indicates that a pokemon has learned a new move. */
+class MonLearnedMove extends PartyItem {
+	constructor(mon, move) {
+		super(mon, 1);
+		this.move = move;
+	}
+}
+
+/** Indicates that a pokemon has learned a new move over an old move. */
+class MonLearnedMoveOverOldMove extends PartyItem {
+	constructor(mon, move, oldMove) {
+		super(mon, 1);
+		this.move = move;
+		this.oldMove = oldMove;
+	}
+}
+
+/** Indicates that a pokemon has forgot an old move. */
+class MonForgotMove extends PartyItem {
+	constructor(mon, move) {
+		super(mon, 1);
+		this.move = move;
+	}
+}
+
+/** Indicates that a pokemon has been given an item to hold. */
+class MonGiveItem extends PartyItem {
+	constructor(mon, item) {
+		super(mon, 1);
+		this.item = item;
+	}
+}
+
+/** Indicates that a pokemon has had its item taken from it. */
+class MonTakeItem extends PartyItem {
+	constructor(mon, item) {
+		super(mon, 1);
+		this.item = item;
+	}
+}
+
+/** Indicates that a pokemon has had its item swapped for another item. */
+class MonSwapItem extends PartyItem {
+	constructor(mon, item, prevItem) {
+		super(mon, 1);
+		this.item = item;
+		this.prevItem = prevItem;
 	}
 }
 
@@ -115,7 +179,9 @@ module.exports = {
 	MonLeveledUp,
 	MonEvolved, MonHatched,
 	MonPokerusInfected, MonPokerusCured,
-	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
+	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP, MonPPUp,
+	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove,
+	MonGiveItem, MonTakeItem, MonSwapItem,
 	
 	MonKapowed,
 };
