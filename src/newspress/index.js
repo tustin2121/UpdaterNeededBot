@@ -22,6 +22,7 @@ class UpdaterPress {
 			let mod = new ModClass(modconfig[modname], modmem)
 			this.modules.push( mod );
 		}
+		this.modules.sort((a,b)=> a.priority - b.priority );
 	}
 	
 	/** Starts a new ledger and runs an update cycle.  */

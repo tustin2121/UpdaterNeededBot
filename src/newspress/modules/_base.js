@@ -2,9 +2,10 @@
 // The base classes for the module and ledger system
 
 class ReportingModule {
-	constructor(config, memory) {
+	constructor(config, memory, priority=5) {
 		this.initConfig = config;
 		this.memory = memory;
+		this.priority = priority;
 	}
 	
 	/**

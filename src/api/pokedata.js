@@ -298,7 +298,7 @@ class SortedPokemon {
 		this._pc = [];
 		this._daycare = [];
 		
-		this.hasNullBoxes = false;
+		this._nullBoxes = 0;
 		
 		if (data.party) {
 			for (let i = 0; i < data.party.langth; i++) {
@@ -309,9 +309,12 @@ class SortedPokemon {
 			}
 		}
 		if (data.pc) {
-			//TODO handle null boxes
 			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 				let box = data.pc.boxes[bn];
+				if (!box) { // handle null boxes
+					this._nullBoxes++;
+					continue; //skip box
+				}
 				let b = [];
 				for (let i = 0; i < box.box_contents.length; i++) {
 					let p = new Pokemon(box.box_contents[i]);
@@ -319,7 +322,7 @@ class SortedPokemon {
 					this._map[p.hash] = p;
 					b.push(p);
 				}
-				this._pc.push(b);
+				this._pc[bn] = b;
 			}
 		}
 		if (data.daycare) {
@@ -334,6 +337,10 @@ class SortedPokemon {
 	
 	get party() { return this._party; }
 	get all() { return Object.values(this._map); }
+	
+	get numNullBoxes() {
+		return this._nullBoxes;
+	}
 	
 	find(predicate) {
 		let list = [];
