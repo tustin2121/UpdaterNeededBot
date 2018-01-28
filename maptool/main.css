@@ -54,3 +54,14 @@ body {
 	margin: 0; padding: 0;
 	border-right: solid 2px #888;
 }
+
+#newDialog [name=genRadio] {
+	display: none;
+}
+label.radio {
+	background-color: #fdfdfd;
+	border: 1px #b9b9b9 solid;
+	display: initial;
+	padding-right: 4px;
+	border-radius: 10px;
+}

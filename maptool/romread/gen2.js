@@ -17,23 +17,34 @@ const TILESET_POKECENTER = 0x07;
 const TILESET_MART = 0x0C;
 const MUSIC_GYM = 0x1B;
 
-const OFFSETS = {
-	MapHeaders: 0x94000,
-	AreaNamesOffset: 0x1CA8C3,
-	SpawnPointList: 0x152AB,
-};
-
 class Gen2Reader extends GBReader {
 	constructor(romFile) {
 		super(romFile);
 		populateCharMap(this.CHARMAP);
+		
+		// Hardcoded offsets into the ROM file
+		this._OFFSETS = {
+			MapHeaders: 0x94000,
+			AreaNamesOffset: 0x1CA8C3,
+			SpawnPointList: 0x152AB,
+		};
+		// Hardcoded lengths for various ROM data
+		this._LENGTHS = {
+			NumAreaNames: 97,
+			MaxSpawnPoints: 0x200,
+			MapHeaderBytes: 9,
+			DefaultMapBankLength: 12,
+			MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
+		};
 	}
 	
 	readMaps() {
 		let oldOff = this.offset;
 		let mapData = {};
+		const OFFSETS = this._OFFSETS;
+		const LENGTHS = this._LENGTHS;
 		
-		const AREA_NAMES = 97; //TODO replace with way to read from ROM (there isn't)
+		const AREA_NAMES = LENGTHS.NumAreaNames; //TODO replace with way to read from ROM (there isn't)
 		
 		// First, read in the area names for our use
 		let areaNames = this.readStridedData(OFFSETS.AreaNamesOffset, 4, AREA_NAMES).map(data=>{
@@ -45,7 +56,7 @@ class Gen2Reader extends GBReader {
 		
 		// Read in spawn points (a list with an FF sentinal)
 		let spawnPoints = {};
-		this.readStridedData(OFFSETS.SpawnPointList, 4, 0x200, true).map(data=>{
+		this.readStridedData(OFFSETS.SpawnPointList, 4, LENGTHS.MaxSpawnPoints, true).map(data=>{
 			let bank = data.readByte(0);
 			let id = data.readByte(1);
 			spawnPoints[bank] = spawnPoints[bank] || {};
@@ -55,7 +66,7 @@ class Gen2Reader extends GBReader {
 			};
 		});
 		
-		const MAP_HEADER_BYTES = 9;
+		const MAP_HEADER_BYTES = LENGTHS.MapHeaderBytes;
 		// Determine number of banks (First pointer points past the end of the list)
 		//const MAP_BANKS = 26;
 		const MAP_BANKS = (this.readUint16(OFFSETS.MapHeaders) - (OFFSETS.MapHeaders & 0xFFFF)) / 2;
@@ -69,16 +80,16 @@ class Gen2Reader extends GBReader {
 			let ptr = bankTable[b];
 			let bankData = {};
 			// Read in all of the map headers for this bank
-			let mapTable = this.readStridedData(ptr, MAP_HEADER_BYTES, ((bankTable[b+1] - ptr)/MAP_HEADER_BYTES) || 12);
+			let mapTable = this.readStridedData(ptr, MAP_HEADER_BYTES, ((bankTable[b+1] - ptr)/MAP_HEADER_BYTES) || LENGTHS.DefaultMapBankLength);
 			// Go through each map header and read in the info for it.
 			for (let m = 0; m < mapTable.length; m++)
 			try {
 				let mapHeader = mapTable[m].buffer;
 				let mapHeaderReader = mapTable[m];
-				if (mapHeader[0] !== 0x25) {
+				if (mapHeader[0] !== LENGTHS.MapBankSentinal) {
 					//If a map header doesn't start with the bank 0x25, then it's probably not map header data anymore
-					console.log(`Non 0x25 ${b+1}.${m+1}`);
-					break; 
+					console.log(`Non 0x${LENGTHS.MapBankSentinal.toString(16)} ${b+1}.${m+1}`);
+					break;
 				}
 				
 				let info = { //basic info from map header 1

@@ -10,13 +10,26 @@
 	</div>
 	<div id="newDialog" class="dialog">
 		<div class="dialogInner">
-			<label>Save path: <input name="savePath" type="file" nwworkingdir="../data/region" nwsaveas /></label>
+			<label>Save path: <input name="savePath" type="file" nwworkingdir="../data/region" nwdirectorydesc="Save region.json as..." nwsaveas /></label>
 			<label>Region Name: <input type="text" name="name"/></label>
-			<label>Map Type:
-				<input type="radio" name="idtype" value="banked"/> Banked (gen 1-3)
-				<input type="radio" name="idtype" value="single"/> Single (gen 4+)
+			<label>ROM path: <input name="romPath" type="file" nwdirectorydesc="Choose ROM to gather maps from..." /></label>
+			<label name="genRadio">Generation:
+				<label class="radio"><input type="radio" name="gen" value="1"/> 1</label>
+				<label class="radio"><input type="radio" name="gen" value="2" checked/> 2</label>
+				<label class="radio"><input type="radio" name="gen" value="3"/> 3</label>
+				<label class="radio"><input type="radio" name="gen" value="4"/> 4</label>
+				<label class="radio"><input type="radio" name="gen" value="5"/> 5</label>
+				<label class="radio"><input type="radio" name="gen" value="6"/> 6</label>
+				<label class="radio"><input type="radio" name="gen" value="7"/> 7</label>
 			</label>
-			<label><button name="okBtn">Create</button></label>
+			<label name="typeRadio">Id Type:
+				<label class="radio"><input type="radio" name="idtype" value="banked"/> banked</label>
+				<label class="radio"><input type="radio" name="idtype" value="single" checked/> single</label>
+			</label>
+			<label>
+				<button name="okBtn">Create</button>
+				<button name="cancelBtn">Cancel</button>
+			</label>
 		</div>
 	</div>
 	<div id="sidebar">

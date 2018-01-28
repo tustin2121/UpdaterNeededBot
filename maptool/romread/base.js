@@ -26,6 +26,7 @@ class RomReader {
 	load() {
 		this.data = ByteBuffer.wrap(fs.readFileSync(this.romFile));
 		this.data.LE(); //switch to Little Endian
+		return this;
 	}
 	
 	get buffer() { return this.data.buffer; }
