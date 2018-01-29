@@ -39,6 +39,8 @@ class UpdaterPress {
 			mod.firstPass(ledger, data);
 		}
 		
+		ledger.addPostponedItems(this.lastLedger);
+		
 		// Second Pass: Modify the ledger items into more useful things
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {

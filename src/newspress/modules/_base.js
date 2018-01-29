@@ -98,17 +98,21 @@ class RuleInstance {
 		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
-	/** Filters a previously found list of items to ones with the given property set to the given value. */
-	with(prop, val) {
+	/**
+	 * Filters a previously found list of items to ones with the given property set to
+	 * one of the the given values.
+	 */
+	with(prop, ...val) {
 		if (this.lastResult === false) return; //do nothing
 		if (!this.workingList || !this.workingList.length) {
 			this.lastResult = false;
 			return;
 		}
+		let vals = new Set(val);
 		let list = this.workingList;
 		this.workingList = [];
 		for (let item of list) {
-			if (item[prop] !== val) continue;
+			if (!vals.has(item[prop])) continue;
 			this.workingList.push(item);
 		}
 		this.lastResult = (this.workingList.length > 0);
@@ -132,6 +136,7 @@ class RuleInstance {
 		for (let asItem of asList) {
 			let keepAs = false;
 			for (let item of list) {
+				if (item === asItem) continue; //skip comparing to itself
 				if (asItem[prop] === item[prop]) {
 					keep.add(item);
 					keepAs = true;
@@ -145,6 +150,25 @@ class RuleInstance {
 		this.lastResult = (this.workingList.length > 0 && this.matchedItems[asIdx].length > 0);
 		return this;
 	}
+	/**
+	 * Filters a previously found list of items to ones with the given property matching
+	 * the given regex.
+	 */
+	whichMatches(prop, regex) {
+		if (this.lastResult === false) return; //do nothing
+		if (!this.workingList || !this.workingList.length) {
+			this.lastResult = false;
+			return;
+		}
+		let list = this.workingList;
+		this.workingList = [];
+		for (let item of list) {
+			if (!regex.test(item[prop])) continue;
+			this.workingList.push(item);
+		}
+		this.lastResult = (this.workingList.length > 0);
+		return this;
+	}
 	
 	ofFlavor(flavor) {
 		return this.with('flavor', flavor);
@@ -153,24 +177,50 @@ class RuleInstance {
 		return this.with('flavor', null);
 	}
 	
+	/** Adds a new item to the ledger. */
+	add(item) {
+		this.ledger.addItem(item);
+	}
 	/** Gets a previously found item. */
 	get(idx) {
 		return this.matchedItems[idx];
 	}
 	/** Gets a previously found item, and removes it from the ledger. */
-	getAndRemove(idx) {
+	remove(idx) {
 		let items = this.matchedItems[idx];
 		if (items) {
 			items.forEach((i)=>this.ledger.removeItem(i));
 		}
 		return items;
 	}
-	/** Adds a new item to the ledger. */
-	add(item) {
-		this.ledger.addItem(item);
+	/** Postpones all matched items at index. */
+	postpone(idx) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>this.ledger.postponeItem(i));
+		}
+		return items;
 	}
+	/** Promotes the importance of all matched items by 1. */
+	promote(idx, impBoost=1) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>i.importance += impBoost);
+		}
+		return items;
+	}
+	/** Demotes the importance of all matched items by 1. */
+	demote(idx, impBoost=1) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>i.importance -= impBoost);
+		}
+		return items;
+	}
+	
 }
-RuleInstance.prototype.remove = RuleInstance.prototype.getAndRemove;
+RuleInstance.prototype.getAndRemove = RuleInstance.prototype.remove;
+RuleInstance.prototype.getAndPostpone = RuleInstance.prototype.postpone;
 
 /*
 new Rule("Pokeballs lost in battle are thrown at the opponent")

@@ -11,6 +11,7 @@ module.exports = {
 	hubE4: false,
 	'3d': false,
 	
+	namingMatch: /-_/i,
 	moveInfo: 'gen2/movetable.js',
 	
 	badgeNames: [

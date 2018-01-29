@@ -11,6 +11,13 @@ class PokemonGained extends LedgerItem {
 		super(2, {helps:'catches'});
 		this.mon = mon;
 	}
+	cancelsOut(other) {
+		if (other.name === 'PokemonIsMissing') {
+			if (other.mon.hash !== this.mon.hash) return false;
+			return true;
+		}
+		return false;
+	}
 }
 /** Indicates that a pokemon is missing from the API, and a search is ongoing. This is a context item. */
 class PokemonIsMissing extends LedgerItem {
@@ -29,15 +36,6 @@ class PokemonLost extends LedgerItem {
 
 /////////////////// Advanced Items ///////////////////
 
-/** Indicates that a pokemon has been gained, but is in the process of being named. */
-class PokemonNotYetNamed extends LedgerItem {
-	constructor(x) {
-		super(0);
-		
-	}
-}
-
 module.exports = {
 	PokemonGained, PokemonIsMissing, PokemonLost,
-	PokemonNotYetNamed,
 };

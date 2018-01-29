@@ -42,6 +42,22 @@ class LedgerItem {
 		return xml;
 	}
 	
+	/**
+	 * Returns true if this item and the passed item cancel each other out.
+	 * The default implementation does a very loose comparison using the
+	 * 'curr' and 'prev' properties. You only need to implement this on items
+	 * that may be postponed.
+	 *
+	 * This method may also return another LedgerItem to replace both items,
+	 * condensing them to one item
+	 */
+	cancelsOut(other) {
+		if (this.name !== other.name) return false;
+		if (this.prev === undefined || this.curr === undefined) return false;
+		if (this.prev === other.curr && other.prev === this.curr) return true;
+		return false;
+	}
+	
 	static compare(a, b) {
 		if (!(a instanceof LedgerItem) || !(b instanceof LedgerItem))
 			throw new TypeError('Must compare LedgerItems to each other!');

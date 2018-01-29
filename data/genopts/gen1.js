@@ -15,6 +15,8 @@ module.exports = {
 	hubE4: false,
 	'3d': false,
 	
+	namingMatch: /-_/i,
+	
 	badgeNames: [
 		"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth",
 	],

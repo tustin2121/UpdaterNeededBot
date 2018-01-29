@@ -14,21 +14,55 @@ class Ledger {
 			this.list = [];
 			this.debuglog = new DebugLogs();
 		}
+		this.postponeList = [];
 	}
 	get log(){ return this.debuglog; }
 	get length() { return this.list.length; }
 	
 	hash() { return hash(this.list); }
 	
+	/** Adds an item to the ledger. */
 	addItem(item) {
 		if (!(item instanceof LedgerItem))
 			throw new TypeError('Added item must be a LedgerItem');
 		this.list.push(item);
 	}
+	/** Removes an item from the ledger. */
 	removeItem(item) {
 		let i = this.list.indexOf(item);
 		if (i > -1) return this.list.splice(i, 1);
 		return null;
+	}
+	/** Removes an item from the ledger, and adds it to a list to be put in the next ledger. */
+	postponeItem(item) {
+		if (!(item instanceof LedgerItem))
+			throw new TypeError('Added item must be a LedgerItem');
+		this.removeItem(item);
+		this.postponeList.push(item);
+	}
+	/**
+	 * Adds postponed items to this ledger. This operation goes through all postponed items,
+	 * and determines if any items cancel each other out before adding them.
+	 */
+	addPostponedItems(ledger) {
+		if (!ledger) return;
+		let pItems = ledger.postponeList.slice();
+		for (let a = 0; a < this.list.length; a++) {
+			for (let b = 0; b < pItems.length; b++) {
+				let res = this.list[a].cancelsOut(pItems[b]);
+				if (res) {
+					if (res === this.list[a]) {
+						// do nothing, coalesced
+					} else if (res instanceof LedgerItem) {
+						this.list.splice(a, 1, res); //replace
+					} else {
+						this.list.splice(a, 1); a--; //remove
+					}
+					pItems.splice(b, 1); b--; //remove
+				}
+			}
+		}
+		this.list.push(...pItems);
 	}
 	
 	/** Finds all items with the given name. */

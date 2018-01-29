@@ -8,8 +8,8 @@ const { MapNode } = require('../../mapinfo');
 /////////////////// Basic Items ///////////////////
 
 /**
- * A context item which tells other modules the current basic location info.
- * This item stores SortedLocation objects, when MapNodes are not available.
+ * A context item which tells other modules that a battle is currenlty
+ * in progess.
  */
 class BattleContext extends LedgerItem {
 	constructor(battle) {

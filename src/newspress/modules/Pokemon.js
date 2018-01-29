@@ -3,8 +3,10 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	PokemonGained, PokemonIsMissing, ApiDisturbance,
-} = require('../ledger/Pokemon');
+	PokemonGained, PokemonIsMissing,
+	MonNicknameChanged,
+	ApiDisturbance,
+} = require('../ledger');
 
 const RULES = [];
 
@@ -50,8 +52,9 @@ class PokemonModule extends ReportingModule {
 		}
 		
 		// Determine deltas
-		let added   = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>curr_map[x]);
-		let removed = Object.keys(prev_map).filter(x=>!!curr_map[x]).map(x=>prev_map[x]);
+		let added   = Object.keys(curr_map).filter(x=> !prev_map[x]).map(x=>curr_map[x]);
+		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
+		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {
@@ -61,6 +64,12 @@ class PokemonModule extends ReportingModule {
 		for (let mon of removed) {
 			ledger.add(new PokemonIsMissing(mon));
 		}
+		// Note any updates to PC Pokemon
+		for (let { prev, curr } of same) {
+			if (prev.name !== curr.name) {
+				ledger.add(new MonNicknameChanged(curr, prev.name));
+			}
+		}
 	}
 	
 	secondPass(ledger) {
@@ -69,8 +78,17 @@ class PokemonModule extends ReportingModule {
 	
 	finalPass(ledger) {
 		let missing = ledger.findAllItemsWithName('PokemonIsMissing');
+		
 		//TODO do a query to the updaters, and handle the event where the bot dies before the query is resolved or timed out
 	}
 }
+
+RULES.add(new Rule('Postpone reporting of new Pokemon until the end of a battle')
+	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('PokemonGained'))
+	.then(ledger=>{
+		ledger.postpone(1); //Postpone PokemonGained
+	})
+);
 
 module.exports = PokemonModule;

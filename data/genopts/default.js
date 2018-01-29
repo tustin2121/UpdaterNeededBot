@@ -38,6 +38,9 @@ module.exports = {
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,
+	// If this generation puts its nicknaming in the current name slot, and should postpone
+	// reporting a name change until it is finished, put a regex here to match against
+	namingMatch: null,
 	
 	// The names of the badges in this game, in the order of the bits that represent them
 	badgeNames: [],
