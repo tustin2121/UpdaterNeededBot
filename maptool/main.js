@@ -24,13 +24,14 @@ $(()=>{
 	
 	$('#newDialog [name=romPath]').on('change', ()=>{
 		let hasROM = !!$('#newDialog [name=romPath]').val();
-		$('#newDialog [name=genRadio]').show(hasROM);
-		$('#newDialog [name=typeRadio]').show(!hasROM);
+		$('#newDialog [name=genRadio]').toggle(hasROM);
+		$('#newDialog [name=typeRadio]').toggle(!hasROM);
 	});
 	
 	
 	
 	resize();
+	drawMap();
 });
 
 function resize() {
@@ -40,23 +41,127 @@ function resize() {
 	$('#map').css({
 		left: $('#sidebar').outerWidth(),
 	});
+	drawMap();
 }
 
 function selectTemplate(data, $lbl) {
 	currMap = { type:'template', data, };
+	drawMap();
 }
 function selectMap(data, $lbl) {
 	currMap = { type:'map', data, };
+	drawMap();
 }
 
 function drawMap() {
+	const g = $('#map')[0].getContext('2d');
+	g.clearRect(0, 0, $('#map').innerWidth(), $('#map').innerHeight());
 	if (!currMap || currMap.type !== 'map') return;
 	
-	let map = currMap.data;
-	let g = $('#map')[0].getContext('2d');
-	const CX = $('#map').innerWidth() / 2;
-	const CY = $('#map').innerHeight() / 2;
+	const BLOCK = 8;
+	g.save();
+	{
+		const CX = $('#map').innerWidth() / 2;
+		const CY = $('#map').innerHeight() / 2;
+		g.translate(CX, CY);
+		
+		g.strokeStyle = `#DDDDDD`;
+		g.beginPath();
+		for (let x = 0; x < CX; x += BLOCK) { g.moveTo(x, -CY); g.lineTo(x, CY); }
+		for (let x = 0; x >-CX; x -= BLOCK) { g.moveTo(x, -CY); g.lineTo(x, CY); }
+		for (let y = 0; y < CY; y += BLOCK) { g.moveTo(-CX, y); g.lineTo(CX, y); }
+		for (let y = 0; y >-CY; y -= BLOCK) { g.moveTo(-CX, y); g.lineTo(CX, y); }
+		g.stroke();
+	}{
+		let map = currMap.data;
+		console.log(`Map:`, map);
+		for (let dir in currMap.data.conns) {
+			let conn = currMap.data.conns[dir];
+			let off = { x:-map.width/2, y:-map.height/2 };
+			console.log(`offset:`,off);
+			try {
+				let om = currData.nodes[conn.bank][conn.id];
+				console.log(`Connection ${dir}:`, conn, om);
+				switch (dir) {
+					case 's': off.y += map.height; break;
+					case 'e': off.x += map.width; break;
+				}
+				g.fillStyle = `#CCCCCC`;
+				g.strokeStyle = `#999999`;
+				let r = {
+					x: (off.x-conn.x) * BLOCK,
+					y: (off.y-conn.y) * BLOCK,
+					w: om.width * BLOCK,
+					h: om.height * BLOCK,
+				};
+				g.fillRect  (r.x, r.y, r.w, r.h);
+				g.strokeRect(r.x, r.y, r.w, r.h);
+				g.font = `16pt sans`;
+				g.fillStyle = `#444444`;
+				g.fillText(dir, r.x+(r.w/2), r.y+(r.h/2));
+			} catch (e) {
+				g.save();
+				console.error(`Error drawing ${dir} connection map.`,e);
+				g.fillStyle = `#AA2222`;
+				g.strokeStyle = `#660000`;
+				g.lineWidth = BLOCK;
+				let r = {
+					x: (off.x-conn.x) * BLOCK,
+					y: (off.y-conn.y) * BLOCK,
+					w: 8 * BLOCK,
+					h: 8 * BLOCK,
+				};
+				g.fillRect  (r.x, r.y, r.w, r.h);
+				g.strokeRect(r.x, r.y, r.w, r.h);
+				g.beginPath();
+				g.moveTo(r.x, r.y); g.lineTo(r.x+r.w, r.y+r.h);
+				g.moveTo(r.x+r.w, r.y); g.lineTo(r.x, r.y+r.h);
+				g.stroke();
+				g.font = `16pt sans`;
+				g.fillStyle = `#220000`;
+				g.fillText(dir, r.x+(r.w/2), r.y+(r.h/2));
+				g.restore();
+			}
+		}
+		{
+			g.fillStyle = `#AAAAAA`;
+			g.strokeStyle = `#666666`;
+			let r = {
+				x: (-(map.width/2)) * BLOCK,
+				y: (-(map.height/2)) * BLOCK,
+				w: map.width * BLOCK,
+				h: map.height * BLOCK,
+			};
+			g.fillRect  (r.x, r.y, r.w, r.h);
+			g.strokeRect(r.x, r.y, r.w, r.h);
+		}
+		for (let wn = 0; wn < currMap.data.warps.length; wn++) {
+			let warp = currMap.data.warps[wn];
+			if (!warp) continue;
+			try {
+				let om = currData.nodes[warp.bank][warp.id];
+				console.log(`Warp ${wn}:`, warp, om);
+				g.fillStyle = `#00CC00`;
+				g.strokeStyle = `#009900`;
+				let r = {
+					x: (-(map.width/2)+warp.x) * BLOCK,
+					y: (-(map.height/2)+warp.y) * BLOCK,
+					w: BLOCK,
+					h: BLOCK,
+				};
+				g.fillRect  (r.x, r.y, r.w, r.h);
+				g.strokeRect(r.x, r.y, r.w, r.h);
+				let tx = g.measureText(wn.toString(16));
+				g.font = `6pt monospace`;
+				g.fillStyle = `#006600`;
+				g.fillText(wn.toString(16), r.x+(r.w/2)-(tx.width/2), r.y+(r.h*0.8));
+			} catch (e) {
+				
+			}
+		}
+	}
 	
+	g.restore();
 }
 
 function updatePropertyList() {
@@ -103,8 +208,8 @@ function updateMapList() {
 	function _populateMaps($ls) {
 		if (currData.idType === 'banked') {
 			for (let bank in currData.nodes) {
-				const $bli = $(`<li>`);
-				const $blbl = $(`<span class='bank closed'>Bank ${bank}</span>`);
+				const $bli = $(`<li class='closed'>`);
+				const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
 				const $sub = $(`<ul>`);
 				$blbl.on('click', (e)=>{
 					$bli.toggleClass('closed');
@@ -144,6 +249,7 @@ function loadRegion(filePath) {
 	currData = JSON.parse(fs.readFileSync(filePath));
 	
 	updateMapList();
+	drawMap();
 }
 
 function saveRegion() {
@@ -168,7 +274,7 @@ function createNewRegion() {
 		};
 		if (romFile) {
 			let reader, idType;
-			switch ($('#newDialog [name=idtype]:checked').val()) {
+			switch ($('#newDialog [name=gen]:checked').val()) {
 				case '1':
 					reader = require('./romread').Gen1Reader;
 					idType = 'single';
@@ -200,15 +306,17 @@ function createNewRegion() {
 			}
 			if (!reader) throw new Error('Unsupported generation!');
 			reader = new reader(romFile).load();
+			data.idType = idType;
 			data.nodes = reader.readMaps();
 		} else {
 			data.idType = $('#newDialog [name=idtype]:checked').val();
 			data.nodes = {};
 		}
 		fs.writeFileSync(file, JSON.stringify(data, null, '\t'));
+		$('#newDialog').hide();
 		loadRegion(file);
 	} catch (e) {
-		
+		throw e;
 	}
 }
 
@@ -227,11 +335,7 @@ function makeMenu() {
 				chooser.unbind('change').on('change', ()=>{
 					try {
 						let file = chooser.val();
-						let data = fs.readFileSync(file);
-						data = JSON.parse(data);
-						//TODO validate
-						currFile = file;
-						load(data);
+						loadRegion(file);
 					} catch (e) {
 						console.log('Error!', e);
 					}
