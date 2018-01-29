@@ -159,6 +159,7 @@ class Gen2Reader extends GBReader {
 			mapData[b+1] = bankData;
 		}
 		this.maps = mapData;
+		this.offset = oldOff;
 		return mapData;
 		
 		function readConnectionInfo() {
@@ -171,7 +172,7 @@ class Gen2Reader extends GBReader {
 			this.skip(1); //skip map width
 			c.y = this.readInt8(); //x offset
 			c.x = this.readInt8(); //y offset
-			this.skip(2); //skip last of the info
+			this.skip(2); //skip window
 			return c;
 		}
 	}

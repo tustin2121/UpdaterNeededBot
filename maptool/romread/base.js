@@ -88,7 +88,7 @@ class GBReader extends RomReader {
 		if (offset >= this.data.limit || limit === 0) return '';
 		
 		let str = [];
-		for (let i = offset; i < this.data.limit; i++) {
+		for (let i = offset; i < limit; i++) {
 			if (i >= this.data.limit) break;
 			let char = this.readUint8(i);
 			if (char === this.STR_TERM) break;

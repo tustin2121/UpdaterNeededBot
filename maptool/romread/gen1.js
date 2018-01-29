@@ -3,19 +3,130 @@
 
 const { GBReader } = require('./base');
 
+const EAST  = 1 << 0;
+const WEST  = 1 << 1;
+const SOUTH = 1 << 2;
+const NORTH = 1 << 3;
 
-const OFFSETS = {
-	MapPointers: 0x01AE, //(0:01AE)
-	MapBanks: 0xC23D, //(3:423D)
-}
 
 class Ge12Reader extends GBReader {
 	constructor(romFile) {
 		super(romFile);
 		populateCharMap(this.CHARMAP);
+		
+		// Hardcoded offsets into the ROM file
+		this._OFFSETS = {
+			MapPointers: 0x01AE, //(0:01AE)
+			MapBanks: 0xC23D, //(3:423D)
+			TownMapNamesOffset: 0x71473, //(1C:5473)
+			TownMapExternalEntries: 0x71313, //(1C:5313)
+			TownMapInternalEntries: 0x71382, //(1C:5382)
+			
+			SpawnPointList: 0x152AB,
+		};
+		// Hardcoded lengths for various ROM data
+		this._LENGTHS = {
+			NumMaps: 248,
+			
+			MaxSpawnPoints: 0x200,
+			MapHeaderBytes: 9,
+			DefaultMapBankLength: 12,
+			MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
+		};
 	}
 	
 	readMaps() {
+		let oldOff = this.offset;
+		let mapData = {};
+		const OFFSETS = this._OFFSETS;
+		const LENGTHS = this._LENGTHS;
+		
+		const NUM_MAPS = LENGTHS.NumMaps;
+		
+		// First, read in the area names for our use
+		let areaNames = [];
+		{	// Read in the town map name index
+			// First, read in the "external map" entries, which are one-to-one with map ids
+			this.offset = OFFSETS.TownMapExternalEntries;
+			while (this.offset < OFFSETS.TownMapInternalEntries) {
+				this.skip(); // Skip Town Map y/x location nibble
+				let name = this.readUint16(); // Read pointer to name
+				name = this.readText(GBReader.sameBankPtrToLinear(OFFSETS.TownMapNamesOffset, name), 0xFF);
+				areaNames.push(name); 
+			}
+			// Then, read in the "internal map" entries, which apply to all maps until the given id
+			while (true) {
+				let mid = this.readUint8(); //read in mapid
+				if (mid === 0xFF) break; //End of the list sentinel
+				this.skip(); // Skip Town Map y/x location nibble
+				let name = this.readUint16(); // Read pointer to name
+				name = this.readText(GBReader.sameBankPtrToLinear(OFFSETS.TownMapNamesOffset, name), 0xFF);
+				while (areaNames.length-1 < mid) {
+					areaNames.push(name);
+				}
+			}
+		}
+		
+		// Read the map header pointer tables
+		let mapBanks = this.readStridedData(OFFSETS.MapBanks, 1, NUM_MAPS);
+		let mapPointers = this.readStridedData(OFFSETS.MapPointers, 2, NUM_MAPS)
+			.map((ptr, idx)=> GBReader.romBankAddrToLinear(mapBanks[idx].readUint8(0), ptr.readUint16(0)));
+		
+		// Go through each map pointer and read the map data
+		for (let m = 0; m < mapPointers.length; m++) {
+			let ptr = mapPointers[m];
+			this.offset = ptr;
+			let info = { 
+				id: m, //0-based index
+				areaName: areaNames[m],
+				tileset: this.readUint8(),
+				height: this.readUint8() * 2,
+				width: this.readUint8() * 2,
+			}; 
+			this.skip(2); // Skip block pointer
+			this.skip(2); // Skip texts pointer
+			this.skip(2); // Skip scripts pointer
+			
+			let conns = this.readUint8(); //Read connections
+			info.conns = {};
+			if (conns & NORTH) info.conns.n = readConnectionInfo.call(this);
+			if (conns & SOUTH) info.conns.s = readConnectionInfo.call(this);
+			if (conns &  WEST) info.conns.w = readConnectionInfo.call(this);
+			if (conns &  EAST) info.conns.e = readConnectionInfo.call(this);
+			
+			// Pointer to the data object (which is usually right after anyway)
+			let dataOffset = this.readUint16();
+			this.offset = GBReader.sameBankPtrToLinear(this.offset, dataOffset);
+			
+			this.skip(); // Skip border block
+			let w_len = this.readUint8(); //Read length of warp list
+			for (let w = 0; w < w_len; w++) {
+				info.warps.push({
+					y: this.readUint8(),
+					x: this.readUint8(),
+					warp: this.readUint8(),
+					id: this.readUint8(),
+				});
+			}
+		}
+		
+		return mapData;
+		
+		function readConnectionInfo() {
+			let c = {
+				__addr: this.offset.toString(16),
+				id: this.readUint8(), // Map Id
+			};
+			this.skip(2); // Skip connection strip location
+			this.skip(2); // Skip current map position
+			this.skip(1); // Skip width of connection strip
+			this.skip(1); // Skip map width
+			c.y = this.readInt8(); // Y alignment (y coord of player when entering map)
+			c.x = this.readInt8(); // X alignment (x coord of player when entering map)
+			this.skip(2); // Skip window (position of upper left block after entering map)
+			return c;
+		}
+		
 		//TODO
 		// The difference between gen 2 and gen 1:
 		// Gen 2 is nice and neat in its code. Everything is in one place
