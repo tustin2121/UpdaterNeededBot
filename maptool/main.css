@@ -25,7 +25,7 @@ body {
 	position: absolute;
 	left: 365px; right:0;
 	top:0; bottom:0;
-	padding: 5px;
+	padding: 0;
 }
 #sidebar {
 	background-color: aliceblue;
@@ -46,6 +46,34 @@ body {
 	border-bottom: solid 2px #888;
 	border-right: solid 2px #888;
 }
+#maptree span {
+    white-space: nowrap;
+}
+#maptree ul {
+    padding-left: 20px;
+    list-style-type: none;
+}
+#maptree li {
+	position: relative;
+}
+#maptree li.n0::before,
+#maptree li.n1::before {
+	content: '\00a0';
+	position: absolute;
+	z-index: -10;
+	left: -100px; right: 0;
+}
+#maptree li.n0::before { background-color:#EEEEEE; }
+#maptree li.n1::before { background-color:#DDDDDD; }
+#maptree li.closed ul { display:none; }
+
+/* Files */
+#maptree li span {
+	color: #000000;
+	cursor: pointer;
+}
+
+
 #proppane {
 	position: absolute;
 	left: 0; right: 0;

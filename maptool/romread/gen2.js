@@ -163,13 +163,15 @@ class Gen2Reader extends GBReader {
 		
 		function readConnectionInfo() {
 			let c = {
+				__addr: this.offset.toString(16),
 				bank: this.readUint8(),
 				id: this.readUint8(),
 			};
 			this.skip(2+2+1); //skip strip pointer, location, and length
 			this.skip(1); //skip map width
-			c.y = this.readUint8(); //x offset
-			c.x = this.readUint8(); //y offset
+			c.y = this.readInt8(); //x offset
+			c.x = this.readInt8(); //y offset
+			this.skip(2); //skip last of the info
 			return c;
 		}
 	}
