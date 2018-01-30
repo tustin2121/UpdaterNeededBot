@@ -8,6 +8,7 @@ let currData = null;
 let loadedROM = null;
 
 let currMap = null;
+let zoomLevel = 8;
 
 makeMenu();
 window.onresize = resize;
@@ -28,10 +29,12 @@ $(()=>{
 		$('#newDialog [name=typeRadio]').toggle(!hasROM);
 	});
 	
-	
+	// $('#mapZoomIn').on('click', ()=>{ zoomLevel++; drawMap(); });
+	// $('#mapZoomOut').on('click', ()=>{ zoomLevel++; drawMap(); });
 	
 	resize();
 	drawMap();
+	updatePropertyList();
 });
 
 function resize() {
@@ -47,10 +50,12 @@ function resize() {
 function selectTemplate(data, $lbl) {
 	currMap = { type:'template', data, };
 	drawMap();
+	updatePropertyList();
 }
 function selectMap(data, $lbl) {
 	currMap = { type:'map', data, };
 	drawMap();
+	updatePropertyList();
 }
 
 function drawMap() {
@@ -58,7 +63,7 @@ function drawMap() {
 	g.clearRect(0, 0, $('#map').innerWidth(), $('#map').innerHeight());
 	if (!currMap || currMap.type !== 'map') return;
 	
-	const BLOCK = 8;
+	const BLOCK = zoomLevel;
 	g.save();
 	{
 		const CX = $('#map').innerWidth() / 2;
@@ -74,14 +79,14 @@ function drawMap() {
 		g.stroke();
 	}{
 		let map = currMap.data;
-		console.log(`Map:`, map);
+		// console.log(`Map:`, map);
 		for (let dir in currMap.data.conns) {
 			let conn = currMap.data.conns[dir];
 			let off = { x:-map.width/2, y:-map.height/2 };
-			console.log(`offset:`,off);
+			// console.log(`offset:`,off);
 			try {
 				let om = currData.nodes[conn.bank][conn.id];
-				console.log(`Connection ${dir}:`, conn, om);
+				// console.log(`Connection ${dir}:`, conn, om);
 				switch (dir) {
 					case 's': off.y += map.height; break;
 					case 'e': off.x += map.width; break;
@@ -96,7 +101,7 @@ function drawMap() {
 				};
 				g.fillRect  (r.x, r.y, r.w, r.h);
 				g.strokeRect(r.x, r.y, r.w, r.h);
-				g.font = `16pt sans`;
+				g.font = `16pt monospace`;
 				g.fillStyle = `#444444`;
 				g.fillText(dir, r.x+(r.w/2), r.y+(r.h/2));
 			} catch (e) {
@@ -117,7 +122,7 @@ function drawMap() {
 				g.moveTo(r.x, r.y); g.lineTo(r.x+r.w, r.y+r.h);
 				g.moveTo(r.x+r.w, r.y); g.lineTo(r.x, r.y+r.h);
 				g.stroke();
-				g.font = `16pt sans`;
+				g.font = `16pt monospace`;
 				g.fillStyle = `#220000`;
 				g.fillText(dir, r.x+(r.w/2), r.y+(r.h/2));
 				g.restore();
@@ -140,7 +145,7 @@ function drawMap() {
 			if (!warp) continue;
 			try {
 				let om = currData.nodes[warp.bank][warp.id];
-				console.log(`Warp ${wn}:`, warp, om);
+				// console.log(`Warp ${wn}:`, warp, om);
 				g.fillStyle = `#00CC00`;
 				g.strokeStyle = `#009900`;
 				let r = {
@@ -152,7 +157,7 @@ function drawMap() {
 				g.fillRect  (r.x, r.y, r.w, r.h);
 				g.strokeRect(r.x, r.y, r.w, r.h);
 				let tx = g.measureText(wn.toString(16));
-				g.font = `6pt monospace`;
+				g.font = `${zoomLevel-2}pt monospace`;
 				g.fillStyle = `#006600`;
 				g.fillText(wn.toString(16), r.x+(r.w/2)-(tx.width/2), r.y+(r.h*0.8));
 			} catch (e) {
@@ -166,7 +171,19 @@ function drawMap() {
 
 function updatePropertyList() {
 	let $list = $('#proppane');
-	
+	$list.empty();
+	if (!currMap) return;
+	if (currMap.type === 'template') {
+		
+	} else if (currMap.type === 'map') {
+		for (let key in currMap.data){
+			let $lbl = $(`<label>`);
+			let $key = $(`<span>${key}</span>`).appendTo($lbl);
+			let $val = $(`<input type='text' />`).val(currMap.data[key]).appendTo($lbl);
+			$lbl.appendTo($list);
+		}
+	}
+	return;
 }
 
 function updateMapList() {
@@ -345,11 +362,33 @@ function makeMenu() {
 	 	}));
 		submenu.append(new nw.MenuItem({ type:'separator' }));
 		submenu.append(new nw.MenuItem({ label:'Save',
-			click:saveRegion,
 			key:'s', modifiers:'ctrl',
+			click:saveRegion,
+			
 		}));
 		
 		menu.append(new nw.MenuItem({ label:'File', submenu }));
+	}{
+		let submenu = new nw.Menu();
+		submenu.append(new nw.MenuItem({ label:'Zoom In',
+			key:'=', modifiers:'ctrl',
+			click() {
+				zoomLevel++; drawMap();
+			}
+		}));
+		submenu.append(new nw.MenuItem({ label:'Zoom Out',
+			key:'-', modifiers:'ctrl',
+			click() {
+				zoomLevel--; drawMap();
+			}
+		}));
+		submenu.append(new nw.MenuItem({ label:'Reset Zoom',
+			key:'0', modifiers:'ctrl',
+			click() {
+				zoomLevel = 8; drawMap();
+			}
+		}));
+		menu.append(new nw.MenuItem({ label:'Map', submenu }));
 	}
 	nw.Window.get().menu = menu;
 }

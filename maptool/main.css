@@ -73,7 +73,6 @@ body {
 	cursor: pointer;
 }
 
-
 #proppane {
 	position: absolute;
 	left: 0; right: 0;
@@ -81,6 +80,13 @@ body {
 	overflow-y: scroll;
 	margin: 0; padding: 0;
 	border-right: solid 2px #888;
+}
+#proppane label {
+	display: block;
+    padding: 2px 0px;
+}
+#proppane label>input {
+	float:right;
 }
 
 #newDialog [name=genRadio] {
