@@ -78,15 +78,30 @@ body {
 	left: 0; right: 0;
 	top: 45%; bottom: 0;
 	overflow-y: scroll;
-	margin: 0; padding: 0;
+	margin: 0; padding: 2px 0 0 0;
 	border-right: solid 2px #888;
 }
 #proppane label {
 	display: block;
-    padding: 2px 0px;
+    padding: 0;
+    height: 21px;
+    position: relative;
 }
-#proppane label>input {
-	float:right;
+#proppane label:nth-child(odd) {
+    background-color: #d4ebff;
+}
+#proppane label > input {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 205px;
+}
+#proppane label > span {
+    margin: 3px;
+    vertical-align: baseline;
+    display: inline-block;
+    width: 130px;
+    word-wrap: break-word;
 }
 
 #newDialog [name=genRadio] {

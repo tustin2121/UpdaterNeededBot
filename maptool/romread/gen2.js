@@ -8,6 +8,21 @@ const WEST  = 1 << 1;
 const SOUTH = 1 << 2;
 const NORTH = 1 << 3;
 
+//https://github.com/pret/pokecrystal/blob/master/constants/script_constants.asm#L78
+const BGEVENTS = ['READ','UP','DOWN','RIGHT','LEFT','IFSET','IFNOTSET','ITEM','COPY'];
+const SPRITEMOVEDATA = [
+	//https://github.com/pret/pokecrystal/blob/master/constants/sprite_data_constants.asm#L40
+	0x00, 'ITEM_TREE', 'WANDER', 'SPINRANDOM_SLOW',
+	'WALK_UP_DOWN', 'WALK_LEFT_RIGHT',
+	'STANDING_DOWN','STANDING_UP','STANDING_LEFT','STANDING_RIGHT',
+	'SPINRANDOM_FAST', 'PLAYER',
+	0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12,
+	'FOLLOWING','SCRIPTED','SNORLAX','POKEMON','SUDOWOODO',
+	'SMASHABLE_ROCK','STRENGTH_BOULDER','FOLLOWNOTEXACT','SHADOW','EMOTE',
+	'SCREENSHAKE','SPIN_CCW','SPIN_CC',0x20,'BIGDOLL','BOULDERDUST','GRASS','LAPRAS',
+];
+const OBJECTTYPE = ['SCRIPT','ITEMBALL','TRAINER',3,4,5,6];
+
 const ENVIRONS = [ null, "town", "route", "indoor", "cave", null, "gate", "dungeon", ];
 // Notes:
 /// Caves and Dungeons can be dug out of
@@ -97,13 +112,19 @@ class Gen2Reader extends GBReader {
 					areaId: mapHeader[5],
 					areaName: areaNames[mapHeader[5]],
 					mapType: ENVIRONS[mapHeader[2]],
+					width: null, height: null,
 					warps: [ null ],
+					conns: {},
+					events: [],
+					name: areaNames[mapHeader[5]],
+					attrs: {},
+					locOf: {},
 				};
 				
 				// Assign fly locations
 				if (spawnPoints[b] && spawnPoints[b][m]) {
 					let f = spawnPoints[b][m];
-					info.spawnPoint = `${f.x},${f.y}`;
+					info.locOf.spawnPoint = `${f.x},${f.y}`;
 				}
 				
 				// Refine map types
@@ -130,7 +151,6 @@ class Gen2Reader extends GBReader {
 				let eventHeader = this.readUint16(); // Read event pointer
 				
 				let conns = this.readUint8(); //Read connections
-				info.conns = {};
 				if (conns & NORTH) info.conns.n = readConnectionInfo.call(this);
 				if (conns & SOUTH) info.conns.s = readConnectionInfo.call(this);
 				if (conns &  WEST) info.conns.w = readConnectionInfo.call(this);
@@ -148,6 +168,62 @@ class Gen2Reader extends GBReader {
 						bank: this.readUint8(),
 						id: this.readUint8(),
 					});
+				}
+				
+				let c_len = this.readUint8(); //Read coord event length
+				for (let e = 0; e < c_len; e++) {
+					info.events.push({
+						type: 'coord',
+						sceneId: this.readUint8(),
+						y: this.readUint8(),
+						x: this.readUint8(),
+					});
+					this.skip(1+2+1+1); //Skip filler and script pointer
+				}
+				
+				let b_len = this.readUint8(); //Read BG event length
+				for (let e = 0; e < c_len; e++) {
+					info.events.push({
+						type: 'bg',
+						y: this.readUint8(),
+						x: this.readUint8(),
+						bgType: BGEVENTS[this.readUint8()],
+					});
+					this.skip(2); //Skip script pointer
+				}
+				
+				let e_len = this.readUint8(); //Read Object event length
+				for (let e = 0; e < c_len; e++) {
+					let item = {
+						type: 'object',
+						sprite: this.readUint8(),
+						y: this.readUint8(),
+						x: this.readUint8(),
+						moveFn: SPRITEMOVEDATA[this.readUint8()],
+					};
+					let radius = this.readUint8();
+					item.radius_y = (radius >> 4);
+					item.radius_x = (radius & 0x0F);
+					
+					let h1 = this.readUint8(); //read hour limits
+					let h2 = this.readUint8();
+					if (h1 < h2) item.hours = `appears between ${h1}-${h2}`;
+					else if (h1 > h2) item.hours = `vanishes between ${h2}-${h1}`;
+					else if (h1===h2) item.hours = `always`;
+					else if (h1===-1) {
+						let timesOfDay = [];
+						if (h2 & (1 << 0)) timesOfDay.push('MORN');
+						if (h2 & (1 << 1)) timesOfDay.push('DAY');
+						if (h2 & (1 << 2)) timesOfDay.push('NIGHT');
+						if (h2 & (1 << 3)) timesOfDay.push('DARKNESS');
+						item.hours = timesOfDay.join(',');
+					}
+					let colorfn = this.readUint8();
+					item.objectType = OBJECTTYPE[colorfn & 0x0F];
+					item.sightRange = this.readUint8();
+					this.skip(2); //Skip script pointer
+					item.eventFlag = this.readUint16();
+					info.events.push(item);
 				}
 				
 				bankData[m+1] = info;

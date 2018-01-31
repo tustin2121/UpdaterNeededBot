@@ -10,6 +10,19 @@ let loadedROM = null;
 let currMap = null;
 let zoomLevel = 8;
 
+const TYPE_DEFAULTS = {
+	unknown:	{},
+	town: 		{ town:true, },
+	route:		{},
+	indoor:		{ indoors:true, },
+	cave:		{ indoors:true, },
+	gate:		{ indoors:true, },
+	dungeon:	{ indoors:true, },
+	center:		{ indoors:true, healing:true, },
+	mart:		{ indoors:true, shopping:true, },
+	gym:		{ indoors:true, gym:true, },
+};
+
 makeMenu();
 window.onresize = resize;
 
@@ -178,12 +191,29 @@ function updatePropertyList() {
 	} else if (currMap.type === 'map') {
 		for (let key in currMap.data){
 			let $lbl = $(`<label>`);
-			let $key = $(`<span>${key}</span>`).appendTo($lbl);
-			let $val = $(`<input type='text' />`).val(currMap.data[key]).appendTo($lbl);
+			$(`<span>${key}</span>`).appendTo($lbl);
+			let $val = createValue(key, currMap.data[key]);
+			if (!$val) continue; //skip
+			$val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}
 	}
 	return;
+	
+	function createValue(key, val) {
+		switch (key) {
+			case 'warps': return null;
+			case 'conns': return null;
+			case 'mapType':
+				return $(`<select>`);
+		}
+		switch (typeof val) {
+			case 'number':
+				return $(`<input type='number' />`).val(val);
+			case 'string':
+				return $(`<input type='text' />`).val(val);
+		}
+	}
 }
 
 function updateMapList() {
@@ -284,9 +314,7 @@ function createNewRegion() {
 		let data = {
 			name: name,
 			idType: null,
-			typeDefaults: {
-				center: { indoors:true, heal:true },
-			},
+			typeDefaults: TYPE_DEFAULTS,
 			nodes: null,
 		};
 		if (romFile) {
