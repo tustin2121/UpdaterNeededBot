@@ -10,11 +10,17 @@ class Ledger {
 		if (clone instanceof Ledger) {
 			this.list = clone.list.slice(); //make a new list of the same ledger items
 			this.debuglog = clone.debuglog; //copy the reference of the debug log
+			this.postponeList = [];
+		} else if (clone!==null) {
+			this.list = [];
+			this.debuglog = new DebugLogs();
+			this.postponeList = [];
+			
 		} else {
 			this.list = [];
 			this.debuglog = new DebugLogs();
+			this.postponeList = [];
 		}
-		this.postponeList = [];
 	}
 	get log(){ return this.debuglog; }
 	get length() { return this.list.length; }
@@ -110,6 +116,35 @@ class Ledger {
 		}
 		xml += `</Ledger>`;
 		return xml;
+	}
+	
+	saveToMemory() {
+		let save = [];
+		for (let item of this.postponeList) {
+			let x = { __name__: item.name, };
+			if (typeof item.saveToMemory === 'function') {
+				x = item.saveToMemory(x) || x;
+			} else {
+				x = Object.assign(x, item);
+			}
+			save.push(x);
+		}
+		return save;
+	}
+	
+	loadFromMemory(save) {
+		const LEDGER_ITEMS = module.exports;
+		this.postponeList = [];
+		for (let item of save) {
+			const ITEM = LEDGER_ITEMS[item.__name__];
+			if (typeof ITEM.loadFromMemory === 'function') {
+				this.postponeList.push(ITEM.loadFromMemory(item));
+			} else {
+				let x = new ITEM(item);
+				x = Object.assign(x, item);
+				this.postponeList.push(x);
+			}
+		}
 	}
 }
 Ledger.prototype.add = Ledger.prototype.addItem;

@@ -151,7 +151,7 @@ class PartyModule extends ReportingModule {
 }
 
 const KapowMoves = ['Explosion', 'Self-Destruct', 'Selfdestruct'];//, 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Momento'];
-RULES.add(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
+RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 	.when(ledger=>ledger.has('MonFainted'))
 	.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move', KapowMoves))
 	.then(ledger=>{
@@ -160,14 +160,15 @@ RULES.add(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 	})
 );
 
-RULES.add(new Rule('Abilities are expected to change during evolution')
+RULES.push(new Rule('Abilities are expected to change during evolution')
 	.when((ledger)=>ledger.has('MonEvolved'))
 	.when((ledger)=>ledger.has('MonAbilityChanged').withSame('mon'))
 	.then((ledger)=>{
 		ledger.remove(1); //Remove MonAbilityChanged
 	})
 );
-RULES.add(new Rule('Abilities might change during battle')
+
+RULES.push(new Rule('Abilities might change during battle')
 	.when((ledger)=>ledger.has('BattleContext'))
 	.when((ledger)=>ledger.has('MonAbilityChanged'))
 	.then((ledger)=>{
@@ -176,7 +177,7 @@ RULES.add(new Rule('Abilities might change during battle')
 );
 
 if (Bot.runOpts('namingMatch')) {
-	RULES.add(new Rule('Mons being nicknamed have invalid characters in their names')
+	RULES.push(new Rule('Mons being nicknamed have invalid characters in their names')
 		.when(ledger=>ledger.has('MonNicknameChanged').whichMatches('curr', Bot.runOpts('namingMatch')))
 		.then(ledger=>{
 			ledger.postpone(0);

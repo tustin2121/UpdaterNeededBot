@@ -418,6 +418,10 @@ class SortedInventory {
 		}
 	}
 	
+	getData(id) {
+		return this._dex[id];
+	}
+	
 	add(itemData, pocketName) {
 		if (!itemData || !itemData.id) return;
 		

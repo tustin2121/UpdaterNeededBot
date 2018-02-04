@@ -137,18 +137,15 @@ class UpdaterBot {
 	run() {
 		LOGGER.trace(`Update cycle starting.`);
 		try {
-			for (let i = 0; true; i++) {
-				let game = this.runConfig['game'+i];
-				if (!game) break;
-				
-				let update = this.press.run();
-				if (update) this.postUpdate({ text:update, })
-				
-				if (this.isHelping) {
-					update = this.press.runHelp();
-					if (update) this.postUpdate({ text:update, dest:'main' });
-				}
+			let update = this.press.run();
+			if (update) this.postUpdate({ text:update, })
+			
+			if (this.isHelping) {
+				update = this.press.runHelp();
+				if (update) this.postUpdate({ text:update, dest:'main' });
 			}
+			
+			this.saveMemory();
 		} catch (e) {
 			LOGGER.error(`Error in update cycle!`, e);
 		}

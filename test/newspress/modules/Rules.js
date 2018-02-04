@@ -13,8 +13,9 @@ class TestItemA extends LedgerItem {
 	}
 }
 class TestItemB extends LedgerItem {
-	constructor() {
+	constructor(obj) {
 		super(1);
+		this.obj = obj;
 	}
 }
 class TestItemC extends LedgerItem {
@@ -26,6 +27,31 @@ class TestItemD extends LedgerItem {
 	constructor(hello) {
 		super(1);
 		this.hello = hello;
+	}
+}
+class TestItem1 extends LedgerItem {
+	constructor(a) {
+		super(1);
+		this.a = a;
+	}
+}
+class TestItem2 extends LedgerItem {
+	constructor(a, b) {
+		super(1);
+		this.a = a;
+		this.b = b;
+	}
+}
+class TestItem3 extends LedgerItem {
+	constructor(a) {
+		super(1);
+		this.a = a;
+	}
+}
+class TestItem4 extends LedgerItem {
+	constructor(a) {
+		super(1);
+		this.a = a;
 	}
 }
 class TestContextItem extends LedgerItem {
@@ -117,6 +143,181 @@ describe('Rule', function(){
 			c2.should.not.have.been.called();
 			r1.should.not.have.been.called();
 			r2.should.not.have.been.called();
+		});
+	});
+	
+	describe('RuleInstance#has', function(){
+		let ledger;
+		beforeEach(function(){
+			ledger = createTestLedger([
+				new TestItem1(),
+				new TestItem1(),
+				new TestItem2(),
+				new TestItem3(),
+				new TestItemA(),
+				new TestItemA(),
+			]);
+		});
+		
+		it('selects items of a given name from the ledger', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([ledger.list[2]]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem2'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can select multiple items', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([ledger.list[0], ledger.list[1]]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+	});
+	
+	describe('RuleInstance#with', function(){
+		let ledger;
+		beforeEach(function(){
+			ledger = createTestLedger([
+				new TestItem1('hello'), //0
+				new TestItem1({'c':'world'}), //1
+				new TestItem1({'c':'help'}), //2
+				new TestItem1('hello'), //3
+				new TestItem1('world'), //4
+				new TestItem1({'c':'world'}), //5
+				new TestItem1(0), //6
+				new TestItem1('hello'), //7
+			]);
+		});
+		
+		it('filters items found with has()', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([ledger.list[4]]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').with('a','world'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('works with falsy values', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([ledger.list[6]]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').with('a',0))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can take multiple values (as params)', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[0],
+					ledger.list[3],
+					ledger.list[4],
+					ledger.list[7],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').with('a','world','hello'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can take multiple values (as array)', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[0],
+					ledger.list[3],
+					ledger.list[4],
+					ledger.list[7],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').with('a',['world','hello']))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can take dotted properties', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[1],
+					ledger.list[5],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').with('a.c','world','hello'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+	});
+	
+	describe('RuleInstance#withSame', function(){
+		let ledger;
+		beforeEach(function(){
+			ledger = createTestLedger([
+				new TestItem1('hello'), //0
+				new TestItem1('hello'), //1
+				new TestItem1('world'), //2
+				new TestItem1('hello'), //3
+				new TestItem2('hello', 2), //4
+				new TestItem2('world', 8), //5
+				new TestItem2('pikachu', 5), //6
+			]);
+		});
+		
+		it('filters items found with has()', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([ledger.list[2]]);
+				lgr.get(1).should.be.an.Array().and.containDeepOrdered([ledger.list[5]]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1'))
+				.when((lg)=>lg.has('TestItem2').withSame('a'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
 		});
 	});
 	
@@ -336,7 +537,8 @@ describe('Rule', function(){
 				new TestItemD(1),
 				new TestItemA(),
 				new TestItemD(3),
-				new TestItemB(),
+				new TestItemB({'hello':'hello'}),
+				new TestItemB({'hello':'world'}),
 				new TestItemD(1),
 			]);
 		});
@@ -405,6 +607,24 @@ describe('Rule', function(){
 			
 			const rule = new Rule('Complex Rule')
 				.when((ledger)=>ledger.has('TestItemD').with('hello', 0))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		
+		it('can differentiate items based on parameters inside objects', function(){
+			const r1 = sinon.spy((ledger)=>{
+				let m = ledger.get(0);
+				m.should.be.an.Array().with.length(1);
+				m[0].should.be.an.instanceOf(TestItemB);
+				m[0].should.have.property('obj');
+				m[0]['obj'].should.have.property('hello', 'world');
+			});
+			
+			const rule = new Rule('Complex Rule')
+				.when((ledger)=>ledger.has('TestItemB').with('obj.hello', 'world'))
 				.then(r1);
 			
 			rule.apply(ledger);

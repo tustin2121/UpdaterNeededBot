@@ -22,4 +22,6 @@ module.exports = {
 	champName: "Lance",
 	rivalName: "???",
 	correctCase: true,
+	
+	pokeballIds: [ 1,2,4,5,157,159,160,161,163,164,165,166,177, ],
 };

@@ -4,6 +4,7 @@
 const { ReportingModule, Rule } = require('./_base');
 const {
 	PokemonGained, PokemonIsMissing,
+	MonGiveItem, MonTakeItem, MonSwapItem,
 	MonNicknameChanged,
 	ApiDisturbance,
 } = require('../ledger');
@@ -69,6 +70,16 @@ class PokemonModule extends ReportingModule {
 			if (prev.name !== curr.name) {
 				ledger.add(new MonNicknameChanged(curr, prev.name));
 			}
+			// Items
+			if (Bot.runOpts('heldItem')) {
+				if (!prev.item && curr.item) {
+					ledger.addItem(new MonGiveItem(curr, curr.item));
+				} else if (prev.item && !curr.item) {
+					ledger.addItem(new MonTakeItem(curr, prev.item));
+				} else if (prev.item !== curr.item) {
+					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
+				}
+			}
 		}
 	}
 	
@@ -83,7 +94,7 @@ class PokemonModule extends ReportingModule {
 	}
 }
 
-RULES.add(new Rule('Postpone reporting of new Pokemon until the end of a battle')
+RULES.push(new Rule('Postpone reporting of new Pokemon until the end of a battle')
 	.when(ledger=>ledger.has('BattleContext'))
 	.when(ledger=>ledger.has('PokemonGained'))
 	.then(ledger=>{

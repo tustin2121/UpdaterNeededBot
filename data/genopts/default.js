@@ -72,6 +72,12 @@ module.exports = {
 		// Ultra Beasts
 		793,794,795,796,797,798,779, 803,804,805,806,
 	],
+	// Ball item ids
+	pokeballIds: [
+		1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+		492,493,494,495,496,497,498,499,500,
+		576,851,948,
+	],
 	
 	/* Tweaks */
 	// If pokemon, item, and location names should have their case corrected.

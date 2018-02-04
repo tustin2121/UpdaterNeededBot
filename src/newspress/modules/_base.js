@@ -108,11 +108,19 @@ class RuleInstance {
 			this.lastResult = false;
 			return;
 		}
+		if (val.length === 1 && Array.isArray(val[0])) val = val[0];
+		let props = prop.split('.');
 		let vals = new Set(val);
 		let list = this.workingList;
 		this.workingList = [];
+		outerLoop:
 		for (let item of list) {
-			if (!vals.has(item[prop])) continue;
+			let p = item;
+			for (let pp of props) {
+				if (p[pp] === undefined) continue outerLoop;
+				p = p[pp];
+			}
+			if (!vals.has(p)) continue outerLoop;
 			this.workingList.push(item);
 		}
 		this.lastResult = (this.workingList.length > 0);

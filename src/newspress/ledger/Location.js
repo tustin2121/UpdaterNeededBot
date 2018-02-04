@@ -33,6 +33,10 @@ class MapContext extends LedgerItem {
 		super(0.2);
 		this.loc = loc;
 	}
+	get inShop() { //convience for Rules checking for being in or near a shop
+		//TODO
+		return false;
+	}
 }
 
 /** Indicates that a new pokemon has appeared in the API */

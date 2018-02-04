@@ -2,14 +2,35 @@
 // Various ledger items related to pokemon themselves
 
 const { LedgerItem } = require('./base');
+const { Pokemon } = require('../../api/pokedata');
+
+/////////////////// Superclass ///////////////////
+
+/** Common class for all ledger party-related ledger items. */
+class PokemonItem extends LedgerItem {
+	constructor(mon, imp=1, obj={}) {
+		super(imp, obj);
+		this.mon = mon;
+	}
+	get target() { return this.mon; }
+	cancelsOut(other) {
+		if (this.name !== other.name) return false;
+		if (this.mon.hash !== other.mon.hash) return false;
+		if (this.prev === undefined || this.curr === undefined) return false;
+		if (this.prev === other.curr && other.prev === this.curr) return true;
+		return false;
+	}
+	saveToMemory(m) {
+		m.mon = Object.assign({}, this.mon);
+	}
+}
 
 /////////////////// Basic Items ///////////////////
 
 /** Indicates that a new pokemon has appeared in the API */
-class PokemonGained extends LedgerItem {
+class PokemonGained extends PokemonItem {
 	constructor(mon) {
-		super(2, {helps:'catches'});
-		this.mon = mon;
+		super(mon, 2, {helps:'catches'});
 	}
 	cancelsOut(other) {
 		if (other.name === 'PokemonIsMissing') {
@@ -18,19 +39,29 @@ class PokemonGained extends LedgerItem {
 		}
 		return false;
 	}
-}
-/** Indicates that a pokemon is missing from the API, and a search is ongoing. This is a context item. */
-class PokemonIsMissing extends LedgerItem {
-	constructor(mon) {
-		super(0);
-		this.mon = mon;
+	static loadFromMemory(m) {
+		let mon = new Pokemon();
+		mon = Object.assign(mon, m.mon);
+		return new PokemonGained(mon);
 	}
 }
-/** Indicates that a pokemon is now being reported as irriversibly lost. */
-class PokemonLost extends LedgerItem {
+
+/** Indicates that a pokemon is missing from the API, and a search is ongoing. This is a context item. */
+class PokemonIsMissing extends PokemonItem {
 	constructor(mon) {
-		super(2);
-		this.mon = mon;
+		super(mon, 0);
+	}
+	static loadFromMemory(m) {
+		let mon = new Pokemon();
+		mon = Object.assign(mon, m.mon);
+		return new PokemonIsMissing(mon);
+	}
+}
+
+/** Indicates that a pokemon is now being reported as irriversibly lost. */
+class PokemonLost extends PokemonItem {
+	constructor(mon) {
+		super(mon, 2);
 	}
 }
 

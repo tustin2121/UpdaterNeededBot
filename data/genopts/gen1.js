@@ -24,4 +24,6 @@ module.exports = {
 	champName: "{{rival}}",
 	rivalName: "Blue",
 	correctCase: true,
+	
+	pokeballIds: [ 1,2,3,4,8, ],
 };
