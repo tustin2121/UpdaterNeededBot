@@ -7,9 +7,10 @@ const irc = require('irc');
 const LOGGER = getLogger('ChatAPI');
 
 class ChatAPI {
-	constructor(ircUrl, ircChannels) {
-		this.serverUrl = ircUrl;
-		this.channelList = ircChannels;
+	constructor({ url, channels, memory }) {
+		this.serverUrl = url;
+		this.channelList = channels;
+		this.memory = memory;
 		if (!Array.isArray(this.channelList)) {
 			this.channelList = [this.channelList];
 		}
@@ -44,7 +45,7 @@ class ChatAPI {
 	}
 	
 	handleMessage(nick, to, text, msg) {
-		
+		//TODO
 	}
 	
 	getStats() {

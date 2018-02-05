@@ -21,7 +21,8 @@ class PokemonItem extends LedgerItem {
 		return false;
 	}
 	saveToMemory(m) {
-		m.mon = Object.assign({}, this.mon);
+		m.__monhash = this.mon.hash;
+		m.mon = this.mon.saveToMemory();
 	}
 }
 
@@ -40,8 +41,7 @@ class PokemonGained extends PokemonItem {
 		return false;
 	}
 	static loadFromMemory(m) {
-		let mon = new Pokemon();
-		mon = Object.assign(mon, m.mon);
+		let mon = new Pokemon(m.mon);
 		return new PokemonGained(mon);
 	}
 }
@@ -52,8 +52,7 @@ class PokemonIsMissing extends PokemonItem {
 		super(mon, 0);
 	}
 	static loadFromMemory(m) {
-		let mon = new Pokemon();
-		mon = Object.assign(mon, m.mon);
+		let mon = new Pokemon(m.mon);
 		return new PokemonIsMissing(mon);
 	}
 }

@@ -23,6 +23,11 @@ class UpdaterPress {
 			this.modules.push( mod );
 		}
 		this.modules.sort((a,b)=> a.priority - b.priority );
+		
+		// Do this after StreamAPI does theirs
+		process.nextTick(()=>{
+			this.lastLedger.loadFromMemory(this.memory['saved_ledger']);
+		});
 	}
 	
 	/** Starts a new ledger and runs an update cycle.  */
@@ -39,6 +44,7 @@ class UpdaterPress {
 			mod.firstPass(ledger, data);
 		}
 		
+		// Add postponed items from the last run, cancelling out any items from first pass as needed
 		ledger.addPostponedItems(this.lastLedger);
 		
 		// Second Pass: Modify the ledger items into more useful things
@@ -50,6 +56,7 @@ class UpdaterPress {
 			
 			let nhash = ledger.hash();
 			if (hash === nhash) break; //If the ledger hasn't changed, break
+			if (i === 9) getLogger('Ledger').warn(`Ledger was not settled by Second Pass iteration 10!`);
 			hash = nhash;
 		}
 		
@@ -60,6 +67,7 @@ class UpdaterPress {
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();
 		this.lastLedger = ledger;
+		this.memory['saved_ledger'] = this.lastLedger.saveToMemory();
 		
 		// Pass ledger to the TypeSetter
 		let update = typeset(ledger);

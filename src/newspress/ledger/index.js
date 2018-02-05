@@ -11,11 +11,6 @@ class Ledger {
 			this.list = clone.list.slice(); //make a new list of the same ledger items
 			this.debuglog = clone.debuglog; //copy the reference of the debug log
 			this.postponeList = [];
-		} else if (clone!==null) {
-			this.list = [];
-			this.debuglog = new DebugLogs();
-			this.postponeList = [];
-			
 		} else {
 			this.list = [];
 			this.debuglog = new DebugLogs();

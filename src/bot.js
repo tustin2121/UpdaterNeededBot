@@ -87,8 +87,16 @@ class UpdaterBot {
 		
 		// this.memory = saveProxy(MEMORY_FILE, "\t");
 		this.staff = require('./control');
-		this.streamApi = new StreamAPI(this.runConfig.run.apiSrc, this.runConfig.run.apiPollPeriod);
-		this.chatApi = new ChatAPI(this.runConfig.run.chatSrc, this.runConfig.run.chatChannel);
+		this.streamApi = new StreamAPI({
+			url:this.runConfig.run.apiSrc, 
+			updatePeriod: this.runConfig.run.apiPollPeriod
+			memory: this.memory.api_stream,
+		});
+		this.chatApi = new ChatAPI({
+			url: this.runConfig.run.chatSrc, 
+			channels: this.runConfig.run.chatChannel
+			memory: this.memory.api_chat,
+		});
 		this.press = new UpdaterPressPool({
 			numGames : runConfig.numGames,
 			modconfig: this.runConfig.modules,

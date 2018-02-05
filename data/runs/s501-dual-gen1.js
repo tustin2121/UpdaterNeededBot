@@ -1,20 +1,15 @@
-// updaters/default.js
-// The default configuration for a run setup
+// updaters/s501-dual-gen1.js
+// The configuration for Season 5's Anniversary run
 
 module.exports = {
 	// Information about the game being played
-	// (Note: game0 cannot be defaulted, and it is in this file for documentation purposes)
 	game0: {
-		// The name of the game/hack being played (same as the base game if not hacked)
-		name: "SuperName", //Where the game being played is 'Pokemon SuperName'
-		// The name of the base game being played
-		base: "Name", //Where the game SuperName is based on is 'Pokemon Name'
-		// The object key or array index in the stream API that corresponds to this game
-		key: null, //"red"/0 for example, for multi-runs
-		// The prefix on updates related to this run, or null if no prefix is needed.
-		prefix: null, //"[T]"/"[M]" for example, for multi-runs
+		name: "Red",
+		base: "Red",
+		key: "red",
+		prefix: "[R]",
 		// The generation of this game
-		gen: 0,
+		gen: 1,
 		// The region to use as the map
 		regionMap: null, //Folder in data/regions, or null if we don't have that info
 		// Trainer information
@@ -27,12 +22,30 @@ module.exports = {
 			// see /data/genopts
 		},
 	},
-	// If multiple games are being played at the same time, then 'game1' is defined now.
+	game1: {
+		name: "Blue",
+		base: "Blue",
+		key: "blue",
+		prefix: "[B]",
+		// The generation of this game
+		gen: 1,
+		// The region to use as the map
+		regionMap: null, //Folder in data/regions, or null if we don't have that info
+		// Trainer information
+		trainer: {
+			id: 0,
+			secret: 0,
+		},
+		// A list of game corrections and options
+		opts: {
+			// see /data/genopts
+		},
+	},
 	
 	// Information about the run
 	run: {
 		// Unix timestamp since when the run started
-		runStart: -1, //Must be supplied
+		runStart: 1518484920, //Must be supplied
 		// The amount of time between searching for updates
 		updatePeriod: 1000 * 15,
 		

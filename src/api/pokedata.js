@@ -106,6 +106,10 @@ class Pokemon {
 		
 		this.hash = 0;
 		
+		if (typeof mon === 'string') {
+			this.loadFromMemory(mon);
+			return this;
+		}
 		if (typeof mon !== 'object') return this;
 		
 		this.hash = read(mon, `personality_value`);
@@ -157,6 +161,26 @@ class Pokemon {
 		
 		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
+	}
+	
+	saveToMemory() {
+		let obj = {};
+		for (let key in this) {
+			if (key.startsWith('_')) continue;
+			if (typeof this[key] === 'function') continue;
+			obj[key] = this[key];
+		}
+		obj.stats = this._stats;
+		let buf = Buffer.from(JSON.stringify(obj), 'utf8');
+		return buf.toString('base64');
+	}
+	loadFromMemory(str) {
+		let buf = Buffer.from(JSON.stringify(obj), 'base64');
+		let obj = JSON.parse(buf.toString('utf8'));
+		for (let key in obj) {
+			this[key] = obj[key];
+		}
+		return this;
 	}
 	
 	toString() {
@@ -553,9 +577,17 @@ class SortedBattle {
 }
 
 class SortedData {
-	constructor({ data, code=200, game=0 }) {
-		if (typeof data !== 'object') throw new ReferenceError();
+	constructor({ data, code=200, game=0, ts=0 }) {
+		if (typeof data !== 'object') throw new TypeError('Passed not-an-object to SortedData!');
 		this.httpCode = code;
+		this.ts = ts; //timestamp of this data
+		
+		// Shallowly validate data
+		if (typeof data['party'] !== 'object' ||
+			typeof data['pc'] !== 'object')
+		{
+			throw new TypeError('Passed invalid data object to SortedData!');
+		}
 		
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
@@ -589,6 +621,10 @@ class SortedData {
 		
 		this.rawData = data;
 		this._rawGameIdx = game;
+	}
+	
+	clone(code=200) {
+		return new SortedData({ data:this.rawData, code, ts:this.ts, game:this._rawGameIdx });
 	}
 	
 	get badgeProgress() {
