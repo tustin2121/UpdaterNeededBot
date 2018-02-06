@@ -22,16 +22,16 @@ class Ge12Reader extends GBReader {
 			TownMapExternalEntries: 0x71313, //(1C:5313)
 			TownMapInternalEntries: 0x71382, //(1C:5382)
 			
-			SpawnPointList: 0x152AB,
+			// SpawnPointList: 0x152AB,
 		};
 		// Hardcoded lengths for various ROM data
 		this._LENGTHS = {
 			NumMaps: 248,
 			
-			MaxSpawnPoints: 0x200,
-			MapHeaderBytes: 9,
-			DefaultMapBankLength: 12,
-			MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
+			// MaxSpawnPoints: 0x200,
+			// MapHeaderBytes: 9,
+			// DefaultMapBankLength: 12,
+			// MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
 		};
 	}
 	

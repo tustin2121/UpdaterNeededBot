@@ -5,9 +5,11 @@
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-	<div class="hidden">
+	<div style="display:none;">
 		<input id="openPath" type="file" nwworkingdir="../data/region" />
 	</div>
+	
+	<!-- Dialogs -->
 	<div id="newDialog" class="dialog">
 		<div class="dialogInner">
 			<label>Save path: <input name="savePath" type="file" nwworkingdir="../data/region" nwdirectorydesc="Save region.json as..." nwsaveas /></label>
@@ -32,10 +34,16 @@
 			</label>
 		</div>
 	</div>
-	<div id="sidebar">
-		<ul id="maptree"></ul>
-		<div id="proppane"></div>
+	<div id="defaultsDialog" class="dialog">
+		<div class="dialogInner" style="width:430px; height:230px;">
+			<ul id="deftree" class="treepane"></ul>
+			<div id="defprops" class="proppane"></div>
+		</div>
 	</div>
+	
+	<!-- Main window -->
+	<ul id="maptree" class="treepane"></ul>
+	<div id="mapprops" class="proppane"></div>
 	<canvas id="map"></canvas>
 </body>
 </html>

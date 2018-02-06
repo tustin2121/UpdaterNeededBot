@@ -18,9 +18,77 @@ const TYPE_DEFAULTS = {
 	cave:		{ indoors:true, },
 	gate:		{ indoors:true, },
 	dungeon:	{ indoors:true, },
-	center:		{ indoors:true, healing:true, },
+	center:		{ indoors:true, healing:true, checkpoint:true, },
 	mart:		{ indoors:true, shopping:true, },
 	gym:		{ indoors:true, gym:true, },
+};
+const MAP_ATTRS = {
+	the: {
+		tooltip: `If the location name should use an article when printing the name.\nTrue=definite "the" | string=supplied article`,
+		allowString: true,
+	},
+	inconsequential: { //TODO also add enter and exit strings
+		tooltip: `If the location is not worthy of noting. A location change will not be reported when this room is arrived to or left from.`,
+	},
+	indoors: {
+		tooltip: `If the location is inside (cannot fly)`,
+	},
+	town: {
+		tooltip: `If the location is in a town (not the wild)`,
+	},
+	checkpoint: {
+		tooltip: `If the location sets a checkpoint upon arriving (or when healing in gen 1). This points to one of the spawn points.`,
+		// This is also used to check for blackouts: if we arrive back at our previously marked checkpoint
+		allowSpawnpoint: true,
+		// If this value is set, it is set to a spawn point index.
+	},
+	healing: {
+		tooltip: `If the location offers healing.`,
+		values: [false,'pokecenter','doctor','nurse','house','partner'],
+	},
+	shopping: {
+		tooltip: `If the location offers vendors.`,
+	},
+	gym: {
+		tooltip: `If the location is a gym (badge/TM getting, attempt counting).`,
+	},
+	e4: {
+		tooltip: `If the location is part of the E4 (Run counting). If the E4 are linear, use e1-3 to mark them in order.`,
+		values: [false,'lobby','e1','e2','e3','e4','champ','hallOfFame'],
+	},
+	dungeon: {
+		tooltip: `If the location is a dungeon or cave.`,
+	},
+	legendary: { //TODO allow multiple legendary pokemon in one map
+		tooltip: `The name of the legendary pokemon in this location.`,
+		allowString: true,
+	},
+	entralink: {
+		tooltip: `If this location is an entralink map (special reporting)`,
+	},
+};
+const MAP_LOCOF = {
+	spawnPoint: {
+		tooltip: `If this location is a spawning map, the location of the spawn point. (Also fly spot)`,
+	},
+	vending: {
+		tooltip: `List of locations of vending machines on this map.`,
+		multi: true,
+	},
+	healing: {
+		tooltip: `List of locations of field healing (doctors/nurses).`,
+		multi: true,
+	},
+	pc: {
+		tooltip: `List of locations of PCs.`,
+		multi: true,
+	},
+	legendary: { //TODO allow multiple legendary pokemon in one map
+		tooltip: `If this location has a legenday, its location.`,
+	},
+	leader: { //TODO split off into leader section which also has leader name and badge
+		tooltip: `If this location is a gym, the location of the leader.`,
+	},
 };
 
 makeMenu();
@@ -47,28 +115,37 @@ $(()=>{
 	
 	resize();
 	drawMap();
-	updatePropertyList();
+	updateMapPropertyList();
 });
 
 function resize() {
+	let left = $('#proppane').outerWidth() + $('#proppane').offset().left;
 	let canvas = $('#map')[0];
-	canvas.width = $('body').innerWidth() - $('#sidebar').outerWidth();
-	canvas.height = $('#sidebar').outerHeight()
-	$('#map').css({
-		left: $('#sidebar').outerWidth(),
-	});
+	canvas.width = $('body').innerWidth() - left;
+	canvas.height = $('#proppane').outerHeight()
+	$('#map').css({ left });
 	drawMap();
 }
 
-function selectTemplate(data, $lbl) {
-	currMap = { type:'template', data, };
-	drawMap();
-	updatePropertyList();
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Main Map Panel
+
+class MapPanel {
+	constructor() {
+		this.currMap = null;
+	}
+	selectMap(data, $lbl) {} //TODO selectMap()
+	updateList() {} //TODO updateMapList()
+	updatePropList() {} //TODO updateMapPropertyList()
+	
+	renumber() {} //TODO renumberMapList
+	repaint() {} //TODO drawMap()
 }
+
 function selectMap(data, $lbl) {
 	currMap = { type:'map', data, };
 	drawMap();
-	updatePropertyList();
+	updateMapPropertyList();
 }
 
 function drawMap() {
@@ -264,65 +341,161 @@ function drawMap() {
 	g.restore();
 }
 
-function updatePropertyList() {
-	let $list = $('#proppane');
+function updateMapPropertyList() {
+	let $list = $('#mapprops');
 	$list.empty();
 	if (!currMap) return;
 	if (currMap.type === 'template') {
 		
 	} else if (currMap.type === 'map') {
+		$(`<header>Map Properties</header>`).appendTo($list);
 		for (let key in currMap.data){
 			let $lbl = $(`<label>`);
-			$(`<span>${key}</span>`).appendTo($lbl);
-			let $val = createValue(key, currMap.data[key]);
+			$(`<span class="key">${key}</span>`).appendTo($lbl);
+			let $val = createValue(key, currMap.data);
 			if (!$val) continue; //skip
 			$val.appendTo($lbl);
+			$lbl.appendTo($list);
+		}
+		$(`<header>Attributes</header>`).appendTo($list);
+		for (let key in MAP_ATTRS) {
+			let $lbl = $(`<label>`);
+			$(`<span class="key">${key}</span>`).attr('title', MAP_ATTRS[key].tooltip).appendTo($lbl);
+			let $val = createAttr(key, currMap.data.attrs, currData.typeDefaults[currMap.data.mapType]);
+			$val.appendTo($lbl);
+			$lbl.appendTo($list);
+		}
+		$(`<header>Location Of</header>`).appendTo($list);
+		for (let key in MAP_LOCOF) {
+			let $lbl = $(`<label>`);
+			$(`<span class="key">${key}</span>`).attr('title', MAP_LOCOF[key].tooltip).appendTo($lbl);
+			// let $val = createAttr(key, currMap.data.attrs, currData.typeDefaults[currMap.data.mapType]);
+			// $val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}
 	}
 	return;
 	
-	function createValue(key, val) {
+	function createValue(key, obj) {
+		let val = obj[key];
 		switch (key) {
 			case 'warps': return null;
 			case 'conns': return null;
+			case 'attrs': return null; //handled by attrs section
+			case 'locOf': return null; //handled by locOf section
 			case 'mapType':
-				return $(`<select>`);
+				return makeMapTypeSelect()
+					.val(val)
+					.on('change', function(){
+						obj[key] = $(this).val();
+					});
 		}
 		switch (typeof val) {
 			case 'number':
-				return $(`<input type='number' />`).val(val);
+				return $(`<input class='val' type='number' />`).val(val)
+					.on('change', function(){
+						obj[key] = $(this).val();
+					});
 			case 'string':
-				return $(`<input type='text' />`).val(val);
+				return $(`<input class='val' type='text' />`).val(val)
+					.on('change', function(){
+						obj[key] = $(this).val();
+					});
 		}
+	}
+	
+	function createAttr(key, obj, def={}) {
+		let info = MAP_ATTRS[key];
+		let $val = $(`<span class='val'>`);
+		let $checkDef = $(`<input type='checkbox'/>`).prop({ checked:def[key], disabled:true });
+		let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
+		$val.append($checkDef).append($checkThis);
+		//TODO allowString, values, etc
+		return $val;
+	}
+	
+	function makeMapTypeSelect() {
+		let $sel = $(`<select>`);
+		for (let t in currData.typeDefaults) {
+			const $opt = $(`<option class='${t}'>${t}</span>`);
+			$opt.appendTo($sel);
+		}
+		return $sel;
 	}
 }
 
 function updateMapList() {
 	let $tree = $('#maptree');
 	$tree.empty();
-	{
-		let $li = $(`<li>`);
-		let $lbl = $(`<span class='types'>Map Type Defaults</span>`);
-		let $sub = $('<ul>');
-		$lbl.on('click', (e)=>{
-			$li.toggleClass('closed');
-			renumberMapList();
-		});
-		$li.append($lbl).append($sub).appendTo($tree);
-		_populateTemplates($sub);
-	}{
-		let $li = $(`<li>`);
-		let $lbl = $(`<span class='types'>Maps</span>`);
-		let $sub = $('<ul>');
-		$lbl.on('click', (e)=>{
-			$li.toggleClass('closed');
-			renumberMapList();
-		});
-		$li.append($lbl).append($sub).appendTo($tree);
-		_populateMaps($sub);
+	
+	if (currData.idType === 'banked') {
+		for (let bank in currData.nodes) {
+			const $bli = $(`<li class='closed'>`);
+			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
+			const $sub = $(`<ul>`);
+			$blbl.on('click', (e)=>{
+				$bli.toggleClass('closed');
+				renumberMapList();
+			});
+			$bli.append($blbl).append($sub).appendTo($tree);
+			for (let map in currData.nodes[bank]) {
+				const $li = $(`<li>`);
+				const $lbl = $(`<span class='map'>Map ${map}</span>`);
+				let d = currData.nodes[bank][map];
+				$lbl.on('click', ()=>selectMap(d, $lbl));
+				$li.append($lbl).appendTo($sub);
+			}
+		}
+	} else if (currData.idType === 'single') {
+		for (let map in currData.nodes) {
+			const $li = $(`<li>`);
+			const $lbl = $(`<span class='map'>Map ${map}</span>`);
+			let d = currData.nodes[map];
+			$lbl.on('click', ()=>selectMap(d));
+			$li.append($lbl).appendTo($tree);
+		}
+	} else {
+		console.error('Invalid idType!');
 	}
 	renumberMapList();
+}
+
+function renumberMapList() {
+	$('#maptree li:visible').each((i,e)=>{
+		$(e).removeClass('n0 n1').addClass('n'+(i%2));
+	});
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Type Defaults Dialog
+
+class TypesDialog {
+	constructor() {
+		
+	}
+	select() {} //TODO selectTemplate()
+}
+
+// function selectTemplate(data, $lbl) {
+// 	currMap = { type:'template', data, };
+// 	drawMap();
+// 	updateMapPropertyList();
+// }
+
+function updateTypeDefaultsList() {
+	let $tree = $('#maptree');
+	$tree.empty();
+	
+	// let $li = $(`<li>`);
+	// let $lbl = $(`<span class='types'>Map Type Defaults</span>`);
+	// let $sub = $('<ul>');
+	// $lbl.on('click', (e)=>{
+	// 	$li.toggleClass('closed');
+	// 	renumberMapList();
+	// });
+	// $li.append($lbl).append($sub).appendTo($tree);
+	_populateTemplates($sub);
 	return;
 	
 	function _populateTemplates($ls) {
@@ -334,44 +507,13 @@ function updateMapList() {
 			$li.append($lbl).appendTo($ls);
 		}
 	}
-	function _populateMaps($ls) {
-		if (currData.idType === 'banked') {
-			for (let bank in currData.nodes) {
-				const $bli = $(`<li class='closed'>`);
-				const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
-				const $sub = $(`<ul>`);
-				$blbl.on('click', (e)=>{
-					$bli.toggleClass('closed');
-					renumberMapList();
-				});
-				$bli.append($blbl).append($sub).appendTo($ls);
-				for (let map in currData.nodes[bank]) {
-					const $li = $(`<li>`);
-					const $lbl = $(`<span class='map'>Map ${map}</span>`);
-					let d = currData.nodes[bank][map];
-					$lbl.on('click', ()=>selectMap(d, $lbl));
-					$li.append($lbl).appendTo($sub);
-				}
-			}
-		} else if (currData.idType === 'single') {
-			for (let map in currData.nodes) {
-				const $li = $(`<li>`);
-				const $lbl = $(`<span class='map'>Map ${map}</span>`);
-				let d = currData.nodes[map];
-				$lbl.on('click', ()=>selectMap(d));
-				$li.append($lbl).appendTo($ls);
-			}
-		} else {
-			console.error('Invalid idType!');
-		}
-	}
 }
 
-function renumberMapList() {
-	$('#maptree li:visible').each((i,e)=>{
-		$(e).removeClass('n0 n1').addClass('n'+(i%2));
-	});
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Save Load
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// New Dialog
 
 function loadRegion(filePath) {
 	currFile = filePath;
@@ -433,8 +575,10 @@ function createNewRegion() {
 			}
 			if (!reader) throw new Error('Unsupported generation!');
 			reader = new reader(romFile).load();
+			let mapData = reader.readMaps();
 			data.idType = idType;
-			data.nodes = reader.readMaps();
+			data.nodes = mapData.mapData;
+			console.log(reader, mapData);
 		} else {
 			data.idType = $('#newDialog [name=idtype]:checked').val();
 			data.nodes = {};
@@ -483,13 +627,16 @@ function makeMenu() {
 		submenu.append(new nw.MenuItem({ label:'Zoom In',
 			key:'=', modifiers:'ctrl',
 			click() {
-				zoomLevel++; drawMap();
+				zoomLevel++;
+				drawMap();
 			}
 		}));
 		submenu.append(new nw.MenuItem({ label:'Zoom Out',
 			key:'-', modifiers:'ctrl',
 			click() {
-				zoomLevel--; drawMap();
+				zoomLevel--;
+				if (zoomLevel <= 0) zoomLevel = 1;
+				drawMap();
 			}
 		}));
 		submenu.append(new nw.MenuItem({ label:'Reset Zoom',

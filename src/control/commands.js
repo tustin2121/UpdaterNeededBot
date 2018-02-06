@@ -61,19 +61,10 @@ const HANDLER = {
 		memory.forceSave();
 		msg.channel.send(`Memory bank saved to disk.`).catch(e=>LOGGER.error('Discord Error:',e));
 	},
-	
+	/*
 	reload: ({ msg, memory })=>{
 		let mod = args[0];
 		if (mod === 'region') mod = UPDATER.region;
-		if (mod === 'memory') {
-			memory.dispose();
-			memory = saveproxy(memoryFile, "\t");
-			reporter.memory = memory;
-			msg.channel
-				.send(`Memory bank loaded from disk.`)
-				.catch(e=>LOGGER.error('Discord Error:',e));
-			return;
-		}
 		if (__reloadFile(mod)) {
 			msg.channel
 				.send(`Module '${mod}' reloaded.`)
@@ -84,7 +75,7 @@ const HANDLER = {
 				.catch(e=>LOGGER.error('Discord Error:',e));
 		}
 	},
-	
+	*/
 	'helpout-help': ({ msg })=>{
 		msg.channel
 			.send(`If you want me to help, tell me what you want me to do, and I'll post those updates to the updater myself.\n\n`
