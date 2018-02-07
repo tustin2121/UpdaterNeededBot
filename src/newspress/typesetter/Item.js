@@ -4,9 +4,15 @@
 module.exports = {
 	GainItem: {
 		// item = the item in question
-		default: [
-			`<b>Acquired {{item|an}} {{item}}!</b>`,
-		],
+		default: {
+			single: [
+				`<b>Acquired {{item|an}} {{item}}!</b>`,
+			],
+			multi: [
+				`<b>Acquired {{#|,|and}}!</b>`,
+			],
+			item: `{{item|an}} {{item}}`,
+		},
 		shopping: [
 			`<b>Bought {{item|an}} {{item}}!</b>`,
 		],

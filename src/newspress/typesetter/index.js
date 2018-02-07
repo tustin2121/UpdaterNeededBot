@@ -2,6 +2,7 @@
 // The TypeSetter, and the phrasebook, that translates LedgerItems into English Language
 
 const { Pokemon } = require('../../api/pokedata');
+const { LedgerItem } = require('../ledger');
 
 const LOGGER = getLogger('TypeSetter');
 
@@ -58,7 +59,7 @@ const FORMAT_FNS = {
  * @param {LedgerItem} item - The ledger item to use as context
  */
 function fillText(text, item) {
-	text.replace(/\{\{([\w\d\|]+)\}\}/gi, (match, key)=>{
+	return text.replace(/\{\{([\w\d\|]+)\}\}/gi, (match, key)=>{
 		let args = key.split('|');
 		let obj = (()=>{
 			let a = args[0].split('.');
@@ -74,18 +75,34 @@ function fillText(text, item) {
 		}
 		return obj;
 	});
-	
 }
 
-function getPhrase(item) {
-	let pdict = phrasebook[item.name];
+function fillMulti(text, items) {
+	// {{#}} or {{#|separator}} or {{#|separator|and/or}}
+	return text.replace(/{{#(?:\|([^\|}]+)(?:\|([^\|}]+))?)?}}/gi, (match, sep, and)=>{
+		// sep = separator string ', ' - str.join(sep)
+		// and = and string 'and' - prepend to ' '+list[list.length-1]
+	});
+}
+
+/**
+ * @param {LedgerItem[]} items - List of ledger items to make into a phrase
+ */
+function getPhrase(items) {
+	let ritem = items[0]; //Representitive item
+	
+	let pdict = phrasebook[ritem.name];
 	if (pdict === undefined) {
-		LOGGER.error(`LedgerItem ${item.name} has no phrase dictionary in the phrasebook!`);
+		LOGGER.error(`LedgerItem ${ritem.name} has no phrase dictionary in the phrasebook!`);
 		return null;
 	}
 	if (pdict === null) return null; //Skip this item
 	
-	let phrase = pdict[item.flavor || 'default'];
+	//TODO phrase could be an object which has keys 'single', 'multi', and 'item'.
+	// If it does not have this object or these keys, it is assumed it is a single object,
+	// and all items will be done as single items
+	
+	let phrase = pdict[ritem.flavor || 'default'];
 	if (typeof phrase === 'function') {
 		phrase = phrase(item, { fillText });
 	}
@@ -105,12 +122,49 @@ function getPhrase(item) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
+ * Collates all of the LedgerItems in the ledger into collections of items, and sorts them
+ * into an order of apperance. Every item that is the same type of item with the same flavor
+ * is put into an array.
+ */
+function collateItems(ledger) {
+	let dict = {};
+	let order = [];
+	
+	// Collate
+	for (let item of ledger.list) {
+		let itemname = `${item.name}/${item.flavor||'default'}`;
+		if (!dict[itemname]) {
+			order.push(itemname);
+			dict[itemname] = [];
+		}
+		dict[itemname].push(item);
+	}
+	// Sort each collection, so the highest sorted item is first
+	for (let key in dict) {
+		dict[key].sort(LedgerItem.compare);
+	}
+	// Then sort the collections
+	order.sort((a,b)=>{
+		let ai = dict[a][0];
+		let bi = dict[b][0];
+		return LedgerItem.compare(ai, bi);
+	});
+	// Return the collected items
+	return order.map(x=>dict[x]);
+}
+
+
+/**
  * The main function of the TypeSetter.
  */
 function typeset(ledger) {
+	let list = collateItems(ledger);
+	
 	let update = [];
-	for (let item of ledger.list) {
-		let phrase = getPhrase(item);
+	//TODO Collate items of the same type and flavor together, and handle multiple items as one phrase
+	// by adding another layer to the phrase book for "single" and "multiple".
+	for (let items of list) {
+		let phrase = getPhrase(items);
 		if (phrase === null) continue;
 		update.push(phrase);
 	}

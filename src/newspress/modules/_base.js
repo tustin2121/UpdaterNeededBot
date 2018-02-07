@@ -93,7 +93,7 @@ class RuleInstance {
 	get and() { return this; }
 	/** Checks the ledger for one or more items with the given name. */
 	has(itemName) {
-		if (this.lastResult === false) return; //do nothing
+		if (this.lastResult === false) return this; //do nothing
 		this.workingList = this.ledger.findAllItemsWithName(itemName);
 		this.lastResult = (this.workingList.length > 0);
 		return this;
@@ -103,10 +103,10 @@ class RuleInstance {
 	 * one of the the given values.
 	 */
 	with(prop, ...val) {
-		if (this.lastResult === false) return; //do nothing
+		if (this.lastResult === false) return this; //do nothing
 		if (!this.workingList || !this.workingList.length) {
 			this.lastResult = false;
-			return;
+			return this;
 		}
 		if (val.length === 1 && Array.isArray(val[0])) val = val[0];
 		let props = prop.split('.');
@@ -131,10 +131,10 @@ class RuleInstance {
 	 * match. This function may reduce the size of the previous match.
 	 */
 	withSame(prop, asIdx=-1) {
-		if (this.lastResult === false) return; //do nothing
+		if (this.lastResult === false) return this; //do nothing
 		if (!this.workingList || !this.workingList.length) {
 			this.lastResult = false;
-			return;
+			return this;
 		}
 		if (asIdx < 0) asIdx = this.matchedItems.length + asIdx;
 		let list = this.workingList;
@@ -163,10 +163,10 @@ class RuleInstance {
 	 * the given regex.
 	 */
 	whichMatches(prop, regex) {
-		if (this.lastResult === false) return; //do nothing
+		if (this.lastResult === false) return this; //do nothing
 		if (!this.workingList || !this.workingList.length) {
 			this.lastResult = false;
-			return;
+			return this;
 		}
 		let list = this.workingList;
 		this.workingList = [];
@@ -184,6 +184,35 @@ class RuleInstance {
 	ofNoFlavor() {
 		return this.with('flavor', null);
 	}
+	
+	moreThan(num=1) {
+		if (this.lastResult === false) return this; //do nothing
+		this.lastResult = (this.workingList && this.workingList.length > num);
+		return this;
+	}
+	lessThan(num=1) {
+		if (this.lastResult === false) return this; //do nothing
+		this.lastResult = (this.workingList && this.workingList.length < num);
+		return this;
+	}
+	
+	/**
+	 * Finds a MapContext item and gets the node represented in it, and passes it to the
+	 * callback lambda to test with.
+	 */
+	hasMap(fn) {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.ledger.findAllItemsWithName('MapContext');
+		if (this.workingList.length !== 1) {
+			this.lastResult = false;
+			return this;
+		}
+		let node = this.workingList[0].loc;
+		this.lastResult = fn(node);
+		return this;
+	}
+	
+	////////////////////////////////////////////////////////////////////
 	
 	/** Adds a new item to the ledger. */
 	add(item) {
