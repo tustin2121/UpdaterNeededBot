@@ -79,9 +79,16 @@ function fillText(text, item) {
 
 function fillMulti(text, items) {
 	// {{#}} or {{#|separator}} or {{#|separator|and/or}}
-	return text.replace(/{{#(?:\|([^\|}]+)(?:\|([^\|}]+))?)?}}/gi, (match, sep, and)=>{
+	return text.replace(/{{#(?:\|([^\|}]+)(?:\|([^\|}]+))?)?}}/gi, (match, sep=' ', and='')=>{
 		// sep = separator string ', ' - str.join(sep)
 		// and = and string 'and' - prepend to ' '+list[list.length-1]
+		if (items.length > 1 && and) {
+			items[items.length-1] = and+' '+items[items.length-1];
+		}
+		if (items.length == 2 && and) {
+			return items.join(' ');
+		}
+		return items.join(sep);
 	});
 }
 
@@ -90,6 +97,7 @@ function fillMulti(text, items) {
  */
 function getPhrase(items) {
 	let ritem = items[0]; //Representitive item
+	if (!ritem) return null; //Should never happen, sanity check
 	
 	let pdict = phrasebook[ritem.name];
 	if (pdict === undefined) {
@@ -98,25 +106,46 @@ function getPhrase(items) {
 	}
 	if (pdict === null) return null; //Skip this item
 	
-	//TODO phrase could be an object which has keys 'single', 'multi', and 'item'.
+	// phrase could be an object which has keys 'single', 'multi', and 'item'.
 	// If it does not have this object or these keys, it is assumed it is a single object,
 	// and all items will be done as single items
 	
-	let phrase = pdict[ritem.flavor || 'default'];
-	if (typeof phrase === 'function') {
-		phrase = phrase(item, { fillText });
+	// Resolve the flavor
+	let pentry = pdict[ritem.flavor || 'default'];
+	
+	// If this phrase entry has multi support (it will be an object with 'multi' and 'item' entries)
+	if (pentry.multi && pentry.item) {
+		// If there's only one item, use the 'single' entry
+		if (items.length === 1) {
+			return resolvePhrase(pentry.single || pentry.item, items[0], fillText);
+		}
+		// Multiple items
+		else {
+			let phraseList = items.map(item=> resolvePhrase(pentry.item, item, fillText)).filter(x=>x);
+			return resolvePhrase(pentry.multi, phraseList, fillMulti);
+		}
 	}
-	if (Array.isArray(phrase)) {
-		phrase = phrase[Math.floor(Math.random()*phrase.length)];
+	// If this phrase entry does not have multi support:
+	else {
+		return items.map(item=> resolvePhrase(pentry, item, fillText)).filter(x=>x).join(' ');
 	}
-	if (phrase === null) return null; //Skip this item
-	if (typeof phrase !== 'string') {
-		LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an illegal value!`, phrase);
-		return null;
+	return null; //eslint-disable-line no-unreachable
+	
+	function resolvePhrase(phrase, item, fill) {
+		if (typeof phrase === 'function') {
+			phrase = phrase(item, { fill });
+		}
+		if (Array.isArray(phrase)) {
+			phrase = phrase[Math.floor(Math.random()*phrase.length)];
+		}
+		if (phrase === null) return null; //Skip this item
+		if (typeof phrase !== 'string') {
+			LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an illegal value!`, phrase);
+			return null;
+		}
+		return fill(phrase, item);
 	}
 	
-	phrase = fillText(phrase, item);
-	return phrase;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

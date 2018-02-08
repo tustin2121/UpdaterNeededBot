@@ -9,13 +9,19 @@ module.exports = {
 				`<b>Acquired {{item|an}} {{item}}!</b>`,
 			],
 			multi: [
-				`<b>Acquired {{#|,|and}}!</b>`,
+				`<b>Acquired {{#|, |and}}!</b>`,
 			],
 			item: `{{item|an}} {{item}}`,
 		},
-		shopping: [
-			`<b>Bought {{item|an}} {{item}}!</b>`,
-		],
+		shopping: {
+			single: [
+				`<b>Bought {{item|an}} {{item}}!</b>`,
+			],
+			multi: [
+				`<b>Bought {{#|, |and}}!</b>`,
+			],
+			item: `{{item|an}} {{item}}`,
+		},
 		rotoloto: [
 			`Roto Loto nets us <b>{{item|an}} {{item}}</b>.`,
 			`Rotom decides to hand us <b>{{item|an}} {{item}}</b>.`,
@@ -24,12 +30,24 @@ module.exports = {
 	},
 	LostItem: {
 		// item = the item in question
-		default: [
-			`<b>Threw away {{item|an}} {{item}}.</b>`,
-		],
-		shopping: [
-			`<b>Sold {{item|an}} {{item}}!</b>`,
-		],
+		default: {
+			single: [
+				`<b>Threw away {{item|an}} {{item}}!</b>`,
+			],
+			multi: [
+				`<b>Threw away {{#|, |and}}!</b>`,
+			],
+			item: `{{item|an}} {{item}}`,
+		},
+		shopping: {
+			single: [
+				`<b>Sold {{item|an}} {{item}}!</b>`,
+			],
+			multi: [
+				`<b>Sold {{#|, |and}}!</b>`,
+			],
+			item: `{{item|an}} {{item}}`,
+		},
 	},
 	GiveMonItem: {
 		// target = the pokemon involved
