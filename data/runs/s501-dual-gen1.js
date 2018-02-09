@@ -8,6 +8,7 @@ module.exports = {
 		base: "Red",
 		key: "red",
 		prefix: "[R]",
+		nameMatch: /red|right/i,
 		// The generation of this game
 		gen: 1,
 		// The region to use as the map
@@ -27,6 +28,7 @@ module.exports = {
 		base: "Blue",
 		key: "blue",
 		prefix: "[B]",
+		nameMatch: /blue|left/i,
 		// The generation of this game
 		gen: 1,
 		// The region to use as the map

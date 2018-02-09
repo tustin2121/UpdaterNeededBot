@@ -13,6 +13,8 @@ module.exports = {
 		key: null, //"red"/0 for example, for multi-runs
 		// The prefix on updates related to this run, or null if no prefix is needed.
 		prefix: null, //"[T]"/"[M]" for example, for multi-runs
+		// The matching regex for referring to this game by updaters
+		nameMatch: null,
 		// The generation of this game
 		gen: 0,
 		// The region to use as the map

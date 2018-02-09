@@ -41,11 +41,28 @@ const HANDLER = {
 		lastReq = Date.now();
 		let update;
 		switch (args[0]) {
-			case 'team':
-				update = Bot.generateUpdate('team');
+			case 'team': {
+				let gameid; 
+				let err = '', team = '';
+				if (Bot.numGames > 1 && arg[1] && !/both|all/i.test(arg[1])) {
+					let ids = Bot.gameWordMatch(arg[1]);
+					if (ids.length === 1) {
+						gameid = ids[0];
+						team = Bot.gameInfo(gameid).name + ' ';
+					} else {
+						let all = 'all the';
+						switch (Bot.numGames) {
+							case 2: all = 'both'; break;
+							case 3: all = 'all three'; break;
+						}
+						err = ` I wasn't sure which game you meant, so I posted ${all} games' teams.`;
+					}
+				}
+				
+				update = Bot.generateUpdate('team', gameid);
 				if (update) {
 					msg.channel
-						.send(`Posting [Info] update with team information to the updater.`)
+						.send(`Posting [Info] update with ${team}team information to the updater.${err}`)
 						.catch((e)=>LOGGER.error('Discord Error:',e));
 					Bot.postUpdate({ text:update, dest:'forced' });
 				} else {
@@ -53,7 +70,7 @@ const HANDLER = {
 						.send(`Unable to collate team info at this time.`)
 						.catch((e)=>LOGGER.error('Discord Error:',e));
 				}
-				break;
+			} break;
 		}
 	},
 	
@@ -161,7 +178,10 @@ function parseCmd(cmd, authed=false) {
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
-	if ((res = /^(post|update|show) (([\w-]+) )?(teams?|party|parties)( (info|stats?))?/i.exec(cmd))) {
+	if ((res = /^(?:post|update|show) (?:teams?|party|parties)(?: (?:info|stats?))? (?:for|on|with) ([\w -]+)$/i.exec(cmd))) {
+		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
+	}
+	if ((res = /^(?:post|update|show) (?:([\w- ]+?) )?(?:teams?|party|parties)(?: (?:info|stats?))?/i.exec(cmd))) {
 		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
 	}
 	

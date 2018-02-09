@@ -104,6 +104,9 @@ class Pokemon {
 		this.pokerus = null; //true = infected, false = cured, null = never had
 		this.traded = false;
 		
+		this.cp = 0;
+		this.fitness = 0;
+		
 		this.hash = 0;
 		
 		if (typeof mon === 'string') {
@@ -145,6 +148,9 @@ class Pokemon {
 			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
 			if (mon.health[0] !== 0) this.hp = Math.max(this.health, 1); //At least 1% HP if not fainted
 		}
+		
+		this.cp = mon.cp || 0;
+		this.fitness = mon.fitness || 0;
 		
 		if (Bot.runOpts('gender')) this._gender = mon.gender || this._gender;
 		if (Bot.runOpts('heldItem')) {
@@ -188,9 +194,11 @@ class Pokemon {
 	}
 	
 	get gender() {
+		if (!Bot.runOpts('gender')) return '';
 		switch(this.gender.toLowerCase()) {
-			case 'female': case 'f': return '♀';
-			case 'male': case 'm':   return  '♂';
+			case 'female': case 'f':	return '\u2640'; // ♀ female sign
+			case 'male': case 'm':		return '\u2642'; // ♂ male sign
+			case 'neuter': case '':		return '\u26AA'; // ⚪ medium white circle
 		}
 		return this._gender;
 	}
@@ -233,6 +241,10 @@ class Pokemon {
 			}
 			stats.push(`SPE: ${this.stats.spe}`);
 			exInfo += `\n${stats.join(' | ')}`;
+			
+			if (this.cp > 0) {
+				exInfo += `\nCombat Points: ${this.cp} | Fitness: ${this.fitness}`;
+			}
 		}
 		
 		let f = [];

@@ -8,9 +8,12 @@ module.exports = {
 		name: "Pyrite",
 		// The name of the base game being played
 		base: "Crystal",
+		// The object key or array index in the stream API that corresponds to this game
 		key: "d1",
 		// The prefix on updates related to this run, or null if no prefix is needed.
 		prefix: "[D1]",
+		// The matching regex for referring to this game by updaters
+		nameMatch: /one|1/i,
 		// The generation of this game
 		gen: 2,
 		// The region to use as the map
@@ -30,9 +33,12 @@ module.exports = {
 		name: "Pyrite",
 		// The name of the base game being played
 		base: "Crystal",
+		// The object key or array index in the stream API that corresponds to this game
 		key: "d2",
 		// The prefix on updates related to this run, or null if no prefix is needed.
 		prefix: "[D2]",
+		// The matching regex for referring to this game by updaters
+		nameMatch: /two|2/i,
 		// The generation of this game
 		gen: 2,
 		// The region to use as the map

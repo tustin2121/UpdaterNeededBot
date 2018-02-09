@@ -592,11 +592,58 @@ class TypesDialog {
 		}
 		return;
 		
-		function createAttr(key, obj, def={}) {
+		function createAttr(key, obj) {
 			let info = MAP_ATTRS[key];
 			let $val = $(`<span class='val'>`);
 			let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
 			$val.append($checkThis);
+			
+			if (info.values) {
+				let $sel = $('<select>');
+				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
+				$sel.on('change', function(){
+					obj[key] = $sel.val();
+				});
+				$checkThis.on('change', function(){
+					if ($(this).prop('checked')) {
+						$sel.prop({ disabled:false });
+						obj[key] = $sel.val();
+					} else {
+						$sel.prop({ disabled:true });
+						obj[key] = false;
+					}
+				});
+				if (obj[key]) {
+					$sel.val(obj[key]);
+					$checkThis.prop({ checked:true });
+				} else {
+					$checkThis.prop({ checked:false });
+				}
+				
+			} else if (info.allowString) {
+				let $str = $(`<input type='text'/>`).appendTo($val)
+					.on('change', function(){
+						obj[key] = $(this).val();
+						$checkThis.prop({ indeterminate:true });
+					});
+				if (typeof obj[key] === 'string') {
+					$str.val(obj[key]);
+				}
+				$checkThis.on('change', function(){ 
+					$(this).prop({ indeterminate:false });
+					$str.val('');
+					obj[key] = !!$(this).prop('checked');
+				});
+				
+			} else if (info.allowSpawnpoint) {
+				//TODO
+				
+			} else {
+				$checkThis.on('change', function(){
+					obj[key] = $(this).prop('checked');
+				});
+			}
+			
 			//TODO allowString, values, etc
 			return $val;
 		}
