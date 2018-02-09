@@ -77,7 +77,7 @@ class Pokemon {
 		this.species = '';
 		this.nicknamed = false;
 		
-		this.gender = '';
+		this._gender = '';
 		this.nature = '';
 		this.caughtIn = '';
 		this.ability = '';
@@ -146,7 +146,7 @@ class Pokemon {
 			if (mon.health[0] !== 0) this.hp = Math.max(this.health, 1); //At least 1% HP if not fainted
 		}
 		
-		if (Bot.runOpts('gender')) this.gender = mon.gender || this.gender;
+		if (Bot.runOpts('gender')) this._gender = mon.gender || this._gender;
 		if (Bot.runOpts('heldItem')) {
 			let item = read(mon, `held_item`) || mon.item || {};
 			if (item.id > 0) this.item = item.name;
@@ -185,6 +185,14 @@ class Pokemon {
 	
 	toString() {
 		return `${this.name} (${this.species})`;
+	}
+	
+	get gender() {
+		switch(this.gender.toLowerCase()) {
+			case 'female': case 'f': return '♀';
+			case 'male': case 'm':   return  '♂';
+		}
+		return this._gender;
 	}
 	
 	get stats() { return this._stats; }
@@ -332,7 +340,7 @@ class SortedPokemon {
 				this._party.push(p);
 			}
 		}
-		if (data.pc) {
+		if (data.pc && Array.isArray(data.pc.boxes)) {
 			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 				let box = data.pc.boxes[bn];
 				if (!box) { // handle null boxes
@@ -423,7 +431,7 @@ class SortedInventory {
 				}
 			}
 		}
-		if (data.pc) {
+		if (data.pc && Array.isArray(data.pc.boxes)) {
 			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 				let box = data.pc.boxes[bn];
 				for (let p of box.box_contents) {
@@ -529,7 +537,7 @@ class SortedBattle {
 				this.party.push(poke);
 			}
 		}
-		this.active = this.party.filter(p=>p.active);
+		if (this.party) this.active = this.party.filter(p=>p.active);
 		
 		// Determine trainer classes
 		this.isImportant = false;
@@ -591,6 +599,8 @@ class SortedData {
 		
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
+		
+		this.level_cap = data.level_cap || 100;
 		
 		this._location = new SortedLocation(data);
 		

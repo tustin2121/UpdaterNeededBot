@@ -36,3 +36,4 @@ process.on('SIGINT', ()=>{
 });
 
 global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));
+Bot.start();

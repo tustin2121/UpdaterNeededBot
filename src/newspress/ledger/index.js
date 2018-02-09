@@ -113,7 +113,7 @@ class Ledger {
 		return xml;
 	}
 	
-	saveToMemory() {
+	saveToMemory(mem) {
 		let save = [];
 		for (let item of this.postponeList) {
 			let x = { __name__: item.name, };
@@ -124,13 +124,14 @@ class Ledger {
 			}
 			save.push(x);
 		}
-		return save;
+		mem.items = save;
 	}
 	
-	loadFromMemory(save) {
+	loadFromMemory(mem) {
+		if (!mem.items) return;
 		const LEDGER_ITEMS = module.exports;
 		this.postponeList = [];
-		for (let item of save) {
+		for (let item of mem.items) {
 			const ITEM = LEDGER_ITEMS[item.__name__];
 			if (typeof ITEM.loadFromMemory === 'function') {
 				this.postponeList.push(ITEM.loadFromMemory(item));

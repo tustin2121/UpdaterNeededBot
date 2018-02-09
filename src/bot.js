@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
-const { createDebugUrl } = require('./debugxml');
+const { createDebugUrl } = require('./debug/xml');
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
 
@@ -85,20 +85,26 @@ class UpdaterBot {
 		
 		this.loadMemory();
 		
-		// this.memory = saveProxy(MEMORY_FILE, "\t");
+		this.staff = null;
+		this.streamApi = null;
+		this.chatApi = null;
+		this.press = null;
+	}
+	
+	start() {
 		this.staff = require('./control');
 		this.streamApi = new StreamAPI({
-			url:this.runConfig.run.apiSrc, 
-			updatePeriod: this.runConfig.run.apiPollPeriod
+			url: this.runConfig.run.apiSrc,
+			updatePeriod: this.runConfig.run.apiPollPeriod,
 			memory: this.memory.api_stream,
 		});
 		this.chatApi = new ChatAPI({
-			url: this.runConfig.run.chatSrc, 
-			channels: this.runConfig.run.chatChannel
+			url: this.runConfig.run.chatSrc,
+			channels: this.runConfig.run.chatChannel,
 			memory: this.memory.api_chat,
 		});
 		this.press = new UpdaterPressPool({
-			numGames : runConfig.numGames,
+			numGames : this.runConfig.numGames,
 			modconfig: this.runConfig.modules,
 			memory: this.memory,
 			api: this.streamApi,
@@ -158,6 +164,10 @@ class UpdaterBot {
 			LOGGER.error(`Error in update cycle!`, e);
 		}
 		LOGGER.trace(`Update cycle complete.`);
+	}
+	
+	generateUpdate(type) {
+		return this.press.generateUpdate(type);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////

@@ -8,46 +8,46 @@ const MY_MENTION_ID = '<@303732710185369601>';
 let lastReq = 0;
 
 const HANDLER = {
-	status: ({ msg, memory })=>{
+	status: ({ msg })=>{
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
-		let tg = (memory.taggedIn?(memory.taggedIn===true?"Yes":"Helping"):"No");
+		let tg = (Bot.taggedIn?(Bot.taggedIn===true?"Yes":"Helping"):"No");
 		msg.channel
 			.send(`Run-time UpdaterNeeded Bot present.\nUptime: ${uptime}\nTagged In: ${tg}`)
 			.catch((e)=>LOGGER.error('Discord Error:',e));
 	},
 	
-	tagin: ({ msg, memory })=>{
-		memory.taggedIn = true;
+	tagin: ({ msg })=>{
+		Bot.taggedIn = true;
 		msg.channel.send(`On it.`).catch((e)=>LOGGER.error('Discord Error:',e));
 		getLogger('TAG').info(`Bot has been tagged in.`);
 	},
 	
-	tagout: ({ msg, memory })=>{
-		if (memory.taggedIn) {
+	tagout: ({ msg })=>{
+		if (Bot.taggedIn) {
 			msg.channel.send(`Stopping.`).catch((e)=>LOGGER.error('Discord Error:',e));
 			getLogger('TAG').info(`Bot has been tagged out.`);
 		}
-		memory.taggedIn = false;
-		reporter.clearHelping();
+		Bot.taggedIn = false;
 	},
 	
 	reqUpdate: ({ msg, args })=>{
 		if (lastReq + REQ_COOLDOWN > Date.now()) {
-			msg.channel.send(`You requested another update too quickly. Cooldown is 30 seconds due to API rate limits.`).catch((e)=>console.error('Discord Error:',e));
+			msg.channel
+				.send(`You requested another update too quickly. Cooldown is 30 seconds due to API rate limits.`)
+				.catch((e)=>LOGGER.error('Discord Error:',e));
 			return;
 		}
 		lastReq = Date.now();
 		let update;
 		switch (args[0]) {
 			case 'team':
-				update = reporter.generateUpdate('team');
+				update = Bot.generateUpdate('team');
 				if (update) {
 					msg.channel
 						.send(`Posting [Info] update with team information to the updater.`)
 						.catch((e)=>LOGGER.error('Discord Error:',e));
-					postUpdate(update, UPDATER);
-					postUpdate(update, TEST_UPDATER);
+					Bot.postUpdate({ text:update, dest:'forced' });
 				} else {
 					msg.channel
 						.send(`Unable to collate team info at this time.`)
@@ -57,8 +57,8 @@ const HANDLER = {
 		}
 	},
 	
-	'save-mem': ({ msg, memory })=>{
-		memory.forceSave();
+	'save-mem': ({ msg })=>{
+		Bot.saveMemory();
 		msg.channel.send(`Memory bank saved to disk.`).catch(e=>LOGGER.error('Discord Error:',e));
 	},
 	/*
@@ -163,7 +163,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
 	if ((res = /^(post|update|show) (([\w-]+) )?(teams?|party|parties)( (info|stats?))?/i.exec(cmd))) {
 		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
-	} 
+	}
 	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {
 		let opts = res[1].split(/, /);

@@ -15,7 +15,7 @@ class ChatAPI {
 			this.channelList = [this.channelList];
 		}
 		
-		let ibot = new irc.Client(ircUrl, auth.irc.username, {
+		let ibot = new irc.Client(url, auth.irc.username, {
 			channels: this.channelList,
 			port: 6667,
 			secure: false,

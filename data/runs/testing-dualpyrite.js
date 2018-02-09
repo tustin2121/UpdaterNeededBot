@@ -64,8 +64,8 @@ module.exports = {
 		chatChannel: "#twitchplayspokemon",
 		
 		// The Reddit Live Updater ID to post to
-		liveID : "1005psxpf4gwu",
-		testLiveID: "1005psxpf4gwu",
+		liveID : "10f3p1gulvkl9",
+		testLiveID: "10f3p1gulvkl9",
 	},
 	
 	// The list of active modules and their configurations
