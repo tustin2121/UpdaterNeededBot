@@ -19,8 +19,11 @@ const MEMORY_FILE = path.resolve(__dirname, '../memory', 'memory.json');
 
 LOGGER.info('Starting UpdaterNeeded.');
 
-try { // Make the memory file if it does not exist
-	mkdirp.sync(path.dirname(MEMORY_FILE));
+// Make the memory file if it does not exist
+try {
+	const MEM_PATH = path.resolve(__dirname, '../memory');
+	mkdirp.sync(MEM_PATH);
+	mkdirp.sync(path.join(MEM_PATH, 'api'));
 	fs.writeFileSync(MEMORY_FILE, '{}', { flag:'wx'});
 } catch (e) {}
 
@@ -28,7 +31,7 @@ let sigint = false;
 process.on('SIGINT', ()=>{
 	if (sigint) {
 		LOGGER.fatal(`Killing UpdaterNeeded.`);
-		console.error(`Killing UpdaterNeeded.`);
+		console.error(`Killing UpdaterNeeded.`); //eslint-disable-line no-console
 		process.exit(-1);
 	}
 	sigint = true;

@@ -4,11 +4,11 @@
 module.exports = {
 	// Information about the game being played
 	game0: {
-		name: "Red",
-		base: "Red",
-		key: "red",
-		prefix: "[R]",
-		nameMatch: /red|right/i,
+		name: "Blue",
+		base: "Blue",
+		key: "blue",
+		prefix: "[B]",
+		nameMatch: /blue|left/i,
 		// The generation of this game
 		gen: 1,
 		// The region to use as the map
@@ -24,11 +24,11 @@ module.exports = {
 		},
 	},
 	game1: {
-		name: "Blue",
-		base: "Blue",
-		key: "blue",
-		prefix: "[B]",
-		nameMatch: /blue|left/i,
+		name: "Red",
+		base: "Red",
+		key: "red",
+		prefix: "[R]",
+		nameMatch: /red|right/i,
 		// The generation of this game
 		gen: 1,
 		// The region to use as the map
@@ -61,7 +61,7 @@ module.exports = {
 		// The irc channel to join when connected via irc (auth data is in the auth folder)
 		chatChannel: "#twitchplayspokemon",
 		// The regex
-		inputMatch: /(([abxylrnsew]|up|down|left|right|start|select)\+?)+\-?/i,
+		inputMatch: /([rl]:)?(([abxylrnsew]|up|down|left|right|start|select|anarchy|democracy)\+?)+\-?/i,
 		// The map of chat inputs. true = this is an input, string = redirect to said input
 		inputMap: {
 			'up': true, 'down': true, 'left': true, 'right': true,
