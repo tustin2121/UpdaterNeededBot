@@ -11,13 +11,35 @@ const HANDLER = {
 	status: ({ msg })=>{
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
-		let tg = (Bot.taggedIn?(Bot.taggedIn===true?"Yes":"Helping"):"No");
+		let tg = 'No';
+		if (Bot.taggedIn) {
+			if (typeof Bot.taggedIn === 'number') {
+				tg = 'Only ' + Bot.gameInfo(Bot.taggedIn).name;
+			}
+			else if (typeof Bot.taggedIn === 'object') {
+				tg = 'Helping';
+			}
+			else if (Bot.taggedIn === true) {
+				tg = 'Yes';
+			} else tg = 'Unknown';
+		}
+		// let tg = (Bot.taggedIn?(Bot.taggedIn===true?"Yes":"Helping"):"No");
 		msg.channel
-			.send(`Run-time UpdaterNeeded Bot present.\nUptime: ${uptime}\nTagged In: ${tg}`)
+			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}`)
 			.catch((e)=>LOGGER.error('Discord Error:',e));
 	},
 	
-	tagin: ({ msg })=>{
+	tagin: ({ msg, args })=>{
+		if (args && args[0]) {
+			let ids = Bot.gameWordMatch(args[1]);
+			if (ids.length === 1) {
+				Bot.taggedIn = args[0];
+				msg.channel.send(`On it: only updating for ${this.gameInfo(this.taggedIn).name}.`)
+					.catch((e)=>LOGGER.error('Discord Error:',e));
+				getLogger('TAG').info(`Bot has been tagged in on game ${this.taggedIn}.`);
+				return;
+			}
+		}
 		Bot.taggedIn = true;
 		msg.channel.send(`On it.`).catch((e)=>LOGGER.error('Discord Error:',e));
 		getLogger('TAG').info(`Bot has been tagged in.`);
@@ -42,10 +64,10 @@ const HANDLER = {
 		let update;
 		switch (args[0]) {
 			case 'team': {
-				let gameid; 
+				let gameid;
 				let err = '', team = '';
-				if (Bot.numGames > 1 && arg[1] && !/both|all/i.test(arg[1])) {
-					let ids = Bot.gameWordMatch(arg[1]);
+				if (Bot.numGames > 1 && args[1] && !/both|all/i.test(args[1])) {
+					let ids = Bot.gameWordMatch(args[1]);
 					if (ids.length === 1) {
 						gameid = ids[0];
 						team = Bot.gameInfo(gameid).name + ' ';
@@ -169,13 +191,16 @@ function parseCmd(cmd, authed=false) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
 	let res;
-	if ((res = /^reload (.*)$/.exec(cmd))) {
-		if (authed) return ['reload', res[1]];
-		else return [''];
-	}
+	// if ((res = /^reload (.*)$/.exec(cmd))) {
+	// 	if (authed) return ['reload', res[1]];
+	// 	else return [''];
+	// }
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
+	if ((res = /^(?:tag ?in|start) (?:for|on|with) ([\w -]+)$/.exec(cmd))) {
+		return ['tagin', res[1]];
+	}
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];
 	if (/^(tag ?out|stop)/i.test(cmd)) return ['tagout'];
 	if ((res = /^(?:post|update|show) (?:teams?|party|parties)(?: (?:info|stats?))? (?:for|on|with) ([\w -]+)$/i.exec(cmd))) {

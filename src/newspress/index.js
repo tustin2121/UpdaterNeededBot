@@ -15,6 +15,7 @@ class UpdaterPress {
 		this.gameIndex = game;
 		
 		this.lastLedger = new Ledger();
+		this.lastUpdate = null;
 		
 		this.modules = [];
 		for (let modname in modconfig) {
@@ -73,10 +74,14 @@ class UpdaterPress {
 		
 		// Pass ledger to the TypeSetter
 		let update = typeset(ledger);
-		if (!update || !update.length) return null;
-		
-		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
-		return prefix + ' ' + update;
+		if (!update || !update.length) {
+			this.lastUpdate = null;
+		}
+		else {
+			let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
+			this.lastUpdate = prefix + ' ' + update;
+		}
+		return this.lastUpdate;
 	}
 	
 	/** Gets helpful items from a previous ledger. */

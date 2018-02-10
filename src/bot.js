@@ -141,18 +141,18 @@ class UpdaterBot {
 		return config;
 	}
 	
-	/** 
-	 * Gets the game indexes referred to by a given word. This method matches the word to 
-	 * the game name match regexes provided by the game configs. If nothing matches, 
-	 * returns an empty array. 
+	/**
+	 * Gets the game indexes referred to by a given word. This method matches the word to
+	 * the game name match regexes provided by the game configs. If nothing matches,
+	 * returns an empty array.
 	 */
 	gameWordMatch(word) {
 		if (!word) return [];
 		let games = [];
 		for (let i = 0; i < this.runConfig.numGames; i++) {
-			let match = this.runConfig['game'+game].nameMatch;
+			let match = this.runConfig['game'+i].nameMatch;
 			if (!match) continue;
-			if (match.test(gameword)) games.push(i);
+			if (match.test(word)) games.push(i);
 		}
 		return games;
 	}
@@ -176,6 +176,10 @@ class UpdaterBot {
 				update = this.press.runHelp();
 				if (update) this.postUpdate({ text:update, dest:'main' });
 			}
+			else if (typeof this.taggedIn === 'number') { //tagged in for one game only
+				update = this.press.pool[this.taggedIn].lastUpdate;
+				if (update) this.postUpdate({ text:update, dest:'main' });
+			}
 			
 			this.saveMemory();
 		} catch (e) {
@@ -194,10 +198,15 @@ class UpdaterBot {
 	get taggedIn() { return this.memory.global.taggedIn; }
 	set taggedIn(val) { this.memory.global.taggedIn = val; }
 	
+	// /** If this updater is tagged in for a particular game. */
+	// isTaggedIn(game) {
+	// 	this.memory.global.gameTagged
+	// }
+	
 	/** If this update is helping. */
 	get isHelping() {
 		// We're helping when we're partially tagged in, ie a truthy value that is not true.
-		return this.memory.global.taggedIn && this.memory.global.taggedIn !== true;
+		return this.memory.global.taggedIn && typeof this.memory.global.taggedIn === 'object';
 	}
 	
 	/** Gets the current timestamp for this run. */
@@ -251,7 +260,7 @@ class UpdaterBot {
 			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(
 				postReddit(this.runConfig.run.liveID, updateText)
-				.catch(e=>LOGGER.error('Post to Updater Failed:', e))); 
+				.catch(e=>LOGGER.error('Post to Updater Failed:', e)));
 				//If we don't catch individually, Promise.all returns early
 		}
 		if (mainDiscord && this.runConfig.run.discordID) {
