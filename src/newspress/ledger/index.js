@@ -172,6 +172,7 @@ module.exports = Object.assign({
 	require('./Pokemon'),
 	require('./Party'),
 	require('./Location'),
+	require('./Health'),
 	require('./Options'),
 	require('./Battle'),
 ]);

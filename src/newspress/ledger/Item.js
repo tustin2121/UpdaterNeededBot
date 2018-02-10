@@ -3,7 +3,6 @@
 
 const { LedgerItem } = require('./base');
 const { Pokemon } = require('../../api/pokedata');
-const { MapNode } = require('../../mapinfo');
 
 /////////////////// Basic Items ///////////////////
 

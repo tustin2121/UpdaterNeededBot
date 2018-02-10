@@ -8,6 +8,7 @@ const {
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
 	MonGiveItem, MonTakeItem, MonSwapItem,
 	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
+	Blackout, FullHealed,
 	ApiDisturbance,
 } = require('../ledger');
 
@@ -34,6 +35,9 @@ class PartyModule extends ReportingModule {
 			}
 		}
 		//TODO Party makeup ApiDisturbance
+		
+		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
+		let partyPP = 0, partyMaxPP = 0, partyDeltaPP = 0;
 		
 		// Discover items in the party
 		for (let { prev, curr } of sameMons) {
@@ -69,6 +73,9 @@ class PartyModule extends ReportingModule {
 			} else if (prev.hp < curr.hp) {
 				ledger.addItem(new MonLostHP(curr, prev.hp));
 			}
+			partyMaxHP += 100;
+			partyHP += curr.hp;
+			partyDeltaHP += curr.hp - prev.hp;
 			
 			// Moves (Learns and PP)
 			{
@@ -113,6 +120,9 @@ class PartyModule extends ReportingModule {
 						if (pair.c.max_pp < pair.p.max_pp) {
 							ledger.addItem(new MonPPUp(curr, pair.c.name, pair.c.pp, pair.p.pp));
 						}
+						partyMaxPP += pair.c.max_pp;
+						partyPP += pair.c.pp;
+						partyDeltaHP += pair.c.pp - pair.p.pp;
 					}
 				}
 			}
@@ -143,6 +153,19 @@ class PartyModule extends ReportingModule {
 			}
 		}
 		
+		if (partyDeltaHP < 0) { // if HP has been lost
+			if (partyHP === 0) { // If there's no HP in the party, we're definitely blacked out
+				ledger.addItem(new Blackout('zero'));
+			}
+		} else if (partyDeltaHP > 0) { // if HP has been gained
+			let isBlackout = (partyPP === partyMaxPP);
+			isBlackout &= (partyDeltaHP > partyMaxHP * 0.95);
+			// isBlackout &= prev.location
+			
+			if (partyDeltaPP > 0 && partyDeltaHP > partyMaxHP * 0.95 /*&& location */) {
+				ledger.addItem(new FullHealed('blackout'));
+			}
+		}
 	}
 	
 	secondPass(ledger) {
