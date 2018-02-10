@@ -6,7 +6,7 @@ const { Pokemon } = require('../../api/pokedata');
 
 /////////////////// Basic Items ///////////////////
 
-/** Indicates that an item has been gained. */
+/** Indicates that a single item has been gained. */
 class GainItem extends LedgerItem {
 	constructor(item, amount=1) {
 		super(1);
@@ -15,7 +15,7 @@ class GainItem extends LedgerItem {
 	}
 }
 
-/** Indicates that an item has been lost. */
+/** Indicates that a single item has been lost. */
 class LostItem extends LedgerItem {
 	constructor(item, amount=1) {
 		super(1);
@@ -24,7 +24,7 @@ class LostItem extends LedgerItem {
 	}
 }
 
-/** Indicates that an item has been stored in the PC. */
+/** Indicates that a single item has been stored in the PC. */
 class StoredItemInPC extends LedgerItem {
 	constructor(item, amount=1) {
 		super(1);
@@ -33,7 +33,7 @@ class StoredItemInPC extends LedgerItem {
 	}
 }
 
-/** Indicates that an item has been taken out of the PC. */
+/** Indicates that a single item has been taken out of the PC. */
 class RetrievedItemFromPC extends LedgerItem {
 	constructor(item, amount=1) {
 		super(1);

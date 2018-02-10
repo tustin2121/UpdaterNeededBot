@@ -78,6 +78,7 @@ module.exports = {
 		492,493,494,495,496,497,498,499,500,
 		576,851,948,
 	],
+	vendedItemIds: [ 0x1E, 0x1F, 0x20 ],
 	
 	/* Tweaks */
 	// If pokemon, item, and location names should have their case corrected.

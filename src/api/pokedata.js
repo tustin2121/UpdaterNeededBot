@@ -77,7 +77,7 @@ class Pokemon {
 		this.species = '';
 		this.nicknamed = false;
 		
-		this.gender = '';
+		this._gender = '';
 		this.nature = '';
 		this.caughtIn = '';
 		this.ability = '';
@@ -104,8 +104,15 @@ class Pokemon {
 		this.pokerus = null; //true = infected, false = cured, null = never had
 		this.traded = false;
 		
+		this.cp = 0;
+		this.fitness = 0;
+		
 		this.hash = 0;
 		
+		if (typeof mon === 'string') {
+			this.loadFromMemory(mon);
+			return this;
+		}
 		if (typeof mon !== 'object') return this;
 		
 		this.hash = read(mon, `personality_value`);
@@ -142,7 +149,10 @@ class Pokemon {
 			if (mon.health[0] !== 0) this.hp = Math.max(this.health, 1); //At least 1% HP if not fainted
 		}
 		
-		if (Bot.runOpts('gender')) this.gender = mon.gender || this.gender;
+		this.cp = mon.cp || 0;
+		this.fitness = mon.fitness || 0;
+		
+		if (Bot.runOpts('gender')) this._gender = mon.gender || this._gender;
 		if (Bot.runOpts('heldItem')) {
 			let item = read(mon, `held_item`) || mon.item || {};
 			if (item.id > 0) this.item = item.name;
@@ -159,8 +169,38 @@ class Pokemon {
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
 	}
 	
+	saveToMemory() {
+		let obj = {};
+		for (let key in this) {
+			if (key.startsWith('_')) continue;
+			if (typeof this[key] === 'function') continue;
+			obj[key] = this[key];
+		}
+		obj.stats = this._stats;
+		let buf = Buffer.from(JSON.stringify(obj), 'utf8');
+		return buf.toString('base64');
+	}
+	loadFromMemory(str) {
+		let buf = Buffer.from(JSON.stringify(obj), 'base64');
+		let obj = JSON.parse(buf.toString('utf8'));
+		for (let key in obj) {
+			this[key] = obj[key];
+		}
+		return this;
+	}
+	
 	toString() {
 		return `${this.name} (${this.species})`;
+	}
+	
+	get gender() {
+		if (!Bot.runOpts('gender')) return '';
+		switch(this.gender.toLowerCase()) {
+			case 'female': case 'f':	return '\u2640'; // ♀ female sign
+			case 'male': case 'm':		return '\u2642'; // ♂ male sign
+			case 'neuter': case '':		return '\u26AA'; // ⚪ medium white circle
+		}
+		return this._gender;
 	}
 	
 	get stats() { return this._stats; }
@@ -201,6 +241,10 @@ class Pokemon {
 			}
 			stats.push(`SPE: ${this.stats.spe}`);
 			exInfo += `\n${stats.join(' | ')}`;
+			
+			if (this.cp > 0) {
+				exInfo += `\nCombat Points: ${this.cp} | Fitness: ${this.fitness}`;
+			}
 		}
 		
 		let f = [];
@@ -308,7 +352,7 @@ class SortedPokemon {
 				this._party.push(p);
 			}
 		}
-		if (data.pc) {
+		if (data.pc && Array.isArray(data.pc.boxes)) {
 			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 				let box = data.pc.boxes[bn];
 				if (!box) { // handle null boxes
@@ -399,7 +443,7 @@ class SortedInventory {
 				}
 			}
 		}
-		if (data.pc) {
+		if (data.pc && Array.isArray(data.pc.boxes)) {
 			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 				let box = data.pc.boxes[bn];
 				for (let p of box.box_contents) {
@@ -505,7 +549,7 @@ class SortedBattle {
 				this.party.push(poke);
 			}
 		}
-		this.active = this.party.filter(p=>p.active);
+		if (this.party) this.active = this.party.filter(p=>p.active);
 		
 		// Determine trainer classes
 		this.isImportant = false;
@@ -553,12 +597,22 @@ class SortedBattle {
 }
 
 class SortedData {
-	constructor({ data, code=200, game=0 }) {
-		if (typeof data !== 'object') throw new ReferenceError();
+	constructor({ data, code=200, game=0, ts=0 }) {
+		if (typeof data !== 'object') throw new TypeError('Passed not-an-object to SortedData!');
 		this.httpCode = code;
+		this.ts = ts; //timestamp of this data
+		
+		// Shallowly validate data
+		if (typeof data['party'] !== 'object' ||
+			typeof data['pc'] !== 'object')
+		{
+			throw new TypeError('Passed invalid data object to SortedData!');
+		}
 		
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
+		
+		this.level_cap = data.level_cap || 100;
 		
 		this._location = new SortedLocation(data);
 		
@@ -589,6 +643,10 @@ class SortedData {
 		
 		this.rawData = data;
 		this._rawGameIdx = game;
+	}
+	
+	clone(code=200) {
+		return new SortedData({ data:this.rawData, code, ts:this.ts, game:this._rawGameIdx });
 	}
 	
 	get badgeProgress() {

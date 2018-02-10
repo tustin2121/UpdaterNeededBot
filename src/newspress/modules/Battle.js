@@ -35,9 +35,11 @@ class BattleModule extends ReportingModule {
 			return;
 		}
 		
-		let healthy = cb.party.filter(p=>p.hp);
-		if (healthy.length === 0) {
-			ledger.addItem(new BattleEnded(pb, false));
+		if (cb.in_battle) {
+			let healthy = cb.party.filter(p=>p.hp);
+			if (healthy.length === 0) {
+				ledger.addItem(new BattleEnded(pb, false));
+			}
 		}
 	}
 	

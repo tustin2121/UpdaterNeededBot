@@ -15,7 +15,7 @@ const RULES = [];
  */
 class ItemModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory);
+		super(config, memory, 1); //low priority
 		
 	}
 	
@@ -100,6 +100,9 @@ function getDelta(curr, prev) {
 	return delta;
 }
 
+//////////////////////////////////////////////////////////////////////////
+// Checking item uses
+
 const BallIds = Bot.runOpts('pokeballIds');
 RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 	.when(ledger=>ledger.has('BattleContext'))
@@ -109,19 +112,34 @@ RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 	})
 );
 
-RULES.push(new Rule(`Items lost in shops have been sold`)
-	.when(ledger=>ledger.has('MapContext').with('inShop', true))
-	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
+
+//////////////////////////////////////////////////////////////////////////
+// Item aquisition categorization
+
+const DrinkIds = Bot.runOpts('vendedItemIds');
+RULES.push(new Rule(`Drinks are vended`)
+	.when(ledger=>ledger.hasMap(x=> x.attr('vending') ))
+	.when(ledger=>ledger.has('GainItem').with('item.id', DrinkIds).ofNoFlavor())
 	.then(ledger=>{
-		ledger.get(1).forEach(x=> x.flavor = 'shopping');
+		ledger.get(1).forEach(x=> x.flavor = 'vending');
 	})
 );
+
 RULES.push(new Rule(`Items gained in shops have been bought`)
-	.when(ledger=>ledger.has('MapContext').with('inShop', true))
+	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
 	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
+RULES.push(new Rule(`Items lost in shops have been sold`)
+	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
+	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
+	.then(ledger=>{
+		ledger.get(1).forEach(x=> x.flavor = 'shopping');
+	})
+);
+
+
 
 module.exports = ItemModule;

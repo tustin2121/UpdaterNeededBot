@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
-const { createDebugUrl } = require('./debugxml');
+const { createDebugUrl } = require('./debug/xml');
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
 
@@ -85,12 +85,26 @@ class UpdaterBot {
 		
 		this.loadMemory();
 		
-		// this.memory = saveProxy(MEMORY_FILE, "\t");
+		this.staff = null;
+		this.streamApi = null;
+		this.chatApi = null;
+		this.press = null;
+	}
+	
+	start() {
 		this.staff = require('./control');
-		this.streamApi = new StreamAPI(this.runConfig.run.apiSrc, this.runConfig.run.apiPollPeriod);
-		this.chatApi = new ChatAPI(this.runConfig.run.chatSrc, this.runConfig.run.chatChannel);
+		this.streamApi = new StreamAPI({
+			url: this.runConfig.run.apiSrc,
+			updatePeriod: this.runConfig.run.apiPollPeriod,
+			memory: this.memory.api_stream,
+		});
+		this.chatApi = new ChatAPI({
+			url: this.runConfig.run.chatSrc,
+			channels: this.runConfig.run.chatChannel,
+			memory: this.memory.api_chat,
+		});
 		this.press = new UpdaterPressPool({
-			numGames : runConfig.numGames,
+			numGames : this.runConfig.numGames,
 			modconfig: this.runConfig.modules,
 			memory: this.memory,
 			api: this.streamApi,
@@ -127,6 +141,24 @@ class UpdaterBot {
 		return config;
 	}
 	
+	/** 
+	 * Gets the game indexes referred to by a given word. This method matches the word to 
+	 * the game name match regexes provided by the game configs. If nothing matches, 
+	 * returns an empty array. 
+	 */
+	gameWordMatch(word) {
+		if (!word) return [];
+		let games = [];
+		for (let i = 0; i < this.runConfig.numGames; i++) {
+			let match = this.runConfig['game'+game].nameMatch;
+			if (!match) continue;
+			if (match.test(gameword)) games.push(i);
+		}
+		return games;
+	}
+	
+	get numGames() { return this.runConfig.numGames; }
+	
 	////////////////////////////////////////////////////////////////////////////
 	
 	/**
@@ -150,6 +182,10 @@ class UpdaterBot {
 			LOGGER.error(`Error in update cycle!`, e);
 		}
 		LOGGER.trace(`Update cycle complete.`);
+	}
+	
+	generateUpdate(type, game) {
+		return this.press.generateUpdate(type, game);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
@@ -213,23 +249,32 @@ class UpdaterBot {
 		if (mainLive && this.runConfig.run.liveID) {
 			let update = formatFor.reddt(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
-			promises.push(postReddit(this.runConfig.run.liveID, updateText));
+			promises.push(
+				postReddit(this.runConfig.run.liveID, updateText)
+				.catch(e=>LOGGER.error('Post to Updater Failed:', e))); 
+				//If we don't catch individually, Promise.all returns early
 		}
 		if (mainDiscord && this.runConfig.run.discordID) {
 			let update = formatFor.discord(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
-			promises.push(postDiscord(this.runConfig.run.discordID, updateText, update.embeds));
+			promises.push(
+				postDiscord(this.runConfig.run.discordID, updateText, update.embeds)
+				.catch(e=>LOGGER.error('Post to Discord Failed:', e)));
 		}
 		if (testLive && this.runConfig.run.testLiveID) {
 			let update = formatFor.reddt(text);
 			// if (updateText.length + )
 			let updateText = `${ts} [[Bot](${debugUrl})] ${update.text}`;
-			promises.push(postReddit(this.runConfig.run.testLiveID, updateText));
+			promises.push(
+				postReddit(this.runConfig.run.testLiveID, updateText)
+				.catch(e=>LOGGER.error('Post to Test Updater Failed:', e)));
 		}
 		if (testDiscord && this.runConfig.run.testDiscordID) {
 			let update = formatFor.discord(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
-			promises.push(postDiscord(this.runConfig.run.testDiscordID, updateText, update.embeds));
+			promises.push(
+				postDiscord(this.runConfig.run.testDiscordID, updateText, update.embeds)
+				.catch(e=>LOGGER.error('Post to Test Discord Failed:', e)));
 		}
 		LOGGER.trace(`Update: num promises = ${promises.length}`);
 		return Promise.all(promises);

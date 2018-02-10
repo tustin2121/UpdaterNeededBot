@@ -11,6 +11,7 @@ body {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 .dialogInner {
+	position: relative;
 	width: 430px;
 	margin: 30px auto;
 	background-color: white;
@@ -19,15 +20,20 @@ body {
 }
 .dialogInner label {
 	display: block;
-    padding: 2px 0px;
+	padding: 2px 0px;
+}
+.dialogInner button[name=closeBtn] {
+	position: absolute;
+	top: -25px;
+	right: 0px;
 }
 #map {
 	position: absolute;
-	left: 365px; right:0;
+	left: 465px; right:0;
 	top:0; bottom:0;
 	padding: 0;
 }
-#sidebar {
+/*#sidebar {
 	background-color: aliceblue;
 	position: absolute;
 	left: 0; width: 360px;
@@ -35,82 +41,125 @@ body {
 	margin: 0; padding: 0;
 	font-family: sans-serif;
 	font-size: 10pt;
-}
-#maptree {
-	position: absolute;
-	left: 0; right: 0;
-	top: 0; height: 45%;
+}*/
+.treepane {
 	overflow-y: scroll;
 	margin: 0;
 	padding: 0 0 0 5px;
-	border-bottom: solid 2px #888;
-	border-right: solid 2px #888;
+	font-family: sans-serif;
+	font-size: 10pt;
 }
-#maptree span {
-    white-space: nowrap;
+.treepane span {
+	white-space: nowrap;
 }
-#maptree ul {
-    padding-left: 20px;
-    list-style-type: none;
+.treepane ul {
+	padding-left: 20px;
+	list-style-type: none;
 }
-#maptree li {
+.treepane li {
 	position: relative;
 }
-#maptree li.n0::before,
-#maptree li.n1::before {
+.treepane li.n0::before,
+.treepane li.n1::before {
 	content: '\00a0';
 	position: absolute;
 	z-index: -10;
 	left: -100px; right: 0;
 }
-#maptree li.n0::before { background-color:#EEEEEE; }
-#maptree li.n1::before { background-color:#DDDDDD; }
-#maptree li.closed ul { display:none; }
+.treepane li.n0::before { background-color:#EEEEEE; }
+.treepane li.n1::before { background-color:#DDDDDD; }
+.treepane li.closed ul { display:none; }
 
 /* Files */
-#maptree li span {
+.treepane li span {
 	color: #000000;
 	cursor: pointer;
 }
 
-#proppane {
-	position: absolute;
-	left: 0; right: 0;
-	top: 45%; bottom: 0;
+.proppane {
 	overflow-y: scroll;
 	margin: 0; padding: 2px 0 0 0;
-	border-right: solid 2px #888;
+	font-family: sans-serif;
+	font-size: 10pt;
 }
-#proppane label {
+.proppane header {
 	display: block;
-    padding: 0;
-    height: 21px;
-    position: relative;
+	padding: 3;
+	height: 15px;
+	position: relative;
+	background-color: #628aac;
+	color: white;
+	font-weight: bold;
+	text-align: center;
 }
-#proppane label:nth-child(odd) {
-    background-color: #d4ebff;
+.proppane label {
+	display: block;
+	padding: 0;
+	height: 21px;
+	position: relative;
 }
-#proppane label > input {
+.proppane label:nth-child(odd) {
+	background-color: #d4ebff;
+}
+.proppane label > span.key {
+	margin: 3px;
+	vertical-align: baseline;
+	display: inline-block;
+	width: 130px;
+	word-wrap: break-word;
+}
+.proppane label > span.val {
+	position: absolute;
+	display: inline-block;
+	right: 0;
+	top: 0;
+	width: 205px;
+}
+.proppane label > input.val {
 	position: absolute;
 	right: 0;
 	top: 0;
 	width: 205px;
 }
-#proppane label > span {
-    margin: 3px;
-    vertical-align: baseline;
-    display: inline-block;
-    width: 130px;
-    word-wrap: break-word;
-}
 
-#newDialog [name=genRadio] {
-	display: none;
-}
+/* */
+
 label.radio {
 	background-color: #fdfdfd;
 	border: 1px #b9b9b9 solid;
 	display: initial;
 	padding-right: 4px;
 	border-radius: 10px;
+}
+
+#maptree {
+	position: absolute;
+	left: 0; width: 100px;
+	top: 0; bottom: 0;
+	/*border-bottom: solid 2px #888;*/
+	border-right: solid 2px #888;
+}
+#mapprops {
+	position: absolute;
+	left: 107px; width: 360px;
+	top: 0; bottom: 0;
+	border-right: solid 2px #888;
+}
+
+#newDialog [name=genRadio] {
+	display: none;
+}
+
+#defaultsDialog .dialogInner {
+	width: 570px; height: 300px;
+}
+#defaultsDialog .treepane {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 15px; width: 120px;
+}
+#defaultsDialog .proppane {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 140px; right: 15px;
 }

@@ -71,6 +71,7 @@ class Gen2Reader extends GBReader {
 		
 		// Read in spawn points (a list with an FF sentinal)
 		let spawnPoints = {};
+		let spawnList = [];
 		this.readStridedData(OFFSETS.SpawnPointList, 4, LENGTHS.MaxSpawnPoints, true).map(data=>{
 			let bank = data.readByte(0);
 			let id = data.readByte(1);
@@ -79,6 +80,7 @@ class Gen2Reader extends GBReader {
 				y : data.readByte(2),
 				x : data.readByte(3),
 			};
+			spawnList.push(`${bank}.${id}`);
 		});
 		
 		const MAP_HEADER_BYTES = LENGTHS.MapHeaderBytes;
@@ -236,7 +238,7 @@ class Gen2Reader extends GBReader {
 		}
 		this.maps = mapData;
 		this.offset = oldOff;
-		return mapData;
+		return { mapData, spawnList, spawnPoints };
 		
 		function readConnectionInfo() {
 			let c = {

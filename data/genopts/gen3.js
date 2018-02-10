@@ -15,4 +15,6 @@ module.exports = {
 	champName: "Steven",
 	rivalName: "{{gender|May|Brendan}}",
 	correctCase: true,
+	
+	vendedItemIds: [ 0x1A, 0x1B, 0x1C ],
 };

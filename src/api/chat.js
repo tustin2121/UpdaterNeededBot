@@ -7,14 +7,15 @@ const irc = require('irc');
 const LOGGER = getLogger('ChatAPI');
 
 class ChatAPI {
-	constructor(ircUrl, ircChannels) {
-		this.serverUrl = ircUrl;
-		this.channelList = ircChannels;
+	constructor({ url, channels, memory }) {
+		this.serverUrl = url;
+		this.channelList = channels;
+		this.memory = memory;
 		if (!Array.isArray(this.channelList)) {
 			this.channelList = [this.channelList];
 		}
 		
-		let ibot = new irc.Client(ircUrl, auth.irc.username, {
+		let ibot = new irc.Client(url, auth.irc.username, {
 			channels: this.channelList,
 			port: 6667,
 			secure: false,
@@ -44,7 +45,7 @@ class ChatAPI {
 	}
 	
 	handleMessage(nick, to, text, msg) {
-		
+		//TODO
 	}
 	
 	getStats() {

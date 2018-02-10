@@ -4,6 +4,8 @@
 const { Ledger } = require('./ledger');
 const { typeset } = require('./typesetter');
 
+const LOGGER = getLogger('UpdaterPress');
+
 /** A newspress system which uses the game API and chat records to generate an update. */
 class UpdaterPress {
 	constructor({ modconfig, memory, api, chat, game=0 }) {
@@ -23,6 +25,11 @@ class UpdaterPress {
 			this.modules.push( mod );
 		}
 		this.modules.sort((a,b)=> a.priority - b.priority );
+		
+		// Do this after StreamAPI does theirs
+		process.nextTick(()=>{
+			this.lastLedger.loadFromMemory(this.memory.saved_ledger);
+		});
 	}
 	
 	/** Starts a new ledger and runs an update cycle.  */
@@ -39,6 +46,7 @@ class UpdaterPress {
 			mod.firstPass(ledger, data);
 		}
 		
+		// Add postponed items from the last run, cancelling out any items from first pass as needed
 		ledger.addPostponedItems(this.lastLedger);
 		
 		// Second Pass: Modify the ledger items into more useful things
@@ -50,6 +58,7 @@ class UpdaterPress {
 			
 			let nhash = ledger.hash();
 			if (hash === nhash) break; //If the ledger hasn't changed, break
+			if (i === 9) getLogger('Ledger').warn(`Ledger was not settled by Second Pass iteration 10!`);
 			hash = nhash;
 		}
 		
@@ -60,6 +69,7 @@ class UpdaterPress {
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();
 		this.lastLedger = ledger;
+		this.lastLedger.saveToMemory(this.memory.saved_ledger);
 		
 		// Pass ledger to the TypeSetter
 		let update = typeset(ledger);
@@ -82,6 +92,32 @@ class UpdaterPress {
 		
 		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
 		return prefix + ' ' + update;
+	}
+	
+	generateUpdate(type) {
+		try {
+			if (type === 'team') {
+				let info = this.apiProducer.getInfo(this.gameIndex);
+				let out = [];
+				for (let mon of info.party) {
+					let exInfo = mon.getExtendedInfo();
+					let line = `* [\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}](#info "${exInfo}")`;
+					if (mon.hp < 100) {
+						if (mon.hp === 0) line += " (fainted)";
+						else line += ` (${mon.hp}% health)`;
+					}
+					info.push(line);
+				}
+				if (info.level_cap != 100) {
+					return `[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${info.join('\n')}`;
+				} else {
+					return `[Info] Current Party:\n\n${info.join('\n')}`;
+				}
+			}
+		} catch (e) {
+			LOGGER.error(`Error generating requested update!`, e);
+		}
+		return null;
 	}
 }
 
@@ -112,6 +148,18 @@ class UpdaterPressPool {
 		}
 		if (!updates.length) return null;
 		return updates.join('\n\n');
+	}
+	
+	generateUpdate(type, game) {
+		if (typeof game === 'number') {
+			return this.pool[game].generateUpdate(type);
+		}
+		let lines = [];
+		for (let press of this.pool) {
+			let u = press.generateUpdate(type);
+			let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
+			lines.push(`${prefix}${u}`);
+		}
 	}
 }
 

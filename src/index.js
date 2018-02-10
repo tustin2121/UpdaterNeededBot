@@ -28,6 +28,7 @@ let sigint = false;
 process.on('SIGINT', ()=>{
 	if (sigint) {
 		LOGGER.fatal(`Killing UpdaterNeeded.`);
+		console.error(`Killing UpdaterNeeded.`);
 		process.exit(-1);
 	}
 	sigint = true;
@@ -36,3 +37,4 @@ process.on('SIGINT', ()=>{
 });
 
 global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));
+Bot.start();
