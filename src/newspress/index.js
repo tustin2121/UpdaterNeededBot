@@ -27,22 +27,25 @@ class UpdaterPress {
 		}
 		this.modules.sort((a,b)=> a.priority - b.priority );
 		
-		// Do this after StreamAPI does theirs
-		process.nextTick(()=>{
-			this.lastLedger.loadFromMemory(this.memory.saved_ledger);
-		});
+		this.lastLedger.loadFromMemory(this.memory.saved_ledger);
 	}
 	
 	/** Starts a new ledger and runs an update cycle.  */
 	run() {
 		let ledger = new Ledger();
-		let data = {
-			curr_api : this.apiProducer.getInfo(this.gameIndex),
-			prev_api : this.apiProducer.getPrevInfo(this.gameIndex),
-			curr_chat: (this.gameIndex === 0)? this.chatProducer.getStats() : null,
-		};
+		let data = null;
+		{
+			let { curr, prev } = this.apiProducer.popInfo(this.gameIndex);
+			data = {
+				curr_api: curr,
+				prev_api: prev,
+				curr_chat: (this.gameIndex === 0)? this.chatProducer.getStats() : null,
+			};
+			LOGGER.debug(`Press[${this.gameIndex}]: new api=>${(curr!==prev)}, chat=>${!!data.curr_chat}`);
+		}
 		
 		// First Pass: Note all changes and important context into ledger items
+		LOGGER.trace('First Pass');
 		for (let mod of this.modules) {
 			mod.firstPass(ledger, data);
 		}
@@ -53,16 +56,18 @@ class UpdaterPress {
 		// Second Pass: Modify the ledger items into more useful things
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {
+			LOGGER.trace(`Second Pass [${i}]`);
 			for (let mod of this.modules) {
 				mod.secondPass(ledger);
 			}
 			
 			let nhash = ledger.hash();
 			if (hash === nhash) break; //If the ledger hasn't changed, break
-			if (i === 9) getLogger('Ledger').warn(`Ledger was not settled by Second Pass iteration 10!`);
+			if (i === 9) LOGGER.warn(`Ledger was not settled by Second Pass iteration 10!`);
 			hash = nhash;
 		}
 		
+		LOGGER.trace('Final Pass');
 		for (let mod of this.modules) {
 			mod.finalPass(ledger);
 		}

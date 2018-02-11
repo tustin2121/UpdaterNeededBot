@@ -1,6 +1,7 @@
 // control/commands.js
 //
-const LOGGER = getLogger('DISCORD');
+const LOGGER = getLogger('Discord');
+const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
 const REQ_COOLDOWN = 1000*30; // 30 seconds
 
@@ -12,7 +13,7 @@ const HANDLER = {
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
 		let tg = 'No';
-		if (Bot.taggedIn) {
+		if (Bot.taggedIn !== false) {
 			if (typeof Bot.taggedIn === 'number') {
 				tg = 'Only ' + Bot.gameInfo(Bot.taggedIn).name;
 			}
@@ -23,31 +24,30 @@ const HANDLER = {
 				tg = 'Yes';
 			} else tg = 'Unknown';
 		}
-		// let tg = (Bot.taggedIn?(Bot.taggedIn===true?"Yes":"Helping"):"No");
 		msg.channel
 			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}`)
-			.catch((e)=>LOGGER.error('Discord Error:',e));
+			.catch(ERR);
 	},
 	
 	tagin: ({ msg, args })=>{
 		if (args && args[0]) {
-			let ids = Bot.gameWordMatch(args[1]);
+			let ids = Bot.gameWordMatch(args[0]);
 			if (ids.length === 1) {
-				Bot.taggedIn = args[0];
-				msg.channel.send(`On it: only updating for ${this.gameInfo(this.taggedIn).name}.`)
-					.catch((e)=>LOGGER.error('Discord Error:',e));
-				getLogger('TAG').info(`Bot has been tagged in on game ${this.taggedIn}.`);
+				Bot.taggedIn = ids[0];
+				msg.channel.send(`On it: only updating for ${Bot.gameInfo(Bot.taggedIn).name}.`)
+					.catch(ERR);
+				getLogger('TAG').info(`Bot has been tagged in on game ${Bot.taggedIn}.`);
 				return;
 			}
 		}
 		Bot.taggedIn = true;
-		msg.channel.send(`On it.`).catch((e)=>LOGGER.error('Discord Error:',e));
+		msg.channel.send(`On it.`).catch(ERR);
 		getLogger('TAG').info(`Bot has been tagged in.`);
 	},
 	
 	tagout: ({ msg })=>{
-		if (Bot.taggedIn) {
-			msg.channel.send(`Stopping.`).catch((e)=>LOGGER.error('Discord Error:',e));
+		if (Bot.taggedIn !== false) {
+			msg.channel.send(`Stopping.`).catch(ERR);
 			getLogger('TAG').info(`Bot has been tagged out.`);
 		}
 		Bot.taggedIn = false;
@@ -57,7 +57,7 @@ const HANDLER = {
 		if (lastReq + REQ_COOLDOWN > Date.now()) {
 			msg.channel
 				.send(`You requested another update too quickly. Cooldown is 30 seconds due to API rate limits.`)
-				.catch((e)=>LOGGER.error('Discord Error:',e));
+				.catch(ERR);
 			return;
 		}
 		lastReq = Date.now();
@@ -85,12 +85,12 @@ const HANDLER = {
 				if (update) {
 					msg.channel
 						.send(`Posting [Info] update with ${team}team information to the updater.${err}`)
-						.catch((e)=>LOGGER.error('Discord Error:',e));
+						.catch(ERR);
 					Bot.postUpdate({ text:update, dest:'forced' });
 				} else {
 					msg.channel
 						.send(`Unable to collate team info at this time.`)
-						.catch((e)=>LOGGER.error('Discord Error:',e));
+						.catch(ERR);
 				}
 			} break;
 		}
@@ -119,7 +119,7 @@ const HANDLER = {
 		msg.channel
 			.send(`If you want me to help, tell me what you want me to do, and I'll post those updates to the updater myself.\n\n`
 			+ `I can announce **catch**es, our **shopping** results when we leave a store, **item** pickups, or **level ups** (and move learns with them).`)
-			.catch((e)=>LOGGER.error('Discord Error:',e));
+			.catch(ERR);
 	},
 	
 	helpout: ({ msg, memory, args })=>{
@@ -131,9 +131,11 @@ const HANDLER = {
 		if (memory.taggedIn['level']) help.push('announce level ups / move learns');
 		if (help.length > 1) help[help.length-1] = "and "+help[help.length-1];
 		
+		getLogger('TAG').info(`Bot has tagged to help with: ${Object.keys(memory.taggedIn).join(', ')}.`);
+		
 		msg.channel
 			.send(`Ok, I'll ${help.join(', ')}. Don't hesistate to delete my updates if they get in the way.`)
-			.catch((e)=>LOGGER.error('Discord Error:',e));
+			.catch(ERR);
 	},
 	
 	shutup: ({ msg, args })=>{
@@ -160,6 +162,8 @@ function __reloadFile(modulename) {
 
 module.exports = function handleMessage(msg, memory) {
 	let [ type, ...args ] = parse(msg, memory);
+	LOGGER.warn(`Args:`, type, args);
+	if (!type || !HANDLER[type]) return;
 	HANDLER[type]({ msg, memory, args });
 };
 
@@ -170,7 +174,7 @@ function parse(msg, memory) {
 	if (msg.content.startsWith('_tags')) {
 		return ['tagout'];
 	}
-	let authed = (msg.author.id === 148100682535272448);
+	let authed = (msg.author.id === "148100682535272448");
 	//if (/where are we/i.test(msg.content))
 	let res = /^Updater?(?:Needed)?(?:Bot)?[:,] (.*)/i.exec(msg.content);
 	if (res) return parseCmd(res[1], authed);
@@ -198,7 +202,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	
 	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
-	if ((res = /^(?:tag ?in|start) (?:for|on|with) ([\w -]+)$/.exec(cmd))) {
+	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];
 	}
 	if (/^(tag ?in|start)/i.test(cmd)) return ['tagin'];

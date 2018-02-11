@@ -1,9 +1,12 @@
 // control/index.js
 //
 
-const LOGGER = getLogger('DISCORD');
+const LOGGER = getLogger('Discord');
+const ERR = (e)=>LOGGER.error('Discord Error:',e);
+
 const PING_COOLDOWN = 1000*60*60; // 1 hour
-const STAFF_CHANNEL_SNOWFLAKE = 266878339346726913;
+// const STAFF_CHANNEL_SNOWFLAKE = 266878339346726913; //staff channel
+const STAFF_CHANNEL_SNOWFLAKE = "412122002162188289"; //test channel
 
 const auth = require('../../.auth');
 const discord = require("discord.js");
@@ -46,8 +49,8 @@ let dbot = new discord.Client({
 	],
 	autoReconnect: true,
 });
-dbot.on('error', (err)=> LOGGER.error('BOT: '+err.stack));
-dbot.on('warn', (err)=> LOGGER.warn('BOT: '+err));
+dbot.on('error', (err)=> LOGGER.error('BOT: ', err));
+dbot.on('warn', (err)=> LOGGER.warn('BOT: ', err));
 dbot.on('ready', ()=>{
 	LOGGER.log('Discord bot has connected and is ready.');
 	staffChannel = dbot.channels.get(STAFF_CHANNEL_SNOWFLAKE);
@@ -75,22 +78,30 @@ dbot.on('disconnect', (evt)=>{
 		// 	console.log(`Wrote disconnect log with error: `, err);
 		// });
 	} catch (e) {
-		LOGGER.error(`Error writing disconnect log!: `, e);
+		LOGGER.fatal(`Error writing disconnect log!: `, e);
 	}
 	dbot.destroy().then(()=>dbot.login(auth.discord.token));
 });
 dbot.on('message', (msg)=>{
 	if (msg.author.id === dbot.user.id) return; //Don't rspond to own message
 	if (msg.channel.id != STAFF_CHANNEL_SNOWFLAKE) return; //Ignore non-staff channel (note, not triple equals since id is not a 'number', but a 'snowflake')
-	LOGGER.log(`Discord Message: [${msg.channel.id}|${msg.channel.id==STAFF_CHANNEL_SNOWFLAKE}] ${msg.content}`);
+	LOGGER.debug(`Discord Message: ${msg.content}`);
 	
-	require('./commands')(msg);
+	try {
+		require('./commands')(msg);
+	} catch (e) {
+		LOGGER.fatal('Error processing Discord command!', e);
+		msg.channel.send(':dizzy_face: Ow!').catch(ERR);
+	}
 });
 
-dbot.login(auth.discord.token);
+let loggedIn = dbot.login(auth.discord.token);
 
 module.exports = {
 	dbot,
+	isReady() {
+		return loggedIn
+	},
 	
 	alertUpdaters(text, ping=false) {
 		if (Bot.taggedIn !== true) return;
@@ -105,8 +116,7 @@ module.exports = {
 			}
 		}
 		staffChannel
-			.send(`${group}${text}`)
-			.catch((e)=>LOGGER.error('Discord Error:',e));
+			.send(`${group}${text}`).catch(ERR);
 	},
 	
 	queryUpdaters(text) {

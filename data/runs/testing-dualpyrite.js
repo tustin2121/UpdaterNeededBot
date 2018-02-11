@@ -5,15 +5,15 @@ module.exports = {
 	// Information about the game being played
 	game0: {
 		// The name of the game/hack being played (same as the base game if not hacked)
-		name: "Pyrite",
+		name: "Pyrite-Blue",
 		// The name of the base game being played
 		base: "Crystal",
 		// The object key or array index in the stream API that corresponds to this game
-		key: "d1",
+		key: "blue",
 		// The prefix on updates related to this run, or null if no prefix is needed.
-		prefix: "[D1]",
+		prefix: "[B]",
 		// The matching regex for referring to this game by updaters
-		nameMatch: /one|1/i,
+		nameMatch: /one|1|blue|left/i,
 		// The generation of this game
 		gen: 2,
 		// The region to use as the map
@@ -30,15 +30,15 @@ module.exports = {
 	},
 	game1: {
 		// The name of the game/hack being played (same as the base game if not hacked)
-		name: "Pyrite",
+		name: "Pyrite-Red",
 		// The name of the base game being played
 		base: "Crystal",
 		// The object key or array index in the stream API that corresponds to this game
-		key: "d2",
+		key: "red",
 		// The prefix on updates related to this run, or null if no prefix is needed.
-		prefix: "[D2]",
+		prefix: "[R]",
 		// The matching regex for referring to this game by updaters
-		nameMatch: /two|2/i,
+		nameMatch: /two|2|red|right/i,
 		// The generation of this game
 		gen: 2,
 		// The region to use as the map
@@ -72,6 +72,7 @@ module.exports = {
 		// The Reddit Live Updater ID to post to
 		liveID : "10f3p1gulvkl9",
 		testLiveID: "10f3p1gulvkl9",
+		testDiscordID: "367499647410765824",
 	},
 	
 	// The list of active modules and their configurations

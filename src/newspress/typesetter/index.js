@@ -9,6 +9,10 @@ const LOGGER = getLogger('TypeSetter');
 const phrasebook = Object.assign({}, ...[
 	require('./Pokemon'),
 	require('./Location'),
+	require('./Health'),
+	require('./Item'),
+	require('./Options'),
+	require('./Battle'),
 ]);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -17,15 +21,36 @@ const determineIndefiniteArticle = require('./indefiniteArticle').query;
 const determineGender = (male, female, neuter, plural)=>{
 	return (obj)=>{
 		if (obj instanceof Pokemon) {
-			switch(obj.gender.toLowerCase()) {
-				case 'm': case 'male': return male;
-				case 'f': case 'female': return female;
-				case 't': case 'they': case 'plural': return plural;
+			switch(obj.gender) {
+				case '\u2642': return male;
+				case '\u2640': return female;
+				case '\u26AA': return neuter;
 				default: return neuter;
 			}
 		}
+		if (obj.gender) {
+			switch(obj.gender.toLowerCase()) {
+				case 'm': case 'male': return male;
+				case 'f': case 'female': return female;
+				// case 't': case 'they': case 'plural': return plural;
+				default: return plural;
+			}
+		}
+		
 	}
 };
+const toWordNumber = (()=>{
+	const defNums = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+	const defSome = ['zero','{an}'];
+	return (num, type)=>{
+		let nums = defNums;
+		if (type === 'some') nums = defSome;
+		if (Array.isArray(type)) nums = type;
+		let word = nums[num] || Number.toString(num);
+		if (word === '{an}') word = 'an'; //TODO
+		return word;
+	};
+})();
 
 const FORMAT_FNS = {
 	'an': (obj)=>{
@@ -38,17 +63,35 @@ const FORMAT_FNS = {
 		if (art.length > 1) return 'An';
 		return 'A';
 	},
+	'some': (obj)=>{
+		if (typeof obj === 'number') { return toWordNumber(obj); }
+		if (typeof obj.amount === 'number') { return toWordNumber(obj); }
+	},
+	// pronouns
 	'he': determineGender('he', 'she', 'it', 'they'),
 	'him': determineGender('him', 'her', 'it', 'them'),
 	'his': determineGender('his', 'her', 'its', 'their'),
-	// 'his': determineGender('his', 'hers', 'its', 'theirs'),
+//	'his': determineGender('his', 'hers', 'its', 'theirs'),
 	'they': determineGender('he', 'she', 'it', 'they'),
 	'them': determineGender('him', 'her', 'it', 'them'),
 	'their': determineGender('his', 'her', 'its', 'their'),
 	'theirs': determineGender('his', 'hers', 'its', 'theirs'),
+	// captial pronouns
+	'He': determineGender('He', 'She', 'It', 'They'),
+	'Him': determineGender('Him', 'Her', 'It', 'Them'),
+	'His': determineGender('His', 'Her', 'Its', 'Their'),
+//	'His': determineGender('His', 'Hers', 'Its', 'Theirs'),
+	'They': determineGender('He', 'She', 'It', 'They'),
+	'Them': determineGender('Him', 'Her', 'It', 'Them'),
+	'Their': determineGender('His', 'Her', 'Its', 'Their'),
+	'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
 	
 	'uppercase': (obj)=>obj.toString().toUpperCase(),
 	'lowercase': (obj)=>obj.toString().toLowerCase(),
+	'captialize': (obj)=>{
+		let txt = obj.toString();
+		return txt.charAt(0).toUpperCase() + txt.substr(1);
+	},
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +102,7 @@ const FORMAT_FNS = {
  * @param {LedgerItem} item - The ledger item to use as context
  */
 function fillText(text, item) {
-	return text.replace(/\{\{([\w\d\|]+)\}\}/gi, (match, key)=>{
+	return text.replace(/\{\{([\w.|]+)\}\}/gi, (match, key)=>{
 		let args = key.split('|');
 		let obj = (()=>{
 			let a = args[0].split('.');
@@ -71,7 +114,7 @@ function fillText(text, item) {
 		})();
 		for (let i = 1; i < args.length; i++) {
 			let fn = FORMAT_FNS[args[i]];
-			let obj = fn(obj);
+			obj = fn(obj);
 		}
 		return obj;
 	});
@@ -231,5 +274,10 @@ module.exports = {
 	formatFor: {
 		reddt: formatReddit,
 		discord: formatDiscord,
+	},
+	
+	_methods: {
+		fillText,
+		fillMulti,
 	},
 };

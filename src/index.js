@@ -39,5 +39,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));
+global.Bot = new UpdaterBot(require('../data/runs/testing-dualpyrite'));
 Bot.start();

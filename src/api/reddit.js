@@ -118,7 +118,7 @@ module.exports = {
 			// req.write(JSON.stringify( {'api_type':'json', 'body': update} ));
 			req.write(`body=${encodeURIComponent(update)}`);
 			req.end();
-			LOGGER.trace(`END`);
+			LOGGER.trace(`postUpdate complete.`);
 			
 			// LOGGER.log('REQUEST: ', req.output);
 			// LOGGER.log('====================================');

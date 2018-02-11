@@ -15,7 +15,7 @@ class ChatAPI {
 			this.channelList = [this.channelList];
 		}
 		
-		let ibot = new irc.Client(url, auth.irc.username, {
+		let ibot = this.ibot = new irc.Client(url, auth.irc.username, {
 			channels: this.channelList,
 			port: 6667,
 			secure: false,
@@ -27,7 +27,6 @@ class ChatAPI {
 		ibot.on('registered', ()=>LOGGER.trace(`IRC bot Registered.`));
 		ibot.on('motd', (msg)=>LOGGER.trace(`IRC: MOTD: ${msg}`));
 		ibot.on('message#', this.handleMessage.bind(this));
-		this.ibot = ibot;
 		
 		////////////////////////////////////////////////
 		
@@ -35,12 +34,23 @@ class ChatAPI {
 		this.linebuffer = [];
 		// Holds inputs
 		this.inputbuffer = {};
+		
+		if (this.serverUrl) {
+			this._init = this.connect();
+		}
+	}
+	
+	isReady() {
+		return this._init || Promise.resolve(true);
 	}
 	
 	connect() {
-		LOGGER.trace('Connecting to chat...');
-		this.ibot.connect(()=>{
-			LOGGER.info(`Connected to chat (${this.serverUrl} @ ${this.channelList.join(',')} `);
+		return new Promise((resolve, reject)=>{
+			LOGGER.trace('Connecting to chat...');
+			this.ibot.connect(()=>{
+				LOGGER.info(`Connected to chat (${this.serverUrl} @ ${this.channelList.join(',')} `);
+				resolve();
+			});
 		});
 	}
 	

@@ -89,6 +89,7 @@ class UpdaterBot {
 		this.streamApi = null;
 		this.chatApi = null;
 		this.press = null;
+		this._updateInterval = null;
 	}
 	
 	start() {
@@ -111,13 +112,22 @@ class UpdaterBot {
 			chat: this.chatApi,
 		});
 		
-		this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
-		
-		this.postDebug(`[Meta] UpdaterNeeded started.`);
+		Promise.all([
+			this.staff.isReady(),
+			this.streamApi.isReady(),
+			this.chatApi.isReady(),
+		]).then(()=>{
+			this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
+			LOGGER.info(`UpdaterNeeded startup complete. Update interval: ${this.runConfig.run.updatePeriod/1000} sec.`);
+			this.postDebug(`[Meta] UpdaterNeeded started.`);
+		});
 	}
 	
 	/** Saves and shuts down the updater bot. */
 	shutdown() {
+		clearInterval(this._updateInterval);
+		this._updateInterval = null;
+		
 		this.saveMemory();
 		this.postDebug('[Meta] UpdaterNeeded shutting down.')
 			.then(()=>getLogger.shutdown)
@@ -167,6 +177,7 @@ class UpdaterBot {
 	 * then posts the update at the end of it, if there is an update to post.
 	 */
 	run() {
+		LOGGER.debug(`============ Update Cycle ============`);
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
@@ -181,11 +192,11 @@ class UpdaterBot {
 				if (update) this.postUpdate({ text:update, dest:'main' });
 			}
 			
-			this.saveMemory();
+			LOGGER.trace(`Update cycle complete.`);
 		} catch (e) {
 			LOGGER.error(`Error in update cycle!`, e);
 		}
-		LOGGER.trace(`Update cycle complete.`);
+		this.saveMemory();
 	}
 	
 	generateUpdate(type, game) {
@@ -231,7 +242,7 @@ class UpdaterBot {
 	 */
 	postUpdate({ text, dest='tagged', debugXml }={}) {
 		if (!text) throw new ReferenceError('Must supply update text!');
-		LOGGER.warn(`Update [=>${dest}]: ${text}`);
+		LOGGER.info(`Update [=>${dest}]: ${text}`);
 		let promises = [];
 		let mainLive, mainDiscord, testLive, testDiscord;
 		switch(dest) {
@@ -259,7 +270,7 @@ class UpdaterBot {
 			let update = formatFor.reddt(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(
-				postReddit(this.runConfig.run.liveID, updateText)
+				postReddit.call(this, this.runConfig.run.liveID, updateText)
 				.catch(e=>LOGGER.error('Post to Updater Failed:', e)));
 				//If we don't catch individually, Promise.all returns early
 		}
@@ -267,7 +278,7 @@ class UpdaterBot {
 			let update = formatFor.discord(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(
-				postDiscord(this.runConfig.run.discordID, updateText, update.embeds)
+				postDiscord.call(this, this.runConfig.run.discordID, updateText, update.embeds)
 				.catch(e=>LOGGER.error('Post to Discord Failed:', e)));
 		}
 		if (testLive && this.runConfig.run.testLiveID) {
@@ -275,14 +286,14 @@ class UpdaterBot {
 			// if (updateText.length + )
 			let updateText = `${ts} [[Bot](${debugUrl})] ${update.text}`;
 			promises.push(
-				postReddit(this.runConfig.run.testLiveID, updateText)
+				postReddit.call(this, this.runConfig.run.testLiveID, updateText)
 				.catch(e=>LOGGER.error('Post to Test Updater Failed:', e)));
 		}
 		if (testDiscord && this.runConfig.run.testDiscordID) {
 			let update = formatFor.discord(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(
-				postDiscord(this.runConfig.run.testDiscordID, updateText, update.embeds)
+				postDiscord.call(this, this.runConfig.run.testDiscordID, updateText, update.embeds)
 				.catch(e=>LOGGER.error('Post to Test Discord Failed:', e)));
 		}
 		LOGGER.trace(`Update: num promises = ${promises.length}`);
@@ -305,7 +316,7 @@ class UpdaterBot {
 			} else {
 				p = Promise.resolve(access.token);
 			}
-			p.then((token)=>{
+			p = p.then((token)=>{
 				return RedditAPI.postUpdate(updateText, { access_token:token, liveID:id });
 			});
 			return p;
@@ -313,8 +324,9 @@ class UpdaterBot {
 		function postDiscord(id, updateText, embed) {
 			try {
 				let dbot = this.staff.dbot;
-				let p = dbot.channels.get(id)
-					.send(updateText, embed);
+				let channel = dbot.channels.get(id);
+				if (!channel) throw new ReferenceError(`Channel [${id}] does not exist!`);
+				let p = channel.send(updateText, embed);
 				return p;
 			} catch (e) {
 				return Promise.reject(e);
@@ -359,7 +371,7 @@ class UpdaterBot {
 	/** Saves the memory file to disk. Used after every update. */
 	saveMemory() {
 		fs.writeFileSync(path.join(MEMORY_DIR, 'memory.json'), JSON.stringify(this.__mem, null, '\t'));
-		LOGGER.info(`Memory saved.`);
+		LOGGER.debug(`Memory saved.`);
 	}
 	
 	/** Loads the memory append file from disk and merges it into working memory. */

@@ -275,14 +275,21 @@ class SortedLocation {
 	set(opts={}) {
 		this.map_name = read(opts, 'map_name') || '<Undisclosed Location>';
 		this.area_name = read(opts, 'area_name') || '<Undisclosed Area>';
-		this.area_id = read(opts, 'area_id');
-		this.map_bank = read(opts, 'map_bank');
+		this.area_id = read(opts, 'area_id') || 0;
+		this.map_bank = read(opts, 'map_bank') || 0;
 		this.map_id = read(opts, 'map_id') || 0;
 		this.x = read(opts, 'x') || 0;
 		this.y = read(opts, 'y') || 0;
 		this.z = read(opts, 'z');
 	}
 	
+	get name() {
+		return this.map_name || this.area_name;
+	}
+	
+	describe() {
+		return `Loc[${this.map_bank}.${this.map_id}]{x=${this.x},y=${this.y}}`;
+	}
 	toString() {
 		return this.map_name;
 	}
@@ -290,12 +297,6 @@ class SortedLocation {
 	get bank_id() {
 		let id = `${this.map_id}`;
 		if (this.map_bank) id = `${this.map_bank}.${id}`;
-		return id;
-	}
-	get full_id() {
-		let id = `${this.map_id}`;
-		if (this.map_bank !== undefined) id = `${this.map_bank}.${id}`;
-		if (this.area_id !== undefined) id = `${this.area_id}:${id}`;
 		return id;
 	}
 	get position() {
@@ -598,7 +599,7 @@ class SortedBattle {
 
 class SortedData {
 	constructor({ data, code=200, game=0, ts=0 }) {
-		if (typeof data !== 'object') throw new TypeError('Passed not-an-object to SortedData!');
+		if (typeof data !== 'object') throw new TypeError(`Passed not-an-object to SortedData! [${data}]=>[${typeof data}] `);
 		this.httpCode = code;
 		this.ts = ts; //timestamp of this data
 		
