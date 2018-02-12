@@ -664,4 +664,29 @@ describe('Rule', function(){
 		});
 	});
 	
+	
+	describe('Bugs:', function(){
+		const { BattleContext, MonTakeItem, UsedBerryInBattle } = require('../../../src/newspress/ledger');
+		const { Item, Pokemon, SortedBattle } = require('../../../src/api/pokedata');
+		
+		it('Held berries rule', function(){
+			const BerryIds = [5,6,8,23,85,173];
+			const RULE = new Rule(`Held berries used in battle have been eaten`)
+				.when(ledger=>ledger.has('BattleContext'))
+				.when(ledger=>ledger.has('MonTakeItem').with('item.id', BerryIds))
+				.then(ledger=>{
+					ledger.remove(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
+				});
+			
+			let ledger = createTestLedger([
+				new BattleContext(new SortedBattle({})),
+				new MonTakeItem(new Pokemon(), new Item({name:'Berry',id:173})),
+			]);
+			
+			RULE.apply(ledger);
+			
+			ledger.list[0].should.be.an.instanceOf(BattleContext);
+			ledger.list[1].should.be.an.instanceOf(UsedBerryInBattle);
+		});
+	});
 });

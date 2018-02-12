@@ -66,6 +66,9 @@ module.exports = {
 		testLiveID: null,
 		// The Discord channel snowflake to report test information to
 		testDiscordID: null,
+		
+		// The Discord channel snowflake where commands are taken
+		controlChannel: null,
 	},
 	
 	// The list of active modules and their configurations
@@ -75,9 +78,7 @@ module.exports = {
 		Party: {},
 		Item: {},
 		Location: {},
-		Health: {},
 		E4: {},
-		Gym: {},
 		Battle: {},
 		Politics: {},
 		Chat: {},

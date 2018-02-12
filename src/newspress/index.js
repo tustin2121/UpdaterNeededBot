@@ -72,6 +72,8 @@ class UpdaterPress {
 			mod.finalPass(ledger);
 		}
 		
+		LOGGER.debug('Ledger:\n', ledger.list);
+		
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();
 		this.lastLedger = ledger;

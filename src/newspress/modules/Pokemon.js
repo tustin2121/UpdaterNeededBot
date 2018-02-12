@@ -55,7 +55,8 @@ class PokemonModule extends ReportingModule {
 		// Determine deltas
 		let added   = Object.keys(curr_map).filter(x=> !prev_map[x]).map(x=>curr_map[x]);
 		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
-		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
+		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).filter(x=>!curr_map[x].storedIn.startsWith('party'))
+			.map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {

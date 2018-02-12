@@ -53,7 +53,17 @@ class UsedBallInBattle extends LedgerItem {
 	}
 }
 
+/** Indicates that an pokeball has been used in battle. */
+class UsedBerryInBattle extends LedgerItem {
+	constructor(item, mon) {
+		super(1);
+		this.item = item;
+		this.mon = mon;
+	}
+	get target(){ return this.mon; }
+}
+
 module.exports = {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
-	UsedBallInBattle,
+	UsedBallInBattle, UsedBerryInBattle,
 };

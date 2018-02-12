@@ -25,11 +25,16 @@ class PartyItem extends LedgerItem {
 
 /** Indicates that a pokemon in the party has leveled up. */
 class MonLeveledUp extends PartyItem {
-	constructor(mon, level) {
+	constructor(mon, prevLevel) {
 		super(mon);
-		this.level = level;
+		this.prevLevel = prevLevel;
+		this.deltaLevel = mon.level - prevLevel;
+		if (this.deltaLevel > 1) this.flavor = 'multiple';
+		if (this.deltaLevel < 0) this.flavor = 'regress';
 	}
-	get curr(){ return this.level; }
+	get level(){ return this.mon.level; }
+	get curr(){ return this.mon.level; }
+	get prev(){ return this.prevLevel; }
 }
 
 /** Indicates that a pokemon has evolved. */
@@ -37,9 +42,9 @@ class MonEvolved extends PartyItem {
 	constructor(mon, prevSpecies) {
 		super(mon);
 		this.prevSpecies = prevSpecies;
-		this.species = mon.species;
 	}
-	get curr(){ return this.species; }
+	get species(){ return this.mon.species; }
+	get curr(){ return this.mon.species; }
 	get prev(){ return this.prevSpecies; }
 }
 
@@ -162,6 +167,7 @@ class MonGiveItem extends PartyItem {
 		this.item = item;
 	}
 	get curr(){ return this.item; }
+	get given(){ return this.item; }
 }
 
 /** Indicates that a pokemon has had its item taken from it. */
@@ -171,6 +177,7 @@ class MonTakeItem extends PartyItem {
 		this.item = item;
 	}
 	get prev(){ return this.item; }
+	get taken(){ return this.item; }
 }
 
 /** Indicates that a pokemon has had its item swapped for another item. */
@@ -182,6 +189,8 @@ class MonSwapItem extends PartyItem {
 	}
 	get curr(){ return this.item; }
 	get prev(){ return this.prevItem; }
+	get given(){ return this.item; }
+	get taken(){ return this.prevItem; }
 }
 
 /** Indicates that a pokemon's shiny status has inexplicably changed. */
@@ -237,12 +246,6 @@ class MonNicknameChanged extends PartyItem {
 
 /////////////////// Advanced Items ///////////////////
 
-/** Indicates that a pokemon has fainted via their own self-distruct move. */
-class MonKapowed extends PartyItem {
-	constructor(mon) {
-		super(mon);
-	}
-}
 
 
 module.exports = {
@@ -253,6 +256,4 @@ module.exports = {
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove,
 	MonGiveItem, MonTakeItem, MonSwapItem,
 	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
-	
-	MonKapowed,
 };

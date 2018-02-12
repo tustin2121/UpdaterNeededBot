@@ -71,14 +71,17 @@ module.exports = {
 		},
 		
 		// The Reddit Live Updater ID to report to
-		liveID: null,
+		liveID: "10fb9yf54gf8b",
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: null,
 		
 		// The Reddit Live Updater ID to report test information to
-		testLiveID: null,
+		testLiveID: "10f3p1gulvkl9",
 		// The Discord channel snowflake to report test information to
 		testDiscordID: null,
+		
+		// The Discord channel snowflake where commands are taken
+		controlChannel: "266878339346726913",
 	},
 	
 	// The list of active modules and their configurations
@@ -88,9 +91,7 @@ module.exports = {
 		Party: {},
 		Item: {},
 		Location: {},
-		Health: {},
 		E4: {},
-		Gym: {},
 		Battle: {},
 		Politics: {},
 		Chat: {},

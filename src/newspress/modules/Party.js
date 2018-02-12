@@ -4,13 +4,15 @@
 const { ReportingModule, Rule } = require('./_base');
 const {
 	MonLeveledUp, MonEvolved, MonHatched, MonPokerusInfected, MonPokerusCured,
-	MonFainted, MonKapowed, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
+	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
 	MonGiveItem, MonTakeItem, MonSwapItem,
 	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
 	Blackout, FullHealed,
 	ApiDisturbance,
 } = require('../ledger');
+
+const LOGGER = getLogger('PartyModule');
 
 const RULES = [];
 
@@ -36,6 +38,7 @@ class PartyModule extends ReportingModule {
 				}
 			}
 		}
+		LOGGER.trace(`sameMons = ${sameMons.length}`);
 		//TODO Party makeup ApiDisturbance
 		
 		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
@@ -43,7 +46,9 @@ class PartyModule extends ReportingModule {
 		
 		// Discover items in the party
 		for (let { prev, curr } of sameMons) {
+			LOGGER.trace(`Discovering in ${curr}`);
 			// Level up
+			LOGGER.trace(`level: prev.level < curr.level`, prev.level, curr.level, prev.level < curr.level);
 			if (prev.level < curr.level) {
 				ledger.addItem(new MonLeveledUp(curr, curr.level));
 			}
@@ -65,14 +70,15 @@ class PartyModule extends ReportingModule {
 			}
 			
 			// HP
+			LOGGER.log(`HP:`, prev.hp, curr.hp);
 			if (prev.hp > 0 && curr.hp === 0) {
 				ledger.addItem(new MonFainted(curr));
 			} else if (prev.hp === 0 && curr.hp > 0) {
 				ledger.addItem(new MonRevived(curr));
 			}
-			if (prev.hp > curr.hp) {
+			if (curr.hp > prev.hp) {
 				ledger.addItem(new MonHealedHP(curr, prev.hp));
-			} else if (prev.hp < curr.hp) {
+			} else if (curr.hp < prev.hp) {
 				ledger.addItem(new MonLostHP(curr, prev.hp));
 			}
 			partyMaxHP += 100;
@@ -93,6 +99,9 @@ class PartyModule extends ReportingModule {
 					let numChanges = 0;
 					for (let a = 0; a < movePairs.length; a++) {
 						for (let b = 0; b < movePairs.length; b++) {
+							if (a === b) continue;
+							if (movePairs[a].p.id == 0) continue;
+							if (movePairs[a].p.id == 0) continue;
 							if (movePairs[a].p.id === movePairs[b].c.id &&
 								movePairs[a].c.id === movePairs[b].p.id)
 							{
@@ -131,11 +140,11 @@ class PartyModule extends ReportingModule {
 			
 			// Items
 			if (Bot.runOpts('heldItem')) {
-				if (!prev.item && curr.item) {
+				if (!prev.item.id && curr.item.id) {
 					ledger.addItem(new MonGiveItem(curr, curr.item));
-				} else if (prev.item && !curr.item) {
+				} else if (prev.item.id && !curr.item.id) {
 					ledger.addItem(new MonTakeItem(curr, prev.item));
-				} else if (prev.item !== curr.item) {
+				} else if (prev.item.id !== curr.item.id) {
 					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
 				}
 			}
@@ -177,11 +186,11 @@ class PartyModule extends ReportingModule {
 
 const KapowMoves = ['Explosion', 'Self-Destruct', 'Selfdestruct'];//, 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Momento'];
 RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
-	.when(ledger=>ledger.has('MonFainted'))
+	.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
 	.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move', KapowMoves))
 	.then(ledger=>{
 		let items = ledger.demote(0);
-		items.forEach(x=>ledger.add(new MonKapowed(x.mon)));
+		items.forEach(x=>x.flavor='kapow');
 	})
 );
 

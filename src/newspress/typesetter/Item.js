@@ -49,50 +49,7 @@ module.exports = {
 			item: `{{item|an}} {{item}}`,
 		},
 	},
-	GiveMonItem: {
-		// target = the pokemon involved
-		// item = the item in question
-		default: [
-			`We give {{target}} {{item|an}} {{item}} to hold.`,
-		],
-	},
-	TakeMonItem: {
-		// target = the pokemon involved
-		// item = the item in question
-		default: [
-			`We take {{target}}'s {{item}}.`,
-			`We take {{target}}'s {{item}} and stow it in our bag.`,
-		],
-	},
-	SwapMonItem: {
-		// target = the pokemon involved
-		// taken = the item taken from the target
-		// given = the item given to the target
-		default: [
-			`We take {{target}}'s {{taken}} and give {{target|him}} {{given|an}} {{given}} to hold.`,
-			`We take {{target}}'s {{taken}} and give {{target|him}} {{given|an}} {{given}} to hold instead.`,
-			`We swap {{target}}'s {{taken}} for {{given|an}} {{given}}.`,
-		],
-	},
-	Swap2MonItems: {
-		// target1 = the first pokemon involved
-		// target2 = the second pokemon involved
-		// item1 = the item now held by target1
-		// item2 = the item now held by target2
-		default: [
-			`We take {{target1}}'s {{item2}} and swap it with {{target2}}'s {{item1}}.`,
-			`We look at {{target1}}'s {{item2}} and {{target2}}'s {{item1}} decide to swap the items.`,
-			`After some shuffling, {{target1}} now holds {{item1}} and {{target2}} {{item1}}.`,
-		],
-		null1: [ // if target 1 is now holding nothing.
-			`We take {{target1}}'s {{item2}} and give it to {{target2}} instead.`,
-			`We look at {{target1}}'s {{item2}} decide it looks better with {{target2}}.`,
-		],
-		null2: [ // if target 2 is now holding nothing.
-			`We take {{target2}}'s {{item1}} and give it to {{target1}} instead.`,
-			`We look at {{target2}}'s {{item1}} decide it looks better with {{target1}}.`,
-		],
-	},
+	
 	UsedBallInBattle: {
 		default: [
 			`We toss {{item|an}} {{item}} at a wild {{enemy.species}}.`,
@@ -102,6 +59,15 @@ module.exports = {
 			`We throw {{item|an}} {{item}} at the opponents's pokemon, to no avail.`,
 			`We attempt to <rand>steal|take|snag</rand> {{enemy.trainer.name}}'s <rand>pokemon|{{enemy.species}}</rand>. {{enemy.trainer.class|He}} <rand>yells at us|scolds us|tells us off|tells us where we can <rand>stick|shove</rand> our {{item}}</rand>.`,
 			`We attempt to be a thief. The game tells us off.`,
+		],
+	},
+	UsedBerryInBattle: {
+		// item = the item involved
+		// target = the pokemon involved
+		default: [
+			`{{target}} munches on {{target|his}} {{item}}.`,
+			`{{target}} eats {{target|his}} {{item}}.`,
+			`{{target}} eats {{target|his}} {{item}} in the heat of battle.`,
 		],
 	},
 };

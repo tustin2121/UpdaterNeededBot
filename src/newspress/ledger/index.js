@@ -170,7 +170,8 @@ module.exports = Object.assign({
 	require('./Health'),
 	require('./Item'),
 	require('./Location'),
-	require('./Options'),
+	require('./Others'),
 	require('./Party'),
+	require('./PC'),
 	require('./Pokemon'),
 ]);

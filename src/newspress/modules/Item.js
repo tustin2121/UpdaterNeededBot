@@ -4,7 +4,7 @@
 const { ReportingModule, Rule } = require('./_base');
 const {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
-	UsedBallInBattle,
+	UsedBallInBattle, UsedBerryInBattle,
 } = require('../ledger');
 
 const RULES = [];
@@ -112,6 +112,17 @@ RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 	})
 );
 
+const BerryIds = Bot.runOpts('berryIds');
+if (Bot.runOpts('heldItem')) {
+	// const BerryIds = Bot.runOpts('berryIds');
+	RULES.push(new Rule(`Held berries used in battle have been eaten`)
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('MonTakeItem').with('item.id', BerryIds))
+		.then(ledger=>{
+			ledger.remove(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
+		})
+	);
+}
 
 //////////////////////////////////////////////////////////////////////////
 // Item aquisition categorization

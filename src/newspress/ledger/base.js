@@ -1,6 +1,8 @@
 // newspress/ledger/base.js
 // Base ledger item classes
 
+const util = require('util');
+
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
 		// The importance level of this item. Ranges from 0 to 2.
@@ -16,6 +18,23 @@ class LedgerItem {
 	}
 	
 	get name() { return this.constructor.name; }
+	
+	[util.inspect.custom](depth, opts) {
+		if (depth < 0) {
+			return opts.stylize(`[${this.name} | ${this.flavor}]`, 'date');
+		}
+		let txt = `[${this.name} | ${this.flavor}`;
+		for (let key in this){
+			if (key === 'importance') continue;
+			if (key === 'helptype') continue;
+			if (key === 'flavor') continue;
+			if (key === '_sort') continue;
+			let val = this[key];
+			if (val === undefined) continue;
+			txt += ` | ${key}=${val}`;
+		}
+		return txt + ']';
+	}
 	
 	toXml(hkey) {
 		let xml = `<LedgerItem `;

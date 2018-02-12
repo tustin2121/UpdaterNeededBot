@@ -41,6 +41,10 @@ module.exports = {
 		// The Reddit Live Updater ID to post to
 		liveID : "10f3p1gulvkl9",
 		testLiveID: "10f3p1gulvkl9",
+		testDiscordID: "367499647410765824",
+		
+		// The Discord channel snowflake where commands are taken
+		controlChannel: "412122002162188289",
 	},
 	
 	// The list of active modules and their configurations
@@ -50,9 +54,7 @@ module.exports = {
 		Party: {},
 		Item: {},
 		Location: {},
-		Health: {},
 		E4: {},
-		Gym: {},
 		Battle: {},
 		Politics: {},
 		Chat: {},

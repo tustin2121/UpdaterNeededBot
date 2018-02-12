@@ -6,7 +6,7 @@ const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
 const PING_COOLDOWN = 1000*60*60; // 1 hour
 // const STAFF_CHANNEL_SNOWFLAKE = 266878339346726913; //staff channel
-const STAFF_CHANNEL_SNOWFLAKE = "412122002162188289"; //test channel
+// const STAFF_CHANNEL_SNOWFLAKE = "412122002162188289"; //test channel
 
 const auth = require('../../.auth');
 const discord = require("discord.js");
@@ -53,7 +53,8 @@ dbot.on('error', (err)=> LOGGER.error('BOT: ', err));
 dbot.on('warn', (err)=> LOGGER.warn('BOT: ', err));
 dbot.on('ready', ()=>{
 	LOGGER.log('Discord bot has connected and is ready.');
-	staffChannel = dbot.channels.get(STAFF_CHANNEL_SNOWFLAKE);
+	staffChannel = dbot.channels.get(Bot.runConfig.run.controlChannel);
+	// staffChannel = dbot.channels.get(STAFF_CHANNEL_SNOWFLAKE);
 });
 dbot.on('disconnect', (evt)=>{
 	LOGGER.log(`Discord bot has disconnected with code ${evt.code}: ${evt.reason}. Reconnecting...`);
@@ -84,7 +85,7 @@ dbot.on('disconnect', (evt)=>{
 });
 dbot.on('message', (msg)=>{
 	if (msg.author.id === dbot.user.id) return; //Don't rspond to own message
-	if (msg.channel.id != STAFF_CHANNEL_SNOWFLAKE) return; //Ignore non-staff channel (note, not triple equals since id is not a 'number', but a 'snowflake')
+	if (msg.channel.id != Bot.runConfig.run.controlChannel) return; //Ignore non-staff channel (note, not triple equals since id is not a 'number', but a 'snowflake')
 	LOGGER.debug(`Discord Message: ${msg.content}`);
 	
 	try {

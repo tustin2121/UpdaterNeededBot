@@ -20,4 +20,8 @@ global.getLogger = function() {
 	};
 }
 
+global.Bot = {
+	runOpts(){ return false; }
+}
+
 module.exports = { should, sinon };

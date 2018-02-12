@@ -7,13 +7,15 @@ const { LedgerItem } = require('../ledger');
 const LOGGER = getLogger('TypeSetter');
 
 const phrasebook = Object.assign({}, ...[
-	require('./Pokemon'),
-	require('./Location'),
-	require('./Health'),
-	require('./Item'),
-	require('./Options'),
 	require('./Battle'),
 	require('./E4'),
+	require('./Health'),
+	require('./Item'),
+	require('./Location'),
+	require('./Others'),
+	require('./Party'),
+	require('./PC'),
+	require('./Pokemon'),
 ]);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -55,10 +57,14 @@ const toWordNumber = (()=>{
 
 const FORMAT_FNS = {
 	'an': (obj)=>{
+		if (obj === undefined) return 'a<undefined>n';
+		if (obj === null) return 'a<null>n';
 		let name = obj.toString();
 		return determineIndefiniteArticle(name);
 	},
 	'An': (obj)=>{
+		if (obj === undefined) return 'a<undefined>n';
+		if (obj === null) return 'a<null>n';
 		let name = obj.toString();
 		let art = determineIndefiniteArticle(name);
 		if (art.length > 1) return 'An';
@@ -67,6 +73,7 @@ const FORMAT_FNS = {
 	'some': (obj)=>{
 		if (typeof obj === 'number') { return toWordNumber(obj); }
 		if (typeof obj.amount === 'number') { return toWordNumber(obj); }
+		return obj;
 	},
 	// pronouns
 	'he': determineGender('he', 'she', 'it', 'they'),
@@ -180,7 +187,8 @@ function getPhrase(items) {
 			phrase = phrase(item, { fill });
 		}
 		if (Array.isArray(phrase)) {
-			phrase = phrase[Math.floor(Math.random()*phrase.length)];
+			if (phrase.length === 1) phrase = phrase[0]; //common case
+			else phrase = phrase[Math.floor(Math.random()*phrase.length)];
 		}
 		if (phrase === null) return null; //Skip this item
 		if (typeof phrase !== 'string') {

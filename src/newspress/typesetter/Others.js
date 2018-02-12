@@ -156,4 +156,21 @@ let OptionsChanged = {
 	},
 };
 
-module.exports = { OptionsChanged, };
+module.exports = {
+	OptionsChanged,
+	
+	TimeChanged: {
+		dawn: [
+			``,
+		],
+		noon: [
+			``,
+		],
+		dusk: [
+			``,
+		],
+		rday: [ `` ],
+		rmorning: [ `` ],
+		rnight: [ `` ],
+	},
+};

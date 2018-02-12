@@ -70,7 +70,7 @@ class StreamAPI {
 				this.prevInfo = currInfo;
 				this.hasPoppedUpdate = new Array(Bot.runConfig.numGames);
 				
-				this.refresh();
+				// this.refresh();
 				resolve();
 			});
 		});

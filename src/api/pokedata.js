@@ -71,6 +71,19 @@ function fillMoveInfo(data) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+class HeldItem {
+	constructor(data) {
+		if (data) {
+			this.name = data.name;
+			this.id = data.id;
+		} else {
+			this.name = '<NoItem>';
+			this.id = 0;
+		}
+	}
+	toString(){ return this.name; }
+}
+
 class Pokemon {
 	constructor(mon) {
 		this.name = '';
@@ -146,7 +159,7 @@ class Pokemon {
 		
 		if (mon.health) {
 			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
-			if (mon.health[0] !== 0) this.hp = Math.max(this.health, 1); //At least 1% HP if not fainted
+			if (mon.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
 		}
 		
 		this.cp = mon.cp || 0;
@@ -155,7 +168,8 @@ class Pokemon {
 		if (Bot.runOpts('gender')) this._gender = mon.gender || this._gender;
 		if (Bot.runOpts('heldItem')) {
 			let item = read(mon, `held_item`) || mon.item || {};
-			if (item.id > 0) this.item = item.name;
+			if (item.id > 0) this.item = new HeldItem(item);
+			else this.item = new HeldItem(null);
 		}
 		if (Bot.runOpts('pokerus') && mon.pokerus) {
 			if (mon.pokerus.infected) this.pokerus = true;
@@ -195,7 +209,7 @@ class Pokemon {
 	
 	get gender() {
 		if (!Bot.runOpts('gender')) return '';
-		switch(this.gender.toLowerCase()) {
+		switch(this._gender.toLowerCase()) {
 			case 'female': case 'f':	return '\u2640'; // ♀ female sign
 			case 'male': case 'm':		return '\u2642'; // ♂ male sign
 			case 'neuter': case '':		return '\u26AA'; // ⚪ medium white circle
@@ -353,7 +367,7 @@ class SortedPokemon {
 		this._nullBoxes = 0;
 		
 		if (data.party) {
-			for (let i = 0; i < data.party.langth; i++) {
+			for (let i = 0; i < data.party.length; i++) {
 				let p = new Pokemon(data.party[i]);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
@@ -378,7 +392,7 @@ class SortedPokemon {
 			}
 		}
 		if (data.daycare) {
-			for (let i = 0; i < data.daycare.langth; i++) {
+			for (let i = 0; i < data.daycare.length; i++) {
 				let p = new Pokemon(data.daycare[i]);
 				p.storedIn = 'daycare:'+i;
 				this._map[p.hash] = p;
@@ -422,6 +436,7 @@ class Item {
 	get isTM() { return this.pockets.has('tms'); }
 	get inPC() { return this.pockets.has('pc') && this.pockets.size === 1; }
 	get isHeld() { return this.pockets.has('held'); }
+	toString(){ return this.name; }
 }
 
 class SortedInventory {
@@ -624,7 +639,7 @@ class SortedData {
 		
 		this._location = new SortedLocation(data);
 		
-		this._pokemon = new SortedPokemon(data);
+		this._pokemon = new SortedPokemon(data, game);
 		this._inventory = new SortedInventory(data);
 		
 		this._battle = new SortedBattle(data);
@@ -685,6 +700,8 @@ class SortedData {
 		
 		this.rawData = data;
 		this._rawGameIdx = game;
+		
+		// getLogger('SortedData').log(this);
 	}
 	
 	clone(code=200) {
