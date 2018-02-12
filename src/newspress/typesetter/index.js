@@ -259,6 +259,12 @@ function formatReddit(text) {
 	text = text.replace(/<info ext="([^\"]+)">(.+?)<\/info>/ig, (match, ext, txt)=>{
 		return `[${txt}](#info ${ext})`;
 	});
+	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
+		return `**${inner}**`;
+	});
+	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
+		return `*${inner}*`;
+	});
 	return { text };
 }
 
@@ -274,6 +280,12 @@ function formatDiscord(text) {
 			value: ext,
 		});
 		return txt;
+	});
+	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
+		return `**${inner}**`;
+	});
+	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
+		return `*${inner}*`;
 	});
 	return { text, embeds };
 }
