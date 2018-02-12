@@ -17,6 +17,8 @@ const RULES = [];
 /**   ** Party Module **
  * Responsible for discovering differences in the party, including level changes,
  * move learns, name changes, hatches, evolutions, etc.
+ * Also Responsible for tracking when blackouts occur, as well as when a pokemon
+ * faints or is healed.
  */
 class PartyModule extends ReportingModule {
 	constructor(config, memory) {

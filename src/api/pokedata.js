@@ -333,7 +333,14 @@ class SortedLocation {
 		return false;
 	}
 	
+	is(attr) {
+		if (this.node) return this.node.is(attr);
+		return undefined;
+	}
 }
+SortedLocation.prototype.has = SortedLocation.prototype.is; //Alias
+SortedLocation.prototype.can = SortedLocation.prototype.is; //Alias
+SortedLocation.prototype.get = SortedLocation.prototype.is; //Alias
 
 class SortedPokemon {
 	constructor(data, game) {
@@ -622,6 +629,7 @@ class SortedData {
 		
 		this._battle = new SortedBattle(data);
 		
+		// badges
 		this.badges = {};
 		this.numBadges = 0;
 		if (data.badges !== undefined) {
@@ -640,6 +648,39 @@ class SortedData {
 				if (data.time.h >= 6) return 'morning';
 				return 'night';
 			})();
+		}
+		
+		// pc data
+		if (Array.isArray(data.pc.boxes)) {
+			this.pcBoxes = data.pc.boxes.map((x, i)=>{
+				if (x === null) {
+					return { invalid: true, };
+				}
+				let bn = x.box_number || (i+1);
+				let b = {
+					name: x.box_name,
+					num: bn,
+					isCurrent: (data.pc.current_box_number === bn),
+					isFull: (x.box_contents.length === Bot.runOpts('pcBoxCapacity', game)),
+					isEffectiveCurrent: false,
+				};
+				return b;
+			});
+			
+			if (typeof data.pc.current_box_number === 'number') {
+				if (Bot.runOpts('pcBoxRollover', game)) {
+					// Determine the effective current box
+					for (let i = 0; i < this.pcBoxes.length; i++) {
+						let bn = (i + data.pc.current_box_number) % this.pcBoxes.length;
+						if (this.pcBoxes[bn].isFull) continue;
+						this.pcBoxes[bn].isEffectiveCurrent = true;
+						break;
+					}
+				} else {
+					this.pcBoxes[data.pc.current_box_number].isEffectiveCurrent = true;
+				}
+			}
+			
 		}
 		
 		this.rawData = data;

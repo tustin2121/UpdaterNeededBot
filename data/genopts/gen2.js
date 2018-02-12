@@ -25,4 +25,6 @@ module.exports = {
 	
 	pokeballIds: [ 1,2,4,5,157,159,160,161,163,164,165,166,177, ],
 	vendedItemIds: [ 0x2E, 0x2F, 0x30 ],
+	pcBoxCapacity: 20,
+	pcBoxRollover: false,
 };

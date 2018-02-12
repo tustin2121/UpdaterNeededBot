@@ -2,13 +2,17 @@
 // The Battle reporting module
 
 const { ReportingModule, Rule } = require('./_base');
-const { BattleContext, BattleStarted, BattleEnded, } = require('../ledger');
+const {
+	ApiDisturbance, BadgeGet,
+	BattleContext, BattleStarted, BattleEnded,
+} = require('../ledger');
 
 const RULES = [];
 
 /**   ** Battle Module **
- * Keeps track of battles in general, including the ability to refine the reporting
- * of the E4 and Gym modules.
+ * Keeps track of battles. Keeps track of attepmt counts for important battles,
+ * including gyms, team bosses, and legendaries. This also includes reporting
+ * Badge changes.
  */
 class BattleModule extends ReportingModule {
 	constructor(config, memory) {
@@ -26,7 +30,9 @@ class BattleModule extends ReportingModule {
 		if (cb.in_battle && !pb.in_battle) {
 			let attempt = 0;
 			if (cb.isImportant) {
-				attempt = this.memory.attempts[cb.attemptId];
+				attempt = (this.memory.attempts[cb.attemptId] || 0);
+				attempt++;
+				this.memory.attempts[cb.attemptId] = attempt;
 			}
 			ledger.addItem(new BattleStarted(cb, attempt));
 		}
@@ -41,6 +47,19 @@ class BattleModule extends ReportingModule {
 				ledger.addItem(new BattleEnded(pb, false));
 			}
 		}
+		
+		// Badges
+		if (this.memory.badgeMax > curr.numBadges) {
+			ledger.addItem(new ApiDisturbance('Number of badges has decreased!'));
+		}
+		if (curr.numBadges > prev.numBadges) {
+			for (let badge in curr.badges) {
+				if (!curr.badges[badge]) continue;
+				if ( prev.badges[badge]) continue;
+				ledger.addItem(new BadgeGet(badge));
+			}
+		}
+		this.memory.badgeMax = Math.max(curr.numBadges, this.memory.badgeMax);
 	}
 	
 	secondPass(ledger) {

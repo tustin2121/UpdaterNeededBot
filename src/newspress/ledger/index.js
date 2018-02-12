@@ -165,10 +165,12 @@ module.exports = Object.assign({
 }, ...[
 	require('./base'),
 	require('./ApiMonitoring'),
-	require('./Pokemon'),
-	require('./Party'),
-	require('./Location'),
-	require('./Health'),
-	require('./Options'),
 	require('./Battle'),
+	require('./E4'),
+	require('./Health'),
+	require('./Item'),
+	require('./Location'),
+	require('./Options'),
+	require('./Party'),
+	require('./Pokemon'),
 ]);

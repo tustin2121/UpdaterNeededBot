@@ -78,7 +78,12 @@ module.exports = {
 		492,493,494,495,496,497,498,499,500,
 		576,851,948,
 	],
+	// Item ids for vending machine items
 	vendedItemIds: [ 0x1E, 0x1F, 0x20 ],
+	// Capacity of a PC box
+	pcBoxCapacity: 30,
+	// If a full PC box rolls new pokemon into the next box
+	pcBoxRollover: true,
 	
 	/* Tweaks */
 	// If pokemon, item, and location names should have their case corrected.

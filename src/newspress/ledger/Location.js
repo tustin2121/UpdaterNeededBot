@@ -42,7 +42,7 @@ class MapContext extends LedgerItem {
 /** Indicates that a new pokemon has appeared in the API */
 class LocationChanged extends LedgerItem {
 	constructor(prev, curr, imp=1) {
-		super(imp);
+		super(imp, {sort:-10});
 		/** @type {SortedLocation} The previous location the player is in. */
 		this.prev = prev;
 		/** @type {SortedLocation} The now current location the player is in. */

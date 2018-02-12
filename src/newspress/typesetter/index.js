@@ -13,6 +13,7 @@ const phrasebook = Object.assign({}, ...[
 	require('./Item'),
 	require('./Options'),
 	require('./Battle'),
+	require('./E4'),
 ]);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

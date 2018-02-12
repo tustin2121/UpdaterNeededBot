@@ -63,7 +63,6 @@ class BadgeGet extends LedgerItem {
 }
 
 
-
 /////////////////// Advanced Items ///////////////////
 
 

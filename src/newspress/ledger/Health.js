@@ -9,7 +9,7 @@ const { Pokemon } = require('../../api/pokedata');
 /** Indicates we blacked out. */
 class Blackout extends LedgerItem {
 	constructor(type) {
-		super(2, {flavor:type});
+		super(2, {flavor:type, sort:100});
 	}
 }
 
