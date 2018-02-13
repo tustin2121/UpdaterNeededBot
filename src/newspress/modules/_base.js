@@ -185,6 +185,13 @@ class RuleInstance {
 		return this.with('flavor', null);
 	}
 	
+	ofImportance() {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.workingList.filter(x=>x.importance >=1);
+		this.lastResult = (this.workingList && this.workingList.length > 0);
+		return this;
+	}
+	
 	moreThan(num=1) {
 		if (this.lastResult === false) return this; //do nothing
 		this.lastResult = (this.workingList && this.workingList.length > num);

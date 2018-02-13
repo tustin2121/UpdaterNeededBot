@@ -6,47 +6,70 @@ module.exports = {
 		// item = the item in question
 		default: {
 			single: [
-				`<b>Acquired {{item|an}} {{item}}!</b>`,
+				`<b>Acquired {{amount}} {{item}}!</b>`,
 			],
 			multi: [
 				`<b>Acquired {{#|, |and}}!</b>`,
 			],
-			item: `{{item|an}} {{item}}`,
+			item: `{{amount}} {{item}}`,
 		},
 		shopping: {
 			single: [
-				`<b>Bought {{item|an}} {{item}}!</b>`,
+				`<b>Bought {{amount}} {{item}}!</b>`,
 			],
 			multi: [
 				`<b>Bought {{#|, |and}}!</b>`,
 			],
-			item: `{{item|an}} {{item}}`,
+			item: `{{amount}} {{item}}`,
 		},
 		rotoloto: [
-			`Roto Loto nets us <b>{{item|an}} {{item}}</b>.`,
-			`Rotom decides to hand us <b>{{item|an}} {{item}}</b>.`,
-			`Rotom interrupts us to give us <b>{{item|an}} {{item}}</b>.`,
+			`Roto Loto nets us <b>{{amount}} {{item}}</b>.`,
+			`Rotom decides to hand us <b>{{amount}} {{item}}</b>.`,
+			`Rotom interrupts us to give us <b>{{amount}} {{item}}</b>.`,
 		],
 	},
 	LostItem: {
 		// item = the item in question
 		default: {
 			single: [
-				`<b>Threw away {{item|an}} {{item}}!</b>`,
+				`<b>Threw away {{amount}} {{item}}!</b>`,
 			],
 			multi: [
 				`<b>Threw away {{#|, |and}}!</b>`,
 			],
-			item: `{{item|an}} {{item}}`,
+			item: `{{amount}} {{item}}`,
 		},
 		shopping: {
 			single: [
-				`<b>Sold {{item|an}} {{item}}!</b>`,
+				`<b>Sold {{amount}} {{item}}!</b>`,
 			],
 			multi: [
 				`<b>Sold {{#|, |and}}!</b>`,
 			],
-			item: `{{item|an}} {{item}}`,
+			item: `{{amount}} {{item}}`,
+		},
+	},
+	
+	StoredItemInPC: {
+		default: {
+			single: [
+				`<b>Stored {{amount}} {{item}} in the PC!</b>`,
+			],
+			multi: [
+				`<b>Stored {{#|, |and}} in the PC!</b>`,
+			],
+			item: `{{amount}} {{item}}`,
+		},
+	},
+	RetrievedItemFromPC: {
+		default: {
+			single: [
+				`<b>Retrieved {{amount}} {{item}} from the PC!</b>`,
+			],
+			multi: [
+				`<b>Retrieved {{#|, |and}} from the PC!</b>`,,
+			],
+			item: `{{amount}} {{item}}`,
 		},
 	},
 	

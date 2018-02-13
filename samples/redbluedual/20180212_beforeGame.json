@@ -1,0 +1,74 @@
+{
+    "caught": 0,
+    "caught_list": [],
+    "level_cap": 100,
+    "name": "",
+    "party": [],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "Box 1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "Box 12",
+                "box_number": 12
+            }
+        ],
+        "current_box_number": 1
+    },
+    "seen": 0,
+    "seen_list": []
+}

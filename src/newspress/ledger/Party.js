@@ -72,7 +72,7 @@ class MonPokerusCured extends PartyItem {
 /** Indicates that a pokemon has fainted. */
 class MonFainted extends PartyItem {
 	constructor(mon) {
-		super(mon);
+		super(mon, {sort:30});
 	}
 }
 

@@ -461,7 +461,7 @@ class SortedInventory {
 		
 		if (data.party) {
 			for (let p of data.party) {
-				if (p.held_item) {
+				if (p.held_item.id) {
 					this.add(p.held_item, 'held');
 				}
 			}
@@ -490,6 +490,7 @@ class SortedInventory {
 	}
 	
 	add(itemData, pocketName) {
+		getLogger('SortedInventory').log('.add(',itemData, pocketName);
 		if (!itemData || !itemData.id) return;
 		
 		let item = this._dex[itemData.id] || new Item(itemData);
@@ -557,7 +558,10 @@ class SortedBattle {
 						species: p.name,
 						dexid: read(p, 'national_dex', 'id'),
 					};
-					// if (p.health[0] === 0) poke.hp = 0;
+					if (p.health) { //hack
+						poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
+						if (p.health[0] === 0) poke.hp = 0;
+					}
 					this.party.push(poke);
 				}
 			} else {
@@ -568,7 +572,10 @@ class SortedBattle {
 					species: p.name,
 					dexid: read(p, 'national_dex', 'id'),
 				};
-				// if (p.health[0] === 0) poke.hp = 0;
+				if (p.health) { //hack
+					poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
+					if (p.health[0] === 0) poke.hp = 0;
+				}
 				this.party.push(poke);
 			}
 		}

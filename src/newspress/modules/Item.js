@@ -32,22 +32,25 @@ class ItemModule extends ReportingModule {
 			...Object.keys(pcDelta),
 		];
 		keySet = new Set(keySet);
-			
 		
-		for (let id in keySet) {
+		getLogger('ItemModule').log('keyset', keySet);
+		
+		for (let id of keySet) {
 			let item = curr.inv.getData(id) || prev.inv.getData(id);
 			let delta = invDelta[id] || 0;
+			
+			getLogger('ItemModule').log('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
 			
 			const gained = invDelta[id] > 0;
 			const dropped = invDelta[id] < 0;
 			
-			if (heldDelta[id] !== 0) {
+			if (typeof heldDelta[id] === 'number' && heldDelta[id] !== 0) {
 				//held item LedgerItems are added by the Pokemon and Party modules
 				delta += heldDelta[id];
 			}
 			if (delta == 0) continue;
 			
-			if (pcDelta[id] !== 0) {
+			if (typeof pcDelta[id] === 'number' && pcDelta[id] !== 0) {
 				if (pcDelta[id] > 0) {
 					if (gained) {
 						//added to PC without passing through bag
@@ -65,7 +68,7 @@ class ItemModule extends ReportingModule {
 			}
 			if (delta == 0) continue;
 			
-			if (bagDelta[id] !== 0) {
+			if (typeof bagDelta[id] === 'number' && bagDelta[id] !== 0) {
 				if (bagDelta[id] > 0) {
 					if (gained) {
 						ledger.addItem(new GainItem(item, bagDelta[id]));

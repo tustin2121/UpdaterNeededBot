@@ -15,7 +15,7 @@ module.exports = {
 		regionMap: null, //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
+			id: 34456,
 			secret: 0,
 		},
 		// A list of game corrections and options
@@ -35,7 +35,7 @@ module.exports = {
 		regionMap: null, //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
+			id: 25045,
 			secret: 0,
 		},
 		// A list of game corrections and options

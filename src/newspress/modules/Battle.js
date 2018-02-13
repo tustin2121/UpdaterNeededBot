@@ -22,7 +22,7 @@ class BattleModule extends ReportingModule {
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
 		let pb = prev.battle;
-		let cb = prev.battle;
+		let cb = curr.battle;
 		if (cb.in_battle) {
 			ledger.addItem(new BattleContext(cb));
 		}
@@ -43,6 +43,7 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle) {
 			let healthy = cb.party.filter(p=>p.hp);
+			getLogger('BattleModule').log(`party=`,cb.party,`healthy=`,healthy);
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
 			}

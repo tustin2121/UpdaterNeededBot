@@ -163,6 +163,11 @@ function getPhrase(items) {
 	
 	// Resolve the flavor
 	let pentry = pdict[ritem.flavor || 'default'];
+	if (pentry === undefined) {
+		LOGGER.error(`LedgerItem ${ritem.name}, flavor "${ritem.flavor || 'default'}" has no phrase dictionary in the phrasebook!`);
+		return null;
+	}
+	if (pentry === null) return null; //Skip this item
 	
 	// If this phrase entry has multi support (it will be an object with 'multi' and 'item' entries)
 	if (pentry.multi && pentry.item) {

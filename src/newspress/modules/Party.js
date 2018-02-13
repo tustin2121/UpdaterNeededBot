@@ -70,7 +70,6 @@ class PartyModule extends ReportingModule {
 			}
 			
 			// HP
-			LOGGER.log(`HP:`, prev.hp, curr.hp);
 			if (prev.hp > 0 && curr.hp === 0) {
 				ledger.addItem(new MonFainted(curr));
 			} else if (prev.hp === 0 && curr.hp > 0) {
@@ -122,7 +121,7 @@ class PartyModule extends ReportingModule {
 						ledger.addItem(new MonForgotMove(curr, pair.p.name));
 					} else if (pair.p.id !== pair.c.id) {
 						ledger.addItem(new MonLearnedMoveOverOldMove(curr, pair.c.name, pair.p.name));
-					} else {
+					} else if (pair.c.id !== 0 && pair.p.id !== 0) {
 						if (pair.c.pp < pair.p.pp) {
 							ledger.addItem(new MonLostPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
 						} else if (pair.c.pp > pair.p.pp) {
@@ -133,7 +132,7 @@ class PartyModule extends ReportingModule {
 						}
 						partyMaxPP += pair.c.max_pp;
 						partyPP += pair.c.pp;
-						partyDeltaHP += pair.c.pp - pair.p.pp;
+						partyDeltaPP += pair.c.pp - pair.p.pp;
 					}
 				}
 			}
@@ -164,9 +163,10 @@ class PartyModule extends ReportingModule {
 			}
 		}
 		
+		LOGGER.log(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
 		if (partyDeltaHP < 0) { // if HP has been lost
 			if (partyHP === 0) { // If there's no HP in the party, we're definitely blacked out
-				ledger.addItem(new Blackout('zero'));
+				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
 			let isBlackout = (partyPP === partyMaxPP);
@@ -183,6 +183,14 @@ class PartyModule extends ReportingModule {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
 }
+
+RULES.push(new Rule(`Don't report blackout revivals individually`)
+	.when(ledger=>ledger.has('FullHealed').ofFlavor('blackout'))
+	.when(ledger=>ledger.has('MonRevived').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
 
 const KapowMoves = ['Explosion', 'Self-Destruct', 'Selfdestruct'];//, 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Momento'];
 RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
