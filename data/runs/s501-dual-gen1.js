@@ -73,12 +73,12 @@ module.exports = {
 		// The Reddit Live Updater ID to report to
 		liveID: "10fb9yf54gf8b",
 		// The Discord LiveUpdater channel snowflake to report to
-		discordID: null,
+		discordID: "366698530343223306",
 		
 		// The Reddit Live Updater ID to report test information to
 		testLiveID: "10f3p1gulvkl9",
 		// The Discord channel snowflake to report test information to
-		testDiscordID: null,
+		testDiscordID: "367499647410765824",
 		
 		// The Discord channel snowflake where commands are taken
 		controlChannel: "266878339346726913",

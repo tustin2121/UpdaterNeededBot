@@ -109,7 +109,7 @@ class MapPanel {
 	}
 	
 	zoomReset() {
-		this.zoomLevel = 8; 
+		this.zoomLevel = 8;
 		this.repaint();
 	}
 	zoomIn() {
@@ -161,7 +161,7 @@ class MapPanel {
 			console.error('Invalid idType!');
 		}
 		this.renumber();
-	} 
+	}
 	updatePropList() { // updateMapPropertyList()
 		let $list = $('#mapprops');
 		$list.empty();
@@ -245,7 +245,7 @@ class MapPanel {
 		$('#maptree li:visible').each((i,e)=>{
 			$(e).removeClass('n0 n1').addClass('n'+(i%2));
 		});
-	} 
+	}
 	repaint() { // drawMap()
 		const g = $('#map')[0].getContext('2d');
 		g.clearRect(0, 0, $('#map').innerWidth(), $('#map').innerHeight());
@@ -273,7 +273,7 @@ class MapPanel {
 				let off = { x:-map.width/2, y:-map.height/2 };
 				// console.log(`offset:`,off);
 				try {
-					let om = currData.nodes[conn.bank][conn.id];
+					let om = getMap(conn);
 					// console.log(`Connection ${dir}:`, conn, om);
 					switch (dir) {
 						case 's': off.y += map.height; break;
@@ -407,7 +407,7 @@ class MapPanel {
 				let warp = this.currMap.warps[wn];
 				if (!warp) continue;
 				try {
-					let om = currData.nodes[warp.bank][warp.id];
+					let om = getMap(warp);
 					let textColor = '';
 					if (om) {
 						g.fillStyle = `#00CC00`;
@@ -457,8 +457,8 @@ class NewRegionDialog {
 	}
 	
 	show() { this.$dialog.show(); }
-	hide() { 
-		this.$dialog.hide(); 
+	hide() {
+		this.$dialog.hide();
 		this.clear();
 	}
 	
@@ -545,8 +545,8 @@ class TypesDialog {
 		this.$dialog.find('[name=closeBtn]').on('click', ()=>{ this.hide() });
 	}
 	
-	show() { 
-		this.$dialog.show(); 
+	show() {
+		this.$dialog.show();
 		this.updateList();
 	}
 	hide() { this.$dialog.hide(); }
@@ -629,7 +629,7 @@ class TypesDialog {
 				if (typeof obj[key] === 'string') {
 					$str.val(obj[key]);
 				}
-				$checkThis.on('change', function(){ 
+				$checkThis.on('change', function(){
 					$(this).prop({ indeterminate:false });
 					$str.val('');
 					obj[key] = !!$(this).prop('checked');
@@ -653,7 +653,7 @@ class TypesDialog {
 		this.$dialog.find('.treepane li:visible').each((i,e)=>{
 			$(e).removeClass('n0 n1').addClass('n'+(i%2));
 		});
-	} 
+	}
 }
 
 
@@ -676,6 +676,13 @@ $(()=>{
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Other Functions
+
+function getMap({ bank, id }) {
+	if (currData.idType === 'banked')
+		return currData.nodes[bank][id];
+	else
+		return currData.nodes[id];
+}
 
 function resize() {
 	mapPanel.resize();

@@ -38,15 +38,15 @@ class PartyModule extends ReportingModule {
 				}
 			}
 		}
-		LOGGER.trace(`sameMons = ${sameMons.length}`);
-		//TODO Party makeup ApiDisturbance
+		// LOGGER.trace(`sameMons = ${sameMons.length}`);
+		// TODO Party makeup ApiDisturbance
 		
 		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
 		let partyPP = 0, partyMaxPP = 0, partyDeltaPP = 0;
 		
 		// Discover items in the party
 		for (let { prev, curr } of sameMons) {
-			LOGGER.trace(`Discovering in ${curr}`);
+			// LOGGER.trace(`Discovering in ${curr}`);
 			// Level up
 			LOGGER.trace(`level: prev.level < curr.level`, prev.level, curr.level, prev.level < curr.level);
 			if (prev.level < curr.level) {
@@ -163,7 +163,7 @@ class PartyModule extends ReportingModule {
 			}
 		}
 		
-		LOGGER.log(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
+		LOGGER.debug(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
 		if (partyDeltaHP < 0) { // if HP has been lost
 			if (partyHP === 0) { // If there's no HP in the party, we're definitely blacked out
 				ledger.addItem(new Blackout());

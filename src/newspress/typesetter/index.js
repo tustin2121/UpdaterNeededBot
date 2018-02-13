@@ -1,7 +1,7 @@
 // newspress/typesetter/index.js
 // The TypeSetter, and the phrasebook, that translates LedgerItems into English Language
 
-const { Pokemon } = require('../../api/pokedata');
+const { Pokemon, SortedLocation } = require('../../api/pokedata');
 const { LedgerItem } = require('../ledger');
 
 const LOGGER = getLogger('TypeSetter');
@@ -54,21 +54,39 @@ const toWordNumber = (()=>{
 		return word;
 	};
 })();
+const determineOnIn = (obj)=>{
+	let name;
+	if (obj instanceof SortedLocation) {
+		if (obj.node) {
+			return obj.is('in')? 'in':'on';
+		}
+		name = obj.name;
+	}
+	if (/town|city/i.test(name)) return 'in';
+	if (/route/i.test(name)) return 'on';
+	if (/house|center|mart|f|cave|forest/i.test(name)) return 'in';
+	return 'on';
+};
 
 const FORMAT_FNS = {
 	'an': (obj)=>{
-		if (obj === undefined) return 'a<undefined>n';
-		if (obj === null) return 'a<null>n';
+		if (obj === undefined) return 'an'; //'a<undefined>n';
+		if (obj === null) return 'a'; //'a<null>n';
 		let name = obj.toString();
 		return determineIndefiniteArticle(name);
 	},
 	'An': (obj)=>{
-		if (obj === undefined) return 'a<undefined>n';
-		if (obj === null) return 'a<null>n';
+		if (obj === undefined) return 'an'; //'a<undefined>n';
+		if (obj === null) return 'a'; //'a<null>n';
 		let name = obj.toString();
 		let art = determineIndefiniteArticle(name);
 		if (art.length > 1) return 'An';
 		return 'A';
+	},
+	'on': determineOnIn,
+	'On': (obj)=>{
+		let on = determineOnIn(obj);
+		return on.charAt(0).toUpperCase() + on.substr(1);
 	},
 	'some': (obj)=>{
 		if (typeof obj === 'number') { return toWordNumber(obj); }

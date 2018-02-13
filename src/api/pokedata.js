@@ -144,6 +144,7 @@ class Pokemon {
 			this.caughtIn = read(mon.met, `caught_in`);
 		}
 		this.stats = mon.stats; //uses setter below
+		this.level = mon.level;
 		
 		this.moves = mon.moves.map(m=> correctCase(m.name) );
 		this.moveInfo = mon.moves.map(m=>{
@@ -490,7 +491,7 @@ class SortedInventory {
 	}
 	
 	add(itemData, pocketName) {
-		getLogger('SortedInventory').log('.add(',itemData, pocketName);
+		// getLogger('SortedInventory').log('.add(',itemData, pocketName);
 		if (!itemData || !itemData.id) return;
 		
 		let item = this._dex[itemData.id] || new Item(itemData);

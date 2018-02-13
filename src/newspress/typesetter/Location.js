@@ -9,7 +9,11 @@ module.exports = {
 			`Welcome to {{curr}}!`,
 		],
 		nomap: [ //When we have no map information for the current location
-			`We have moved to {{curr}}!`,
+			`{{curr}}.`,
+			`{{curr|On}} {{curr}}.`,
+			`Now {{curr|on}} {{curr}}.`,
+			`We head {{curr|on}}to {{curr}}.`,
+			`Arrived {{curr|on}} {{curr}}.`,
 		],
 		'enter': [ //We walk from an outside location to an inside location
 			`We head inside {{curr}}.`,
