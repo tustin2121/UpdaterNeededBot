@@ -3,6 +3,7 @@
 
 const FS = require('fs');
 const HTTP = require('http');
+const HTTPS = require('https');
 const URL = require('url');
 const PATH = require('path');
 
@@ -137,12 +138,13 @@ class StreamAPI {
 }
 
 function http_get(url) {
+	const H = url.startsWith('https')? HTTPS : HTTP;
 	return new Promise((resolve, reject)=>{
 		let loc = URL.parse(url);
 		loc.headers = {
 			'Accept': 'application/json',
 		};
-		HTTP.get(loc, (res)=>{
+		H.get(loc, (res)=>{
 			const { statusCode } = res;
 			const contentType = res.headers['content-type'];
 			

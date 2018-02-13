@@ -258,7 +258,7 @@ class Pokemon {
 			exInfo += `\n${stats.join(' | ')}`;
 			
 			if (this.cp > 0) {
-				exInfo += `\nCombat Points: ${this.cp} | Fitness: ${this.fitness}`;
+				exInfo += `\nCP: ${this.cp} | Fit: ${this.fitness}`;
 			}
 		}
 		
@@ -460,27 +460,29 @@ class SortedInventory {
 			}
 		}
 		
-		if (data.party) {
-			for (let p of data.party) {
-				if (p.held_item.id) {
-					this.add(p.held_item, 'held');
-				}
-			}
-		}
-		if (data.pc && Array.isArray(data.pc.boxes)) {
-			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
-				let box = data.pc.boxes[bn];
-				for (let p of box.box_contents) {
-					if (p.held_item) {
+		if (Bot.runOpts('heldItem')) {
+			if (data.party) {
+				for (let p of data.party) {
+					if (p.held_item.id) {
 						this.add(p.held_item, 'held');
 					}
 				}
 			}
-		}
-		if (data.daycare) {
-			for (let p of data.daycare) {
-				if (p.held_item) {
-					this.add(p.held_item, 'held');
+			if (data.pc && Array.isArray(data.pc.boxes)) {
+				for (let bn = 0; bn < data.pc.boxes.length; bn++) {
+					let box = data.pc.boxes[bn];
+					for (let p of box.box_contents) {
+						if (p.held_item) {
+							this.add(p.held_item, 'held');
+						}
+					}
+				}
+			}
+			if (data.daycare) {
+				for (let p of data.daycare) {
+					if (p.held_item) {
+						this.add(p.held_item, 'held');
+					}
 				}
 			}
 		}
@@ -531,7 +533,7 @@ class SortedBattle {
 				this.trainer.push({
 					'class': t.class_id,
 					'id': t.id,
-					'className': correctCase(sanatizeName(t.class_name)),
+					// 'className': correctCase(sanatizeName(t.class_name)), //Not used in gen 1
 					'name': correctCase(sanatizeName(t.name)),
 				});
 			}

@@ -17,4 +17,13 @@ module.exports = {
 		}
 	},
 	
+	BattleEnded: null, //TODO
+	EnemyFainted: null, //TODO
+	
+	BadgeGet: {
+		default: [
+			`**Received the {{badge}} Badge!**`,
+			`**Got the {{badge}} Badge!**`,
+		],
+	},
 };

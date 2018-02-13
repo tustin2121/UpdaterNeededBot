@@ -39,5 +39,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/testing-dualpyrite'));
+global.Bot = new UpdaterBot(require('../data/runs/s501-dual-gen1'));
 Bot.start();

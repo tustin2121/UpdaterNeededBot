@@ -110,20 +110,22 @@ class UpdaterPress {
 		try {
 			if (type === 'team') {
 				let info = this.apiProducer.getInfo(this.gameIndex);
+				// LOGGER.trace(`info`,info);
 				let out = [];
 				for (let mon of info.party) {
+					// LOGGER.trace(`mon`,mon);
 					let exInfo = mon.getExtendedInfo();
 					let line = `* [\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}](#info "${exInfo}")`;
 					if (mon.hp < 100) {
 						if (mon.hp === 0) line += " (fainted)";
 						else line += ` (${mon.hp}% health)`;
 					}
-					info.push(line);
+					out.push(line);
 				}
 				if (info.level_cap != 100) {
-					return `[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${info.join('\n')}`;
+					return `[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
 				} else {
-					return `[Info] Current Party:\n\n${info.join('\n')}`;
+					return `[Info] Current Party:\n\n${out.join('\n')}`;
 				}
 			}
 		} catch (e) {
@@ -169,9 +171,10 @@ class UpdaterPressPool {
 		let lines = [];
 		for (let press of this.pool) {
 			let u = press.generateUpdate(type);
-			let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
+			let prefix = (Bot.gameInfo(press.gameIndex).prefix)+' ' || '';
 			lines.push(`${prefix}${u}`);
 		}
+		return lines.join('\n\n');
 	}
 }
 

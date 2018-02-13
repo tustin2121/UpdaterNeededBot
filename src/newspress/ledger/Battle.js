@@ -58,6 +58,7 @@ class EnemyFainted extends LedgerItem {
  */
 class BadgeGet extends LedgerItem {
 	constructor(badgeName) {
+		super(2);
 		this.badge = badgeName;
 	}
 }
