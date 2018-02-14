@@ -111,7 +111,17 @@ RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 	.when(ledger=>ledger.has('BattleContext'))
 	.when(ledger=>ledger.has('LostItem').with('item.id', BallIds))
 	.then(ledger=>{
-		ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, x.amount)));
+		let context = ledger.get(0)[0];
+		ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle.active[0], x.amount)));
+	})
+);
+
+RULES.push(new Rule(`Pokeballs lost when a pokemon has been gained have been thrown.`)
+	.when(ledger=>ledger.has('PokemonGained'))
+	.when(ledger=>ledger.has('LostItem').with('item.id', BallIds))
+	.then(ledger=>{
+		let gained = ledger.get(0)[0];
+		ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, gained.mon, x.amount)));
 	})
 );
 

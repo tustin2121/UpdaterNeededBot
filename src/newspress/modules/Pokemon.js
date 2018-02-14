@@ -9,6 +9,8 @@ const {
 	ApiDisturbance,
 } = require('../ledger');
 
+const LOGGER = getLogger('PokemonModule');
+
 const RULES = [];
 
 /**   ** Pokemon Module **
@@ -57,6 +59,8 @@ class PokemonModule extends ReportingModule {
 		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
 		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).filter(x=>!curr_map[x].storedIn.startsWith('party'))
 			.map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
+			
+		LOGGER.debug(`deltas: add=`, added, ` removed=`, removed);
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {

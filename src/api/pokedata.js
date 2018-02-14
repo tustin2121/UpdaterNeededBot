@@ -184,6 +184,9 @@ class Pokemon {
 		
 		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
+		
+		// Validation check:
+		if (this.fitness < 0) throw new TypeError('Corrupt data!');
 	}
 	
 	saveToMemory() {
@@ -619,8 +622,10 @@ class SortedBattle {
 	}
 	get attemptId() {
 		let name = [];
-		for (let trainer of this.trainer) {
-			name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
+		if (this.trainer) {
+			for (let trainer of this.trainer) {
+				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
+			}
 		}
 		if (!name.length) {
 			for (let p of this.party) {

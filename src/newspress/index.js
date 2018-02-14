@@ -49,7 +49,7 @@ class UpdaterPress {
 		for (let mod of this.modules) try {
 			mod.firstPass(ledger, data);
 		} catch (e) {
-			LOGGER.error(`Error in module first pass!`, e);
+			LOGGER.error(`Error in ${mod.constructor.name} first pass!`, e);
 		}
 		
 		// Add postponed items from the last run, cancelling out any items from first pass as needed
@@ -62,7 +62,7 @@ class UpdaterPress {
 			for (let mod of this.modules) try {
 				mod.secondPass(ledger);
 			} catch (e) {
-				LOGGER.error(`Error in module second pass [${i}]!`, e);
+				LOGGER.error(`Error in ${mod.constructor.name} second pass [${i}]!`, e);
 			}
 			
 			let nhash = ledger.hash();
@@ -75,7 +75,7 @@ class UpdaterPress {
 		for (let mod of this.modules) try {
 			mod.finalPass(ledger);
 		} catch (e) {
-			LOGGER.error(`Error in module final pass!`, e);
+			LOGGER.error(`Error in ${mod.constructor.name} final pass!`, e);
 		}
 		
 		LOGGER.debug('Ledger:\n', ledger.list);

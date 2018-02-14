@@ -272,7 +272,7 @@ function typeset(ledger) {
 		if (phrase === null) continue;
 		update.push(phrase);
 	} catch (e) {
-		LOGGER.error(`Error typesetting items => ${items}\n`, e);
+		LOGGER.error(`Error typesetting items =>`, items, '\n', e);
 	}
 	if (!update.length) return null;
 	return update.join(' ');

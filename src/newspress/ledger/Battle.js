@@ -18,6 +18,7 @@ class BattleContext extends LedgerItem {
 		
 		super(0);
 		this.battle = battle;
+		this.flavor = battle.trainer? 'trainer':'wild';
 	}
 }
 

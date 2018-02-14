@@ -46,11 +46,14 @@ class RetrievedItemFromPC extends LedgerItem {
 
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
-	constructor(item, amount=1) {
+	constructor(item, mon, amount=1) {
 		super(1);
 		this.item = item;
 		this.amount = amount;
+		this.mon = mon;
 	}
+	get target(){ return this.mon; }
+	get enemy(){ return this.mon; }
 }
 
 /** Indicates that an pokeball has been used in battle. */
@@ -61,6 +64,7 @@ class UsedBerryInBattle extends LedgerItem {
 		this.mon = mon;
 	}
 	get target(){ return this.mon; }
+	get enemy(){ return this.mon; }
 }
 
 module.exports = {

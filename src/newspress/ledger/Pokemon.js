@@ -64,8 +64,17 @@ class PokemonLost extends PokemonItem {
 	}
 }
 
+/** Indicates that a pokemon is now being reported as irriversibly lost. */
+class PokemonTraded extends PokemonItem {
+	constructor(mon, pastMon) {
+		super(mon, 2);
+		this.pastMon = pastMon;
+	}
+	get prev(){ return this.pastMon; }
+}
+
 /////////////////// Advanced Items ///////////////////
 
 module.exports = {
-	PokemonGained, PokemonIsMissing, PokemonLost,
+	PokemonGained, PokemonIsMissing, PokemonLost, PokemonTraded
 };

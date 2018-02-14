@@ -20,7 +20,7 @@ log4js.configure({
 		},
 		file: {
 			type: 'file',
-			filename: `../logs/output/runlog.log`,
+			filename: `logs/output/runlog.log`,
 			maxLogSize: 8 * 1024 * 1024, // 8Mb
 			backups: 20,
 			compress: true,
@@ -30,10 +30,15 @@ log4js.configure({
 				pattern: `%r %p [%c] %m`,
 			},
 		},
+		'out-filtered': {
+			type: 'logLevelFilter',
+			appender: 'out',
+			level: 'debug',
+		},
 	},
 	categories: {
 		default: {
-			appenders: ['out', 'file'],
+			appenders: ['out-filtered', 'file'],
 			level:'all',
 		},
 	},
