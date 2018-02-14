@@ -196,7 +196,7 @@ class UpdaterBot {
 			
 			LOGGER.trace(`Update cycle complete.`);
 		} catch (e) {
-			LOGGER.error(`Error in update cycle!`, e);
+			LOGGER.fatal(`Unhandled error in update cycle!`, e);
 		}
 		this.saveMemory();
 	}

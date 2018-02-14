@@ -7,6 +7,8 @@ const {
 	BattleContext, BattleStarted, BattleEnded,
 } = require('../ledger');
 
+const LOGGER = getLogger('BattleModule');
+
 const RULES = [];
 
 /**   ** Battle Module **
@@ -29,6 +31,8 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle && !pb.in_battle) {
 			let attempt = 0;
+			LOGGER.debug(`battle: [${cb.attemptId}] imp=${cb.isImportant} attempts=${this.memory.attempts[cb.attemptId]}`);
+			
 			if (cb.isImportant) {
 				attempt = (this.memory.attempts[cb.attemptId] || 0);
 				attempt++;
@@ -43,7 +47,7 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle) {
 			let healthy = cb.party.filter(p=>p.hp);
-			getLogger('BattleModule').log(`party=`,cb.party,`healthy=`,healthy);
+			LOGGER.debug(`party=`,cb.party,`healthy=`,healthy);
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
 			}

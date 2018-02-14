@@ -96,6 +96,7 @@ class Pokemon {
 		this.ability = '';
 		
 		this.hp = 100;
+		this._hp = [0,0];
 		this.moves = [];
 		this.moveInfo = [];
 		if (Bot.runOpts('specialSplit')) {
@@ -143,7 +144,7 @@ class Pokemon {
 		if (mon.met) {
 			this.caughtIn = read(mon.met, `caught_in`);
 		}
-		this.stats = mon.stats; //uses setter below
+		this.stats = mon.stats || {}; //uses setter below
 		this.level = mon.level;
 		
 		this.moves = mon.moves.map(m=> correctCase(m.name) );
@@ -159,6 +160,7 @@ class Pokemon {
 		});
 		
 		if (mon.health) {
+			this._hp = [mon.health[0], mon.health[1]];
 			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
 			if (mon.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
 		}
@@ -228,7 +230,7 @@ class Pokemon {
 			this._stats.spa = val.spa || val.special_attack || 0;
 			this._stats.spd = val.spd || val.special_defense || 0;
 		} else {
-			this._stats.spl = val.spl || val.sp || val.spa || val.spd || val.special || 0;
+			this._stats.spl = val.spl || val.sp || val.spa || val.spd || val.special || val.special_attack || val.special_defense || 0;
 		}
 		this._stats.hp  = val.hp  || val.hit_points || 0;
 	}
@@ -258,7 +260,7 @@ class Pokemon {
 			exInfo += `\n${stats.join(' | ')}`;
 			
 			if (this.cp > 0) {
-				exInfo += `\nCP: ${this.cp} | Fit: ${this.fitness}`;
+				exInfo += `\nCombat Points: ${this.cp} | Fitness: ${this.fitness}`;
 			}
 		}
 		
@@ -533,7 +535,7 @@ class SortedBattle {
 				this.trainer.push({
 					'class': t.class_id,
 					'id': t.id,
-					// 'className': correctCase(sanatizeName(t.class_name)), //Not used in gen 1
+					'className': '',//correctCase(sanatizeName(t.class_name)), //Not used in gen 1
 					'name': correctCase(sanatizeName(t.name)),
 				});
 			}

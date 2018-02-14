@@ -46,8 +46,10 @@ class UpdaterPress {
 		
 		// First Pass: Note all changes and important context into ledger items
 		LOGGER.trace('First Pass');
-		for (let mod of this.modules) {
+		for (let mod of this.modules) try {
 			mod.firstPass(ledger, data);
+		} catch (e) {
+			LOGGER.error(`Error in module first pass!`, e);
 		}
 		
 		// Add postponed items from the last run, cancelling out any items from first pass as needed
@@ -57,8 +59,10 @@ class UpdaterPress {
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {
 			LOGGER.trace(`Second Pass [${i}]`);
-			for (let mod of this.modules) {
+			for (let mod of this.modules) try {
 				mod.secondPass(ledger);
+			} catch (e) {
+				LOGGER.error(`Error in module second pass [${i}]!`, e);
 			}
 			
 			let nhash = ledger.hash();
@@ -68,8 +72,10 @@ class UpdaterPress {
 		}
 		
 		LOGGER.trace('Final Pass');
-		for (let mod of this.modules) {
+		for (let mod of this.modules) try {
 			mod.finalPass(ledger);
+		} catch (e) {
+			LOGGER.error(`Error in module final pass!`, e);
 		}
 		
 		LOGGER.debug('Ledger:\n', ledger.list);

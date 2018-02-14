@@ -267,10 +267,12 @@ function typeset(ledger) {
 	let update = [];
 	//TODO Collate items of the same type and flavor together, and handle multiple items as one phrase
 	// by adding another layer to the phrase book for "single" and "multiple".
-	for (let items of list) {
+	for (let items of list) try {
 		let phrase = getPhrase(items);
 		if (phrase === null) continue;
 		update.push(phrase);
+	} catch (e) {
+		LOGGER.error(`Error typesetting items => ${items}\n`, e);
 	}
 	if (!update.length) return null;
 	return update.join(' ');

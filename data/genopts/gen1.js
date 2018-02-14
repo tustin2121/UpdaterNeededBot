@@ -16,6 +16,7 @@ module.exports = {
 	'3d': false,
 	
 	namingMatch: /-_/i,
+	moveInfo: 'gen2/movetable.js',
 	
 	badgeNames: [
 		"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth",
@@ -24,6 +25,14 @@ module.exports = {
 	champName: "{{rival}}",
 	rivalName: "Blue",
 	correctCase: true,
+	
+	trainerClasses: {
+		// The following have special handling available
+		rival: [0x19,0x2A],
+		leader: [0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x1D],
+		e4: [0x21,0x2F,0x2E,0x2C],
+		champ: [0x1A,0x2B],
+	},
 	
 	pokeballIds: [ 1,2,3,4,8, ],
 	vendedItemIds: [ 0x3C, 0x3D, 0x3E ],

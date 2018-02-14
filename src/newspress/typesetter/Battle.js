@@ -6,15 +6,20 @@ module.exports = {
 	
 	BattleStarted: {
 		default: (item)=>{
-			let m = `**Vs ${item.battle.displayName}!**`;
+			let m = `<b>Vs ${item.battle.displayName}!</b>`;
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
 			return m;
 		},
+		rematch: [
+			`<b>Vs {{battle.displayName}} again!</b>`,
+			`<b>Vs {{battle.displayName}} in a rematch!</b>`,
+			`<b>Facing off against {{battle.displayName}} in a rematch!</b>`,
+		],
 		wild: (item)=>{
-			let m = `**Vs Wild ${item.battle.displayName}!**`;
+			let m = `<b>Vs Wild ${item.battle.displayName}!</b>`;
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
 			return m;
-		}
+		},
 	},
 	
 	BattleEnded: null, //TODO

@@ -93,8 +93,10 @@ class PartyModule extends ReportingModule {
 					movePairs.push({ p, c });
 				}
 				// Eliminate duplicates
+				let it = 100;
 				lblFix:
-				while(true) {
+				while(it > 0) {
+					it--;
 					let numChanges = 0;
 					for (let a = 0; a < movePairs.length; a++) {
 						for (let b = 0; b < movePairs.length; b++) {
@@ -113,6 +115,7 @@ class PartyModule extends ReportingModule {
 					}
 					break;
 				}
+				if (it === 0) LOGGER.error(`Emergency break out from lblFix!`);
 				
 				for (let pair of movePairs) {
 					if (!pair.p.id && pair.c.id) {
@@ -169,12 +172,13 @@ class PartyModule extends ReportingModule {
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
+			LOGGER.debug(`isBlackout=> ${(partyPP === partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.95)} & ${!prev_api.location.equals(curr_api.location)}`);
 			let isBlackout = (partyPP === partyMaxPP);
 			isBlackout &= (partyDeltaHP > partyMaxHP * 0.95);
-			// isBlackout &= prev.location
+			isBlackout &= !prev_api.location.equals(curr_api.location);
 			
-			if (partyDeltaPP > 0 && partyDeltaHP > partyMaxHP * 0.95 /*&& location */) {
-				ledger.addItem(new FullHealed('blackout'));
+			if (partyHP === partyMaxHP) {
+				ledger.addItem(new FullHealed(isBlackout?'blackout':null));
 			}
 		}
 	}
@@ -184,11 +188,18 @@ class PartyModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`Don't report blackout revivals individually`)
-	.when(ledger=>ledger.has('FullHealed').ofFlavor('blackout'))
+RULES.push(new Rule(`When fully healing, don't report individual revivals`)
+	.when(ledger=>ledger.has('FullHealed'))
 	.when(ledger=>ledger.has('MonRevived').ofImportance())
 	.then(ledger=>{
 		ledger.demote(1);
+	})
+);
+
+RULES.push(new Rule(`Don't report a full heal after a blackout`)
+	.when(ledger=>ledger.has('FullHealed').ofFlavor('blackout'))
+	.then(ledger=>{
+		ledger.demote(0, 2);
 	})
 );
 
