@@ -4,6 +4,9 @@
 const LOGGER = getLogger('Discord');
 const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
+const EMOJI_CONFIRM = '\u2705'; //':white_check_mark:';
+const EMOJI_DENY = '\u274E'; //':negative_squared_cross_mark:';
+
 const PING_COOLDOWN = 1000*60*60; // 1 hour
 // const STAFF_CHANNEL_SNOWFLAKE = 266878339346726913; //staff channel
 // const STAFF_CHANNEL_SNOWFLAKE = "412122002162188289"; //test channel
@@ -105,8 +108,8 @@ module.exports = {
 	},
 	
 	alertUpdaters(text, ping=false) {
-		if (Bot.taggedIn !== true) return;
-		if (!staffChannel) return;
+		if (Bot.taggedIn !== true) return Promise.reject();
+		if (!staffChannel) return Promise.reject();
 		
 		let group = '';
 		if (ping) {
@@ -116,14 +119,46 @@ module.exports = {
 				lastPing = Date.now();
 			}
 		}
-		staffChannel
+		return staffChannel
 			.send(`${group}${text}`).catch(ERR);
 	},
 	
-	queryUpdaters(text) {
+	queryUpdaters(text, timeout) {
 		if (Bot.taggedIn !== true) return Promise.reject();
 		if (!staffChannel) return Promise.reject();
+		if (!timeout) timeout = 1000 * 60 * 5; //5 minutes
 		
+		let filter = (reaction, user)=> {
+			if (user.id === dbot.user.id) return false;
+			if (reaction.emoji.name === EMOJI_CONFIRM) return true;
+			if (reaction.emoji.name === EMOJI_DENY) return true;
+			return false;
+		};
+		
+		return new Promise((resolve, reject)=>{
+			staffChannel.send(text).catch(ERR)
+				.then((msg)=>{
+					msg.react(EMOJI_CONFIRM);
+					msg.react(EMOJI_DENY);
+					
+					msg.awaitReactions(filter, { time:timeout, maxUsers:3, })
+						.then((collected)=>{
+							let confirm = collected.get(EMOJI_CONFIRM).count;
+							let deny    = collected.get(EMOJI_DENY).count;
+							
+							if (confirm > deny) {
+								resolve({ res:true, msg });
+							} else if (confirm < deny) {
+								resolve({ res:false, msg });
+							} else {
+								resolve({ res:null, msg });
+							}
+						})
+						.catch(ERR);
+				});
+		});
+		
+		/*
 		let resolve, reject, id = generateId();
 		text = text.replace(/#####/gi, id);
 		let p = new Promise((res, rej)=>{
@@ -149,7 +184,8 @@ module.exports = {
 			LOGGER.error('Discord Error:',e);
 		});
 		
-		return p;
+		return p; 
+		*/
 	},
 	getQuery(id) { return queryDict[id]; },
 	

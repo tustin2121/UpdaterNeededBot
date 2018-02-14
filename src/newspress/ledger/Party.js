@@ -233,6 +233,7 @@ class MonNicknameChanged extends PartyItem {
 		if (other.name === 'MonNicknameChanged') {
 			if (this.mon.hash !== other.mon.hash) return false;
 			this.prevNick = other.prevNick; //pull in the eldest previous name
+			if (this.curr == this.prev) return true; //cancels out
 			return this; //coalesce
 		}
 		if (other.name === 'PokemonGained') {

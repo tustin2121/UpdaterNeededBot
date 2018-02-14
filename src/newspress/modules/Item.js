@@ -7,6 +7,8 @@ const {
 	UsedBallInBattle, UsedBerryInBattle,
 } = require('../ledger');
 
+const LOGGER = getLogger('ItemModule');
+
 const RULES = [];
 
 /**   ** Item Module **
@@ -33,13 +35,13 @@ class ItemModule extends ReportingModule {
 		];
 		keySet = new Set(keySet);
 		
-		getLogger('ItemModule').log('keyset', keySet);
+		LOGGER.debug('keyset', keySet);
 		
 		for (let id of keySet) {
 			let item = curr.inv.getData(id) || prev.inv.getData(id);
 			let delta = invDelta[id] || 0;
 			
-			getLogger('ItemModule').log('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			LOGGER.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
 			
 			const gained = invDelta[id] > 0;
 			const dropped = invDelta[id] < 0;
@@ -137,7 +139,7 @@ if (Bot.runOpts('heldItem')) {
 	);
 }
 
-const StoneIds = Bot.runOpts('evoStoneIds'); //TODO
+// const StoneIds = Bot.runOpts('evoStoneIds'); //TODO
 RULES.push(new Rule(`Stones lost during evoltuion have been used.`)
 	// .when(ledger=>ledger.has('MonEvolved'))
 	// .when(ledger=>ledger.has('LostItem').with('item.id', StoneIds))
@@ -147,7 +149,7 @@ RULES.push(new Rule(`Stones lost during evoltuion have been used.`)
 	// })
 );
 
-const tmIds = Bot.runOpts('tmIds'); //TODO
+// const tmIds = Bot.runOpts('tmIds'); //TODO
 RULES.push(new Rule(`TMs lost during move learn over move have been used.`)
 	// .when(ledger=>ledger.has('MonLearnedMoveOverOldMove'))
 	// .when(ledger=>ledger.has('LostItem').with('item.id', StoneIds))

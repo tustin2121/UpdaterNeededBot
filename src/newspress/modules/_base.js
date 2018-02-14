@@ -49,11 +49,15 @@ class Rule {
 			if (inst.getResult() !== true)
 			 	if (res !== true) return; //No match, go no further
 		}
-		LOGGER.debug(`Applying rule "${this.name}"`);
-		for (let res of this.resultBlocks) {
-			res(inst);
+		if (this.resultBlocks.length) {
+			LOGGER.debug(`Applying rule "${this.name}"`);
+			for (let res of this.resultBlocks) {
+				res(inst);
+			}
+			ledger.log.ruleApplied(inst);
+		} else {
+			LOGGER.trace(`Rule "${this.name}" has no results blocks.`);
 		}
-		ledger.log.ruleApplied(inst);
 	}
 	/** Returns this object, for readable chaining. */
 	get and() { return this; }

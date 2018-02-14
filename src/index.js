@@ -41,3 +41,19 @@ process.on('SIGINT', ()=>{
 
 global.Bot = new UpdaterBot(require('../data/runs/s501-dual-gen1'));
 Bot.start();
+
+//*
+setTimeout(()=>{
+	Bot.queryUpdaters("This is a test query. Please confirm or deny this query by using the buttons below.")
+	.then(({ res, msg })=>{
+		let result;
+		if (res === true) {
+			result = 'confirmed';
+		} else if (res === false) {
+			result = 'denied';
+		} else {
+			result = 'ignored';
+		}
+		msg.edit(`~~${msg.content}~~ This query has been ${result}. Thank you for participating in this test.`).catch((e)=>LOGGER.error(e));
+	});
+}, 10*1000); //*/

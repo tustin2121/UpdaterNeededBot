@@ -328,7 +328,11 @@ class UpdaterBot {
 				let dbot = this.staff.dbot;
 				let channel = dbot.channels.get(id);
 				if (!channel) throw new ReferenceError(`Channel [${id}] does not exist!`);
-				let p = channel.send(updateText, {embed: { fields: embed }});
+				if (embed.length) 
+					embed = { embed: { fields: embed } };
+				else 
+					embed = {};
+				let p = channel.send(updateText, embed);
 				return p;
 			} catch (e) {
 				return Promise.reject(e);
@@ -343,11 +347,11 @@ class UpdaterBot {
 	
 	/** Alerts the updating staff channel, with an optional ping. */
 	alertUpdaters(text, ping) {
-		this.staff.alertUpdaters(text, ping);
+		return this.staff.alertUpdaters(text, ping);
 	}
 	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
 	queryUpdaters(text) {
-		this.staff.queryUpdaters(text);
+		return this.staff.queryUpdaters(text);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////

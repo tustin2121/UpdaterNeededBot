@@ -207,7 +207,7 @@ function getPhrase(items) {
 	
 	function resolvePhrase(phrase, item, fill) {
 		if (typeof phrase === 'function') {
-			phrase = phrase(item, { fill });
+			phrase = phrase(item, { fillText:fill });
 		}
 		if (Array.isArray(phrase)) {
 			if (phrase.length === 1) phrase = phrase[0]; //common case
@@ -281,14 +281,14 @@ function typeset(ledger) {
 /** A function that formats the data from the html tags into reddit text formatting. */
 function formatReddit(text) {
 	// Replace the info tag with hover link information
-	text = text.replace(/<info ext="([^\"]+)">(.+?)<\/info>/ig, (match, ext, txt)=>{
-		return `[${txt}](#info ${ext})`;
-	});
 	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
 		return `**${inner}**`;
 	});
 	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
 		return `*${inner}*`;
+	});
+	text = text.replace(/<info ext="([^\"]+)">(.+?)<\/info>/ig, (match, ext, txt)=>{
+		return `[${txt}](#info ${ext})`;
 	});
 	return { text };
 }
@@ -297,6 +297,12 @@ function formatReddit(text) {
 function formatDiscord(text) {
 	let embeds = [];
 	
+	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
+		return `**${inner}**`;
+	});
+	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
+		return `*${inner}*`;
+	});
 	// Replace the info tag with a pointer to the discord embed
 	// If there's more than one, number them.
 	text = text.replace(/<info ext="([^\"]+)">(.+?)<\/info>/ig, (match, ext, txt)=>{
@@ -305,12 +311,6 @@ function formatDiscord(text) {
 			value: ext,
 		});
 		return txt;
-	});
-	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
-		return `**${inner}**`;
-	});
-	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
-		return `*${inner}*`;
 	});
 	return { text, embeds };
 }

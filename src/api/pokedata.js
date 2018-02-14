@@ -201,7 +201,7 @@ class Pokemon {
 		return buf.toString('base64');
 	}
 	loadFromMemory(str) {
-		let buf = Buffer.from(JSON.stringify(obj), 'base64');
+		let buf = Buffer.from(str, 'base64');
 		let obj = JSON.parse(buf.toString('utf8'));
 		for (let key in obj) {
 			this[key] = obj[key];

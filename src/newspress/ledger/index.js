@@ -2,6 +2,7 @@
 // The Ledger class, and exports of all ledger item classes
 
 const hash = require('object-hash');
+const util = require('util');
 
 const { LedgerItem } = require('./base');
 
@@ -141,6 +142,28 @@ class Ledger {
 				this.postponeList.push(x);
 			}
 		}
+	}
+	
+	[util.inspect.custom](depth, opts) {
+		if (depth < 0) {
+			return opts.stylize(`Ledger [${this.list.length}][${this.postponeList.length}]`, 'date');
+		}
+		const newOpts = Object.assign({}, opts, {
+			depth: opts.depth === null ? null : opts.depth - 1
+		});
+		
+		let sb = 'Ledger: [ items:\n';
+		for (let item of this.list) {
+			sb += `  ${util.inspect(item, newOpts)}\n`;
+		}
+		if (this.postponeList.length){
+			sb += '][ postponed:\n';
+			for (let item of this.postponeList) {
+				sb += `  ${util.inspect(item, newOpts)}\n`;
+			}
+		}
+		sb += ']';
+		return sb;
 	}
 }
 Ledger.prototype.add = Ledger.prototype.addItem;

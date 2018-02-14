@@ -37,19 +37,19 @@ class PokemonModule extends ReportingModule {
 		let prev_map = Object.assign({}, prev._map);
 		
 		// Save off valid pokemon boxes in memory and fill in invalid boxes
+		for (let bn = 0; bn < prev._pc.length; bn++) { //Must do previous first before current updates our records
+			if (!prev._pc[bn]) {
+				for (let mon of this.memory.savedBoxes[bn]) {
+					prev_map[mon.hash] = mon;
+				}
+			}
+		}
 		for (let bn = 0; bn < curr._pc.length; bn++) {
 			if (curr._pc[bn]) {
 				this.memory.savedBoxes[bn] = curr._pc[bn].slice();
 			} else {
 				for (let mon of this.memory.savedBoxes[bn]) {
 					curr_map[mon.hash] = mon;
-				}
-			}
-		}
-		for (let bn = 0; bn < prev._pc.length; bn++) {
-			if (prev._pc[bn]) {
-				for (let mon of this.memory.savedBoxes[bn]) {
-					prev_map[mon.hash] = mon;
 				}
 			}
 		}
@@ -98,6 +98,21 @@ class PokemonModule extends ReportingModule {
 		//TODO do a query to the updaters, and handle the event where the bot dies before the query is resolved or timed out
 	}
 }
+
+RULES.push(new Rule('Postpone all Missing Pokemon')
+	.when(ledger=>ledger.has('PokemonIsMissing'))
+	.then(ledger=>{
+		ledger.postpone(0); //Postpone PokemonIsMissing
+	})
+);
+
+RULES.push(new Rule('Postpone reporting of name changes until the end of a battle')
+	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('MonNicknameChanged'))
+	.then(ledger=>{
+		ledger.postpone(1); //Postpone MonNicknameChanged
+	})
+);
 
 RULES.push(new Rule('Postpone reporting of new Pokemon until the end of a battle')
 	.when(ledger=>ledger.has('BattleContext'))

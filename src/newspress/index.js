@@ -1,6 +1,7 @@
 // newspress/index.js
 // The heart of the update reporter system
 
+const { inspect } = require("util");
 const { Ledger } = require('./ledger');
 const { typeset } = require('./typesetter');
 
@@ -27,7 +28,7 @@ class UpdaterPress {
 		}
 		this.modules.sort((a,b)=> a.priority - b.priority );
 		
-		this.lastLedger.loadFromMemory(this.memory.saved_ledger);
+		this.lastLedger.loadFromMemory(this.memory['saved_ledger'+this.gameIndex]);
 	}
 	
 	/** Starts a new ledger and runs an update cycle.  */
@@ -78,12 +79,12 @@ class UpdaterPress {
 			LOGGER.error(`Error in ${mod.constructor.name} final pass!`, e);
 		}
 		
-		LOGGER.debug('Ledger:\n', ledger.list);
+		LOGGER.debug(ledger);
 		
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();
 		this.lastLedger = ledger;
-		this.lastLedger.saveToMemory(this.memory.saved_ledger);
+		this.lastLedger.saveToMemory(this.memory['saved_ledger'+this.gameIndex]);
 		
 		// Pass ledger to the TypeSetter
 		let update = typeset(ledger);
