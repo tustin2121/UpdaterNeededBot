@@ -121,7 +121,7 @@ class UpdaterPress {
 				for (let mon of info.party) {
 					// LOGGER.trace(`mon`,mon);
 					let exInfo = mon.getExtendedInfo();
-					let line = `* [\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}](#info "${exInfo}")`;
+					let line = `* <info ext="${exInfo}">\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}</info>`;
 					if (mon.hp < 100) {
 						if (mon.hp === 0) line += " (fainted)";
 						else line += ` (${mon.hp}% health)`;

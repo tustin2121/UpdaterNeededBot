@@ -328,7 +328,7 @@ class UpdaterBot {
 				let dbot = this.staff.dbot;
 				let channel = dbot.channels.get(id);
 				if (!channel) throw new ReferenceError(`Channel [${id}] does not exist!`);
-				let p = channel.send(updateText, embed);
+				let p = channel.send(updateText, {embed: { fields: embed }});
 				return p;
 			} catch (e) {
 				return Promise.reject(e);

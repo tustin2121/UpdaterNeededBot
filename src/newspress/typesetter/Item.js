@@ -93,4 +93,15 @@ module.exports = {
 			`{{target}} eats {{target|his}} {{item}} in the heat of battle.`,
 		],
 	},
+	UsedEvolutionItem: {
+		// 
+		default: [
+			``, //TODO
+		],
+	},
+	UsedTMItem: {
+		default: [
+			``, //TODO
+		],
+	},
 };

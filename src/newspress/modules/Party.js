@@ -80,9 +80,15 @@ class PartyModule extends ReportingModule {
 			} else if (curr.hp < prev.hp) {
 				ledger.addItem(new MonLostHP(curr, prev.hp));
 			}
+			//*
+			partyMaxHP += curr._hp[1];
+			partyHP += curr._hp[0];
+			partyDeltaHP += curr._hp[0] - prev._hp[0];
+			/*/
 			partyMaxHP += 100;
 			partyHP += curr.hp;
 			partyDeltaHP += curr.hp - prev.hp;
+			//*/
 			
 			// Moves (Learns and PP)
 			{
@@ -167,6 +173,7 @@ class PartyModule extends ReportingModule {
 		}
 		
 		LOGGER.debug(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
+		LOGGER.debug(`PP: pp=${partyPP} max=${partyMaxPP} delta=${partyDeltaPP}`);
 		if (partyDeltaHP < 0) { // if HP has been lost
 			if (partyHP === 0) { // If there's no HP in the party, we're definitely blacked out
 				ledger.addItem(new Blackout());

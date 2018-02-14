@@ -137,6 +137,34 @@ if (Bot.runOpts('heldItem')) {
 	);
 }
 
+const StoneIds = Bot.runOpts('evoStoneIds'); //TODO
+RULES.push(new Rule(`Stones lost during evoltuion have been used.`)
+	// .when(ledger=>ledger.has('MonEvolved'))
+	// .when(ledger=>ledger.has('LostItem').with('item.id', StoneIds))
+	// .then(ledger=>{
+	// 	let evo = ledger.get(0)[0];
+	// 	ledger.remove(1).forEach(x=> ledger.add(new UsedEvolutionItem(x.item, evo.mon)));
+	// })
+);
+
+const tmIds = Bot.runOpts('tmIds'); //TODO
+RULES.push(new Rule(`TMs lost during move learn over move have been used.`)
+	// .when(ledger=>ledger.has('MonLearnedMoveOverOldMove'))
+	// .when(ledger=>ledger.has('LostItem').with('item.id', StoneIds))
+	// .then(ledger=>{
+	// 	let moveLearn = ledger.get(0)[0];
+	// 	ledger.remove(1).forEach(x=> ledger.add(new UsedTMItem(x.item, moveLearn.mon)));
+	// })
+);
+RULES.push(new Rule(`TMs lost during move learn have been used.`)
+	// .when(ledger=>ledger.has('MonLearned'))
+	// .when(ledger=>ledger.has('LostItem').with('item.id', StoneIds))
+	// .then(ledger=>{
+	// 	let moveLearn = ledger.get(0)[0];
+	// 	ledger.remove(1).forEach(x=> ledger.add(new UsedTMItem(x.item, moveLearn.mon)));
+	// })
+);
+
 //////////////////////////////////////////////////////////////////////////
 // Item aquisition categorization
 

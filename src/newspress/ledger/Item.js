@@ -67,7 +67,29 @@ class UsedBerryInBattle extends LedgerItem {
 	get enemy(){ return this.mon; }
 }
 
+/** Indicates that an evolution stone has been used. */
+class UsedEvolutionItem extends LedgerItem {
+	constructor(item, mon) {
+		super(1);
+		this.item = item;
+		this.mon = mon;
+	}
+	get target(){ return this.mon; }
+	get enemy(){ return this.mon; }
+}
+
+/** Indicates that an evolution stone has been used. */
+class UsedTMItem extends LedgerItem {
+	constructor(item, mon) {
+		super(1);
+		this.item = item;
+		this.mon = mon;
+	}
+	get target(){ return this.mon; }
+	get enemy(){ return this.mon; }
+}
+
 module.exports = {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
-	UsedBallInBattle, UsedBerryInBattle,
+	UsedBallInBattle, UsedBerryInBattle, UsedEvolutionItem, UsedTMItem,
 };
