@@ -48,7 +48,7 @@ module.exports = {
 		// The irc channel to join when connected via irc (auth data is in the auth folder)
 		chatChannel: "#twitchplayspokemon",
 		// The regex
-		inputMatch: /(([abxylrnsew]|up|down|left|right|start|select)\+?)+\-?/i,
+		inputMatch: /((up|down|left|right|start|select|[abxylrnsew])\+?)+?\-?/i,
 		// The map of chat inputs. true = this is an input, string = redirect to said input
 		inputMap: {
 			'up': true, 'down': true, 'left': true, 'right': true,

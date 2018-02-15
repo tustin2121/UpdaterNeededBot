@@ -3,10 +3,8 @@
 
 const fs = require("fs");
 const path = require('path');
-const mkdirp = require('mkdirp');
 const auth = require('../.auth');
 
-const Discord = require("discord.js");
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
@@ -328,9 +326,9 @@ class UpdaterBot {
 				let dbot = this.staff.dbot;
 				let channel = dbot.channels.get(id);
 				if (!channel) throw new ReferenceError(`Channel [${id}] does not exist!`);
-				if (embed.length) 
+				if (embed.length)
 					embed = { embed: { fields: embed } };
-				else 
+				else
 					embed = {};
 				let p = channel.send(updateText, embed);
 				return p;

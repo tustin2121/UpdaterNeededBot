@@ -41,9 +41,9 @@ let dbot = new discord.Client({
 		// 'GUILD_UPDATE',
 		// 'GUILD_MEMBER_ADD',
 		// 'GUILD_MEMBER_REMOVE',
-		'MESSAGE_REACTION_ADD',
-		'MESSAGE_REACTION_REMOVE',
-		'MESSAGE_REACTION_REMOVE_ALL',
+		// 'MESSAGE_REACTION_ADD',
+		// 'MESSAGE_REACTION_REMOVE',
+		// 'MESSAGE_REACTION_REMOVE_ALL',
 		'VOICE_STATE_UPDATE',
 		'TYPING_START',
 		'VOICE_SERVER_UPDATE',
@@ -184,7 +184,7 @@ module.exports = {
 			LOGGER.error('Discord Error:',e);
 		});
 		
-		return p; 
+		return p;
 		*/
 	},
 	getQuery(id) { return queryDict[id]; },
