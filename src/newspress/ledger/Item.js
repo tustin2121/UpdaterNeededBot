@@ -2,7 +2,7 @@
 // Various ledger items related to pokemon themselves
 
 const { LedgerItem } = require('./base');
-const { Pokemon } = require('../../api/pokedata');
+const { Pokemon, SortedBattle } = require('../../api/pokedata');
 
 /////////////////// Basic Items ///////////////////
 
@@ -46,16 +46,23 @@ class RetrievedItemFromPC extends LedgerItem {
 
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
-	constructor(item, battle, amount=1) {
+	constructor(item, x, amount=1) {
 		super(1);
 		this.item = item;
 		this.amount = amount;
-		this.battle = battle;
-		// this.flavor = battle.trainer?'trainer':null; //TODO
+		if (x instanceof SortedBattle) {
+			this.battle = x;
+			// this.flavor = battle.trainer?'trainer':null; //TODO
+		} else if (x instanceof Pokemon) {
+			this.mon = x;
+		}
 	}
-	get target(){ return this.battle.active[0]; }
-	get enemy(){ return this.battle.active[0]; }
-	get trainer(){ return this.battle.trainer && this.battle.trainer[0]; }
+	get target(){ return this.mon || this.battle.active[0]; }
+	get enemy(){ return this.mon || this.battle.active[0]; }
+	get trainer(){ //shouldn't be called unless it's a trainer flavor
+		if (!this.battle) return null;
+		return this.battle.trainer && this.battle.trainer[0]; 
+	}
 }
 
 /** Indicates that an pokeball has been used in battle. */
