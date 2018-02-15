@@ -79,7 +79,7 @@ class UpdaterPress {
 			LOGGER.error(`Error in ${mod.constructor.name} final pass!`, e);
 		}
 		
-		LOGGER.debug(ledger);
+		LOGGER.note(ledger);
 		
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();

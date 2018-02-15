@@ -177,7 +177,7 @@ class UpdaterBot {
 	 * then posts the update at the end of it, if there is an update to post.
 	 */
 	run() {
-		LOGGER.debug(`============ Update Cycle ============`);
+		LOGGER.note(`============ Update Cycle ============`);
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();

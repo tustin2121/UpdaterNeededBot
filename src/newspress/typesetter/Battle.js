@@ -22,7 +22,14 @@ module.exports = {
 		},
 	},
 	
-	BattleEnded: null, //TODO
+	BattleEnded: {
+		//TODO
+		default: null,
+		ended: [
+			`<b>We defeat {{battle.displayName}}!</b>`,
+			`<b>Defeated {{battle.displayName}}!</b>`,
+		],
+	}, 
 	EnemyFainted: null, //TODO
 	
 	BadgeGet: {

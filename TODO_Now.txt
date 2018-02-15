@@ -1,0 +1,5 @@
+- Add battle start updater pings!
+- Blackout detection!
+- Ignore Rematch attempt counting on gym leaders (check if they have the badge already).
+- Collate shopping trips by postponing GainItem items.
+- Make a map.

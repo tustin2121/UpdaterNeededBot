@@ -72,4 +72,12 @@ class BattleModule extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule(`Don't report battles end due to blackout`)
+	.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').ofImportance())
+	.when(ledger=>ledger.has('Blackout'))
+	.then(ledger=>{
+		ledger.demote(0, 2);
+	})
+);
+
 module.exports = BattleModule;
