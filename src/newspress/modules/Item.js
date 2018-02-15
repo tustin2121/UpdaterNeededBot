@@ -114,10 +114,9 @@ RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 	.when(ledger=>ledger.has('LostItem').with('item.id', BallIds))
 	.then(ledger=>{
 		let context = ledger.get(0)[0];
-		ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle.active[0], x.amount)));
+		ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle, x.amount)));
 	})
 );
-
 RULES.push(new Rule(`Pokeballs lost when a pokemon has been gained have been thrown.`)
 	.when(ledger=>ledger.has('PokemonGained'))
 	.when(ledger=>ledger.has('LostItem').with('item.id', BallIds))

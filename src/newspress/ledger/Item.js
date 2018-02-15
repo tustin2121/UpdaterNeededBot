@@ -46,14 +46,16 @@ class RetrievedItemFromPC extends LedgerItem {
 
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
-	constructor(item, mon, amount=1) {
+	constructor(item, battle, amount=1) {
 		super(1);
 		this.item = item;
 		this.amount = amount;
-		this.mon = mon;
+		this.battle = battle;
+		// this.flavor = battle.trainer?'trainer':null; //TODO
 	}
-	get target(){ return this.mon; }
-	get enemy(){ return this.mon; }
+	get target(){ return this.battle.active[0]; }
+	get enemy(){ return this.battle.active[0]; }
+	get trainer(){ return this.battle.trainer && this.battle.trainer[0]; }
 }
 
 /** Indicates that an pokeball has been used in battle. */
@@ -64,7 +66,6 @@ class UsedBerryInBattle extends LedgerItem {
 		this.mon = mon;
 	}
 	get target(){ return this.mon; }
-	get enemy(){ return this.mon; }
 }
 
 /** Indicates that an evolution stone has been used. */
@@ -75,7 +76,6 @@ class UsedEvolutionItem extends LedgerItem {
 		this.mon = mon;
 	}
 	get target(){ return this.mon; }
-	get enemy(){ return this.mon; }
 }
 
 /** Indicates that an evolution stone has been used. */

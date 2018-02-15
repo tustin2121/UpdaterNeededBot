@@ -587,7 +587,11 @@ class SortedBattle {
 				this.party.push(poke);
 			}
 		}
-		if (this.party) this.active = this.party.filter(p=>p.active);
+		if (this.party) {
+			this.active = this.party.filter(p=>p.active);
+			// If there's no mon marked active, assume the first healthy mon
+			if (this.active.length == 0) this.active = [this.party.filter(p=>p.hp !== 0)[0]];
+		}
 		
 		// Determine trainer classes
 		this.isImportant = false;
