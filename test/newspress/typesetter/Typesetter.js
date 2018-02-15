@@ -67,4 +67,120 @@ describe('TypeSetter', function(){
 			res.should.equal(exp);
 		});
 	});
+	
+	describe('formatFor', function(){
+		const formatReddit = TypeSetter.formatFor.reddt;
+		const formatDiscord = TypeSetter.formatFor.discord;
+		
+		it('should handle <b>bold</b> tags (Reddit)', function(){
+			const exp = `Hello world **and all** good people **faces**.`;
+			const pre = `Hello world <b>and all</b> good people <b>faces</b>.`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <b>bold</b> tags (Discord)', function(){
+			const exp = `Hello world **and all** good people **faces**.`;
+			const pre = `Hello world <b>and all</b> good people <b>faces</b>.`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp);
+			res.embeds.should.be.an.Array().with.length(0);
+		});
+		
+		it('should handle <i>italics</i> tags (Reddit)', function(){
+			const exp = `Hello world *and all* good people *faces*.`;
+			const pre = `Hello world <i>and all</i> good people <i>faces</i>.`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <i>italics</i> tags (Discord)', function(){
+			const exp = `Hello world *and all* good people *faces*.`;
+			const pre = `Hello world <i>and all</i> good people <i>faces</i>.`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp);
+			res.embeds.should.be.an.Array().with.length(0);
+		});
+		
+		it('should handle <info>info</info> tags (Reddit)', function(){
+			const exp = `This is a [test](#info "of the emergency broadcast system").`;
+			const pre = `This is a <info ext="of the emergency broadcast system">test</info>.`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <info>info</info> tags (Discord)', function(){
+			const exp1 = `This is a test.`;
+			const exp2 = [{ name:'test', value:'of the emergency broadcast system' }];
+			const pre = `This is a <info ext="of the emergency broadcast system">test</info>.`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp1);
+			res.embeds.should.be.an.Array().with.length(1);
+			res.embeds.should.deepEqual(exp2);
+		});
+		
+		it('should handle <info>info</info> inside <b>bold</b> tags (Reddit)', function(){
+			const exp = `**This is a [test](#info "of the emergency broadcast system").**`;
+			const pre = `<b>This is a <info ext="of the emergency broadcast system">test</info>.</b>`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <info>info</info> inside <b>bold</b> tags (Discord)', function(){
+			const exp1 = `**This is a test.**`;
+			const exp2 = [{ name:'test', value:'of the emergency broadcast system' }];
+			const pre = `<b>This is a <info ext="of the emergency broadcast system">test</info>.</b>`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp1);
+			res.embeds.should.be.an.Array().with.length(1);
+			res.embeds.should.deepEqual(exp2);
+		});
+		
+		it('should handle <info>multiline info</info> inside <b>bold</b> tags (Reddit)', function(){
+			const exp = `**This is a [test](#info "of the emergency\nbroadcast\nsystem").**`;
+			const pre = `<b>This is a <info ext="of the emergency\nbroadcast\nsystem">test</info>.</b>`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <info>multiline info</info> inside <b>bold</b> tags (Discord)', function(){
+			const exp1 = `**This is a test.**`;
+			const exp2 = [{ name:'test', value:'of the emergency\nbroadcast\nsystem' }];
+			const pre = `<b>This is a <info ext="of the emergency\nbroadcast\nsystem">test</info>.</b>`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp1);
+			res.embeds.should.be.an.Array().with.length(1);
+			res.embeds.should.deepEqual(exp2);
+		});
+	});
 });
