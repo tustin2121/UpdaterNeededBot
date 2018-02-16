@@ -93,10 +93,27 @@ module.exports = {
 			`{{target}} eats {{target|his}} {{item}} in the heat of battle.`,
 		],
 	},
-	UsedEvolutionItem: {
+	UsedItemOnMon: {
 		// 
 		default: [
-			``, //TODO
+			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
+		],
+		hpheal: [
+			`<b>We heal {{target}} with {{item|an}} {{item}}!</b>`,
+		],
+		ppheal: [
+			`We restore the PP of {{target}}'s {{move}} with <b>{{item|an}} {{item}}!</b>`,
+			`We restore {{target}}'s {{move}} PP with <b>{{item|an}} {{item}}!</b>`,
+		],
+		pphealAll: [
+			`We restore the PP of {{target}}'s moves with <b>{{item|an}} {{item}}!</b>`,
+			`We restore {{target}}'s move PP with <b>{{item|an}} {{item}}!</b>`,
+		],
+		evostone: [
+			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
+		],
+		tm: [
+			`We boot up a {{item}}.`,
 		],
 	},
 	UsedTMItem: {

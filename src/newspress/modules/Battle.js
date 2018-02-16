@@ -122,7 +122,7 @@ RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
 		let b = ledger.get(0);
 		b.forEach(x=>x.flavor = 'processed');
 		let ctx = new BlackoutContext(ledger.get(0)[0]);
-		if (ledger.ledger.findAllItemsWithName('BattleContext').length) {
+		if (ctx.ttl !== BlackoutContext.STARTING_TTL && ledger.ledger.findAllItemsWithName('BattleContext').length) {
 			// Don't decrement if we've got a Battle Context still
 			ctx.ttl++;
 		}

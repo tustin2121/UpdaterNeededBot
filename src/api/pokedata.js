@@ -141,7 +141,7 @@ class Pokemon {
 		// Fix shedinja bug:
 		if (this.species.toLowerCase() === `shedinja`) this.hash++;
 		
-		this.ot = read(mon, `original_trainer`);
+		this.ot = read(mon, `original_trainer`) || {};
 		
 		this.dexid = read(mon.species, `national_dex`) || this.dexid;
 		this.types.push(mon.species.type1);
@@ -218,6 +218,13 @@ class Pokemon {
 		return `${this.name} (${this.species})`;
 	}
 	
+	get isTraded() {
+		let res = (this.ot.id === Bot.gameInfo(this.game).trainer.id);
+		if (Bot.gameInfo(this.game).gen > 1)
+			res &= this.ot.secret === Bot.gameInfo(this.game).trainer.secret
+		return !res;
+	}
+	
 	get gender() {
 		if (!Bot.runOpts('gender')) return '';
 		switch(this._gender.toLowerCase()) {
@@ -273,6 +280,7 @@ class Pokemon {
 		}
 		
 		let f = [];
+		if (this.isTraded) f.push(`Traded - OT: ${this.ot.name}`);
 		if (Bot.runOpts('pokerus') && this.pokerus) f.push(`Has PokeRus`);
 		if (Bot.runOpts('shiny') && this.shiny) f.push('Shiny');
 		if (Bot.runOpts('sparkly') && this.sparkly) f.push('Sparkly (N\'s Pokemon)');

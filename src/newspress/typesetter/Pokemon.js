@@ -74,7 +74,7 @@ module.exports = {
 			if (mon.nicknamed) txt += ` Nickname: \`${mon.name}\``;
 			else txt += ` No nickname.`;
 			
-			if (Bot.gameInfo(mon.game).trainer.id === mon.ot.id && Bot.gameInfo(mon.game).trainer.secret === mon.ot.secret) {
+			if (!mon.isTraded) {
 				txt += fillText(` Thanks for taking care of {{mon|him}}!`, item);
 			} else {
 				txt += fillText(` Taking care of {{pastMon.name}}!`, item);

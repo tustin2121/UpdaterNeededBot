@@ -188,22 +188,21 @@ function getPhrase(items) {
 	if (pentry === null) return null; //Skip this item
 	
 	// If this phrase entry has multi support (it will be an object with 'multi' and 'item' entries)
-	if (pentry.multi && pentry.item) {
-		// If there's only one item, use the 'single' entry
-		if (items.length === 1) {
-			return resolvePhrase(pentry.single || pentry.item, items[0], fillText);
-		}
-		// Multiple items
-		else {
+	if (pentry.single || pentry.multi || pentry.item) {
+		// If there's multiple items, and we support multiple item formatting
+		if (items.length > 0 && pentry.multi && pentry.item) {
 			let phraseList = items.map(item=> resolvePhrase(pentry.item, item, fillText)).filter(x=>x);
 			return resolvePhrase(pentry.multi, phraseList, fillMulti);
 		}
+		if (pentry.single) {
+			return items.map(item=>resolvePhrase(pentry.single, item, fillText)).filter(x=>x).join(' ');
+		}
+		if (pentry.item) { //should never happen
+			return items.map(item=>resolvePhrase(pentry.item, item, fillText)).filter(x=>x).join(' ');
+		}
 	}
 	// If this phrase entry does not have multi support:
-	else {
-		return items.map(item=> resolvePhrase(pentry, item, fillText)).filter(x=>x).join(' ');
-	}
-	return null; //eslint-disable-line no-unreachable
+	return items.map(item=> resolvePhrase(pentry, item, fillText)).filter(x=>x).join(' ');
 	
 	function resolvePhrase(phrase, item, fill) {
 		if (typeof phrase === 'function') {

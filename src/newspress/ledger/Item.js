@@ -47,7 +47,7 @@ class RetrievedItemFromPC extends LedgerItem {
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
 	constructor(item, x, amount=1) {
-		super(1, {sort:10}); //before PokemonGained
+		super(1, { sort:10 }); //before PokemonGained
 		this.item = item;
 		this.amount = amount;
 		if (x instanceof SortedBattle) {
@@ -75,28 +75,20 @@ class UsedBerryInBattle extends LedgerItem {
 	get target(){ return this.mon; }
 }
 
-/** Indicates that an evolution stone has been used. */
-class UsedEvolutionItem extends LedgerItem {
-	constructor(item, mon) {
-		super(1);
+/** Indicates that an item has been used on a pokemon. */
+class UsedItemOnMon extends LedgerItem {
+	constructor(type, item, mon, extra) {
+		super(1, { flavor:type, sort:10 }); //before move learns and stuff
 		this.item = item;
 		this.mon = mon;
+		this.extra = extra;
 	}
 	get target(){ return this.mon; }
-}
-
-/** Indicates that an evolution stone has been used. */
-class UsedTMItem extends LedgerItem {
-	constructor(item, mon) {
-		super(1);
-		this.item = item;
-		this.mon = mon;
-	}
-	get target(){ return this.mon; }
-	get enemy(){ return this.mon; }
+	get move(){ return this.extra; } //string
+	get moveLearn(){ return this.extra; } //MonLearnedMoveOverOldMove or MonLearned item
 }
 
 module.exports = {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
-	UsedBallInBattle, UsedBerryInBattle, UsedEvolutionItem, UsedTMItem,
+	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
 };
