@@ -50,7 +50,7 @@ class PartyModule extends ReportingModule {
 			// Level up
 			LOGGER.trace(`level: prev.level < curr.level`, prev.level, curr.level, prev.level < curr.level);
 			if (prev.level !== curr.level) {
-				ledger.addItem(new MonLeveledUp(curr, curr.level));
+				ledger.addItem(new MonLeveledUp(curr, prev.level));
 			}
 			
 			// Evolution, Hatching
