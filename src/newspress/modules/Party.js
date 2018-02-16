@@ -146,17 +146,6 @@ class PartyModule extends ReportingModule {
 				}
 			}
 			
-			// Items
-			if (Bot.runOpts('heldItem')) {
-				if (!prev.item.id && curr.item.id) {
-					ledger.addItem(new MonGiveItem(curr, curr.item));
-				} else if (prev.item.id && !curr.item.id) {
-					ledger.addItem(new MonTakeItem(curr, prev.item));
-				} else if (prev.item.id !== curr.item.id) {
-					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
-				}
-			}
-			
 			// Now things that don't usually randomly change
 			if (Bot.runOpts('shiny') && prev.shiny !== curr.shiny) {
 				ledger.addItem(new MonShinyChanged(curr));
@@ -167,9 +156,8 @@ class PartyModule extends ReportingModule {
 			if (Bot.runOpts('abilities') && prev.ability !== curr.ability) {
 				ledger.addItem(new MonAbilityChanged(curr, prev.ability));
 			}
-			if (prev.name !== curr.name) {
-				ledger.addItem(new MonNicknameChanged(curr, prev.name, prev.nicknamed));
-			}
+			// Name changes are handled by the Pokemon Module
+			// Held item changes are handled by the Pokemon Module
 		}
 		
 		LOGGER.debug(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
@@ -214,22 +202,6 @@ RULES.push(new Rule(`Full heals the moment the battle ends indicate a blackout.`
 	.when(ledger=>ledger.hasnt('Blackout'))
 	.then(ledger=>{
 		ledger.add(new Blackout());
-	})
-);
-
-RULES.push(new Rule(`Don't report a full heal after a blackout`)
-	.when(ledger=>ledger.has('BlackoutContext'))
-	.when(ledger=>ledger.has('FullHealed'))
-	.then(ledger=>{
-		ledger.demote(1, 2);
-	})
-);
-
-RULES.push(new Rule(`Don't report a won battle after a blackout`)
-	.when(ledger=>ledger.has('BlackoutContext'))
-	.when(ledger=>ledger.has('BattleEnded'))
-	.then(ledger=>{
-		ledger.demote(1, 2);
 	})
 );
 

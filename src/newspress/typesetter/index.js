@@ -207,7 +207,7 @@ function getPhrase(items) {
 	
 	function resolvePhrase(phrase, item, fill) {
 		if (typeof phrase === 'function') {
-			phrase = phrase(item, { fillText:fill });
+			phrase = phrase(item, { fillText });
 		}
 		if (Array.isArray(phrase)) {
 			if (phrase.length === 1) phrase = phrase[0]; //common case

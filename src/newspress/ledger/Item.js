@@ -47,7 +47,7 @@ class RetrievedItemFromPC extends LedgerItem {
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
 	constructor(item, x, amount=1) {
-		super(1);
+		super(1, {sort:10}); //before PokemonGained
 		this.item = item;
 		this.amount = amount;
 		if (x instanceof SortedBattle) {

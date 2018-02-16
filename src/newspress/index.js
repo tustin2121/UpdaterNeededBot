@@ -129,10 +129,11 @@ class UpdaterPress {
 					}
 					out.push(line);
 				}
+				let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
 				if (info.level_cap != 100) {
-					return `[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
+					return `${prefix}[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
 				} else {
-					return `[Info] Current Party:\n\n${out.join('\n')}`;
+					return `${prefix}[Info] Current Party:\n\n${out.join('\n')}`;
 				}
 			}
 		} catch (e) {
@@ -177,9 +178,7 @@ class UpdaterPressPool {
 		}
 		let lines = [];
 		for (let press of this.pool) {
-			let u = press.generateUpdate(type);
-			let prefix = (Bot.gameInfo(press.gameIndex).prefix)+' ' || '';
-			lines.push(`${prefix}${u}`);
+			lines.push(press.generateUpdate(type));
 		}
 		return lines.join('\n\n');
 	}

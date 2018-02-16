@@ -76,6 +76,22 @@ class BattleModule extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule(`Don't report a full heal after a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('FullHealed').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
+RULES.push(new Rule(`Don't report a won battle after a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('BattleEnded').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
 RULES.push(new Rule(`Don't report battles ending due to blackout`)
 	.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').ofImportance())
 	.when(ledger=>ledger.has('Blackout'))
@@ -84,7 +100,15 @@ RULES.push(new Rule(`Don't report battles ending due to blackout`)
 	})
 );
 
-RULES.push(new Rule(`Blackouts need a BlackoutContext`)
+RULES.push(new Rule(`Don't double report a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl < BlackoutContext.STARTING_TTL))
+	.when(ledger=>ledger.has('Blackout').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
+RULES.push(new Rule(`Blackouts spawn a BlackoutContext`)
 	.when(ledger=>ledger.has('Blackout'))
 	.when(ledger=>ledger.hasnt('BlackoutContext'))
 	.then(ledger=>{
@@ -96,8 +120,13 @@ RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
 	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl > 0).ofNoFlavor())
 	.then(ledger=>{
 		let b = ledger.get(0);
-		b.flavor = 'processed';
-		ledger.ledger.postponeItem(new BlackoutContext(ledger.get(0)[0]));
+		b.forEach(x=>x.flavor = 'processed');
+		let ctx = new BlackoutContext(ledger.get(0)[0]);
+		if (ledger.ledger.findAllItemsWithName('BattleContext').length) {
+			// Don't decrement if we've got a Battle Context still
+			ctx.ttl++;
+		}
+		ledger.ledger.postponeItem(ctx);
 	})
 );
 

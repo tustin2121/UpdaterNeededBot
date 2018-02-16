@@ -64,11 +64,16 @@ class Blackout extends LedgerItem {
 
 /** Indicates we blacked out in the previous . */
 class BlackoutContext extends LedgerItem {
-	constructor(oldContext={}) {
+	constructor(oldContext) {
 		super(0);
-		this.ttl = oldContext.ttl-1 || 4; //TimeToLive = postpone for x update cycles after
+		if (oldContext) {
+			this.ttl = oldContext.ttl-1;
+		} else {
+			this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+		}
 	}
 }
+BlackoutContext.STARTING_TTL = 4;
 
 /** Indicates we have been fully healed. */
 class FullHealed extends LedgerItem {

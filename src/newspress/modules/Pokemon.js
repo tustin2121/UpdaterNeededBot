@@ -3,7 +3,7 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	PokemonGained, PokemonIsMissing,
+	PokemonGained, PokemonIsMissing, PokemonTraded, PokemonDeposited, PokemonRetrieved,
 	MonGiveItem, MonTakeItem, MonSwapItem,
 	MonNicknameChanged,
 	ApiDisturbance,
@@ -57,8 +57,7 @@ class PokemonModule extends ReportingModule {
 		// Determine deltas
 		let added   = Object.keys(curr_map).filter(x=> !prev_map[x]).map(x=>curr_map[x]);
 		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
-		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).filter(x=>!curr_map[x].storedIn.startsWith('party'))
-			.map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
+		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
 			
 		LOGGER.debug(`deltas: add=`, added, ` removed=`, removed);
 		
@@ -85,6 +84,26 @@ class PokemonModule extends ReportingModule {
 					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
 				}
 			}
+			// Location changes
+			if (prev.storedIn !== curr.storedIn) {
+				if (prev.storedIn.startsWith('party') && !curr.storedIn.startsWith('party')) {
+					if (curr.storedIn.startsWith('box')) {
+						ledger.addItem(new PokemonDeposited(curr, prev.storedIn, 'pc'));
+					} 
+					else if (curr.storedIn.startsWith('daycare')) {
+						ledger.addItem(new PokemonDeposited(curr, prev.storedIn, 'daycare'));
+					} 
+					//TODO Poke islands in Gen 7?
+				} 
+				else if (prev.storedIn.startsWith('box') && curr.storedIn.startsWith('party')) {
+					ledger.addItem(new PokemonRetrieved(curr, prev.storedIn, 'pc'));
+				} 
+				else if (prev.storedIn.startsWith('daycare') && curr.storedIn.startsWith('party')) {
+					ledger.addItem(new PokemonRetrieved(curr, prev.storedIn, 'daycare'));
+				} 
+				//TODO Poke islands in Gen 7?
+				// Cannot cross from box directly into daycare or visaversa
+			}
 		}
 	}
 	
@@ -98,6 +117,21 @@ class PokemonModule extends ReportingModule {
 		//TODO do a query to the updaters, and handle the event where the bot dies before the query is resolved or timed out
 	}
 }
+
+RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPokemon are traded')
+	.when(ledger=>ledger.has('PokemonIsMissing'))
+	.when(ledger=>ledger.has('PokemonGained').withSame('mon.storedIn'))
+	.then(ledger=>{
+		let MIA = ledger.remove(0);
+		let NEW = ledger.remove(1);
+		if (MIA.length !== NEW.length) {
+			LOGGER.error('Invalid Rule Application: Number of PokemonIsMissing does not match number of PokemonGained!', MIA, NEW);
+		}
+		for (let i = 0; i < MIA.length && i < NEW.length; i++) {
+			ledger.add(new PokemonTraded(NEW[i], MIA[i]));
+		}
+	})
+);
 
 RULES.push(new Rule('Postpone all Missing Pokemon')
 	.when(ledger=>ledger.has('PokemonIsMissing'))
@@ -119,6 +153,14 @@ RULES.push(new Rule('Postpone reporting of new Pokemon until the end of a battle
 	.when(ledger=>ledger.has('PokemonGained'))
 	.then(ledger=>{
 		ledger.postpone(1); //Postpone PokemonGained
+	})
+);
+
+RULES.push(new Rule('Do not report any name changes when a pokemon is caught')
+	.when(ledger=>ledger.has('PokemonGained'))
+	.when(ledger=>ledger.has('MonNicknameChanged'))
+	.then(ledger=>{
+		ledger.remove(1); //Remove MonNicknameChanged, if there are any left after postpone cancellation
 	})
 );
 

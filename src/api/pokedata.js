@@ -85,7 +85,7 @@ class HeldItem {
 }
 
 class Pokemon {
-	constructor(mon) {
+	constructor(mon, game=0) {
 		this.name = '';
 		this.species = '';
 		this.nicknamed = false;
@@ -105,12 +105,14 @@ class Pokemon {
 			this._stats = {atk:0,def:0,hp:0,spl:0,spe:0};
 		}
 		
+		this.ot = {};
+		
 		this.dexid = -1;
 		this.types = [];
 		
 		this.level = 0;
 		this.item = null;
-		this.storedIn = {};
+		this.storedIn = '';
 		
 		this.shiny = false;
 		this.sparkly = false;
@@ -122,6 +124,7 @@ class Pokemon {
 		this.fitness = 0;
 		
 		this.hash = 0;
+		this.game = game; //the game this pokemon belongs to
 		
 		if (typeof mon === 'string') {
 			this.loadFromMemory(mon);
@@ -137,6 +140,8 @@ class Pokemon {
 		
 		// Fix shedinja bug:
 		if (this.species.toLowerCase() === `shedinja`) this.hash++;
+		
+		this.ot = read(mon, `original_trainer`);
 		
 		this.dexid = read(mon.species, `national_dex`) || this.dexid;
 		this.types.push(mon.species.type1);
@@ -374,7 +379,7 @@ class SortedPokemon {
 		
 		if (data.party) {
 			for (let i = 0; i < data.party.length; i++) {
-				let p = new Pokemon(data.party[i]);
+				let p = new Pokemon(data.party[i], game);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
 				this._party.push(p);
@@ -389,7 +394,7 @@ class SortedPokemon {
 				}
 				let b = [];
 				for (let i = 0; i < box.box_contents.length; i++) {
-					let p = new Pokemon(box.box_contents[i]);
+					let p = new Pokemon(box.box_contents[i], game);
 					p.storedIn = `box:${box.box_number||bn}-${box.box_contents[i].box_slot||i}`;
 					this._map[p.hash] = p;
 					b.push(p);
@@ -399,7 +404,7 @@ class SortedPokemon {
 		}
 		if (data.daycare) {
 			for (let i = 0; i < data.daycare.length; i++) {
-				let p = new Pokemon(data.daycare[i]);
+				let p = new Pokemon(data.daycare[i], game);
 				p.storedIn = 'daycare:'+i;
 				this._map[p.hash] = p;
 				this._daycare.push(p);
@@ -658,12 +663,12 @@ class SortedData {
 		
 		this.level_cap = data.level_cap || 100;
 		
-		this._location = new SortedLocation(data);
+		this._location = new SortedLocation(data, game);
 		
 		this._pokemon = new SortedPokemon(data, game);
-		this._inventory = new SortedInventory(data);
+		this._inventory = new SortedInventory(data, game);
 		
-		this._battle = new SortedBattle(data);
+		this._battle = new SortedBattle(data, game);
 		
 		// badges
 		this.badges = {};
