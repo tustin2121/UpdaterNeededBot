@@ -102,6 +102,13 @@ class RuleInstance {
 		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
+	/** Checks the ledger for one or more items with the given name. */
+	hasnt(itemName) {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.ledger.findAllItemsWithName(itemName);
+		this.lastResult = (this.workingList.length === 0);
+		return this;
+	}
 	/**
 	 * Filters a previously found list of items to ones with the given property set to
 	 * one of the the given values.
@@ -160,6 +167,25 @@ class RuleInstance {
 		}
 		this.workingList = Array.from(keep);
 		this.lastResult = (this.workingList.length > 0 && this.matchedItems[asIdx].length > 0);
+		return this;
+	}
+	/**
+	 * Filters a previous found list of items to ones which pass the given lambda test
+	 */
+	which(fn) {
+		if (this.lastResult === false) return this; //do nothing
+		if (!this.workingList || !this.workingList.length) {
+			this.lastResult = false;
+			return this;
+		}
+		if (typeof fn !== 'function') throw new TypeError('Must pass a function!');
+		let list = this.workingList;
+		this.workingList = [];
+		for (let item of list) {
+			if (!fn(item)) continue;
+			this.workingList.push(item);
+		}
+		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
 	/**

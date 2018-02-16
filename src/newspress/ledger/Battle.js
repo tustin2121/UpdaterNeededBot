@@ -55,6 +55,28 @@ class EnemyFainted extends LedgerItem {
 	}
 }
 
+/** Indicates we blacked out. */
+class Blackout extends LedgerItem {
+	constructor(type) {
+		super(2, {flavor:type, sort:20});
+	}
+}
+
+/** Indicates we blacked out in the previous . */
+class BlackoutContext extends LedgerItem {
+	constructor(oldContext={}) {
+		super(0);
+		this.ttl = oldContext.ttl-1 || 4; //TimeToLive = postpone for x update cycles after
+	}
+}
+
+/** Indicates we have been fully healed. */
+class FullHealed extends LedgerItem {
+	constructor(type) {
+		super(2, {flavor:type});
+	}
+}
+
 /**
  */
 class BadgeGet extends LedgerItem {
@@ -70,5 +92,6 @@ class BadgeGet extends LedgerItem {
 
 module.exports = {
 	BattleContext, BattleStarted, BattleEnded, EnemyFainted,
+	Blackout, BlackoutContext, FullHealed,
 	BadgeGet,
 };

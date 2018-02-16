@@ -49,7 +49,7 @@ class PartyModule extends ReportingModule {
 			// LOGGER.trace(`Discovering in ${curr}`);
 			// Level up
 			LOGGER.trace(`level: prev.level < curr.level`, prev.level, curr.level, prev.level < curr.level);
-			if (prev.level < curr.level) {
+			if (prev.level !== curr.level) {
 				ledger.addItem(new MonLeveledUp(curr, curr.level));
 			}
 			
@@ -179,13 +179,16 @@ class PartyModule extends ReportingModule {
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
-			LOGGER.debug(`isBlackout=> ${(partyPP === partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.95)} & ${!prev_api.location.equals(curr_api.location)}`);
-			let isBlackout = (partyPP === partyMaxPP);
+			LOGGER.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.95)} & ${!prev_api.location.equals(curr_api.location)}`);
+			let isBlackout = (partyPP >= partyMaxPP);
 			isBlackout &= (partyDeltaHP > partyMaxHP * 0.95);
 			isBlackout &= !prev_api.location.equals(curr_api.location);
 			
 			if (partyHP === partyMaxHP) {
-				ledger.addItem(new FullHealed(isBlackout?'blackout':null));
+				ledger.addItem(new FullHealed(null));
+				if (isBlackout) {
+					ledger.addItem(new Blackout());
+				}
 			}
 		}
 	}
@@ -203,10 +206,30 @@ RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 	})
 );
 
-RULES.push(new Rule(`Don't report a full heal after a blackout`)
-	.when(ledger=>ledger.has('FullHealed').ofFlavor('blackout'))
+RULES.push(new Rule(`Full heals the moment the battle ends indicate a blackout.`)
+	//TODO Except when walking around with a partner in gen 4
+	//.when(ledger=>ledger.has('LocationContext').isNot('fullHealZone')
+	.when(ledger=>ledger.has('FullHealed'))
+	.when(ledger=>ledger.has('BattleEnded'))
+	.when(ledger=>ledger.hasnt('Blackout'))
 	.then(ledger=>{
-		ledger.demote(0, 2);
+		ledger.add(new Blackout());
+	})
+);
+
+RULES.push(new Rule(`Don't report a full heal after a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('FullHealed'))
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
+RULES.push(new Rule(`Don't report a won battle after a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('BattleEnded'))
+	.then(ledger=>{
+		ledger.demote(1, 2);
 	})
 );
 

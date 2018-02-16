@@ -3,8 +3,9 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	ApiDisturbance, BadgeGet,
+	ApiDisturbance, BadgeGet, 
 	BattleContext, BattleStarted, BattleEnded,
+	BlackoutContext,
 } = require('../ledger');
 
 const LOGGER = getLogger('BattleModule');
@@ -50,6 +51,9 @@ class BattleModule extends ReportingModule {
 			LOGGER.debug(`party=`,cb.party,`healthy=`,healthy);
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
+			} else {
+				
+				
 			}
 		}
 		
@@ -72,11 +76,28 @@ class BattleModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`Don't report battles end due to blackout`)
+RULES.push(new Rule(`Don't report battles ending due to blackout`)
 	.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').ofImportance())
 	.when(ledger=>ledger.has('Blackout'))
 	.then(ledger=>{
 		ledger.demote(0, 2);
+	})
+);
+
+RULES.push(new Rule(`Blackouts need a BlackoutContext`)
+	.when(ledger=>ledger.has('Blackout'))
+	.when(ledger=>ledger.hasnt('BlackoutContext'))
+	.then(ledger=>{
+		ledger.add(new BlackoutContext());
+	})
+);
+
+RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
+	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl > 0).ofNoFlavor())
+	.then(ledger=>{
+		let b = ledger.get(0);
+		b.flavor = 'processed';
+		ledger.ledger.postponeItem(new BlackoutContext(ledger.get(0)[0]));
 	})
 );
 

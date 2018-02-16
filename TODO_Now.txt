@@ -1,5 +1,8 @@
 - Add battle start updater pings!
-- Blackout detection!
+- Disable nickname changes for boxed mons
+
 - Ignore Rematch attempt counting on gym leaders (check if they have the badge already).
 - Collate shopping trips by postponing GainItem items.
+
+- Blackout detection!
 - Make a map.
