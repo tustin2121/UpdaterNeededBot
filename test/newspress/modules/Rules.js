@@ -321,6 +321,109 @@ describe('Rule', function(){
 		});
 	});
 	
+	describe('RuleInstance#postpone', function(){
+		it('should postpone simple items', function(){
+			let r1;
+			const item = new TestItem1('hello');
+			const ledger = createTestLedger([ item ]);
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1'))
+				.then(r1 = sinon.spy((lg)=>{
+					lg.postpone(0);
+				}));
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+			ledger.list.should.have.length(0);
+			ledger.postponeList.should.have.length(1);
+			ledger.postponeList[0].should.be.exactly(item);
+		});
+		
+		it('should not postpone items which do not wish to be', function(){
+			class PostponeItem extends LedgerItem {
+				constructor() {
+					super(0);
+				}
+				canPostpone() {
+					return false;
+				}
+			}
+			
+			let r1;
+			const item = new PostponeItem('hello');
+			const ledger = createTestLedger([ item ]);
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('PostponeItem'))
+				.then(r1 = sinon.spy((lg)=>{
+					lg.postpone(0);
+				}));
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+			ledger.list.should.have.length(1);
+			ledger.postponeList.should.have.length(0);
+			ledger.list[0].should.be.exactly(item);
+		});
+		
+		it('should postpone a different item when given it', function(){
+			class PostponeItem extends LedgerItem {
+				constructor() {
+					super(0);
+				}
+				canPostpone() {
+					return this.pitem = new TestItem1();
+				}
+			}
+			
+			let r1;
+			const item = new PostponeItem('hello');
+			const ledger = createTestLedger([ item ]);
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('PostponeItem'))
+				.then(r1 = sinon.spy((lg)=>{
+					lg.postpone(0);
+				}));
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+			ledger.list.should.have.length(1);
+			ledger.postponeList.should.have.length(1);
+			ledger.list[0].should.be.exactly(item);
+			ledger.postponeList[0].should.be.exactly(item.pitem);
+		});
+		
+		it('missing PokemonGained bug', function(){
+			const { PokemonGained, BattleContext } = require('../../../src/newspress/ledger');
+			const { Pokemon, SortedBattle } = require('../../../src/api/pokedata');
+			
+			let r1;
+			const item = new PokemonGained(new Pokemon());
+			const ctx = new BattleContext(new SortedBattle({}));
+			const ledger = createTestLedger([ ctx, item ]);
+			
+			const rule = new Rule('Postpone reporting of new Pokemon until the end of a battle')
+				.when(ledger=>ledger.has('BattleContext'))
+				.when(ledger=>ledger.has('PokemonGained'))
+				.then(r1 = sinon.spy(ledger=>{
+					ledger.postpone(1); //Postpone PokemonGained
+				}));
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+			ledger.list.should.have.length(1);
+			ledger.postponeList.should.have.length(1);
+			ledger.list[0].should.be.exactly(ctx);
+			ledger.postponeList[0].should.be.exactly(item);
+		});
+	});
+	
 	describe('In general, a rule', function(){
 		let ledger;
 		

@@ -34,9 +34,10 @@ class TestContextItem extends LedgerItem {
 	}
 }
 
-function createTestLedger(items=[]) {
+function createTestLedger(items=[], postponed=[]) {
 	let ledger = new Ledger();
 	ledger.list.push(...items);
+	ledger.postponeList.push(...postponed);
 	return ledger;
 }
 
@@ -109,6 +110,168 @@ describe('Ledger', function(){
 			ledger.length.should.be.exactly(2);
 			ledger.list[0].should.be.an.instanceOf(TestItemB);
 			ledger.list[1].should.be.an.instanceOf(TestItemA);
+		});
+	});
+	describe('#postponeItem', function(){
+		
+		it('postpones an item already in the ledger', function(){
+			const item = new TestItemA();
+			const ledger = createTestLedger([ item ]);
+			
+			ledger.postponeItem(item);
+			
+			ledger.length.should.be.exactly(0);
+			ledger.postponeList.should.be.length(1);
+			ledger.postponeList[0].should.be.exactly(item);
+		});
+		
+		it('should not postpone items which do not wish to be', function(){
+			class PostponeItem extends LedgerItem {
+				constructor() {
+					super(0);
+				}
+				canPostpone() {
+					return false;
+				}
+			}
+			
+			const item = new PostponeItem('hello');
+			const ledger = createTestLedger([ item ]);
+			
+			ledger.postponeItem(item);
+			
+			ledger.length.should.be.exactly(1);
+			ledger.postponeList.should.have.length(0);
+			ledger.list[0].should.be.exactly(item);
+		});
+		
+		it('should postpone a different item when given it', function(){
+			class TestPostponeItem extends LedgerItem {
+				constructor() {
+					super(0);
+				}
+				canPostpone() {
+					return this.pitem = new TestItemA();
+				}
+			}
+			
+			const item = new TestPostponeItem('hello');
+			const ledger = createTestLedger([ item ]);
+			
+			ledger.postponeItem(item);
+			
+			ledger.length.should.be.exactly(1);
+			ledger.postponeList.should.have.length(1);
+			ledger.list[0].should.be.exactly(item);
+			ledger.postponeList[0].should.be.exactly(item.pitem);
+		});
+	});
+	describe('#addPostponedItems', function(){
+		class TestMergeItem extends LedgerItem {
+			constructor() {
+				super(0);
+			}
+			cancelsOut(other) {
+				if (other.name !== 'TestMergeItem') return false;
+				return this;
+			}
+		}
+		class TestCancelItem extends LedgerItem {
+			constructor() {
+				super(1);
+			}
+			cancelsOut(other) {
+				if (other.name !== 'TestCancelItem') return false;
+				return true;
+			}
+		}
+		class TestPostponeItem extends LedgerItem {
+			constructor() {
+				super(0);
+			}
+			canPostpone() {
+				return this.pitem = new TestItemA();
+			}
+		}
+		
+		it('should add postponed items from the previous ledger into the current', function(){
+			const prevLedger = createTestLedger([
+				new TestItemA(),
+			], [
+				new TestItemC(),
+			]);
+			const ledger = createTestLedger([
+				new TestItemB(),
+				new TestItemB(),
+			]);
+        
+			ledger.addPostponedItems(prevLedger);
+        
+			ledger.length.should.be.exactly(3);
+			ledger.postponeList.should.have.length(0);
+			ledger.list[0].should.be.an.instanceOf(TestItemB);
+			ledger.list[1].should.be.an.instanceOf(TestItemB);
+			ledger.list[2].should.be.an.instanceOf(TestItemC);
+		});
+		it('should cancel items that cancel out', function(){
+			const prevLedger = createTestLedger([
+				new TestItemA(),
+			], [
+				new TestCancelItem(),
+			]);
+			const ledger = createTestLedger([
+				new TestItemB(),
+				new TestItemC(),
+				new TestCancelItem(),
+			]);
+        
+			ledger.addPostponedItems(prevLedger);
+        
+			ledger.length.should.be.exactly(2);
+			ledger.postponeList.should.have.length(0);
+			ledger.list[0].should.be.an.instanceOf(TestItemB);
+			ledger.list[1].should.be.an.instanceOf(TestItemC);
+		});
+		it('should merge items that merge together', function(){
+			let item;
+			const prevLedger = createTestLedger([
+				new TestItemA(),
+			], [
+				new TestMergeItem(),
+			]);
+			const ledger = createTestLedger([
+				new TestItemB(),
+				new TestItemC(),
+				item = new TestMergeItem(),
+			]);
+        
+			ledger.addPostponedItems(prevLedger);
+        
+			ledger.length.should.be.exactly(3);
+			ledger.postponeList.should.have.length(0);
+			ledger.list[0].should.be.an.instanceOf(TestItemB);
+			ledger.list[1].should.be.an.instanceOf(TestItemC);
+			ledger.list[2].should.be.an.exactly(item);
+		});
+		it('should not be affected by custom postpones', function(){
+			let item;
+			const prevLedger = createTestLedger([
+				new TestItemA(),
+			], [
+				item = new TestPostponeItem(),
+			]);
+			const ledger = createTestLedger([
+				new TestItemB(),
+				new TestItemC(),
+			]);
+        
+			ledger.addPostponedItems(prevLedger);
+        
+			ledger.length.should.be.exactly(3);
+			ledger.postponeList.should.have.length(0);
+			ledger.list[0].should.be.an.instanceOf(TestItemB);
+			ledger.list[1].should.be.an.instanceOf(TestItemC);
+			ledger.list[2].should.be.an.exactly(item);
 		});
 	});
 	describe('#findAllItemsWithName', function(){
