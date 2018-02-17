@@ -3,8 +3,8 @@
 
 const { should, sinon } = require('../../common');
 
-const { LocationChanged } = require('../../../src/newspress/ledger');
-const { SortedLocation } = require('../../../src/api/pokedata');
+const { LocationChanged, MonLeveledUp, } = require('../../../src/newspress/ledger');
+const { SortedLocation, Pokemon } = require('../../../src/api/pokedata');
 const TypeSetter = require('../../../src/newspress/typesetter');
 
 describe('TypeSetter', function(){
@@ -61,6 +61,22 @@ describe('TypeSetter', function(){
 			const item = new LocationChanged(
 				new SortedLocation({ map_name:'Olivine City', map_bank:5, map_id:5, }),
 				new SortedLocation({ map_name:'Route 101', map_bank:6, map_id:3, }));
+			
+			let res = fillText(pre, item);
+			
+			res.should.equal(exp);
+		});
+		
+		it('MonLeveledUp output bug', function(){
+			const exp = `Bulby (Ivysaur) has lost -10 levels, and is now level 5!`;
+			const pre = `{{target}} has lost {{deltaLevel|some}} levels, and is now level {{level}}!`;
+			let pkmn = new Pokemon();
+			{
+				pkmn.name = 'Bulby';
+				pkmn.species = 'Ivysaur'
+				pkmn.level = 5;
+			}
+			const item = new MonLeveledUp(pkmn, 15);
 			
 			let res = fillText(pre, item);
 			

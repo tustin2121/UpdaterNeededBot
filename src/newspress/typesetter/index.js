@@ -49,7 +49,7 @@ const toWordNumber = (()=>{
 		let nums = defNums;
 		if (type === 'some') nums = defSome;
 		if (Array.isArray(type)) nums = type;
-		let word = nums[num] || Number.toString(num);
+		let word = nums[num] || num.toString();
 		if (word === '{an}') word = 'an'; //TODO
 		return word;
 	};

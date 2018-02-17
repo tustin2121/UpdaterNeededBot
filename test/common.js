@@ -10,6 +10,7 @@ global.getLogger = function() {
 		log : ()=>{},
 		logRaw: ()=>{},
 		debug: ()=>{},
+		note: ()=>{},
 		trace: ()=>{},
 		info: ()=>{},
 		warn: ()=>{},
