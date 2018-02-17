@@ -4,6 +4,8 @@
 const hash = require('object-hash');
 const util = require('util');
 
+const LOGGER = getLogger('Ledger');
+
 const { LedgerItem } = require('./base');
 
 class Ledger {
@@ -37,10 +39,20 @@ class Ledger {
 	}
 	/** Removes an item from the ledger, and adds it to a list to be put in the next ledger. */
 	postponeItem(item) {
-		if (!(item instanceof LedgerItem))
-			throw new TypeError('Added item must be a LedgerItem');
-		this.removeItem(item);
-		this.postponeList.push(item);
+		if (!(item instanceof LedgerItem)) throw new TypeError('Added item must be a LedgerItem');
+		let can = item.canPostpone();
+		LOGGER.warn('Postponing item:', item, can);
+		if (can) {
+			if (can instanceof LedgerItem) {
+				LOGGER.warn('Postponing is replacement.')
+				this.postponeList.push(can);
+			}
+			else {
+				LOGGER.warn('Postponing now.')
+				this.removeItem(item);
+				this.postponeList.push(item);
+			}
+		}
 	}
 	/**
 	 * Adds postponed items to this ledger. This operation goes through all postponed items,

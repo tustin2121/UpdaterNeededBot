@@ -117,16 +117,12 @@ RULES.push(new Rule(`Blackouts spawn a BlackoutContext`)
 );
 
 RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
-	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl > 0).ofNoFlavor())
+	.when(ledger=>ledger.has('BlackoutContext').unmarked())
 	.then(ledger=>{
-		let b = ledger.get(0);
-		b.forEach(x=>x.flavor = 'processed');
-		let ctx = new BlackoutContext(ledger.get(0)[0]);
-		if (ctx.ttl !== BlackoutContext.STARTING_TTL && ledger.ledger.findAllItemsWithName('BattleContext').length) {
-			// Don't decrement if we've got a Battle Context still
-			ctx.ttl++;
+		if (ledger.ledger.findAllItemsWithName('BattleContext').length) {
+			ledger.get(0).keepAlive();
 		}
-		ledger.ledger.postponeItem(ctx);
+		ledger.mark(0).postpone(0); //see the BlackoutContext item about the special postponing it does
 	})
 );
 

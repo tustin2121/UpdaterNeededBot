@@ -224,6 +224,8 @@ function getDelta(curr, prev) {
 	);
 }
 
+//TODO new Rule(`Items gained while shopping are postponed until the shopping is finished`)
+
 RULES.push(new Rule(`Items gained in shops have been bought`)
 	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
 	.when(ledger=>ledger.has('GainItem').ofNoFlavor())

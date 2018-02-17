@@ -66,11 +66,20 @@ class Blackout extends LedgerItem {
 class BlackoutContext extends LedgerItem {
 	constructor(oldContext) {
 		super(0);
-		if (oldContext) {
-			this.ttl = oldContext.ttl-1;
-		} else {
-			this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+		this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+	}
+	canPostpone() {
+		if (this.ttl === 0) return false; //don't postpone
+		if (!this._next) {
+			this._next = new BlackoutContext();
+			this._next.ttl = this.ttl - 1;
 		}
+		return this._next; //postpone this item instead
+	}
+	/** Tells this item to keep itself alive another round. */
+	keepAlive() {
+		if (this._next) this._next.ttl = Math.min(this._next.ttl+1, BlackoutContext.STARTING_TTL-1);
+		this.ttl = Math.max(this.ttl, 2);
 	}
 }
 BlackoutContext.STARTING_TTL = 4;

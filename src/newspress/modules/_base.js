@@ -208,6 +208,13 @@ class RuleInstance {
 		return this;
 	}
 	
+	unmarked() {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.workingList.filter(x=>x.isMarked(this.rule));
+		this.lastResult = (this.workingList && this.workingList.length > 0);
+		return this;
+	}
+	
 	ofFlavor(flavor) {
 		return this.with('flavor', flavor);
 	}
@@ -258,6 +265,22 @@ class RuleInstance {
 	/** Gets a previously found item. */
 	get(idx) {
 		return this.matchedItems[idx];
+	}
+	/** Marks a previously found item. */
+	mark(idx) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>i.mark(this.rule));
+		}
+		return this; //for chaining
+	}
+	/** Marks a previously found item and gets it. */
+	markAndGet(idx) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>i.mark(this.rule));
+		}
+		return items;
 	}
 	/** Gets a previously found item, and removes it from the ledger. */
 	remove(idx) {

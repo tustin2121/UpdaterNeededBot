@@ -13,6 +13,23 @@ class GainItem extends LedgerItem {
 		this.item = item;
 		this.amount = amount;
 	}
+	cancelsOut(other) {
+		if (other.name === 'GainItem') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount += other.amount; //add together the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new LostItem(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		if (other.name === 'LostItem') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount -= other.amount; //subtract the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new LostItem(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		return false;
+	}
 }
 
 /** Indicates that a single item has been lost. */
@@ -21,6 +38,23 @@ class LostItem extends LedgerItem {
 		super(1);
 		this.item = item;
 		this.amount = amount;
+	}
+	cancelsOut(other) {
+		if (other.name === 'LostItem') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount += other.amount;  //add together the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new GainItem(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		if (other.name === 'GainItem') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount -= other.amount;  //subtract the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new GainItem(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		return false;
 	}
 }
 
