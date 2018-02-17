@@ -25,7 +25,7 @@ module.exports = {
 			`<b>{{target}} has grown {{deltaLevel|some}} levels to level {{level}}!</b>`,
 		],
 		regress: [
-			`<b>{{target}} has lost {{deltaLevel|some}} levels, and is now level {{level}}!`,
+			`<b>{{target}} has lost {{deltaLost|some}} levels, and is now level {{level}}!`,
 		],
 	},
 	MonEvolved: {

@@ -190,7 +190,7 @@ function getPhrase(items) {
 	// If this phrase entry has multi support (it will be an object with 'multi' and 'item' entries)
 	if (pentry.single || pentry.multi || pentry.item) {
 		// If there's multiple items, and we support multiple item formatting
-		if (items.length > 0 && pentry.multi && pentry.item) {
+		if (items.length > 1 && pentry.multi && pentry.item) {
 			let phraseList = items.map(item=> resolvePhrase(pentry.item, item, fillText)).filter(x=>x);
 			return resolvePhrase(pentry.multi, phraseList, fillMulti);
 		}

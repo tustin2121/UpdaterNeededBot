@@ -32,6 +32,7 @@ class MonLeveledUp extends PartyItem {
 		if (this.deltaLevel > 1) this.flavor = 'multiple';
 		if (this.deltaLevel < 0) this.flavor = 'regress';
 	}
+	get deltaLost(){ return -this.deltaLevel; }
 	get level(){ return this.mon.level; }
 	get curr(){ return this.mon.level; }
 	get prev(){ return this.prevLevel; }

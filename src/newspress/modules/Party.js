@@ -194,23 +194,27 @@ RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 	})
 );
 
-RULES.push(new Rule(`Full heals the moment the battle ends indicate a blackout.`)
-	//TODO Except when walking around with a partner in gen 4
-	//.when(ledger=>ledger.has('LocationContext').isNot('fullHealZone')
-	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.has('BattleEnded'))
-	.when(ledger=>ledger.hasnt('Blackout'))
-	.then(ledger=>{
-		ledger.add(new Blackout());
-	})
-);
+// NOTE: This rule fails if we have a fully-healed team and a member of that team levels up at the 
+// end of the battle. This means the team will delta gain some HP from the level up, and if that
+// mon is already at full health, it'd be considered a "Full Heal", which will trigger this rule.
+//
+// RULES.push(new Rule(`Full heals the moment the battle ends indicate a blackout.`)
+// 	//TODO Except when walking around with a partner in gen 4
+// 	//.when(ledger=>ledger.has('LocationContext').isNot('fullHealZone')
+// 	.when(ledger=>ledger.has('FullHealed'))
+// 	.when(ledger=>ledger.has('BattleEnded'))
+// 	.when(ledger=>ledger.hasnt('Blackout'))
+// 	.then(ledger=>{
+// 		ledger.add(new Blackout());
+// 	})
+// );
 
 const KapowMoves = ['Explosion', 'Self-Destruct', 'Selfdestruct'];//, 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Momento'];
 RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 	.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
 	.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move', KapowMoves))
 	.then(ledger=>{
-		let items = ledger.demote(0);
+		let items = ledger.get(0);
 		items.forEach(x=>x.flavor='kapow');
 	})
 );
