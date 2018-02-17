@@ -30,14 +30,38 @@ class ChatAPI {
 		
 		////////////////////////////////////////////////
 		
+		this.inputMap = Bot.runConfig.run.inputMap;
+		
+		// Holds tpp announcements
+		this.tppbuffer = null;
 		// Holds chat lines (not inputs)
-		this.linebuffer = [];
+		this.linebuffer = null;
 		// Holds inputs
-		this.inputbuffer = {};
+		this.inputbuffer = null;
+		// Hold unique inputters
+		this.inputterSet = new Set();
 		
 		if (this.serverUrl) {
 			this._init = this.connect();
 		}
+	}
+	
+	getStats() {
+		let stats = {
+			tpp: this.tppbuffer,
+			lines: this.linebuffer,
+			inputs: this.inputbuffer,
+		};
+		this.tppbuffer = [];
+		this.linebuffer = [];
+		this.inputbuffer = {};
+		
+		for (let key in this.inputMap) {
+			if (this.inputMap[key] !== true) continue;
+			this.inputbuffer[key] = 0;
+		}
+		
+		return stats;
 	}
 	
 	isReady() {
@@ -55,16 +79,20 @@ class ChatAPI {
 	}
 	
 	handleMessage(nick, to, text, msg) {
-		//TODO
+		LOGGER.trace(`${nick}: ${text}`);
+		const INPUT_MATCH = Bot.runConfig.run.inputMatch;
+		let res;
+		if ((res = INPUT_MATCH.exec(text))) {
+			this.inputterSet.add(nick); //use this to determine average inputter to viewer ratio
+			//let input =
+			
+			//this.inputbuffer =
+		} else if (nick === 'tpp') {
+			this.tppbuffer.push(text);
+		} else {
+			this.linebuffer.push({ nick, text });
+		}
 	}
 	
-	getStats() {
-		let lines = this.linebuffer;
-		let inputs = this.inputbuffer;
-		this.linebuffer = [];
-		this.inputbuffer = {};
-		
-		return { lines, inputs };
-	}
 }
 module.exports = ChatAPI;

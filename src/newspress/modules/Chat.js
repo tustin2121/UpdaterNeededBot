@@ -14,8 +14,8 @@ class ChatModule extends ReportingModule {
 		
 	}
 	
-	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
-		
+	firstPass(ledger, { curr_chat:chat }) {
+		if (!chat) return; //do nothing when no chat info
 	}
 	
 	secondPass(ledger) {

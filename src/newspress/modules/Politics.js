@@ -15,7 +15,11 @@ class PoliticsModule extends ReportingModule {
 		
 	}
 	
-	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+	firstPass(ledger, { curr_chat:chat }) {
+		if (!chat) return; //do nothing when no chat info
+		
+		
+		
 		// tpp	Inputting is now in democracy mode!
 		// tpp	Inputting is now in anarchy mode!
 	}
