@@ -3,8 +3,8 @@
 
 const { should, sinon } = require('../../common');
 
-const { LocationChanged } = require('../../../src/newspress/ledger');
-const { SortedLocation } = require('../../../src/api/pokedata');
+const { LocationChanged, MonLeveledUp, } = require('../../../src/newspress/ledger');
+const { SortedLocation, Pokemon } = require('../../../src/api/pokedata');
 const TypeSetter = require('../../../src/newspress/typesetter');
 
 describe('TypeSetter', function(){
@@ -65,6 +65,138 @@ describe('TypeSetter', function(){
 			let res = fillText(pre, item);
 			
 			res.should.equal(exp);
+		});
+		
+		it('MonLeveledUp output bug', function(){
+			const exp = `Bulby (Ivysaur) has lost -10 levels, and is now level 5!`;
+			const pre = `{{target}} has lost {{deltaLevel|some}} levels, and is now level {{level}}!`;
+			let pkmn = new Pokemon();
+			{
+				pkmn.name = 'Bulby';
+				pkmn.species = 'Ivysaur'
+				pkmn.level = 5;
+			}
+			const item = new MonLeveledUp(pkmn, 15);
+			
+			let res = fillText(pre, item);
+			
+			res.should.equal(exp);
+		});
+	});
+	
+	describe('formatFor', function(){
+		const formatReddit = TypeSetter.formatFor.reddt;
+		const formatDiscord = TypeSetter.formatFor.discord;
+		
+		it('should handle <b>bold</b> tags (Reddit)', function(){
+			const exp = `Hello world **and all** good people **faces**.`;
+			const pre = `Hello world <b>and all</b> good people <b>faces</b>.`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <b>bold</b> tags (Discord)', function(){
+			const exp = `Hello world **and all** good people **faces**.`;
+			const pre = `Hello world <b>and all</b> good people <b>faces</b>.`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp);
+			res.embeds.should.be.an.Array().with.length(0);
+		});
+		
+		it('should handle <i>italics</i> tags (Reddit)', function(){
+			const exp = `Hello world *and all* good people *faces*.`;
+			const pre = `Hello world <i>and all</i> good people <i>faces</i>.`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <i>italics</i> tags (Discord)', function(){
+			const exp = `Hello world *and all* good people *faces*.`;
+			const pre = `Hello world <i>and all</i> good people <i>faces</i>.`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp);
+			res.embeds.should.be.an.Array().with.length(0);
+		});
+		
+		it('should handle <info>info</info> tags (Reddit)', function(){
+			const exp = `This is a [test](#info "of the emergency broadcast system").`;
+			const pre = `This is a <info ext="of the emergency broadcast system">test</info>.`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <info>info</info> tags (Discord)', function(){
+			const exp1 = `This is a test.`;
+			const exp2 = [{ name:'test', value:'of the emergency broadcast system' }];
+			const pre = `This is a <info ext="of the emergency broadcast system">test</info>.`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp1);
+			res.embeds.should.be.an.Array().with.length(1);
+			res.embeds.should.deepEqual(exp2);
+		});
+		
+		it('should handle <info>info</info> inside <b>bold</b> tags (Reddit)', function(){
+			const exp = `**This is a [test](#info "of the emergency broadcast system").**`;
+			const pre = `<b>This is a <info ext="of the emergency broadcast system">test</info>.</b>`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <info>info</info> inside <b>bold</b> tags (Discord)', function(){
+			const exp1 = `**This is a test.**`;
+			const exp2 = [{ name:'test', value:'of the emergency broadcast system' }];
+			const pre = `<b>This is a <info ext="of the emergency broadcast system">test</info>.</b>`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp1);
+			res.embeds.should.be.an.Array().with.length(1);
+			res.embeds.should.deepEqual(exp2);
+		});
+		
+		it('should handle <info>multiline info</info> inside <b>bold</b> tags (Reddit)', function(){
+			const exp = `**This is a [test](#info "of the emergency\nbroadcast\nsystem").**`;
+			const pre = `<b>This is a <info ext="of the emergency\nbroadcast\nsystem">test</info>.</b>`;
+			
+			let res = formatReddit(pre);
+			
+			res.should.be.an.Object().with.key('text');
+			res.text.should.equal(exp);
+		});
+		
+		it('should handle <info>multiline info</info> inside <b>bold</b> tags (Discord)', function(){
+			const exp1 = `**This is a test.**`;
+			const exp2 = [{ name:'test', value:'of the emergency\nbroadcast\nsystem' }];
+			const pre = `<b>This is a <info ext="of the emergency\nbroadcast\nsystem">test</info>.</b>`;
+			
+			let res = formatDiscord(pre);
+			
+			res.should.be.an.Object().with.keys('text', 'embeds');
+			res.text.should.equal(exp1);
+			res.embeds.should.be.an.Array().with.length(1);
+			res.embeds.should.deepEqual(exp2);
 		});
 	});
 });

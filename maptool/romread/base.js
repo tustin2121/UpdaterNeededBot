@@ -84,7 +84,7 @@ class GBReader extends RomReader {
 	readText(offset, limit) {
 		let advance = (offset === undefined);
 		offset = offset || this.data.offset;
-		limit = limit || this.data.limit;
+		limit = Math.min(offset+limit, this.data.limit) || this.data.limit;
 		if (offset >= this.data.limit || limit === 0) return '';
 		
 		let str = [];

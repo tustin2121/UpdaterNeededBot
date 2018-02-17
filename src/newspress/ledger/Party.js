@@ -32,6 +32,7 @@ class MonLeveledUp extends PartyItem {
 		if (this.deltaLevel > 1) this.flavor = 'multiple';
 		if (this.deltaLevel < 0) this.flavor = 'regress';
 	}
+	get deltaLost(){ return -this.deltaLevel; }
 	get level(){ return this.mon.level; }
 	get curr(){ return this.mon.level; }
 	get prev(){ return this.prevLevel; }
@@ -233,6 +234,7 @@ class MonNicknameChanged extends PartyItem {
 		if (other.name === 'MonNicknameChanged') {
 			if (this.mon.hash !== other.mon.hash) return false;
 			this.prevNick = other.prevNick; //pull in the eldest previous name
+			if (this.curr == this.prev) return true; //cancels out
 			return this; //coalesce
 		}
 		if (other.name === 'PokemonGained') {

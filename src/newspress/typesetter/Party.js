@@ -2,27 +2,44 @@
 // The phrasebook for Pokemon-related LedgerItems
 
 module.exports = {
+	
+	MonChangedCondensed: {
+		default: null, //TODO
+	},
+	
 	MonLeveledUp: {
 		// target = the pokemon involved
 		// level = the level grown to
-		default: [
-			`<b>{{target}} has grown to level {{level}}!</b>`,
-			`<b>{{target}} is now level {{level}}!</b>`,
-			`<b>{{target}} has leveled up to {{level}}!</b>`,
-		],
+		default: {
+			single: [
+				`<b>{{target}} has grown to level {{level}}!</b>`,
+				`<b>{{target}} is now level {{level}}!</b>`,
+				`<b>{{target}} has leveled up to {{level}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`levels up to {{level}}`,
+				`grows to level {{level}}`,
+			],
+		},
 		multiple: [
 			`<b>{{target}} has grown {{deltaLevel|some}} levels to level {{level}}!</b>`,
 		],
 		regress: [
-			`<b>{{target}} has lost {{deltaLevel|some}} levels, and is now level {{level}}!`,
+			`<b>{{target}} has lost {{deltaLost|some}} levels, and is now level {{level}}!`,
 		],
 	},
 	MonEvolved: {
 		// target = the pokemon involved
 		// level = the level grown to
-		default: [
-			`<b>{{target.name}} ({{prev}}) has evolved into a {{curr}}!</b>`
-		],
+		default: {
+			single: [
+				`<b>{{target.name}} ({{prev}}) has evolved into a {{curr}}!</b>`,
+				`<b>{{target.name}} ({{prev}}) evolves into a {{curr}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`evolves into {{curr}}`,
+			],
+		},
 	},
 	
 	MonHatched: {
@@ -122,22 +139,37 @@ module.exports = {
 	
 	MonLearnedMove: {
 		//move = the learned move
-		default: [
-			`<b>{{target}} learned {{move}}!</b>`,
-		],
+		default: {
+			single: [
+				`<b>{{target}} learned {{move}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`learns {{move}}`,
+			],
+		},
 	},
 	MonLearnedMoveOverOldMove: {
 		//move = the learned move
 		//oldMove = the forgotton move
-		default: [
-			`<b>{{target}} learned {{move}} over {{oldMove}}!</b>`,
-		],
+		default: {
+			single: [
+				`<b>{{target}} learned {{move}} over {{oldMove}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`learns {{move}} over {{oldMove}}`,
+			],
+		},
 	},
 	MonForgotMove: {
 		//move = the forgotton move
-		default: [
-			`<b>{{target}} forgot {{move}}!</b>`,
-		],
+		default: {
+			single: [
+				`<b>{{target}} forgot {{move}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`forgot {{oldMove}}`,
+			],
+		},
 	},
 	
 	MonGiveItem: {

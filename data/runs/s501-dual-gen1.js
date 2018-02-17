@@ -57,11 +57,11 @@ module.exports = {
 		apiPollPeriod: 1000 * 15, //15 seconds
 		
 		// The Chat URLs to connect to via irc. If one doesn't work, the next will be tried, looping.
-		chatSrc: ['irc.chat.twitch.tv:6667'],
+		chatSrc: null,//['irc.chat.twitch.tv:6667'],
 		// The irc channel to join when connected via irc (auth data is in the auth folder)
 		chatChannel: "#twitchplayspokemon",
 		// The regex
-		inputMatch: /([rl<>][:.]?)?(([abxylrnsew]|up|down|left|right|start|select|anarchy|democracy)\+?)+\-?/i,
+		inputMatch: /([rl<>][:.]?)?((up|down|left|right|start|select|anarchy|democracy|[abxylrnsew])\+?)+?\-?/i,
 		// The map of chat inputs. true = this is an input, string = redirect to said input
 		inputMap: {
 			'up': true, 'down': true, 'left': true, 'right': true,
@@ -73,12 +73,12 @@ module.exports = {
 		// The Reddit Live Updater ID to report to
 		liveID: "10fb9yf54gf8b",
 		// The Discord LiveUpdater channel snowflake to report to
-		discordID: null,
+		discordID: "366698530343223306",
 		
 		// The Reddit Live Updater ID to report test information to
 		testLiveID: "10f3p1gulvkl9",
 		// The Discord channel snowflake to report test information to
-		testDiscordID: null,
+		testDiscordID: "367499647410765824",
 		
 		// The Discord channel snowflake where commands are taken
 		controlChannel: "266878339346726913",

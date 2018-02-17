@@ -18,6 +18,7 @@ class BattleContext extends LedgerItem {
 		
 		super(0);
 		this.battle = battle;
+		this.flavor = battle.trainer? 'trainer':'wild';
 	}
 }
 
@@ -54,10 +55,47 @@ class EnemyFainted extends LedgerItem {
 	}
 }
 
+/** Indicates we blacked out. */
+class Blackout extends LedgerItem {
+	constructor(type) {
+		super(2, {flavor:type, sort:20});
+	}
+}
+
+/** Indicates we blacked out in the previous . */
+class BlackoutContext extends LedgerItem {
+	constructor(oldContext) {
+		super(0);
+		this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+	}
+	canPostpone() {
+		if (this.ttl === 0) return false; //don't postpone
+		if (!this._next) {
+			this._next = new BlackoutContext();
+			this._next.ttl = this.ttl - 1;
+		}
+		return this._next; //postpone this item instead
+	}
+	/** Tells this item to keep itself alive another round. */
+	keepAlive() {
+		if (this._next) this._next.ttl = Math.min(this._next.ttl+1, BlackoutContext.STARTING_TTL-1);
+		this.ttl = Math.max(this.ttl, 2);
+	}
+}
+BlackoutContext.STARTING_TTL = 4;
+
+/** Indicates we have been fully healed. */
+class FullHealed extends LedgerItem {
+	constructor(type) {
+		super(2, {flavor:type});
+	}
+}
+
 /**
  */
 class BadgeGet extends LedgerItem {
 	constructor(badgeName) {
+		super(2);
 		this.badge = badgeName;
 	}
 }
@@ -68,5 +106,6 @@ class BadgeGet extends LedgerItem {
 
 module.exports = {
 	BattleContext, BattleStarted, BattleEnded, EnemyFainted,
+	Blackout, BlackoutContext, FullHealed,
 	BadgeGet,
 };

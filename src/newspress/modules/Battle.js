@@ -3,9 +3,12 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	ApiDisturbance, BadgeGet,
+	ApiDisturbance, BadgeGet, 
 	BattleContext, BattleStarted, BattleEnded,
+	BlackoutContext,
 } = require('../ledger');
+
+const LOGGER = getLogger('BattleModule');
 
 const RULES = [];
 
@@ -29,6 +32,8 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle && !pb.in_battle) {
 			let attempt = 0;
+			LOGGER.debug(`battle: [${cb.attemptId}] imp=${cb.isImportant} attempts=${this.memory.attempts[cb.attemptId]}`);
+			
 			if (cb.isImportant) {
 				attempt = (this.memory.attempts[cb.attemptId] || 0);
 				attempt++;
@@ -43,9 +48,12 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle) {
 			let healthy = cb.party.filter(p=>p.hp);
-			getLogger('BattleModule').log(`party=`,cb.party,`healthy=`,healthy);
+			LOGGER.debug(`party=`,cb.party,`healthy=`,healthy);
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
+			} else {
+				
+				
 			}
 		}
 		
@@ -67,5 +75,55 @@ class BattleModule extends ReportingModule {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
 }
+
+RULES.push(new Rule(`Don't report a full heal after a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('FullHealed').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
+RULES.push(new Rule(`Don't report a won battle after a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('BattleEnded').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
+RULES.push(new Rule(`Don't report battles ending due to blackout`)
+	.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').ofImportance())
+	.when(ledger=>ledger.has('Blackout'))
+	.then(ledger=>{
+		ledger.demote(0, 2);
+	})
+);
+
+RULES.push(new Rule(`Don't double report a blackout`)
+	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl < BlackoutContext.STARTING_TTL))
+	.when(ledger=>ledger.has('Blackout').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1, 2);
+	})
+);
+
+RULES.push(new Rule(`Blackouts spawn a BlackoutContext`)
+	.when(ledger=>ledger.has('Blackout'))
+	.when(ledger=>ledger.hasnt('BlackoutContext'))
+	.then(ledger=>{
+		ledger.add(new BlackoutContext());
+	})
+);
+
+RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
+	.when(ledger=>ledger.has('BlackoutContext').unmarked())
+	.then(ledger=>{
+		if (ledger.ledger.findAllItemsWithName('BattleContext').length) {
+			ledger.get(0).keepAlive();
+		}
+		ledger.mark(0).postpone(0); //see the BlackoutContext item about the special postponing it does
+	})
+);
 
 module.exports = BattleModule;

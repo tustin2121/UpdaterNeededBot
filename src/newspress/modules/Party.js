@@ -38,19 +38,19 @@ class PartyModule extends ReportingModule {
 				}
 			}
 		}
-		LOGGER.trace(`sameMons = ${sameMons.length}`);
-		//TODO Party makeup ApiDisturbance
+		// LOGGER.trace(`sameMons = ${sameMons.length}`);
+		// TODO Party makeup ApiDisturbance
 		
 		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
 		let partyPP = 0, partyMaxPP = 0, partyDeltaPP = 0;
 		
 		// Discover items in the party
 		for (let { prev, curr } of sameMons) {
-			LOGGER.trace(`Discovering in ${curr}`);
+			// LOGGER.trace(`Discovering in ${curr}`);
 			// Level up
 			LOGGER.trace(`level: prev.level < curr.level`, prev.level, curr.level, prev.level < curr.level);
-			if (prev.level < curr.level) {
-				ledger.addItem(new MonLeveledUp(curr, curr.level));
+			if (prev.level !== curr.level) {
+				ledger.addItem(new MonLeveledUp(curr, prev.level));
 			}
 			
 			// Evolution, Hatching
@@ -80,9 +80,15 @@ class PartyModule extends ReportingModule {
 			} else if (curr.hp < prev.hp) {
 				ledger.addItem(new MonLostHP(curr, prev.hp));
 			}
+			//*
+			partyMaxHP += curr._hp[1];
+			partyHP += curr._hp[0];
+			partyDeltaHP += curr._hp[0] - prev._hp[0];
+			/*/
 			partyMaxHP += 100;
 			partyHP += curr.hp;
 			partyDeltaHP += curr.hp - prev.hp;
+			//*/
 			
 			// Moves (Learns and PP)
 			{
@@ -93,8 +99,10 @@ class PartyModule extends ReportingModule {
 					movePairs.push({ p, c });
 				}
 				// Eliminate duplicates
+				let it = 100;
 				lblFix:
-				while(true) {
+				while(it > 0) {
+					it--;
 					let numChanges = 0;
 					for (let a = 0; a < movePairs.length; a++) {
 						for (let b = 0; b < movePairs.length; b++) {
@@ -113,6 +121,7 @@ class PartyModule extends ReportingModule {
 					}
 					break;
 				}
+				if (it === 0) LOGGER.error(`Emergency break out from lblFix!`);
 				
 				for (let pair of movePairs) {
 					if (!pair.p.id && pair.c.id) {
@@ -137,17 +146,6 @@ class PartyModule extends ReportingModule {
 				}
 			}
 			
-			// Items
-			if (Bot.runOpts('heldItem')) {
-				if (!prev.item.id && curr.item.id) {
-					ledger.addItem(new MonGiveItem(curr, curr.item));
-				} else if (prev.item.id && !curr.item.id) {
-					ledger.addItem(new MonTakeItem(curr, prev.item));
-				} else if (prev.item.id !== curr.item.id) {
-					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
-				}
-			}
-			
 			// Now things that don't usually randomly change
 			if (Bot.runOpts('shiny') && prev.shiny !== curr.shiny) {
 				ledger.addItem(new MonShinyChanged(curr));
@@ -158,23 +156,27 @@ class PartyModule extends ReportingModule {
 			if (Bot.runOpts('abilities') && prev.ability !== curr.ability) {
 				ledger.addItem(new MonAbilityChanged(curr, prev.ability));
 			}
-			if (prev.name !== curr.name) {
-				ledger.addItem(new MonNicknameChanged(curr, prev.name, prev.nicknamed));
-			}
+			// Name changes are handled by the Pokemon Module
+			// Held item changes are handled by the Pokemon Module
 		}
 		
-		LOGGER.log(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
+		LOGGER.debug(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
+		LOGGER.debug(`PP: pp=${partyPP} max=${partyMaxPP} delta=${partyDeltaPP}`);
 		if (partyDeltaHP < 0) { // if HP has been lost
 			if (partyHP === 0) { // If there's no HP in the party, we're definitely blacked out
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
-			let isBlackout = (partyPP === partyMaxPP);
+			LOGGER.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.95)} & ${!prev_api.location.equals(curr_api.location)}`);
+			let isBlackout = (partyPP >= partyMaxPP);
 			isBlackout &= (partyDeltaHP > partyMaxHP * 0.95);
-			// isBlackout &= prev.location
+			isBlackout &= !prev_api.location.equals(curr_api.location);
 			
-			if (partyDeltaPP > 0 && partyDeltaHP > partyMaxHP * 0.95 /*&& location */) {
-				ledger.addItem(new FullHealed('blackout'));
+			if (partyHP === partyMaxHP) {
+				ledger.addItem(new FullHealed(null));
+				if (isBlackout) {
+					ledger.addItem(new Blackout());
+				}
 			}
 		}
 	}
@@ -184,20 +186,35 @@ class PartyModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`Don't report blackout revivals individually`)
-	.when(ledger=>ledger.has('FullHealed').ofFlavor('blackout'))
+RULES.push(new Rule(`When fully healing, don't report individual revivals`)
+	.when(ledger=>ledger.has('FullHealed'))
 	.when(ledger=>ledger.has('MonRevived').ofImportance())
 	.then(ledger=>{
 		ledger.demote(1);
 	})
 );
 
+// NOTE: This rule fails if we have a fully-healed team and a member of that team levels up at the 
+// end of the battle. This means the team will delta gain some HP from the level up, and if that
+// mon is already at full health, it'd be considered a "Full Heal", which will trigger this rule.
+//
+// RULES.push(new Rule(`Full heals the moment the battle ends indicate a blackout.`)
+// 	//TODO Except when walking around with a partner in gen 4
+// 	//.when(ledger=>ledger.has('LocationContext').isNot('fullHealZone')
+// 	.when(ledger=>ledger.has('FullHealed'))
+// 	.when(ledger=>ledger.has('BattleEnded'))
+// 	.when(ledger=>ledger.hasnt('Blackout'))
+// 	.then(ledger=>{
+// 		ledger.add(new Blackout());
+// 	})
+// );
+
 const KapowMoves = ['Explosion', 'Self-Destruct', 'Selfdestruct'];//, 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Momento'];
 RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 	.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
 	.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move', KapowMoves))
 	.then(ledger=>{
-		let items = ledger.demote(0);
+		let items = ledger.get(0);
 		items.forEach(x=>x.flavor='kapow');
 	})
 );

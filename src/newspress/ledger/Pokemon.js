@@ -64,8 +64,41 @@ class PokemonLost extends PokemonItem {
 	}
 }
 
+/** Indicates that a pokemon has been moved to a new storage location. */
+class PokemonDeposited extends PokemonItem {
+	constructor(mon, prevStored, flavor) {
+		super(mon, 2, { flavor });
+		this.prev = prevStored;
+	}
+	get boxnum() {
+		if (!this.mon.storedIn.startsWith('box')) return 0;
+		let num = this.mon.storedIn.slice(4).split('-');
+		return num[0];
+	}
+}
+
+/** Indicates that a pokemon has been pulled back into the party from a storage location. */
+class PokemonRetrieved extends PokemonItem {
+	constructor(mon, prevStored, flavor) {
+		super(mon, 2, { flavor });
+		this.prev = prevStored;
+	}
+}
+
 /////////////////// Advanced Items ///////////////////
 
+/** Indicates that two pokemon have been traded. */
+class PokemonTraded extends PokemonItem {
+	constructor(mon, pastMon) {
+		super(mon, 2);
+		this.pastMon = pastMon;
+	}
+	get curr(){ return this.mon; }
+	get prev(){ return this.pastMon; }
+}
+
+
 module.exports = {
-	PokemonGained, PokemonIsMissing, PokemonLost,
+	PokemonGained, PokemonIsMissing, PokemonLost, PokemonDeposited, PokemonRetrieved,
+	PokemonTraded
 };

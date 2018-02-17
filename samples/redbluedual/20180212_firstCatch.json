@@ -1,0 +1,552 @@
+{
+    "blue": {
+        "badges": 0,
+        "ball_count": 1,
+        "battle_kind": "Wild",
+        "caught": 3,
+        "caught_list": [
+            1,
+            4,
+            29
+        ],
+        "coins": 0,
+        "daycare": [],
+        "enemy_party": [
+            {
+                "cp": 15,
+                "fitness": 1030,
+                "health": [
+                    13,
+                    13
+                ],
+                "species": {
+                    "base_stats": {
+                        "attack": 56,
+                        "defense": 35,
+                        "hp": 30,
+                        "special_attack": 25,
+                        "special_defense": 25,
+                        "speed": 72
+                    },
+                    "catch_rate": 255,
+                    "gender_ratio": 127,
+                    "growth_rate": "Medium Fast",
+                    "id": 165,
+                    "name": "Rattata",
+                    "national_dex": 19,
+                    "type1": "Normal",
+                    "type2": "Normal"
+                }
+            }
+        ],
+        "gender": "Female",
+        "id": 34456,
+        "in_battle": true,
+        "items": {
+            "items": [
+                {
+                    "count": 1,
+                    "id": 4,
+                    "name": "Pok\u00e9 Ball"
+                }
+            ],
+            "pc": [
+                {
+                    "count": 1,
+                    "id": 20,
+                    "name": "Potion"
+                }
+            ]
+        },
+        "level_cap": 100,
+        "map_id": 33,
+        "money": 76,
+        "name": "XXWWNN\u03c0",
+        "options": {
+            "battle_scene": "On",
+            "battle_style": "Set",
+            "text_speed": "Fast"
+        },
+        "party": [
+            {
+                "catchrate": 45,
+                "cp": 118,
+                "evs": {
+                    "attack": 897,
+                    "defense": 683,
+                    "hp": 609,
+                    "special_attack": 540,
+                    "special_defense": 540,
+                    "speed": 1074
+                },
+                "experience": {
+                    "current": 647,
+                    "next_level": 742,
+                    "remaining": 95,
+                    "this_level": 560
+                },
+                "fitness": 6838,
+                "gender": "Male",
+                "health": [
+                    8,
+                    30
+                ],
+                "ivs": {
+                    "attack": 5,
+                    "defense": 6,
+                    "hp": 9,
+                    "special_attack": 11,
+                    "special_defense": 11,
+                    "speed": 8
+                },
+                "level": 10,
+                "moves": [
+                    {
+                        "accuracy": 255,
+                        "base_power": 40,
+                        "id": 10,
+                        "name": "Scratch",
+                        "pp": 23,
+                        "pp_up": 0,
+                        "type": "Normal"
+                    },
+                    {
+                        "accuracy": 255,
+                        "base_power": 0,
+                        "id": 45,
+                        "name": "Growl",
+                        "pp": 28,
+                        "pp_up": 0,
+                        "type": "Normal"
+                    },
+                    {
+                        "accuracy": 255,
+                        "base_power": 40,
+                        "id": 52,
+                        "name": "Ember",
+                        "pp": 19,
+                        "pp_up": 0,
+                        "type": "Fire"
+                    }
+                ],
+                "name": "A",
+                "original_trainer": {
+                    "id": 34456,
+                    "name": "XXWWNN\u03c0"
+                },
+                "personality_value": 1451984565,
+                "shiny": false,
+                "species": {
+                    "base_stats": {
+                        "attack": 52,
+                        "defense": 43,
+                        "hp": 39,
+                        "special_attack": 50,
+                        "special_defense": 50,
+                        "speed": 65
+                    },
+                    "catch_rate": 45,
+                    "gender_ratio": 31,
+                    "growth_rate": "Medium Slow",
+                    "id": 176,
+                    "name": "Charmander",
+                    "national_dex": 4,
+                    "type1": "Fire",
+                    "type2": "Fire"
+                },
+                "stats": {
+                    "attack": 17,
+                    "defense": 9,
+                    "hp": 30,
+                    "special_attack": 17,
+                    "special_defense": 17,
+                    "speed": 20
+                },
+                "status": 0
+            },
+            {
+                "catchrate": 235,
+                "cp": 10,
+                "evs": {
+                    "attack": 0,
+                    "defense": 0,
+                    "hp": 0,
+                    "special_attack": 0,
+                    "special_defense": 0,
+                    "speed": 0
+                },
+                "experience": {
+                    "current": 57,
+                    "next_level": 96,
+                    "remaining": 39,
+                    "this_level": 57
+                },
+                "fitness": 1652,
+                "gender": "Female",
+                "health": [
+                    16,
+                    16
+                ],
+                "ivs": {
+                    "attack": 5,
+                    "defense": 14,
+                    "hp": 11,
+                    "special_attack": 9,
+                    "special_defense": 9,
+                    "speed": 13
+                },
+                "level": 3,
+                "moves": [
+                    {
+                        "accuracy": 255,
+                        "base_power": 0,
+                        "id": 45,
+                        "name": "Growl",
+                        "pp": 40,
+                        "pp_up": 0,
+                        "type": "Normal"
+                    },
+                    {
+                        "accuracy": 242,
+                        "base_power": 35,
+                        "id": 33,
+                        "name": "Tackle",
+                        "pp": 35,
+                        "pp_up": 0,
+                        "type": "Normal"
+                    }
+                ],
+                "name": "MLLLULVVSS",
+                "original_trainer": {
+                    "id": 34456,
+                    "name": "XXWWNN\u03c0"
+                },
+                "personality_value": 1591314035,
+                "shiny": false,
+                "species": {
+                    "base_stats": {
+                        "attack": 47,
+                        "defense": 52,
+                        "hp": 55,
+                        "special_attack": 40,
+                        "special_defense": 40,
+                        "speed": 41
+                    },
+                    "catch_rate": 235,
+                    "gender_ratio": 254,
+                    "growth_rate": "Medium Slow",
+                    "id": 15,
+                    "name": "Nidoran\u2640",
+                    "national_dex": 29,
+                    "type1": "Poison",
+                    "type2": "Poison"
+                },
+                "stats": {
+                    "attack": 8,
+                    "defense": 8,
+                    "hp": 16,
+                    "special_attack": 7,
+                    "special_defense": 7,
+                    "speed": 8
+                },
+                "status": 0
+            }
+        ],
+        "party_fitness": 10150,
+        "pc": {
+            "boxes": [
+                {
+                    "box_contents": [],
+                    "box_name": "Box 1",
+                    "box_number": 1
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 2",
+                    "box_number": 2
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 3",
+                    "box_number": 3
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 4",
+                    "box_number": 4
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 5",
+                    "box_number": 5
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 6",
+                    "box_number": 6
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 7",
+                    "box_number": 7
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 8",
+                    "box_number": 8
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 9",
+                    "box_number": 9
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 10",
+                    "box_number": 10
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 11",
+                    "box_number": 11
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 12",
+                    "box_number": 12
+                }
+            ],
+            "current_box_number": 1
+        },
+        "rematch_available": 0,
+        "rival_name": "(((",
+        "seen": 7,
+        "seen_list": [
+            1,
+            4,
+            7,
+            16,
+            19,
+            29,
+            32
+        ],
+        "x": 21,
+        "y": 8
+    },
+    "red": {
+        "badges": 0,
+        "battle_kind": "None",
+        "caught": 3,
+        "caught_list": [
+            1,
+            4,
+            29
+        ],
+        "coins": 0,
+        "daycare": [],
+        "gender": "Male",
+        "id": 25045,
+        "in_battle": false,
+        "items": {
+            "items": [
+                {
+                    "id": 255
+                }
+            ],
+            "pc": [
+                {
+                    "count": 1,
+                    "id": 20,
+                    "name": "Potion"
+                }
+            ]
+        },
+        "level_cap": 100,
+        "map_id": 1,
+        "money": 46,
+        "name": "(((",
+        "options": {
+            "battle_scene": "On",
+            "battle_style": "Switch",
+            "text_speed": "Fast"
+        },
+        "party": [
+            {
+                "catchrate": 45,
+                "cp": 10,
+                "evs": {
+                    "attack": 886,
+                    "defense": 625,
+                    "hp": 570,
+                    "special_attack": 485,
+                    "special_defense": 485,
+                    "speed": 1128
+                },
+                "experience": {
+                    "current": 513,
+                    "next_level": 560,
+                    "remaining": 47,
+                    "this_level": 419
+                },
+                "fitness": 5850,
+                "gender": "Male",
+                "health": [
+                    5,
+                    28
+                ],
+                "ivs": {
+                    "attack": 15,
+                    "defense": 4,
+                    "hp": 8,
+                    "special_attack": 0,
+                    "special_defense": 0,
+                    "speed": 0
+                },
+                "level": 9,
+                "moves": [
+                    {
+                        "accuracy": 242,
+                        "base_power": 35,
+                        "id": 33,
+                        "name": "Tackle",
+                        "pp": 26,
+                        "pp_up": 0,
+                        "type": "Normal"
+                    },
+                    {
+                        "accuracy": 255,
+                        "base_power": 0,
+                        "id": 45,
+                        "name": "Growl",
+                        "pp": 30,
+                        "pp_up": 0,
+                        "type": "Normal"
+                    },
+                    {
+                        "accuracy": 229,
+                        "base_power": 0,
+                        "id": 73,
+                        "name": "Leech Seed",
+                        "pp": 6,
+                        "pp_up": 0,
+                        "type": "Grass"
+                    }
+                ],
+                "name": "UUUVVX;:UL",
+                "original_trainer": {
+                    "id": 25045,
+                    "name": "((("
+                },
+                "personality_value": 4093665784,
+                "shiny": false,
+                "species": {
+                    "base_stats": {
+                        "attack": 49,
+                        "defense": 49,
+                        "hp": 45,
+                        "special_attack": 65,
+                        "special_defense": 65,
+                        "speed": 45
+                    },
+                    "catch_rate": 45,
+                    "gender_ratio": 31,
+                    "growth_rate": "Medium Slow",
+                    "id": 153,
+                    "name": "Bulbasaur",
+                    "national_dex": 1,
+                    "type1": "Grass",
+                    "type2": "Poison"
+                },
+                "stats": {
+                    "attack": 17,
+                    "defense": 14,
+                    "hp": 28,
+                    "special_attack": 17,
+                    "special_defense": 17,
+                    "speed": 13
+                },
+                "status": 0
+            }
+        ],
+        "party_fitness": 5850,
+        "pc": {
+            "boxes": [
+                {
+                    "box_contents": [],
+                    "box_name": "Box 1",
+                    "box_number": 1
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 2",
+                    "box_number": 2
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 3",
+                    "box_number": 3
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 4",
+                    "box_number": 4
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 5",
+                    "box_number": 5
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 6",
+                    "box_number": 6
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 7",
+                    "box_number": 7
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 8",
+                    "box_number": 8
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 9",
+                    "box_number": 9
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 10",
+                    "box_number": 10
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 11",
+                    "box_number": 11
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 12",
+                    "box_number": 12
+                }
+            ],
+            "current_box_number": 1
+        },
+        "rematch_available": 0,
+        "rival_name": "XXWWNN\u03c0",
+        "seen": 7,
+        "seen_list": [
+            1,
+            4,
+            7,
+            16,
+            19,
+            29,
+            32
+        ],
+        "x": 25,
+        "y": 21
+    }
+}

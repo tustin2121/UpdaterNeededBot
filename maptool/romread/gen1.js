@@ -9,7 +9,7 @@ const SOUTH = 1 << 2;
 const NORTH = 1 << 3;
 
 
-class Ge12Reader extends GBReader {
+class Gen1Reader extends GBReader {
 	constructor(romFile) {
 		super(romFile);
 		populateCharMap(this.CHARMAP);
@@ -52,7 +52,7 @@ class Ge12Reader extends GBReader {
 				this.skip(); // Skip Town Map y/x location nibble
 				let name = this.readUint16(); // Read pointer to name
 				name = this.readText(GBReader.sameBankPtrToLinear(OFFSETS.TownMapNamesOffset, name), 0xFF);
-				areaNames.push(name); 
+				areaNames.push(name);
 			}
 			// Then, read in the "internal map" entries, which apply to all maps until the given id
 			while (true) {
@@ -66,6 +66,7 @@ class Ge12Reader extends GBReader {
 				}
 			}
 		}
+		this.areas = areaNames;
 		
 		// Read the map header pointer tables
 		let mapBanks = this.readStridedData(OFFSETS.MapBanks, 1, NUM_MAPS);
@@ -76,13 +77,19 @@ class Ge12Reader extends GBReader {
 		for (let m = 0; m < mapPointers.length; m++) {
 			let ptr = mapPointers[m];
 			this.offset = ptr;
-			let info = { 
+			let info = {
 				id: m, //0-based index
 				areaName: areaNames[m],
 				tileset: this.readUint8(),
 				height: this.readUint8() * 2,
 				width: this.readUint8() * 2,
-			}; 
+				warps: [ null ],
+				conns: {},
+				events: [],
+				name: areaNames[m],
+				attrs: {},
+				locOf: {},
+			};
 			this.skip(2); // Skip block pointer
 			this.skip(2); // Skip texts pointer
 			this.skip(2); // Skip scripts pointer
@@ -108,9 +115,11 @@ class Ge12Reader extends GBReader {
 					id: this.readUint8(),
 				});
 			}
+			
+			mapData[m] = info;
 		}
 		
-		return mapData;
+		return { mapData };
 		
 		function readConnectionInfo() {
 			let c = {
@@ -130,7 +139,7 @@ class Ge12Reader extends GBReader {
 		//TODO
 		// The difference between gen 2 and gen 1:
 		// Gen 2 is nice and neat in its code. Everything is in one place
-		// Gen 1 has maps scattered EVERYWHERE inside the ROM. Also the Banks and 
+		// Gen 1 has maps scattered EVERYWHERE inside the ROM. Also the Banks and
 		// Pointers to the proper headers are in two separate locations as well.
 		
 		// https://github.com/pret/pokered/blob/master/main.asm

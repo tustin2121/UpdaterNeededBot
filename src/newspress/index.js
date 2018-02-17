@@ -1,6 +1,7 @@
 // newspress/index.js
 // The heart of the update reporter system
 
+const { inspect } = require("util");
 const { Ledger } = require('./ledger');
 const { typeset } = require('./typesetter');
 
@@ -27,7 +28,7 @@ class UpdaterPress {
 		}
 		this.modules.sort((a,b)=> a.priority - b.priority );
 		
-		this.lastLedger.loadFromMemory(this.memory.saved_ledger);
+		this.lastLedger.loadFromMemory(this.memory['saved_ledger'+this.gameIndex]);
 	}
 	
 	/** Starts a new ledger and runs an update cycle.  */
@@ -46,8 +47,10 @@ class UpdaterPress {
 		
 		// First Pass: Note all changes and important context into ledger items
 		LOGGER.trace('First Pass');
-		for (let mod of this.modules) {
+		for (let mod of this.modules) try {
 			mod.firstPass(ledger, data);
+		} catch (e) {
+			LOGGER.error(`Error in ${mod.constructor.name} first pass!`, e);
 		}
 		
 		// Add postponed items from the last run, cancelling out any items from first pass as needed
@@ -57,8 +60,10 @@ class UpdaterPress {
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {
 			LOGGER.trace(`Second Pass [${i}]`);
-			for (let mod of this.modules) {
+			for (let mod of this.modules) try {
 				mod.secondPass(ledger);
+			} catch (e) {
+				LOGGER.error(`Error in ${mod.constructor.name} second pass [${i}]!`, e);
 			}
 			
 			let nhash = ledger.hash();
@@ -68,16 +73,18 @@ class UpdaterPress {
 		}
 		
 		LOGGER.trace('Final Pass');
-		for (let mod of this.modules) {
+		for (let mod of this.modules) try {
 			mod.finalPass(ledger);
+		} catch (e) {
+			LOGGER.error(`Error in ${mod.constructor.name} final pass!`, e);
 		}
 		
-		LOGGER.debug('Ledger:\n', ledger.list);
+		LOGGER.note(ledger);
 		
 		// Sort and trim all of the unimportant ledger items
 		ledger.finalize();
 		this.lastLedger = ledger;
-		this.lastLedger.saveToMemory(this.memory.saved_ledger);
+		this.lastLedger.saveToMemory(this.memory['saved_ledger'+this.gameIndex]);
 		
 		// Pass ledger to the TypeSetter
 		let update = typeset(ledger);
@@ -110,20 +117,23 @@ class UpdaterPress {
 		try {
 			if (type === 'team') {
 				let info = this.apiProducer.getInfo(this.gameIndex);
+				// LOGGER.trace(`info`,info);
 				let out = [];
 				for (let mon of info.party) {
+					// LOGGER.trace(`mon`,mon);
 					let exInfo = mon.getExtendedInfo();
-					let line = `* [\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}](#info "${exInfo}")`;
+					let line = `* <info ext="${exInfo}">\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}</info>`;
 					if (mon.hp < 100) {
 						if (mon.hp === 0) line += " (fainted)";
 						else line += ` (${mon.hp}% health)`;
 					}
-					info.push(line);
+					out.push(line);
 				}
+				let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
 				if (info.level_cap != 100) {
-					return `[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${info.join('\n')}`;
+					return `${prefix}[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
 				} else {
-					return `[Info] Current Party:\n\n${info.join('\n')}`;
+					return `${prefix}[Info] Current Party:\n\n${out.join('\n')}`;
 				}
 			}
 		} catch (e) {
@@ -168,10 +178,9 @@ class UpdaterPressPool {
 		}
 		let lines = [];
 		for (let press of this.pool) {
-			let u = press.generateUpdate(type);
-			let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
-			lines.push(`${prefix}${u}`);
+			lines.push(press.generateUpdate(type));
 		}
+		return lines.join('\n\n');
 	}
 }
 

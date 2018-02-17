@@ -3,10 +3,8 @@
 
 const fs = require("fs");
 const path = require('path');
-const mkdirp = require('mkdirp');
 const auth = require('../.auth');
 
-const Discord = require("discord.js");
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
@@ -120,6 +118,8 @@ class UpdaterBot {
 			this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 			LOGGER.info(`UpdaterNeeded startup complete. Update interval: ${this.runConfig.run.updatePeriod/1000} sec.`);
 			this.postDebug(`[Meta] UpdaterNeeded started.`);
+		}).catch(ex=>{
+			LOGGER.fatal(ex);
 		});
 	}
 	
@@ -177,7 +177,7 @@ class UpdaterBot {
 	 * then posts the update at the end of it, if there is an update to post.
 	 */
 	run() {
-		LOGGER.debug(`============ Update Cycle ============`);
+		LOGGER.note(`============ Update Cycle ============`);
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
@@ -194,7 +194,7 @@ class UpdaterBot {
 			
 			LOGGER.trace(`Update cycle complete.`);
 		} catch (e) {
-			LOGGER.error(`Error in update cycle!`, e);
+			LOGGER.fatal(`Unhandled error in update cycle!`, e);
 		}
 		this.saveMemory();
 	}
@@ -326,6 +326,10 @@ class UpdaterBot {
 				let dbot = this.staff.dbot;
 				let channel = dbot.channels.get(id);
 				if (!channel) throw new ReferenceError(`Channel [${id}] does not exist!`);
+				if (embed.length)
+					embed = { embed: { fields: embed } };
+				else
+					embed = {};
 				let p = channel.send(updateText, embed);
 				return p;
 			} catch (e) {
@@ -341,11 +345,11 @@ class UpdaterBot {
 	
 	/** Alerts the updating staff channel, with an optional ping. */
 	alertUpdaters(text, ping) {
-		this.staff.alertUpdaters(text, ping);
+		return this.staff.alertUpdaters(text, ping);
 	}
 	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
 	queryUpdaters(text) {
-		this.staff.queryUpdaters(text);
+		return this.staff.queryUpdaters(text);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////

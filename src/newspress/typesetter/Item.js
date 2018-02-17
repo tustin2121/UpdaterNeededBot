@@ -78,9 +78,9 @@ module.exports = {
 			`We toss {{item|an}} {{item}} at a wild {{enemy.species}}.`,
 		],
 		trainer: [
-			`We toss {{item|an}} {{item}} at the trainer's pokemon, but {{enemy.trainer.class|she}} blocks the ball. Don't be a thief!`,
+			`We toss {{item|an}} {{item}} at the trainer's pokemon, but {{trainer.class|they}} blocks the ball. Don't be a thief!`,
 			`We throw {{item|an}} {{item}} at the opponents's pokemon, to no avail.`,
-			`We attempt to <rand>steal|take|snag</rand> {{enemy.trainer.name}}'s <rand>pokemon|{{enemy.species}}</rand>. {{enemy.trainer.class|He}} <rand>yells at us|scolds us|tells us off|tells us where we can <rand>stick|shove</rand> our {{item}}</rand>.`,
+			`We attempt to <rand>steal|take|snag</rand> {{trainer.name}}'s <rand>pokemon|{{enemy.species}}</rand>. {{trainer.class|He}} <rand>yells at us|scolds us|tells us off|tells us where we can shove our {{item}}</rand>.`,
 			`We attempt to be a thief. The game tells us off.`,
 		],
 	},
@@ -91,6 +91,34 @@ module.exports = {
 			`{{target}} munches on {{target|his}} {{item}}.`,
 			`{{target}} eats {{target|his}} {{item}}.`,
 			`{{target}} eats {{target|his}} {{item}} in the heat of battle.`,
+		],
+	},
+	UsedItemOnMon: {
+		// 
+		default: [
+			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
+		],
+		hpheal: [
+			`<b>We heal {{target}} with {{item|an}} {{item}}!</b>`,
+		],
+		ppheal: [
+			`We restore the PP of {{target}}'s {{move}} with <b>{{item|an}} {{item}}!</b>`,
+			`We restore {{target}}'s {{move}} PP with <b>{{item|an}} {{item}}!</b>`,
+		],
+		pphealAll: [
+			`We restore the PP of {{target}}'s moves with <b>{{item|an}} {{item}}!</b>`,
+			`We restore {{target}}'s move PP with <b>{{item|an}} {{item}}!</b>`,
+		],
+		evostone: [
+			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
+		],
+		tm: [
+			`We boot up a {{item}}.`,
+		],
+	},
+	UsedTMItem: {
+		default: [
+			``, //TODO
 		],
 	},
 };

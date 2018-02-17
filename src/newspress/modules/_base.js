@@ -49,11 +49,15 @@ class Rule {
 			if (inst.getResult() !== true)
 			 	if (res !== true) return; //No match, go no further
 		}
-		LOGGER.debug(`Applying rule "${this.name}"`);
-		for (let res of this.resultBlocks) {
-			res(inst);
+		if (this.resultBlocks.length) {
+			LOGGER.debug(`Applying rule "${this.name}"`);
+			for (let res of this.resultBlocks) {
+				res(inst);
+			}
+			ledger.log.ruleApplied(inst);
+		} else {
+			LOGGER.trace(`Rule "${this.name}" has no results blocks.`);
 		}
-		ledger.log.ruleApplied(inst);
 	}
 	/** Returns this object, for readable chaining. */
 	get and() { return this; }
@@ -96,6 +100,13 @@ class RuleInstance {
 		if (this.lastResult === false) return this; //do nothing
 		this.workingList = this.ledger.findAllItemsWithName(itemName);
 		this.lastResult = (this.workingList.length > 0);
+		return this;
+	}
+	/** Checks the ledger for one or more items with the given name. */
+	hasnt(itemName) {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.ledger.findAllItemsWithName(itemName);
+		this.lastResult = (this.workingList.length === 0);
 		return this;
 	}
 	/**
@@ -159,6 +170,25 @@ class RuleInstance {
 		return this;
 	}
 	/**
+	 * Filters a previous found list of items to ones which pass the given lambda test
+	 */
+	which(fn) {
+		if (this.lastResult === false) return this; //do nothing
+		if (!this.workingList || !this.workingList.length) {
+			this.lastResult = false;
+			return this;
+		}
+		if (typeof fn !== 'function') throw new TypeError('Must pass a function!');
+		let list = this.workingList;
+		this.workingList = [];
+		for (let item of list) {
+			if (!fn(item)) continue;
+			this.workingList.push(item);
+		}
+		this.lastResult = (this.workingList.length > 0);
+		return this;
+	}
+	/**
 	 * Filters a previously found list of items to ones with the given property matching
 	 * the given regex.
 	 */
@@ -175,6 +205,13 @@ class RuleInstance {
 			this.workingList.push(item);
 		}
 		this.lastResult = (this.workingList.length > 0);
+		return this;
+	}
+	
+	unmarked() {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.workingList.filter(x=>x.isMarked(this.rule));
+		this.lastResult = (this.workingList && this.workingList.length > 0);
 		return this;
 	}
 	
@@ -228,6 +265,22 @@ class RuleInstance {
 	/** Gets a previously found item. */
 	get(idx) {
 		return this.matchedItems[idx];
+	}
+	/** Marks a previously found item. */
+	mark(idx) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>i.mark(this.rule));
+		}
+		return this; //for chaining
+	}
+	/** Marks a previously found item and gets it. */
+	markAndGet(idx) {
+		let items = this.matchedItems[idx];
+		if (items) {
+			items.forEach((i)=>i.mark(this.rule));
+		}
+		return items;
 	}
 	/** Gets a previously found item, and removes it from the ledger. */
 	remove(idx) {

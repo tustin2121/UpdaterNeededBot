@@ -3,6 +3,7 @@
 
 const FS = require('fs');
 const HTTP = require('http');
+const HTTPS = require('https');
 const URL = require('url');
 const PATH = require('path');
 
@@ -50,7 +51,7 @@ class StreamAPI {
 							currInfo.push(new SortedData({ data:data, game:i, ts }));
 						}
 					}
-					LOGGER.trace(`Previous Stream API restored successfully.`);
+					LOGGER.debug(`Previous Stream API restored successfully: stream_api.${this.memory.lastIndex}.json`);
 				} catch (e) {
 					// If there IS no previous info (first time running), or something
 					// is wrong with the previous info, default to an empty but valid API
@@ -91,7 +92,7 @@ class StreamAPI {
 				let i = (this.memory.lastIndex+1) % NUM_PREV_SAVES;
 				let str = `${ts}\n`+JSON.stringify(data, null, '\t');
 				FS.writeFile( PATH.join(API_SAVE_DIR, `stream_api.${i}.json`), str, ()=>{
-					LOGGER.trace(`Previous API saved at stream_api.${i}.json`);
+					LOGGER.debug(`Previous API saved at stream_api.${i}.json`);
 				});
 				this.memory.lastIndex = i;
 			}
@@ -137,12 +138,13 @@ class StreamAPI {
 }
 
 function http_get(url) {
+	const H = url.startsWith('https')? HTTPS : HTTP;
 	return new Promise((resolve, reject)=>{
 		let loc = URL.parse(url);
 		loc.headers = {
 			'Accept': 'application/json',
 		};
-		HTTP.get(loc, (res)=>{
+		H.get(loc, (res)=>{
 			const { statusCode } = res;
 			const contentType = res.headers['content-type'];
 			

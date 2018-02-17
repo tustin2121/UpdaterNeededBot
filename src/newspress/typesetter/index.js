@@ -1,7 +1,7 @@
 // newspress/typesetter/index.js
 // The TypeSetter, and the phrasebook, that translates LedgerItems into English Language
 
-const { Pokemon } = require('../../api/pokedata');
+const { Pokemon, SortedLocation } = require('../../api/pokedata');
 const { LedgerItem } = require('../ledger');
 
 const LOGGER = getLogger('TypeSetter');
@@ -49,26 +49,44 @@ const toWordNumber = (()=>{
 		let nums = defNums;
 		if (type === 'some') nums = defSome;
 		if (Array.isArray(type)) nums = type;
-		let word = nums[num] || Number.toString(num);
+		let word = nums[num] || num.toString();
 		if (word === '{an}') word = 'an'; //TODO
 		return word;
 	};
 })();
+const determineOnIn = (obj)=>{
+	let name;
+	if (obj instanceof SortedLocation) {
+		if (obj.node) {
+			return obj.is('in')? 'in':'on';
+		}
+		name = obj.name;
+	}
+	if (/town|city/i.test(name)) return 'in';
+	if (/route/i.test(name)) return 'on';
+	if (/house|center|mart|f|cave|forest/i.test(name)) return 'in';
+	return 'on';
+};
 
 const FORMAT_FNS = {
 	'an': (obj)=>{
-		if (obj === undefined) return 'a<undefined>n';
-		if (obj === null) return 'a<null>n';
+		if (obj === undefined) return 'an'; //'a<undefined>n';
+		if (obj === null) return 'a'; //'a<null>n';
 		let name = obj.toString();
 		return determineIndefiniteArticle(name);
 	},
 	'An': (obj)=>{
-		if (obj === undefined) return 'a<undefined>n';
-		if (obj === null) return 'a<null>n';
+		if (obj === undefined) return 'an'; //'a<undefined>n';
+		if (obj === null) return 'a'; //'a<null>n';
 		let name = obj.toString();
 		let art = determineIndefiniteArticle(name);
 		if (art.length > 1) return 'An';
 		return 'A';
+	},
+	'on': determineOnIn,
+	'On': (obj)=>{
+		let on = determineOnIn(obj);
+		return on.charAt(0).toUpperCase() + on.substr(1);
 	},
 	'some': (obj)=>{
 		if (typeof obj === 'number') { return toWordNumber(obj); }
@@ -170,26 +188,25 @@ function getPhrase(items) {
 	if (pentry === null) return null; //Skip this item
 	
 	// If this phrase entry has multi support (it will be an object with 'multi' and 'item' entries)
-	if (pentry.multi && pentry.item) {
-		// If there's only one item, use the 'single' entry
-		if (items.length === 1) {
-			return resolvePhrase(pentry.single || pentry.item, items[0], fillText);
-		}
-		// Multiple items
-		else {
+	if (pentry.single || pentry.multi || pentry.item) {
+		// If there's multiple items, and we support multiple item formatting
+		if (items.length > 1 && pentry.multi && pentry.item) {
 			let phraseList = items.map(item=> resolvePhrase(pentry.item, item, fillText)).filter(x=>x);
 			return resolvePhrase(pentry.multi, phraseList, fillMulti);
 		}
+		if (pentry.single) {
+			return items.map(item=>resolvePhrase(pentry.single, item, fillText)).filter(x=>x).join(' ');
+		}
+		if (pentry.item) { //should never happen
+			return items.map(item=>resolvePhrase(pentry.item, item, fillText)).filter(x=>x).join(' ');
+		}
 	}
 	// If this phrase entry does not have multi support:
-	else {
-		return items.map(item=> resolvePhrase(pentry, item, fillText)).filter(x=>x).join(' ');
-	}
-	return null; //eslint-disable-line no-unreachable
+	return items.map(item=> resolvePhrase(pentry, item, fillText)).filter(x=>x).join(' ');
 	
 	function resolvePhrase(phrase, item, fill) {
 		if (typeof phrase === 'function') {
-			phrase = phrase(item, { fill });
+			phrase = phrase(item, { fillText });
 		}
 		if (Array.isArray(phrase)) {
 			if (phrase.length === 1) phrase = phrase[0]; //common case
@@ -249,10 +266,12 @@ function typeset(ledger) {
 	let update = [];
 	//TODO Collate items of the same type and flavor together, and handle multiple items as one phrase
 	// by adding another layer to the phrase book for "single" and "multiple".
-	for (let items of list) {
+	for (let items of list) try {
 		let phrase = getPhrase(items);
 		if (phrase === null) continue;
 		update.push(phrase);
+	} catch (e) {
+		LOGGER.error(`Error typesetting items =>`, items, '\n', e);
 	}
 	if (!update.length) return null;
 	return update.join(' ');
@@ -261,13 +280,13 @@ function typeset(ledger) {
 /** A function that formats the data from the html tags into reddit text formatting. */
 function formatReddit(text) {
 	// Replace the info tag with hover link information
-	text = text.replace(/<info ext="([^\"]+)">(.+?)<\/info>/ig, (match, ext, txt)=>{
-		return `[${txt}](#info ${ext})`;
+	text = text.replace(/<info ext="([^\"]+)">([\s\S]+?)<\/info>/ig, (match, ext, txt)=>{
+		return `[${txt}](#info "${ext}")`;
 	});
-	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
+	text = text.replace(/<b>([\s\S]+?)<\/b>/ig, (match, inner)=>{
 		return `**${inner}**`;
 	});
-	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
+	text = text.replace(/<i>([\s\S]+?)<\/i>/ig, (match, inner)=>{
 		return `*${inner}*`;
 	});
 	return { text };
@@ -279,17 +298,17 @@ function formatDiscord(text) {
 	
 	// Replace the info tag with a pointer to the discord embed
 	// If there's more than one, number them.
-	text = text.replace(/<info ext="([^\"]+)">(.+?)<\/info>/ig, (match, ext, txt)=>{
+	text = text.replace(/<info ext="([^\"]+)">([\s\S]+?)<\/info>/ig, (match, ext, txt)=>{
 		embeds.push({
 			name: txt,
 			value: ext,
 		});
 		return txt;
 	});
-	text = text.replace(/<b>(.+?)<\/b>/ig, (match, inner)=>{
+	text = text.replace(/<b>([\s\S]+?)<\/b>/ig, (match, inner)=>{
 		return `**${inner}**`;
 	});
-	text = text.replace(/<i>(.+?)<\/i>/ig, (match, inner)=>{
+	text = text.replace(/<i>([\s\S]+?)<\/i>/ig, (match, inner)=>{
 		return `*${inner}*`;
 	});
 	return { text, embeds };

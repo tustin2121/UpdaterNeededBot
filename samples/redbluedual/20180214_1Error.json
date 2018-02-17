@@ -1,0 +1,2206 @@
+1518603656023
+{
+	"blue": {
+		"badges": 3,
+		"battle_kind": "None",
+		"caught_list": [
+			1,
+			2,
+			4,
+			5,
+			21,
+			23,
+			25,
+			29,
+			35,
+			46,
+			51,
+			52,
+			63,
+			64,
+			69,
+			83
+		],
+		"coins": 0,
+		"daycare": [],
+		"gender": "Female",
+		"id": 34456,
+		"in_battle": false,
+		"items": {
+			"items": [
+				{
+					"id": 11,
+					"name": "Antidote"
+				},
+				{
+					"id": 29,
+					"name": "Escape Rope"
+				},
+				{
+					"count": 1,
+					"id": 10,
+					"name": "Moon Stone"
+				},
+				{
+					"id": 41,
+					"name": "Dome Fossil"
+				},
+				{
+					"count": 2,
+					"id": 4,
+					"name": "Poké Ball"
+				},
+				{
+					"count": 1,
+					"id": 49,
+					"name": "Nugget"
+				},
+				{
+					"count": 1,
+					"id": 219,
+					"name": "TM19 Seismic Toss"
+				},
+				{
+					"count": 1,
+					"id": 211,
+					"name": "TM11 Bubblebeam"
+				},
+				{
+					"count": 1,
+					"id": 63,
+					"name": "S.S.Ticket"
+				},
+				{
+					"count": 1,
+					"id": 228,
+					"name": "TM28 Dig"
+				},
+				{
+					"count": 1,
+					"id": 76,
+					"name": "Old Rod"
+				},
+				{
+					"count": 1,
+					"id": 208,
+					"name": "TM08 Body Slam"
+				}
+			],
+			"pc": [
+				{
+					"count": 1,
+					"id": 20,
+					"name": "Potion"
+				}
+			]
+		},
+		"map_id": 239,
+		"money": 783,
+		"name": "XXWWNNπ",
+		"options": {
+			"battle_scene": "On",
+			"battle_style": "Shift",
+			"text_speed": "Fast"
+		},
+		"rematch_available": 0,
+		"rival_name": "(((",
+		"seen_list": [
+			1,
+			2,
+			4,
+			5,
+			7,
+			10,
+			11,
+			12,
+			13,
+			14,
+			16,
+			19,
+			20,
+			21,
+			23,
+			25,
+			26,
+			27,
+			29,
+			32,
+			33,
+			35,
+			39,
+			41,
+			43,
+			46,
+			50,
+			51,
+			52,
+			56,
+			58,
+			63,
+			64,
+			66,
+			69,
+			72,
+			74,
+			77,
+			79,
+			83,
+			88,
+			90,
+			95,
+			96,
+			100,
+			109,
+			116,
+			118,
+			120,
+			121
+		],
+		"x": 3,
+		"y": 3,
+		"pc": {
+			"boxes": [
+				{
+					"box_contents": [
+						{
+							"box_slot": 1,
+							"catchrate": 255,
+							"cp": 211,
+							"evs": {
+								"attack": 0,
+								"defense": 0,
+								"hp": 0,
+								"special_attack": 0,
+								"special_defense": 0,
+								"speed": 0
+							},
+							"experience": {
+								"current": 1261,
+								"next_level": 1612,
+								"this_level": 1261,
+								"remaining": 351
+							},
+							"fitness": 10350,
+							"health": [
+								37
+							],
+							"ivs": {
+								"attack": 2,
+								"defense": 1,
+								"hp": 6,
+								"special_attack": 2,
+								"special_defense": 2,
+								"speed": 11
+							},
+							"level": 13,
+							"moves": [
+								{
+									"id": 22,
+									"pp": 10,
+									"pp_up": 0,
+									"name": "Vine Whip",
+									"accuracy": 255,
+									"base_power": 35,
+									"type": "Grass"
+								},
+								{
+									"id": 74,
+									"pp": 40,
+									"pp_up": 0,
+									"name": "Growth",
+									"accuracy": 255,
+									"base_power": 0,
+									"type": "Normal"
+								},
+								{
+									"id": 35,
+									"pp": 20,
+									"pp_up": 0,
+									"name": "Wrap",
+									"accuracy": 216,
+									"base_power": 15,
+									"type": "Normal"
+								}
+							],
+							"name": "(--",
+							"original_trainer": {
+								"id": 34456,
+								"name": "XXWWNNπ"
+							},
+							"personality_value": 565347943,
+							"species": {
+								"base_stats": {
+									"attack": 75,
+									"defense": 35,
+									"hp": 50,
+									"special_attack": 70,
+									"special_defense": 70,
+									"speed": 40
+								},
+								"id": 188,
+								"national_dex": 69,
+								"type1": "Grass",
+								"type2": "Poison",
+								"name": "Bellsprout",
+								"gender_ratio": 127,
+								"growth_rate": "Medium Slow",
+								"catch_rate": 255
+							},
+							"stats": {
+								"attack": 25,
+								"defense": 14,
+								"hp": 37,
+								"special_attack": 23,
+								"special_defense": 23,
+								"speed": 18
+							},
+							"status": 0,
+							"gender": "Female",
+							"shiny": false
+						}
+					],
+					"box_name": "Box 1",
+					"box_number": 1
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 2",
+					"box_number": 2
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 3",
+					"box_number": 3
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 4",
+					"box_number": 4
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 5",
+					"box_number": 5
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 6",
+					"box_number": 6
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 7",
+					"box_number": 7
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 8",
+					"box_number": 8
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 9",
+					"box_number": 9
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 10",
+					"box_number": 10
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 11",
+					"box_number": 11
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 12",
+					"box_number": 12
+				}
+			],
+			"current_box_number": 1
+		},
+		"caught": 16,
+		"seen": 50,
+		"ball_count": 2,
+		"level_cap": 100,
+		"map_name": "Trade Center",
+		"party_fitness": 194592,
+		"party": [
+			{
+				"catchrate": 255,
+				"cp": 10,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65407,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65519
+				},
+				"experience": {
+					"current": 16777215
+				},
+				"fitness": 0,
+				"health": [
+					65535,
+					0
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 15
+				},
+				"level": 0,
+				"moves": [
+					{
+						"id": 255,
+						"pp": 32,
+						"pp_up": 0,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 0,
+						"pp_up": 0,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 0,
+						"pp_up": 0,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 0,
+						"pp_up": 0,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "99199999999",
+				"original_trainer": {
+					"id": 65535,
+					"name": "9999999999 "
+				},
+				"personality_value": 4294967040,
+				"species": {
+					"base_stats": {
+						"attack": 72,
+						"defense": 57,
+						"hp": 61,
+						"special_attack": 55,
+						"special_defense": 55,
+						"speed": 65
+					},
+					"id": 191,
+					"national_dex": 33
+				},
+				"stats": {
+					"attack": 0,
+					"defense": 16,
+					"hp": 0,
+					"special_attack": 0,
+					"special_defense": 0,
+					"speed": 0
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 22887,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65534,
+					"special_attack": 65530,
+					"special_defense": 65530,
+					"speed": 65531
+				},
+				"experience": {
+					"current": 16777215
+				},
+				"fitness": -2365233140658,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 15
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 59,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "           ",
+				"original_trainer": {
+					"id": 64511,
+					"name": "9        Q "
+				},
+				"personality_value": 4294966016,
+				"species": {
+					"base_stats": {
+						"attack": 152,
+						"defense": 130,
+						"hp": 146,
+						"special_attack": 136,
+						"special_defense": 136,
+						"speed": 135
+					},
+					"id": 254,
+					"national_dex": 209
+				},
+				"stats": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 64511
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 1165,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777149
+				},
+				"fitness": -939334865912,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 15
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 2,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": " A         ",
+				"original_trainer": {
+					"id": 65535,
+					"name": "           "
+				},
+				"personality_value": 4294967040,
+				"species": {
+					"base_stats": {
+						"attack": 129,
+						"defense": 218,
+						"hp": 33,
+						"special_attack": 3,
+						"special_defense": 3,
+						"speed": 24
+					},
+					"id": 251,
+					"national_dex": 224
+				},
+				"stats": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 32511
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 23386,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777215
+				},
+				"fitness": -2428752697099,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 13,
+					"special_defense": 13,
+					"speed": 15
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 223,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "           ",
+				"original_trainer": {
+					"id": 65535,
+					"name": "           "
+				},
+				"personality_value": 4294835968,
+				"species": {
+					"base_stats": {
+						"attack": 142,
+						"defense": 139,
+						"hp": 142,
+						"special_attack": 145,
+						"special_defense": 145,
+						"speed": 147
+					},
+					"id": 253,
+					"national_dex": 213
+				},
+				"stats": {
+					"attack": 63487,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 0,
+				"cp": 10,
+				"evs": {
+					"attack": 0,
+					"defense": 8192,
+					"hp": 0,
+					"special_attack": 0,
+					"special_defense": 0,
+					"speed": 0
+				},
+				"experience": {
+					"current": 16384,
+					"next_level": 17576,
+					"this_level": 15625,
+					"remaining": 1192
+				},
+				"fitness": 0,
+				"health": [
+					65503,
+					0
+				],
+				"ivs": {
+					"attack": 0,
+					"defense": 4,
+					"hp": 0,
+					"special_attack": 0,
+					"special_defense": 0,
+					"speed": 0
+				},
+				"level": 25,
+				"moves": [],
+				"name": "       A \n ",
+				"original_trainer": {
+					"id": 0,
+					"name": " A         "
+				},
+				"personality_value": 67108864,
+				"species": {
+					"base_stats": {
+						"attack": 30,
+						"defense": 35,
+						"hp": 45,
+						"special_attack": 20,
+						"special_defense": 20,
+						"speed": 45
+					},
+					"id": 123,
+					"national_dex": 10,
+					"type1": "Normal",
+					"type2": "Normal",
+					"name": "Caterpie",
+					"gender_ratio": 127,
+					"growth_rate": "Medium Fast",
+					"catch_rate": 255
+				},
+				"stats": {
+					"attack": 1,
+					"defense": 0,
+					"hp": 0,
+					"special_attack": 2,
+					"special_defense": 2,
+					"speed": 2
+				},
+				"status": "SLP",
+				"gender": "Female",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 676,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777211
+				},
+				"fitness": -2346560865717,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 13
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "  Q        ",
+				"original_trainer": {
+					"id": 61439,
+					"name": "           "
+				},
+				"personality_value": 4292865792,
+				"species": {
+					"base_stats": {
+						"attack": 0,
+						"defense": 12,
+						"hp": 14,
+						"special_attack": 254,
+						"special_defense": 254,
+						"speed": 121
+					},
+					"id": 250,
+					"national_dex": 175
+				},
+				"stats": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 10,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65534,
+					"special_attack": 65533,
+					"special_defense": 65533,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16252927
+				},
+				"fitness": 0,
+				"health": [
+					65535,
+					0
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 15
+				},
+				"level": 0,
+				"moves": [
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "9 9999999♂9",
+				"original_trainer": {
+					"id": 65535,
+					"name": "  A        "
+				},
+				"personality_value": 4294967040,
+				"species": {
+					"base_stats": {
+						"attack": 129,
+						"defense": 218,
+						"hp": 33,
+						"special_attack": 3,
+						"special_defense": 3,
+						"speed": 24
+					},
+					"id": 251,
+					"national_dex": 224
+				},
+				"stats": {
+					"attack": 0,
+					"defense": 0,
+					"hp": 0,
+					"special_attack": 0,
+					"special_defense": 0,
+					"speed": 0
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 5057,
+				"evs": {
+					"attack": 65469,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777215
+				},
+				"fitness": -1973612914439,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 7,
+					"special_defense": 7,
+					"speed": 7
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 251,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "99999999999",
+				"original_trainer": {
+					"id": 61439,
+					"name": "99 9999999 "
+				},
+				"personality_value": 4286050048,
+				"species": {
+					"base_stats": {
+						"attack": 72,
+						"defense": 57,
+						"hp": 61,
+						"special_attack": 55,
+						"special_defense": 55,
+						"speed": 65
+					},
+					"id": 191,
+					"national_dex": 33
+				},
+				"stats": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 61439,
+					"special_defense": 61439,
+					"speed": 65535
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 6766,
+				"evs": {
+					"attack": 65523,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777199
+				},
+				"fitness": -2198962949259,
+				"health": [
+					65527,
+					64511
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 15
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 254,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 31,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 59,
+						"pp_up": 2,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "9 999999999",
+				"original_trainer": {
+					"id": 65535,
+					"name": "999'd98979 9"
+				},
+				"personality_value": 4294967040,
+				"species": {
+					"base_stats": {
+						"attack": 110,
+						"defense": 70,
+						"hp": 60,
+						"special_attack": 60,
+						"special_defense": 60,
+						"speed": 100
+					},
+					"id": 247,
+					"national_dex": 85
+				},
+				"stats": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 64511,
+					"special_attack": 65023,
+					"special_defense": 65023,
+					"speed": 65279
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 22887,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65519,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65519
+				},
+				"experience": {
+					"current": 16777214
+				},
+				"fitness": -2387989084763,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 3
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 251,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 47,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "99999999'v99",
+				"original_trainer": {
+					"id": 65535,
+					"name": "999999'v9899"
+				},
+				"personality_value": 4282384128,
+				"species": {
+					"base_stats": {
+						"attack": 152,
+						"defense": 130,
+						"hp": 146,
+						"special_attack": 136,
+						"special_defense": 136,
+						"speed": 135
+					},
+					"id": 254,
+					"national_dex": 209
+				},
+				"stats": {
+					"attack": 55807,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 1959,
+				"evs": {
+					"attack": 65531,
+					"defense": 65533,
+					"hp": 65527,
+					"special_attack": 65407,
+					"special_defense": 65407,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777151
+				},
+				"fitness": -1827837473748,
+				"health": [
+					65535,
+					65023
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 11,
+					"special_defense": 11,
+					"speed": 11
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 247,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "9999989♂999",
+				"original_trainer": {
+					"id": 65023,
+					"name": "999 99999'v9"
+				},
+				"personality_value": 4290510080,
+				"species": {
+					"base_stats": {
+						"attack": 114,
+						"defense": 114,
+						"hp": 19,
+						"special_attack": 20,
+						"special_defense": 20,
+						"speed": 0
+					},
+					"id": 239,
+					"national_dex": 240
+				},
+				"stats": {
+					"attack": 64511,
+					"defense": 65535,
+					"hp": 65023,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"status": "SLP",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 23386,
+				"evs": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"experience": {
+					"current": 16777087
+				},
+				"fitness": -2453036576901,
+				"health": [
+					65535,
+					65535
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 15,
+					"hp": 15,
+					"special_attack": 15,
+					"special_defense": 15,
+					"speed": 15
+				},
+				"level": 255,
+				"moves": [
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 1,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					},
+					{
+						"id": 255,
+						"pp": 63,
+						"pp_up": 3,
+						"name": "???",
+						"type": "???"
+					}
+				],
+				"name": "           ",
+				"original_trainer": {
+					"id": 64511,
+					"name": "919♂9997999"
+				},
+				"personality_value": 4294966016,
+				"species": {
+					"base_stats": {
+						"attack": 142,
+						"defense": 139,
+						"hp": 142,
+						"special_attack": 145,
+						"special_defense": 145,
+						"speed": 147
+					},
+					"id": 253,
+					"national_dex": 213
+				},
+				"stats": {
+					"attack": 65535,
+					"defense": 65535,
+					"hp": 65535,
+					"special_attack": 65535,
+					"special_defense": 65535,
+					"speed": 65535
+				},
+				"status": "SLP",
+				"shiny": false
+			}
+		]
+	},
+	"red": {
+		"badges": 7,
+		"battle_kind": "None",
+		"caught_list": [
+			1,
+			2,
+			4,
+			5,
+			21,
+			23,
+			25,
+			29,
+			35,
+			46,
+			51,
+			52,
+			63,
+			64,
+			69,
+			83
+		],
+		"coins": 0,
+		"daycare": [],
+		"gender": "Male",
+		"id": 25045,
+		"in_battle": false,
+		"items": {
+			"items": [
+				{
+					"id": 42,
+					"name": "Helix Fossil"
+				},
+				{
+					"count": 43,
+					"id": 4,
+					"name": "Poké Ball"
+				},
+				{
+					"count": 1,
+					"id": 49,
+					"name": "Nugget"
+				},
+				{
+					"count": 1,
+					"id": 63,
+					"name": "S.S.Ticket"
+				},
+				{
+					"count": 1,
+					"id": 245,
+					"name": "TM45 Thunder Wave"
+				},
+				{
+					"id": 196,
+					"name": "HM01 Cut"
+				},
+				{
+					"count": 1,
+					"id": 19,
+					"name": "Super Potion"
+				},
+				{
+					"count": 1,
+					"id": 76,
+					"name": "Old Rod"
+				},
+				{
+					"count": 1,
+					"id": 10,
+					"name": "Moon Stone"
+				},
+				{
+					"count": 1,
+					"id": 35,
+					"name": "Hp Up"
+				},
+				{
+					"count": 1,
+					"id": 224,
+					"name": "TM24 Thunderbolt"
+				}
+			],
+			"pc": [
+				{
+					"count": 1,
+					"id": 20,
+					"name": "Potion"
+				}
+			]
+		},
+		"map_id": 239,
+		"money": 4816,
+		"name": "(((",
+		"options": {
+			"battle_scene": "On",
+			"battle_style": "Set",
+			"text_speed": "Fast"
+		},
+		"rematch_available": 0,
+		"rival_name": "XXWWNNπ",
+		"seen_list": [
+			1,
+			2,
+			4,
+			5,
+			7,
+			10,
+			11,
+			12,
+			13,
+			14,
+			16,
+			19,
+			20,
+			21,
+			23,
+			25,
+			26,
+			27,
+			29,
+			32,
+			33,
+			35,
+			39,
+			41,
+			43,
+			46,
+			50,
+			51,
+			52,
+			56,
+			58,
+			63,
+			64,
+			66,
+			69,
+			72,
+			74,
+			77,
+			79,
+			83,
+			88,
+			90,
+			95,
+			96,
+			100,
+			109,
+			116,
+			118,
+			120,
+			121
+		],
+		"x": 6,
+		"y": 4,
+		"pc": {
+			"boxes": [
+				{
+					"box_contents": [],
+					"box_name": "Box 1",
+					"box_number": 1
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 2",
+					"box_number": 2
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 3",
+					"box_number": 3
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 4",
+					"box_number": 4
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 5",
+					"box_number": 5
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 6",
+					"box_number": 6
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 7",
+					"box_number": 7
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 8",
+					"box_number": 8
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 9",
+					"box_number": 9
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 10",
+					"box_number": 10
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 11",
+					"box_number": 11
+				},
+				{
+					"box_contents": [],
+					"box_name": "Box 12",
+					"box_number": 12
+				}
+			],
+			"current_box_number": 1
+		},
+		"party": [
+			{
+				"catchrate": 50,
+				"cp": 598,
+				"evs": {
+					"attack": 1007,
+					"defense": 726,
+					"hp": 784,
+					"special_attack": 1039,
+					"special_defense": 1039,
+					"speed": 1418
+				},
+				"experience": {
+					"current": 33828,
+					"next_level": 35937,
+					"this_level": 32768,
+					"remaining": 2109
+				},
+				"fitness": 58988,
+				"health": [
+					56,
+					66
+				],
+				"ivs": {
+					"attack": 14,
+					"defense": 8,
+					"hp": 0,
+					"special_attack": 4,
+					"special_defense": 4,
+					"speed": 14
+				},
+				"level": 32,
+				"moves": [
+					{
+						"id": 10,
+						"pp": 27,
+						"pp_up": 0,
+						"name": "Scratch",
+						"accuracy": 255,
+						"base_power": 40,
+						"type": "Normal"
+					},
+					{
+						"id": 45,
+						"pp": 40,
+						"pp_up": 0,
+						"name": "Growl",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 28,
+						"pp": 15,
+						"pp_up": 0,
+						"name": "Sand-Attack",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 91,
+						"pp": 7,
+						"pp_up": 0,
+						"name": "Dig",
+						"accuracy": 255,
+						"base_power": 100,
+						"type": "Ground"
+					}
+				],
+				"name": "DDDDDDDDDD",
+				"original_trainer": {
+					"id": 25045,
+					"name": "((("
+				},
+				"personality_value": 3907281383,
+				"species": {
+					"base_stats": {
+						"attack": 80,
+						"defense": 50,
+						"hp": 35,
+						"special_attack": 70,
+						"special_defense": 70,
+						"speed": 120
+					},
+					"id": 118,
+					"national_dex": 51,
+					"type1": "Ground",
+					"type2": "Ground",
+					"name": "Dugtrio",
+					"gender_ratio": 127,
+					"growth_rate": "Medium Fast",
+					"catch_rate": 50
+				},
+				"stats": {
+					"attack": 67,
+					"defense": 44,
+					"hp": 66,
+					"special_attack": 54,
+					"special_defense": 54,
+					"speed": 93
+				},
+				"status": 0,
+				"gender": "Male",
+				"shiny": false
+			},
+			{
+				"catchrate": 45,
+				"cp": 688,
+				"evs": {
+					"attack": 9101,
+					"defense": 7978,
+					"hp": 6546,
+					"special_attack": 6537,
+					"special_defense": 6537,
+					"speed": 10198
+				},
+				"experience": {
+					"current": 26443,
+					"next_level": 27021,
+					"this_level": 24294,
+					"remaining": 578
+				},
+				"fitness": 72947,
+				"health": [
+					31,
+					89
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 4,
+					"hp": 8,
+					"special_attack": 0,
+					"special_defense": 0,
+					"speed": 0
+				},
+				"level": 31,
+				"moves": [
+					{
+						"id": 15,
+						"pp": 30,
+						"pp_up": 0,
+						"name": "Cut",
+						"accuracy": 242,
+						"base_power": 50,
+						"type": "Normal"
+					},
+					{
+						"id": 73,
+						"pp": 8,
+						"pp_up": 0,
+						"name": "Leech Seed",
+						"accuracy": 229,
+						"base_power": 0,
+						"type": "Grass"
+					},
+					{
+						"id": 45,
+						"pp": 38,
+						"pp_up": 0,
+						"name": "Growl",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 22,
+						"pp": 6,
+						"pp_up": 0,
+						"name": "Vine Whip",
+						"accuracy": 255,
+						"base_power": 35,
+						"type": "Grass"
+					}
+				],
+				"name": "UUUVVX;:UL",
+				"original_trainer": {
+					"id": 25045,
+					"name": "((("
+				},
+				"personality_value": 4093665784,
+				"species": {
+					"base_stats": {
+						"attack": 62,
+						"defense": 63,
+						"hp": 60,
+						"special_attack": 80,
+						"special_defense": 80,
+						"speed": 60
+					},
+					"id": 9,
+					"national_dex": 2,
+					"type1": "Grass",
+					"type2": "Poison",
+					"name": "Ivysaur",
+					"gender_ratio": 31,
+					"growth_rate": "Medium Slow",
+					"catch_rate": 45
+				},
+				"stats": {
+					"attack": 59,
+					"defense": 53,
+					"hp": 89,
+					"special_attack": 60,
+					"special_defense": 60,
+					"speed": 49
+				},
+				"status": 0,
+				"gender": "Male",
+				"shiny": false
+			},
+			{
+				"catchrate": 190,
+				"cp": 170,
+				"evs": {
+					"attack": 208,
+					"defense": 176,
+					"hp": 2720,
+					"special_attack": 167,
+					"special_defense": 167,
+					"speed": 279
+				},
+				"experience": {
+					"current": 1966,
+					"next_level": 2197,
+					"this_level": 1728,
+					"remaining": 231
+				},
+				"fitness": 10162,
+				"health": [
+					35,
+					35
+				],
+				"ivs": {
+					"attack": 11,
+					"defense": 5,
+					"hp": 14,
+					"special_attack": 14,
+					"special_defense": 14,
+					"speed": 11
+				},
+				"level": 12,
+				"moves": [
+					{
+						"id": 10,
+						"pp": 35,
+						"pp_up": 0,
+						"name": "Scratch",
+						"accuracy": 255,
+						"base_power": 40,
+						"type": "Normal"
+					},
+					{
+						"id": 91,
+						"pp": 10,
+						"pp_up": 0,
+						"name": "Dig",
+						"accuracy": 255,
+						"base_power": 100,
+						"type": "Ground"
+					},
+					{
+						"id": 15,
+						"pp": 30,
+						"pp_up": 0,
+						"name": "Cut",
+						"accuracy": 242,
+						"base_power": 50,
+						"type": "Normal"
+					}
+				],
+				"name": "DDDDDDDMMM",
+				"original_trainer": {
+					"id": 25045,
+					"name": "((("
+				},
+				"personality_value": 3049152875,
+				"species": {
+					"base_stats": {
+						"attack": 70,
+						"defense": 55,
+						"hp": 35,
+						"special_attack": 55,
+						"special_defense": 55,
+						"speed": 25
+					},
+					"id": 109,
+					"national_dex": 46,
+					"type1": "Bug",
+					"type2": "Grass",
+					"name": "Paras",
+					"gender_ratio": 127,
+					"growth_rate": "Medium Fast",
+					"catch_rate": 190
+				},
+				"stats": {
+					"attack": 24,
+					"defense": 19,
+					"hp": 35,
+					"special_attack": 21,
+					"special_defense": 21,
+					"speed": 14
+				},
+				"status": 0,
+				"gender": "Male",
+				"shiny": false
+			},
+			{
+				"catchrate": 45,
+				"cp": 211,
+				"evs": {
+					"attack": 61,
+					"defense": 45,
+					"hp": 44,
+					"special_attack": 48,
+					"special_defense": 48,
+					"speed": 69
+				},
+				"experience": {
+					"current": 1728,
+					"next_level": 2197,
+					"this_level": 1728,
+					"remaining": 469
+				},
+				"fitness": 13667,
+				"health": [
+					37,
+					37
+				],
+				"ivs": {
+					"attack": 15,
+					"defense": 11,
+					"hp": 13,
+					"special_attack": 11,
+					"special_defense": 11,
+					"speed": 2
+				},
+				"level": 12,
+				"moves": [
+					{
+						"id": 64,
+						"pp": 35,
+						"pp_up": 0,
+						"name": "Peck",
+						"accuracy": 255,
+						"base_power": 35,
+						"type": "Flying"
+					},
+					{
+						"id": 28,
+						"pp": 15,
+						"pp_up": 0,
+						"name": "Sand-Attack",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 43,
+						"pp": 30,
+						"pp_up": 0,
+						"name": "Leer",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 15,
+						"pp": 30,
+						"pp_up": 0,
+						"name": "Cut",
+						"accuracy": 242,
+						"base_power": 50,
+						"type": "Normal"
+					}
+				],
+				"name": "DUX",
+				"original_trainer": {
+					"id": 32410,
+					"name": " "
+				},
+				"personality_value": 4213931703,
+				"species": {
+					"base_stats": {
+						"attack": 65,
+						"defense": 55,
+						"hp": 52,
+						"special_attack": 58,
+						"special_defense": 58,
+						"speed": 60
+					},
+					"id": 64,
+					"national_dex": 83,
+					"type1": "Normal",
+					"type2": "Flying",
+					"name": "Farfetch'd",
+					"gender_ratio": 127,
+					"growth_rate": "Medium Fast",
+					"catch_rate": 45
+				},
+				"stats": {
+					"attack": 24,
+					"defense": 20,
+					"hp": 37,
+					"special_attack": 21,
+					"special_defense": 21,
+					"speed": 20
+				},
+				"status": 0,
+				"gender": "Male",
+				"shiny": false
+			},
+			{
+				"catchrate": 150,
+				"cp": 203,
+				"evs": {
+					"attack": 488,
+					"defense": 432,
+					"hp": 399,
+					"special_attack": 416,
+					"special_defense": 416,
+					"speed": 486
+				},
+				"experience": {
+					"current": 2075,
+					"next_level": 2195,
+					"this_level": 1757,
+					"remaining": 120
+				},
+				"fitness": 13951,
+				"health": [
+					0,
+					41
+				],
+				"ivs": {
+					"attack": 8,
+					"defense": 10,
+					"hp": 1,
+					"special_attack": 3,
+					"special_defense": 3,
+					"speed": 10
+				},
+				"level": 13,
+				"moves": [
+					{
+						"id": 1,
+						"pp": 31,
+						"pp_up": 0,
+						"name": "Pound",
+						"accuracy": 255,
+						"base_power": 40,
+						"type": "Normal"
+					},
+					{
+						"id": 45,
+						"pp": 39,
+						"pp_up": 0,
+						"name": "Growl",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 61,
+						"pp": 20,
+						"pp_up": 0,
+						"name": "Bubblebeam",
+						"accuracy": 255,
+						"base_power": 65,
+						"type": "Water"
+					},
+					{
+						"id": 47,
+						"pp": 15,
+						"pp_up": 0,
+						"name": "Sing",
+						"accuracy": 140,
+						"base_power": 0,
+						"type": "Normal"
+					}
+				],
+				"name": "OOXXXXXWVT",
+				"original_trainer": {
+					"id": 25045,
+					"name": "((("
+				},
+				"personality_value": 2325963075,
+				"species": {
+					"base_stats": {
+						"attack": 45,
+						"defense": 48,
+						"hp": 70,
+						"special_attack": 60,
+						"special_defense": 60,
+						"speed": 35
+					},
+					"id": 4,
+					"national_dex": 35,
+					"type1": "Normal",
+					"type2": "Normal",
+					"name": "Clefairy",
+					"gender_ratio": 191,
+					"growth_rate": "Fast",
+					"catch_rate": 150
+				},
+				"stats": {
+					"attack": 19,
+					"defense": 20,
+					"hp": 41,
+					"special_attack": 22,
+					"special_defense": 22,
+					"speed": 17
+				},
+				"status": 0,
+				"gender": "Female",
+				"shiny": false
+			},
+			{
+				"catchrate": 255,
+				"cp": 134,
+				"evs": {
+					"attack": 307,
+					"defense": 226,
+					"hp": 214,
+					"special_attack": 221,
+					"special_defense": 221,
+					"speed": 313
+				},
+				"experience": {
+					"current": 2218,
+					"next_level": 2744,
+					"this_level": 2197,
+					"remaining": 526
+				},
+				"fitness": 13049,
+				"health": [
+					35,
+					35
+				],
+				"ivs": {
+					"attack": 7,
+					"defense": 13,
+					"hp": 13,
+					"special_attack": 5,
+					"special_defense": 5,
+					"speed": 4
+				},
+				"level": 13,
+				"moves": [
+					{
+						"id": 35,
+						"pp": 20,
+						"pp_up": 0,
+						"name": "Wrap",
+						"accuracy": 216,
+						"base_power": 15,
+						"type": "Normal"
+					},
+					{
+						"id": 43,
+						"pp": 30,
+						"pp_up": 0,
+						"name": "Leer",
+						"accuracy": 255,
+						"base_power": 0,
+						"type": "Normal"
+					},
+					{
+						"id": 40,
+						"pp": 35,
+						"pp_up": 0,
+						"name": "Poison Sting",
+						"accuracy": 255,
+						"base_power": 15,
+						"type": "Poison"
+					},
+					{
+						"id": 34,
+						"pp": 15,
+						"pp_up": 0,
+						"name": "Body Slam",
+						"accuracy": 255,
+						"base_power": 85,
+						"type": "Normal"
+					}
+				],
+				"name": "A",
+				"original_trainer": {
+					"id": 25045,
+					"name": "((("
+				},
+				"personality_value": 2101698858,
+				"species": {
+					"base_stats": {
+						"attack": 60,
+						"defense": 44,
+						"hp": 35,
+						"special_attack": 40,
+						"special_defense": 40,
+						"speed": 55
+					},
+					"id": 108,
+					"national_dex": 23,
+					"type1": "Poison",
+					"type2": "Poison",
+					"name": "Ekans",
+					"gender_ratio": 127,
+					"growth_rate": "Medium Fast",
+					"catch_rate": 255
+				},
+				"stats": {
+					"attack": 22,
+					"defense": 20,
+					"hp": 35,
+					"special_attack": 17,
+					"special_defense": 17,
+					"speed": 20
+				},
+				"status": 0,
+				"gender": "Female",
+				"shiny": false
+			}
+		],
+		"caught": 16,
+		"seen": 50,
+		"ball_count": 43,
+		"level_cap": 100,
+		"map_name": "Trade Center",
+		"party_fitness": 182764
+	}
+}

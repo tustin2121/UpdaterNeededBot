@@ -69,6 +69,7 @@ class ChatAPI {
 	}
 	
 	connect() {
+		if (!this.serverUrl) return Promise.resolve(true);
 		return new Promise((resolve, reject)=>{
 			LOGGER.trace('Connecting to chat...');
 			this.ibot.connect(()=>{
