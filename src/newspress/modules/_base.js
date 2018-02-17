@@ -6,6 +6,7 @@ class ReportingModule {
 		this.initConfig = config;
 		this.memory = memory;
 		this.priority = priority;
+		this.gameIndex = 0;
 	}
 	
 	/**

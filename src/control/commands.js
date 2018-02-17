@@ -122,16 +122,17 @@ const HANDLER = {
 			.catch(ERR);
 	},
 	
-	helpout: ({ msg, memory, args })=>{
-		memory.taggedIn = args[0];
+	helpout: ({ msg, args })=>{
+		let taggedIn = args[0];
 		let help = [];
-		if (memory.taggedIn['catches']) help.push('give info about our catches');
-		if (memory.taggedIn['shopping']) help.push('list our shopping results (when we leave the map)');
-		if (memory.taggedIn['items']) help.push('announce item aquisitions');
-		if (memory.taggedIn['level']) help.push('announce level ups / move learns');
+		if (taggedIn['catches']) help.push('give info about our catches');
+		if (taggedIn['shopping']) help.push('list our shopping results (when we leave the map)');
+		if (taggedIn['items']) help.push('announce item aquisitions');
+		if (taggedIn['level']) help.push('announce level ups / move learns');
 		if (help.length > 1) help[help.length-1] = "and "+help[help.length-1];
 		
-		getLogger('TAG').info(`Bot has tagged to help with: ${Object.keys(memory.taggedIn).join(', ')}.`);
+		Bot.taggedIn = taggedIn;
+		getLogger('TAG').info(`Bot has tagged to help with: ${Object.keys(taggedIn).join(', ')}.`);
 		
 		msg.channel
 			.send(`Ok, I'll ${help.join(', ')}. Don't hesistate to delete my updates if they get in the way.`)

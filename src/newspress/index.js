@@ -23,7 +23,8 @@ class UpdaterPress {
 			if (modconfig[modname] === false) continue; //disabled
 			let ModClass = require(`./modules/${modname}`);
 			let modmem = this.memory[`mod${game}_${modname}`];
-			let mod = new ModClass(modconfig[modname], modmem)
+			let mod = new ModClass(modconfig[modname], modmem);
+			mod.gameIndex = this.gameIndex;
 			this.modules.push( mod );
 		}
 		this.modules.sort((a,b)=> a.priority - b.priority );

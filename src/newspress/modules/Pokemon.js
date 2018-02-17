@@ -39,7 +39,9 @@ class PokemonModule extends ReportingModule {
 		// Save off valid pokemon boxes in memory and fill in invalid boxes
 		for (let bn = 0; bn < prev._pc.length; bn++) { //Must do previous first before current updates our records
 			if (!prev._pc[bn]) {
+				LOGGER.warn(`Missing PC Box PREV: adding pokemon to the box.`);
 				for (let mon of this.memory.savedBoxes[bn]) {
+					LOGGER.warn(`Adding`, mon);
 					prev_map[mon.hash] = mon;
 				}
 			}
@@ -48,7 +50,9 @@ class PokemonModule extends ReportingModule {
 			if (curr._pc[bn]) {
 				this.memory.savedBoxes[bn] = curr._pc[bn].slice();
 			} else {
+				LOGGER.warn(`Missing PC Box CURR: adding pokemon to the box.`);
 				for (let mon of this.memory.savedBoxes[bn]) {
+					LOGGER.warn(`Adding`, mon);
 					curr_map[mon.hash] = mon;
 				}
 			}
@@ -59,10 +63,11 @@ class PokemonModule extends ReportingModule {
 		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
 		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
 			
-		LOGGER.debug(`deltas: add=`, added, ` removed=`, removed);
+		LOGGER.debug(`deltas: add=`, added, ` removed=`, removed, ` same.length=`, same.length);
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {
+			LOGGER.warn(`ledger.add(new PokemonGained(`,mon,`));`);
 			ledger.add(new PokemonGained(mon));
 		}
 		// Note all Pokemon missings
