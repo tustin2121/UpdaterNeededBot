@@ -35,7 +35,8 @@ const determineGender = (male, female, neuter, plural)=>{
 			switch(obj.gender.toLowerCase()) {
 				case 'm': case 'male': return male;
 				case 'f': case 'female': return female;
-				// case 't': case 'they': case 'plural': return plural;
+				case 't': case 'they': case 'plural': return plural;
+				case 'i': case 'it': return plural;
 				default: return plural;
 			}
 		}
@@ -93,24 +94,43 @@ const FORMAT_FNS = {
 		if (typeof obj.amount === 'number') { return toWordNumber(obj); }
 		return obj;
 	},
+	
 	// pronouns
 	'he': determineGender('he', 'she', 'it', 'they'),
 	'him': determineGender('him', 'her', 'it', 'them'),
 	'his': determineGender('his', 'her', 'its', 'their'),
 //	'his': determineGender('his', 'hers', 'its', 'theirs'),
+	'she': determineGender('he', 'she', 'it', 'they'),
+	'her': determineGender('him', 'her', 'it', 'them'),
+//	'her': determineGender('his', 'her', 'its', 'their'),
+	'hers': determineGender('his', 'hers', 'its', 'theirs'),
 	'they': determineGender('he', 'she', 'it', 'they'),
 	'them': determineGender('him', 'her', 'it', 'them'),
 	'their': determineGender('his', 'her', 'its', 'their'),
 	'theirs': determineGender('his', 'hers', 'its', 'theirs'),
+	
 	// captial pronouns
 	'He': determineGender('He', 'She', 'It', 'They'),
 	'Him': determineGender('Him', 'Her', 'It', 'Them'),
 	'His': determineGender('His', 'Her', 'Its', 'Their'),
 //	'His': determineGender('His', 'Hers', 'Its', 'Theirs'),
+	'She': determineGender('He', 'She', 'It', 'They'),
+	'Her': determineGender('Him', 'Her', 'It', 'Them'),
+//	'Her': determineGender('His', 'Her', 'Its', 'Their'),
+	'Hers': determineGender('His', 'Hers', 'Its', 'Theirs'),
 	'They': determineGender('He', 'She', 'It', 'They'),
 	'Them': determineGender('Him', 'Her', 'It', 'Them'),
 	'Their': determineGender('His', 'Her', 'Its', 'Their'),
 	'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
+	
+	//conjegation
+	'pronoun': (obj)=>'', //This is here to set the pronoun used in fillText and that's it
+	's': determineGender('s','s','s',''), //{{mon|He}} yawn{{|s}}. => He yawns.
+	'es': determineGender('es','es','es',''), //{{mon|He}} stretch{{|es}}. => He stretches.
+	'verb': (obj, arg)=>{ //{{mon|He}} {{|verb[has/have]}}. => He has.
+		let verbs = arg.split(/[/,]/i);
+		return determineGender(verbs[0],verbs[0],verbs[0],verbs[1])(obj);
+	},
 	
 	'uppercase': (obj)=>obj.toString().toUpperCase(),
 	'lowercase': (obj)=>obj.toString().toLowerCase(),
@@ -128,9 +148,11 @@ const FORMAT_FNS = {
  * @param {LedgerItem} item - The ledger item to use as context
  */
 function fillText(text, item) {
-	return text.replace(/\{\{([\w.|]+)\}\}/gi, (match, key)=>{
+	let pronoun = null; //carry over context
+	return text.replace(/\{\{([\w.|/,\[\]]+)\}\}/gi, (match, key)=>{
 		let args = key.split('|');
 		let obj = (()=>{
+			if (!args[0]) return pronoun;
 			let a = args[0].split('.');
 			let o = item;
 			for (let b of a) {
@@ -138,9 +160,12 @@ function fillText(text, item) {
 			}
 			return o;
 		})();
+		pronoun = obj;
 		for (let i = 1; i < args.length; i++) {
-			let fn = FORMAT_FNS[args[i]];
-			obj = fn(obj);
+			let fargs = /^(\w+)(?:\[([\w/,]+)\])?$/i.exec(args[i]);
+			if (!fargs) throw new TypeError('Malformatted text substitution!', match);
+			let fn = FORMAT_FNS[fargs[1]];
+			obj = fn(obj, fargs[2]);
 		}
 		return obj;
 	});

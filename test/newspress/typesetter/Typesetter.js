@@ -44,6 +44,65 @@ describe('TypeSetter', function(){
 			res.should.equal(exp);
 		});
 		
+		it('runs {{them}} functions (object)', function(){
+			const exp = `Bulbasaur scratches himself behind the ear with his foot. He yawns and claims a patch of grass as his.`;
+			const pre = `{{mon.species}} scratches {{mon|them}}self behind the ear with {{mon|their}} foot. {{mon|They}} yawn{{mon|s}} and claim{{mon|s}} a patch of grass as {{mon|theirs}}.`;
+			const item = {
+				mon: {
+					species: 'Bulbasaur',
+					gender: 'Male',
+				},
+			};
+			
+			let res = fillText(pre, item);
+			
+			res.should.equal(exp);
+		});
+		
+		it('runs {{them}} functions (Pokemon w/gender)', function(){
+			Bot.setOpt('gender',true);
+			const exp = `Bulbasaur scratches himself behind the ear with his foot. He yawns and claims a patch of grass as his. He is content.`;
+			const pre = `{{mon.species}} scratches {{mon|them}}self behind the ear with {{|their}} foot. {{|They}} yawn{{|s}} and claim{{|s}} a patch of grass as {{|theirs}}. {{|They}} {{|verb[is/are]}} content.`;
+			
+			const mon = new Pokemon();
+			mon.species = 'Bulbasaur';
+			mon._gender = 'Male';
+			const item = { mon };
+			
+			let res = fillText(pre, item);
+			
+			res.should.equal(exp);
+		});
+		
+		it('runs {{them}} functions (Pokemon w/o gender)', function(){
+			Bot.setOpt('gender',false);
+			const exp = `Bulbasaur scratches itself behind the ear with its foot. It stretches and claims a patch of grass as its.`;
+			const pre = `{{mon.species}} scratches {{mon|them}}self behind the ear with {{mon|their}} foot. {{mon|They}} stretch{{|es}} and claim{{mon|s}} a patch of grass as {{mon|theirs}}.`;
+			
+			const mon = new Pokemon();
+			mon.species = 'Bulbasaur';
+			mon._gender = 'Male';
+			const item = { mon };
+			
+			let res = fillText(pre, item);
+			
+			res.should.equal(exp);
+		});
+		
+		// it('throws on unset pronouns', function(){
+		// 	const pre = `There is {{|an}} item.`;
+		// 	const item = { dummy:'' };
+        //
+		// 	(()=>{ fillText(pre, item) }).should.throw(TypeError);
+		// });
+		
+		it('throws on malformatted replacements.', function(){
+			const pre = `There is {{dummy|an][,,]}} item.`;
+			const item = { dummy:'' };
+			
+			(()=>{ fillText(pre, item) }).should.throw(TypeError);
+		});
+		
 		// it('runs {{pronoun}} functions', function(){
 		// 	const exp = `He said that she said that `;
 		// 	const pre = ``;

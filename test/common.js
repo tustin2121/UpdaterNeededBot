@@ -22,7 +22,13 @@ global.getLogger = function() {
 }
 
 global.Bot = {
-	runOpts(){ return false; }
-}
+	opt: {},
+	setOpt(key,val){ this.opt[key] = val; },
+	runOpts(id){ return this.opt[id] || false; },
+};
+
+beforeEach(function(){
+	Bot.opt = {};
+});
 
 module.exports = { should, sinon };
