@@ -50,9 +50,39 @@ class LocationChanged extends LedgerItem {
 	}
 }
 
+/** Indicates that we've jumped a hard ledge, like the Kanto Route 22 ledge */
+class JumpedLedge extends LedgerItem {
+	constructor(curr_api) {
+		super(1);
+		this.curr_api = curr_api;
+		this.loc = curr_api.location;
+	}
+	get randomMon(){
+		try {
+			if (this._rmon) return this._rmon; //sticky
+			let party = this.curr_api.party;
+			this._rmon = party[Math.floor(Math.random()*party.length)];
+			this._rmon.species.length; //test to be sure this won't break
+			return this._rmon;
+		} catch (e) {
+			getLogger('JumpedLedge').error(e);
+			return { species:`One of our pokemon`, gender:'it', };
+		}
+	}
+}
+
+/** Indicates that we've cleared a hard ledge, like the Kanto Route 22 ledge */
+class ClearedLedge extends LedgerItem {
+	constructor(loc) {
+		super(1);
+		this.loc = loc;
+	}
+}
+
 /////////////////// Advanced Items ///////////////////
 
 
 module.exports = {
-	LocationContext, LocationChanged
+	LocationContext, LocationChanged, MapContext,
+	JumpedLedge, ClearedLedge,
 };

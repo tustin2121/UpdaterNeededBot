@@ -49,7 +49,7 @@ module.exports = {
 		// Unix timestamp since when the run started
 		runStart: 1518484920, //Must be supplied
 		// The amount of time between searching for updates
-		updatePeriod: 1000 * 15,
+		updatePeriod: 1000 * 5,
 		
 		// The Stream API URL to poll
 		apiSrc: "https://twitchplayspokemon.tv/api/run_status",

@@ -293,6 +293,7 @@ function typeset(ledger) {
 	// by adding another layer to the phrase book for "single" and "multiple".
 	for (let items of list) try {
 		let phrase = getPhrase(items);
+		LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
 		if (phrase === null) continue;
 		update.push(phrase);
 	} catch (e) {

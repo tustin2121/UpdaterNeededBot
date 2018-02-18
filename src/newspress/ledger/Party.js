@@ -36,6 +36,19 @@ class MonLeveledUp extends PartyItem {
 	get level(){ return this.mon.level; }
 	get curr(){ return this.mon.level; }
 	get prev(){ return this.prevLevel; }
+	cancelsOut(other) {
+		// other is the older, postponed item. this is the newer item
+		if (this.name !== other.name) return false;
+		if (this.mon.hash !== other.mon.hash) return false;
+		if (this.deltaLevel + other.deltaLevel === 0) return true; //cancels out
+		// coelesce
+		this.prevLevel = other.prevLevel;
+		this.deltaLevel += other.deltaLevel;
+		this.flavor = null;
+		if (this.deltaLevel > 1) this.flavor = 'multiple';
+		if (this.deltaLevel < 0) this.flavor = 'regress';
+		return this;
+	}
 }
 
 /** Indicates that a pokemon has evolved. */
@@ -238,7 +251,6 @@ class MonNicknameChanged extends PartyItem {
 			return this; //coalesce
 		}
 		if (other.name === 'PokemonGained') {
-			getLogger('MonNicknameChanged').warn(`cancelsOut(PokemonGained) =>`, other);
 			if (this.mon.hash !== other.mon.hash) return false;
 			other.mon = this.mon; //update the new pokemon with the most recent data
 			return other; //replace
