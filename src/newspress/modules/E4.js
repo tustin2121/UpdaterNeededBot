@@ -74,6 +74,19 @@ class E4Module extends ReportingModule {
 	secondPass(ledger) {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
+	
+	finalPass(ledger) {
+		let items = ledger.findAllItemsWithName('E4BeginRun');
+		if (items.length) {
+			let game = '';
+			if (Bot.runConfig.numGames > 1) {
+				game = Bot.gameInfo(this.gameIndex).name;
+				game = ` in ${game}`;
+			}
+			let txt = items.map(x=>`We're locked into the E4${game}! This is Attempt #${x.attempt}`).join('\n');
+			Bot.alertUpdaters(txt, true);
+		}
+	}
 }
 
 module.exports = E4Module;

@@ -74,6 +74,29 @@ class BattleModule extends ReportingModule {
 	secondPass(ledger) {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
+	
+	finalPass(ledger) {
+		let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
+		if (battleItems.length) {
+			let game = ' on stream';
+			if (Bot.runConfig.numGames > 1) {
+				game = Bot.gameInfo(this.gameIndex).name;
+				game = ` in ${game}`;
+			}
+			let txt = battleItems.map(x=>{
+				if (x.isLegendary) {
+					return `We've encounter legendary pokemon ${x.battle.displayName}${game}!`;
+				}
+				else if (x.isRival) {
+					return `We're battle our rival ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
+				}
+				else {
+					return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
+				}
+			}).join('\n');
+			Bot.alertUpdaters(txt, true);
+		}
+	}
 }
 
 RULES.push(new Rule(`Don't report a full heal after a blackout`)

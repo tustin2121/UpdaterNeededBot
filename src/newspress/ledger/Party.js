@@ -238,6 +238,7 @@ class MonNicknameChanged extends PartyItem {
 			return this; //coalesce
 		}
 		if (other.name === 'PokemonGained') {
+			getLogger('MonNicknameChanged').warn(`cancelsOut(PokemonGained) =>`, other);
 			if (this.mon.hash !== other.mon.hash) return false;
 			other.mon = this.mon; //update the new pokemon with the most recent data
 			return other; //replace

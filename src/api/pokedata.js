@@ -30,8 +30,8 @@ function read(opts={}, ...keys) {
 
 function sanatizeName(val) {
 	val = val.replace(/ /i, '\xA0'); // Replace spaces with non-breaking spaces
-	val = val.replace('π', 'ᵖᵏ').replace('Π', 'ᵖᵏ').replace('\u00ca', 'ᵖᵏ'); // Replace symbols
-	val = val.replace('µ', 'ᵐᶰ').replace('Μ', 'ᵐᶰ').replace('Ë', 'ᵐᶰ'); // Replace symbols
+	val = val.replace(/π/g, 'ᵖᵏ').replace(/Π/g, 'ᵖᵏ').replace(/\u00ca/g, 'ᵖᵏ'); // Replace symbols
+	val = val.replace(/µ/g, 'ᵐᶰ').replace(/Μ/g, 'ᵐᶰ').replace(/Ë/g, 'ᵐᶰ'); // Replace symbols
 	return val;
 }
 

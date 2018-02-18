@@ -40,6 +40,10 @@ class PokemonGained extends PokemonItem {
 		}
 		return false;
 	}
+	canPostpone() {
+		getLogger('PokemonGained').warn(`canPostpone()`);
+		return true;
+	}
 	static loadFromMemory(m) {
 		let mon = new Pokemon(m.mon);
 		return new PokemonGained(mon);
