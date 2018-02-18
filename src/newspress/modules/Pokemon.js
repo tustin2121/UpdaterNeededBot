@@ -20,7 +20,7 @@ const RULES = [];
 class PokemonModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory, 2);
-		this.memory.savedBoxes = [];
+		this.memory.savedBoxes = (this.memory.savedBoxes||[]);
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
@@ -89,18 +89,18 @@ class PokemonModule extends ReportingModule {
 				if (prev.storedIn.startsWith('party') && !curr.storedIn.startsWith('party')) {
 					if (curr.storedIn.startsWith('box')) {
 						ledger.addItem(new PokemonDeposited(curr, prev.storedIn, 'pc'));
-					} 
+					}
 					else if (curr.storedIn.startsWith('daycare')) {
 						ledger.addItem(new PokemonDeposited(curr, prev.storedIn, 'daycare'));
-					} 
+					}
 					//TODO Poke islands in Gen 7?
-				} 
+				}
 				else if (prev.storedIn.startsWith('box') && curr.storedIn.startsWith('party')) {
 					ledger.addItem(new PokemonRetrieved(curr, prev.storedIn, 'pc'));
-				} 
+				}
 				else if (prev.storedIn.startsWith('daycare') && curr.storedIn.startsWith('party')) {
 					ledger.addItem(new PokemonRetrieved(curr, prev.storedIn, 'daycare'));
-				} 
+				}
 				//TODO Poke islands in Gen 7?
 				// Cannot cross from box directly into daycare or visaversa
 			}

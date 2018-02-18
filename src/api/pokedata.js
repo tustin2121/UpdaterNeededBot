@@ -376,7 +376,7 @@ SortedLocation.prototype.can = SortedLocation.prototype.is; //Alias
 SortedLocation.prototype.get = SortedLocation.prototype.is; //Alias
 
 class SortedPokemon {
-	constructor(data, game) {
+	constructor(data, game=0) {
 		this._map = {};
 		
 		this._party = [];

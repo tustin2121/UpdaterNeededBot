@@ -210,7 +210,7 @@ class RuleInstance {
 	
 	unmarked() {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.workingList.filter(x=>x.isMarked(this.rule));
+		this.workingList = this.workingList.filter(x=>!x.isMarked(this.rule));
 		this.lastResult = (this.workingList && this.workingList.length > 0);
 		return this;
 	}
