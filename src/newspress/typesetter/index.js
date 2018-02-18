@@ -35,7 +35,8 @@ const determineGender = (male, female, neuter, plural)=>{
 			switch(obj.gender.toLowerCase()) {
 				case 'm': case 'male': return male;
 				case 'f': case 'female': return female;
-				// case 't': case 'they': case 'plural': return plural;
+				case 't': case 'they': case 'plural': return plural;
+				case 'i': case 'it': return plural;
 				default: return plural;
 			}
 		}
@@ -268,6 +269,7 @@ function typeset(ledger) {
 	// by adding another layer to the phrase book for "single" and "multiple".
 	for (let items of list) try {
 		let phrase = getPhrase(items);
+		LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
 		if (phrase === null) continue;
 		update.push(phrase);
 	} catch (e) {

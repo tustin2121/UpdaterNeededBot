@@ -44,6 +44,11 @@ class UpdaterPress {
 				curr_chat: (this.gameIndex === 0)? this.chatProducer.getStats() : null,
 			};
 			LOGGER.debug(`Press[${this.gameIndex}]: new api=>${(curr!==prev)}, chat=>${!!data.curr_chat}`);
+			if (curr === prev) {// && !data.curr_chat) { //TODO remove when Chat is implemented
+				// Skip this update cycle
+				this.lastUpdate = null;
+				return null;
+			}
 		}
 		
 		// First Pass: Note all changes and important context into ledger items

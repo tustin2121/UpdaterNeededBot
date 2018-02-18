@@ -167,9 +167,9 @@ class PartyModule extends ReportingModule {
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
-			LOGGER.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.95)} & ${!prev_api.location.equals(curr_api.location)}`);
+			LOGGER.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.86)} & ${!prev_api.location.equals(curr_api.location)}`);
 			let isBlackout = (partyPP >= partyMaxPP);
-			isBlackout &= (partyDeltaHP > partyMaxHP * 0.95);
+			isBlackout &= (partyDeltaHP > partyMaxHP * 0.86);
 			isBlackout &= !prev_api.location.equals(curr_api.location);
 			
 			if (partyHP === partyMaxHP) {
@@ -232,6 +232,14 @@ RULES.push(new Rule('Abilities might change during battle')
 	.when((ledger)=>ledger.has('MonAbilityChanged'))
 	.then((ledger)=>{
 		ledger.postpone(1);
+	})
+);
+
+RULES.push(new Rule('Negative levels usually mean an API Disturbance')
+	.when((ledger)=>ledger.has('MonLeveledUp').which(x=>x.deltaLevel < 0))
+	.then((ledger)=>{
+		ledger.postpone(0); //Postpone levelup report as the level might debounce
+		ledger.add(new ApiDisturbance('Negative levels'));
 	})
 );
 

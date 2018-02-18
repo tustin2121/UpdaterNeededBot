@@ -50,7 +50,6 @@ class ItemModule extends ReportingModule {
 				//held item LedgerItems are added by the Pokemon and Party modules
 				delta += heldDelta[id];
 			}
-			if (delta == 0) continue;
 			
 			if (typeof pcDelta[id] === 'number' && pcDelta[id] !== 0) {
 				if (pcDelta[id] > 0) {
@@ -68,7 +67,6 @@ class ItemModule extends ReportingModule {
 				}
 				delta += pcDelta[id];
 			}
-			if (delta == 0) continue;
 			
 			if (typeof bagDelta[id] === 'number' && bagDelta[id] !== 0) {
 				if (bagDelta[id] > 0) {
@@ -85,7 +83,6 @@ class ItemModule extends ReportingModule {
 					}
 				}
 			}
-			if (delta == 0) continue;
 			
 		}
 	}
