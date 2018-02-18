@@ -769,7 +769,9 @@ describe('Rule', function(){
 	
 	
 	describe('Bugs:', function(){
-		const { BattleContext, MonTakeItem, UsedBerryInBattle } = require('../../../src/newspress/ledger');
+		const {
+			BattleContext, MonTakeItem, UsedBerryInBattle, BlackoutContext
+		} = require('../../../src/newspress/ledger');
 		const { Item, Pokemon, SortedBattle } = require('../../../src/api/pokedata');
 		
 		it('Held berries rule', function(){
@@ -790,6 +792,30 @@ describe('Rule', function(){
 			
 			ledger.list[0].should.be.an.instanceOf(BattleContext);
 			ledger.list[1].should.be.an.instanceOf(UsedBerryInBattle);
+		});
+		
+		it('BlackoutContext rule', function(){
+			let r1;
+			const RULE = new Rule(`Echo BlackoutContext into the next ledger`)
+				.when(ledger=>ledger.has('BlackoutContext').unmarked())
+				.then(r1 = sinon.spy(ledger=>{
+					if (ledger.ledger.findAllItemsWithName('BattleContext').length) {
+						ledger.get(0).keepAlive();
+					}
+					ledger.mark(0).postpone(0); //see the BlackoutContext item about the special postponing it does
+				}));
+			
+			let ledger = createTestLedger([
+				new BlackoutContext(),
+			]);
+			
+			RULE.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+			ledger.should.be.length(1);
+			ledger.list[0].should.be.an.instanceOf(BlackoutContext);
+			ledger.postponeList.should.be.length(1);
+			ledger.postponeList[0].should.be.an.instanceOf(BlackoutContext);
 		});
 	});
 });
