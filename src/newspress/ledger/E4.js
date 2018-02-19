@@ -11,10 +11,15 @@ const { MapNode } = require('../../mapinfo');
  * A context item indicating that we're currently in an E4 run.
  */
 class E4RunContext extends LedgerItem {
-	constructor(attempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount }, loc) {
 		super(0);
-		this.attempt = attempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematch = rematchCount;
+		this.locType = loc;
 	}
+	get champAttempt(){ return this.champ; }
+	get rematchCount(){ return this.rematch; }
 }
 
 /**

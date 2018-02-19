@@ -64,7 +64,7 @@ class Blackout extends LedgerItem {
 
 /** Indicates we blacked out in the previous . */
 class BlackoutContext extends LedgerItem {
-	constructor(oldContext) {
+	constructor() {
 		super(0);
 		this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
 	}
@@ -80,6 +80,14 @@ class BlackoutContext extends LedgerItem {
 	keepAlive() {
 		if (this._next) this._next.ttl = Math.min(this._next.ttl+1, BlackoutContext.STARTING_TTL-1);
 		this.ttl = Math.max(this.ttl, 2);
+	}
+	saveToMemory(m) {
+		m.ttl = this.ttl;
+	}
+	static loadFromMemory(m) {
+		let i = new BlackoutContext();
+		i.ttl = m.ttl;
+		return i;
 	}
 }
 BlackoutContext.STARTING_TTL = 4;

@@ -55,18 +55,20 @@ class E4Module extends ReportingModule {
 				ledger.addItem(new E4ReachChampion(this.memory.champAttempts));
 			}
 			if (curr === 'hallOfFame' && !this.memory.haveWon) {
-				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
 				this.memory.haveWon = true;
+				this.memory.inE4Run = false;
+				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
 			}
 			
 		}
 		else if (this.memory.inE4Run && !inE4) {
 			// We're no longer in an E4 run
+			this.memory.inE4Run = false;
 			ledger.addItem(new E4EndRun(this.memory.e4Attempts));
 		}
 		
 		if (inE4) {
-			ledger.addItem(new E4RunContext(Object.assign({}, this.memory)));
+			ledger.addItem(new E4RunContext(this.memory, curr));
 		}
 		
 	}
@@ -83,8 +85,15 @@ class E4Module extends ReportingModule {
 				game = Bot.gameInfo(this.gameIndex).name;
 				game = ` in ${game}`;
 			}
-			let txt = items.map(x=>`We're locked into the E4${game}! This is Attempt #${x.attempt}`).join('\n');
-			Bot.alertUpdaters(txt, true);
+			let ping = (Bot.taggedIn===true || Bot.taggedIn===this.gameIndex);
+			let txt = items.map(x=>{
+				if (ping) {
+					return `We're locked into the E4${game}! This is Attempt #${x.attempt}`
+				} else {
+					return `This is E4 Attempt #${x.attempt}${game}.`;
+				}
+			}).join('\n');
+			Bot.alertUpdaters(txt, ping, true);
 		}
 	}
 }

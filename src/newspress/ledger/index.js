@@ -150,6 +150,8 @@ class Ledger {
 				this.postponeList.push(ITEM.loadFromMemory(item));
 			} else {
 				let x = new ITEM(item);
+				delete item.__name__; //don't need this anymore
+				delete item._marked; //this can cause trouble if overwritten
 				x = Object.assign(x, item);
 				this.postponeList.push(x);
 			}

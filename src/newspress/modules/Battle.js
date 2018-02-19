@@ -143,7 +143,7 @@ RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
 	.when(ledger=>ledger.has('BlackoutContext').unmarked())
 	.then(ledger=>{
 		if (ledger.ledger.findAllItemsWithName('BattleContext').length) {
-			ledger.get(0).keepAlive();
+			ledger.get(0).forEach(x=>x.keepAlive());
 		}
 		ledger.mark(0).postpone(0); //see the BlackoutContext item about the special postponing it does
 	})

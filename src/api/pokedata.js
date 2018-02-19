@@ -367,6 +367,17 @@ class SortedLocation {
 	}
 	
 	is(attr) {
+		//Hack for Red/Blue
+		if ('e4') {
+			if (this.map_id === 174) return 'lobby';	// Lobby
+			if (this.map_id === 245) return 'e1';		// Lorelei's Room
+			if (this.map_id === 246) return 'e2';		// Bruno's Room
+			if (this.map_id === 247) return 'e3';		// Agitha's Room
+			if (this.map_id === 113) return 'e4';		// Lance's Room
+			if (this.map_id === 120) return 'champ';	// Champs's Room
+			if (this.map_id === 118) return 'hallOfFame'; // Hall of Fame
+		}
+		
 		if (this.node) return this.node.is(attr);
 		return undefined;
 	}

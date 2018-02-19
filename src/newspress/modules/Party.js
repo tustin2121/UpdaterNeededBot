@@ -235,10 +235,10 @@ RULES.push(new Rule('Abilities might change during battle')
 	})
 );
 
-RULES.push(new Rule('Negative levels usually mean an API Disturbance')
-	.when((ledger)=>ledger.has('MonLeveledUp').which(x=>x.deltaLevel < 0))
+RULES.push(new Rule('Negative or more than 8 level gain usually means an API Disturbance')
+	.when((ledger)=>ledger.has('MonLeveledUp').which(x=>x.deltaLevel < 0 || x.deltaLevel > 8).unmarked())
 	.then((ledger)=>{
-		ledger.postpone(0); //Postpone levelup report as the level might debounce
+		ledger.mark(0).postpone(0); //Postpone levelup report once, as the level might debounce
 		ledger.add(new ApiDisturbance('Negative levels'));
 	})
 );

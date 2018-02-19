@@ -107,8 +107,8 @@ module.exports = {
 		return loggedIn
 	},
 	
-	alertUpdaters(text, ping=false) {
-		if (Bot.taggedIn !== true) return Promise.reject();
+	alertUpdaters(text, ping=false, bypassTagCheck=false) {
+		if (!bypassTagCheck && Bot.taggedIn !== true) return Promise.reject();
 		if (!staffChannel) return Promise.reject();
 		
 		let group = '';

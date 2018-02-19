@@ -344,8 +344,8 @@ class UpdaterBot {
 	////////////////////////////////////////////////////////////////////////////
 	
 	/** Alerts the updating staff channel, with an optional ping. */
-	alertUpdaters(text, ping) {
-		return this.staff.alertUpdaters(text, ping);
+	alertUpdaters(text, ping, bypassTagCheck) {
+		return this.staff.alertUpdaters(text, ping, bypassTagCheck);
 	}
 	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
 	queryUpdaters(text) {

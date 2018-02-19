@@ -72,6 +72,7 @@ module.exports = {
 			`We walk along the ledge-- nope, we fell.`,
 			`Help, we've fallen over this ledge and can't get up!`,
 			`And over the ledge.`,
+			`And over the ledge we go.`,
 			`Down the ledge, rip.`,
 			`We walk precariously across the ledge... and down.`,
 			`And over the ledge we go!`,
