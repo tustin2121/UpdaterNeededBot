@@ -3,8 +3,12 @@
 
 const { should, sinon } = require('../../common');
 
-const { LocationChanged, MonLeveledUp, } = require('../../../src/newspress/ledger');
-const { SortedLocation, Pokemon } = require('../../../src/api/pokedata');
+const LEDGER_ITEMS = require('../../../src/newspress/ledger');
+const POKEDATA = require('../../../src/api/pokedata');
+
+const { LocationChanged, MonLeveledUp, } = LEDGER_ITEMS;
+const { SortedLocation, Pokemon } = POKEDATA;
+
 const TypeSetter = require('../../../src/newspress/typesetter');
 
 describe('TypeSetter', function(){
@@ -256,6 +260,69 @@ describe('TypeSetter', function(){
 			res.text.should.equal(exp1);
 			res.embeds.should.be.an.Array().with.length(1);
 			res.embeds.should.deepEqual(exp2);
+		});
+	});
+	
+	describe('getPhrase', function(){
+		const getPhrase = TypeSetter._methods.getPhrase;
+		const setRandom = TypeSetter._methods.setRandomVals;
+		
+		it('BattleStarted', function(){
+			const { BattleStarted } = LEDGER_ITEMS;
+			const battle = { //emulates SortedBattle
+				isImportant: true,
+				displayName: `Leader Misty`,
+			};
+			
+			const exp = `<b>Vs Leader Misty!</b> Attempt #5!`;
+			const item = new BattleStarted(battle, 5);
+			
+			const str = getPhrase([item]);
+			
+			str.should.be.exactly(exp);
+		});
+		
+		it('GainItem', function(){
+			const { GainItem } = LEDGER_ITEMS;
+        
+			const exp = `<b>Acquired 5 Great Balls, 8 Potions, and 1 Antidote!</b>`;
+			const items = [
+				new GainItem({name:'Great Ball'}, 5),
+				new GainItem({name:'Potion'}, 8),
+				new GainItem({name:'Antidote'}, 1),
+			];
+        
+			const str = getPhrase(items);
+        
+			str.should.be.exactly(exp);
+		});
+		
+		it('UsedBallInBattle : trainer', function(){
+			const { UsedBallInBattle } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_name: 'Youngster',
+					name: 'Joey',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Rattata' },
+					}
+				],
+			});
+			battle.isImportant = true;
+        	setRandom(0);
+			
+			const exp = `We toss a Poke Ball at the trainer's pokemon, but {{trainer.class|they}} blocks the ball. Don't be a thief!`;
+			const item = new UsedBallInBattle({name:'Poke Ball'}, battle);
+			item.flavor = 'trainer';
+        
+			const str = getPhrase([item]);
+        
+			str.should.be.exactly(exp);
 		});
 	});
 });

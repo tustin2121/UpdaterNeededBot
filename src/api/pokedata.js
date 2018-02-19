@@ -562,7 +562,7 @@ class SortedBattle {
 				this.trainer.push({
 					'class': t.class_id,
 					'id': t.id,
-					'className': '',//correctCase(sanatizeName(t.class_name)), //Not used in gen 1
+					'className': (t.class_name)?correctCase(sanatizeName(t.class_name)):'', //Not used in gen 1
 					'name': correctCase(sanatizeName(t.name)),
 				});
 			}

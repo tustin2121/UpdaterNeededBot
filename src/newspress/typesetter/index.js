@@ -140,6 +140,11 @@ const FORMAT_FNS = {
 	},
 };
 
+// Random function. For convienence and also to allow rigging for unit testing
+let rand = (len)=>{
+	return Math.floor(Math.random()*len);
+};
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -230,12 +235,42 @@ function getPhrase(items) {
 	return items.map(item=> resolvePhrase(pentry, item, fillText)).filter(x=>x).join(' ');
 	
 	function resolvePhrase(phrase, item, fill) {
+		/* //New version
+		let wp = phrase; //working phrase
+		let timeout = 50;
+		while (timeout > 0) {
+			timeout--;
+			let n = undefined;
+			if (typeof wp === 'function') {
+				n = wp(item, { fillText });
+			}
+			else if (Array.isArray(wp)) {
+				if (wp.length === 1) n = wp[0]; //common case
+				else n = wp[rand(wp.length)];
+			}
+			else if (typeof wp === 'string') {
+				n = fill(wp, item);
+			}
+			
+			if (n === undefined) {
+				LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an illegal value!`, phrase);
+				return null;
+			}
+			if (n === false) { wp = phrase; } //restart
+			if (n === null) return null;
+			if (typeof n === 'string') return n;
+			wp = n;
+		}
+		LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has not resolved in time!`, phrase);
+		return null;
+		/*/
+		// Working version
 		if (typeof phrase === 'function') {
 			phrase = phrase(item, { fillText });
 		}
 		if (Array.isArray(phrase)) {
 			if (phrase.length === 1) phrase = phrase[0]; //common case
-			else phrase = phrase[Math.floor(Math.random()*phrase.length)];
+			else phrase = phrase[rand(phrase.length)];
 		}
 		if (phrase === null) return null; //Skip this item
 		if (typeof phrase !== 'string') {
@@ -243,6 +278,7 @@ function getPhrase(items) {
 			return null;
 		}
 		return fill(phrase, item);
+		//*/
 	}
 	
 }
@@ -347,8 +383,14 @@ module.exports = {
 		discord: formatDiscord,
 	},
 	
+	// For unit testing only
 	_methods: {
 		fillText,
 		fillMulti,
+		getPhrase,
+		setRandomVals(...val) {
+			let i = 0;
+			rand = (len)=>{ return val[(i++)%val.length] % len; }; //fix the random outcome
+		},
 	},
 };
