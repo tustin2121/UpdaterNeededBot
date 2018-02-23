@@ -27,8 +27,14 @@ log4js.configure({
 			type: 'stdout',
 			layout: {
 				type: 'pattern',
-				pattern: `%[%r %p%] [%c] %m`,
-			}
+				pattern: `%[%r %x{ts} %5.5p%] [%c] %m`,
+				tokens: {
+					ts() {
+						if (typeof Bot === 'undefined') return '??d??h??m??s';
+						return Bot.getTimestamp({ padded:true, compact:true });
+					},
+				},
+			},
 		},
 		file: {
 			type: 'file',
@@ -39,7 +45,13 @@ log4js.configure({
 			keepFileExt: true,
 			layout: {
 				type: 'pattern',
-				pattern: `%r %p [%c] %m`,
+				pattern: `%r %x{ts} %5.5p [%c] %m`,
+				tokens: {
+					ts() {
+						if (typeof Bot === 'undefined') return '??d??h??m??s';
+						return Bot.getTimestamp({ padded:true, compact:true });
+					},
+				},
 			},
 		},
 		errorlog: {
@@ -51,7 +63,13 @@ log4js.configure({
 			keepFileExt: true,
 			layout: {
 				type: 'pattern',
-				pattern: `%r %p [%c] %m`,
+				pattern: `%r %x{ts} %5.5p [%c] %m`,
+				tokens: {
+					ts() {
+						if (typeof Bot === 'undefined') return '??d??h??m??s';
+						return Bot.getTimestamp({ padded:true, compact:true });
+					},
+				},
 			},
 		},
 		'out-filtered': {
@@ -77,18 +95,6 @@ function getLogger(category) {
 	const l4logger = log4js.getLogger(category);
 	l4logger.logRaw = l4logger.log;
 	l4logger.log = l4logger.info;
-	// const logger = {
-	// 	log : l4logger.info.bind(l4logger),
-	// 	logRaw: l4logger.log.bind(l4logger),
-	// 	debug: l4logger.debug.bind(l4logger),
-	// 	trace: l4logger.trace.bind(l4logger),
-	// 	info: l4logger.info.bind(l4logger),
-	// 	warn: l4logger.warn.bind(l4logger),
-	// 	error: l4logger.error.bind(l4logger),
-	// 	fatal: l4logger.fatal.bind(l4logger),
-	// 	mark: l4logger.mark.bind(l4logger),
-	// 	l4js : l4logger,
-	// };
 	return l4logger;
 }
 

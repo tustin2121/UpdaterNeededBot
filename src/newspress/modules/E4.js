@@ -27,7 +27,7 @@ class E4Module extends ReportingModule {
 		let curr = curr_api.location.is('e4');
 		
 		let inE4 = false;
-		if (curr && curr !== 'lobby') {
+		if (curr && curr !== 'lobby' && curr !== 'hallOfFame') {
 			inE4 = true;
 		}
 		
@@ -36,6 +36,8 @@ class E4Module extends ReportingModule {
 			if (this.memory.haveWon) {
 				this.memory.haveWon = false;
 				this.memory.rematchCount++;
+				this.memory.e4Attempts = 0;
+				this.memory.champAttempts = 0;
 			}
 			this.memory.inE4Run = true;
 			this.memory.e4Attempts++;
@@ -50,11 +52,11 @@ class E4Module extends ReportingModule {
 					ledger.addItem(new E4BeginRun(this.memory.e4Attempts, 'quick'));
 				}
 			}
-			if (prev.startsWith('e') && curr === 'champion') {
+			if (prev.startsWith('e') && (curr === 'champion' || curr === 'champ')) {
 				this.memory.champAttempts++;
 				ledger.addItem(new E4ReachChampion(this.memory.champAttempts));
 			}
-			if (curr === 'hallOfFame' && !this.memory.haveWon) {
+			if (curr === 'hallOfFame' && !this.memory.haveWon) { //should never happen, sanity check
 				this.memory.haveWon = true;
 				this.memory.inE4Run = false;
 				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
@@ -62,9 +64,14 @@ class E4Module extends ReportingModule {
 			
 		}
 		else if (this.memory.inE4Run && !inE4) {
-			// We're no longer in an E4 run
 			this.memory.inE4Run = false;
-			ledger.addItem(new E4EndRun(this.memory.e4Attempts));
+			if (curr === 'hallOfFame' && !this.memory.haveWon) {
+				this.memory.haveWon = true;
+				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
+			} else {
+				// We're no longer in an E4 run
+				ledger.addItem(new E4EndRun(this.memory.e4Attempts));
+			}
 		}
 		
 		if (inE4) {
@@ -78,22 +85,42 @@ class E4Module extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let items = ledger.findAllItemsWithName('E4BeginRun');
-		if (items.length) {
-			let game = '';
-			if (Bot.runConfig.numGames > 1) {
-				game = Bot.gameInfo(this.gameIndex).name;
-				game = ` in ${game}`;
-			}
-			let ping = (Bot.taggedIn===true || Bot.taggedIn===this.gameIndex);
-			let txt = items.map(x=>{
-				if (ping) {
-					return `We're locked into the E4${game}! This is Attempt #${x.attempt}`
-				} else {
-					return `This is E4 Attempt #${x.attempt}${game}.`;
+		{
+			let items = ledger.findAllItemsWithName('E4BeginRun');
+			if (items.length) {
+				let game = '';
+				if (Bot.runConfig.numGames > 1) {
+					game = Bot.gameInfo(this.gameIndex).name;
+					game = ` in ${game}`;
 				}
-			}).join('\n');
-			Bot.alertUpdaters(txt, ping, true);
+				let ping = (Bot.taggedIn===true || Bot.taggedIn===this.gameIndex);
+				let txt = items.map(x=>{
+					if (ping) {
+						return `We're locked into the E4${game}! This is Attempt #${x.attempt}`
+					} else {
+						return `This is E4 Attempt #${x.attempt}${game}.`;
+					}
+				}).join('\n');
+				Bot.alertUpdaters(txt, ping, true);
+			}
+		}{
+			let items = ledger.findAllItemsWithName('E4ReachChampion');
+			if (items.length) {
+				let game = '';
+				if (Bot.runConfig.numGames > 1) {
+					game = Bot.gameInfo(this.gameIndex).name;
+					game = ` in ${game}`;
+				}
+				let ping = (Bot.taggedIn===true || Bot.taggedIn===this.gameIndex);
+				let txt = items.map(x=>{
+					if (ping) {
+						return `**We've reached the champion's chamber${game}!** Someone might want to play-by-play!! Champion Attempt #${x.attempt}`
+					} else {
+						return `This is Champion Attempt #${x.attempt}${game}.`;
+					}
+				}).join('\n');
+				Bot.alertUpdaters(txt, ping, true);
+			}
 		}
 	}
 }

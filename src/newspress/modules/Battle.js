@@ -76,7 +76,8 @@ class BattleModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
+		let battleItems = ledger.findAllItemsWithName('BattleStarted')
+			.filter(x=>x.battle.isImportant && !x.battle.isE4 && !x.battle.isLeader); //TODO remove leader, add rematch testing
 		if (battleItems.length) {
 			let game = ' on stream';
 			if (Bot.runConfig.numGames > 1) {
