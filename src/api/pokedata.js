@@ -559,12 +559,20 @@ class SortedBattle {
 				enemy_trainer = [enemy_trainer];
 			}
 			for (let t of enemy_trainer) {
-				this.trainer.push({
+				let data = {
 					'class': t.class_id,
 					'id': t.id,
 					'className': (t.class_name)?correctCase(sanatizeName(t.class_name)):'', //Not used in gen 1
 					'name': correctCase(sanatizeName(t.name)),
-				});
+				};
+				if (Bot.runOpts('trainerClasses')) {
+					let cls = Bot.runOpts('trainerClasses');
+					if (cls.m[data.class]) data.gender = 'male';
+					else if (cls.f[data.class]) data.gender = 'female';
+					else if (cls.p[data.class]) data.gender = 'plural';
+					else data.gender = 'neuter';
+				}
+				this.trainer.push(data);
 			}
 		}
 		if (data.enemy_party) {

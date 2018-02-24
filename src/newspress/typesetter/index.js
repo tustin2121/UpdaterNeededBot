@@ -1,7 +1,7 @@
 // newspress/typesetter/index.js
 // The TypeSetter, and the phrasebook, that translates LedgerItems into English Language
 
-const { Pokemon, SortedLocation } = require('../../api/pokedata');
+const { Pokemon, SortedLocation, Item } = require('../../api/pokedata');
 const { LedgerItem } = require('../ledger');
 
 const LOGGER = getLogger('TypeSetter');
@@ -23,6 +23,10 @@ const phrasebook = Object.assign({}, ...[
 const determineIndefiniteArticle = require('./indefiniteArticle').query;
 const determineGender = (male, female, neuter, plural)=>{
 	return (obj)=>{
+		if (typeof obj === 'number') {
+			if (obj === 1) return neuter;
+			return plural;
+		}
 		if (obj instanceof Pokemon) {
 			switch(obj.gender) {
 				case '\u2642': return male;
@@ -127,9 +131,13 @@ const FORMAT_FNS = {
 	'pronoun': (obj)=>'', //This is here to set the pronoun used in fillText and that's it
 	's': determineGender('s','s','s',''), //{{mon|He}} yawn{{|s}}. => He yawns.
 	'es': determineGender('es','es','es',''), //{{mon|He}} stretch{{|es}}. => He stretches.
+	'v': (obj, arg)=>{ //{{mon|He}} {{|v[has/have]}}. => He has.
+		let verbs = arg.split(/[/,]/i);
+		return determineGender(verbs[0],verbs[0],verbs[0],verbs[1]||'')(obj);
+	},
 	'verb': (obj, arg)=>{ //{{mon|He}} {{|verb[has/have]}}. => He has.
 		let verbs = arg.split(/[/,]/i);
-		return determineGender(verbs[0],verbs[0],verbs[0],verbs[1])(obj);
+		return determineGender(verbs[0],verbs[0],verbs[0],verbs[1]||'')(obj);
 	},
 	
 	'uppercase': (obj)=>obj.toString().toUpperCase(),

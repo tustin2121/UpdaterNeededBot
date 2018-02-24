@@ -58,6 +58,9 @@ module.exports = {
 		leader: [],
 		e4: [],
 		champ: [],
+		m: [], // Male trainer classes
+		f: [], // Female trainer classes
+		p: [], // Plural trainer classes
 	},
 	// Wild pokemon species to mark specially
 	legendarySpecies: [

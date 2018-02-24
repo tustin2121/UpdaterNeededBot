@@ -284,12 +284,13 @@ describe('TypeSetter', function(){
 		
 		it('GainItem', function(){
 			const { GainItem } = LEDGER_ITEMS;
+			const { Item } = POKEDATA;
         
 			const exp = `<b>Acquired 5 Great Balls, 8 Potions, and 1 Antidote!</b>`;
 			const items = [
-				new GainItem({name:'Great Ball'}, 5),
-				new GainItem({name:'Potion'}, 8),
-				new GainItem({name:'Antidote'}, 1),
+				new GainItem(new Item({name:'Great Ball'}), 5),
+				new GainItem(new Item({name:'Potion'}), 8),
+				new GainItem(new Item({name:'Antidote'}), 1),
 			];
         
 			const str = getPhrase(items);
@@ -316,7 +317,7 @@ describe('TypeSetter', function(){
 			battle.isImportant = true;
         	setRandom(0);
 			
-			const exp = `We toss a Poke Ball at the trainer's pokemon, but {{trainer.class|they}} blocks the ball. Don't be a thief!`;
+			const exp = `We toss a Poke Ball at the trainer's pokemon, but he blocks the ball. Don't be a thief!`;
 			const item = new UsedBallInBattle({name:'Poke Ball'}, battle);
 			item.flavor = 'trainer';
         

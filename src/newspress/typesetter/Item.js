@@ -11,7 +11,7 @@ module.exports = {
 			multi: [
 				`<b>Acquired {{#|, |and}}!</b>`,
 			],
-			item: `{{amount}} {{item}}`,
+			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 		shopping: {
 			single: [
@@ -20,7 +20,7 @@ module.exports = {
 			multi: [
 				`<b>Bought {{#|, |and}}!</b>`,
 			],
-			item: `{{amount}} {{item}}`,
+			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 		rotoloto: [
 			`Roto Loto nets us <b>{{amount}} {{item}}</b>.`,
@@ -37,7 +37,7 @@ module.exports = {
 			multi: [
 				`<b>Threw away {{#|, |and}}!</b>`,
 			],
-			item: `{{amount}} {{item}}`,
+			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 		shopping: {
 			single: [
@@ -46,7 +46,7 @@ module.exports = {
 			multi: [
 				`<b>Sold {{#|, |and}}!</b>`,
 			],
-			item: `{{amount}} {{item}}`,
+			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 	},
 	
@@ -78,9 +78,9 @@ module.exports = {
 			`We toss {{item|an}} {{item}} at a wild {{enemy.species}}.`,
 		],
 		trainer: [
-			`We toss {{item|an}} {{item}} at the trainer's pokemon, but {{trainer.class|they}} blocks the ball. Don't be a thief!`,
+			`We toss {{item|an}} {{item}} at the trainer's pokemon, but {{trainer.class|they}} block{{|s}} the ball. Don't be a thief!`,
 			`We throw {{item|an}} {{item}} at the opponents's pokemon, to no avail.`,
-			`We attempt to <rand>steal|take|snag</rand> {{trainer.name}}'s <rand>pokemon|{{enemy.species}}</rand>. {{trainer.class|He}} <rand>yells at us|scolds us|tells us off|tells us where we can shove our {{item}}</rand>.`,
+			`We attempt to <rand>steal|take|snag</rand> {{trainer.name}}'s <rand>pokemon|{{enemy.species}}</rand>. {{trainer.class|They}} <rand>yells at us|scolds us|tells us off|tells us where we can shove our {{item}}</rand>.`,
 			`We attempt to be a thief. The game tells us off.`,
 		],
 	},
@@ -94,7 +94,7 @@ module.exports = {
 		],
 	},
 	UsedItemOnMon: {
-		// 
+		//
 		default: [
 			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
 		],
