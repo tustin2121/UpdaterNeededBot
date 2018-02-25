@@ -41,7 +41,7 @@ class E4Module extends ReportingModule {
 			}
 			this.memory.inE4Run = true;
 			this.memory.e4Attempts++;
-			ledger.addItem(new E4BeginRun(this.memory.e4Attempts));
+			ledger.addItem(new E4BeginRun(this.memory.e4Attempts, 'rematch')); //TODO remove rematch hack
 		}
 		else if (this.memory.inE4Run && inE4) {
 			// While we're in E4

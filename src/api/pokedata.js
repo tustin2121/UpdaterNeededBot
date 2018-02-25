@@ -737,7 +737,7 @@ class SortedData {
 						break;
 					}
 				} else {
-					this.pcBoxes[data.pc.current_box_number].isEffectiveCurrent = true;
+					this.pcBoxes[data.pc.current_box_number-1].isEffectiveCurrent = true;
 				}
 			}
 			

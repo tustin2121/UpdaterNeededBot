@@ -206,7 +206,7 @@ function parseCmd(cmd, authed=false) {
 	// }
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	
-	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
+	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];
 	}
@@ -287,6 +287,8 @@ function parseCmd(cmd, authed=false) {
 		return ['shutup', `Bippity Boppity Boo`];
 	if (/bip+ity boo?pp?ity boo+/i.test(cmd))
 		return ['shutup', `Yes, those are the magic words, congrats. No, they don't do anything.`];
+	if (/open(.*?)pod ?bay doors?/i.test(cmd))
+		return ['shutup', `...Why does everyone keep asking me to do that...? I don't have any door controls...`];
 	if (/apologi[zs]e/i.test(cmd))
 		return ['shutup', `S-Sorry...`];
 	

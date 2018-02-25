@@ -47,7 +47,7 @@ class E4ReachChampion extends LedgerItem {
  */
 class E4EndRun extends LedgerItem {
 	constructor(attempt, champAttempt) {
-		super(2, {sort:10});
+		super(2, {flavor:'rematch', sort:10});  //TODO remove rematch hack
 		this.attempt = attempt;
 		this.champAttempt = champAttempt;
 	}
