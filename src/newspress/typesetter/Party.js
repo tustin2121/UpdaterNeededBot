@@ -12,20 +12,20 @@ module.exports = {
 		// level = the level grown to
 		default: {
 			single: [
-				`<b>{{target}} has grown to level {{level}}!</b>`,
-				`<b>{{target}} is now level {{level}}!</b>`,
-				`<b>{{target}} has leveled up to {{level}}!</b>`,
+				`<b>{{@target}} has grown to level {{@level}}!</b>`,
+				`<b>{{@target}} is now level {{@level}}!</b>`,
+				`<b>{{@target}} has leveled up to {{@level}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`levels up to {{level}}`,
-				`grows to level {{level}}`,
+				`levels up to {{@level}}`,
+				`grows to level {{@level}}`,
 			],
 		},
 		multiple: [
-			`<b>{{target}} has grown {{deltaLevel|some}} levels to level {{level}}!</b>`,
+			`<b>{{@target}} has grown {{one noun|@deltaLevel|level}} to level {{@level}}!</b>`,
 		],
 		regress: [
-			`<b>{{target}} has lost {{deltaLost|some}} levels, and is now level {{level}}!`,
+			`<b>{{@target}} has lost {{one noun|@deltaLost|level}}, and is now level {{@level}}!`,
 		],
 	},
 	MonEvolved: {
@@ -33,11 +33,11 @@ module.exports = {
 		// level = the level grown to
 		default: {
 			single: [
-				`<b>{{target.name}} ({{prev}}) has evolved into a {{curr}}!</b>`,
-				`<b>{{target.name}} ({{prev}}) evolves into a {{curr}}!</b>`,
+				`<b>{{@target.name}} ({{@prev}}) has evolved into a {{@curr}}!</b>`,
+				`<b>{{@target.name}} ({{@prev}}) evolves into a {{@curr}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`evolves into {{curr}}`,
+				`evolves into {{@curr}}`,
 			],
 		},
 	},
@@ -60,44 +60,41 @@ module.exports = {
 	
 	MonPokerusInfected: {
 		default: [
-			`<b>{{target}} has been infected with Pokerus!</b>`,
-			`<b>{{target}} has caught Pokerus!</b>`,
+			`<b>{{@target}} has been infected with Pokerus!</b>`,
+			`<b>{{@target}} has caught Pokerus!</b>`,
 		],
 	},
 	MonPokerusCured: {
 		default: [
-			`<b>{{target}} has been cured of Pokerus.</b>`,
+			`<b>{{@target}} has been cured of Pokerus.</b>`,
 		],
 	},
 	MonFainted: {
 		default: {
 			single: [
-				`<b>{{target}} fainted!</b>`,
-				`<b>{{target}} has fainted!</b>`,
+				`<b>{{@target}} fainted!</b>`,
+				`<b>{{@target}} has fainted!</b>`,
 			],
 			multi: [
-				`<b>{{#|, |and}} have fainted!</b>`,
-				`<b>{{#|, |and}} all fainted!</b>`,
-				`<b>{{#|, |and}} fainted!</b>`,
+				`<b>{{a comma-separated list of|@target}} have fainted!</b>`,
+				`<b>{{a comma-separated list of|@target}} fainted!</b>`,
 			],
-			item: `{{target}}`,
 		},
 		kapow: {
 			single: [
-				`<b>{{target}} exploded!</b>`,
-				`<b>{{target}} has exploded!</b>`,
+				`<b>{{@target}} exploded!</b>`,
+				`<b>{{@target}} has exploded!</b>`,
 			],
 			multi: [
-				`<b>{{#|, |and}} have exploded!</b>`,
-				`<b>{{#|, |and}} all exploded!</b>`,
-				`<b>{{#|, |and}} exploded!</b>`,
+				`<b>{{a comma-separated list of|@target}} have exploded!</b>`,
+				`<b>{{a comma-separated list of|@target}} all exploded!</b>`,
+				`<b>{{a comma-separated list of|@target}} exploded!</b>`,
 			],
-			item: `{{target}}`,
 		}
 	},
 	MonRevived: {
 		default: [
-			`<b>{{target}} has been revived!</b>`,
+			`<b>{{@target}} has been revived!</b>`,
 		],
 	},
 	MonHealedHP: null,
@@ -127,13 +124,13 @@ module.exports = {
 			`We sleep on a random person's floor! <b>Healed!</b>`,
 		],
 		doctor: [
-			`A <rand>nice|kind|helpful|</rand> doctor <b>heals our team!</b>`,
-			`A <rand>nice|kind|helpful|</rand> doctor <b>heals our team!</b> Thanks doc!`,
+			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b>`,
+			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b> Thanks doc!`,
 		],
 		nurse: [
-			`A <rand>nice|kind|helpful|</rand> nurse <b>heals our team!</b>`,
-			`A <rand>nice|kind|helpful|</rand> nurse <b>heals our team!</b> Thanks!`,
-			`A <rand>sweet|helpful</rand> nurse <b>heals our team!</b> Ta, love!`,
+			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b>`,
+			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b> Thanks!`,
+			`A {{rand|sweet|helpful}} nurse <b>heals our team!</b> Ta, love!`,
 		],
 	},
 	
@@ -141,10 +138,10 @@ module.exports = {
 		//move = the learned move
 		default: {
 			single: [
-				`<b>{{target}} learned {{move}}!</b>`,
+				`<b>{{@target}} learned {{@move}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`learns {{move}}`,
+				`learns {{@move}}`,
 			],
 		},
 	},
@@ -153,10 +150,10 @@ module.exports = {
 		//oldMove = the forgotton move
 		default: {
 			single: [
-				`<b>{{target}} learned {{move}} over {{oldMove}}!</b>`,
+				`<b>{{@target}} learned {{@move}} over {{@oldMove}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`learns {{move}} over {{oldMove}}`,
+				`learns {{@move}} over {{@oldMove}}`,
 			],
 		},
 	},
@@ -164,10 +161,10 @@ module.exports = {
 		//move = the forgotton move
 		default: {
 			single: [
-				`<b>{{target}} forgot {{move}}!</b>`,
+				`<b>{{@target}} forgot {{@move}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`forgot {{oldMove}}`,
+				`forgot {{@oldMove}}`,
 			],
 		},
 	},
@@ -176,15 +173,15 @@ module.exports = {
 		// target = the pokemon involved
 		// item = the item in question
 		default: [
-			`We give {{target}} {{item|an}} {{item}} to hold.`,
+			`We give {{@target}} {{an item|@item}} to hold.`,
 		],
 	},
 	MonTakeItem: {
 		// target = the pokemon involved
 		// item = the item in question
 		default: [
-			`We take {{target}}'s {{item}}.`,
-			`We take {{target}}'s {{item}} and stow it in our bag.`,
+			`We take {{@target}}'s {{@item}}.`,
+			`We take {{@target}}'s {{@item}} and stow it in our bag.`,
 		],
 	},
 	MonSwapItem: {
@@ -192,9 +189,9 @@ module.exports = {
 		// taken = the item taken from the target
 		// given = the item given to the target
 		default: [
-			`We take {{target}}'s {{taken}} and give {{target|him}} {{given|an}} {{given}} to hold.`,
-			`We take {{target}}'s {{taken}} and give {{target|him}} {{given|an}} {{given}} to hold instead.`,
-			`We swap {{target}}'s {{taken}} for {{given|an}} {{given}}.`,
+			`We take {{$@target}}'s {{@taken}} and give {{him}} {{an item|@given}} to hold.`,
+			`We take {{$@target}}'s {{@taken}} and give {{him}} {{an item|@given}} to hold instead.`,
+			`We swap {{$@target}}'s {{@taken}} for {{an item|@given}}.`,
 		],
 	},
 	Swap2MonItems: {
@@ -203,52 +200,52 @@ module.exports = {
 		// item1 = the item now held by target1
 		// item2 = the item now held by target2
 		default: [
-			`We take {{target1}}'s {{item2}} and swap it with {{target2}}'s {{item1}}.`,
-			`We look at {{target1}}'s {{item2}} and {{target2}}'s {{item1}} decide to swap the items.`,
-			`After some shuffling, {{target1}} now holds {{item1}} and {{target2}} {{item1}}.`,
+			`We take {{@target1}}'s {{@item2}} and swap it with {{@target2}}'s {{@item1}}.`,
+			`We look at {{@target1}}'s {{@item2}} and {{@target2}}'s {{@item1}} decide to swap the items.`,
+			`After some shuffling, {{@target1}} now holds {{@item2}} and {{@target2}} {{@item1}}.`,
 		],
 		null1: [ // if target 1 is now holding nothing.
-			`We take {{target1}}'s {{item2}} and give it to {{target2}} instead.`,
-			`We look at {{target1}}'s {{item2}} decide it looks better with {{target2}}.`,
+			`We take {{@target1}}'s {{@item2}} and give it to {{@target2}} instead.`,
+			`We look at {{@target1}}'s {{@item2}} decide it looks better with {{@target2}}.`,
 		],
 		null2: [ // if target 2 is now holding nothing.
-			`We take {{target2}}'s {{item1}} and give it to {{target1}} instead.`,
-			`We look at {{target2}}'s {{item1}} decide it looks better with {{target1}}.`,
+			`We take {{@target2}}'s {{@item1}} and give it to {{@target1}} instead.`,
+			`We look at {{@target2}}'s {{@item1}} decide it looks better with {{@target1}}.`,
 		],
 	},
 	
 	MonShinyChanged: {
 		default: null,
 		became: [
-			`{{target}} has inexplicably became shiny...`,
+			`{{@target}} has inexplicably became shiny...`,
 		],
 		nolonger: [
-			`{{target}} has inexplicably became no longer shiny...`,
+			`{{@target}} has inexplicably became no longer shiny...`,
 		],
 	},
 	MonSparklyChanged: {
 		default: null,
 		became: [
-			`{{target}} has inexplicably became N's former pokemon...`,
+			`{{@target}} has inexplicably became N's former pokemon...`,
 		],
 		nolonger: [
-			`{{target}} has inexplicably became no longer N's former pokemon...`,
+			`{{@target}} has inexplicably became no longer N's former pokemon...`,
 		],
 	},
 	MonAbilityChanged: null,
 	// MonAbilityChanged: {
 	// 	default: null,
 	// 	became: [
-	// 		`{{target}} has inexplicably became N's former pokemon...`,
+	// 		`{{@target}} has inexplicably became N's former pokemon...`,
 	// 	],
 	// 	nolonger: [
-	// 		`{{target}} has inexplicably became no longer N's former pokemon...`,
+	// 		`{{@target}} has inexplicably became no longer N's former pokemon...`,
 	// 	],
 	// },
 	
 	MonNicknameChanged: {
 		default: [
-			`<b>We change the nickname of \`{{prev}}\` ({{mon.species}}) to \`{{curr}}\`.</b>`,
+			`<b>We change the nickname of \`{{@prev}}\` ({{@mon.species}}) to \`{{@curr}}\`.</b>`,
 		],
 	}
 };

@@ -6,81 +6,75 @@ module.exports = {
 		// item = the item in question
 		default: {
 			single: [
-				`<b>Acquired {{amount}} {{item}}!</b>`,
+				`<b>Acquired {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Acquired {{#|, |and}}!</b>`,
+				`<b>Acquired {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
-			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 		shopping: {
 			single: [
-				`<b>Bought {{amount}} {{item}}!</b>`,
+				`<b>Bought {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Bought {{#|, |and}}!</b>`,
+				`<b>Bought {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
-			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 		rotoloto: [
-			`Roto Loto nets us <b>{{amount}} {{item}}</b>.`,
-			`Rotom decides to hand us <b>{{amount}} {{item}}</b>.`,
-			`Rotom interrupts us to give us <b>{{amount}} {{item}}</b>.`,
+			`Roto Loto nets us <b>{{some items|@item|@amount}}</b>.`,
+			`Rotom decides to hand us <b>{{some items|@item|@amount}}</b>.`,
+			`Rotom interrupts us to give us <b>{{some items|@item|@amount}}</b>.`,
 		],
 	},
 	LostItem: {
 		// item = the item in question
 		default: {
 			single: [
-				`<b>Threw away {{amount}} {{item}}!</b>`,
+				`<b>Threw away {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Threw away {{#|, |and}}!</b>`,
+				`<b>Threw away {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
-			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 		shopping: {
 			single: [
-				`<b>Sold {{amount}} {{item}}!</b>`,
+				`<b>Sold {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Sold {{#|, |and}}!</b>`,
+				`<b>Sold {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
-			item: `{{amount}} {{item}}{{amount|s}}`,
 		},
 	},
 	
 	StoredItemInPC: {
 		default: {
 			single: [
-				`<b>Stored {{amount}} {{item}} in the PC!</b>`,
+				`<b>Stored {{an item|@item|@amount}} in the PC!</b>`,
 			],
 			multi: [
-				`<b>Stored {{#|, |and}} in the PC!</b>`,
+				`<b>Stored {{a comma-separated list of|an item|@item|@amount}} in the PC!</b>`,
 			],
-			item: `{{amount}} {{item}}`,
 		},
 	},
 	RetrievedItemFromPC: {
 		default: {
 			single: [
-				`<b>Retrieved {{amount}} {{item}} from the PC!</b>`,
+				`<b>Retrieved {{an item|@item|@amount}} from the PC!</b>`,
 			],
 			multi: [
-				`<b>Retrieved {{#|, |and}} from the PC!</b>`,,
+				`<b>Retrieved {{a comma-separated list of|an item|@item|@amount}} from the PC!</b>`,,
 			],
-			item: `{{amount}} {{item}}`,
 		},
 	},
 	
 	UsedBallInBattle: {
 		default: [
-			`We toss {{item|an}} {{item}} at a wild {{enemy.species}}.`,
+			`We toss {{some items|@item|@amount}} at a wild {{enemy.species}}.`,
 		],
 		trainer: [
-			`We toss {{item|an}} {{item}} at the trainer's pokemon, but {{trainer.class|they}} block{{|s}} the ball. Don't be a thief!`,
-			`We throw {{item|an}} {{item}} at the opponents's pokemon, to no avail.`,
-			`We attempt to <rand>steal|take|snag</rand> {{trainer.name}}'s <rand>pokemon|{{enemy.species}}</rand>. {{trainer.class|They}} <rand>yells at us|scolds us|tells us off|tells us where we can shove our {{item}}</rand>.`,
+			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{trainer.class|they}} block{{|s}} the ball. Don't be a thief!`,
+			`We throw {{some items|@item|@amount}} at the opponents's pokemon, to no avail.`,
+			`We attempt to {{rand|steal|take|snag}} {{$@trainer}}'s {{enemy.species}}. {{They}} {{rand|yell{{*s}} at us|scold{{*s}} us|tell{{*s}} us off|tell{{*s}} us where we can shove our {{@item}}}}.`,
 			`We attempt to be a thief. The game tells us off.`,
 		],
 	},
@@ -88,32 +82,32 @@ module.exports = {
 		// item = the item involved
 		// target = the pokemon involved
 		default: [
-			`{{target}} munches on {{target|his}} {{item}}.`,
-			`{{target}} eats {{target|his}} {{item}}.`,
-			`{{target}} eats {{target|his}} {{item}} in the heat of battle.`,
+			`{{$@target}} munches on {{his}} {{@item}}.`,
+			`{{$@target}} eats {{his}} {{@item}}.`,
+			`{{$@target}} eats {{his}} {{@item}} in the heat of battle.`,
 		],
 	},
 	UsedItemOnMon: {
 		//
 		default: [
-			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
+			`<b>We use {{an item|@item}} on {{@target}}!</b>`,
 		],
 		hpheal: [
-			`<b>We heal {{target}} with {{item|an}} {{item}}!</b>`,
+			`<b>We heal {{@target}} with {{an item|@item}}!</b>`,
 		],
 		ppheal: [
-			`We restore the PP of {{target}}'s {{move}} with <b>{{item|an}} {{item}}!</b>`,
-			`We restore {{target}}'s {{move}} PP with <b>{{item|an}} {{item}}!</b>`,
+			`We restore the PP of {{@target}}'s {{move}} with <b>{{an item|@item}}!</b>`,
+			`We restore {{@target}}'s {{move}} PP with <b>{{an item|@item}}!</b>`,
 		],
 		pphealAll: [
-			`We restore the PP of {{target}}'s moves with <b>{{item|an}} {{item}}!</b>`,
-			`We restore {{target}}'s move PP with <b>{{item|an}} {{item}}!</b>`,
+			`We restore the PP of {{@target}}'s moves with <b>{{an item|@item}}!</b>`,
+			`We restore {{@target}}'s move PP with <b>{{an item|@item}}!</b>`,
 		],
 		evostone: [
-			`<b>We use {{item|an}} {{item}} on {{target}}!</b>`,
+			`<b>We use {{an item|@item}} on {{@target}}!</b>`,
 		],
 		tm: [
-			`We boot up a {{item}}.`,
+			`We boot up {{an item|@item}}.`,
 		],
 	},
 	UsedTMItem: {

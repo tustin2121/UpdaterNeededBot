@@ -6,32 +6,33 @@ module.exports = {
 		// prev = the previous location
 		// curr = the current location
 		default: [
-			`Welcome to {{curr}}!`,
+			`Welcome to {{@curr}}!`,
 		],
+		announce: `{{@announce}}`,
 		nomap: [ //When we have no map information for the current location
-			`{{curr}}.`,
-			`{{curr|On}} {{curr}}.`,
-			`Now {{curr|on}} {{curr}}.`,
-			`We head {{curr|on}}to {{curr}}.`,
-			`Arrived {{curr|on}} {{curr}}.`,
+			`{{@curr}}.`,
+			`{{On the location|@curr}}.`,
+			`Now {{in the location|@curr}}.`,
+			`We head {{into the location|@curr}}.`,
+			`Arrived {{on the location|@curr}}.`,
 		],
 		'enter': [ //We walk from an outside location to an inside location
-			`We head inside {{curr}}.`,
+			`We head inside {{the location|@curr}}.`,
 		],
 		'exit': [ //We walk from an inside location to an outside location
-			`We head back outside to {{curr}}.`,
+			`We head back outside to {{the location|@curr}}.`,
 		],
 		'arrive': [ //We arrive in a city or town
-			`We arrive in {{curr}}.`,
+			`We arrive {{in the location|@curr}}.`,
 		],
 		'fly': [ //We fly to a location
-			`We fly to {{curr}}`,
+			`We fly to {{the location|@curr}}`,
 		],
 		'escape': [ //We used an escape rope to flee a location
-			`We escape rope out of {{prev}}, and land in {{curr}}.`,
+			`We escape rope out of {{the location|@prev}}, and land {{in the location|@curr}}.`,
 		],
 		'dig': [ //We dig out a location
-			`We dig out of {{prev}}! Welcome to {{curr}}.`,
+			`We dig out of {{the location|@prev}}! Welcome to {{the location|@curr}}.`,
 		],
 	},
 	EnteredEntralink: {
@@ -88,7 +89,7 @@ module.exports = {
 			`<b><i>We've made it past the ledge!</i></b>`,
 			`<b><i>We've made it beyond the ledge!</i></b>`,
 			`<b><i>We've made it past the ledge!</i></b> Hopefully it stays that way.`,
-			`<b><i>We're on the other side of the {{loc}} ledge!</i></b>`,
+			`<b><i>We're on the other side of the {{@loc}} ledge!</i></b>`,
 		],
 	},
 };

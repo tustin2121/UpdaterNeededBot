@@ -214,7 +214,8 @@ class Pokemon {
 		return this;
 	}
 	
-	toString() {
+	/** @param {int} num - Used to trick the TypeSetter to never pluralize a pokemon name. */
+	toString(num) {
 		return `${this.name} (${this.species})`;
 	}
 	
@@ -367,19 +368,19 @@ class SortedLocation {
 	}
 	
 	is(attr) {
-		//Hack for Red/Blue
-		if ('e4') {
-			if (this.map_id === 174) return 'lobby';	// Lobby
-			if (this.map_id === 245) return 'e1';		// Lorelei's Room
-			if (this.map_id === 246) return 'e2';		// Bruno's Room
-			if (this.map_id === 247) return 'e3';		// Agitha's Room
-			if (this.map_id === 113) return 'e4';		// Lance's Room
-			if (this.map_id === 120) return 'champ';	// Champs's Room
-			if (this.map_id === 118) return 'hallOfFame'; // Hall of Fame
-		}
-		
 		if (this.node) return this.node.is(attr);
+		switch (attr) {
+			case 'preposition': return determineOnIn(this.name);
+		}
 		return undefined;
+		
+		function determineOnIn(name) {
+			if (/town|city/i.test(name)) return 'in';
+			if (/route/i.test(name)) return 'on';
+			if (/house|center|mart|f|cave|forest/i.test(name)) return 'in';
+			if (/league/i.test(name)) return 'at';
+			return 'on';
+		}
 	}
 }
 SortedLocation.prototype.has = SortedLocation.prototype.is; //Alias

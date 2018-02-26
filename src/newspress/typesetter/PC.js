@@ -21,7 +21,7 @@ module.exports = {
 		// boxNum = The number of the box
 		// boxName = The name of the box
 		default: [
-			`That catch fills up PC box {{boxNum}}.`,
+			`That catch fills up PC box {{@boxNum}}.`,
 		],
 		noCatch: [
 			`<b>That catch fills up our current PC box!</b> We won't be able to catch any more pokemon until we change it.`,

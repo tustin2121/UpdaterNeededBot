@@ -8,11 +8,11 @@ module.exports = {
 		// mon = the missing pokemon
 		default: null, //Do not report initially
 		confirmed: [
-			`<b>WE RELEASED {{mon}}!</b>`,
-			`<b>{{mon}} HAS BEEN RELEASED! BYE {{mon|uppercase}}!</b>`,
+			`<b>WE RELEASED {{@mon}}!</b>`,
+			`<b>{{@mon}} HAS BEEN RELEASED! BYE {{uppercase|@mon.name}}!</b>`,
 		],
 		timeout: [
-			`<b>We may have released {{mon}}!</b> (The API no longer reports them!)`,
+			`<b>We may have released {{@mon}}!</b> (The API no longer reports them!)`,
 		],
 	},
 	PokemonGained: {
@@ -36,27 +36,27 @@ module.exports = {
 	PokemonDeposited: {
 		default: null, //should never happen
 		pc: [
-			`<b>We deposit {{mon}} in box {{boxnum}}!</b>`,
-			`<b>Deposited {{mon}} in box {{boxnum}}!</b>`,
+			`<b>We deposit {{@mon}} in box {{@boxnum}}!</b>`,
+			`<b>Deposited {{@mon}} in box {{@boxnum}}!</b>`,
 		],
 		daycare: [
-			`<b>We leave {{mon}} with the daycare center.</b>`,
-			`<b>We dump {{mon}} into the daycare.</b>`,
-			`<b>We drop {{mon}} off at the daycare.</b>`,
-			`<b>We leave {{mon}} at the daycare.</b>`,
+			`<b>We leave {{@mon}} with the daycare center.</b>`,
+			`<b>We dump {{@mon}} into the daycare.</b>`,
+			`<b>We drop {{@mon}} off at the daycare.</b>`,
+			`<b>We leave {{@mon}} at the daycare.</b>`,
 		],
 	},
 	PokemonRetrieved: {
 		default: null, //should never happen
 		pc: [
-			`<b>We withdraw {{mon}}!</b>`,
-			`<b>We retrieve {{mon}} from the PC!</b>`,
+			`<b>We withdraw {{@mon}}!</b>`,
+			`<b>We retrieve {{@mon}} from the PC!</b>`,
 		],
 		daycare: [
-			`<b>We pick up {{mon}} from the daycare.</b>`,
-			`<b>We grab {{mon}} from the daycare.</b>`,
-			`<b>We take {{mon}} back from the daycare.</b>`,
-			`<b>We pay the daycare lady and take {{mon}} back from the daycare.</b>`,
+			`<b>We pick up {{@mon}} from the daycare.</b>`,
+			`<b>We grab {{@mon}} from the daycare.</b>`,
+			`<b>We take {{@mon}} back from the daycare.</b>`,
+			`<b>We pay the daycare lady and take {{@mon}} back from the daycare.</b>`,
 		],
 	},
 	
@@ -75,9 +75,9 @@ module.exports = {
 			else txt += ` No nickname.`;
 			
 			if (!mon.isTraded) {
-				txt += fillText(` Thanks for taking care of {{mon|him}}!`, item);
+				txt += fillText(` Thanks for taking care of {{him|@mon}}!`, item);
 			} else {
-				txt += fillText(` Taking care of {{pastMon.name}}!`, item);
+				txt += fillText(` Taking care of {{@pastMon.name}}!`, item);
 			}
 			return txt;
 		},
