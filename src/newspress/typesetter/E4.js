@@ -14,6 +14,13 @@ module.exports = {
 			`<b>The door slams shut behind us! E4 Attempt #{{@attempt}}!</b>`,
 			`<b>We stroll boldly into the E4 chambers and are locked inside! Attempt #{{@attempt}}!</b>`,
 		],
+		rematch: [
+			`<b>We're locked into the E4 for Rematch Attempt #{{@attempt}}!</b>`,
+			`<b>We're in for E4 Rematch Attempt #{{@attempt}}!</b>`,
+			`<b>Welcome back to the E4! Rematch Attempt #{{@attempt}}!</b>`,
+			`<b>The door slams shut behind us! E4 Rematch Attempt #{{@attempt}}!</b>`,
+			`<b>We stroll boldly into the E4 chambers and are locked inside! Rematch Attempt #{{@attempt}}!</b>`,
+		],
 		quick: [
 			`<b>Right back in for Attempt #{{@attempt}}!</b>`,
 			`<b>We turn right around and run back in for E4 Attempt #{{@attempt}}!</b>`,
@@ -26,11 +33,17 @@ module.exports = {
 		default: [
 			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion attempt #{{@attempt}} incoming!!`,
 		],
+		rematch: [
+			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion rematch attempt #{{@attempt}} incoming!!`,
+		],
 	},
 	E4EndRun: {
 		// attempt = the e4 attempt number
 		default: [
 			`rip E4 Attempt #{{@attempt}}`,
+		],
+		rematch: [
+			`rip E4 Rematch Attempt #{{@attempt}}.`,
 		],
 	},
 	E4HallOfFame: {

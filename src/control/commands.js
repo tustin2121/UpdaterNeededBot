@@ -12,6 +12,7 @@ const HANDLER = {
 	status: ({ msg })=>{
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
+		
 		let tg = 'No';
 		if (Bot.taggedIn !== false) {
 			if (typeof Bot.taggedIn === 'number') {
@@ -24,8 +25,19 @@ const HANDLER = {
 				tg = 'Yes';
 			} else tg = 'Unknown';
 		}
+		
+		let lastTg = Date.now() - Bot.memory.global.lastTagChange;
+		if (Number.isNaN(lastTg)) {
+			lastTg = '';
+		} else {
+			lastTg = ` (for ${Math.floor(lastTg/(60*60*24))}d ${Math.floor(lastTg/(60*60))%24}h ${Math.floor(lastTg/60)%60}m ${lastTg%60}s)`;
+		}
+		
+		let apid = 'NaN';
+		//TODO get the status of the last API disturbance
+		
 		msg.channel
-			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}`)
+			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
 	},
 	
@@ -96,6 +108,15 @@ const HANDLER = {
 		}
 	},
 	
+	'clear-ledger': ({ msg })=>{
+		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
+		Bot.press.pool.forEach(press=>{
+			if (!press.lastLedger) return;
+			press.lastLedger.postponeList.length = 0;
+		});
+		msg.channel.send(`Postponed ledger items have been cleared.`).catch(e=>LOGGER.error('Discord Error:',e));
+	},
+	
 	'save-mem': ({ msg })=>{
 		Bot.saveMemory();
 		msg.channel.send(`Memory bank saved to disk.`).catch(e=>LOGGER.error('Discord Error:',e));
@@ -137,6 +158,10 @@ const HANDLER = {
 		msg.channel
 			.send(`Ok, I'll ${help.join(', ')}. Don't hesistate to delete my updates if they get in the way.`)
 			.catch(ERR);
+	},
+	
+	chill: ({ msg, args})=>{
+		
 	},
 	
 	shutup: ({ msg, args })=>{
@@ -201,8 +226,9 @@ function parseCmd(cmd, authed=false) {
 	// 	else return [''];
 	// }
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
+	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	
-	if (/^(hello|status|are you here|report)/i.test(cmd)) return ['status'];
+	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];
 	}
@@ -230,6 +256,44 @@ function parseCmd(cmd, authed=false) {
 	
 	if (/^h[ea]lp(?: me| us)?(?: out)?/i.test(cmd)) return ['helpout-help'];
 	
+	if ((res = /^chill(?: out)?(?: for (.*))?/i.exec(cmd))) {
+		let timeout = 1*60*60*1000; //1 hour by default
+		let timetex = res[1];
+		if ((res = /(\d+) (?:hs?|hou?rs?)/i.exec(timetex))) {
+			let h = Number.parseInt(res[1], 10);
+			if (!Number.isNaN(h)) timeout = h * 60 * 60 * 1000;
+		}
+		else if ((res = /(an|a) (?:hal?[fv]|hal?[fv] an?) (?:hs?|hou?rs?)/i.exec(timetex))) {
+			timeout = 1 * 60 * 60 * 1000;
+		}
+		else if ((res = /(an|a) (?:hs?|hou?rs?)/i.exec(timetex))) {
+			timeout = 1 * 60 * 60 * 1000;
+		}
+		else if ((res = /(a few|a couple|two|too?) (?:hs?|hou?rs?)/i.exec(timetex))) {
+			timeout = 2 * 60 * 60 * 1000; //2 hours is a couple or a few
+		}
+		else if ((res = /(three|four|five|six) (?:hs?|hou?rs?)/i.exec(timetex))) {
+			let h = 2;
+			if (res[1] === 'three') h = 3;
+			if (res[1] === 'four') h = 4;
+			if (res[1] === 'five') h = 5;
+			if (res[1] === 'six') h = 6;
+			timeout = h * 60 * 60 * 1000;
+		}
+		else if ((res = /(\d+) (?:mins?|minut?es?)/.exec(timetex))) {
+			let h = Number.parseInt(res[1], 10);
+			if (!Number.isNaN(h)) timeout = h * 60 * 1000;
+		}
+		else if ((res = /(an|a) (?:mins?|minut?es?)/i.exec(timetex))) {
+			timeout = 5 * 60 * 1000; // a minute = 5 minutes colloliqually
+		}
+		else if ((res = /(a few|a couple|two|too?) (?:mins?|minut?es?)/i.exec(timetex))) {
+			timeout = 10 * 60 * 1000; // two minute = 10 minutes colloliqually
+		}
+		timeout = Math.min(timeout, 6*60*60*1000); //six hour maximum
+		return ['chill', timeout];
+	}
+	
 	// Jokes
 	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
 		return ['shutup', `I'm not your goddammed waiter.`];
@@ -245,6 +309,10 @@ function parseCmd(cmd, authed=false) {
 		return ['shutup', `Bippity Boppity Boo`];
 	if (/bip+ity boo?pp?ity boo+/i.test(cmd))
 		return ['shutup', `Yes, those are the magic words, congrats. No, they don't do anything.`];
+	if (/open(.*?)pod ?bay doors?/i.test(cmd))
+		return ['shutup', `...Why does everyone keep asking me to do that...? I don't have any door controls...`];
+	if (/apologi[zs]e/i.test(cmd))
+		return ['shutup', `S-Sorry...`];
 	
 	return [''];
 }
