@@ -1,5 +1,8 @@
 auth.js
 refresh.token
 node_modules
+memory
 memory.json
 npm-debug.log
+logs
+.auth

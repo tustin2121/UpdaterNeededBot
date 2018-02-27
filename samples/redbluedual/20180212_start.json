@@ -1,0 +1,214 @@
+{
+    "blue": {
+        "badges": 0,
+        "battle_kind": "None",
+        "caught": 0,
+        "caught_list": [],
+        "coins": 0,
+        "daycare": [],
+        "gender": "Female",
+        "id": 34456,
+        "in_battle": false,
+        "items": {
+            "items": [
+                {
+                    "id": 255
+                }
+            ],
+            "pc": [
+                {
+                    "count": 1,
+                    "id": 20,
+                    "name": "Potion"
+                }
+            ]
+        },
+        "level_cap": 100,
+        "map_id": 38,
+        "money": 3000,
+        "name": "XXWWNN\u03c0",
+        "options": {
+            "battle_scene": "On",
+            "battle_style": "Switch",
+            "text_speed": "Fast"
+        },
+        "party": [],
+        "pc": {
+            "boxes": [
+                {
+                    "box_contents": [],
+                    "box_name": "Box 1",
+                    "box_number": 1
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 2",
+                    "box_number": 2
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 3",
+                    "box_number": 3
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 4",
+                    "box_number": 4
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 5",
+                    "box_number": 5
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 6",
+                    "box_number": 6
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 7",
+                    "box_number": 7
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 8",
+                    "box_number": 8
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 9",
+                    "box_number": 9
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 10",
+                    "box_number": 10
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 11",
+                    "box_number": 11
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 12",
+                    "box_number": 12
+                }
+            ],
+            "current_box_number": 1
+        },
+        "rematch_available": 0,
+        "rival_name": "RED",
+        "seen": 0,
+        "seen_list": [],
+        "x": 7,
+        "y": 1
+    },
+    "red": {
+        "badges": 0,
+        "battle_kind": "None",
+        "caught": 0,
+        "caught_list": [],
+        "coins": 0,
+        "daycare": [],
+        "gender": "Male",
+        "id": 25045,
+        "in_battle": false,
+        "items": {
+            "items": [
+                {
+                    "id": 255
+                }
+            ],
+            "pc": [
+                {
+                    "count": 1,
+                    "id": 20,
+                    "name": "Potion"
+                }
+            ]
+        },
+        "level_cap": 100,
+        "map_id": 37,
+        "money": 3000,
+        "name": "(((",
+        "options": {
+            "battle_scene": "On",
+            "battle_style": "Switch",
+            "text_speed": "Fast"
+        },
+        "party": [],
+        "pc": {
+            "boxes": [
+                {
+                    "box_contents": [],
+                    "box_name": "Box 1",
+                    "box_number": 1
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 2",
+                    "box_number": 2
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 3",
+                    "box_number": 3
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 4",
+                    "box_number": 4
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 5",
+                    "box_number": 5
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 6",
+                    "box_number": 6
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 7",
+                    "box_number": 7
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 8",
+                    "box_number": 8
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 9",
+                    "box_number": 9
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 10",
+                    "box_number": 10
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 11",
+                    "box_number": 11
+                },
+                {
+                    "box_contents": [],
+                    "box_name": "Box 12",
+                    "box_number": 12
+                }
+            ],
+            "current_box_number": 1
+        },
+        "rematch_available": 0,
+        "rival_name": "BLUE",
+        "seen": 0,
+        "seen_list": [],
+        "x": 7,
+        "y": 1
+    }
+}

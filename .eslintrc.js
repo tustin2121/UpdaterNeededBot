@@ -17,8 +17,12 @@ module.exports = {
 	        jsx: true, // enable JSX
 	        experimentalObjectRestSpread: true,
 	    },
-	    ecmaVersion: 6,
+	    ecmaVersion: 2017,
 	    // sourceType: "module"
+	},
+	globals: {
+		getLogger: false,
+		Bot: false,
 	},
 	rules: {
 		"handle-callback-err": 1,
@@ -31,7 +35,6 @@ module.exports = {
 	    "no-new-func": 1,
 	    "no-new-wrappers": 1,
 	    "no-cond-assign": [1, "except-parens"],
-	    "no-debugger": 1,//3,
 	    "no-dupe-keys": 1,//3,
 	    "no-eval": 1,
 	    "no-func-assign": 1,
@@ -49,9 +52,8 @@ module.exports = {
 	    "radix": 1,//3,
 	    "no-delete-var": 2,
 	    "no-label-var": 1,//3,
-	    "no-console": 0,
+	    "no-console": 1,
 	    "no-shadow-restricted-names": 2,
-	    "handle-callback-err": 1,
 	    "no-new-require": 2,
 	},
 };
