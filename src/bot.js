@@ -177,11 +177,11 @@ class UpdaterBot {
 	 * then posts the update at the end of it, if there is an update to post.
 	 */
 	run() {
-		LOGGER.note(`============ Update Cycle ============`);
+		LOGGER.note(`============ Update Cycle ${this.getTimestamp()} ============`);
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
-			if (update) this.postUpdate({ text:update, })
+			if (update) this.postUpdate({ text:update, });
 			
 			if (this.isHelping) {
 				update = this.press.runHelp();
@@ -207,7 +207,10 @@ class UpdaterBot {
 	
 	/** If this updater is tagged in. */
 	get taggedIn() { return this.memory.global.taggedIn; }
-	set taggedIn(val) { this.memory.global.taggedIn = val; }
+	set taggedIn(val) { 
+		this.memory.global.taggedIn = val; 
+		this.memory.global.lastTagChange = Date.now(); 
+	}
 	
 	// /** If this updater is tagged in for a particular game. */
 	// isTaggedIn(game) {
@@ -221,16 +224,26 @@ class UpdaterBot {
 	}
 	
 	/** Gets the current timestamp for this run. */
-	getTimestamp(time) {
+	getTimestamp({ time, padded=false, compact=false }={}) {
 		let elapsed = ((time || Date.now()) - new Date(this.runConfig.run.runStart*1000).getTime()) / 1000;
 		let n		= (elapsed < 0)?"T-":"";
 		elapsed 	= Math.abs(elapsed);
 		let days    = Math.floor(elapsed / 86400);
 		let hours   = Math.floor(elapsed / 3600 % 24);
-		let minutes = Math.floor(elapsed / 60 % 60);
-		// let seconds = Math.floor(elapsed % 60);
+		let min		= Math.floor(elapsed / 60 % 60);
+		let sec 	= Math.floor(elapsed % 60);
 		
-		return `${n}${days}d ${hours}h ${minutes}m`;
+		if (padded) {
+			days = `00${days}`.slice(-2);
+			hours = `00${hours}`.slice(-2);
+			min = `00${min}`.slice(-2);
+			sec = `00${sec}`.slice(-2);
+		}
+		let out = `${n}${days}d ${hours}h ${min}m`;
+		if (compact) {
+			out = `${n}${days}d${hours}h${min}m${sec}s`;
+		}
+		return out;
 	}
 	
 	/** Posts update to the destination updates

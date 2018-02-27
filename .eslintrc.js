@@ -35,7 +35,6 @@ module.exports = {
 	    "no-new-func": 1,
 	    "no-new-wrappers": 1,
 	    "no-cond-assign": [1, "except-parens"],
-	    "no-debugger": 1,//3,
 	    "no-dupe-keys": 1,//3,
 	    "no-eval": 1,
 	    "no-func-assign": 1,
@@ -55,7 +54,6 @@ module.exports = {
 	    "no-label-var": 1,//3,
 	    "no-console": 1,
 	    "no-shadow-restricted-names": 2,
-	    "handle-callback-err": 1,
 	    "no-new-require": 2,
 	},
 };

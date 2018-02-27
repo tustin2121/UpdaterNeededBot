@@ -62,7 +62,7 @@ module.exports = {
 				`<b>Retrieved {{an item|@item|@amount}} from the PC!</b>`,
 			],
 			multi: [
-				`<b>Retrieved {{a comma-separated list of|an item|@item|@amount}} from the PC!</b>`,,
+				`<b>Retrieved {{a comma-separated list of|an item|@item|@amount}} from the PC!</b>`,
 			],
 		},
 	},

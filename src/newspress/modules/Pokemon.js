@@ -127,11 +127,13 @@ RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPoke
 	.when(ledger=>ledger.has('PokemonIsMissing'))
 	.when(ledger=>ledger.has('PokemonGained').withSame('mon.storedIn'))
 	.then(ledger=>{
-		let MIA = ledger.remove(0);
-		let NEW = ledger.remove(1);
+		let MIA = ledger.get(0);
+		let NEW = ledger.get(1);
 		if (MIA.length !== NEW.length) {
 			LOGGER.error('Invalid Rule Application: Number of PokemonIsMissing does not match number of PokemonGained!', MIA, NEW);
+			return;
 		}
+		ledger.remove(0); ledger.remove(1);
 		for (let i = 0; i < MIA.length && i < NEW.length; i++) {
 			ledger.add(new PokemonTraded(NEW[i], MIA[i]));
 		}

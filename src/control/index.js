@@ -115,9 +115,8 @@ module.exports = {
 		if (ping) {
 			if (lastPing + PING_COOLDOWN < Date.now()) {
 				group = "<@&148087914360864768> ";
-			} else {
-				lastPing = Date.now();
 			}
+			lastPing = Date.now();
 		}
 		return staffChannel
 			.send(`${group}${text}`).catch(ERR);
