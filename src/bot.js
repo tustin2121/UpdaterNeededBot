@@ -207,7 +207,10 @@ class UpdaterBot {
 	
 	/** If this updater is tagged in. */
 	get taggedIn() { return this.memory.global.taggedIn; }
-	set taggedIn(val) { this.memory.global.taggedIn = val; }
+	set taggedIn(val) { 
+		this.memory.global.taggedIn = val; 
+		this.memory.global.lastTagChange = Date.now(); 
+	}
 	
 	// /** If this updater is tagged in for a particular game. */
 	// isTaggedIn(game) {

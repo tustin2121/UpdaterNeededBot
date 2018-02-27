@@ -12,6 +12,7 @@ const HANDLER = {
 	status: ({ msg })=>{
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
+		
 		let tg = 'No';
 		if (Bot.taggedIn !== false) {
 			if (typeof Bot.taggedIn === 'number') {
@@ -24,8 +25,19 @@ const HANDLER = {
 				tg = 'Yes';
 			} else tg = 'Unknown';
 		}
+		
+		let lastTg = Date.now() - Bot.memory.global.lastTagChange;
+		if (Number.isNaN(lastTg)) {
+			lastTg = '';
+		} else {
+			lastTg = ` (for ${Math.floor(lastTg/(60*60*24))}d ${Math.floor(lastTg/(60*60))%24}h ${Math.floor(lastTg/60)%60}m ${lastTg%60}s)`;
+		}
+		
+		let apid = 'NaN';
+		//TODO get the status of the last API disturbance
+		
 		msg.channel
-			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}`)
+			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
 	},
 	
@@ -94,6 +106,15 @@ const HANDLER = {
 				}
 			} break;
 		}
+	},
+	
+	'clear-ledger': ({ msg })=>{
+		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
+		Bot.press.pool.forEach(press=>{
+			if (!press.lastLedger) return;
+			press.lastLedger.postponeList.length = 0;
+		});
+		msg.channel.send(`Postponed ledger items have been cleared.`).catch(e=>LOGGER.error('Discord Error:',e));
 	},
 	
 	'save-mem': ({ msg })=>{
@@ -205,6 +226,7 @@ function parseCmd(cmd, authed=false) {
 	// 	else return [''];
 	// }
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
+	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	
 	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {

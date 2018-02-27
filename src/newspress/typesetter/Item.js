@@ -67,7 +67,7 @@ module.exports = {
 				`<b>Retrieved {{amount}} {{item}} from the PC!</b>`,
 			],
 			multi: [
-				`<b>Retrieved {{#|, |and}} from the PC!</b>`,,
+				`<b>Retrieved {{#|, |and}} from the PC!</b>`,
 			],
 			item: `{{amount}} {{item}}`,
 		},

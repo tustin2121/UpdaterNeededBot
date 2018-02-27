@@ -235,6 +235,14 @@ RULES.push(new Rule('Abilities might change during battle')
 	})
 );
 
+RULES.push(new Rule('Postpone learning moves over Mimic until the end of battle')
+	.when((ledger)=>ledger.has('BattleContext'))
+	.when((ledger)=>ledger.has('MonLearnedMoveOverOldMove').with('prev', 'Mimic'))
+	.then((ledger)=>{
+		ledger.postpone(1);
+	})
+);
+
 RULES.push(new Rule('Negative or more than 8 level gain usually means an API Disturbance')
 	.when((ledger)=>ledger.has('MonLeveledUp').which(x=>x.deltaLevel < 0 || x.deltaLevel > 8).unmarked())
 	.then((ledger)=>{
