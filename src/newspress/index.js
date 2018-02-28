@@ -1,6 +1,8 @@
 // newspress/index.js
 // The heart of the update reporter system
 
+const EventEmitter = require('events');
+
 const { inspect } = require("util");
 const { Ledger } = require('./ledger');
 const { typeset } = require('./typesetter');
@@ -8,8 +10,9 @@ const { typeset } = require('./typesetter');
 const LOGGER = getLogger('UpdaterPress');
 
 /** A newspress system which uses the game API and chat records to generate an update. */
-class UpdaterPress {
+class UpdaterPress extends EventEmitter {
 	constructor({ modconfig, memory, api, chat, game=0 }) {
+		super();
 		this.memory = memory;
 		this.apiProducer = api;
 		this.chatProducer = chat;
@@ -101,6 +104,7 @@ class UpdaterPress {
 			let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
 			this.lastUpdate = prefix + ' ' + update;
 		}
+		process.nextTick(()=>this.emit('run-complete', this.lastUpdate, this.lastLedger));
 		return this.lastUpdate;
 	}
 	
@@ -150,8 +154,9 @@ class UpdaterPress {
 }
 
 /** A newspress system which uses multiple sub-presses to update a mutli-game run. */
-class UpdaterPressPool {
+class UpdaterPressPool extends EventEmitter {
 	constructor({ numGames, modconfig, memory, api, chat }) {
+		super();
 		this.pool = [];
 		for (let i = 0; i < numGames; i++) {
 			this.pool.push(new UpdaterPress({ modconfig, memory, api, chat, game:i }));
@@ -164,6 +169,7 @@ class UpdaterPressPool {
 			let up = press.run();
 			if (up) updates.push(up);
 		}
+		process.nextTick(()=>this.emit('run-complete'));
 		if (!updates.length) return null;
 		return updates.join('\n\n');
 	}

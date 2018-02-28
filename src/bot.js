@@ -4,6 +4,7 @@
 const fs = require("fs");
 const path = require('path');
 const auth = require('../.auth');
+const EventEmitter = require('events');
 
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
@@ -23,7 +24,7 @@ const LOGGER = getLogger('UpdaterBot');
 
 let access = { token:"", timeout:0 };
 
-class UpdaterBot {
+class UpdaterBot extends EventEmitter {
 	constructor(runConfig) {
 		if (!runConfig) throw new Error('No run config provided!');
 		try { // Verify the run configuration is viable
@@ -78,6 +79,7 @@ class UpdaterBot {
 		} catch (e) {
 			throw new Error(e);
 		}
+		super();
 		this.runConfig = runConfig;
 		LOGGER.info(`Run config valid.`);
 		
@@ -88,6 +90,8 @@ class UpdaterBot {
 		this.chatApi = null;
 		this.press = null;
 		this._updateInterval = null;
+		
+		this.on('error', (e)=>LOGGER.error('Error event!', e));
 	}
 	
 	start() {
@@ -127,12 +131,22 @@ class UpdaterBot {
 	shutdown() {
 		clearInterval(this._updateInterval);
 		this._updateInterval = null;
+		this.emit('shutdown');
 		
 		this.saveMemory();
 		this.postDebug('[Meta] UpdaterNeeded shutting down.')
 			.then(()=>getLogger.shutdown)
 			.then(()=>process.exit());
 			//TODO Figure out why the postDebug() promise is resolving before it should!
+	}
+	
+	/** Override of EventEmitter.prototype.emit that adds a try-catch. */
+	emit(type, ...args) {
+		try {
+			EventEmitter.prototype.emit.call(this, type, ...args);
+		} catch (e) {
+			LOGGER.error(`Error in '${type}' event emission!`, e);
+		}
 	}
 	
 	/** Queries whether a given generation, game, or run option is set. */
@@ -178,6 +192,7 @@ class UpdaterBot {
 	 */
 	run() {
 		LOGGER.note(`============ Update Cycle ${this.getTimestamp()} ============`);
+		this.emit('pre-update-cycle');
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
@@ -196,6 +211,7 @@ class UpdaterBot {
 		} catch (e) {
 			LOGGER.fatal(`Unhandled error in update cycle!`, e);
 		}
+		this.emit('post-update-cycle');
 		this.saveMemory();
 	}
 	
@@ -207,15 +223,11 @@ class UpdaterBot {
 	
 	/** If this updater is tagged in. */
 	get taggedIn() { return this.memory.global.taggedIn; }
-	set taggedIn(val) { 
-		this.memory.global.taggedIn = val; 
-		this.memory.global.lastTagChange = Date.now(); 
+	set taggedIn(val) {
+		this.memory.global.taggedIn = val;
+		this.memory.global.lastTagChange = Date.now();
+		this.emit('tagged', val);
 	}
-	
-	// /** If this updater is tagged in for a particular game. */
-	// isTaggedIn(game) {
-	// 	this.memory.global.gameTagged
-	// }
 	
 	/** If this update is helping. */
 	get isHelping() {
@@ -309,7 +321,7 @@ class UpdaterBot {
 				postDiscord.call(this, this.runConfig.run.testDiscordID, updateText, update.embeds)
 				.catch(e=>LOGGER.error('Post to Test Discord Failed:', e)));
 		}
-		LOGGER.trace(`Update: num promises = ${promises.length}`);
+		this.emit('update', text, ts, dest);
 		return Promise.all(promises);
 		
 		function postReddit(id, updateText) {

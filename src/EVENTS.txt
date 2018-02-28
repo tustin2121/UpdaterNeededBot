@@ -1,0 +1,16 @@
+shutdown
+	- Fired when the Bot is shutting down, before the memory is saved.
+
+tagged
+	- Fired when the tagged-in value changes.
+
+pre-update-cycle
+	- Fired before the update cycle begins.
+
+post-update-cycle
+	- Fired after the update cycle ends.
+
+update
+	- Fired after an update is posted (but before it is confirmed to be posted).
+	update = The update text posted
+	
