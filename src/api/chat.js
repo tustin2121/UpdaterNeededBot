@@ -3,11 +3,13 @@
 
 const auth = require('../../.auth');
 const irc = require('irc');
+const EventEmitter = require('./events');
 
 const LOGGER = getLogger('ChatAPI');
 
-class ChatAPI {
+class ChatAPI extends EventEmitter {
 	constructor({ url, channels, memory }) {
+		super();
 		this.serverUrl = url;
 		this.channelList = channels;
 		this.memory = memory;

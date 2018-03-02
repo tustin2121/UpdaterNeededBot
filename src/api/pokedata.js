@@ -82,6 +82,14 @@ class HeldItem {
 		}
 	}
 	toString(){ return this.name; }
+	toXml(hkey) {
+		let xml = `<item `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `itemid="${this.id}">`;
+		xml += `${this.name}`;
+		xml += `</item>`;
+		return xml;
+	}
 }
 
 class Pokemon {
@@ -294,7 +302,7 @@ class Pokemon {
 		let xml = `<pokemon `;
 		if (hkey) xml += `key="${hkey}" `;
 		xml += `hash="${this.hash}">`;
-		// if ()
+		xml += this.saveToMemory();
 		xml += `</pokemon>`;
 		return xml;
 	}
@@ -343,7 +351,9 @@ class SortedLocation {
 		let xml = `<location `;
 		if (hkey) xml += `key="${hkey}" `;
 		if (this.node) xml += `node="true" `;
-		xml += `id="${this.full_id}" pos="${this.position}">${this.map_name}</location>`;
+		xml += `id="${this.full_id}" pos="${this.position}">`;
+		xml += this.map_name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+		xml += `</location>`;
 		return xml;
 	}
 	
@@ -468,6 +478,15 @@ class Item {
 	get inPC() { return this.pockets.has('pc') && this.pockets.size === 1; }
 	get isHeld() { return this.pockets.has('held'); }
 	toString(){ return this.name; }
+	
+	toXml(hkey) {
+		let xml = `<item `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `itemid="${this.id}">`;
+		xml += `${this.name}`;
+		xml += `</item>`;
+		return xml;
+	}
 }
 
 class SortedInventory {
@@ -670,6 +689,24 @@ class SortedBattle {
 			}
 		}
 		return name.join(';');
+	}
+	
+	toXml(hkey) {
+		let xml = `<battle `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `attemptId="${this.attemptId}" isImportant="${this.isImportant}">`;
+		if (this.trainer) {
+			for (let trainer of this.trainer) {
+				xml += `<trainer trClass="${trainer.class}" trId="${trainer.id}">${trainer.className} ${trainer.name}</trainer>`;
+			}
+		}
+		if (this.party) {
+			for (let p of this.party) {
+				xml += `<combatant dexid="${p.dexid}" active="${p.active}" hp="${p.hp}">${p.species}</combatant>`;
+			}
+		}
+		xml += `</battle>`;
+		return xml;
 	}
 }
 

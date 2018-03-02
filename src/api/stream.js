@@ -6,6 +6,7 @@ const HTTP = require('http');
 const HTTPS = require('https');
 const URL = require('url');
 const PATH = require('path');
+const EventEmitter = require('./events');
 
 const API_SAVE_DIR = PATH.resolve(__dirname, '../../memory/api');
 const NUM_PREV_SAVES = 50;
@@ -14,8 +15,9 @@ const { SortedData } = require('./pokedata');
 
 const LOGGER = getLogger('StreamAPI');
 
-class StreamAPI {
+class StreamAPI extends EventEmitter {
 	constructor({ url, updatePeriod, memory }) {
+		super();
 		this.updateUrl = url;
 		this._updateInterval = setInterval(this.refresh.bind(this), updatePeriod);
 		this.memory = memory;
@@ -49,7 +51,7 @@ class StreamAPI {
 				/** Indicates if the UpdaterPool has gotten the most recent update. */
 				this.memory.hasPoppedUpdate = this.memory.hasPoppedUpdate || new Array(Bot.runConfig.numGames);
 				
-				// this.refresh();
+				this.emitLater('ready');
 				resolve();
 			});
 		});
@@ -71,6 +73,7 @@ class StreamAPI {
 				let str = `${ts}\n`+JSON.stringify(data, null, '\t');
 				FS.writeFile( PATH.join(API_SAVE_DIR, `stream_api.${i}.json`), str, ()=>{
 					LOGGER.debug(`Previous API saved at stream_api.${i}.json`);
+					this.emit('api-written', i);
 				});
 				this.memory.lastIndex = i;
 			}
@@ -91,6 +94,7 @@ class StreamAPI {
 		this.currInfo = currInfo;
 		this.prevInfo = prevInfo;
 		this.memory.hasPoppedUpdate.fill(false);
+		this.emitLater('refreshed');
 	}
 	
 	getInfo(game=0) {

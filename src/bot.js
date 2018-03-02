@@ -4,7 +4,7 @@
 const fs = require("fs");
 const path = require('path');
 const auth = require('../.auth');
-const EventEmitter = require('events');
+const EventEmitter = require('./api/events');
 
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
@@ -138,15 +138,6 @@ class UpdaterBot extends EventEmitter {
 			.then(()=>getLogger.shutdown)
 			.then(()=>process.exit());
 			//TODO Figure out why the postDebug() promise is resolving before it should!
-	}
-	
-	/** Override of EventEmitter.prototype.emit that adds a try-catch. */
-	emit(type, ...args) {
-		try {
-			EventEmitter.prototype.emit.call(this, type, ...args);
-		} catch (e) {
-			LOGGER.error(`Error in '${type}' event emission!`, e);
-		}
 	}
 	
 	/** Queries whether a given generation, game, or run option is set. */

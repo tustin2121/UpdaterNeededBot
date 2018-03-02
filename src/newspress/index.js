@@ -1,11 +1,10 @@
 // newspress/index.js
 // The heart of the update reporter system
 
-const EventEmitter = require('events');
-
 const { inspect } = require("util");
 const { Ledger } = require('./ledger');
 const { typeset } = require('./typesetter');
+const EventEmitter = require('../api/events');
 
 const LOGGER = getLogger('UpdaterPress');
 
@@ -104,7 +103,7 @@ class UpdaterPress extends EventEmitter {
 			let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
 			this.lastUpdate = prefix + ' ' + update;
 		}
-		process.nextTick(()=>this.emit('run-complete', this.lastUpdate, this.lastLedger));
+		this.emitLater('run-complete', this.lastUpdate, this.lastLedger);
 		return this.lastUpdate;
 	}
 	
