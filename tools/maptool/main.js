@@ -258,6 +258,7 @@ class MapPanel {
 			const CY = $('#map').innerHeight() / 2;
 			g.translate(CX, CY);
 			
+			// Draw grid
 			g.strokeStyle = `#DDDDDD`;
 			g.beginPath();
 			for (let x = 0; x < CX; x += BLOCK) { g.moveTo(x, -CY); g.lineTo(x, CY); }
@@ -267,7 +268,7 @@ class MapPanel {
 			g.stroke();
 		}{
 			let map = this.currMap;
-			// console.log(`Map:`, map);
+			// Draw connections:
 			for (let dir in this.currMap.conns) {
 				let conn = this.currMap.conns[dir];
 				let off = { x:-map.width/2, y:-map.height/2 };
@@ -316,6 +317,7 @@ class MapPanel {
 					g.restore();
 				}
 			}
+			// Draw current map
 			{
 				g.fillStyle = `#AAAAAA`;
 				g.strokeStyle = `#666666`;
@@ -328,81 +330,13 @@ class MapPanel {
 				g.fillRect  (r.x, r.y, r.w, r.h);
 				g.strokeRect(r.x, r.y, r.w, r.h);
 			}
+			// Draw events
 			for (let en = 0; en < this.currMap.events.length; en++) {
-				let event = this.currMap.events[en];
-				if (!event) continue;
-				try {
-					let textColor = '';
-					switch (event.type) {
-						case 'coord':
-							g.fillStyle = `#00A7CC`;
-							g.strokeStyle = `#007D99`;
-							textColor = `#005366`;
-							break;
-						case 'bg':
-							g.fillStyle = `#00CC7A`;
-							g.strokeStyle = `#00995C`;
-							textColor = `#00663D`;
-							break;
-						case 'object':
-							g.fillStyle = `#A000CC`;
-							g.strokeStyle = `#780099`;
-							textColor = `#500066`;
-							break;
-					}
-					
-					let r = {
-						x: (-(map.width/2)+event.x) * BLOCK,
-						y: (-(map.height/2)+event.y) * BLOCK,
-						w: BLOCK,
-						h: BLOCK,
-					};
-					g.fillRect  (r.x, r.y, r.w, r.h);
-					g.strokeRect(r.x, r.y, r.w, r.h);
-					
-					if (event.radius_x || event.radius_y) {
-						r = {
-							x: (-(map.width/2)+event.x - event.radius_x) * BLOCK,
-							y: (-(map.height/2)+event.y - event.radius_y) * BLOCK,
-							w: BLOCK * event.radius_x * 2,
-							h: BLOCK * event.radius_y * 2,
-						};
-						g.strokeRect(r.x, r.y, r.w, r.h);
-						g.beginPath();
-						g.moveTo(r.x, r.y+(r.h/2)); g.lineTo(r.x+r.w, r.y+(r.h/2));
-						g.moveTo(r.x+(r.w/2), r.y); g.lineTo(r.x+(r.w/2), r.y+r.h);
-						g.stroke();
-					}
-					if (event.sightRange) {
-						let r = {
-							x: (-(map.width/2)+event.x) * BLOCK,
-							y: (-(map.height/2)+event.y) * BLOCK,
-						};
-						switch (event.moveFn) {
-							case 'STANDING_DOWN':  r.d = true; break;
-							case 'STANDING_UP':    r.u = true; break;
-							case 'STANDING_LEFT':  r.l = true; break;
-							case 'STANDING_RIGHT': r.r = true; break;
-							case 'SPINRANDOM_SLOW':
-							case 'SPINRANDOM_FAST':
-								r.d = r.u = r.l = r.r = true; break;
-						}
-						g.beginPath();
-						if (r.u) g.moveTo(r.x, r.y); g.lineTo(r.x, r.y-(event.sightRange*BLOCK));
-						if (r.d) g.moveTo(r.x, r.y); g.lineTo(r.x, r.y+(event.sightRange*BLOCK));
-						if (r.r) g.moveTo(r.x, r.y); g.lineTo(r.x-(event.sightRange*BLOCK), r.y);
-						if (r.l) g.moveTo(r.x, r.y); g.lineTo(r.x+(event.sightRange*BLOCK), r.y);
-						g.stroke();
-					}
-					
-					let tx = g.measureText(en.toString(16));
-					g.font = `${this.zoomLevel-2}pt monospace`;
-					g.fillStyle = textColor;
-					g.fillText(en.toString(16), r.x+(r.w/2)-(tx.width/2), r.y+(r.h*0.8));
-				} catch (e) {
-					console.error(e);
-				}
+				require('./drawEvents.js').call(this, g, this.currMap.events[en], {
+					map, BLOCK,
+				});
 			}
+			// Draw warps
 			for (let wn = 0; wn < this.currMap.warps.length; wn++) {
 				let warp = this.currMap.warps[wn];
 				if (!warp) continue;

@@ -11,8 +11,9 @@ const NORTH = 1 << 3;
 //https://github.com/pret/pokecrystal/blob/master/constants/script_constants.asm#L78
 const BGEVENTS = ['READ','UP','DOWN','RIGHT','LEFT','IFSET','IFNOTSET','ITEM','COPY'];
 const SPRITEMOVEDATA = [
-	//https://github.com/pret/pokecrystal/blob/master/constants/sprite_data_constants.asm#L40
-	0x00, 'ITEM_TREE', 'WANDER', 'SPINRANDOM_SLOW',
+	//https://github.com/pret/pokecrystal/blob/cb733954c6ab399d5bd6a2d2039575a470ba1725/constants/map_object_constants.asm#L83
+	//https://github.com/pret/pokecrystal/blob/cb733954c6ab399d5bd6a2d2039575a470ba1725/data/sprites/map_objects.asm
+	0x00, 'STILL', 'WANDER', 'SPINRANDOM_SLOW',
 	'WALK_UP_DOWN', 'WALK_LEFT_RIGHT',
 	'STANDING_DOWN','STANDING_UP','STANDING_LEFT','STANDING_RIGHT',
 	'SPINRANDOM_FAST', 'PLAYER',
@@ -175,7 +176,7 @@ class Gen2Reader extends GBReader {
 				let c_len = this.readUint8(); //Read coord event length
 				for (let e = 0; e < c_len; e++) {
 					info.events.push({
-						type: 'coord',
+						type: 'g2:coord',
 						sceneId: this.readUint8(),
 						y: this.readUint8(),
 						x: this.readUint8(),
@@ -186,7 +187,7 @@ class Gen2Reader extends GBReader {
 				let b_len = this.readUint8(); //Read BG event length
 				for (let e = 0; e < c_len; e++) {
 					info.events.push({
-						type: 'bg',
+						type: 'g2:bg',
 						y: this.readUint8(),
 						x: this.readUint8(),
 						bgType: BGEVENTS[this.readUint8()],
@@ -197,7 +198,7 @@ class Gen2Reader extends GBReader {
 				let e_len = this.readUint8(); //Read Object event length
 				for (let e = 0; e < c_len; e++) {
 					let item = {
-						type: 'object',
+						type: 'g2:object',
 						sprite: this.readUint8(),
 						y: this.readUint8(),
 						x: this.readUint8(),
