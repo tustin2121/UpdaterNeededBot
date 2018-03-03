@@ -11,6 +11,7 @@ class RomReader {
 		
 		this.romFile = romFile;
 		this.data = null;
+		
 		/** This ROM'S character map. */
 		this.CHARMAP = [];
 		/** This ROM's string terminator character. */
