@@ -53,12 +53,16 @@ class Gen4Reader extends DSReader {
 		return this;
 	}
 	
-	getFileForGame({ file, file1, file2, file3 }) {
+	resolveFileForGame({ file, file1, file2, file3 }) {
 		switch (this.gameInfo.subGen) {
 			case 1: return path.join(this.baseDir, file1 || file);
 			case 2: return path.join(this.baseDir, file2 || file);
 			case 3: return path.join(this.baseDir, file3 || file);
 		}
+	}
+	
+	getFileForGame(opts={}) {
+		return ByteBuffer.wrap(fs.readFileSync(this.resolveFileForGame(opts)));
 	}
 	
 	/**
@@ -113,15 +117,44 @@ class Gen4Reader extends DSReader {
 	}
 	
 	readMaps() {
-		const mapTable = ByteBuffer.wrap(fs.readFileSync(this.getFileForGame({
+		const mapTable = this.getFileForGame({
 			file:'data/fielddata/maptable/mapname.bin'
-		})));
-		let headerCount = mapTable.limit >> 4; //divide by 16
+		});
+		const headerCount = mapTable.limit >> 4; //divide by 16
+		const mapNames = this.readNames(this.getFileForGame({ file:'data/a/0/2/text/0279' }));
 		
-		this.data = ByteBuffer.wrap(fs.readFileSync(this.getFileForGame({ file:'arm9.bin' })));
+		this.data = this.getFileForGame({ file:'arm9.bin' }).LE();
 		this.offset = 0xF6BE0;
 		
-		
+		for (let i = 0; i < headerCount; i++) {
+			let mapName = '';
+			for (let n = 0; n < 16; n++) {
+				mapName += String.fromCharCode(mapNames.readUint8());
+			}
+			mapName = mapName.trim();
+			
+			let mapHeader = {
+				internalName: mapName,
+				wildMon: this.readUint8(),
+				_UNK1: this.readUint8(),
+				tex1: this.readUint8(),
+				tex2: this.readUint8(),
+				matrix: this.readUint16(),
+				scripts: this.readUint16(),
+				lvlScripts: this.readUint16(),
+				texts: this.readUint16(),
+				musicDay: this.readUint16(),
+				musicNight: this.readUint16(),
+				events: this.readUint16(),
+				name: mapNames[this.readUint8()],
+				nameStyle: this.readUint8(),
+				weather: this.readUint8(),
+				camera: this.readUint8(),
+				followMode: this.readUint8(),
+				flags: this.readUint8(),
+			};
+			
+		}
 	}
 }
 
