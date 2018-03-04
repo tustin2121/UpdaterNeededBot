@@ -43,7 +43,7 @@ class ChatAPI extends EventEmitter {
 		// Hold unique inputters
 		this.inputterSet = new Set();
 		
-		if (this.serverUrl) {
+		if (this.serverUrl && !global.exeFlags.dontConnect) {
 			this._init = this.connect();
 		}
 	}

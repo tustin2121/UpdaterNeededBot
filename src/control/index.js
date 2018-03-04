@@ -95,11 +95,13 @@ dbot.on('message', (msg)=>{
 		require('./commands')(msg);
 	} catch (e) {
 		LOGGER.fatal('Error processing Discord command!', e);
-		msg.channel.send(':dizzy_face: Ow!').catch(ERR);
+		msg.channel.send(':dizzy_face: Ow! Error processing command!').catch(ERR);
 	}
 });
 
-let loggedIn = dbot.login(auth.discord.token);
+let loggedIn;
+if (!global.exeFlags.dontConnect)
+	loggedIn = dbot.login(auth.discord.token);
 
 module.exports = {
 	dbot,

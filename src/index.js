@@ -2,6 +2,9 @@
 // An updater bot that polls the stream API and chat and posts updates
 
 global.getLogger = require('./logging');
+global.exeFlags = {
+	dontConnect: process.argv[2] === 'noconnect',
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -39,5 +42,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/s501-dual-gen1'));
+global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));
 Bot.start();

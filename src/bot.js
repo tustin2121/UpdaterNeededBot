@@ -119,7 +119,8 @@ class UpdaterBot extends EventEmitter {
 			this.streamApi.isReady(),
 			this.chatApi.isReady(),
 		]).then(()=>{
-			this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
+			if (!global.exeFlags.dontConnect)
+				this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 			LOGGER.info(`UpdaterNeeded startup complete. Update interval: ${this.runConfig.run.updatePeriod/1000} sec.`);
 			this.postDebug(`[Meta] UpdaterNeeded started.`);
 		}).catch(ex=>{

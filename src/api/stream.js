@@ -19,7 +19,8 @@ class StreamAPI extends EventEmitter {
 	constructor({ url, updatePeriod, memory }) {
 		super();
 		this.updateUrl = url;
-		this._updateInterval = setInterval(this.refresh.bind(this), updatePeriod);
+		if (!global.exeFlags.dontConnect)
+			this._updateInterval = setInterval(this.refresh.bind(this), updatePeriod);
 		this.memory = memory;
 		
 		/** The sorted stream data from the most recent update. This data may match the previous

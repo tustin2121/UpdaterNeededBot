@@ -77,11 +77,9 @@ class WebServer {
 				Bot.streamApi.removeListener('api-written', evts['api-written']);
 				LOGGER.log('Remote disconnected.')
 			});
-			
-			
 		}
 	}
 	
 }
 
-
+module.exports = WebServer;
