@@ -58,6 +58,8 @@ class StreamAPI extends EventEmitter {
 		});
 	}
 	
+	get apiIndex() { return this.memory.lastIndex; }
+	
 	isReady() {
 		return this._startup;
 	}
@@ -109,10 +111,10 @@ class StreamAPI extends EventEmitter {
 		try {
 			if (!this.memory.hasPoppedUpdate[game]) {
 				// If we haven't yet gotten this info, return proper current and previous
-				return { curr:this.currInfo[game], prev:this.prevInfo[game] };
+				return { curr:this.currInfo[game], prev:this.prevInfo[game], apiIndex:this.memory.lastIndex };
 			} else {
 				// If we have gotten this info before, return two currents, so no updates happen twice
-				return { curr:this.currInfo[game], prev:this.currInfo[game] };
+				return { curr:this.currInfo[game], prev:this.currInfo[game], apiIndex:this.memory.lastIndex };
 			}
 		} finally {
 			this.memory.hasPoppedUpdate[game] = true;

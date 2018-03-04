@@ -2,6 +2,8 @@
 
 body {
 	margin: 0;
+	font-family: sans-serif;
+	font-size: 10pt;
 }
 
 .header {
@@ -41,124 +43,128 @@ body {
     font-size: 10pt;
     padding: 3px 14px 3px 8px;
 }
-.view > div {
+.view > * {
+	display: block;
     overflow-y: scroll;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	left: 0; right: 0;
+    top: 0; bottom: 0;
+	padding: 22px 0 0;
 }
 
 .view.api {
     position: absolute;
     background-color: white;
-    top: 75px;
-    width: 600px;
-    left: 15px;
-    height: 40px;
+    top: 75px; left: 15px;
+    width: 233px; height: 40px;
+	font-family: monospace;
 }
 .view.api::before {
     content: 'API';
 }
 .view.api::after {
     content: '\f107'; /* angle-down */
-    bottom: -28px;
-    left: 17%;
+    bottom: -28px; left: 44%;
 }
+.view.api > api {
+	padding: 2px 0;
+	line-height: 36px;
+	text-align: center;
+	overflow-y: auto;
+}
+.view.api > api::before { content: 'stream_api.'; }
+.view.api > api::after  { content: '.json'; }
 
 .view.module {
     position: absolute;
     background-color: #f0f7ff;
-    top: 130px;
-    width: 233px;
-    left: 15px;
-    height: 38%;
+    top: 130px; left: 15px;
+    width: 233px; height: 38%;
 }
 .view.module::before {
     content: 'Modules';
 }
 .view.module::after {
 	content: '\f105'; /* angle-right */
-    top: 35%;
-	right: -20px;
+    top: 26%; right: -20px;
+}
+.view.module > modules {
+	
 }
 
 .view.rule {
     position: absolute;
     background-color: beige;
-    top: 130px;
-    width: 350px;
-    right: 410px;
-    height: 38%;
+    top: 75px; right: 410px;
+    width: 350px; height: 43.5%;
 }
 .view.rule::before {
     content: 'Rules';
 }
 .view.rule::after {
 	content: '\f105'; /* angle-right */
-    top: 35%;
-    right: -20px;
+    top: 35%; right: -20px;
+}
+.view.rule > rules {
+	
 }
 
 .view.ledger {
     position: absolute;
 	background-color: #fff7e7;
-    top: 75px;
-	right: 15px;
-	bottom: 38%;
-	width: 380px;
+    top: 75px; bottom: 38%;
+	right: 15px; width: 380px;
 }
 .view.ledger::before {
     content: 'Ledger';
 }
 .view.ledger::after {
 	content: '\f104'; /* angle-left */
-    bottom: 6%;
-    left: -20px;
+    bottom: 6%; left: -20px;
+}
+.view.ledger > ledger {
+	
 }
 
 .view.ledger-post {
     position: absolute;
     background-color: #f1dfbc;
-	right: 15px;
-	height: 35%;
-	bottom: 15px;
-	width: 380px;
+	right: 15px; bottom: 15px;
+	height: 35%; width: 380px;
 }
 .view.ledger-post::before {
     content: 'Postponed';
 }
 .view.ledger-post::after {
 	content: '\f107'; /* angle-down */
-	left: 46%;
-	top: -28px;
+	left: 46%; top: -28px;
+}
+.view.ledger-post > postledger {
+	
 }
 
 .view.typesetter {
 	position: absolute;
     background-color: #faf0ff;
-    right: 410px;
-    bottom: 21%;
-    width: 500px;
-    top: 52%;
+	bottom: 21%; top: 52%;
+    right: 410px; width: 500px;
 }
 .view.typesetter::before {
     content: 'TypeSetter';
 }
 .view.typesetter::after {
 	content: '\f107'; /* angle-down */
-	left: 30%;
-    bottom: -27px;
+	left: 30%; bottom: -27px;
+}
+.view.typesetter > typesetter {
+	
 }
 
 .view.update {
 	position: absolute;
 	background-color: white;
-	left: 15px;
-	bottom: 15px;
-	width: 500px;
-	height: 18%;
+	left: 15px; bottom: 15px;
+	width: 500px; height: 18%;
 }
 .view.update::before {
 	content: '\f1a1  \f392'; /* reddit, discord */
@@ -174,10 +180,9 @@ body {
 }
 .view.update::after {
 	content: '\f106'; /* angle-up */
-	left: 4%;
-    top: -34px;
+	left: 4%; top: -34px;
 }
-.view.update > div {
+.view.update > update {
     font-family: verdana, arial, helvetica, sans-serif;
     font-size: 14px;
     padding: 1em;
@@ -185,14 +190,14 @@ body {
 	overflow-wrap: break-word;
     word-wrap: break-word;
 }
-.view.update > div p {
+.view.update > update p {
 	margin: 5px 0;
 }
-.view.update > div a.author {
+.view.update > update a.author {
 	color: #b6c6d6;
     transition: color 0.3s;
 }
-.view.update > div time {
+.view.update > update time {
     display: inline-block;
     font-size: 10px;
     width: auto;
@@ -206,14 +211,67 @@ body {
     padding-left: 15px;
     text-indent: -20px;
 }
-.view.update > div time::before {
+.view.update > update time::before {
 	content: "";
 	display: inline-block;
-	width: 8px;
-	height: 8px;
+	width: 8px; height: 8px;
 	border-radius: 4px;
 	background: #ebebeb;
 	margin-right: 6px;
 	margin-left: 6px;
 	transition: background 0.3s;
+}
+
+
+ledgeritem {
+    display: block;
+    border-top: 1px #505050 solid;
+    border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 1em;
+    margin-top: 1px;
+}
+ledgeritem:nth-child(odd) {
+	background-color: #ffa7001a;
+}
+ledgeritem::before {
+    content: attr(name);
+	margin-left: -2em;
+	display: inline-block;
+	background-color: #505050;
+	color: white;
+	padding: 0 3px;
+	border-radius: 3px;
+	margin-right: 6px;
+}
+ledgeritem > * {
+	display: block;
+    padding: 1px 0 2px 2em;
+}
+ledgeritem > *:nth-child(odd) {
+	background-color: #ffa7001a;
+}
+ledgeritem > *::before {
+	content: attr(key)': ';
+	margin-left: -2em;
+	display: inline-block;
+}
+
+pokemon > span {
+	display: inline-block;
+    padding-right: 4px;
+}
+pokemon > span[prop=name] {
+	font-weight: bold;
+}
+pokemon > span[prop]::before {
+	content: attr(prop)': ';
+}
+pokemon > span[prop=name]::before {
+	content: none;
+}
+pokemon > span::after {
+	content: ' | ';
+}
+pokemon > span:last-child::after {
+	content: none;
 }

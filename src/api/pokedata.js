@@ -77,7 +77,7 @@ class HeldItem {
 			this.name = data.name;
 			this.id = data.id;
 		} else {
-			this.name = '<NoItem>';
+			this.name = '[NoItem]';
 			this.id = 0;
 		}
 	}

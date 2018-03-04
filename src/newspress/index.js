@@ -39,7 +39,7 @@ class UpdaterPress extends EventEmitter {
 		let ledger = new Ledger();
 		let data = null;
 		{
-			let { curr, prev } = this.apiProducer.popInfo(this.gameIndex);
+			let { curr, prev, apiIndex } = this.apiProducer.popInfo(this.gameIndex);
 			data = {
 				curr_api: curr,
 				prev_api: prev,
@@ -51,6 +51,7 @@ class UpdaterPress extends EventEmitter {
 				this.lastUpdate = null;
 				return null;
 			}
+			ledger.log.apiIndex(apiIndex);
 		}
 		
 		// First Pass: Note all changes and important context into ledger items
@@ -67,6 +68,7 @@ class UpdaterPress extends EventEmitter {
 		// Second Pass: Modify the ledger items into more useful things
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {
+			ledger.log.ruleRound(i);
 			LOGGER.trace(`Second Pass [${i}]`);
 			for (let mod of this.modules) try {
 				mod.secondPass(ledger);

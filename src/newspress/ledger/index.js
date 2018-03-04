@@ -94,6 +94,7 @@ class Ledger {
 	
 	/** Sorts the ledger and drops all items below 1 importance. */
 	finalize() {
+		this.log.ledgerState(this);
 		this.list.sort(LedgerItem.compare);
 		let i = 0;
 		for (i = 0; i < this.list.length; i++) {
@@ -185,7 +186,44 @@ Ledger.prototype.remove = Ledger.prototype.removeItem;
 
 class DebugLogs {
 	constructor() {
-		//TODO
+		this.apiNum = -1;
+		this.modules = {};
+		this.rules = [];
+		this.ledger = [];
+		this.postledger = [];
+		this.typesetter = [];
+		this.update = '';
+	}
+	
+	getXml() {
+		let xml = '';
+		xml += `<api>${this.apiNum}</api>`;
+		{
+			let mods = [];
+			for (let mod in this.modules) {
+				mods.push(`<mod name="${mod}">${this.modules.map(x=>`<p>${x}</p>`)}<mod>`);
+			}
+			xml += `<modules>${mods.join('')}</modules>`;
+		}
+		xml += `<rules>${this.rules.join('')}</rules>`;
+		xml += `<ledger>${this.ledger.join('')}</ledger>`;
+		xml += `<postledger>${this.postledger.join('')}</postledger>`;
+		xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
+		xml += `<update>${this.update}</update>`;
+		return `<state>${xml}</state>`;
+	}
+	
+	apiIndex(num) {
+		this.apiNum = num;
+	}
+	
+	moduleState(modName, str) {
+		this.modules[modName] = this.modules[modName] || [];
+		this.modules[modName].push(str);
+	}
+	
+	ruleRound(num) {
+		this.rules.push(`<marker>Round ${num}</marker>`);
 	}
 	
 	/**
@@ -193,6 +231,18 @@ class DebugLogs {
 	 * @param {RuleInstance} ruleInst - The instance of the rule applied
 	 */
 	ruleApplied(ruleInst) {
+		let matched = ruleInst.matchedItems.map((m, i)=>{
+			return `<match index="${i}">${m.map(x=>x.toXml())}</match>`;
+		});
+		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
+	}
+	
+	ledgerState(ledger) {
+		this.ledger = ledger.list.map(x=>x.toXml());
+		this.postledger = ledger.postponeList.map(x=>x.toXml());
+	}
+	
+	typesetterApplied() {
 		
 	}
 }

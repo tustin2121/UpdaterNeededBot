@@ -63,7 +63,7 @@ class WebServer {
 			
 			Bot.on('post-update-cycle', evts['post-update']=()=>{
 				Bot.press.pool.forEach((p, i)=>{
-					sock.emit(`ledger`, i, p.lastLedger.toXml());
+					sock.emit(`ledger`, i, p.lastLedger.log.getXml());
 				})
 			});
 			Bot.streamApi.on('api-written', evts['api-written']=(id)=>{
