@@ -9,6 +9,7 @@ const EventEmitter = require('./api/events');
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
+const WebServer = require("./webserv");
 const { createDebugUrl } = require('./debug/xml');
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
@@ -113,6 +114,8 @@ class UpdaterBot extends EventEmitter {
 			api: this.streamApi,
 			chat: this.chatApi,
 		});
+		this.webserver = new WebServer();
+		this.webserver.connect();
 		
 		Promise.all([
 			this.staff.isReady(),
@@ -284,7 +287,7 @@ class UpdaterBot extends EventEmitter {
 		let debugUrl = createDebugUrl(debugXml) || '';
 		//////////////////////////////////////////
 		if (mainLive && this.runConfig.run.liveID) {
-			let update = formatFor.reddt(text);
+			let update = formatFor.reddit(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(
 				postReddit.call(this, this.runConfig.run.liveID, updateText)
@@ -299,7 +302,7 @@ class UpdaterBot extends EventEmitter {
 				.catch(e=>LOGGER.error('Post to Discord Failed:', e)));
 		}
 		if (testLive && this.runConfig.run.testLiveID) {
-			let update = formatFor.reddt(text);
+			let update = formatFor.reddit(text);
 			// if (updateText.length + )
 			let updateText = `${ts} [[Bot](${debugUrl})] ${update.text}`;
 			promises.push(

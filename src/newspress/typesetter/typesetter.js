@@ -483,6 +483,7 @@ class TypeSetter {
 			return getProp(obj[name], subName);
 		}
 	}
+	
 }
 
 module.exports = TypeSetter;

@@ -30,7 +30,7 @@ class WebServer {
 		////////////////////////////////////////////////////////////////////////////
 		// Routing
 		
-		app.get('/fa', express.static(path.join(__dirname, 'site/fa')));
+		app.get('/fa', express.static(path.join(__dirname, 'site/fa/')));
 		app.get('/api/:id', (req, res, next)=>{
 			let i = Number.parseInt(res.params.id, 10);
 			if (Number.isNaN(i)) return res.sendStatus(400);

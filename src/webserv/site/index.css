@@ -24,43 +24,64 @@ body {
 .view {
 	box-shadow: 1px 1px 5px 0px #00000080;
 }
+.view::after {
+	position: absolute;
+	font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+	font-size: 30pt;
+    z-index: 10;
+}
+.view::before {
+    position: absolute;
+    top: 0; left: 0;
+    background-color: #505050;
+	color: white;
+    border-bottom-right-radius: 15px;
+    font-family: sans-serif;
+    font-size: 10pt;
+    padding: 3px 14px 3px 8px;
+}
+.view > div {
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
 .view.api {
     position: absolute;
     background-color: white;
     top: 75px;
-    width: 362px;
+    width: 600px;
     left: 15px;
     height: 40px;
 }
+.view.api::before {
+    content: 'API';
+}
 .view.api::after {
     content: '\f107'; /* angle-down */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    bottom: -29px;
-    left: 26%;
-    font-size: 26pt;
-    z-index: 10;
+    bottom: -28px;
+    left: 17%;
 }
 
 .view.module {
     position: absolute;
-    background-color: white;
+    background-color: #f0f7ff;
     top: 130px;
     width: 233px;
     left: 15px;
-    height: 50%;
+    height: 38%;
+}
+.view.module::before {
+    content: 'Modules';
 }
 .view.module::after {
 	content: '\f105'; /* angle-right */
-	font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-	position: absolute;
     top: 35%;
-    right: -22px;
-    font-size: 26pt;
-    z-index: 10;
+	right: -20px;
 }
 
 .view.rule {
@@ -69,53 +90,130 @@ body {
     top: 130px;
     width: 350px;
     right: 410px;
-    height: 50%;
+    height: 38%;
+}
+.view.rule::before {
+    content: 'Rules';
 }
 .view.rule::after {
 	content: '\f105'; /* angle-right */
-	font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-	position: absolute;
     top: 35%;
-    right: -22px;
-    font-size: 26pt;
-    z-index: 10;
+    right: -20px;
 }
 
 .view.ledger {
     position: absolute;
+	background-color: #fff7e7;
     top: 75px;
-    background-color: #fff7e7;
-    right: 15px;
-    bottom: 15px;
-    width: 380px;
+	right: 15px;
+	bottom: 38%;
+	width: 380px;
+}
+.view.ledger::before {
+    content: 'Ledger';
 }
 .view.ledger::after {
-	content: '\f107';
-	font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
+	content: '\f104'; /* angle-left */
+    bottom: 6%;
+    left: -20px;
+}
+
+.view.ledger-post {
+    position: absolute;
+    background-color: #f1dfbc;
+	right: 15px;
+	height: 35%;
+	bottom: 15px;
+	width: 380px;
+}
+.view.ledger-post::before {
+    content: 'Postponed';
+}
+.view.ledger-post::after {
+	content: '\f107'; /* angle-down */
+	left: 46%;
+	top: -28px;
+}
+
+.view.typesetter {
 	position: absolute;
-    bottom: 15%;
-    left: -22px;
-    font-size: 26pt;
-    z-index: 10;
+    background-color: #faf0ff;
+    right: 410px;
+    bottom: 21%;
+    width: 500px;
+    top: 52%;
+}
+.view.typesetter::before {
+    content: 'TypeSetter';
+}
+.view.typesetter::after {
+	content: '\f107'; /* angle-down */
+	left: 30%;
+    bottom: -27px;
 }
 
 .view.update {
-    position: absolute;
-    top: 75px;
-    background-color: #fff7e7;
-    right: 15px;
-    bottom: 15px;
-    width: 380px;
+	position: absolute;
+	background-color: white;
+	left: 15px;
+	bottom: 15px;
+	width: 500px;
+	height: 18%;
+}
+.view.update::before {
+	content: '\f1a1  \f392'; /* reddit, discord */
+	top: -70px; left: -8px;
+	background-color: initial; /* Reset the top corner label thing */
+	color: initial;
+    border-bottom-right-radius: initial;
+    padding: 0;
+	position: absolute;
+	font-family: 'Font Awesome 5 Brands';
+	font-size: 30pt;
+	z-index: 10;
 }
 .view.update::after {
-	content: '\f107';
-	font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-	position: absolute;
-    bottom: 15%;
-    left: -22px;
-    font-size: 26pt;
-    z-index: 10;
+	content: '\f106'; /* angle-up */
+	left: 4%;
+    top: -34px;
+}
+.view.update > div {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 14px;
+    padding: 1em;
+    margin: 0;
+	overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.view.update > div p {
+	margin: 5px 0;
+}
+.view.update > div a.author {
+	color: #b6c6d6;
+    transition: color 0.3s;
+}
+.view.update > div time {
+    display: inline-block;
+    font-size: 10px;
+    width: auto;
+    text-align: left;
+    overflow: hidden;
+    vertical-align: top;
+    margin-bottom: .5em;
+    padding-top: 3px;
+    color: #888;
+    transition: color 0.3s;
+    padding-left: 15px;
+    text-indent: -20px;
+}
+.view.update > div time::before {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 4px;
+	background: #ebebeb;
+	margin-right: 6px;
+	margin-left: 6px;
+	transition: background 0.3s;
 }
