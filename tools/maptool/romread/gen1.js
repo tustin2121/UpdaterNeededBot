@@ -1,6 +1,7 @@
 // maptool romread/gen1.js
 // The Generation 1 Rom Reader
 
+const { MapNode } = require('../mapnode');
 const { GBReader } = require('./base');
 
 const EAST  = 1 << 0;
@@ -77,19 +78,14 @@ class Gen1Reader extends GBReader {
 		for (let m = 0; m < mapPointers.length; m++) {
 			let ptr = mapPointers[m];
 			this.offset = ptr;
-			let info = {
+			let info = MapNode({
 				id: m, //0-based index
 				areaName: areaNames[m],
 				tileset: this.readUint8(),
 				height: this.readUint8() * 2,
 				width: this.readUint8() * 2,
-				warps: [ null ],
-				conns: {},
-				events: [],
 				name: areaNames[m],
-				attrs: {},
-				locOf: {},
-			};
+			});
 			this.skip(2); // Skip block pointer
 			this.skip(2); // Skip texts pointer
 			this.skip(2); // Skip scripts pointer

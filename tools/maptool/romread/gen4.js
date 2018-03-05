@@ -117,6 +117,7 @@ class Gen4Reader extends DSReader {
 	}
 	
 	readMaps() {
+		let mapData = {};
 		const mapTable = this.getFileForGame({
 			file:'data/fielddata/maptable/mapname.bin'
 		});
@@ -125,6 +126,7 @@ class Gen4Reader extends DSReader {
 		
 		this.data = this.getFileForGame({ file:'arm9.bin' }).LE();
 		this.offset = 0xF6BE0;
+		const mapHeaders = [];
 		
 		for (let i = 0; i < headerCount; i++) {
 			let mapName = '';
@@ -133,7 +135,8 @@ class Gen4Reader extends DSReader {
 			}
 			mapName = mapName.trim();
 			
-			let mapHeader = {
+			mapHeaders.push({
+				id: i,
 				internalName: mapName,
 				wildMon: this.readUint8(),
 				_UNK1: this.readUint8(),
@@ -152,9 +155,35 @@ class Gen4Reader extends DSReader {
 				camera: this.readUint8(),
 				followMode: this.readUint8(),
 				flags: this.readUint8(),
-			};
-			
+			}};
 		}
+		
+		for (let mh of mapHeaders) {
+			//TODO loop through maps and get information like warps, width/height, etc.
+			let info = new MapNode({
+				id: mh.id,
+				name: mh.name,
+				areaName: mh.internalName,
+			});
+			info.internalName = mh.internalName;
+			
+			// Roughly determine map type
+			switch (mh.matrix) {
+				case '0': info.type = 'route'; break; // The overworld
+				case '2': info.type = 'underground'; break; // The Underground
+			}
+			// determine caves by texture type, perhaps
+			
+			
+			
+			
+			mapData[info.id] = info;
+		}
+		
+		
+		this.maps = mapData;
+		this.data = null;
+		return { mapData };
 	}
 }
 

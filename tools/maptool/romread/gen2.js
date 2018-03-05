@@ -1,6 +1,7 @@
 // maptool romread/gen2.js
 // The Generation 2 Rom Reader
 
+const { MapNode } = require('../mapnode');
 const { GBReader } = require('./base');
 
 const EAST  = 1 << 0;
@@ -110,24 +111,18 @@ class Gen2Reader extends GBReader {
 					break;
 				}
 				
-				let info = { //basic info from map header 1
+				let info = new MapNode({ //basic info from map header 1
 					bank: b+1, map: m+1,
 					areaId: mapHeader[5],
 					areaName: areaNames[mapHeader[5]],
 					mapType: ENVIRONS[mapHeader[2]],
-					width: null, height: null,
-					warps: [ null ],
-					conns: {},
-					events: [],
 					name: areaNames[mapHeader[5]],
-					attrs: {},
-					locOf: {},
-				};
+				});
 				
 				// Assign fly locations
 				if (spawnPoints[b] && spawnPoints[b][m]) {
 					let f = spawnPoints[b][m];
-					info.locOf.spawnPoint = `${f.x},${f.y}`;
+					info.setSpawnPoint(f.x, f.y);
 				}
 				
 				// Refine map types

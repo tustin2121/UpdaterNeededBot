@@ -10,7 +10,7 @@ class MapNode {
 		
 		this.areaId = opts.areaId || 0;
 		this.areaName = opts.areaName || '';
-		this.type = opts.type || null;
+		this.type = opts.type || opts.mapType || null;
 		this.width = opts.width || opts.w || 0;
 		this.height = opts.height || opts.h || 0;
 		
@@ -24,6 +24,10 @@ class MapNode {
 		this.areas = [];
 		if (Array.isArray(opts.areas)) opts.areas.forEach(a=>this.addArea(a));
 	}
+	// alias mapType => type
+	get mapType() { return this.type; }
+	set mapType(t) { this.type = t; }
+	
 	serialize() {
 		let out = {
 			bank: this.bank, id: this.id,
@@ -61,6 +65,10 @@ class MapNode {
 	}
 	addArea(opts={}) {
 		this.areas.push(new MapArea(opts));
+	}
+	
+	setSpawnPoint(x, y) {
+		this.addArea({ x, y, name:'spawn', attrs:{ flyspot:true, } })
 	}
 }
 
@@ -205,4 +213,9 @@ const ATTRS = {
 	entralink: {
 		tooltip: `If this location is an entralink map (special reporting)`,
 	},
+};
+
+module.exports = {
+	MapNodes, MapArea, MapType, TransitReport,
+	MAP_TYPES, ATTRS,
 };
