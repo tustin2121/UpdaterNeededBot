@@ -22,7 +22,6 @@ sock.on('ledger', (i, xml)=>{
 	$updatePage.find('pokemon').each((i, e)=>{
 		let $e = $(e);
 		let mon = JSON.parse(atob($e.text()));
-		console.log(mon);
 		$e.data('data', mon);
 		$e.empty().append(`<span prop='name'>${mon.name} (${mon.species})</span>`);
 		

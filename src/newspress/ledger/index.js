@@ -217,9 +217,11 @@ class DebugLogs {
 		this.apiNum = num;
 	}
 	
-	moduleState(modName, str) {
+	moduleLog(modName, ...str) {
+		str = str.map(x=>String(x)).join(' ');
 		this.modules[modName] = this.modules[modName] || [];
 		this.modules[modName].push(str);
+		return str;
 	}
 	
 	ruleRound(num) {

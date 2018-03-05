@@ -9,6 +9,14 @@ try {
 	mkdirp.sync(path.resolve(__dirname, '../logs/output'));
 } catch (e) {}
 
+const tokens = {
+	ts() {
+		if (typeof Bot === 'undefined') return '??d??h??m??s';
+		return Bot.getTimestamp({ padded:true, compact:true });
+	}
+}
+
+
 log4js.configure({
 	levels: {
 	//	ALL:	{ value:Number.MIN_VALUE,	colour:'grey' },
@@ -28,12 +36,7 @@ log4js.configure({
 			layout: {
 				type: 'pattern',
 				pattern: `%[%r %x{ts} %5.5p%] [%c] %m`,
-				tokens: {
-					ts() {
-						if (typeof Bot === 'undefined') return '??d??h??m??s';
-						return Bot.getTimestamp({ padded:true, compact:true });
-					},
-				},
+				tokens,
 			},
 		},
 		file: {
@@ -46,12 +49,7 @@ log4js.configure({
 			layout: {
 				type: 'pattern',
 				pattern: `%r %x{ts} %5.5p [%c] %m`,
-				tokens: {
-					ts() {
-						if (typeof Bot === 'undefined') return '??d??h??m??s';
-						return Bot.getTimestamp({ padded:true, compact:true });
-					},
-				},
+				tokens,
 			},
 		},
 		errorlog: {
@@ -64,12 +62,7 @@ log4js.configure({
 			layout: {
 				type: 'pattern',
 				pattern: `%r %x{ts} %5.5p [%c] %m`,
-				tokens: {
-					ts() {
-						if (typeof Bot === 'undefined') return '??d??h??m??s';
-						return Bot.getTimestamp({ padded:true, compact:true });
-					},
-				},
+				tokens,
 			},
 		},
 		'out-filtered': {

@@ -105,7 +105,7 @@ class WebServer {
 	</modules>
 	<rules>
 		<rule name="This is a test rule">
-			<match index="0">${a.toXml()}</match>
+			<match index="0">${a.toXml()}${a.toXml()}${a.toXml()}</match>
 		</rule>
 		<rule name="Blackouts spawn a BlackoutContext">
 			<match index="0">${b.toXml()}</match>
@@ -129,7 +129,6 @@ class WebServer {
 	</update>
 </state>`
 			);
-			
 			
 			sock.on('disconnect', ()=>{
 				console.log('Remote disconnected.')

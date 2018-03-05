@@ -34,7 +34,7 @@ class LocationModule extends ReportingModule {
 			ledger.add(item);
 		}
 		
-		// For Red/Blue only
+		// TODO remove
 		if (curr.location.map_id === 33) { //Route 22 Ledge
 			if (curr.location.y > 13 && curr.location.x < 28) { // below ledge
 				if (prev.location.y < 13 && prev.location.x < 28) { // above ledge

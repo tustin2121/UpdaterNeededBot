@@ -3,7 +3,7 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	ApiDisturbance, BadgeGet, 
+	ApiDisturbance, BadgeGet,
 	BattleContext, BattleStarted, BattleEnded,
 	BlackoutContext,
 } = require('../ledger');
@@ -24,6 +24,8 @@ class BattleModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
+		
 		let pb = prev.battle;
 		let cb = curr.battle;
 		if (cb.in_battle) {
@@ -32,7 +34,7 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle && !pb.in_battle) {
 			let attempt = 0;
-			LOGGER.debug(`battle: [${cb.attemptId}] imp=${cb.isImportant} attempts=${this.memory.attempts[cb.attemptId]}`);
+			this.debug(`battle: [${cb.attemptId}] imp=${cb.isImportant} attempts=${this.memory.attempts[cb.attemptId]}`);
 			
 			if (cb.isImportant) {
 				attempt = (this.memory.attempts[cb.attemptId] || 0);
@@ -48,7 +50,7 @@ class BattleModule extends ReportingModule {
 		
 		if (cb.in_battle) {
 			let healthy = cb.party.filter(p=>p.hp);
-			LOGGER.debug(`party=`,cb.party,`healthy=`,healthy);
+			this.debug(`party=`,cb.party,`healthy=`,healthy);
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
 			} else {

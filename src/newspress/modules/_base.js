@@ -7,6 +7,15 @@ class ReportingModule {
 		this.memory = memory;
 		this.priority = priority;
 		this.gameIndex = 0;
+		this.debug = ()=>{};
+	}
+	
+	setDebug(logger, ledger) {
+		const NAME = this.constructor.name.slice(0, -6); //slice off Module
+		this.debug = (...args)=>{
+			ledger.log.moduleLog(NAME, ...args);
+			logger.debug(...args);
+		};
 	}
 	
 	/**
