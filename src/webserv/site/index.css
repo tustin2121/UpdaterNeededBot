@@ -16,11 +16,16 @@ body {
 	box-shadow: 0px 0px 10px 0px #00000080;
 }
 
-.centerColumn {
+.column {
     position: relative;
     width: 1024px; height: 100%;
     margin: 0 auto;
     background-color: aliceblue;
+}
+.updateState {
+	position: absolute;
+	top: 75px; bottom: 15px;
+	left: 15px; right: 15px;
 }
 
 .view {
@@ -55,7 +60,7 @@ body {
 .view.api {
     position: absolute;
     background-color: white;
-    top: 75px; left: 15px;
+    top: 0; left: 0;
     width: 233px; height: 40px;
 	font-family: monospace;
 }
@@ -78,8 +83,8 @@ body {
 .view.module {
     position: absolute;
     background-color: #f0f7ff;
-    top: 130px; left: 15px;
-    width: 233px; height: 38%;
+    top: 58px; left: 0;
+    width: 233px; height: 42%;
 }
 .view.module::before {
     content: 'Modules';
@@ -94,9 +99,9 @@ body {
 
 .view.rule {
     position: absolute;
-    background-color: beige;
-    top: 75px; right: 410px;
-    width: 350px; height: 43.5%;
+    background-color: #ffe5e5;
+    top: 0; right: 395px;
+    width: 350px; height: 51%;
 }
 .view.rule::before {
     content: 'Rules';
@@ -112,15 +117,15 @@ body {
 .view.ledger {
     position: absolute;
 	background-color: #fff7e7;
-    top: 75px; bottom: 38%;
-	right: 15px; width: 380px;
+    top: 0; bottom: 38%;
+	right: 0; width: 380px;
 }
 .view.ledger::before {
     content: 'Ledger';
 }
 .view.ledger::after {
 	content: '\f104'; /* angle-left */
-    bottom: 6%; left: -20px;
+    bottom: 0; left: -20px;
 }
 .view.ledger > ledger {
 	
@@ -129,7 +134,7 @@ body {
 .view.ledger-post {
     position: absolute;
     background-color: #f1dfbc;
-	right: 15px; bottom: 15px;
+	right: 0; bottom: 0;
 	height: 35%; width: 380px;
 }
 .view.ledger-post::before {
@@ -146,8 +151,8 @@ body {
 .view.typesetter {
 	position: absolute;
     background-color: #faf0ff;
-	bottom: 21%; top: 52%;
-    right: 410px; width: 500px;
+	bottom: 21%; height: 25%;
+    right: 395px; width: 500px;
 }
 .view.typesetter::before {
     content: 'TypeSetter';
@@ -163,7 +168,7 @@ body {
 .view.update {
 	position: absolute;
 	background-color: white;
-	left: 15px; bottom: 15px;
+	left: 0; bottom: 0;
 	width: 500px; height: 18%;
 }
 .view.update::before {
@@ -222,26 +227,89 @@ body {
 	transition: background 0.3s;
 }
 
-
-ledgeritem {
-    display: block;
+modules > mod {
+	display: block;
     border-top: 1px #505050 solid;
     border-bottom: 1px #505050 solid;
-	padding: 1px 0 3px 1em;
-    margin-top: 1px;
+	padding: 1px 0 3px 2em;
+    margin-top: -1px;
 }
-ledgeritem:nth-child(odd) {
-	background-color: #ffa7001a;
+mod::before {
+	content: attr(name)'Module';
+	margin-left: -2em;
+	display: block;
+	/*font-weight: bold;*/
+	padding: 2px;
+	margin-top: -1px;
 }
-ledgeritem::before {
-    content: attr(name);
+mod p {
+	font-family: monospace;
+	margin: 0;
+}
+
+
+rules > rule {
+	display: block;
+    border-top: 1px #505050 solid;
+    border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+    margin-top: -1px;
+}
+rules > rule:nth-child(odd) {
+    background-color: #ff7b7b1a;
+}
+rule::before {
+    content: 'Rule: 'attr(name);
+	margin-left: -2em;
+	display: block;
+	/*font-weight: bold;*/
+	padding: 2px;
+	margin-top: -1px;
+}
+rule > match {
+	display: block;
+	padding: 0 0 0 2em;
+}
+rule > match::before {
+	content: attr(index);
 	margin-left: -2em;
 	display: inline-block;
+	position: absolute;
 	background-color: #505050;
 	color: white;
 	padding: 0 3px;
 	border-radius: 3px;
 	margin-right: 6px;
+}
+
+
+ledger > ledgeritem,
+postledger > ledgeritem,
+rule > match > ledgeritem {
+    display: block;
+    border-top: 1px #505050 solid;
+    border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+    margin-top: -1px;
+}
+ledgeritem:nth-child(odd) {
+	background-color: #ffa7001a;
+}
+ledgeritem::before {
+    content: attr(name)' \2295';
+	margin-left: -2em;
+	display: block;
+	font-weight: bold;
+	/* background-color: #0200a2; */
+	padding: 2px;
+	margin-top: -1px;
+	/* color: white; */
+}
+ledgeritem:empty::before {
+    content: attr(name);
+}
+rule ledgeritem::before {
+	font-weight: normal;
 }
 ledgeritem > * {
 	display: block;
@@ -254,6 +322,11 @@ ledgeritem > *::before {
 	content: attr(key)': ';
 	margin-left: -2em;
 	display: inline-block;
+	background-color: #505050;
+	color: white;
+	padding: 0 3px;
+	border-radius: 3px;
+	margin-right: 6px;
 }
 
 pokemon > span {
@@ -268,6 +341,10 @@ pokemon > span[prop]::before {
 }
 pokemon > span[prop=name]::before {
 	content: none;
+}
+pokemon > span[stat]::before {
+	content: attr(stat)': ';
+	text-transform: uppercase;
 }
 pokemon > span::after {
 	content: ' | ';

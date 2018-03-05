@@ -5,7 +5,7 @@
 const sock = io();
 
 sock.on('ledger', (i, xml)=>{
-	let $updatePage = $('.centerColumn'); //TODO create new pages perhaps?
+	let $updatePage = $('.updateState'); //TODO create new pages perhaps?
 	$updatePage.html(xml);
 	$updatePage.find('api').wrap(`<div class="view api">`);
 	$updatePage.find('modules').wrap(`<div class="view module">`);
@@ -26,6 +26,8 @@ sock.on('ledger', (i, xml)=>{
 		$e.data('data', mon);
 		$e.empty().append(`<span prop='name'>${mon.name} (${mon.species})</span>`);
 		
+		$e.append(`<span prop='level'>${mon.level}</span>`);
+		if (mon.gender) $e.append(`<span prop='gender'>${mon.gender}</span>`);
 		$e.append(`<span prop='types'>${mon.types.join('/')}</span>`);
 		$e.append(`<span prop='moves'>${mon.moves.join(', ')}</span>`);
 		if (mon.item) $e.append(`<span prop='item'>${mon.item.name}</span>`)
@@ -37,5 +39,14 @@ sock.on('ledger', (i, xml)=>{
 		if (mon.pokerus) $e.append('<span>PokeRus</span>');
 		if (mon.shiny) $e.append('<span>Shiny</span>');
 		if (mon.sparkly) $e.append('<span>Sparkly</span>');
-	})
+	});
+	
+	$updatePage.find('rule,mod,ledgeritem').on('click', function(e){
+		$(this).children().toggle();
+		e.stopPropagation();
+	});
+	$updatePage.find('rule,mod,ledgeritem').children().on('click', function(e){
+		e.stopPropagation();
+	});
+	$updatePage.find('rule > match > ledgeritem').children().hide();
 });
