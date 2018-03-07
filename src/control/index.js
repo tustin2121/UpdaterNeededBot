@@ -109,7 +109,7 @@ module.exports = {
 		return loggedIn
 	},
 	
-	alertUpdaters(text, ping=false, bypassTagCheck=false) {
+	alertUpdaters(text, { ping=false, bypassTagCheck=false, reuseId }={}) {
 		if (!bypassTagCheck && Bot.taggedIn !== true) return Promise.reject();
 		if (!staffChannel) return Promise.reject();
 		
@@ -120,15 +120,23 @@ module.exports = {
 			}
 			lastPing = Date.now();
 		}
+		
+		if (reuseId) {
+			return staffChannel.fetchMessage(reuseId)
+				.edit(`${group}${text}`).catch(ERR);
+		}
 		return staffChannel
 			.send(`${group}${text}`).catch(ERR);
 	},
 	
-	queryUpdaters(text, timeout) {
+	queryUpdaters(text, { timeout, bypassTagCheck=false }={}) {
 		if (Bot.taggedIn !== true) return Promise.reject();
 		if (!staffChannel) return Promise.reject();
 		if (!timeout) timeout = 1000 * 60 * 5; //5 minutes
 		
+		//TODO
+		
+		/*
 		let filter = (reaction, user)=> {
 			if (user.id === dbot.user.id) return false;
 			if (reaction.emoji.name === EMOJI_CONFIRM) return true;
@@ -157,7 +165,7 @@ module.exports = {
 						})
 						.catch(ERR);
 				});
-		});
+		}); */
 		
 		/*
 		let resolve, reject, id = generateId();

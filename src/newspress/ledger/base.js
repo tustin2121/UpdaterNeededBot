@@ -22,6 +22,8 @@ class LedgerItem {
 		this._sort = sort;
 		/** If this item has been processed already by a given rule. */
 		this._marked = new Set();
+		/** Number of times this item has been postponed. */
+		this._postponeCount = 0;
 	}
 	
 	get name() { return this.constructor.name; }
@@ -35,8 +37,7 @@ class LedgerItem {
 			if (key === 'importance') continue;
 			if (key === 'helptype') continue;
 			if (key === 'flavor') continue;
-			if (key === '_sort') continue;
-			if (key === '_marked') continue;
+			if (key.startsWith('_')) continue;
 			let val = this[key];
 			if (val === undefined) continue;
 			txt += ` | ${key}=${val}`;
@@ -55,8 +56,7 @@ class LedgerItem {
 			if (key === 'importance') continue;
 			if (key === 'helptype') continue;
 			if (key === 'flavor') continue;
-			if (key === '_sort') continue;
-			if (key === '_marked') continue;
+			if (key.startsWith('_')) continue;
 			let val = this[key];
 			if (val === undefined) continue;
 			

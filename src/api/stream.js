@@ -92,7 +92,7 @@ class StreamAPI extends EventEmitter {
 			LOGGER.trace(`Stream API parsed successfully.`);
 		} catch (e) {
 			LOGGER.error(`Error parsing Stream API:`, e);
-			currInfo = prevInfo.map(x=> x.clone(e.statusCode || 500));
+			currInfo = prevInfo.map(x=> x.clone(e.statusCode || 418));
 		}
 		this.currInfo = currInfo;
 		this.prevInfo = prevInfo;
@@ -127,8 +127,10 @@ function disk_get(index, info) {
 		LOGGER.trace(`Loading Stream API from disk: stream_api.${index}.json`);
 		let data = FS.readFileSync(PATH.join(API_SAVE_DIR, `stream_api.${index}.json`), 'utf8');
 		let ts = data.split('\n',1)[0];
-		data = JSON.parse(data.substr(ts.length+1));
-		ts = Number.parseInt(ts, 10);
+		try {
+			data = JSON.parse(data.substr(ts.length+1));
+			ts = Number.parseInt(ts, 10);
+		} catch (e) { e.statusCode = 406; }
 		LOGGER.trace(`Retrieved last Stream API. About to parse.`);
 		for (let i = 0; i < Bot.runConfig.numGames; i++) {
 			let key = Bot.gameInfo(i).key;
@@ -142,7 +144,7 @@ function disk_get(index, info) {
 	} catch (e) {
 		// If there IS no previous info (first time running), or something
 		// is wrong with the previous info, default to an empty but valid API
-		let code = 500;
+		let code = e.statusCode || 418;
 		if (e.code === 'ENOENT') {
 			LOGGER.error(`Unable to load Previous Stream info: stream_api.${index}.json does not exist.`);
 			code = 404;

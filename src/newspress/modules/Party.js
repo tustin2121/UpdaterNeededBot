@@ -28,6 +28,7 @@ class PartyModule extends ReportingModule {
 		
 	}
 	
+	//TODO: Test this module against a Battle Tent or Battle Frontier tent
 	firstPass(ledger, { prev_api, curr_api }) {
 		let sameMons = [];
 		// Find our mon pairs from previous party to next party.
@@ -121,7 +122,13 @@ class PartyModule extends ReportingModule {
 					}
 					break;
 				}
-				if (it === 0) LOGGER.error(`Emergency break out from lblFix!`);
+				if (it === 0) {
+					LOGGER.error(`Emergency break out from lblFix!`);
+					ledger.addItem(new ApiDisturbance({
+						code: ApiDisturbance.LOGIC_ERROR,
+						reason: `Move pairs for '${curr}' could not be de-duplicated!`,
+					}));
+				} 
 				
 				for (let pair of movePairs) {
 					if (!pair.p.id && pair.c.id) {

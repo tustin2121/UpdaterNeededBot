@@ -61,7 +61,10 @@ class BattleModule extends ReportingModule {
 		
 		// Badges
 		if (this.memory.badgeMax > curr.numBadges) {
-			ledger.addItem(new ApiDisturbance('Number of badges has decreased!'));
+			ledger.addItem(new ApiDisturbance({ 
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: 'Number of badges has decreased!' 
+			}));
 		}
 		if (curr.numBadges > prev.numBadges) {
 			for (let badge in curr.badges) {

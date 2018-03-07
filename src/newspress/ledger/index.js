@@ -51,6 +51,7 @@ class Ledger {
 				LOGGER.warn('Postponing now.')
 				this.removeItem(item);
 				this.postponeList.push(item);
+				item._postponeCount++;
 			}
 		}
 	}
@@ -61,16 +62,20 @@ class Ledger {
 	addPostponedItems(ledger) {
 		if (!ledger) return;
 		let pItems = ledger.postponeList.slice();
+		this.log.premergeState(this.list, pItems);
 		for (let a = 0; a < this.list.length; a++) {
 			for (let b = 0; b < pItems.length; b++) {
 				let res = this.list[a].cancelsOut(pItems[b]);
 				if (res) {
 					if (res === this.list[a]) {
 						// do nothing, coalesced
+						this.log.merged('coalesced', this.list[a], pItems[b]);
 					} else if (res instanceof LedgerItem) {
-						this.list.splice(a, 1, res); //replace
+						let x = this.list.splice(a, 1, res); //replace
+						this.log.merged('replaced', x[0], pItems[b], res);
 					} else {
-						this.list.splice(a, 1); a--; //remove
+						let x = this.list.splice(a, 1); a--; //remove
+						this.log.merged('removed', x[0], pItems[b]);
 					}
 					pItems.splice(b, 1); b--; //remove
 				}
@@ -188,9 +193,10 @@ class DebugLogs {
 	constructor() {
 		this.apiNum = -1;
 		this.modules = {};
+		this.preledger = '';
+		this.merges = [];
 		this.rules = [];
-		this.ledger = [];
-		this.postledger = [];
+		this.postledger = '';
 		this.typesetter = [];
 		this.update = '';
 	}
@@ -205,9 +211,10 @@ class DebugLogs {
 			}
 			xml += `<modules>${mods.join('')}</modules>`;
 		}
+		xml += `<preledger>${this.preledger}</preledger>`;
+		xml += `<merges>${this.merges.join('')}</merges>`;
 		xml += `<rules>${this.rules.join('')}</rules>`;
-		xml += `<ledger>${this.ledger.join('')}</ledger>`;
-		xml += `<postledger>${this.postledger.join('')}</postledger>`;
+		xml += `<postledger>${this.postledger}</postledger>`;
 		xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
 		xml += `<update>${this.update}</update>`;
 		return `<state>${xml}</state>`;
@@ -215,6 +222,11 @@ class DebugLogs {
 	
 	apiIndex(num) {
 		this.apiNum = num;
+	}
+	
+	moduleRun(mod) {
+		let modName = mod.constructor.name.slice(0, -6); //slice off Module
+		this.modules[modName] = this.modules[modName] || [];
 	}
 	
 	moduleLog(modName, ...str) {
@@ -234,14 +246,27 @@ class DebugLogs {
 	 */
 	ruleApplied(ruleInst) {
 		let matched = ruleInst.matchedItems.map((m, i)=>{
-			return `<match index="${i}">${m.map(x=>x.toXml())}</match>`;
+			let itemXml;
+			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml());
+			else itemXml = `<errorItem>${m}</errorItem>`;
+			return `<match index="${i}">${itemXml}</match>`;
 		});
 		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
 	}
 	
+	premergeState(items, postItems) {
+		this.preledger = `<items>${items.map(x=>x.toXml())}</items><post>${postItems.map(x=>x.toXml())}</post>`;
+	}
+	
+	/**
+	 * @param{string} type - one of 'coalesced','replaced','removed'
+	 */
+	merged(type, ...items) {
+		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`)}</merge>`);
+	}
+	
 	ledgerState(ledger) {
-		this.ledger = ledger.list.map(x=>x.toXml());
-		this.postledger = ledger.postponeList.map(x=>x.toXml());
+		this.postledger = `<items>${ledger.list.map(x=>x.toXml())}</items><post>${ledger.postponeList.map(x=>x.toXml())}</post>`;
 	}
 	
 	typesetterApplied() {

@@ -29,7 +29,10 @@ class PokemonModule extends ReportingModule {
 		
 		// If boxes are missing, that is an ApiDisturbance
 		if (curr.numNullBoxes) {
-			ledger.add(new ApiDisturbance(`${curr.numNullBoxes} PC boxes are missing!`));
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.INVALID_DATA,
+				reason: `${curr.numNullBoxes} PC boxes are missing!`
+			}));
 		}
 		
 		// Copy the pokemon map
@@ -74,6 +77,21 @@ class PokemonModule extends ReportingModule {
 		for (let mon of removed) {
 			ledger.add(new PokemonIsMissing(mon));
 		}
+		
+		// Note odd behaviors with gaining or losing pokemon
+		if (added.length > 4) {
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `More than 4 pokemon have been caught in one update cycle!`
+			}));
+		}
+		if (removed.length > 4) {
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `More than 4 pokemon have gone missing in one update cycle!`
+			}));
+		}
+		
 		// Note any updates to PC Pokemon
 		for (let { prev, curr } of same) {
 			if (prev.name !== curr.name) {
@@ -125,18 +143,35 @@ class PokemonModule extends ReportingModule {
 
 RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPokemon are traded')
 	.when(ledger=>ledger.has('PokemonIsMissing'))
-	.when(ledger=>ledger.has('PokemonGained').withSame('mon.storedIn'))
+	.when(ledger=>ledger.has('PokemonGained'))
+	.when(ledger=>{// If there are PokemonIsMissing and PokemonGained entries that match, match them up
+		let MIA = new Map(ledger.get(0).map(x=> [x.mon.storedIn, x]));
+		let NEW = new Map(ledger.get(1).map(x=> [x.mon.storedIn, x]));
+		let MAP = new Map();
+		NEW.forEach((val, key)=>{
+			if (MIA.has(key)) {
+				MAP.set(val, MIA.get(key));
+			}
+		});
+		ledger.matchedItems.push(MAP); 
+		return MAP.size > 0; //return true if we found some matches
+	})
 	.then(ledger=>{
-		let MIA = ledger.get(0);
-		let NEW = ledger.get(1);
-		if (MIA.length !== NEW.length) {
-			LOGGER.error('Invalid Rule Application: Number of PokemonIsMissing does not match number of PokemonGained!', MIA, NEW);
-			return;
+		let MAP = ledger.get(2);
+		for (let match of MAP) { //match is an array [PokemonGained, PokemonIsMissing];
+			ledger.add(new PokemonTraded(match[0], match[1]));
+			ledger.remove(match); //removes both ledger items
 		}
-		ledger.remove(0); ledger.remove(1);
-		for (let i = 0; i < MIA.length && i < NEW.length; i++) {
-			ledger.add(new PokemonTraded(NEW[i], MIA[i]));
-		}
+	})
+);
+
+RULES.push(new Rule('Report multiple Pokemon changing their name at once as an ApiDisturbance')
+	.when(ledger=>ledger.has('MonNicknameChanged').newlyAdded().moreThan(1))
+	.then(ledger=>{
+		ledger.add(new ApiDisturbance({
+			code: ApiDisturbance.LOGIC_ERROR,
+			reason: 'Multiple Pokemon changed their nicknames in one update cycle.',
+		}));
 	})
 );
 

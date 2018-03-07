@@ -364,12 +364,12 @@ class UpdaterBot extends EventEmitter {
 	////////////////////////////////////////////////////////////////////////////
 	
 	/** Alerts the updating staff channel, with an optional ping. */
-	alertUpdaters(text, ping, bypassTagCheck) {
-		return this.staff.alertUpdaters(text, ping, bypassTagCheck);
+	alertUpdaters(text, opts) {
+		return this.staff.alertUpdaters(text, opts);
 	}
 	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
-	queryUpdaters(text) {
-		return this.staff.queryUpdaters(text);
+	queryUpdaters(text, opts) {
+		return this.staff.queryUpdaters(text, opts);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////

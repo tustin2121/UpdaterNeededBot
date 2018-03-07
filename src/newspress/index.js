@@ -57,6 +57,7 @@ class UpdaterPress extends EventEmitter {
 		// First Pass: Note all changes and important context into ledger items
 		LOGGER.trace('First Pass');
 		for (let mod of this.modules) try {
+			ledger.moduleRun(mod);
 			mod.firstPass(ledger, data);
 		} catch (e) {
 			LOGGER.error(`Error in ${mod.constructor.name} first pass!`, e);
