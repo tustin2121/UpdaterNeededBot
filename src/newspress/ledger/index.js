@@ -199,6 +199,8 @@ class DebugLogs {
 		this.postledger = '';
 		this.typesetter = [];
 		this.update = '';
+		
+		this._currTypesetter = null;
 	}
 	
 	getXml() {
@@ -248,7 +250,7 @@ class DebugLogs {
 		let matched = ruleInst.matchedItems.map((m, i)=>{
 			let itemXml;
 			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml());
-			else itemXml = `<errorItem>${m}</errorItem>`;
+			else itemXml = `<matchObj index="${i}">${m}</matchObj>`;
 			return `<match index="${i}">${itemXml}</match>`;
 		});
 		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
@@ -269,9 +271,22 @@ class DebugLogs {
 		this.postledger = `<items>${ledger.list.map(x=>x.toXml())}</items><post>${ledger.postponeList.map(x=>x.toXml())}</post>`;
 	}
 	
-	typesetterApplied() {
-		
+	typesetterInput(itemArray) {
+		this._currTypesetter = [];
+		this._currTypesetter.push(`<in num="${itemArray.length}" flavor="${itemArray[0].flavor||'default'}">${itemArray[0].name}</in>`);
 	}
+	typesetterFormat(format) {
+		this._currTypesetter.push(`<format>${escapeHtml(format)}</format>`);
+	}
+	typesetterOutput(out) {
+		this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
+		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
+		this._currTypesetter = null;
+	}
+}
+
+function escapeHtml(str) {
+	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 module.exports = Object.assign({
@@ -281,7 +296,6 @@ module.exports = Object.assign({
 	require('./ApiMonitoring'),
 	require('./Battle'),
 	require('./E4'),
-	require('./Health'),
 	require('./Item'),
 	require('./Location'),
 	require('./Others'),

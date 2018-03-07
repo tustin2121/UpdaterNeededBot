@@ -17,59 +17,95 @@ body {
 }
 
 .column {
-    position: relative;
-    width: 1024px; height: 100%;
-    margin: 0 auto;
-    background-color: aliceblue;
+	position: relative;
+	width: 1024px; height: 100%;
+	margin: 0 auto;
+	background-color: aliceblue;
 }
 .updateState {
 	position: absolute;
-	top: 75px; bottom: 15px;
+	top: 60px; bottom: 0;
+	left: 0; right: 0;
+}
+.updateState > state {
+	position: absolute;
+	top: 15px; bottom: 15px;
 	left: 15px; right: 15px;
+	/* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+	display: grid;
+	grid-template-columns: 2fr 3fr 3fr;
+	grid-template-rows: [top] 40px 50% [middle] auto 130px [bottom];
+	grid-template-areas:
+		"gApi gPre gPost"
+		"gMod gPre gPost"
+		"gMrg gRul gType"
+		"gMrg gRul gUpd";
+	grid-gap: 15px;
 }
 
 .view {
+	position: relative;
 	box-shadow: 1px 1px 5px 0px #00000080;
 }
 .view::after {
 	position: absolute;
 	font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
+	font-weight: 900;
 	font-size: 30pt;
-    z-index: 10;
+	z-index: 10;
 }
 .view::before {
-    position: absolute;
-    top: 0; left: 0;
-    background-color: #505050;
+	position: absolute;
+	top: 0; left: 0;
+	background-color: #505050;
 	color: white;
-    border-bottom-right-radius: 15px;
-    font-family: sans-serif;
-    font-size: 10pt;
-    padding: 3px 14px 3px 8px;
+	border-bottom-right-radius: 15px;
+	font-family: sans-serif;
+	font-size: 10pt;
+	padding: 3px 14px 3px 8px;
+	z-index: 10;
 }
 .view > * {
 	display: block;
-    overflow-y: scroll;
-    position: absolute;
+	overflow-y: scroll;
+	position: absolute;
 	left: 0; right: 0;
-    top: 0; bottom: 0;
+	top: 0; bottom: 0;
 	padding: 22px 0 0;
 }
 
+dirarrow {
+	width: 1em; height: 1em;
+	z-index: 10;
+	font-size: 12pt;
+	margin: -1em;
+}
+dirarrow.down::before {
+	content: '\25BC'; /* down */
+}
+dirarrow.up::before {
+	content: '\25B2'; /* up */
+}
+dirarrow.left {
+	transform: rotate(-90deg);
+}
+dirarrow.left::before {
+	content: '\25B2'; /* up */
+}
+dirarrow.right {
+	transform: rotate(-90deg);
+}
+dirarrow.right::before {
+	content: '\25BC'; /* down */
+}
+
 .view.api {
-    position: absolute;
-    background-color: white;
-    top: 0; left: 0;
-    width: 233px; height: 40px;
+	grid-area: gApi;
+	background-color: white;
 	font-family: monospace;
 }
 .view.api::before {
-    content: 'API';
-}
-.view.api::after {
-    content: '\f107'; /* angle-down */
-    bottom: -28px; left: 44%;
+	content: '1. API';
 }
 .view.api > api {
 	padding: 2px 0;
@@ -80,104 +116,127 @@ body {
 .view.api > api::before { content: 'stream_api.'; }
 .view.api > api::after  { content: '.json'; }
 
+dirarrow.module {
+	grid-area: gMod;
+	justify-self: center;
+	align-self: start;
+}
+
 .view.module {
-    position: absolute;
-    background-color: #f0f7ff;
-    top: 58px; left: 0;
-    width: 233px; height: 42%;
+	grid-area: gMod;
+	background-color: #f0f7ff;
 }
 .view.module::before {
-    content: 'Modules';
-}
-.view.module::after {
-	content: '\f105'; /* angle-right */
-    top: 26%; right: -20px;
+	content: '2. Modules';
 }
 .view.module > modules {
 	
 }
 
+dirarrow.ledgerpre {
+	grid-area: gPre;
+	justify-self: start;
+	align-self: center;
+}
+
+.view.ledger {
+	background-color: #fff7e7;
+}
+
+.view.ledger.pre {
+	grid-area: gPre;
+}
+.view.ledger.pre::before {
+	content: '3. Ledger (1st Pass)';
+}
+.view.ledger.pre > preledger {
+	
+}
+
+dirarrow.merges {
+	grid-area: gMrg;
+	justify-self: end;
+	align-self: start;
+	transform: rotate(45deg);
+}
+
+.view.merges {
+	grid-area: gMrg;
+	background-color: #ffd4b6;
+}
+.view.merges::before {
+	content: '4. Merges';
+}
+
+
+dirarrow.rule {
+	grid-area: gRul;
+	justify-self: start;
+	align-self: center;
+}
+
 .view.rule {
-    position: absolute;
-    background-color: #ffe5e5;
-    top: 0; right: 395px;
-    width: 350px; height: 51%;
+	grid-area: gRul;
+	background-color: #ffe5e5;
 }
 .view.rule::before {
-    content: 'Rules';
-}
-.view.rule::after {
-	content: '\f105'; /* angle-right */
-    top: 35%; right: -20px;
+	content: '5. Rules';
 }
 .view.rule > rules {
 	
 }
 
-.view.ledger {
-    position: absolute;
-	background-color: #fff7e7;
-    top: 0; bottom: 38%;
-	right: 0; width: 380px;
+dirarrow.ledgerpost {
+	grid-area: gPost;
+	justify-self: start;
+	align-self: end;
+	transform: rotate(45deg);
 }
-.view.ledger::before {
-    content: 'Ledger';
+
+.view.ledger.post {
+	grid-area: gPost;
 }
-.view.ledger::after {
-	content: '\f104'; /* angle-left */
-    bottom: 0; left: -20px;
+.view.ledger.post::before {
+	content: '6. Ledger (2nd Pass)';
 }
-.view.ledger > ledger {
+.view.ledger.post > postledger {
 	
 }
 
-.view.ledger-post {
-    position: absolute;
-    background-color: #f1dfbc;
-	right: 0; bottom: 0;
-	height: 35%; width: 380px;
-}
-.view.ledger-post::before {
-    content: 'Postponed';
-}
-.view.ledger-post::after {
-	content: '\f107'; /* angle-down */
-	left: 46%; top: -28px;
-}
-.view.ledger-post > postledger {
-	
+dirarrow.typesetter {
+	grid-area: gType;
+	justify-self: center;
+	align-self: start;
 }
 
 .view.typesetter {
-	position: absolute;
-    background-color: #faf0ff;
-	bottom: 21%; height: 25%;
-    right: 395px; width: 500px;
+	grid-area: gType;
+	background-color: #faf0ff;
 }
 .view.typesetter::before {
-    content: 'TypeSetter';
-}
-.view.typesetter::after {
-	content: '\f107'; /* angle-down */
-	left: 30%; bottom: -27px;
+	content: '7. TypeSetter';
 }
 .view.typesetter > typesetter {
 	
 }
 
+dirarrow.update {
+	grid-area: gUpd;
+	justify-self: center;
+	align-self: start;
+}
+
 .view.update {
-	position: absolute;
+	grid-area: gUpd;
 	background-color: white;
-	left: 0; bottom: 0;
-	width: 500px; height: 18%;
 }
 .view.update::before {
 	content: '\f1a1  \f392'; /* reddit, discord */
 	top: -70px; left: -8px;
 	background-color: initial; /* Reset the top corner label thing */
 	color: initial;
-    border-bottom-right-radius: initial;
-    padding: 0;
+	border-bottom-right-radius: initial;
+	padding: 0;
 	position: absolute;
 	font-family: 'Font Awesome 5 Brands';
 	font-size: 30pt;
@@ -188,33 +247,33 @@ body {
 	left: 4%; top: -34px;
 }
 .view.update > update {
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 14px;
-    padding: 1em;
-    margin: 0;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 14px;
+	padding: 1em;
+	margin: 0;
 	overflow-wrap: break-word;
-    word-wrap: break-word;
+	word-wrap: break-word;
 }
 .view.update > update p {
 	margin: 5px 0;
 }
 .view.update > update a.author {
 	color: #b6c6d6;
-    transition: color 0.3s;
+	transition: color 0.3s;
 }
 .view.update > update time {
-    display: inline-block;
-    font-size: 10px;
-    width: auto;
-    text-align: left;
-    overflow: hidden;
-    vertical-align: top;
-    margin-bottom: .5em;
-    padding-top: 3px;
-    color: #888;
-    transition: color 0.3s;
-    padding-left: 15px;
-    text-indent: -20px;
+	display: inline-block;
+	font-size: 10px;
+	width: auto;
+	text-align: left;
+	overflow: hidden;
+	vertical-align: top;
+	margin-bottom: .5em;
+	padding-top: 3px;
+	color: #888;
+	transition: color 0.3s;
+	padding-left: 15px;
+	text-indent: -20px;
 }
 .view.update > update time::before {
 	content: "";
@@ -229,10 +288,10 @@ body {
 
 modules > mod {
 	display: block;
-    border-top: 1px #505050 solid;
-    border-bottom: 1px #505050 solid;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
 	padding: 1px 0 3px 2em;
-    margin-top: -1px;
+	margin-top: -1px;
 }
 mod::before {
 	content: attr(name)'Module';
@@ -248,29 +307,64 @@ mod p {
 }
 
 
+merges > merge {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+merge item {
+	display: block;
+}
+merge[type=coalesced] {
+	
+}
+merge[type=coalesced] item:nth-child(2)::before {
+	content: '\2BA4  ';
+}
+
+merge[type=replaced] {
+	
+}
+merge[type=replaced] item:nth-child(1)::before,
+merge[type=replaced] item:nth-child(2)::before,
+merge[type=removed] item:nth-child(1)::before,
+merge[type=removed] item:nth-child(2)::before {
+	content: '\2BA6  ';
+}
+
+merge[type=removed]::after {
+	content: 'X';
+	display: block;
+}
+
+
 rules > rule {
 	display: block;
-    border-top: 1px #505050 solid;
-    border-bottom: 1px #505050 solid;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
 	padding: 1px 0 3px 2em;
-    margin-top: -1px;
+	margin-top: -1px;
 }
 rules > rule:nth-child(odd) {
-    background-color: #ff7b7b1a;
+	background-color: #ff7b7b1a;
 }
 rule::before {
-    content: 'Rule: 'attr(name);
+	content: 'Rule: 'attr(name);
 	margin-left: -2em;
 	display: block;
 	/*font-weight: bold;*/
 	padding: 2px;
 	margin-top: -1px;
 }
-rule > match {
+rule > match,
+rule > matchObj {
 	display: block;
 	padding: 0 0 0 2em;
 }
-rule > match::before {
+rule > match::before,
+rule > matchObj::before {
 	content: attr(index);
 	margin-left: -2em;
 	display: inline-block;
@@ -283,20 +377,38 @@ rule > match::before {
 }
 
 
-ledger > ledgeritem,
-postledger > ledgeritem,
+preledger > items > ledgeritem,
+preledger > post > ledgeritem,
+postledger > items > ledgeritem,
+postledger > post > ledgeritem,
 rule > match > ledgeritem {
-    display: block;
-    border-top: 1px #505050 solid;
-    border-bottom: 1px #505050 solid;
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
 	padding: 1px 0 3px 2em;
-    margin-top: -1px;
+	margin-top: -1px;
+}
+
+preledger > post::before,
+postledger > post::before {
+	content: 'Postponed:';
+	display: block;
+	background-color: #505050;
+	color: white;
+	padding: 0px 3px;
+	/* border-radius: 3px; */
+	margin-top: 2px;
+}
+preledger > post,
+postledger > post {
+	display: block;
+	background-color: #f1dfbc;
 }
 ledgeritem:nth-child(odd) {
 	background-color: #ffa7001a;
 }
 ledgeritem::before {
-    content: attr(name)' \2295';
+	content: attr(name)' \2295';
 	margin-left: -2em;
 	display: block;
 	font-weight: bold;
@@ -306,14 +418,14 @@ ledgeritem::before {
 	/* color: white; */
 }
 ledgeritem:empty::before {
-    content: attr(name);
+	content: attr(name);
 }
 rule ledgeritem::before {
 	font-weight: normal;
 }
 ledgeritem > * {
 	display: block;
-    padding: 1px 0 2px 2em;
+	padding: 1px 0 2px 2em;
 }
 ledgeritem > *:nth-child(odd) {
 	background-color: #ffa7001a;
@@ -329,9 +441,10 @@ ledgeritem > *::before {
 	margin-right: 6px;
 }
 
+
 pokemon > span {
 	display: inline-block;
-    padding-right: 4px;
+	padding-right: 4px;
 }
 pokemon > span[prop=name] {
 	font-weight: bold;
