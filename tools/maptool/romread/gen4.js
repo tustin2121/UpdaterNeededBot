@@ -1,57 +1,91 @@
 // maptool romread/gen4.js
 // The Generation 4 Rom Reader
 
+const { MapNode } = require('../mapnode');
 const { DSReader } = require('./base');
 
 const fs = require('fs');
 const path = require('path');
 const ByteBuffer = require('bytebuffer');
 
+/**  */
 class Gen4Reader extends DSReader {
 	constructor(romFile) {
 		super(romFile);
 		populateCharMap(this.CHARMAP);
 		
-		// Because DS Roms are all compressed and crap, it's better to just open up a pre-decompressed
-		// version that is helpfully provided by SDSME (as that's how it accesses the files itself).
-		// So make sure that directory is present.
-		let p = path.parse(romFile);
-		this.baseDir = path.join(p.dir, `${p.name}_SDSME`);
-		if (!fs.statSync(this.baseDir).isDirectory()) {
-			throw new ReferenceError('Please decompress the ROM using SDSME first!');
-		}
+		this._OFFSETS = {};
+		this._NARC_FILES = {};
+		
+		this.msgNarc = null;
+		this.eventNarc = null;
+		
+		// // Because DS Roms are all compressed and crap, it's better to just open up a pre-decompressed
+		// // version that is helpfully provided by SDSME (as that's how it accesses the files itself).
+		// // So make sure that directory is present.
+		// let p = path.parse(romFile);
+		// this.baseDir = path.join(p.dir, `${p.name}_SDSME`);
+		// if (!fs.statSync(this.baseDir).isDirectory()) {
+		// 	throw new ReferenceError('Please decompress the ROM using SDSME first!');
+		// }
 	}
 	
+	/** Loads this ROM and read in a bunch of data about it. */
 	load() {
-		let gameId;
-		let mainROM = fs.openSync(this.romFile, 'r');
-		try {
-			let bb = ByteBuffer.allocate(4).LE();
-			fs.readSync(mainROM, bb.buffer, 0xC, 4);
-			gameId = bb.readUint32();
-		} finally {
-			fs.closeSync(mainROM);
+		super.load();
+		switch (this.romCode) { //Note: we only support USA versions
+			case 0x45414441: this.gameInfo = { name:'Diamond', 		subGen: 1, }; break;
+			case 0x45415041: this.gameInfo = { name:'Pearl', 		subGen: 1, }; break;
+			case 0x45555043: this.gameInfo = { name:'Platinum', 	subGen: 2, }; break;
+			case 0x454B5049: this.gameInfo = { name:'HeartGold', 	subGen: 3, }; break;
+			case 0x45475049: this.gameInfo = { name:'SoulSilver', 	subGen: 3, }; break;
+			default: throw new ReferenceError('Unsupported game ', this.romCode.toString(16));
 		}
-		switch (gameId) { //Note: we only support USA versions
-			case 0x45414441:
-				this.gameInfo = { gameId,  name: 'Diamond', subGen: 1, };
+		switch (this.gameInfo.subGen) {
+			// https://github.com/Dabomstew/universal-pokemon-randomizer/blob/master/src/com/dabomstew/pkrandom/config/gen4_offsets.ini
+			case 1: //DP
+				this._NARC_FILES = {
+					Text: 'msgdata/msg.narc',
+					MapTable: 'fielddata/maptable/mapname.bin',
+					Events: 'fielddata/eventdata/zone_event_release.narc',
+				};
+				this._OFFSETS = {
+					MapTableARM9: 0xEEDBC,
+					TEXT_MapNames: 382,
+				};
 				break;
-			case 0x45415041:
-				this.gameInfo = { gameId,  name: 'Pearl', subGen: 1, };
+				
+			case 2: //Pt
+				this._NARC_FILES = {
+					Text: 'msgdata/pl_msg.narc',
+					MapTable: 'fielddata/maptable/mapname.bin',
+					Events: 'fielddata/eventdata/zone_event.narc',
+				};
+				this._OFFSETS = {
+					MapTableARM9: 0xE601C,
+					TEXT_MapNames: 433,
+				};
 				break;
-			case 0x45555043:
-				this.gameInfo = { gameId,  name: 'Platinum', subGen: 2, };
+				
+			case 3: //HGSS
+				this._NARC_FILES = {
+					Text: 'a/0/2/7',
+					MapTable: 'fielddata/maptable/mapname.bin',
+					Events: 'a/0/3/2',
+				};
+				this._OFFSETS = {
+					MapTableARM9: 0xF6BE0,
+					TEXT_MapNames: 279,
+				};
 				break;
-			case 0x454B5049:
-				this.gameInfo = { gameId,  name: 'HeartGold', subGen: 3, };
-				break;
-			case 0x45475049:
-				this.gameInfo = { gameId,  name: 'SoulSilver', subGen: 3, };
-				break;
-			default: throw new ReferenceError('Unsupported game ', gameId.toString(16));
 		}
+		
+		this.arm9 = this.
+		this.msgNarc = this.readNarc(this._NARC_FILES.Text);
+		this.eventNarc = this.readNarc(this._NARC_FILES.Events);
 		return this;
 	}
+	
 	
 	resolveFileForGame({ file, file1, file2, file3 }) {
 		switch (this.gameInfo.subGen) {
@@ -66,9 +100,11 @@ class Gen4Reader extends DSReader {
 	}
 	
 	/**
+	 * Gets the strings from the Message NARC for the given index.
 	 * @param{ByteBuffer} data - Data to read strings from.
 	 */
-	readNames(data) {
+	getMsgStrings(index) {
+		let data = this.msgNarc.files[index];
 		// https://github.com/Skareeg/SDSME/blob/master/Source/Map_Editor/Form1%20Main%20Window.cs#L3390
 		const strCount = data.readUint16();
 		const initialKey = data.readUint16();
@@ -118,11 +154,9 @@ class Gen4Reader extends DSReader {
 	
 	readMaps() {
 		let mapData = {};
-		const mapTable = this.getFileForGame({
-			file:'data/fielddata/maptable/mapname.bin'
-		});
+		const mapTable = this.getFile(this._NARC_FILES.MapTable);
 		const headerCount = mapTable.limit >> 4; //divide by 16
-		const mapNames = this.readNames(this.getFileForGame({ file:'data/a/0/2/text/0279' }));
+		const mapNames = this.getMsgStrings(279);
 		
 		this.data = this.getFileForGame({ file:'arm9.bin' }).LE();
 		this.offset = 0xF6BE0;
@@ -155,7 +189,7 @@ class Gen4Reader extends DSReader {
 				camera: this.readUint8(),
 				followMode: this.readUint8(),
 				flags: this.readUint8(),
-			}};
+			});
 		}
 		
 		for (let mh of mapHeaders) {
@@ -168,9 +202,18 @@ class Gen4Reader extends DSReader {
 			info.internalName = mh.internalName;
 			
 			// Roughly determine map type
+			if (mh.matrix === 0) { // Overworld
+				info.type = 'route';
+			}
+			else if (this.gameInfo.subGen < 3 && mh.matrix === 2) {
+				info.type = 'underground'; // The Underground
+			}
+			
+			
+			
 			switch (mh.matrix) {
 				case '0': info.type = 'route'; break; // The overworld
-				case '2': info.type = 'underground'; break; // The Underground
+				case '2': info.type = 'underground'; break;
 			}
 			// determine caves by texture type, perhaps
 			
