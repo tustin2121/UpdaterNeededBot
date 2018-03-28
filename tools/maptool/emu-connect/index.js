@@ -2,7 +2,7 @@
 // The server that emulators connect to when we can't read the rom involved
 
 const http = require('http');
-const EventEmitter = require('event');
+const EventEmitter = require('events');
 
 class EmuConnect extends EventEmitter {
 	constructor() {
@@ -37,4 +37,4 @@ class EmuConnect extends EventEmitter {
 	}
 }
 
-
+module.exports = EmuConnect;

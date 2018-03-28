@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha \"test/**/*.js\"",
-    "maptool": "cd maptool && nw --enable-logging=stderr ."
+    "maptool": "cd tools/maptool && nw --enable-logging=stderr ."
   },
   "author": "tustin2121",
   "license": "ISC",
