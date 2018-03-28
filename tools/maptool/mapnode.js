@@ -14,19 +14,27 @@ class MapNode {
 		this.width = opts.width || opts.w || 0;
 		this.height = opts.height || opts.h || 0;
 		
-		// Stored game map information
-		this.warps = opts.warps || [ null ];
-		this.conns = opts.conns || {};
-		this.events = opts.events || [];
-		
 		// Bot information
 		this.attrs = opts.attrs || {};
 		this.areas = [];
 		if (Array.isArray(opts.areas)) opts.areas.forEach(a=>this.addArea(a));
+		
+		// Stored game map information
+		this.gamedata = opts.gamedata || opts.gameInfo || {
+			warps: [ null ],
+			conns: {},
+			events: [],
+		};
 	}
 	// alias mapType => type
 	get mapType() { return this.type; }
 	set mapType(t) { this.type = t; }
+	
+	get gameInfo() { return this.gamedata; }
+	set gameInfo(val){ this.gamedata = val; }
+	
+	// get warps(){ return this.gamedata.warps; }
+	// get conns(){ return this.gamedata.conns; }
 	
 	serialize() {
 		let out = {
@@ -36,11 +44,9 @@ class MapNode {
 			areaName: this.areaName,
 			type: this.type,
 			width: this.width, height: this.height,
-			warps: this.warps,
-			conns: this.conns,
-			events: this.events, //raw data
 			attrs: this.attrs,
 			areas: [],
+			gamedata: this.gamedata,
 		};
 		
 		out.areas = this.areas.map(x=>x.serialize());
@@ -90,38 +96,45 @@ class MapType {
 	}
 }
 
-/** 
- * MapNodes are the most atomic structure of the map location list, but we can drill deeper with 
+/**
+ * MapNodes are the most atomic structure of the map location list, but we can drill deeper with
  * MapAreas. MapAreas are subsections of a given map that are important or different from the
  * overall map. These attributes override the more general map attributes. Areas with one or both
  * dimensions (w/h) of 0 are considered point locations with a radius of effectiveness.
  */
 class MapArea {
 	constructor(opts={}) {
-		this.x = opts.x || 0;
-		this.y = opts.y || 0;
-		this.w = opts.w || 0;
-		this.h = opts.h || 0;
+		/** Top-right corner */
+		this.ax = opts.ax || opts.x || 0;
+		this.ay = opts.ay || opts.y || 0;
+		/** Bottom-left corner */
+		this.bx = opts.bx || (opts.x+opts.w) || this.ax;
+		this.by = opts.by || (opts.y+opts.h) || this.ay;
+		
+		/** Effective detection radius */
+		this.rad = opts.rad || (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
 	}
 	serialize() {
 		return {
-			x: this.x, y: this.y,
-			w: this.w, h: this.h,
+			ax: this.ax, ay: this.ay,
+			bx: this.bx, by: this.by,
+			rad: this.rad,
 			name: this.name,
 			attrs: this.attrs,
 		};
 	}
 }
 
-/** 
+/**
  * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
  * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
  */
 class TransitReport {
 	constructor(opts={}) {
+		this.id = 0; //TODO random
 		this.from = opts.from;
 		this.to = opts.to;
 		this.text = opts.text;
@@ -131,20 +144,26 @@ class TransitReport {
 }
 
 /** Default Map Types */
-const MAP_TYPES = new Map([
-	new MapType({ type:'unknown' }),
-	new MapType({ type:'town',   attrs:{ town:true, } }),
-	new MapType({ type:'route'   }),
-	new MapType({ type:'indoor', attrs:{ indoors:true, } }),
-	new MapType({ type:'cave',   attrs:{ indoors:true, dungeon:true } }),
-	new MapType({ type:'gate',   attrs:{ indoors:true, } }),
-	new MapType({ type:'dungeon',attrs:{ indoors:true, dungeon:true } }),
-	new MapType({ type:'center', attrs:{ indoors:true, healing:true, checkpoint:true }, areas: [
-		{ x:2, y:2, attrs:{ pc:true } },
-	] }),
-	new MapType({ type:'mart',   attrs:{ indoors:true, shopping:true } }),
-	new MapType({ type:'gym',    attrs:{ indoors:true, gym:true } }),
-].map(x=>[x.type, x]));
+function generateDefaultMapTypes() {
+	const TYPES = {};
+	const add = (t)=> TYPES[t.type] = t;
+	
+	add(new MapType({ type:'unknown' 	}));
+	add(new MapType({ type:'town',   	attrs:{ town:true, } }));
+	add(new MapType({ type:'route'  	}));
+	add(new MapType({ type:'indoor',	attrs:{ indoors:true, } }));
+	add(new MapType({ type:'cave',		attrs:{ indoors:true, dungeon:true } }));
+	add(new MapType({ type:'gatehouse',	attrs:{ indoors:true, } }));
+	add(new MapType({ type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
+	add(new MapType({ type:'center',	attrs:{ indoors:true, healing:true, checkpoint:true },
+		areas: [
+			{ x:2, y:2, attrs:{ pc:true } },
+		],
+	}));
+	add(new MapType({ type:'mart',		attrs:{ indoors:true, shopping:true } }));
+	add(new MapType({ type:'gym',		attrs:{ indoors:true, gym:true } }));
+	return TYPES;
+}
 
 /** Attributes for a given map, area, or type. */
 const ATTRS = {
@@ -173,7 +192,7 @@ const ATTRS = {
 	flyspot: {
 		tooltip: `If the location is a fly location or spawn point. (Use only for Areas marking the spot)`,
 		areasOnly: true,
-	}
+	},
 	healing: {
 		tooltip: `If the location offers healing.`,
 		values: [false,'pokecenter','doctor','nurse','house','partner'],
@@ -216,6 +235,6 @@ const ATTRS = {
 };
 
 module.exports = {
-	MapNodes, MapArea, MapType, TransitReport,
-	MAP_TYPES, ATTRS,
+	MapNode, MapArea, MapType, TransitReport,
+	generateDefaultMapTypes, ATTRS,
 };

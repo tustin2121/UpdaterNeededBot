@@ -3,86 +3,23 @@
 
 // Constant values
 const fs = require('fs');
-const TYPE_DEFAULTS = {
-	unknown:	{ attrs:{}, locOf: {} },
-	town: 		{ attrs:{ town:true, }, locOf: {} },
-	route:		{ attrs:{}, locOf: {} },
-	indoor:		{ attrs:{ indoors:true, }, locOf: {} },
-	cave:		{ attrs:{ indoors:true, }, locOf: {} },
-	gate:		{ attrs:{ indoors:true, }, locOf: {} },
-	dungeon:	{ attrs:{ indoors:true, }, locOf: {} },
-	center:		{ attrs:{ indoors:true, healing:true, checkpoint:true, }, locOf: {} },
-	mart:		{ attrs:{ indoors:true, shopping:true, }, locOf: {} },
-	gym:		{ attrs:{ indoors:true, gym:true, }, locOf: {} },
-};
-const MAP_ATTRS = {
-	the: {
-		tooltip: `If the location name should use an article when printing the name.\nTrue=definite "the" | string=supplied article`,
-		allowString: true,
-	},
-	inconsequential: { //TODO also add enter and exit strings
-		tooltip: `If the location is not worthy of noting. A location change will not be reported when this room is arrived to or left from.`,
-	},
-	indoors: {
-		tooltip: `If the location is inside (cannot fly)`,
-	},
-	town: {
-		tooltip: `If the location is in a town (not the wild)`,
-	},
-	checkpoint: {
-		tooltip: `If the location sets a checkpoint upon arriving (or when healing in gen 1). This points to one of the spawn points.`,
-		// This is also used to check for blackouts: if we arrive back at our previously marked checkpoint
-		allowSpawnpoint: true,
-		// If this value is set, it is set to a spawn point index.
-	},
-	healing: {
-		tooltip: `If the location offers healing.`,
-		values: [false,'pokecenter','doctor','nurse','house','partner'],
-	},
-	shopping: {
-		tooltip: `If the location offers vendors.`,
-	},
-	gym: {
-		tooltip: `If the location is a gym (badge/TM getting, attempt counting).`,
-	},
-	e4: {
-		tooltip: `If the location is part of the E4 (Run counting). If the E4 are linear, use e1-3 to mark them in order.`,
-		values: [false,'lobby','e1','e2','e3','e4','champ','hallOfFame'],
-	},
-	dungeon: {
-		tooltip: `If the location is a dungeon or cave.`,
-	},
-	legendary: { //TODO allow multiple legendary pokemon in one map
-		tooltip: `The name of the legendary pokemon in this location.`,
-		allowString: true,
-	},
-	entralink: {
-		tooltip: `If this location is an entralink map (special reporting)`,
-	},
-};
-const MAP_LOCOF = {
-	spawnPoint: {
-		tooltip: `If this location is a spawning map, the location of the spawn point. (Also fly spot)`,
-	},
-	vending: {
-		tooltip: `List of locations of vending machines on this map.`,
-		multi: true,
-	},
-	healing: {
-		tooltip: `List of locations of field healing (doctors/nurses).`,
-		multi: true,
-	},
-	pc: {
-		tooltip: `List of locations of PCs.`,
-		multi: true,
-	},
-	legendary: { //TODO allow multiple legendary pokemon in one map
-		tooltip: `If this location has a legenday, its location.`,
-	},
-	leader: { //TODO split off into leader section which also has leader name and badge
-		tooltip: `If this location is a gym, the location of the leader.`,
-	},
-};
+const {
+	MapNode, MapArea, MapType, TransitReport,
+	generateDefaultMapTypes, ATTRS,
+} = require('./mapnode.js');
+
+//////////////////////////////////////////////////////////////////////////////////////
+// TODO
+// Rework this dialog so that the main dialog is just the list of banks/maps/areas in
+// heierarchy order, and next to it the list of map properties and attributes. Add in
+// the transit reports relevant to the currently selected bank/map/area.
+//
+// Split the drawn map out into its own popup that updates if it is open.
+// At the bottom of the main window, add a preview typesetter window, where it shows
+// the transit reports for the selected area.
+
+
+
 
 // Global values
 let currFile = null;
@@ -166,7 +103,7 @@ class MapPanel {
 		let $list = $('#mapprops');
 		$list.empty();
 		if (!this.currMap) return;
-		$(`<header>Map Properties</header>`).appendTo($list);
+		$(`<header>Properties</header>`).appendTo($list);
 		for (let key in this.currMap){
 			let $lbl = $(`<label>`);
 			$(`<span class="key">${key}</span>`).appendTo($lbl);
@@ -176,19 +113,11 @@ class MapPanel {
 			$lbl.appendTo($list);
 		}
 		$(`<header>Attributes</header>`).appendTo($list);
-		for (let key in MAP_ATTRS) {
+		for (let key in ATTRS) {
 			let $lbl = $(`<label>`);
-			$(`<span class="key">${key}</span>`).attr('title', MAP_ATTRS[key].tooltip).appendTo($lbl);
+			$(`<span class="key">${key}</span>`).attr('title', ATTRS[key].tooltip).appendTo($lbl);
 			let $val = createAttr(key, this.currMap.attrs, currData.typeDefaults[this.currMap.mapType]);
 			$val.appendTo($lbl);
-			$lbl.appendTo($list);
-		}
-		$(`<header>Location Of</header>`).appendTo($list);
-		for (let key in MAP_LOCOF) {
-			let $lbl = $(`<label>`);
-			$(`<span class="key">${key}</span>`).attr('title', MAP_LOCOF[key].tooltip).appendTo($lbl);
-			// let $val = createAttr(key, this.currMap.attrs, currData.typeDefaults[this.currMap.mapType]);
-			// $val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}
 		return;
@@ -222,7 +151,7 @@ class MapPanel {
 		}
 		
 		function createAttr(key, obj, def={}) {
-			let info = MAP_ATTRS[key];
+			let info = ATTRS[key];
 			let $val = $(`<span class='val'>`);
 			let $checkDef = $(`<input type='checkbox'/>`).prop({ checked:def[key], disabled:true });
 			let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
@@ -413,7 +342,7 @@ class NewRegionDialog {
 			let data = {
 				name: name,
 				idType: null,
-				typeDefaults: TYPE_DEFAULTS,
+				typeDefaults: generateDefaultMapTypes,
 				nodes: null,
 			};
 			if (romFile) {
@@ -509,9 +438,9 @@ class TypesDialog {
 		$list.empty();
 		if (!this.curr) return;
 		$(`<header>Attributes</header>`).appendTo($list);
-		for (let key in MAP_ATTRS) {
+		for (let key in ATTRS) {
 			let $lbl = $(`<label>`);
-			$(`<span class="key">${key}</span>`).attr('title', MAP_ATTRS[key].tooltip).appendTo($lbl);
+			$(`<span class="key">${key}</span>`).attr('title', ATTRS[key].tooltip).appendTo($lbl);
 			let $val = createAttr(key, this.curr.attrs);
 			$val.appendTo($lbl);
 			$lbl.appendTo($list);
@@ -527,7 +456,7 @@ class TypesDialog {
 		return;
 		
 		function createAttr(key, obj) {
-			let info = MAP_ATTRS[key];
+			let info = ATTRS[key];
 			let $val = $(`<span class='val'>`);
 			let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
 			$val.append($checkThis);

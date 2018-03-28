@@ -91,11 +91,10 @@ class Gen1Reader extends GBReader {
 			this.skip(2); // Skip scripts pointer
 			
 			let conns = this.readUint8(); //Read connections
-			info.conns = {};
-			if (conns & NORTH) info.conns.n = readConnectionInfo.call(this);
-			if (conns & SOUTH) info.conns.s = readConnectionInfo.call(this);
-			if (conns &  WEST) info.conns.w = readConnectionInfo.call(this);
-			if (conns &  EAST) info.conns.e = readConnectionInfo.call(this);
+			if (conns & NORTH) info.gameInfo.conns.n = readConnectionInfo.call(this);
+			if (conns & SOUTH) info.gameInfo.conns.s = readConnectionInfo.call(this);
+			if (conns &  WEST) info.gameInfo.conns.w = readConnectionInfo.call(this);
+			if (conns &  EAST) info.gameInfo.conns.e = readConnectionInfo.call(this);
 			
 			// Pointer to the data object (which is usually right after anyway)
 			let dataOffset = this.readUint16();
@@ -104,7 +103,7 @@ class Gen1Reader extends GBReader {
 			this.skip(); // Skip border block
 			let w_len = this.readUint8(); //Read length of warp list
 			for (let w = 0; w < w_len; w++) {
-				info.warps.push({
+				info.gameInfo.warps.push({
 					y: this.readUint8(),
 					x: this.readUint8(),
 					warp: this.readUint8(),

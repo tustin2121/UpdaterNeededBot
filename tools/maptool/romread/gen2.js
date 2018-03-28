@@ -149,17 +149,17 @@ class Gen2Reader extends GBReader {
 				let eventHeader = this.readUint16(); // Read event pointer
 				
 				let conns = this.readUint8(); //Read connections
-				if (conns & NORTH) info.conns.n = readConnectionInfo.call(this);
-				if (conns & SOUTH) info.conns.s = readConnectionInfo.call(this);
-				if (conns &  WEST) info.conns.w = readConnectionInfo.call(this);
-				if (conns &  EAST) info.conns.e = readConnectionInfo.call(this);
+				if (conns & NORTH) info.gamedata.conns.n = readConnectionInfo.call(this);
+				if (conns & SOUTH) info.gamedata.conns.s = readConnectionInfo.call(this);
+				if (conns &  WEST) info.gamedata.conns.w = readConnectionInfo.call(this);
+				if (conns &  EAST) info.gamedata.conns.e = readConnectionInfo.call(this);
 				
 				// Move the read cursor to the map event header
 				this.offset = GBReader.romBankAddrToLinear(scriptBank, eventHeader);
 				this.skip(2); //Skip two bytes of filler
 				let w_len = this.readUint8(); //Read length of warp list
 				for (let w = 0; w < w_len; w++) {
-					info.warps.push({
+					info.gamedata.warps.push({
 						y: this.readUint8(),
 						x: this.readUint8(),
 						warp: this.readUint8(),
@@ -170,7 +170,7 @@ class Gen2Reader extends GBReader {
 				
 				let c_len = this.readUint8(); //Read coord event length
 				for (let e = 0; e < c_len; e++) {
-					info.events.push({
+					info.gamedata.events.push({
 						type: 'g2:coord',
 						sceneId: this.readUint8(),
 						y: this.readUint8(),
@@ -181,7 +181,7 @@ class Gen2Reader extends GBReader {
 				
 				let b_len = this.readUint8(); //Read BG event length
 				for (let e = 0; e < c_len; e++) {
-					info.events.push({
+					info.gamedata.events.push({
 						type: 'g2:bg',
 						y: this.readUint8(),
 						x: this.readUint8(),
@@ -221,7 +221,7 @@ class Gen2Reader extends GBReader {
 					item.sightRange = this.readUint8();
 					this.skip(2); //Skip script pointer
 					item.eventFlag = this.readUint16();
-					info.events.push(item);
+					info.gamedata.events.push(item);
 				}
 				
 				bankData[m+1] = info;
