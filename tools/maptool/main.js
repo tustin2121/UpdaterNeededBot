@@ -25,90 +25,126 @@ const APP = global.App;
 
 class MapPanel {
 	constructor() {
-		this.currMap = null;
+		this.selectedData = null;
+		this.parentData = null;
 		this.zoomLevel = 8;
 		
 	}
-	resize() {
-		let left = $('#mapprops').outerWidth() + $('#mapprops').offset().left;
-		let canvas = $('#map')[0];
-		canvas.width = $('body').innerWidth() - left;
-		canvas.height = $('#mapprops').outerHeight()
-		$('#map').css({ left });
-		this.repaint();
-	}
-	
-	select(data, $lbl) {  // select()
-		this.currMap = data;
-		this.repaint();
-		this.updatePropList();
+	select(data, $lbl) {
+		this.selectedData = data;
+		this.parentData = null;
+		if (data instanceof MapNode) {
+			this.parentData = APP.currData.types[data.type];
+		}
+		else if (data instanceof MapArea) {
+			this.parentData = data.parent;
+		}
+		else if (data instanceof MapType) {
+			this.parentData = null;
+		}
+		
+		this.updatePropList($('#mapprops'), this.selectedData);
+		this.updatePropList($('#parentprops'), this.parentData);
 	}
 	updateList() { // updateMapList()
 		let $tree = $('#maptree');
 		$tree.empty();
+		let data = APP.currData;
 		
-		if (currData.idType === 'banked') {
-			for (let bank in currData.nodes) {
-				const $bli = $(`<li class='closed'>`);
-				const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
-				const $sub = $(`<ul>`);
-				$blbl.on('click', (e)=>{
-					$bli.toggleClass('closed');
-					this.renumber();
-				});
-				$bli.append($blbl).append($sub).appendTo($tree);
-				for (let map in currData.nodes[bank]) {
-					const $li = $(`<li>`);
-					const $lbl = $(`<span class='map'>Map ${map}</span>`);
-					let d = currData.nodes[bank][map];
-					$lbl.on('click', ()=>this.select(d, $lbl));
-					$li.append($lbl).appendTo($sub);
+		{
+			const $tli = $(`<li>`);
+			const $tlbl = $(`<span class='bank'>Map Types</span>`);
+			const $sub = $(`<ul>`);
+			$tlbl.on('click', (e)=>{
+				$tli.toggleClass('closed');
+				this.renumber();
+			});
+			$tli.append($tlbl).append($sub).appendTo($tree);
+			for (let type in data.types) {
+				const $li = $(`<li>`);
+				const $lbl = $(`<span class='type'>Type "${type}"</span>`);
+				let d = data.types[type];
+				$lbl.on('click', ()=>this.select(d, $lbl));
+				$li.append($lbl).appendTo($sub);
+			}
+		}
+		for (let bank in data.nodes) {
+			const $bli = $(`<li class='closed'>`);
+			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
+			const $sub = $(`<ul>`);
+			$blbl.on('click', (e)=>{
+				$bli.toggleClass('closed');
+				this.renumber();
+			});
+			$bli.append($blbl).append($sub).appendTo($tree);
+			for (let map in data.nodes[bank]) {
+				let d = data.nodes[bank][map];
+				const $mli = $(`<li>`);
+				const $mlbl = $(`<span class='map'>Map ${map}: "${d.name}"</span>`);
+				const $msub = $(`<ul>`);
+				$mlbl.on('click', ()=>this.select(d, $mlbl));
+				$mli.append($mlbl).append($msub).appendTo($sub);
+				for (let area = 0; area < d.areas; area++) {
+					let a = d.area[area];
+					const $ali = $(`<li>`);
+					const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
+					$albl.on('click', ()=>this.select(d, $albl));
+					$ali.append($albl).appendTo($msub);
 				}
 			}
-		} else if (currData.idType === 'single') {
-			for (let map in currData.nodes) {
-				const $li = $(`<li>`);
-				const $lbl = $(`<span class='map'>Map ${map}</span>`);
-				let d = currData.nodes[map];
-				$lbl.on('click', ()=>this.select(d));
-				$li.append($lbl).appendTo($tree);
-			}
-		} else {
-			console.error('Invalid idType!');
 		}
 		this.renumber();
 	}
-	updatePropList() { // updateMapPropertyList()
-		let $list = $('#mapprops');
+	updatePropList($list, data) {
 		$list.empty();
-		if (!this.currMap) return;
+		if (!data) return;
 		$(`<header>Properties</header>`).appendTo($list);
-		for (let key in this.currMap){
+		for (let key of data.prototype.PROPS){
 			let $lbl = $(`<label>`);
 			$(`<span class="key">${key}</span>`).appendTo($lbl);
-			let $val = createValue(key, this.currMap);
+			let $val = createValue(key, data);
 			if (!$val) continue; //skip
 			$val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}
+		// for (let key in data){
+		// 	let $lbl = $(`<label>`);
+		// 	$(`<span class="key">${key}</span>`).appendTo($lbl);
+		// 	let $val = createValue(key, data);
+		// 	if (!$val) continue; //skip
+		// 	$val.appendTo($lbl);
+		// 	$lbl.appendTo($list);
+		// }
 		$(`<header>Attributes</header>`).appendTo($list);
 		for (let key in ATTRS) {
 			let $lbl = $(`<label>`);
 			$(`<span class="key">${key}</span>`).attr('title', ATTRS[key].tooltip).appendTo($lbl);
-			let $val = createAttr(key, this.currMap.attrs, currData.typeDefaults[this.currMap.mapType]);
+			let $val = createAttr(key, data.attrs);
 			$val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}
 		return;
 		
 		function createValue(key, obj) {
+			if (key.indexOf('/') > 0) { // (X,Y) properties stored separately
+				let [x, y] = key.split('/');
+				let $pair = $(`<span class='valpair'>`);
+				$(`<input class='val' type='number' />`).val(obj[x]).appendTo($pair)
+					.on('change', function(){
+						obj[x] = $(this).val();
+					});
+				$(`<input class='val' type='number' />`).val(obj[y]).appendTo($pair)
+					.on('change', function(){
+						obj[y] = $(this).val();
+					});
+				return $pair;
+			}
+			
 			let val = obj[key];
 			switch (key) {
-				case 'warps': return null;
-				case 'conns': return null;
-				case 'attrs': return null; //handled by attrs section
-				case 'locOf': return null; //handled by locOf section
-				case 'mapType':
+				case 'locId':
+					return $(`<input class='val' type='text' disabled />`);
+				case 'type':
 					return makeMapTypeSelect()
 						.val(val)
 						.on('change', function(){
@@ -129,19 +165,65 @@ class MapPanel {
 			}
 		}
 		
-		function createAttr(key, obj, def={}) {
+		function createAttr(key, obj) {
 			let info = ATTRS[key];
 			let $val = $(`<span class='val'>`);
-			let $checkDef = $(`<input type='checkbox'/>`).prop({ checked:def[key], disabled:true });
 			let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
-			$val.append($checkDef).append($checkThis);
+			$val.append($checkThis);
+			
+			if (info.values) {
+				let $sel = $('<select>');
+				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
+				$sel.on('change', function(){
+					obj[key] = $sel.val();
+				});
+				$checkThis.on('change', function(){
+					if ($(this).prop('checked')) {
+						$sel.prop({ disabled:false });
+						obj[key] = $sel.val();
+					} else {
+						$sel.prop({ disabled:true });
+						obj[key] = false;
+					}
+				});
+				if (obj[key]) {
+					$sel.val(obj[key]);
+					$checkThis.prop({ checked:true });
+				} else {
+					$checkThis.prop({ checked:false });
+				}
+				
+			} else if (info.allowString) {
+				let $str = $(`<input type='text'/>`).appendTo($val)
+					.on('change', function(){
+						obj[key] = $(this).val();
+						$checkThis.prop({ indeterminate:true });
+					});
+				if (typeof obj[key] === 'string') {
+					$str.val(obj[key]);
+				}
+				$checkThis.on('change', function(){
+					$(this).prop({ indeterminate:false });
+					$str.val('');
+					obj[key] = !!$(this).prop('checked');
+				});
+				
+			} else if (info.allowSpawnpoint) {
+				//TODO
+				
+			} else {
+				$checkThis.on('change', function(){
+					obj[key] = $(this).prop('checked');
+				});
+			}
+			
 			//TODO allowString, values, etc
 			return $val;
 		}
 		
 		function makeMapTypeSelect() {
 			let $sel = $(`<select>`);
-			for (let t in currData.typeDefaults) {
+			for (let t in APP.currData.types) {
 				const $opt = $(`<option class='${t}'>${t}</span>`);
 				$opt.appendTo($sel);
 			}
@@ -150,7 +232,7 @@ class MapPanel {
 	}
 	
 	renumber() { // this.renumber()
-		$('#maptree li:visible').each((i,e)=>{
+		$('.treepane li:visible').each((i,e)=>{
 			$(e).removeClass('n0 n1').addClass('n'+(i%2));
 		});
 	}
@@ -252,7 +334,7 @@ class NewRegionDialog {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Type Defaults Dialog
-
+/*
 class TypesDialog {
 	constructor() {
 		this.$dialog = $('#defaultsDialog');
@@ -371,7 +453,7 @@ class TypesDialog {
 		});
 	}
 }
-
+*/
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Main

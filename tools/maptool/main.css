@@ -132,18 +132,26 @@ label.radio {
 	border-radius: 10px;
 }
 
-#maptree {
+
+body > main {
 	position: absolute;
-	left: 0; width: 100px;
+	left: 0; right: 0;
 	top: 0; bottom: 0;
+	display: grid;
+	grid-template: "tree props parent" / 200px 1fr 1fr;
+}
+
+#maptree {
+	grid: "tree";
 	/*border-bottom: solid 2px #888;*/
 	border-right: solid 2px #888;
 }
 #mapprops {
-	position: absolute;
-	left: 107px; width: 360px;
-	top: 0; bottom: 0;
+	grid: "props";
 	border-right: solid 2px #888;
+}
+#parentprops {
+	grid: "parent";
 }
 
 #newDialog [name=genRadio] {

@@ -26,6 +26,10 @@ class MapNode {
 			events: [],
 		};
 	}
+	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
+	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height']; }
+	
+	get locId() { return `${this.bank}.${this.id}`; }
 	// alias mapType => type
 	get mapType() { return this.type; }
 	set mapType(t) { this.type = t; }
@@ -48,8 +52,8 @@ class MapNode {
 			areas: [],
 			gamedata: this.gamedata,
 		};
-		
 		out.areas = this.areas.map(x=>x.serialize());
+		return out;
 	}
 	
 	addWarp(opts={}) {
@@ -70,7 +74,7 @@ class MapNode {
 		this.conns[dir] = c;
 	}
 	addArea(opts={}) {
-		this.areas.push(new MapArea(opts));
+		this.areas.push(new MapArea(this, opts));
 	}
 	
 	setSpawnPoint(x, y) {
@@ -85,14 +89,31 @@ class MapNode {
  */
 class MapType {
 	constructor(opts={}) {
-		this.type = opts.type;
+		this.name = opts.type || opts.name;
 		this.attrs = opts.attrs || {};
 		this.areas = [];
 		if (Array.isArray(opts.areas)) opts.areas.forEach(a=>this.addArea(a));
 	}
+	get locId() { return `[${this.name}]`; }
+	
+	get type() { return this.name }
+	set type(val) { this.name = val; }
+	
+	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
+	static get PROPS() { return ['locId', 'name']; }
 	
 	addArea(opts={}) {
-		this.areas.push(new MapArea(opts));
+		this.areas.push(new MapArea(this, opts));
+	}
+	
+	serialize() {
+		let out = {
+			type: this.name,
+			attrs: this.attrs,
+			areas: [],
+		};
+		out.areas = this.areas.map(x=>x.serialize());
+		return out;
 	}
 }
 
@@ -103,7 +124,8 @@ class MapType {
  * dimensions (w/h) of 0 are considered point locations with a radius of effectiveness.
  */
 class MapArea {
-	constructor(opts={}) {
+	constructor(parent, opts={}) {
+		this.parent = parent;
 		/** Top-right corner */
 		this.ax = opts.ax || opts.x || 0;
 		this.ay = opts.ay || opts.y || 0;
@@ -117,6 +139,11 @@ class MapArea {
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
 	}
+	get locId() { return `TODO`; } //TODO: get from parent, and get the index as the area id
+	
+	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
+	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
+	
 	serialize() {
 		return {
 			ax: this.ax, ay: this.ay,
