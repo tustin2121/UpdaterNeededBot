@@ -57,7 +57,7 @@ class Gen2Reader extends GBReader {
 	
 	readMaps() {
 		let oldOff = this.offset;
-		let mapData = {};
+		let mapData = [];
 		const OFFSETS = this._OFFSETS;
 		const LENGTHS = this._LENGTHS;
 		
@@ -97,7 +97,7 @@ class Gen2Reader extends GBReader {
 		// Then, go through each bank and read the map data
 		for (let b = 0; b < bankTable.length; b++) {
 			let ptr = bankTable[b];
-			let bankData = {};
+			let bankData = [];
 			// Read in all of the map headers for this bank
 			let mapTable = this.readStridedData(ptr, MAP_HEADER_BYTES, ((bankTable[b+1] - ptr)/MAP_HEADER_BYTES) || LENGTHS.DefaultMapBankLength);
 			// Go through each map header and read in the info for it.

@@ -30,6 +30,12 @@ class MapPanel {
 		this.zoomLevel = 8;
 		
 	}
+	deselect() {
+		this.selectedData = null;
+		this.parentData = null;
+		$('#maptree .selected').removeClass('selected');
+		this.updatePropLists();
+	}
 	select(data, $lbl) {
 		this.selectedData = data;
 		this.parentData = null;
@@ -43,58 +49,167 @@ class MapPanel {
 			this.parentData = null;
 		}
 		
+		$('#maptree .selected').removeClass('selected');
+		$lbl.addClass('selected');
+		this.updatePropLists();
+	}
+	updatePropLists() {
 		this.updatePropList($('#mapprops'), this.selectedData);
 		this.updatePropList($('#parentprops'), this.parentData);
 	}
-	updateList() { // updateMapList()
+	
+	/** Shows the context menu when clicking on a bank. */
+	showBankMenu({ e, bank, bankId }) {
+		let self = this;
+		let thing = 'Bank';
+		
+		let menu = new nw.Menu();
+		menu.append(new nw.MenuItem({ label:`Delete ${thing}`
+			click() {
+				let p = area.parent;
+				let i = p.areas.indexOf(area);
+				if (i === -1) return; //sanity check, should never happen
+				p.areas.splice(i, 1);
+				self.updateTree();
+			}
+		}));
+		menu.popup(e.pageX, e.pageY);
+	}
+	/** Shows the context menu when clicking on a map. */
+	showMapMenu({ e, map, bankId, mapId }) {
+		let self = this;
+		let thing = 'Map';
+		
+		let menu = new nw.Menu();
+		menu.append(new nw.MenuItem({ label:`Delete ${thing}`
+			click() {
+				let p = area.parent;
+				let i = p.areas.indexOf(area);
+				if (i === -1) return; //sanity check, should never happen
+				p.areas.splice(i, 1);
+				self.updateTree();
+			}
+		}));
+		menu.popup(e.pageX, e.pageY);
+	}
+	/** Shows the context menu when clicking on an area. */
+	showAreaMenu({ e, area, areaId, typeId, bankId, mapId }) {
+		let self = this;
+		let thing = 'Area';
+		if (!area || !mapId) thing = 'Area Template';
+		
+		let menu = new nw.Menu();
+		if (!area) { // No actualized area
+			menu.append(new nw.MenuItem({ label:`Actualize ${thing}`
+				click() {
+					let newarea = APP.currData.types[typeId].areas[areaId].serialize();
+					APP.currData.nodes[bankId][mapId].areas[areaId] = new MapArea(map, newarea);
+					self.updateTree();
+				}
+			}));
+		} 
+		else { // Actual area
+			menu.append(new nw.MenuItem({ label:`Delete ${thing}`
+				click() {
+					let p = area.parent;
+					let i = p.areas.indexOf(area);
+					if (i === -1) return; //sanity check, should never happen
+					p.areas[i] = undefined;
+					self.updateTree();
+				}
+			}));
+		}
+		menu.popup(e.pageX, e.pageY);
+	}
+	
+	/** Refreshes the tree view. */
+	updateTree() {
 		let $tree = $('#maptree');
 		$tree.empty();
 		let data = APP.currData;
-		
 		{
 			const $tli = $(`<li>`);
 			const $tlbl = $(`<span class='bank'>Map Types</span>`);
 			const $sub = $(`<ul>`);
-			$tlbl.on('click', (e)=>{
-				$tli.toggleClass('closed');
-				this.renumber();
-			});
+			// $tlbl.on('click', (e)=>{
+			// 	$tli.toggleClass('closed');
+			// 	this.renumber();
+			// });
 			$tli.append($tlbl).append($sub).appendTo($tree);
 			for (let type in data.types) {
 				const $li = $(`<li>`);
 				const $lbl = $(`<span class='type'>Type "${type}"</span>`);
 				let d = data.types[type];
+				if (d === this.selectedData) $lbl.addClass('selected');
 				$lbl.on('click', ()=>this.select(d, $lbl));
+				$lbl.on('contextmenu', (ev)=>{
+					
+				});
 				$li.append($lbl).appendTo($sub);
+				for (let area = 0; area < d.areas.length; area++) {
+					let a = d.area[area];
+					const $ali = $(`<li>`);
+					const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
+					if (a === this.selectedData) $albl.addClass('selected');
+					$albl.on('click', ()=>this.select(a, $albl));
+					$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, typeId:type, areaId:area }));
+					$ali.append($albl).appendTo($msub);
+				}
 			}
 		}
-		for (let bank in data.nodes) {
-			const $bli = $(`<li class='closed'>`);
+		for (let bank of data.nodes) {
+			// const $bli = $(`<li class='closed'>`);
+			const $bli = $(`<li>`);
 			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
 			const $sub = $(`<ul>`);
-			$blbl.on('click', (e)=>{
-				$bli.toggleClass('closed');
-				this.renumber();
-			});
+			// $blbl.on('click', (e)=>{
+			// 	$bli.toggleClass('closed');
+			// 	this.renumber();
+			// });
 			$bli.append($blbl).append($sub).appendTo($tree);
-			for (let map in data.nodes[bank]) {
+			if (!data.nodes[bank]) {
+				$blbl.addClass('emptyslot');
+				$albl.on('contextmenu', (e)=>this.showBankMenu({ e, bank:data.nodes[bank], bankId:bank }));
+				continue; //move on to the next bank
+			}
+			for (let map of data.nodes[bank]) {
 				let d = data.nodes[bank][map];
 				const $mli = $(`<li>`);
 				const $mlbl = $(`<span class='map'>Map ${map}: "${d.name}"</span>`);
 				const $msub = $(`<ul>`);
-				$mlbl.on('click', ()=>this.select(d, $mlbl));
 				$mli.append($mlbl).append($msub).appendTo($sub);
-				for (let area = 0; area < d.areas; area++) {
+				if (!d) {
+					$mlbl.addClass('emptyslot');
+					$albl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
+					continue; //move on to the next map
+				}
+				if (d === this.selectedData) $mlbl.addClass('selected');
+				$mlbl.on('click', ()=>this.select(d, $mlbl));
+				
+				let type = data.types[d.type];
+				for (let area = 0; area < d.areas.length && area < type.areas.length; area++) {
 					let a = d.area[area];
-					const $ali = $(`<li>`);
-					const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
-					$albl.on('click', ()=>this.select(d, $albl));
-					$ali.append($albl).appendTo($msub);
+					if (a) {
+						const $ali = $(`<li>`);
+						const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
+						if (a === this.selectedData) $albl.addClass('selected');
+						$albl.on('click', ()=>this.select(a, $albl));
+						$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, bankId:bank, mapId:map, areaId:area }));
+						$ali.append($albl).appendTo($msub);
+					} else {
+						a = type.area[area]; 
+						const $ali = $(`<li>`);
+						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`);
+						// $albl.on('click', ()=>this.select(a, $albl));
+						$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:null, bankId:bank, mapId:map, areaId:area, typeId:d.type, }));
+						$ali.append($albl).appendTo($msub);
+					}
 				}
 			}
 		}
 		this.renumber();
 	}
+	
 	updatePropList($list, data) {
 		$list.empty();
 		if (!data) return;
@@ -345,7 +460,7 @@ class TypesDialog {
 	
 	show() {
 		this.$dialog.show();
-		this.updateList();
+		this.updateTree();
 	}
 	hide() { this.$dialog.hide(); }
 	
@@ -354,7 +469,7 @@ class TypesDialog {
 		this.updatePropList();
 	}
 	
-	updateList() {
+	updateTree() {
 		let $tree = this.$dialog.find('.treepane');
 		$tree.empty();
 		
@@ -460,7 +575,7 @@ class TypesDialog {
 
 let mapPanel, newRegionDialog, typesDialog;
 
-makeMenu();
+makeMenubar();
 
 $(()=>{
 	mapPanel = new MapPanel();
@@ -487,11 +602,11 @@ function loadRegion(filePath) {
 	currFile = filePath;
 	currData = JSON.parse(fs.readFileSync(filePath));
 	
-	mapPanel.updateList();
+	mapPanel.updateTree();
 	// mapPanel.repaint();
 }
 
-function makeMenu() {
+function makeMenubar() {
 	let menu = new nw.Menu({type: 'menubar'});
 	{
 		let submenu = new nw.Menu();

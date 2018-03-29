@@ -37,7 +37,7 @@ class App extends EventEmitter {
 		let data = {
 			name,
 			types: generateDefaultMapTypes,
-			nodes: {},
+			nodes: [],
 		};
 		if (romReader) {
 			romReader.load();

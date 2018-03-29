@@ -74,7 +74,11 @@ class MapNode {
 		this.conns[dir] = c;
 	}
 	addArea(opts={}) {
-		this.areas.push(new MapArea(this, opts));
+		if (opts === null) {
+			this.areas.push(null); //these are used for spaces for template areas
+		} else {
+			this.areas.push(new MapArea(this, opts));
+		}
 	}
 	
 	setSpawnPoint(x, y) {
@@ -103,7 +107,11 @@ class MapType {
 	static get PROPS() { return ['locId', 'name']; }
 	
 	addArea(opts={}) {
-		this.areas.push(new MapArea(this, opts));
+		if (opts === null) {
+			this.areas.push(null); //these are used for spaces for template areas
+		} else {
+			this.areas.push(new MapArea(this, opts));
+		}
 	}
 	
 	serialize() {

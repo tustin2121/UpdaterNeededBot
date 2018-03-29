@@ -38,7 +38,7 @@ class Gen1Reader extends GBReader {
 	
 	readMaps() {
 		let oldOff = this.offset;
-		let mapData = {};
+		let mapData = [];
 		const OFFSETS = this._OFFSETS;
 		const LENGTHS = this._LENGTHS;
 		
