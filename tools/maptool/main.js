@@ -155,7 +155,7 @@ class MapPanel {
 					if (a === this.selectedData) $albl.addClass('selected');
 					$albl.on('click', ()=>this.select(a, $albl));
 					$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, typeId:type, areaId:area }));
-					$ali.append($albl).appendTo($msub);
+					$ali.append($albl).appendTo($sub);
 				}
 			}
 		}
@@ -171,7 +171,7 @@ class MapPanel {
 			$bli.append($blbl).append($sub).appendTo($tree);
 			if (!data.nodes[bank]) {
 				$blbl.addClass('emptyslot');
-				$albl.on('contextmenu', (e)=>this.showBankMenu({ e, bank:data.nodes[bank], bankId:bank }));
+				$blbl.on('contextmenu', (e)=>this.showBankMenu({ e, bank:data.nodes[bank], bankId:bank }));
 				continue; //move on to the next bank
 			}
 			for (let map of data.nodes[bank]) {
@@ -182,7 +182,7 @@ class MapPanel {
 				$mli.append($mlbl).append($msub).appendTo($sub);
 				if (!d) {
 					$mlbl.addClass('emptyslot');
-					$albl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
+					$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
 					continue; //move on to the next map
 				}
 				if (d === this.selectedData) $mlbl.addClass('selected');
