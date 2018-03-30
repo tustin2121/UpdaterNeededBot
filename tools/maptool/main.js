@@ -114,7 +114,7 @@ class MapPanel {
 					let p = area.parent;
 					let i = p.areas.indexOf(area);
 					if (i === -1) return; //sanity check, should never happen
-					p.areas[i] = undefined;
+					deleteArrayIndex(p.areas, i);
 					self.updateTree();
 				}
 			}));
@@ -645,4 +645,10 @@ function makeMenubar() {
 		menu.append(new nw.MenuItem({ label:'Edit', submenu }));
 	}
 	nw.Window.get().menu = menu;
+}
+
+function deleteArrayIndex(arr, index) {
+	delete arr[index];
+	// shrink away empty space at the end of an array
+	while (!(arr.length-1 in arr) && arr.length > 0) { arr.length--; }
 }
