@@ -61,32 +61,33 @@ class MapPanel {
 	/** Shows the context menu when clicking on a bank. */
 	showBankMenu({ e, bank, bankId }) {
 		let self = this;
-		let thing = 'Bank';
 		
 		let menu = new nw.Menu();
-		menu.append(new nw.MenuItem({ label:`Delete ${thing}`
-			click() {
-				let p = area.parent;
-				let i = p.areas.indexOf(area);
-				if (i === -1) return; //sanity check, should never happen
-				p.areas.splice(i, 1);
-				self.updateTree();
-			}
+		menu.append(new nw.MenuItem({ label:`Nothing`,
+			enabled: false,
 		}));
+		// menu.append(new nw.MenuItem({ label:`Add Map`,
+		// 	click() {
+		// 		let p = area.parent;
+		// 		let i = p.areas.indexOf(area);
+		// 		if (i === -1) return; //sanity check, should never happen
+		// 		p.areas.splice(i, 1);
+		// 		self.updateTree();
+		// 	}
+		// }));
 		menu.popup(e.pageX, e.pageY);
 	}
 	/** Shows the context menu when clicking on a map. */
 	showMapMenu({ e, map, bankId, mapId }) {
 		let self = this;
-		let thing = 'Map';
 		
 		let menu = new nw.Menu();
-		menu.append(new nw.MenuItem({ label:`Delete ${thing}`
+		menu.append(new nw.MenuItem({ label:`Delete Map`,
 			click() {
-				let p = area.parent;
-				let i = p.areas.indexOf(area);
+				let bank = APP.currData.nodes[bankId];
+				let i = bank.indexOf(map);
 				if (i === -1) return; //sanity check, should never happen
-				p.areas.splice(i, 1);
+				deleteArrayIndex(bank, i);
 				self.updateTree();
 			}
 		}));
@@ -100,16 +101,17 @@ class MapPanel {
 		
 		let menu = new nw.Menu();
 		if (!area) { // No actualized area
-			menu.append(new nw.MenuItem({ label:`Actualize ${thing}`
+			menu.append(new nw.MenuItem({ label:`Actualize ${thing}`,
 				click() {
 					let newarea = APP.currData.types[typeId].areas[areaId].serialize();
-					APP.currData.nodes[bankId][mapId].areas[areaId] = new MapArea(map, newarea);
+					let map = APP.currData.nodes[bankId][mapId];
+					map.areas[areaId] = new MapArea(map, newarea);
 					self.updateTree();
 				}
 			}));
-		} 
+		}
 		else { // Actual area
-			menu.append(new nw.MenuItem({ label:`Delete ${thing}`
+			menu.append(new nw.MenuItem({ label:`Delete ${thing}`,
 				click() {
 					let p = area.parent;
 					let i = p.areas.indexOf(area);
@@ -197,7 +199,7 @@ class MapPanel {
 						$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, bankId:bank, mapId:map, areaId:area }));
 						$ali.append($albl).appendTo($msub);
 					} else {
-						a = type.area[area]; 
+						a = type.area[area];
 						const $ali = $(`<li>`);
 						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`);
 						// $albl.on('click', ()=>this.select(a, $albl));
