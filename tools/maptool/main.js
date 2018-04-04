@@ -18,7 +18,7 @@ const {
 // At the bottom of the main window, add a preview typesetter window, where it shows
 // the transit reports for the selected area.
 
-const APP = global.App;
+/* global App, window, document */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Main Map Panel
@@ -40,7 +40,7 @@ class MapPanel {
 		this.selectedData = data;
 		this.parentData = null;
 		if (data instanceof MapNode) {
-			this.parentData = APP.currData.types[data.type];
+			this.parentData = App.currData.types[data.type];
 		}
 		else if (data instanceof MapArea) {
 			this.parentData = data.parent;
@@ -58,6 +58,37 @@ class MapPanel {
 		this.updatePropList($('#parentprops'), this.parentData);
 	}
 	
+	/** Shows the context menu when clicking on a map type. */
+	showTypeMenu({ e, type, typeId }) {
+		let self = this;
+		
+		let menu = new nw.Menu();
+		menu.append(new nw.MenuItem({ label:`New Type`,
+			click() {
+				let id = window.prompt("Name of new type:");
+				if (!id) return;
+				App.currData.types[id] = new MapType({ name:id });
+				self.updateTree();
+			}
+		}));
+		if (typeId && type) {
+			menu.append(new nw.MenuItem({ label:`Delete type ${type}`,
+				click() {
+					if (!window.confirm(`Delete map "${type.name}"?`)) return;
+					delete App.currData.types[typeId];
+					self.updateTree();
+				}
+			}));
+			menu.append(new nw.MenuItem({ type:'separator' }));
+			menu.append(new nw.MenuItem({ label:`Add area`,
+				click() {
+					type.addArea();
+					self.updateTree();
+				}
+			}));
+		}
+		menu.popup(e.pageX, e.pageY);
+	}
 	/** Shows the context menu when clicking on a bank. */
 	showBankMenu({ e, bank, bankId }) {
 		let self = this;
@@ -82,15 +113,61 @@ class MapPanel {
 		let self = this;
 		
 		let menu = new nw.Menu();
-		menu.append(new nw.MenuItem({ label:`Delete Map`,
+		if (!map) {
+			menu.append(new nw.MenuItem({ label:`New Map`,
+				click() {
+					App.currData.createMap(bankId, mapId);
+					self.updateTree();
+				}
+			}));
+		}
+		menu.append(new nw.MenuItem({ label:`Insert map below (shift down)`,
 			click() {
-				let bank = APP.currData.nodes[bankId];
-				let i = bank.indexOf(map);
-				if (i === -1) return; //sanity check, should never happen
-				deleteArrayIndex(bank, i);
+				App.currData.insertMapSlot(bankId, mapId+1);
+				App.currData.createMap(bankId, mapId+1);
 				self.updateTree();
 			}
 		}));
+		menu.append(new nw.MenuItem({ type:'separator' }));
+		menu.append(new nw.MenuItem({ label:`Insert slot above (shift down)`,
+			click() {
+				App.currData.insertMapSlot(bankId, mapId-1);
+				self.updateTree();
+			}
+		}));
+		menu.append(new nw.MenuItem({ type:'separator' }));
+		if (map) {
+			menu.append(new nw.MenuItem({ label:`Delete map`,
+				click() {
+					if (!window.confirm(`Delete map "${map.name}"?`)) return;
+					App.currData.deleteMap(bankId, mapId);
+					self.updateTree();
+				}
+			}));
+			menu.append(new nw.MenuItem({ label:`Delete map (shift up)`,
+				click() {
+					if (!window.confirm(`Delete map "${map.name}"?`)) return;
+					App.currData.deleteMapSlot(bankId, mapId);
+					self.updateTree();
+				}
+			}));
+			menu.append(new nw.MenuItem({ type:'separator' }));
+			menu.append(new nw.MenuItem({ label:`Add area`,
+				click() {
+					map.addArea();
+					self.updateTree();
+				}
+			}));
+		} else {
+			menu.append(new nw.MenuItem({ label:`Delete map slot (shift up)`,
+				click() {
+					if (!window.confirm(`Delete map slot?`)) return;
+					App.currData.deleteMapSlot(bankId, mapId);
+					self.updateTree();
+				}
+			}));
+		}
+		
 		menu.popup(e.pageX, e.pageY);
 	}
 	/** Shows the context menu when clicking on an area. */
@@ -103,8 +180,8 @@ class MapPanel {
 		if (!area) { // No actualized area
 			menu.append(new nw.MenuItem({ label:`Actualize ${thing}`,
 				click() {
-					let newarea = APP.currData.types[typeId].areas[areaId].serialize();
-					let map = APP.currData.nodes[bankId][mapId];
+					let newarea = App.currData.types[typeId].areas[areaId].serialize();
+					let map = App.currData.nodes[bankId][mapId];
 					map.areas[areaId] = new MapArea(map, newarea);
 					self.updateTree();
 				}
@@ -128,11 +205,12 @@ class MapPanel {
 	updateTree() {
 		let $tree = $('#maptree');
 		$tree.empty();
-		let data = APP.currData;
+		let data = App.currData;
 		{
 			const $tli = $(`<li>`);
 			const $tlbl = $(`<span class='bank'>Map Types</span>`);
 			const $sub = $(`<ul>`);
+			$tlbl.on('contextmenu', (e)=>this.showTypeMenu({ e }));
 			// $tlbl.on('click', (e)=>{
 			// 	$tli.toggleClass('closed');
 			// 	this.renumber();
@@ -144,9 +222,7 @@ class MapPanel {
 				let d = data.types[type];
 				if (d === this.selectedData) $lbl.addClass('selected');
 				$lbl.on('click', ()=>this.select(d, $lbl));
-				$lbl.on('contextmenu', (ev)=>{
-					
-				});
+				$lbl.on('contextmenu', (e)=>this.showTypeMenu({ e, type:d, typeId:type }));
 				$li.append($lbl).appendTo($sub);
 				for (let area = 0; area < d.areas.length; area++) {
 					let a = d.area[area];
@@ -340,7 +416,7 @@ class MapPanel {
 		
 		function makeMapTypeSelect() {
 			let $sel = $(`<select>`);
-			for (let t in APP.currData.types) {
+			for (let t in App.currData.types) {
 				const $opt = $(`<option class='${t}'>${t}</span>`);
 				$opt.appendTo($sel);
 			}
@@ -582,31 +658,20 @@ makeMenubar();
 $(()=>{
 	mapPanel = new MapPanel();
 	newRegionDialog = new NewRegionDialog();
-	typesDialog = new TypesDialog();
+	
+	const TITLE = document.title;
+	App.on('dirty', (dirty)=>{
+		let file = '';
+		if (App.currData) {
+			file = ` | ${App.currData.name}`;
+		}
+		document.title = (dirty?'*':'') + TITLE + file;
+	});
 });
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Other Functions
-
-function getMap({ bank, id }) {
-	if (currData.idType === 'banked')
-		return currData.nodes[bank][id];
-	else
-		return currData.nodes[id];
-}
-
-function saveRegion() {
-	fs.writeFileSync(currFile, JSON.stringify(currData, null, '\t'));
-}
-
-function loadRegion(filePath) {
-	currFile = filePath;
-	currData = JSON.parse(fs.readFileSync(filePath));
-	
-	mapPanel.updateTree();
-	// mapPanel.repaint();
-}
 
 function makeMenubar() {
 	let menu = new nw.Menu({type: 'menubar'});

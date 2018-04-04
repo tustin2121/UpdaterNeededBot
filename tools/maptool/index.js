@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const EventEmitter = require('events');
 const EmuConnect = require('./emu-connect');
-const { generateDefaultMapTypes } = require('./mapnode.js');
+const { MapRegion } = require('./mapnode.js');
 
 class App extends EventEmitter {
 	constructor() {
@@ -16,6 +16,27 @@ class App extends EventEmitter {
 		this.currFile = null;
 		this.currData = null;
 		this.loadedROM = null;
+		this._dirty = false;
+		
+		this.emuConnect = new EmuConnect();
+		this.emuConnect.on('map-change', ({ bank, id, area })=>{
+			this.currData.ensureMap(bank, id, { area });
+			this.emit('map-change', { bank, id });
+		});
+		
+	}
+	
+	set isDirty(val) {
+		this._dirty = true;
+		this.emit('dirty', this._dirty);
+	}
+	get isDirty(){ return this._dirty; }
+	
+	/** An async emit used by the objects in mapnode to specify that it has become dirty. */
+	notifyChange(type, obj) {
+		process.nextTick(()=>{
+			this.isDirty = true;
+		});
 	}
 	
 	getMap({ bank=0, id=0, area }) {
@@ -26,25 +47,25 @@ class App extends EventEmitter {
 	
 	loadRegion(file) {
 		this.currFile = file;
-		this.currData = JSON.parse(fs.readFileSync(file));
+		this.currData = new MapRegion(JSON.parse(fs.readFileSync(file)));
+		this.isDirty = false;
+		this.emit('load');
 	}
 	
 	saveRegion() {
-		fs.writeFileSync(this.currFile, JSON.stringify(this.currData, null, '\t'));
+		let data = this.currData.serialize();
+		fs.writeFileSync(this.currFile, JSON.stringify(data, null, '\t'));
+		this.isDirty = false;
 	}
 	
 	newRegion({ file, name, romReader }) {
-		let data = {
-			name,
-			types: generateDefaultMapTypes,
-			nodes: [],
-		};
+		let data = new MapRegion(name);
 		if (romReader) {
 			romReader.load();
-			let { mapData } = romReader.readMaps();
+			let { mapData } = romReader.readMaps(data);
 			data.nodes = mapData;
 		}
-		fs.writeFileSync(file, JSON.stringify(data, null, '\t'));
+		fs.writeFileSync(file, JSON.stringify(data.serialize(), null, '\t'));
 		return this.loadRegion(file);
 	}
 	
@@ -54,8 +75,6 @@ class App extends EventEmitter {
 }
 
 const APP = global.App = new App();
-
-console.log('Hello');
 
 nw.Window.open("main.html", {
 	title: "Maptool",

@@ -1,6 +1,113 @@
 // maptool mapnode.js
 // The common starting point for a map
 
+/* global App */
+
+const EventEmitter = require('events');
+
+/** Represents everything in a region, including all the map nodes. */
+class MapRegion {
+	constructor(data) {
+		this.name = '';
+		this.types = {};
+		this.nodes = [];
+		
+		if (typeof data === 'object') { //deserialize
+			this.name = data.name;
+			this.types = Object.assign({}, data.types);
+			for (let t in this.types) {
+				this.types[t] = new MapType(this.types[t]);
+			}
+			for (let bank = 0; bank < data.nodes.length; bank++) {
+				if (!data.nodes[bank]) continue;
+				this.nodes[bank] = [];
+				for (let map = 0; map < data.nodes[bank].length; map++) {
+					if (!data.nodes[bank][map]) continue;
+					this.nodes[bank][map] = new MapNode(data.nodes[bank][map]);
+				}
+			}
+		}
+		else if (typeof data === 'string') { //new region
+			this.name = data;
+			this.types = generateDefaultMapTypes();
+		}
+	}
+	
+	ensureMap(bankId, mapId, data={}) {
+		this.nodes[bankId] = this.nodes[bankId] || [];
+		if (!this.nodes[bankId][mapId]) {
+			this.nodes[bankId][mapId] = new MapNode(data);
+			this.renumberMaps();
+		}
+		return this.nodes[bankId][mapId];
+	}
+	
+	createMap(bankId, mapId) {
+		this.nodes[bankId] = this.nodes[bankId] || [];
+		this.nodes[bankId][mapId] = new MapNode();
+		this.renumberMaps();
+		App.notifyChange('map-new', this.nodes[bankId][mapId]);
+	}
+	
+	deleteMap(bankId, mapId) {
+		if (!this.nodes[bankId]) return;
+		let bank = this.nodes[bankId];
+		delete bank[mapId];
+		// shrink away empty space at the end of an array
+		while (!(bank.length-1 in bank) && bank.length > 0) { bank.length--; }
+		App.notifyChange('map-del', this);
+	}
+	
+	insertMapSlot(bankId, mapId) {
+		let bank = this.nodes[bankId] = this.nodes[bankId] || [];
+		bank.splice(mapId, 0, null);
+		delete bank[mapId]; //make empty
+		this.renumberMaps();
+		App.notifyChange('slot-new', this);
+	}
+	
+	deleteMapSlot(bankId, mapId) {
+		if (!this.nodes[bankId]) return;
+		let bank = this.nodes[bankId];
+		bank.splice(mapId, 1);
+		// shrink away empty space at the end of an array
+		while (!(bank.length-1 in bank) && bank.length > 0) { bank.length--; }
+		this.renumberMaps();
+		App.notifyChange('slot-del', this);
+	}
+	
+	renumberMaps() {
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			this.nodes[bank] = [];
+			for (let map = 0; map < this.nodes[bank].length; map++) {
+				if (!this.nodes[bank][map]) continue;
+				this.nodes[bank][map].bank = bank;
+				this.nodes[bank][map].id = map;
+			}
+		}
+		App.notifyChange('map-renumber', this);
+	}
+	
+	serialize() {
+		let data = { name:this.name, types:{}, nodes:[] };
+		for (let t in this.types) {
+			data.types[t] = this.types[t].serialize();
+		}
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			data.nodes[bank] = [];
+			for (let map = 0; map < this.nodes[bank].length; map++) {
+				if (!this.nodes[bank][map]) continue;
+				data.nodes[bank][map] = this.nodes[bank][map].serialize();
+			}
+		}
+		return data;
+	}
+}
+
+
+
 /** Represents a map in the game. This represents data about a location id given by the API. */
 class MapNode {
 	constructor(opts={}) {
@@ -270,6 +377,7 @@ const ATTRS = {
 };
 
 module.exports = {
+	MapRegion,
 	MapNode, MapArea, MapType, TransitReport,
 	generateDefaultMapTypes, ATTRS,
 };
