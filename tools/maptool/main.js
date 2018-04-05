@@ -58,6 +58,7 @@ class MapPanel {
 	updatePropLists() {
 		this.updatePropList($('#mapprops'), this.selectedData);
 		this.updatePropList($('#parentprops'), this.parentData);
+		this.updateTransitList();
 	}
 	
 	/** Shows the context menu when clicking on a map type. */
@@ -124,18 +125,25 @@ class MapPanel {
 					self.updateTree();
 				}
 			}));
+			menu.append(new nw.MenuItem({ type:'separator' }));
 		}
-		menu.append(new nw.MenuItem({ label:`Insert map below (shift down)`,
-			click() {
-				App.currData.insertMapSlot(bankId, mapId+1);
-				App.currData.createMap(bankId, mapId+1);
-				self.updateTree();
-			}
-		}));
-		menu.append(new nw.MenuItem({ type:'separator' }));
 		menu.append(new nw.MenuItem({ label:`Insert slot above (shift down)`,
 			click() {
 				App.currData.insertMapSlot(bankId, mapId-1);
+				self.updateTree();
+			}
+		}));
+		menu.append(new nw.MenuItem({ label:`Insert new map above (shift down)`,
+			click() {
+				App.currData.insertMapSlot(bankId, mapId-1);
+				App.currData.createMap(bankId, mapId-1);
+				self.updateTree();
+			}
+		}));
+		menu.append(new nw.MenuItem({ label:`Insert new map below (shift down)`,
+			click() {
+				App.currData.insertMapSlot(bankId, mapId+1);
+				App.currData.createMap(bankId, mapId+1);
 				self.updateTree();
 			}
 		}));
@@ -206,95 +214,97 @@ class MapPanel {
 		menu.popup(e.pageX, e.pageY);
 	}
 	
+	toggleSub($li) {
+		$tli.toggleClass('closed');
+		this.renumber();
+	}
+	
 	/** Refreshes the tree view. */
 	updateTree() {
-		let $tree = $('#maptree');
+		const $tree = $('#maptree');
 		$tree.empty();
+		const ARROW = ($l, cls='')=>{
+			return $(`<span class='arrow ${cls}'>`)
+			.on('click', (e)=>{
+				$l.toggleClass('closed');
+				this.renumber();
+				e.stopImmediatePropagation();
+			});
+		};
+		
 		let data = App.currData;
 		{
-			const $tli = $(`<li>`);
-			const $tlbl = $(`<span class='bank'>Map Types</span>`);
-			const $tsub = $(`<ul>`);
+			const $tli = $(`<li>`).appendTo($tree);
+			const $tlbl = $(`<span class='bank'>Map Types</span>`).prepend(ARROW($tli)).appendTo($tli);
+			const $tsub = $(`<ul>`).appendTo($tli);
 			$tlbl.on('contextmenu', (e)=>this.showTypeMenu({ e }));
-			// $tlbl.on('click', (e)=>{
-			// 	$tli.toggleClass('closed');
-			// 	this.renumber();
-			// });
-			$tli.append($tlbl).append($tsub).appendTo($tree);
+			
 			for (let type in data.types) {
-				const $li = $(`<li>`);
-				const $lbl = $(`<span class='type'>Type "${type}"</span>`);
-				const $sub = $(`<ul>`);
+				const $li = $(`<li>`).appendTo($tsub);
+				const $lbl = $(`<span class='type'>Type "${type}"</span>`).prepend(ARROW($li)).appendTo($li);
+				const $sub = $(`<ul>`).appendTo($li);
 				let d = data.types[type];
 				if (d === this.selectedData) $lbl.addClass('selected');
 				$lbl.on('click', ()=>this.select(d, $lbl));
 				$lbl.on('contextmenu', (e)=>this.showTypeMenu({ e, type:d, typeId:type }));
-				$li.append($lbl).append($sub).appendTo($tsub);
+				
 				for (let area = 0; area < d.areas.length; area++) {
 					let a = d.areas[area];
-					const $ali = $(`<li>`);
-					const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
+					const $ali = $(`<li>`).appendTo($sub);
+					const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 					if (a === this.selectedData) $albl.addClass('selected');
 					$albl.on('click', ()=>this.select(a, $albl));
 					$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, typeId:type, areaId:area }));
-					$ali.append($albl).appendTo($sub);
 				}
 			}
 		}
 		for (let bank = 0; bank < data.nodes.length; bank++) {
 			// const $bli = $(`<li class='closed'>`);
-			const $bli = $(`<li>`);
-			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
-			const $sub = $(`<ul>`);
-			// $blbl.on('click', (e)=>{
-			// 	$bli.toggleClass('closed');
-			// 	this.renumber();
-			// });
-			$bli.append($blbl).append($sub).appendTo($tree);
+			const $bli = $(`<li>`).appendTo($tree);
+			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`).prepend(ARROW($bli)).appendTo($bli);
+			const $sub = $(`<ul>`).appendTo($bli);
+			$blbl.on('contextmenu', (e)=>this.showBankMenu({ e, bank:data.nodes[bank], bankId:bank }));
 			if (!data.nodes[bank]) {
 				$blbl.addClass('emptyslot');
-				$blbl.on('contextmenu', (e)=>this.showBankMenu({ e, bank:data.nodes[bank], bankId:bank }));
 				continue; //move on to the next bank
 			}
+			
 			for (let map = 0; map < data.nodes[bank].length; map++) {
 				let d = data.nodes[bank][map];
-				const $mli = $(`<li>`);
-				const $mlbl = $(`<span class='map'>`);
-				const $msub = $(`<ul>`);
-				$mli.append($mlbl).append($msub).appendTo($sub);
+				const $mli = $(`<li>`).appendTo($sub);
+				const $mlbl = $(`<span class='map'>`).appendTo($mli);
+				const $msub = $(`<ul>`).appendTo($mli);
 				if (!d) {
 					$mlbl.addClass('emptyslot');
-					$mlbl.text(`Map ${map}`);
+					$mlbl.text(`Map ${map}`).prepend(ARROW($mli));
 					$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
 					continue; //move on to the next map
-				} else {
-					$mlbl.text(`Map ${map}: "${d.name}"`);
-					$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
 				}
+				$mlbl.text(`Map ${map}: "${d.name}"`).prepend(ARROW($mli));
+				$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
 				if (d === this.selectedData) $mlbl.addClass('selected');
 				$mlbl.on('click', ()=>this.select(d, $mlbl));
 				
-				let type = data.types[d.type];
-				for (let area = 0; area < d.areas.length && area < type.areas.length; area++) {
+				let type = data.types[d.type] || data.types['default'];
+				for (let area = 0; area < d.areas.length || area < type.areas.length; area++) {
 					let a = d.areas[area];
 					if (a) {
-						const $ali = $(`<li>`);
-						const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
+						const $ali = $(`<li>`).appendTo($msub);
+						const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 						if (a === this.selectedData) $albl.addClass('selected');
 						$albl.on('click', ()=>this.select(a, $albl));
 						$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, bankId:bank, mapId:map, areaId:area }));
-						$ali.append($albl).appendTo($msub);
 					} else {
 						a = type.areas[area];
-						const $ali = $(`<li>`);
-						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`);
+						const $ali = $(`<li>`).appendTo($msub);
+						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 						// $albl.on('click', ()=>this.select(a, $albl));
 						$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:null, bankId:bank, mapId:map, areaId:area, typeId:d.type, }));
-						$ali.append($albl).appendTo($msub);
 					}
 				}
 			}
 		}
+		$tree.find('ul:empty').parent().addClass('leaf');
 		this.renumber();
 	}
 	
@@ -307,17 +317,10 @@ class MapPanel {
 			$(`<span class="key">${key}</span>`).appendTo($lbl);
 			let $val = createValue(key, data);
 			if (!$val) continue; //skip
+			if (key === 'name') $val.on('change', ()=>this.updateTree());
 			$val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}
-		// for (let key in data){
-		// 	let $lbl = $(`<label>`);
-		// 	$(`<span class="key">${key}</span>`).appendTo($lbl);
-		// 	let $val = createValue(key, data);
-		// 	if (!$val) continue; //skip
-		// 	$val.appendTo($lbl);
-		// 	$lbl.appendTo($list);
-		// }
 		$(`<header>Attributes</header>`).appendTo($list);
 		for (let key in ATTRS) {
 			let $lbl = $(`<label>`);
@@ -433,6 +436,24 @@ class MapPanel {
 				$opt.appendTo($sel);
 			}
 			return $sel;
+		}
+	}
+	
+	/** Refreshes the translit list. */
+	updateTransitList() {
+		const $list = $('#transprops');
+		$list.empty();
+		
+		const enterReports = App.currData.reports.filter(x=>x.to === this.selectedData);
+		const exitReports = App.currData.reports.filter(x=>x.from === this.selectedData);
+		
+		$(`<header>Enter Reports</header>`).appendTo($list);
+		for (let report of enterReports) {
+			
+		}
+		$(`<header>Exit Reports</header>`).appendTo($list);
+		for (let report of exitReports) {
+			
 		}
 	}
 	

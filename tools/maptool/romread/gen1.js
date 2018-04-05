@@ -78,7 +78,7 @@ class Gen1Reader extends GBReader {
 		for (let m = 0; m < mapPointers.length; m++) {
 			let ptr = mapPointers[m];
 			this.offset = ptr;
-			let info = MapNode({
+			let info = MapNode(null, {
 				id: m, //0-based index
 				areaName: areaNames[m],
 				tileset: this.readUint8(),

@@ -11,32 +11,73 @@ class MapRegion {
 		this.name = '';
 		this.types = {};
 		this.nodes = [];
+		this.reports = [];
 		
 		if (typeof data === 'object') { //deserialize
 			this.name = data.name;
 			this.types = Object.assign({}, data.types);
 			for (let t in this.types) {
-				this.types[t] = new MapType(this.types[t]);
+				this.types[t] = new MapType(this, this.types[t]);
 			}
 			for (let bank = 0; bank < data.nodes.length; bank++) {
 				if (!data.nodes[bank]) continue;
 				this.nodes[bank] = [];
 				for (let map = 0; map < data.nodes[bank].length; map++) {
 					if (!data.nodes[bank][map]) continue;
-					this.nodes[bank][map] = new MapNode(data.nodes[bank][map]);
+					this.nodes[bank][map] = new MapNode(this, data.nodes[bank][map]);
 				}
+			}
+			for (let report of data.reports) {
+				report.from = this.resolveLocId(report.from);
+				report.to = this.resolveLocId(report.to);
+				this.reports.push(report);
 			}
 		}
 		else if (typeof data === 'string') { //new region
 			this.name = data;
-			this.types = generateDefaultMapTypes();
+			this.types = generateDefaultMapTypes(this);
 		}
+	}
+	
+	serialize() {
+		let data = { name:this.name, types:{}, nodes:[], reports:[], };
+		for (let t in this.types) {
+			data.types[t] = this.types[t].serialize();
+		}
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			data.nodes[bank] = [];
+			for (let map = 0; map < this.nodes[bank].length; map++) {
+				if (!this.nodes[bank][map]) continue;
+				data.nodes[bank][map] = this.nodes[bank][map].serialize();
+			}
+		}
+		for (let report of this.reports) {
+			if (!report) continue;
+			data.reports.push(report.serialize());
+		}
+		return data;
+	}
+	
+	resolveLocId(id) {
+		let res;
+		if (!id) return null;
+		if ((res = /\[(\w+)\]/.exec(id))) {
+			return this.types[res[1]];
+		}
+		if ((res = /(\d+)\.(\d+)(?:\:(\d+))/.exec(id))) {
+			let bank = this.nodes[res[1]];
+			let map = bank[res[2]];
+			if (res[3]) map = map.areas[res[3]];
+			return map;
+		}
+		return null;
 	}
 	
 	ensureMap(bankId, mapId, data={}) {
 		this.nodes[bankId] = this.nodes[bankId] || [];
 		if (!this.nodes[bankId][mapId]) {
-			this.nodes[bankId][mapId] = new MapNode(data);
+			this.nodes[bankId][mapId] = new MapNode(this, data);
 			this.renumberMaps();
 		}
 		return this.nodes[bankId][mapId];
@@ -44,7 +85,7 @@ class MapRegion {
 	
 	createMap(bankId, mapId) {
 		this.nodes[bankId] = this.nodes[bankId] || [];
-		this.nodes[bankId][mapId] = new MapNode();
+		this.nodes[bankId][mapId] = new MapNode(this);
 		this.renumberMaps();
 		App.notifyChange('map-new', this.nodes[bankId][mapId]);
 	}
@@ -89,35 +130,22 @@ class MapRegion {
 		App.notifyChange('map-renumber', this);
 	}
 	
-	serialize() {
-		let data = { name:this.name, types:{}, nodes:[] };
-		for (let t in this.types) {
-			data.types[t] = this.types[t].serialize();
-		}
-		for (let bank = 0; bank < this.nodes.length; bank++) {
-			if (!this.nodes[bank]) continue;
-			data.nodes[bank] = [];
-			for (let map = 0; map < this.nodes[bank].length; map++) {
-				if (!this.nodes[bank][map]) continue;
-				data.nodes[bank][map] = this.nodes[bank][map].serialize();
-			}
-		}
-		return data;
-	}
 }
 
 
 
 /** Represents a map in the game. This represents data about a location id given by the API. */
 class MapNode {
-	constructor(opts={}) {
+	constructor(region, opts={}) {
+		this.__region__ = region;
+		
 		this.id = opts.id || opts.map || 0;
 		this.bank = opts.bank || 0;
 		this.name = opts.name || opts.areaName || '';
+		this.type = opts.type || opts.mapType || null;
 		
 		this.areaId = opts.areaId || 0;
 		this.areaName = opts.areaName || '';
-		this.type = opts.type || opts.mapType || null;
 		this.width = opts.width || opts.w || 0;
 		this.height = opts.height || opts.h || 0;
 		
@@ -199,7 +227,8 @@ class MapNode {
  * represent an area with distinct attributes (eg. Safari Zone, Entralink, Silph Building, etc).
  */
 class MapType {
-	constructor(opts={}) {
+	constructor(region, opts={}) {
+		this.__region__ = region;
 		this.name = opts.type || opts.name;
 		this.attrs = opts.attrs || {};
 		this.areas = [];
@@ -240,7 +269,9 @@ class MapType {
  */
 class MapArea {
 	constructor(parent, opts={}) {
-		this.parent = parent;
+		this.__parent__ = parent;
+		this.__region__ = parent.region;
+		
 		/** Top-right corner */
 		this.ax = opts.ax || opts.x || 0;
 		this.ay = opts.ay || opts.y || 0;
@@ -254,7 +285,11 @@ class MapArea {
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
 	}
-	get locId() { return `TODO`; } //TODO: get from parent, and get the index as the area id
+	get locId() {
+		const p = this.__parent__.locId;
+		const a = this.__parent__.areas.indexOf(this);
+		return `${p}:${a}`;
+	} //TODO: get from parent, and get the index as the area id
 	
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
@@ -275,35 +310,47 @@ class MapArea {
  * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
  */
 class TransitReport {
-	constructor(opts={}) {
-		this.id = 0; //TODO random
+	constructor(region, opts={}) {
+		this.__region__ = region;
+		
 		this.from = opts.from;
 		this.to = opts.to;
 		this.text = opts.text;
 		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
 		this.timeout = opts.timeout || 10*60*1000;
 	}
+	
+	serialize() {
+		let data = {
+			from: null, to: null,
+			text: this.text,
+			timeout: this.timeout,
+		};
+		if (this.from) data.from = this.from.locId;
+		if (this.to) data.to = this.to.locId;
+		return data;
+	}
 }
 
 /** Default Map Types */
-function generateDefaultMapTypes() {
+function generateDefaultMapTypes(region) {
 	const TYPES = {};
 	const add = (t)=> TYPES[t.type] = t;
 	
-	add(new MapType({ type:'unknown' 	}));
-	add(new MapType({ type:'town',   	attrs:{ town:true, } }));
-	add(new MapType({ type:'route'  	}));
-	add(new MapType({ type:'indoor',	attrs:{ indoors:true, } }));
-	add(new MapType({ type:'cave',		attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType({ type:'gatehouse',	attrs:{ indoors:true, } }));
-	add(new MapType({ type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType({ type:'center',	attrs:{ indoors:true, healing:true, checkpoint:true },
+	add(new MapType(region, { type:'default' 	}));
+	add(new MapType(region, { type:'town',   	attrs:{ town:true, } }));
+	add(new MapType(region, { type:'route'  	}));
+	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, } }));
+	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true } }));
+	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, } }));
+	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
+	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:true, checkpoint:true },
 		areas: [
 			{ name: "PC", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
-	add(new MapType({ type:'mart',		attrs:{ indoors:true, shopping:true } }));
-	add(new MapType({ type:'gym',		attrs:{ indoors:true, gym:true } }));
+	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true } }));
+	add(new MapType(region, { type:'gym',		attrs:{ indoors:true, gym:true } }));
 	return TYPES;
 }
 

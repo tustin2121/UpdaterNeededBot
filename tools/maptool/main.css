@@ -53,14 +53,25 @@ body {
 	white-space: nowrap;
 	display: block;
 }
+.treepane span.selected {
+	font-weight: bold;
+}
 .treepane span.emptyslot {
-    color: #888;
+	color: #888888;
 }
 .treepane span.emptyslot::after {
-	content: ' - [Empty]';
+	content: ' [empty]';
+    font-size: 65%;
+}
+.treepane span.template {
+	color: #888888;
+}
+.treepane span.template::after {
+	content: ' [templated]';
+	font-size: 65%;
 }
 .treepane ul {
-	padding-left: 20px;
+	padding-left: 12px;
 	list-style-type: none;
 }
 .treepane li {
@@ -81,6 +92,23 @@ body {
 .treepane li span {
 	color: #000000;
 	cursor: pointer;
+}
+
+.treepane li span.arrow {
+	display: inline;
+	color: #AAAAAA;
+}
+.treepane li .arrow::before {
+	content: '\25BC  '; /* arrow down */
+}
+.treepane li.closed .arrow::before {
+	content: '\25BA  '; /* arrow right */
+}
+.treepane li.leaf .arrow::before {
+	content: '\3000  '; /* nbsp */
+}
+.treepane li .arrow.leaf::before {
+	content: '\3000  '; /* nbsp */
 }
 
 .proppane {
@@ -162,9 +190,9 @@ body > main {
 	top: 0; bottom: 0;
 	display: grid;
 	grid-template:
-		"tree props parent" 2fr
+		"tree props parent" 1fr
 		"tree props trans" 1fr
-		/ 200px 1fr 1fr;
+		/ 250px 1fr 1fr;
 }
 
 #maptree {

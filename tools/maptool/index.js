@@ -78,7 +78,7 @@ const APP = global.App = new App();
 
 nw.Window.open("main.html", {
 	title: "Maptool",
-	width: 920, height: 640,
+	width: 970, height: 640,
 	position: "center",
 	resizable: true,
 	focus: true,

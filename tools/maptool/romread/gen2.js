@@ -25,7 +25,7 @@ const SPRITEMOVEDATA = [
 ];
 const OBJECTTYPE = ['SCRIPT','ITEMBALL','TRAINER',3,4,5,6];
 
-const ENVIRONS = [ null, "town", "route", "indoor", "cave", null, "gate", "dungeon", ];
+const ENVIRONS = [ 'default', "town", "route", "indoor", "cave", 'default', "gatehouse", "dungeon", ];
 // Notes:
 /// Caves and Dungeons can be dug out of
 /// Routes and Towns are considered outdoor maps
@@ -111,7 +111,7 @@ class Gen2Reader extends GBReader {
 					break;
 				}
 				
-				let info = new MapNode({ //basic info from map header 1
+				let info = new MapNode(null, { //basic info from map header 1
 					bank: b+1, map: m+1,
 					areaId: mapHeader[5],
 					areaName: areaNames[mapHeader[5]],

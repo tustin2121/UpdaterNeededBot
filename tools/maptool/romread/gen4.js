@@ -194,7 +194,7 @@ class Gen4Reader extends DSReader {
 		
 		for (let mh of mapHeaders) {
 			//TODO loop through maps and get information like warps, width/height, etc.
-			let info = new MapNode({
+			let info = new MapNode(null, {
 				id: mh.id,
 				name: mh.name,
 				areaName: mh.internalName,
