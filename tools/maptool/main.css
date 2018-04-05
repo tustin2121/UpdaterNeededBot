@@ -104,9 +104,7 @@ body {
 .treepane li.closed .arrow::before {
 	content: '\25BA  '; /* arrow right */
 }
-.treepane li.leaf .arrow::before {
-	content: '\3000  '; /* nbsp */
-}
+.treepane li.leaf .arrow::before,
 .treepane li .arrow.leaf::before {
 	content: '\3000  '; /* nbsp */
 }
@@ -126,6 +124,14 @@ body {
 	color: white;
 	font-weight: bold;
 	text-align: center;
+}
+.proppane div {
+	display: block;
+	padding: 0;
+	position: relative;
+}
+.proppane div:nth-child(odd) {
+	background-color: #d4ebff;
 }
 .proppane label {
 	display: block;
@@ -171,6 +177,11 @@ body {
 }
 .proppane label > span.valpair > input.val {
 	width: 50%;
+}
+
+.proppane div.report > button {
+	margin: 4px 15px;
+    width: -webkit-fill-available;
 }
 
 /* */

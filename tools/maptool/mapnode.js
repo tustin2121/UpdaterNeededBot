@@ -117,6 +117,13 @@ class MapRegion {
 		App.notifyChange('slot-del', this);
 	}
 	
+	addEnterReport(node) {
+		this.reports.push(new TransitReport(this, { to:node }));
+	}
+	addExitReport(node) {
+		this.reports.push(new TransitReport(this, { from:node }));
+	}
+	
 	renumberMaps() {
 		for (let bank = 0; bank < this.nodes.length; bank++) {
 			if (!this.nodes[bank]) continue;
@@ -163,6 +170,10 @@ class MapNode {
 	}
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height']; }
+	
+	toString() {
+		return `Map [${this.locId}] "${this.name}"`;
+	}
 	
 	get locId() { return `${this.bank}.${this.id}`; }
 	// alias mapType => type
@@ -242,6 +253,10 @@ class MapType {
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['locId', 'name']; }
 	
+	toString() {
+		return `Type [${this.name}]`;
+	}
+	
 	addArea(opts={}) {
 		if (opts === null) {
 			this.areas.push(null); //these are used for spaces for template areas
@@ -293,6 +308,10 @@ class MapArea {
 	
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
+	
+	toString() {
+		return `Area [${this.locId}] "${this.name}"`;
+	}
 	
 	serialize() {
 		return {

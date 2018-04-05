@@ -28,7 +28,7 @@ class MapPanel {
 	constructor() {
 		this.selectedData = null;
 		this.parentData = null;
-		this.zoomLevel = 8;
+		this.editingTransit = null;
 		
 		App.on('load', ()=> this.updateTree());
 	}
@@ -449,11 +449,41 @@ class MapPanel {
 		
 		$(`<header>Enter Reports</header>`).appendTo($list);
 		for (let report of enterReports) {
-			
+			let $report = $(`<div>`).addClass('report').appendTo($list);
+			$(`<span class='from'>${report.from || 'anywhere'}</span>`).appendTo($report);
+			$(`<input class='timeout' type='number'>`).appendTo($report)
+				.val(report.timeout)
+				.on('change', function(){ report.timeout = $(this).val(); });
+			$(`<textarea>`).appendTo($report)
+				.val(report.text)
+				.on('change', function(){ report.text = $(this).val(); });
+		}
+		{
+			$(`<button>`).appendTo($list).wrap('<div class="report">')
+				.text('New Entrance Report')
+				.on('click', ()=>{
+					App.currData.addEnterReport(this.selectedData);
+					this.updateTransitList();
+				});
 		}
 		$(`<header>Exit Reports</header>`).appendTo($list);
 		for (let report of exitReports) {
-			
+			let $report = $(`<div>`).addClass('report').appendTo($list);
+			$(`<span class='to'>${report.to || 'anywhere'}</span>`).appendTo($report);
+			$(`<input class='timeout' type='number'>`).appendTo($report)
+				.val(report.timeout)
+				.on('change', function(){ report.timeout = $(this).val(); });
+			$(`<textarea>`).appendTo($report)
+				.val(report.text)
+				.on('change', function(){ report.text = $(this).val(); });
+		}
+		{
+			$(`<button>`).appendTo($list).wrap('<div class="report">')
+				.text('New Exit Report')
+				.on('click', ()=>{
+					App.currData.addExitReport(this.selectedData);
+					this.updateTransitList();
+				});
 		}
 	}
 	
