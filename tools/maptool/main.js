@@ -19,6 +19,7 @@ const {
 // the transit reports for the selected area.
 
 /* global App, window, document */
+window.App = global.App;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Main Map Panel
@@ -29,6 +30,7 @@ class MapPanel {
 		this.parentData = null;
 		this.zoomLevel = 8;
 		
+		App.on('load', ()=> this.updateTree());
 	}
 	deselect() {
 		this.selectedData = null;
@@ -87,6 +89,7 @@ class MapPanel {
 				}
 			}));
 		}
+		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
 	}
 	/** Shows the context menu when clicking on a bank. */
@@ -106,6 +109,7 @@ class MapPanel {
 		// 		self.updateTree();
 		// 	}
 		// }));
+		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
 	}
 	/** Shows the context menu when clicking on a map. */
@@ -167,7 +171,7 @@ class MapPanel {
 				}
 			}));
 		}
-		
+		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
 	}
 	/** Shows the context menu when clicking on an area. */
@@ -198,6 +202,7 @@ class MapPanel {
 				}
 			}));
 		}
+		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
 	}
 	
@@ -209,23 +214,24 @@ class MapPanel {
 		{
 			const $tli = $(`<li>`);
 			const $tlbl = $(`<span class='bank'>Map Types</span>`);
-			const $sub = $(`<ul>`);
+			const $tsub = $(`<ul>`);
 			$tlbl.on('contextmenu', (e)=>this.showTypeMenu({ e }));
 			// $tlbl.on('click', (e)=>{
 			// 	$tli.toggleClass('closed');
 			// 	this.renumber();
 			// });
-			$tli.append($tlbl).append($sub).appendTo($tree);
+			$tli.append($tlbl).append($tsub).appendTo($tree);
 			for (let type in data.types) {
 				const $li = $(`<li>`);
 				const $lbl = $(`<span class='type'>Type "${type}"</span>`);
+				const $sub = $(`<ul>`);
 				let d = data.types[type];
 				if (d === this.selectedData) $lbl.addClass('selected');
 				$lbl.on('click', ()=>this.select(d, $lbl));
 				$lbl.on('contextmenu', (e)=>this.showTypeMenu({ e, type:d, typeId:type }));
-				$li.append($lbl).appendTo($sub);
+				$li.append($lbl).append($sub).appendTo($tsub);
 				for (let area = 0; area < d.areas.length; area++) {
-					let a = d.area[area];
+					let a = d.areas[area];
 					const $ali = $(`<li>`);
 					const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
 					if (a === this.selectedData) $albl.addClass('selected');
@@ -235,7 +241,7 @@ class MapPanel {
 				}
 			}
 		}
-		for (let bank of data.nodes) {
+		for (let bank = 0; bank < data.nodes.length; bank++) {
 			// const $bli = $(`<li class='closed'>`);
 			const $bli = $(`<li>`);
 			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`);
@@ -250,23 +256,27 @@ class MapPanel {
 				$blbl.on('contextmenu', (e)=>this.showBankMenu({ e, bank:data.nodes[bank], bankId:bank }));
 				continue; //move on to the next bank
 			}
-			for (let map of data.nodes[bank]) {
+			for (let map = 0; map < data.nodes[bank].length; map++) {
 				let d = data.nodes[bank][map];
 				const $mli = $(`<li>`);
-				const $mlbl = $(`<span class='map'>Map ${map}: "${d.name}"</span>`);
+				const $mlbl = $(`<span class='map'>`);
 				const $msub = $(`<ul>`);
 				$mli.append($mlbl).append($msub).appendTo($sub);
 				if (!d) {
 					$mlbl.addClass('emptyslot');
+					$mlbl.text(`Map ${map}`);
 					$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
 					continue; //move on to the next map
+				} else {
+					$mlbl.text(`Map ${map}: "${d.name}"`);
+					$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
 				}
 				if (d === this.selectedData) $mlbl.addClass('selected');
 				$mlbl.on('click', ()=>this.select(d, $mlbl));
 				
 				let type = data.types[d.type];
 				for (let area = 0; area < d.areas.length && area < type.areas.length; area++) {
-					let a = d.area[area];
+					let a = d.areas[area];
 					if (a) {
 						const $ali = $(`<li>`);
 						const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`);
@@ -275,7 +285,7 @@ class MapPanel {
 						$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, bankId:bank, mapId:map, areaId:area }));
 						$ali.append($albl).appendTo($msub);
 					} else {
-						a = type.area[area];
+						a = type.areas[area];
 						const $ali = $(`<li>`);
 						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`);
 						// $albl.on('click', ()=>this.select(a, $albl));
@@ -291,8 +301,8 @@ class MapPanel {
 	updatePropList($list, data) {
 		$list.empty();
 		if (!data) return;
-		$(`<header>Properties</header>`).appendTo($list);
-		for (let key of data.prototype.PROPS){
+		$(`<header>${data.constructor.name} Properties</header>`).appendTo($list);
+		for (let key of data.constructor.PROPS){
 			let $lbl = $(`<label>`);
 			$(`<span class="key">${key}</span>`).appendTo($lbl);
 			let $val = createValue(key, data);
@@ -336,7 +346,8 @@ class MapPanel {
 			let val = obj[key];
 			switch (key) {
 				case 'locId':
-					return $(`<input class='val' type='text' disabled />`);
+					return $(`<input class='val' type='text' disabled />`)
+						.val(val);
 				case 'type':
 					return makeMapTypeSelect()
 						.val(val)
@@ -416,6 +427,7 @@ class MapPanel {
 		
 		function makeMapTypeSelect() {
 			let $sel = $(`<select>`);
+			$sel.addClass('val');
 			for (let t in App.currData.types) {
 				const $opt = $(`<option class='${t}'>${t}</span>`);
 				$opt.appendTo($sel);
@@ -443,7 +455,6 @@ class NewRegionDialog {
 		this.$dialog.find('[name=romPath]').on('change', ()=>{
 			let hasROM = !!this.$dialog.find('[name=romPath]').val();
 			this.$dialog.find('[name=genRadio]').toggle(hasROM);
-			this.$dialog.find('[name=typeRadio]').toggle(!hasROM);
 		});
 	}
 	
@@ -460,198 +471,34 @@ class NewRegionDialog {
 	}
 	
 	createNewRegion() {
-		try {
-			let file = this.$dialog.find('[name=savePath]').val();
-			let name = this.$dialog.find('[name=name]').val();
-			let romFile = this.$dialog.find('[name=romPath]').val();
-			if (!file) { window.alert('Please provide a file path!'); return; }
-			if (!name) { window.alert('Please name the region!'); return; }
-			
-			let data = {
-				name: name,
-				idType: null,
-				typeDefaults: generateDefaultMapTypes,
-				nodes: null,
-			};
-			if (romFile) {
-				let reader, idType;
-				switch (this.$dialog.find('[name=gen]:checked').val()) {
-					case '1':
-						reader = require('./romread').Gen1Reader;
-						idType = 'single';
-						break;
-					case '2':
-						reader = require('./romread').Gen2Reader;
-						idType = 'banked';
-						break;
-					case '3':
-						reader = null; //TODO
-						idType = 'banked';
-						break;
-					case '4':
-						reader = null; //TODO
-						idType = 'single';
-						break;
-					case '5':
-						reader = null; //TODO
-						idType = 'single';
-						break;
-					case '6':
-						reader = null; //TODO
-						idType = 'single';
-						break;
-					case '7':
-						reader = null; //TODO
-						idType = 'single';
-						break;
-				}
-				if (!reader) throw new Error('Unsupported generation!');
-				reader = new reader(romFile).load();
-				let mapData = reader.readMaps();
-				data.idType = idType;
-				data.nodes = mapData.mapData;
-				console.log(reader, mapData);
-			} else {
-				data.idType = this.$dialog.find('[name=idtype]:checked').val();
-				data.nodes = {};
+		let file = this.$dialog.find('[name=savePath]').val();
+		let name = this.$dialog.find('[name=name]').val();
+		let romFile = this.$dialog.find('[name=romPath]').val();
+		if (!file) { window.alert('Please provide a file path!'); return; }
+		if (!name) { window.alert('Please name the region!'); return; }
+		let romReader = ((gen)=>{
+			switch (gen) {
+				case '1': return require('./romread').Gen1Reader;
+				case '2': return require('./romread').Gen2Reader;
+				// case '3': return require('./romread').Gen3Reader;
+				// case '4': return require('./romread').Gen4Reader;
+				// case '5': return require('./romread').Gen5Reader;
+				// case '6': return require('./romread').Gen6Reader;
+				// case '7': return require('./romread').Gen7Reader;
+				default: throw new Error('Unsupported generation!');
 			}
-			fs.writeFileSync(file, JSON.stringify(data, null, '\t'));
-			this.$dialog.hide();
-			loadRegion(file);
-		} catch (e) {
-			throw e;
-		}
+		})(this.$dialog.find('[name=gen]:checked').val());
+		romReader = new romReader(romFile);
+		App.newRegion({ file, name, romReader });
+		this.$dialog.hide();
 	}
 }
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Type Defaults Dialog
-/*
-class TypesDialog {
-	constructor() {
-		this.$dialog = $('#defaultsDialog');
-		this.curr = null;
-		
-		this.$dialog.find('[name=closeBtn]').on('click', ()=>{ this.hide() });
-	}
-	
-	show() {
-		this.$dialog.show();
-		this.updateTree();
-	}
-	hide() { this.$dialog.hide(); }
-	
-	select(data, $lbl) {
-		this.curr = data;
-		this.updatePropList();
-	}
-	
-	updateTree() {
-		let $tree = this.$dialog.find('.treepane');
-		$tree.empty();
-		
-		for (let t in currData.typeDefaults) {
-			const $li = $(`<li>`);
-			const $lbl = $(`<span class='maptype'>${t}</span>`);
-			let d = currData.typeDefaults[t];
-			$lbl.on('click', ()=>this.select(d, $lbl));
-			$li.append($lbl).appendTo($tree);
-		}
-		this.renumber();
-	}
-	
-	updatePropList() {
-		let $list = this.$dialog.find('.proppane');
-		$list.empty();
-		if (!this.curr) return;
-		$(`<header>Attributes</header>`).appendTo($list);
-		for (let key in ATTRS) {
-			let $lbl = $(`<label>`);
-			$(`<span class="key">${key}</span>`).attr('title', ATTRS[key].tooltip).appendTo($lbl);
-			let $val = createAttr(key, this.curr.attrs);
-			$val.appendTo($lbl);
-			$lbl.appendTo($list);
-		}
-		$(`<header>Location Of</header>`).appendTo($list);
-		for (let key in MAP_LOCOF) {
-			let $lbl = $(`<label>`);
-			$(`<span class="key">${key}</span>`).attr('title', MAP_LOCOF[key].tooltip).appendTo($lbl);
-			// let $val = createAttr(key, this.curr.attrs);
-			// $val.appendTo($lbl);
-			$lbl.appendTo($list);
-		}
-		return;
-		
-		function createAttr(key, obj) {
-			let info = ATTRS[key];
-			let $val = $(`<span class='val'>`);
-			let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
-			$val.append($checkThis);
-			
-			if (info.values) {
-				let $sel = $('<select>');
-				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
-				$sel.on('change', function(){
-					obj[key] = $sel.val();
-				});
-				$checkThis.on('change', function(){
-					if ($(this).prop('checked')) {
-						$sel.prop({ disabled:false });
-						obj[key] = $sel.val();
-					} else {
-						$sel.prop({ disabled:true });
-						obj[key] = false;
-					}
-				});
-				if (obj[key]) {
-					$sel.val(obj[key]);
-					$checkThis.prop({ checked:true });
-				} else {
-					$checkThis.prop({ checked:false });
-				}
-				
-			} else if (info.allowString) {
-				let $str = $(`<input type='text'/>`).appendTo($val)
-					.on('change', function(){
-						obj[key] = $(this).val();
-						$checkThis.prop({ indeterminate:true });
-					});
-				if (typeof obj[key] === 'string') {
-					$str.val(obj[key]);
-				}
-				$checkThis.on('change', function(){
-					$(this).prop({ indeterminate:false });
-					$str.val('');
-					obj[key] = !!$(this).prop('checked');
-				});
-				
-			} else if (info.allowSpawnpoint) {
-				//TODO
-				
-			} else {
-				$checkThis.on('change', function(){
-					obj[key] = $(this).prop('checked');
-				});
-			}
-			
-			//TODO allowString, values, etc
-			return $val;
-		}
-	}
-	
-	renumber() { // this.renumber()
-		this.$dialog.find('.treepane li:visible').each((i,e)=>{
-			$(e).removeClass('n0 n1').addClass('n'+(i%2));
-		});
-	}
-}
-*/
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Main
 
-let mapPanel, newRegionDialog, typesDialog;
+let mapPanel, newRegionDialog;
 
 makeMenubar();
 
@@ -659,7 +506,7 @@ $(()=>{
 	mapPanel = new MapPanel();
 	newRegionDialog = new NewRegionDialog();
 	
-	const TITLE = document.title;
+	const TITLE = 'Maptool';
 	App.on('dirty', (dirty)=>{
 		let file = '';
 		if (App.currData) {
@@ -688,7 +535,7 @@ function makeMenubar() {
 				chooser.unbind('change').on('change', ()=>{
 					try {
 						let file = chooser.val();
-						loadRegion(file);
+						App.loadRegion(file);
 					} catch (e) {
 						console.log('Error!', e);
 					}
@@ -699,17 +546,17 @@ function makeMenubar() {
 		submenu.append(new nw.MenuItem({ type:'separator' }));
 		submenu.append(new nw.MenuItem({ label:'Save',
 			key:'s', modifiers:'ctrl',
-			click:saveRegion,
+			click: ()=> App.saveRegion(),
 			
 		}));
 		
 		menu.append(new nw.MenuItem({ label:'File', submenu }));
 	}{
 		let submenu = new nw.Menu();
-		submenu.append(new nw.MenuItem({ label:'Type Defaults',
-			click() { typesDialog.show(); }
+		submenu.append(new nw.MenuItem({ label:'Open Map Window',
+			click() { App.openMapWindow(); }
 		}));
-		menu.append(new nw.MenuItem({ label:'Edit', submenu }));
+		menu.append(new nw.MenuItem({ label:'View', submenu }));
 	}
 	nw.Window.get().menu = menu;
 }

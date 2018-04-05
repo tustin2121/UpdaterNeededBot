@@ -27,7 +27,7 @@ class App extends EventEmitter {
 	}
 	
 	set isDirty(val) {
-		this._dirty = true;
+		this._dirty = val;
 		this.emit('dirty', this._dirty);
 	}
 	get isDirty(){ return this._dirty; }
@@ -78,7 +78,7 @@ const APP = global.App = new App();
 
 nw.Window.open("main.html", {
 	title: "Maptool",
-	width: 520, height: 640,
+	width: 920, height: 640,
 	position: "center",
 	resizable: true,
 	focus: true,

@@ -51,6 +51,13 @@ body {
 }
 .treepane span {
 	white-space: nowrap;
+	display: block;
+}
+.treepane span.emptyslot {
+    color: #888;
+}
+.treepane span.emptyslot::after {
+	content: ' - [Empty]';
 }
 .treepane ul {
 	padding-left: 20px;
@@ -78,7 +85,7 @@ body {
 
 .proppane {
 	overflow-y: scroll;
-	margin: 0; padding: 2px 0 0 0;
+	margin: 0; padding: 0;
 	font-family: sans-serif;
 	font-size: 10pt;
 }
@@ -111,15 +118,31 @@ body {
 .proppane label > span.val {
 	position: absolute;
 	display: inline-block;
-	right: 0;
-	top: 0;
+	top: 0; right: 0;
 	width: 205px;
+}
+.proppane label > .val input[type="text"] {
+    position: absolute;
 }
 .proppane label > input.val {
 	position: absolute;
-	right: 0;
-	top: 0;
+	top: 0; right: 0;
 	width: 205px;
+}
+.proppane label > select.val {
+	position: absolute;
+	top: 0; right: 0;
+	width: 205px;
+	height: inherit;
+}
+.proppane label > span.valpair {
+	position: absolute;
+	display: inline-block;
+	top: 0; right: 0;
+	width: 205px;
+}
+.proppane label > span.valpair > input.val {
+	width: 50%;
 }
 
 /* */
@@ -138,20 +161,40 @@ body > main {
 	left: 0; right: 0;
 	top: 0; bottom: 0;
 	display: grid;
-	grid-template: "tree props parent" / 200px 1fr 1fr;
+	grid-template:
+		"tree props parent" 2fr
+		"tree props trans" 1fr
+		/ 200px 1fr 1fr;
 }
 
 #maptree {
-	grid: "tree";
-	/*border-bottom: solid 2px #888;*/
+	grid-area: tree;
 	border-right: solid 2px #888;
 }
 #mapprops {
-	grid: "props";
+	grid-area: props;
 	border-right: solid 2px #888;
 }
 #parentprops {
-	grid: "parent";
+	grid-area: parent;
+	border-bottom: solid 2px #888;
+}
+#transprops {
+	grid-area: trans;
+}
+
+#mapprops::before { content: 'Selected Map'; }
+#parentprops::before { content: 'Parent Map'; }
+#transprops::before { content: 'Transit Reports'; }
+.proppane::before {
+	display: block;
+	padding: 3;
+	height: 15px;
+	position: relative;
+	background-color: #585858;
+	color: white;
+	font-weight: bold;
+	text-align: center;
 }
 
 #newDialog [name=genRadio] {

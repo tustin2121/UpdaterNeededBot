@@ -299,7 +299,7 @@ function generateDefaultMapTypes() {
 	add(new MapType({ type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
 	add(new MapType({ type:'center',	attrs:{ indoors:true, healing:true, checkpoint:true },
 		areas: [
-			{ x:2, y:2, attrs:{ pc:true } },
+			{ name: "PC", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
 	add(new MapType({ type:'mart',		attrs:{ indoors:true, shopping:true } }));
@@ -315,6 +315,7 @@ const ATTRS = {
 	},
 	preposition: {
 		tooltip: `The preposition to use before this map name. Usually 'on' or 'in' (or rarely 'at').`,
+		allowString: true,
 	},
 	
 	inconsequential: { //TODO also add enter and exit strings
