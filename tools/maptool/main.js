@@ -451,16 +451,17 @@ class MapPanel {
 		$(`<header>Enter Reports</header>`).appendTo($list);
 		for (let report of enterReports) {
 			let $report = $(`<div>`).addClass('report').appendTo($list);
-			$(`<span class='from'>${report.from || 'anywhere'}</span>`).appendTo($report);
+			$(`<button class=''>${report.from || 'anywhere'}</button>`).appendTo($report)
+				.wrap(`<span class='from'>`);
 			$(`<input class='timeout' type='number'>`).appendTo($report)
 				.val(report.timeout)
 				.on('change', function(){ report.timeout = $(this).val(); });
-			$(`<textarea>`).appendTo($report)
+			$(`<textarea spellcheck='true'>`).appendTo($report)
 				.val(report.text)
 				.on('change', function(){ report.text = $(this).val(); });
 		}
 		{
-			$(`<button>`).appendTo($list).wrap('<div class="report">')
+			$(`<button>`).appendTo($list).wrap('<div class="newReport">')
 				.text('New Entrance Report')
 				.on('click', ()=>{
 					App.currData.addEnterReport(this.selectedData);
@@ -470,16 +471,17 @@ class MapPanel {
 		$(`<header>Exit Reports</header>`).appendTo($list);
 		for (let report of exitReports) {
 			let $report = $(`<div>`).addClass('report').appendTo($list);
-			$(`<span class='to'>${report.to || 'anywhere'}</span>`).appendTo($report);
+			$(`<button class=''>${report.to || 'anywhere'}</button>`).appendTo($report)
+				.wrap(`<span class='to'>`);
 			$(`<input class='timeout' type='number'>`).appendTo($report)
 				.val(report.timeout)
 				.on('change', function(){ report.timeout = $(this).val(); });
-			$(`<textarea>`).appendTo($report)
+			$(`<textarea spellcheck='true'>`).appendTo($report)
 				.val(report.text)
 				.on('change', function(){ report.text = $(this).val(); });
 		}
 		{
-			$(`<button>`).appendTo($list).wrap('<div class="report">')
+			$(`<button>`).appendTo($list).wrap('<div class="newReport">')
 				.text('New Exit Report')
 				.on('click', ()=>{
 					App.currData.addExitReport(this.selectedData);
