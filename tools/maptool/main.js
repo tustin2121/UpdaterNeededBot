@@ -54,6 +54,7 @@ class MapPanel {
 		$('#maptree .selected').removeClass('selected');
 		$lbl.addClass('selected');
 		this.updatePropLists();
+		App.emit('map-selected', this.selectedData);
 	}
 	updatePropLists() {
 		this.updatePropList($('#mapprops'), this.selectedData);
@@ -581,6 +582,7 @@ function makeMenubar() {
 			}
 		}));
 		submenu.append(new nw.MenuItem({ label:'Open Map',
+			key:'o', modifiers:'ctrl',
 			click() {
 				let chooser = $('#openPath');
 				chooser.unbind('change').on('change', ()=>{
@@ -597,14 +599,14 @@ function makeMenubar() {
 		submenu.append(new nw.MenuItem({ type:'separator' }));
 		submenu.append(new nw.MenuItem({ label:'Save',
 			key:'s', modifiers:'ctrl',
-			click: ()=> App.saveRegion(),
-			
+			click() { App.saveRegion(); },
 		}));
 		
 		menu.append(new nw.MenuItem({ label:'File', submenu }));
 	}{
 		let submenu = new nw.Menu();
 		submenu.append(new nw.MenuItem({ label:'Open Map Window',
+			key:'m', modifiers:'ctrl',
 			click() { App.openMapWindow(); }
 		}));
 		menu.append(new nw.MenuItem({ label:'View', submenu }));

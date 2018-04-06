@@ -1,6 +1,11 @@
 // maptool map.js
 // Maptool map scripts
 
+const { MapNode, MapArea } = require('./mapnode.js');
+
+/* global App, window, document */
+window.App = global.App;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Type Defaults Dialog
 
@@ -8,7 +13,11 @@ class MapPanel {
 	constructor() {
 		this.currMap = null;
 		this.zoomLevel = 8;
-		
+		App.on('map-selected', (node)=> this.select(node));
+		App.on('map-changed', (args)=>{
+			this.select(App.currData.resolve(args));
+		});
+		// $('#map')[0].onwheel = ()=>{  };
 	}
 	resize() {
 		let canvas = $('#map')[0];
@@ -31,12 +40,13 @@ class MapPanel {
 		this.repaint();
 	}
 	
-	select(data, $lbl) {  // select()
+	select(data) {
+		if (data instanceof MapArea) data = data.__parent__;
+		if (!(data instanceof MapNode)) data = null; // Can't draw what's not a Map
 		this.currMap = data;
 		this.repaint();
-		this.updatePropList();
 	}
-	repaint() { // drawMap()
+	repaint() {
 		const g = $('#map')[0].getContext('2d');
 		g.clearRect(0, 0, $('#map').innerWidth(), $('#map').innerHeight());
 		if (!this.currMap) return;
@@ -58,13 +68,14 @@ class MapPanel {
 			g.stroke();
 		}{
 			let map = this.currMap;
+			let data = this.currMap.gamedata;
 			// Draw connections:
-			for (let dir in this.currMap.conns) {
-				let conn = this.currMap.conns[dir];
+			for (let dir in data.conns) {
+				let conn = data.conns[dir];
 				let off = { x:-map.width/2, y:-map.height/2 };
 				// console.log(`offset:`,off);
 				try {
-					let om = getMap(conn);
+					let om = App.getMap(conn);
 					// console.log(`Connection ${dir}:`, conn, om);
 					switch (dir) {
 						case 's': off.y += map.height; break;
@@ -121,17 +132,17 @@ class MapPanel {
 				g.strokeRect(r.x, r.y, r.w, r.h);
 			}
 			// Draw events
-			for (let en = 0; en < this.currMap.events.length; en++) {
-				require('./drawEvents.js').call(this, g, this.currMap.events[en], {
+			for (let en = 0; data.events && en < data.events.length; en++) {
+				require('./drawEvents.js').call(this, g, data.events[en], {
 					map, BLOCK,
 				});
 			}
 			// Draw warps
-			for (let wn = 0; wn < this.currMap.warps.length; wn++) {
-				let warp = this.currMap.warps[wn];
+			for (let wn = 0; data.warps && wn < data.warps.length; wn++) {
+				let warp = data.warps[wn];
 				if (!warp) continue;
 				try {
-					let om = getMap(warp);
+					let om = App.getMap(warp);
 					let textColor = '';
 					if (om) {
 						g.fillStyle = `#00CC00`;

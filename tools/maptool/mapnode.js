@@ -74,6 +74,17 @@ class MapRegion {
 		return null;
 	}
 	
+	resolve(arg) {
+		if (typeof arg === 'string') return this.resolveLocId(arg);
+		if (typeof arg === 'object') {
+			let { bank, id, area } = arg;
+			bank = this.nodes[bank];
+			if (area) return bank[id].areas[area];
+			return bank[id];
+		}
+		return null;
+	}
+	
 	ensureMap(bankId, mapId, data={}) {
 		this.nodes[bankId] = this.nodes[bankId] || [];
 		if (!this.nodes[bankId][mapId]) {

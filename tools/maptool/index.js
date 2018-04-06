@@ -40,9 +40,7 @@ class App extends EventEmitter {
 	}
 	
 	getMap({ bank=0, id=0, area }) {
-		let node = this.currData.nodes[bank][id];
-		if (area) node = node.areas[area];
-		return node;
+		return this.currData.resolve({ bank, id, area });
 	}
 	
 	loadRegion(file) {
