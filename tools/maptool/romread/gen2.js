@@ -129,10 +129,13 @@ class Gen2Reader extends GBReader {
 				if (info.mapType === 'indoor') {
 					if (mapHeader[1] == TILESET_POKECENTER) {
 						info.mapType = 'center';
+						info.name += ' Pokémon Center';
 					} else if (mapHeader[1] == TILESET_MART) {
 						info.mapType = 'mart';
+						info.name += ' PokéMart';
 					} else if (mapHeader[6] == MUSIC_GYM) {
 						info.mapType = 'gym';
+						info.name += ' Gym';
 					}
 				}
 				

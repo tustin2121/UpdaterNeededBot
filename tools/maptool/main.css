@@ -53,7 +53,11 @@ body {
 .treepane span {
 	white-space: nowrap;
 	display: block;
+	margin-left: -100px;
+	padding-left: 100px;
 }
+.treepane li.n0 > span { background-color:rgba(0,0,0, 0.06); }
+.treepane li.n1 > span { background-color:rgba(0,0,0, 0.13); }
 .treepane span.selected {
 	font-weight: bold;
 }
@@ -78,7 +82,7 @@ body {
 .treepane li {
 	position: relative;
 }
-.treepane li.n0::before,
+/* .treepane li.n0::before,
 .treepane li.n1::before {
 	content: '\00a0';
 	position: absolute;
@@ -86,7 +90,7 @@ body {
 	left: -100px; right: 0;
 }
 .treepane li.n0::before { background-color:#EEEEEE; }
-.treepane li.n1::before { background-color:#DDDDDD; }
+.treepane li.n1::before { background-color:#DDDDDD; } */
 .treepane li.closed ul { display:none; }
 
 /* Files */
@@ -131,7 +135,7 @@ body {
 	padding: 0;
 	position: relative;
 }
-.proppane div:nth-child(odd) {
+.proppane div:nth-of-type(even) {
 	background-color: #d4ebff;
 }
 .proppane label {
@@ -243,7 +247,7 @@ body > main {
     align-items: center;
     padding: 4px;
 }
-#transprops .report .from, 
+#transprops .report .from,
 #transprops .report .to {
     grid-area: map;
     display: block;
@@ -265,12 +269,21 @@ body > main {
 #transprops .report textarea {
     grid-area: txt;
     background-color: rgba(255,255,255,0.2);
+	min-height: 4em;
 }
 
 #newDialog [name=genRadio] {
 	display: none;
 }
 
+#selectMapDialog .treepane {
+	background-color: #d4ffd7;
+}
+#selectMapDialog .treepane .selected {
+    background-color: #fffa6c;
+}
+
+/*
 #defaultsDialog .dialogInner {
 	width: 570px; height: 300px;
 }
@@ -283,4 +296,4 @@ body > main {
 	position: absolute;
 	top: 0; bottom: 0;
 	left: 140px; right: 15px;
-}
+} */

@@ -7,7 +7,7 @@ const EventEmitter = require('events');
 const EmuConnect = require('./emu-connect');
 const { MapRegion } = require('./mapnode.js');
 
-class App extends EventEmitter {
+class Application extends EventEmitter {
 	constructor() {
 		super();
 		this.mainWindow = null;
@@ -72,7 +72,7 @@ class App extends EventEmitter {
 	}
 }
 
-const APP = global.App = new App();
+const APP = global.App = new Application();
 
 nw.Window.open("main.html", {
 	title: "Maptool",

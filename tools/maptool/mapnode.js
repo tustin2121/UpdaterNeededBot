@@ -30,7 +30,7 @@ class MapRegion {
 			for (let report of data.reports) {
 				report.from = this.resolveLocId(report.from);
 				report.to = this.resolveLocId(report.to);
-				this.reports.push(report);
+				this.reports.push(new TransitReport(this, report));
 			}
 		}
 		else if (typeof data === 'string') { //new region
@@ -65,7 +65,7 @@ class MapRegion {
 		if ((res = /\[(\w+)\]/.exec(id))) {
 			return this.types[res[1]];
 		}
-		if ((res = /(\d+)\.(\d+)(?:\:(\d+))/.exec(id))) {
+		if ((res = /(\d+)\.(\d+)(?:\:(\d+))?/.exec(id))) {
 			let bank = this.nodes[res[1]];
 			let map = bank[res[2]];
 			if (res[3]) map = map.areas[res[3]];
@@ -90,6 +90,7 @@ class MapRegion {
 		if (!this.nodes[bankId][mapId]) {
 			this.nodes[bankId][mapId] = new MapNode(this, data);
 			this.renumberMaps();
+			App.notifyChange('map-new', this.nodes[bankId][mapId]);
 		}
 		return this.nodes[bankId][mapId];
 	}
@@ -129,10 +130,20 @@ class MapRegion {
 	}
 	
 	addEnterReport(node) {
-		this.reports.push(new TransitReport(this, { to:node }));
+		let r = new TransitReport(this, { to:node });
+		this.reports.push(r);
+		App.notifyChange('report-new', r);
 	}
 	addExitReport(node) {
-		this.reports.push(new TransitReport(this, { from:node }));
+		let r = new TransitReport(this, { from:node });
+		this.reports.push(r);
+		App.notifyChange('report-new', r);
+	}
+	deleteReport(report) {
+		let i = this.reports.indexOf(report);
+		if (i === -1) return;
+		this.reports.splice(i, 1);
+		App.notifyChange('report-del', this);
 	}
 	
 	renumberMaps() {
@@ -374,7 +385,7 @@ function generateDefaultMapTypes(region) {
 	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true } }));
 	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, } }));
 	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:true, checkpoint:true },
+	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true },
 		areas: [
 			{ name: "PC", x:2, y:2, attrs:{ pc:true } },
 		],
