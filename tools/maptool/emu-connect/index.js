@@ -7,6 +7,8 @@ const EventEmitter = require('events');
 class EmuConnect extends EventEmitter {
 	constructor() {
 		super();
+		this.last = {};
+		
 		this.server = http.createServer((req, res)=>{
 			if (req.method === 'POST') {
 				let data = '';
@@ -16,7 +18,10 @@ class EmuConnect extends EventEmitter {
 					res.end();
 					this.setState(JSON.parse(data));
 				});
+				return;
 			}
+			res.statusCode = 418; //I am a teapot
+			res.end();
 		});
 	}
 	
@@ -25,15 +30,27 @@ class EmuConnect extends EventEmitter {
 	}
 	
 	setState(data) {
-		this.emit('map-change', {
-			area: data.area_id || 0,
+		let mapChanged = false, posChanged = false;
+		let last = this.last;
+		data = {
 			bank: data.map_bank || 0,
 			id: data.map_id || 0,
-			
-			matrix: data.matrix || 0,
-			parent: data.parent || 0,
-			mapid: data.id || 0,
-		});
+			area: data.area_id || 0,
+			x: data.x || 0,
+			y: data.y || 0,
+			z: data.z || 0,
+		};
+		
+		mapChanged |= last.area !== data.area;
+		mapChanged |= last.bank !== data.bank;
+		mapChanged |= last.id !== data.id;
+		posChanged |= last.x !== data.x;
+		posChanged |= last.y !== data.y;
+		posChanged |= last.z !== data.z;
+		
+		this.last = data;
+		if (mapChanged) this.emit('map-change', data);
+		if (posChanged) this.emit('pos-change', data);
 	}
 }
 

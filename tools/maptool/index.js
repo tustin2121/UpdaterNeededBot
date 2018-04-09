@@ -20,11 +20,13 @@ class Application extends EventEmitter {
 		this._dirty = false;
 		
 		this.emuConnect = new EmuConnect();
-		this.emuConnect.on('map-change', ({ bank, id, area })=>{
+		this.emuConnect.on('map-change', ({ bank, id, area, x, y, z })=>{
 			this.currData.ensureMap(bank, id, { area });
-			this.emit('map-change', { bank, id });
+			this.emit('map-change', { bank, id, x, y, z });
 		});
-		
+		this.emuConnect.on('pos-change', ({ bank, id, x, y, z })=>{
+			this.emit('pos-change', { bank, id, x, y, z });
+		});
 	}
 	
 	set isDirty(val) {
@@ -86,11 +88,7 @@ nw.Window.open("main.html", {
 	focus: true,
 }, (win)=> {
 	APP.mainWindow = win
-	win.on('closed', ()=>{
-		// APP.mainWindow = null;
-		// APP.mapWindow = null;
-		process.exit();
-	})
+	win.on('closed', ()=> process.exit() );
 });
 
 nw.Window.open("map.html", {
