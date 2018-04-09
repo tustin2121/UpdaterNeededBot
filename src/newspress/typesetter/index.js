@@ -41,9 +41,9 @@ function formatDiscord(text) {
 }
 
 function typeset(ledger) {
-	LOGGER.warn(`TYPESETTER NOT YET IMPLEMENTED`);
-	//let ts = new TypeSetter(ledger);
-	return null;
+	// LOGGER.warn(`TYPESETTER NOT YET IMPLEMENTED`);
+	let ts = new TypeSetter();
+	return ts.typesetLedger(ledger);
 }
 
 

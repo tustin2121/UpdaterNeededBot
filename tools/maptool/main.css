@@ -28,21 +28,7 @@ body {
 	top: -25px;
 	right: 0px;
 }
-#map {
-	position: absolute;
-	left: 0; right:0;
-	top:0; bottom:0;
-	padding: 0;
-}
-/*#sidebar {
-	background-color: aliceblue;
-	position: absolute;
-	left: 0; width: 360px;
-	top: 0; bottom: 0;
-	margin: 0; padding: 0;
-	font-family: sans-serif;
-	font-size: 10pt;
-}*/
+
 .treepane {
 	overflow-y: scroll;
 	margin: 0;

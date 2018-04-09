@@ -194,7 +194,7 @@ class MapNode {
 	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height']; }
 	
 	toString() {
-		return `Map [${this.locId}] "${this.name}"`;
+		return this.name;
 	}
 	
 	get locId() { return `${this.bank}.${this.id}`; }
@@ -276,7 +276,7 @@ class MapType {
 	static get PROPS() { return ['locId', 'name']; }
 	
 	toString() {
-		return `Type [${this.name}]`;
+		return this.name;
 	}
 	
 	addArea(opts={}) {
@@ -332,7 +332,7 @@ class MapArea {
 	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
 	
 	toString() {
-		return `Area [${this.locId}] "${this.name}"`;
+		return this.name;
 	}
 	
 	serialize() {

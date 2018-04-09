@@ -312,9 +312,7 @@ function isValidToString(fn) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor(ledger) {
-		//TODO process ledger
-		
+	constructor() {
 		// Phrase variables
 		this.subject = null;
 		this.noun = null;
@@ -330,9 +328,63 @@ class TypeSetter {
 		return Math.floor(Math.random()*len);
 	}
 	
-	resolvePhrase(item) {
+	/**
+	 * Collates all of the LedgerItems in the ledger into collections of items, and sorts them
+	 * into an order of apperance. Every item that is the same type of item with the same flavor
+	 * is put into an array.
+	 */
+	static collateItems(ledger) {
+		let dict = {};
+		let order = [];
+		
+		// Collate
+		for (let item of ledger.list) {
+			let itemname = `${item.name}/${item.flavor||'default'}`;
+			if (!dict[itemname]) {
+				order.push(itemname);
+				dict[itemname] = [];
+			}
+			dict[itemname].push(item);
+		}
+		// Sort each collection, so the highest sorted item is first
+		for (let key in dict) {
+			dict[key].sort(LedgerItem.compare);
+		}
+		// Then sort the collections
+		order.sort((a,b)=>{
+			let ai = dict[a][0];
+			let bi = dict[b][0];
+			return LedgerItem.compare(ai, bi);
+		});
+		// Return the collected items
+		return order.map(x=>dict[x]);
+	}
+	
+	/**
+	 * The main function of the TypeSetter.
+	 */
+	typesetLedger(ledger) {
+		let list = TypeSetter.collateItems(ledger);
+		let update = [];
+		
+		for (let items of list) try {
+			let phrase = this.typesetItems(items);
+			LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
+			if (phrase === null) continue;
+			update.push(phrase);
+		} catch (e) {
+			LOGGER.error(`Error typesetting items =>`, items, '\n', e);
+		}
+		if (!update.length) return null;
+		return update.join(' ');
+	}
+	
+	/**
+	 * @param {LedgerItem[]} items - List of ledger items to make into a phrase
+	 */
+	typesetItems(item) {
 		if (!Array.isArray(item) || !item.length) {
-			LOGGER.error(`resolvePhrase passed invalid array or not an array!`, item);
+			LOGGER.error(`typesetItems passed invalid array or not an array!`, item);
 			return null;
 		}
 		if (item.length == 1) item = item[0];
@@ -377,7 +429,7 @@ class TypeSetter {
 			}
 			if (Array.isArray(entry)) {
 				// Shortcut the common case:
-				if (entry.length === 1) return _resolve(entry[0]) || null;
+				if (entry.length === 1) return _resolve(entry[0], item) || null;
 				
 				// Copy off array, so below editing doesn't edit the main entry
 				let array = entry.slice();

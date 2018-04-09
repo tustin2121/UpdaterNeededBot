@@ -391,10 +391,12 @@ class MapPanel {
 				$(`<input class='val' type='number' />`).val(obj[x]).appendTo($pair)
 					.on('change', function(){
 						obj[x] = $(this).val();
+						App.notifyChange('prop-change', data);
 					});
 				$(`<input class='val' type='number' />`).val(obj[y]).appendTo($pair)
 					.on('change', function(){
 						obj[y] = $(this).val();
+						App.notifyChange('prop-change', data);
 					});
 				return $pair;
 			}
@@ -409,6 +411,7 @@ class MapPanel {
 						.val(val)
 						.on('change', function(){
 							obj[key] = $(this).val();
+							App.notifyChange('prop-change', data);
 						});
 			}
 			switch (typeof val) {
@@ -416,11 +419,13 @@ class MapPanel {
 					return $(`<input class='val' type='number' />`).val(val)
 						.on('change', function(){
 							obj[key] = $(this).val();
+							App.notifyChange('prop-change', data);
 						});
 				case 'string':
 					return $(`<input class='val' type='text' />`).val(val)
 						.on('change', function(){
 							obj[key] = $(this).val();
+							App.notifyChange('prop-change', data);
 						});
 			}
 		}
@@ -436,6 +441,7 @@ class MapPanel {
 				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
 				$sel.on('change', function(){
 					obj[key] = $sel.val();
+					App.notifyChange('prop-change', data);
 				});
 				$checkThis.on('change', function(){
 					if ($(this).prop('checked')) {
@@ -453,12 +459,14 @@ class MapPanel {
 					$checkThis.prop({ checked:false });
 				}
 				$checkThis.change();
+				$checkThis.on('change', ()=>App.notifyChange('prop-change', data));
 				
 			} else if (info.allowString) {
 				let $str = $(`<input type='text'/>`).appendTo($val)
 					.on('change', function(){
 						obj[key] = $(this).val();
 						$checkThis.prop({ indeterminate:true });
+						App.notifyChange('prop-change', data);
 					});
 				if (typeof obj[key] === 'string') {
 					$str.val(obj[key]);
@@ -467,11 +475,13 @@ class MapPanel {
 					$(this).prop({ indeterminate:false });
 					$str.val('');
 					obj[key] = !!$(this).prop('checked');
+					App.notifyChange('prop-change', data);
 				});
 				
 			} else {
 				$checkThis.on('change', function(){
 					obj[key] = $(this).prop('checked');
+					App.notifyChange('prop-change', data);
 				});
 			}
 			
@@ -504,21 +514,28 @@ class MapPanel {
 		$(`<header>Enter Reports</header>`).appendTo($list);
 		for (let report of enterReports) {
 			let $report = $(`<div>`).addClass('report').appendTo($list);
-			$(`<button class=''>${report.from || 'anywhere'}</button>`).appendTo($report)
+			$(`<button class=''>${toStr(report.from || 'anywhere')}</button>`).appendTo($report)
 				.wrap(`<span class='from'>`)
 				.on('click', function(){
 					selectMapDialog.show(report.from).then((node)=>{
 						if (node === undefined) return; //cancled
 						report.from = node;
-						$(this).text(report.from || 'anywhere');
+						$(this).text(toStr(report.from || 'anywhere'));
+						App.notifyChange('prop-change', report);
 					});
 				});
 			$(`<input class='timeout' type='number'>`).appendTo($report)
 				.val(report.timeout)
-				.on('change', function(){ report.timeout = $(this).val(); });
+				.on('change', function(){
+					report.timeout = $(this).val();
+					App.notifyChange('prop-change', report);
+				});
 			$(`<textarea spellcheck='true'>`).appendTo($report)
 				.val(report.text)
-				.on('change', function(){ report.text = $(this).val(); });
+				.on('change', function(){
+					report.text = $(this).val();
+					App.notifyChange('prop-change', report);
+				});
 			$report.on('contextmenu', (e)=>this.showTransitMenu({ e, report, node:report.from }));
 		}
 		{
@@ -532,21 +549,28 @@ class MapPanel {
 		$(`<header>Exit Reports</header>`).appendTo($list);
 		for (let report of exitReports) {
 			let $report = $(`<div>`).addClass('report').appendTo($list);
-			$(`<button class=''>${report.to || 'anywhere'}</button>`).appendTo($report)
+			$(`<button class=''>${toStr(report.to || 'anywhere')}</button>`).appendTo($report)
 				.wrap(`<span class='to'>`)
 				.on('click', function(){
 					selectMapDialog.show(report.to).then((node)=>{
 						if (node === undefined) return; //cancled
 						report.to = node;
-						$(this).text(report.to || 'anywhere');
+						$(this).text(toStr(report.to || 'anywhere'));
+						App.notifyChange('prop-change', report);
 					});
 				});
 			$(`<input class='timeout' type='number'>`).appendTo($report)
 				.val(report.timeout)
-				.on('change', function(){ report.timeout = $(this).val(); });
+				.on('change', function(){
+					report.timeout = $(this).val();
+					App.notifyChange('prop-change', report);
+				});
 			$(`<textarea spellcheck='true'>`).appendTo($report)
 				.val(report.text)
-				.on('change', function(){ report.text = $(this).val(); });
+				.on('change', function(){
+					report.text = $(this).val();
+					App.notifyChange('prop-change', report);
+				});
 			$report.on('contextmenu', (e)=>this.showTransitMenu({ e, report, node:report.to }));
 		}
 		{
@@ -693,14 +717,16 @@ function makeMenubar() {
 		let submenu = new nw.Menu();
 		submenu.append(new nw.MenuItem({ label:'New Map',
 			click() {
+				if (App.isDirty && !window.confirm('There are unsaved changes. Continue?')) return;
 				$('#newDialog').show();
 			}
 		}));
 		submenu.append(new nw.MenuItem({ label:'Open Map',
 			key:'o', modifiers:'ctrl',
 			click() {
+				if (App.isDirty && !window.confirm('There are unsaved changes. Continue?')) return;
 				let chooser = $('#openPath');
-				chooser.unbind('change').on('change', ()=>{
+				chooser.unbind('change').val('').on('change', ()=>{
 					try {
 						let file = chooser.val();
 						App.loadRegion(file);
@@ -711,6 +737,12 @@ function makeMenubar() {
 				chooser.trigger('click');
 			}
 	 	}));
+		submenu.append(new nw.MenuItem({ label:'Revert Map',
+			click() {
+				if (App.isDirty && !window.confirm('Are you sure you want to revert?')) return;
+				App.loadRegion(App.currFile);
+			}
+		}));
 		submenu.append(new nw.MenuItem({ type:'separator' }));
 		submenu.append(new nw.MenuItem({ label:'Save',
 			key:'s', modifiers:'ctrl',
@@ -724,9 +756,25 @@ function makeMenubar() {
 			key:'m', modifiers:'ctrl',
 			click() { App.openMapWindow(); }
 		}));
+		submenu.append(new nw.MenuItem({ label:'Open Report Window',
+			key:'r', modifiers:'ctrl',
+			click() { App.openReportWindow(); }
+		}));
 		menu.append(new nw.MenuItem({ label:'View', submenu }));
 	}
 	nw.Window.get().menu = menu;
+}
+
+function toStr(node) {
+	if (node === null) return 'null';
+	if (node === undefined) return 'undefined';
+	if (typeof node === 'string') return node;
+	switch (node.constructor.name) {
+		case 'MapNode': return `Map [${this.locId}] "${this.name}"`;
+		case 'MapType': return `Type [${this.name}]`;
+		case 'MapArea': return `Area [${node.locId}] "${node.name}"`;
+	}
+	return node.toString();
 }
 
 function deleteArrayIndex(arr, index) {

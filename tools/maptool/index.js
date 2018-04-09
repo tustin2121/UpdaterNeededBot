@@ -12,6 +12,7 @@ class Application extends EventEmitter {
 		super();
 		this.mainWindow = null;
 		this.mapWindow = null;
+		this.reportWindow = null;
 		
 		this.currFile = null;
 		this.currData = null;
@@ -70,6 +71,9 @@ class Application extends EventEmitter {
 	openMapWindow() {
 		this.mapWindow.show();
 	}
+	openReportWindow() {
+		this.reportWindow.show();
+	}
 }
 
 const APP = global.App = new Application();
@@ -91,8 +95,16 @@ nw.Window.open("main.html", {
 
 nw.Window.open("map.html", {
 	title: "Maptool MapView",
-	width: 1060, height: 640,
-	position: "center",
+	width: 640, height: 480,
+	// position: "center",
 	resizable: true,
 	show: false,
 }, (win)=> APP.mapWindow = win);
+
+nw.Window.open("report.html", {
+	title: "Maptool Report Preview",
+	width: 480, height: 240,
+	// position: "center",
+	resizable: true,
+	show: false,
+}, (win)=> APP.reportWindow = win);
