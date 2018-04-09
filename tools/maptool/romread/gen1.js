@@ -85,6 +85,11 @@ class Gen1Reader extends GBReader {
 				height: this.readUint8() * 2,
 				width: this.readUint8() * 2,
 				name: areaNames[m],
+				gameInfo: {
+					warps: [ null ],
+					conns: {},
+					events: [],
+				}
 			});
 			this.skip(2); // Skip block pointer
 			this.skip(2); // Skip texts pointer

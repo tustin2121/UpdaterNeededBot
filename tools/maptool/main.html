@@ -14,16 +14,29 @@
 		<div class="dialogInner">
 			<label>Save path: <input name="savePath" type="file" nwworkingdir="../data/region" nwdirectorydesc="Save region.json as..." nwsaveas /></label>
 			<label>Region Name: <input type="text" name="name"/></label>
-			<label>ROM path: <input name="romPath" type="file" nwdirectorydesc="Choose ROM to gather maps from..." /></label>
-			<label name="genRadio">Generation:
-				<label class="radio"><input type="radio" name="gen" value="1"/> 1</label>
-				<label class="radio"><input type="radio" name="gen" value="2" checked/> 2</label>
-				<label class="radio"><input type="radio" name="gen" value="3"/> 3</label>
-				<label class="radio"><input type="radio" name="gen" value="4"/> 4</label>
-				<label class="radio"><input type="radio" name="gen" value="5"/> 5</label>
-				<label class="radio"><input type="radio" name="gen" value="6"/> 6</label>
-				<label class="radio"><input type="radio" name="gen" value="7"/> 7</label>
-			</label>
+			<label>Import path: <input name="romPath" type="file" nwdirectorydesc="Choose ROM or other file to gather maps from..." /></label>
+			<div name="genRadio">
+				<label>
+					ROM Gen:
+					<label class="radio"><input type="radio" name="gen" value="rom1"/> 1</label>
+					<label class="radio"><input type="radio" name="gen" value="rom2" checked/> 2</label>
+					<label class="radio"><input type="radio" name="gen" value="rom3" disabled/> 3</label>
+					<label class="radio"><input type="radio" name="gen" value="rom4" disabled/> 4</label>
+					<label class="radio"><input type="radio" name="gen" value="rom5" disabled/> 5</label>
+					<label class="radio"><input type="radio" name="gen" value="rom6" disabled/> 6</label>
+					<label class="radio"><input type="radio" name="gen" value="rom7" disabled/> 7</label>
+				</label>
+				<label>
+					Map Table:
+					<label class="radio"><input type="radio" name="gen" value="tab1" disabled/> 1</label>
+					<label class="radio"><input type="radio" name="gen" value="tab2" disabled/> 2</label>
+					<label class="radio"><input type="radio" name="gen" value="tab3" disabled/> 3</label>
+					<label class="radio"><input type="radio" name="gen" value="tab4"/> 4</label>
+					<label class="radio"><input type="radio" name="gen" value="tab5" disabled/> 5</label>
+					<label class="radio"><input type="radio" name="gen" value="tab6" disabled/> 6</label>
+					<label class="radio"><input type="radio" name="gen" value="tab7" disabled/> 7</label>
+				</label>
+			</div>
 			<label>
 				<button name="okBtn">Create</button>
 				<button name="cancelBtn">Cancel</button>

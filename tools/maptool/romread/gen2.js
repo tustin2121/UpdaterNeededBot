@@ -117,6 +117,11 @@ class Gen2Reader extends GBReader {
 					areaName: areaNames[mapHeader[5]],
 					mapType: ENVIRONS[mapHeader[2]],
 					name: areaNames[mapHeader[5]],
+					gamedata: {
+						warps: [ null ],
+						conns: {},
+						events: [],
+					},
 				});
 				
 				// Assign fly locations

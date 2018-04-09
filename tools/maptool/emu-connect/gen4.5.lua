@@ -12,10 +12,10 @@ JSON = (loadfile "JSON.lua")()
 
 function sendMapData()
 	local data = {};
-	data["x"] = 0;
-	data["y"] = 0;
+	data["x"] = memory.readword(0x0227D4C0);
+	data["y"] = memory.readword(0x0227D4C4);
 	data["map_bank"] = 0;
-	data["map_id"] = memory.readword(0x02282B50);
+	data["map_id"] = memory.readword(0x0227D4B8);
 	data["area_id"] = 0;
 	
 	http.request(hudEndpoint, JSON:encode(data));

@@ -184,11 +184,7 @@ class MapNode {
 		if (Array.isArray(opts.areas)) opts.areas.forEach(a=>this.addArea(a));
 		
 		// Stored game map information
-		this.gamedata = opts.gamedata || opts.gameInfo || {
-			warps: [ null ],
-			conns: {},
-			events: [],
-		};
+		this.gamedata = opts.gamedata || opts.gameInfo || {};
 	}
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height']; }

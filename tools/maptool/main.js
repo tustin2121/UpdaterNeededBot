@@ -628,13 +628,20 @@ class NewRegionDialog {
 		if (!name) { window.alert('Please name the region!'); return; }
 		let romReader = ((gen)=>{
 			switch (gen) {
-				case '1': return require('./romread').Gen1Reader;
-				case '2': return require('./romread').Gen2Reader;
-				// case '3': return require('./romread').Gen3Reader;
-				// case '4': return require('./romread').Gen4Reader;
-				// case '5': return require('./romread').Gen5Reader;
-				// case '6': return require('./romread').Gen6Reader;
-				// case '7': return require('./romread').Gen7Reader;
+				case 'rom1': return require('./romread').Gen1Reader;
+				case 'rom2': return require('./romread').Gen2Reader;
+				// case 'rom3': return require('./romread').Gen3Reader;
+				// case 'rom4': return require('./romread').Gen4Reader;
+				// case 'rom5': return require('./romread').Gen5Reader;
+				// case 'rom6': return require('./romread').Gen6Reader;
+				// case 'rom7': return require('./romread').Gen7Reader;
+				// case 'rom1': return require('./romread').Gen1Reader;
+				// case 'rom2': return require('./romread').Gen2Reader;
+				// case 'rom3': return require('./romread').Gen3Reader;
+				case 'rom4': return require('./romread').Gen4TableReader;
+				// case 'rom5': return require('./romread').Gen5Reader;
+				// case 'rom6': return require('./romread').Gen6Reader;
+				// case 'rom7': return require('./romread').Gen7Reader;
 				default: throw new Error('Unsupported generation!');
 			}
 		})(this.$dialog.find('[name=gen]:checked').val());
