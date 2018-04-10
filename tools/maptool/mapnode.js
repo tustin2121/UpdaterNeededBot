@@ -1,5 +1,5 @@
 // maptool mapnode.js
-// The common starting point for a map
+// The classes that represent a map, except this kind is editable
 
 /* global App */
 
@@ -319,10 +319,11 @@ class MapArea {
 		this.attrs = opts.attrs || {};
 	}
 	get locId() {
+		// get from parent, and get the index as the area id
 		const p = this.__parent__.locId;
 		const a = this.__parent__.areas.indexOf(this);
 		return `${p}:${a}`;
-	} //TODO: get from parent, and get the index as the area id
+	}
 	
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }

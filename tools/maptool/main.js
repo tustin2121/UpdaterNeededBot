@@ -215,7 +215,7 @@ class MapPanel {
 		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
 	}
-	/** Shows the context menu when clicking on an area. */
+	/** Shows the context menu when clicking on a transit report. */
 	showTransitMenu({ e, report, node:otherNode, }) {
 		let self = this;
 		let thisType  = (report.from === otherNode)?'enter':'exit';
@@ -246,6 +246,18 @@ class MapPanel {
 		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
 	}
+	/** Shows the context menu when clicking on an attribute. */
+	showAttributeMenu({ e, fnDel }) {
+		let self = this;
+		
+		let menu = new nw.Menu();
+		menu.append(new nw.MenuItem({ label:`Delete override`,
+			click : fnDel,
+		}));
+		e.preventDefault();
+		menu.popup(e.pageX, e.pageY);
+	}
+	
 	
 	/** Refreshes the tree view. */
 	updateTree($tree, { clickCallback=null, selected, includeTypes=true, startClosed=false, }={}) {
@@ -364,6 +376,7 @@ class MapPanel {
 	updatePropList($list, data) {
 		$list.empty();
 		if (!data) return;
+		let self = this;
 		$(`<header>${data.constructor.name} Properties</header>`).appendTo($list);
 		for (let key of data.constructor.PROPS){
 			let $lbl = $(`<label>`);
@@ -376,11 +389,7 @@ class MapPanel {
 		}
 		$(`<header>Attributes</header>`).appendTo($list);
 		for (let key in ATTRS) {
-			let $lbl = $(`<label>`);
-			$(`<span class="key">${key}</span>`).attr('title', ATTRS[key].tooltip).appendTo($lbl);
-			let $val = createAttr(key, data.attrs);
-			$val.appendTo($lbl);
-			$lbl.appendTo($list);
+			createAttr(key, data.attrs).appendTo($list);
 		}
 		return;
 		
@@ -431,65 +440,80 @@ class MapPanel {
 		}
 		
 		function createAttr(key, obj) {
+			let $lbl = $(`<label>`);
+			let $key = $(`<span class='key'>${key}</span>`).attr('title', ATTRS[key].tooltip).appendTo($lbl);
+			let $val = $(`<span class='val'>`).appendTo($lbl);
 			let info = ATTRS[key];
-			let $val = $(`<span class='val'>`);
-			let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:obj[key] });
-			$val.append($checkThis);
+			
+			let fnDel;
+			
+			// let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:(key in obj) }).appendTo($val);
+			$key.toggleClass('overridden', key in obj);
 			
 			if (info.values) {
 				let $sel = $('<select>').appendTo($val);
+				$sel.append(`<option value='[unset]'>[unset]</option>`);
 				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
 				$sel.on('change', function(){
 					obj[key] = $sel.val();
+					if (obj[key]==='[unset]') obj[key] = false;
+					$val.addClass('overridden');
 					App.notifyChange('prop-change', data);
-				});
-				$checkThis.on('change', function(){
-					if ($(this).prop('checked')) {
-						$sel.prop({ disabled:false });
-						obj[key] = $sel.val();
-					} else {
-						$sel.prop({ disabled:true });
-						obj[key] = false;
-					}
 				});
 				if (obj[key]) {
 					$sel.val(obj[key]);
-					$checkThis.prop({ checked:true });
 				} else {
-					$checkThis.prop({ checked:false });
+					$sel.val('');
 				}
-				$checkThis.change();
-				$checkThis.on('change', ()=>App.notifyChange('prop-change', data));
-				
+				fnDel = ()=>{
+					delete obj[key];
+					$val.removeClass('overridden');
+					$sel.val('');
+				};
 			} else if (info.allowString) {
 				let $str = $(`<input type='text'/>`).appendTo($val)
 					.on('change', function(){
 						obj[key] = $(this).val();
-						$checkThis.prop({ indeterminate:true });
+						$val.addClass('overridden');
 						App.notifyChange('prop-change', data);
 					});
-				if (typeof obj[key] === 'string') {
+				if (obj[key]) {
 					$str.val(obj[key]);
-				}
-				$checkThis.on('change', function(){
-					$(this).prop({ indeterminate:false });
+				} else {
 					$str.val('');
-					obj[key] = !!$(this).prop('checked');
-					App.notifyChange('prop-change', data);
-				});
-				
+				}
+				fnDel = ()=>{
+					delete obj[key];
+					$val.removeClass('overridden');
+					$str.val('');
+				};
 			} else {
-				$checkThis.on('change', function(){
-					obj[key] = $(this).prop('checked');
+				let $check = $(`<input type='checkbox'/>`).appendTo($val);
+				if (key in obj) {
+					$check.prop({ checked:obj[key] });
+				} else {
+					$check.prop({ checked:false, indeterminate:true });
+				}
+				$check.on('change', function(){
+					obj[key] = !!$(this).prop('checked');
+					$val.addClass('overridden');
 					App.notifyChange('prop-change', data);
 				});
+				fnDel = ()=>{
+					delete obj[key];
+					$val.removeClass('overridden');
+					$check.prop({ indeterminate:true });
+				};
 			}
 			
 			if (info.areasOnly && !(data instanceof MapArea)) {
+				$key.addClass('disabled');
 				$val.find('input,select').prop('disabled', true);
 			}
 			
-			return $val;
+			$lbl.on('contextmenu', (e)=> self.showAttributeMenu({ e, fnDel }));
+			
+			return $lbl;
 		}
 		
 		function makeMapTypeSelect() {

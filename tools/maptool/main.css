@@ -133,6 +133,12 @@ body {
 .proppane label:nth-child(odd) {
 	background-color: #d4ebff;
 }
+.proppane label .overridden {
+	font-weight: bold;
+}
+.proppane label .disabled {
+	color: #888888;
+}
 .proppane label > span.key {
 	margin: 3px;
 	vertical-align: baseline;
