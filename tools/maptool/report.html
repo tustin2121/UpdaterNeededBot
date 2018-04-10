@@ -1,65 +1,27 @@
 <html>
 <head>
-	<style>
-body {
-	margin: 0; padding:0;
-	overflow: hidden;
-}
-
-div.update {
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 14px;
-	padding: 1em;
-	margin: 0;
-	overflow-wrap: break-word;
-	word-wrap: break-word;
-}
-div.update p {
-	margin: 5px 0;
-}
-div.update a.author {
-	color: #b6c6d6;
-	transition: color 0.3s;
-}
-div.update time {
-	display: inline-block;
-	font-size: 10px;
-	width: auto;
-	text-align: left;
-	overflow: hidden;
-	vertical-align: top;
-	margin-bottom: .5em;
-	padding-top: 3px;
-	color: #888;
-	transition: color 0.3s;
-	padding-left: 15px;
-	text-indent: -20px;
-}
-div.update time::before {
-	content: "";
-	display: inline-block;
-	width: 8px; height: 8px;
-	border-radius: 4px;
-	background: #ebebeb;
-	margin-right: 6px;
-	margin-left: 6px;
-	transition: background 0.3s;
-}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="report.css">
 	<script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="report.js"></script>
 </head>
 <body>
-	<div class="update enter">
-		<time>just now</time>
-		<p>14d 1h 47m [Bot] [R] <strong>DDDDDDDDDD (Dugtrio) fainted!</strong></p>
-		<a href="#" class="author">/u/UpdaterNeeded</a>
+	<div class="summary">
+		
 	</div>
-	<div class="update exit">
-		<time>just now</time>
-		<p>14d 1h 47m [Bot] [R] <strong>DDDDDDDDDD (Dugtrio) fainted!</strong></p>
-		<a href="#" class="author">/u/UpdaterNeeded</a>
+	<div class="quickBtns">
+		
+	</div>
+	<div class="updates">
+		<div class="update enter">
+			<time>just now</time>
+			<p>14d 1h 47m [Bot] [R] <strong>DDDDDDDDDD (Dugtrio) fainted!</strong></p>
+			<a href="#" class="author">/u/UpdaterNeeded</a>
+		</div>
+		<div class="update exit">
+			<time>just now</time>
+			<p>14d 1h 47m [Bot] [R] <strong>DDDDDDDDDD (Dugtrio) fainted!</strong></p>
+			<a href="#" class="author">/u/UpdaterNeeded</a>
+		</div>
 	</div>
 </body>
 </html>

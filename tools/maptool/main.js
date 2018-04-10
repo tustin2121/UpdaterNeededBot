@@ -448,16 +448,50 @@ class MapPanel {
 			let fnDel;
 			
 			// let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:(key in obj) }).appendTo($val);
-			$key.toggleClass('overridden', key in obj);
+			$lbl.toggleClass('overridden', key in obj);
 			
-			if (info.values) {
+			if (key === 'preposition') { //special case
+				let $other = $(`<input type='text' name='pother'/>`);
+				$(`<label class='radio'><input type='radio' name='prep' value='in'/> in</label>`).appendTo($val);
+				$(`<label class='radio'><input type='radio' name='prep' value='on'/> on</label>`).appendTo($val);
+				$(`<label class='radio'><input type='radio' name='prep' value='other'/> </label>`).append($other).appendTo($val);
+				if (obj[key] in {'in':1,'on':1}){
+					$val.find(`input[type=radio][value=${obj[key]}]`).prop({ checked:true });
+				} else {
+					$other.val(obj[key]);
+					$val.find(`input[type=radio][value=other]`).prop({ checked:true });
+				}
+				
+				$val.find('input[type=radio]').on('change', function(){
+					if (this.value === 'other') {
+						$other.prop({ disabled:false });
+					} else {
+						$other.prop({ disabled:true }).val('');
+					}
+					obj[key] = this.value;
+					$lbl.addClass('overridden');
+					App.notifyChange('prop-change', data);
+				});
+				$other.on('change', function(){
+					obj[key] = $other.val();
+					$lbl.addClass('overridden');
+					App.notifyChange('prop-change', data);
+				});
+				fnDel = ()=>{
+					$val.find('input[type=radio]').prop({ checked:false });
+					$other.val('');
+					delete obj[key];
+					$lbl.removeClass('overridden');
+					App.notifyChange('prop-change', data);
+				};
+			} else if (info.values) {
 				let $sel = $('<select>').appendTo($val);
 				$sel.append(`<option value='[unset]'>[unset]</option>`);
 				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
 				$sel.on('change', function(){
 					obj[key] = $sel.val();
 					if (obj[key]==='[unset]') obj[key] = false;
-					$val.addClass('overridden');
+					$lbl.addClass('overridden');
 					App.notifyChange('prop-change', data);
 				});
 				if (obj[key]) {
@@ -466,15 +500,16 @@ class MapPanel {
 					$sel.val('');
 				}
 				fnDel = ()=>{
-					delete obj[key];
-					$val.removeClass('overridden');
 					$sel.val('');
+					delete obj[key];
+					$lbl.removeClass('overridden');
+					App.notifyChange('prop-change', data);
 				};
 			} else if (info.allowString) {
 				let $str = $(`<input type='text'/>`).appendTo($val)
 					.on('change', function(){
 						obj[key] = $(this).val();
-						$val.addClass('overridden');
+						$lbl.addClass('overridden');
 						App.notifyChange('prop-change', data);
 					});
 				if (obj[key]) {
@@ -483,9 +518,10 @@ class MapPanel {
 					$str.val('');
 				}
 				fnDel = ()=>{
-					delete obj[key];
-					$val.removeClass('overridden');
 					$str.val('');
+					delete obj[key];
+					$lbl.removeClass('overridden');
+					App.notifyChange('prop-change', data);
 				};
 			} else {
 				let $check = $(`<input type='checkbox'/>`).appendTo($val);
@@ -496,18 +532,19 @@ class MapPanel {
 				}
 				$check.on('change', function(){
 					obj[key] = !!$(this).prop('checked');
-					$val.addClass('overridden');
+					$lbl.addClass('overridden');
 					App.notifyChange('prop-change', data);
 				});
 				fnDel = ()=>{
-					delete obj[key];
-					$val.removeClass('overridden');
 					$check.prop({ indeterminate:true });
+					delete obj[key];
+					$lbl.removeClass('overridden');
+					App.notifyChange('prop-change', data);
 				};
 			}
 			
 			if (info.areasOnly && !(data instanceof MapArea)) {
-				$key.addClass('disabled');
+				$lbl.addClass('disabled');
 				$val.find('input,select').prop('disabled', true);
 			}
 			

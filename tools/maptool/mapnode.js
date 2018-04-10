@@ -375,9 +375,9 @@ function generateDefaultMapTypes(region) {
 	const TYPES = {};
 	const add = (t)=> TYPES[t.type] = t;
 	
-	add(new MapType(region, { type:'default' 	}));
+	add(new MapType(region, { type:'default', 	}));
 	add(new MapType(region, { type:'town',   	attrs:{ town:true, } }));
-	add(new MapType(region, { type:'route'  	}));
+	add(new MapType(region, { type:'route',  	attrs:{ route:true, } }));
 	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, } }));
 	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true } }));
 	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, } }));
@@ -389,11 +389,13 @@ function generateDefaultMapTypes(region) {
 	}));
 	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true } }));
 	add(new MapType(region, { type:'gym',		attrs:{ indoors:true, gym:true } }));
+	add(new MapType(region, { type:'safari',	attrs:{ safari:true, } }));
 	return TYPES;
 }
 
 /** Attributes for a given map, area, or type. */
 const ATTRS = {
+	// English language flags
 	the: {
 		tooltip: `If the location name should use an article when printing the name.\nTrue=definite "the" | string=supplied article`,
 		allowString: true,
@@ -403,15 +405,42 @@ const ATTRS = {
 		allowString: true,
 	},
 	
-	inconsequential: { //TODO also add enter and exit strings
+	// Reporting flags
+	inconsequential: {
 		tooltip: `If the location is not worthy of noting. A location change will not be reported when this room is arrived to or left from.`,
 	},
+	
+	// Location type flags
 	indoors: {
 		tooltip: `If the location is inside (cannot fly)`,
 	},
 	town: {
 		tooltip: `If the location is in a town (not the wild)`,
 	},
+	route: {
+		tooltip: `If the location is a "Route" between towns.`,
+	},
+	dungeon: {
+		tooltip: `If the location is a dungeon or cave.`,
+	},
+	water: {
+		tooltip: `If the location is surf-required water.`,
+	},
+	gym: {
+		tooltip: `If the location is a gym (badge/TM getting, attempt counting).`,
+	},
+	e4: {
+		tooltip: `If the location is part of the E4 (Run counting). If the E4 are linear, use e1-3 to mark them in order.`,
+		values: [false,'lobby','e1','e2','e3','e4','champ','hallOfFame'],
+	},
+	safari: {
+		tooltip: `If this location is part of a Safari Zone (catches in safari ball)`,
+	},
+	entralink: {
+		tooltip: `If this location is an entralink map (special reporting)`,
+	},
+	
+	// Amenities which can affect reporting
 	checkpoint: {
 		tooltip: `If the location sets a checkpoint upon arriving (or when healing in gen 1).`,
 		// This is also used to check for blackouts: if we arrive back at our previously marked checkpoint
@@ -422,12 +451,11 @@ const ATTRS = {
 		areasOnly: true,
 	},
 	healing: {
-		tooltip: `If the location offers healing.`,
+		tooltip: `If the location offers a type of healing.`,
 		values: [false,'pokecenter','doctor','nurse','house','partner'],
 	},
 	shopping: {
-		tooltip: `If the location offers vendors. Can be the name of the vendor. (Can be used for Areas)`,
-		allowString: true,
+		tooltip: `If the location offers vendors. (Can be used for Areas)`,
 	},
 	vending: {
 		tooltip: `If the location offers vending machines. (Use only for Areas marking the vending machine locations)`,
@@ -437,28 +465,15 @@ const ATTRS = {
 		tooltip: `If the location is a PC. (Use only for Areas marking the PC)`,
 		areasOnly: true,
 	},
-	gym: {
-		tooltip: `If the location is a gym (badge/TM getting, attempt counting).`,
-	},
 	leader: {
 		tooltip: `The name of the gym leader in this location. (Use only for Areas marking the leader)`,
 		areasOnly: true,
 		allowString: true,
 	},
-	e4: {
-		tooltip: `If the location is part of the E4 (Run counting). If the E4 are linear, use e1-3 to mark them in order.`,
-		values: [false,'lobby','e1','e2','e3','e4','champ','hallOfFame'],
-	},
-	dungeon: {
-		tooltip: `If the location is a dungeon or cave.`,
-	},
 	legendary: {
 		tooltip: `The name of the legendary pokemon in this location. (Use only for Areas marking the pokemon)`,
 		areasOnly: true,
 		allowString: true,
-	},
-	entralink: {
-		tooltip: `If this location is an entralink map (special reporting)`,
 	},
 };
 

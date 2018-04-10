@@ -1,0 +1,46 @@
+/* report.css */
+
+body {
+	margin: 0; padding:0;
+	overflow: hidden;
+}
+
+.updates .update {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 14px;
+	padding: 1em;
+	margin: 0;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+.updates .update p {
+	margin: 5px 0;
+}
+.updates .update a.author {
+	color: #b6c6d6;
+	transition: color 0.3s;
+}
+.updates .update time {
+	display: inline-block;
+	font-size: 10px;
+	width: auto;
+	text-align: left;
+	overflow: hidden;
+	vertical-align: top;
+	margin-bottom: .5em;
+	padding-top: 3px;
+	color: #888;
+	transition: color 0.3s;
+	padding-left: 15px;
+	text-indent: -20px;
+}
+.updates .update time::before {
+	content: "";
+	display: inline-block;
+	width: 8px; height: 8px;
+	border-radius: 4px;
+	background: #ebebeb;
+	margin-right: 6px;
+	margin-left: 6px;
+	transition: background 0.3s;
+}

@@ -130,14 +130,17 @@ body {
 	height: 21px;
 	position: relative;
 }
-.proppane label:nth-child(odd) {
+.proppane > label:nth-child(odd) {
 	background-color: #d4ebff;
 }
-.proppane label .overridden {
+.proppane label.overridden {
 	font-weight: bold;
 }
-.proppane label .disabled {
+.proppane label.disabled {
 	color: #888888;
+}
+.proppane label.disabled input {
+	opacity: 0.5;
 }
 .proppane label > span.key {
 	margin: 3px;
@@ -175,10 +178,41 @@ body {
 .proppane label > span.valpair > input.val {
 	width: 50%;
 }
+.proppane label .val label.radio {
+    /* vertical-align: bottom; */
+    padding-right: 0;
+    border: none;
+    background-color: initial;
+}
+.proppane label .val label.radio input[type="text"] {
+    width: 90px;
+}
 
 .proppane div.newReport > button {
 	margin: 4px 15px;
     width: -webkit-fill-available;
+}
+
+.proppane label input[type="checkbox"] {
+	-webkit-appearance: none;
+	border: 1px solid #a6a6a6;
+	border-radius: 2px;
+	width: 1em; height: 1em;
+	background-color: #ffffff;
+	background: linear-gradient(to bottom, #ededed 0%,#dedede 100%);
+	box-shadow: 0px 1px #eaeaea;
+}
+.proppane label input[type="checkbox"]::after {
+	content: '\2716';
+	position: absolute;
+	margin-top: -4px;
+}
+.proppane label input[type="checkbox"]:checked::after {
+	content: '\2714';
+	margin-top: -3px;
+}
+.proppane label input[type="checkbox"]:indeterminate::after {
+	content: '';
 }
 
 /* */
