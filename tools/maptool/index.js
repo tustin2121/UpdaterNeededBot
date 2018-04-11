@@ -20,12 +20,12 @@ class Application extends EventEmitter {
 		this._dirty = false;
 		
 		this.emuConnect = new EmuConnect();
-		this.emuConnect.on('map-change', ({ bank, id, area, x, y, z })=>{
+		this.emuConnect.on('map-changed', ({ bank, id, area, x, y, z })=>{
 			this.currData.ensureMap(bank, id, { area });
-			this.emit('map-change', { bank, id, x, y, z });
+			this.emit('map-changed', { bank, id, x, y, z });
 		});
-		this.emuConnect.on('pos-change', ({ bank, id, x, y, z })=>{
-			this.emit('pos-change', { bank, id, x, y, z });
+		this.emuConnect.on('pos-changed', ({ bank, id, x, y, z })=>{
+			this.emit('pos-changed', { bank, id, x, y, z });
 		});
 	}
 	
@@ -101,7 +101,7 @@ nw.Window.open("map.html", {
 
 nw.Window.open("report.html", {
 	title: "Maptool Report Preview",
-	width: 480, height: 240,
+	width: 480, height: 500,
 	// position: "center",
 	resizable: true,
 	show: false,

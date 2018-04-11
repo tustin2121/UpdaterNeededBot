@@ -44,3 +44,35 @@ body {
 	margin-left: 6px;
 	transition: background 0.3s;
 }
+
+.summary {
+    padding: 10px;
+}
+.summary h2 {
+	margin: 0;
+}
+.summary h3 {
+	margin: 4px 0;
+}
+.summary span[name=x],
+.summary span[name=y] {
+	margin: 0 10px;
+}
+.summary span[name=x]::before {
+    content: 'x: ';
+    font-size: 0.7em;
+}
+.summary span[name=y]::before {
+    content: 'y: ';
+    font-size: 0.7em;
+}
+.icons {
+	float: right;
+    font-size: 20px;
+    width: 5.6em;
+	color: #dddddd;
+}
+.icons .on {
+	color: #000000;
+}
+

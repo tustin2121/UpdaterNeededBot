@@ -23,18 +23,38 @@ global.Bot = {
 	runOpts(id){ return this.opt[id] || false; },
 };
 
-const { MapNode } = require('./mapnode');
+const { MapNode, ATTRS } = require('./mapnode');
 const { TypeSetter, formatFor } = require('../../src/newspress/typesetter');
 const { LocationChanged } = require('../../src/newspress/ledger');
 window.App = global.App;
 /* global window, App */
 
+let currPos = {};
+let currNode = null;
 let otherNode = new MapNode({ name:'[Outside]' });
 
-App.on('map-selected', (node)=> mapChange(node));
-App.on('map-changed', (args)=>{
-	mapChange(App.currData.resolve(args));
+// App.on('map-selected', (node)=> mapChange(node));
+// App.on('map-changed', (args)=>{
+// 	currNode = App.currData.resolve(args);
+// 	mapChange(currNode);
+// });
+App.on('pos-changed', (args)=>posChanged(args));
+
+$(()=>{
+	let btns = $('.quickBtns');
+	$(`<button>Add Spawn Point Here</button>`).appendTo(btns)
+		.on('click', ()=>currNode.setSpawnPoint(currPos.x, currPos.y));
+	
 });
+
+function posChanged(args) {
+	currPos = args;
+	currNode = App.currData.resolve(args);
+	
+	for (let attr in ATTRS) {
+		$(`.info [name=${attr}]`).toggleClass('on', currNode.is(attr));
+	}
+}
 
 function mapChange(node) {
 	let ts = new TypeSetter();

@@ -49,8 +49,8 @@ class EmuConnect extends EventEmitter {
 		posChanged |= last.z !== data.z;
 		
 		this.last = data;
-		if (mapChanged) this.emit('map-change', data);
-		if (posChanged) this.emit('pos-change', data);
+		if (mapChanged) this.emit('map-changed', data);
+		if (posChanged) this.emit('pos-changed', data);
 	}
 }
 
