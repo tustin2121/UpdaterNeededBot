@@ -23,7 +23,7 @@ global.Bot = {
 	runOpts(id){ return this.opt[id] || false; },
 };
 
-const { MapNode, ATTRS } = require('./mapnode');
+const { MapNode, MapArea, ATTRS } = require('./mapnode');
 const { TypeSetter, formatFor } = require('../../src/newspress/typesetter');
 const { LocationChanged } = require('../../src/newspress/ledger');
 window.App = global.App;
@@ -42,8 +42,42 @@ App.on('pos-changed', (args)=>posChanged(args));
 
 $(()=>{
 	let btns = $('.quickBtns');
-	$(`<button>Add Spawn Point Here</button>`).appendTo(btns)
-		.on('click', ()=>currNode.setSpawnPoint(currPos.x, currPos.y));
+	$(`<button>Mark Flyspot/Spawn Point</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.setSpawnPoint(currPos.x, currPos.y);
+		});
+	$(`<button>Mark Vending Machine</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Vending Machine", attrs:{ vending:true, } });
+		});
+	
+	let txt = $(`<input type='text' class='leader' />`).appendTo(btns);
+	$(`<button>Mark Gym Leader</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Leader", attrs:{ leader:txt.val(), } });
+			txt.val();
+		});
+	
+	txt = $(`<input type='text' class='legendary' />`).appendTo(btns);
+	$(`<button>Mark Legendary Mon</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Legendary", attrs:{ legendary:txt.val(), } });
+			txt.val();
+		});
+	
+	$(`<button>Mark Field Healing</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Field Healing", attrs:{ healing:'doctor', } })
+		});
+	$(`<button>Mark Vendor</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Vendor", attrs:{ shopping:true, } })
+		});
+	
+	$(`<button>Mark PC</button>`).appendTo(btns)
+		.on('click', ()=>{
+			currNode.addArea({ x:currPos.x, y:currPos.y, name:"PC", attrs:{ pc:true, } })
+		});
 	
 });
 
@@ -51,8 +85,23 @@ function posChanged(args) {
 	currPos = args;
 	currNode = App.currData.resolve(args);
 	
+	{
+		$('.summary [name=areaname]').text('');
+		let mapNode = currNode;
+		if (mapNode instanceof MapArea) {
+			$('.summary [name=areaname]').text(currNode.name);
+			mapNode = mapNode.parent;
+		}
+		$('.summary [name=prep]').text(mapNode.is('preposition'));
+		$('.summary [name=the]').text(mapNode.is('the'));
+		$('.summary [name=name]').text(mapNode.name);
+	}
+	$('.summary [name=x]').text(args.x);
+	$('.summary [name=y]').text(args.y);
+	$('.quickBtns .leader').val(currNode.is('leader')||'');
+	$('.quickBtns .legendary').val(currNode.is('legendary')||'');
 	for (let attr in ATTRS) {
-		$(`.info [name=${attr}]`).toggleClass('on', currNode.is(attr));
+		$(`.icons [name=${attr}]`).toggleClass('on', !!currNode.is(attr));
 	}
 }
 

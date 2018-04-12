@@ -2,11 +2,12 @@
 // A reader which can read map tables copied from Spiky's DS Map Editor
 
 const fs = require('fs');
+const { MapNode } = require('../mapnode.js');
 
 const COL_INTNAME = 0;
 const COL_NAME = 10;
 
-class TableReaderGen4 {
+class Gen4TableReader {
 	constructor(tableFile) {
 		this.headers = [];
 		this.matrix = [];
@@ -14,7 +15,7 @@ class TableReaderGen4 {
 		this.tableFile = tableFile;
 	}
 	load() {
-		let lines = fs.readFileSync(this.tableFile);
+		let lines = fs.readFileSync(this.tableFile, 'utf8');
 		lines = lines.split('\n');
 		
 		let state = null;
@@ -28,14 +29,14 @@ class TableReaderGen4 {
 				continue;
 			}
 			if (line.startsWith('#')) continue;
-			if (!line) continue;
+			if (!line.trim()) continue;
 			
 			if (state === 'head') {
-				this.table.push(line.split('\t'));
-			} 
+				this.headers.push(line.split('\t'));
+			}
 			else if (state === 'mat') {
 				this.matrix.push(line.split('\t').map(x=>Number.parseInt(x,10)));
-			} 
+			}
 			else {
 				throw new Error('Invalid state error!');
 			}
@@ -46,15 +47,15 @@ class TableReaderGen4 {
 		let mapData = [];
 		let areaNames = [];
 		
-		this.table.forEach((line, mapId)=>{
+		this.headers.forEach((line, mapId)=>{
 			let info = new MapNode(null, {
 				bank: 0, map: mapId,
 				name: line[COL_NAME],
 				areaName: line[COL_NAME],
 				width: 32, height: 32, //size of one chunk
-				gameData: {
+				gamedata: {
 					intName: line[COL_INTNAME],
-					tex1: Number.parseInt(line[1], 10), 
+					tex1: Number.parseInt(line[1], 10),
 					tex2: Number.parseInt(line[2], 10),
 					matrix: Number.parseInt(line[3], 10),
 				},
@@ -73,13 +74,13 @@ class TableReaderGen4 {
 				// [00] = Area ID of Type
 				// [T] = Room Type (R=Room,GYM=Gym,PC=Pokemon Center,)
 				// [00][00] = Room Id, Subroom Id
-				let res = /^([A-Z]{1})(\d{2})(?:([A-Z]{1,3})(\d{2})(\d{2}))?$/.exec(info.gameData.intName);
+				let res = /^([A-Z]{1})(\d{2})(?:([A-Z]{1,3})(\d{2})(\d{2}))?$/.exec(info.gamedata.intName);
 				if (res) { //matches this format
 					let [, areaType, areaId, roomType, roomId, subId, ] = res;
 					areaId = Number.parseInt(areaId, 10);
 					roomId = Number.parseInt(roomId, 10);
 					subId  = Number.parseInt(subId, 10);
-					info.gameData.intId = { areaType, areaId, roomType, roomId, subId };
+					info.gamedata.intId = { areaType, areaId, roomType, roomId, subId };
 					
 					switch(areaType) {
 						case 'C': // inexplicable break from format for "Fight Area"
@@ -87,7 +88,7 @@ class TableReaderGen4 {
 						case 'R': info.type = 'route'; break;
 						case 'D': info.type = 'dungeon'; break;
 						case 'P': info.type = 'indoor'; break; //port/ship
-						case 'W': 
+						case 'W':
 							info.type = 'route';
 							info.attrs.water = true;
 							break;
@@ -98,17 +99,17 @@ class TableReaderGen4 {
 						case 'GYM': info.type = 'gym'; break;
 					}
 					if (roomType === 'R' && areaType !== 'D') {
-						info.type = 'indoor'; break;
+						info.type = 'indoor';
 					}
-				} 
+				}
 				else { //special cases
 					// Usually these are mystery zones and can be ignored
-					if (info.gameData.intName.startsWith('SAF')) { //safari zone
+					if (info.gamedata.intName.startsWith('SAF')) { //safari zone
 						info.type = 'safari';
 					}
 				}
 			}
-			if (info.gameData.matrix === 0) {
+			if (info.gamedata.matrix === 0) {
 				// Attempt to find the width and height of this overworld map
 				for (let y = 0; y < this.matrix.length; y++) {
 					let x = this.matrix[y].indexOf(mapId);
@@ -122,9 +123,10 @@ class TableReaderGen4 {
 					break;
 				}
 			}
+			mapData.push(info);
 		});
-		return { mapData };
+		return { mapData: [ mapData ] };
 	}
 }
 
-module.exports = { TableReaderGen4 };
+module.exports = { Gen4TableReader };

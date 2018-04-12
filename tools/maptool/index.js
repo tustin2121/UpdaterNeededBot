@@ -39,6 +39,11 @@ class Application extends EventEmitter {
 	notifyChange(type, obj) {
 		process.nextTick(()=>{
 			this.isDirty = true;
+			switch (type) {
+				case 'add-area':
+					this.emit('update-maptree');
+					break;
+			}
 		});
 	}
 	
@@ -75,6 +80,7 @@ class Application extends EventEmitter {
 	}
 	openReportWindow() {
 		this.reportWindow.show();
+		this.emuConnect.listen();
 	}
 }
 

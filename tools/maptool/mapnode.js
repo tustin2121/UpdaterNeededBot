@@ -39,6 +39,8 @@ class MapRegion {
 		}
 	}
 	
+	is(attr) { return this.types['default'].is(attr); }
+	
 	serialize() {
 		let data = { name:this.name, types:{}, nodes:[], reports:[], };
 		for (let t in this.types) {
@@ -77,9 +79,15 @@ class MapRegion {
 	resolve(arg) {
 		if (typeof arg === 'string') return this.resolveLocId(arg);
 		if (typeof arg === 'object') {
-			let { bank, id, area } = arg;
+			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];
 			if (area) return bank[id].areas[area];
+			if (typeof x === 'number' && typeof y == 'number') {
+				let map = bank[id];
+				for (let area of map.areas) {
+					if (area.ax >= x && area.bx <= x && area.ay >= y && area.by <= y) return area;
+				}
+			}
 			return bank[id];
 		}
 		return null;
@@ -189,10 +197,6 @@ class MapNode {
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
 	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height']; }
 	
-	toString() {
-		return this.name;
-	}
-	
 	get locId() { return `${this.bank}.${this.id}`; }
 	// alias mapType => type
 	get mapType() { return this.type; }
@@ -200,6 +204,14 @@ class MapNode {
 	
 	get gameInfo() { return this.gamedata; }
 	set gameInfo(val){ this.gamedata = val; }
+	
+	toString() { return this.name; }
+	is(attr) {
+		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';
+		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		if (this.__region__.types[this.type]) return this.__region__.types[this.type].is(attr);
+		return this.__region__.is(attr);
+	}
 	
 	// get warps(){ return this.gamedata.warps; }
 	// get conns(){ return this.gamedata.conns; }
@@ -243,6 +255,7 @@ class MapNode {
 		} else {
 			this.areas.push(new MapArea(this, opts));
 		}
+		App.notifyChange('add-area', this);
 	}
 	
 	setSpawnPoint(x, y) {
@@ -263,16 +276,20 @@ class MapType {
 		this.areas = [];
 		if (Array.isArray(opts.areas)) opts.areas.forEach(a=>this.addArea(a));
 	}
+	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
+	static get PROPS() { return ['locId', 'name']; }
+	
 	get locId() { return `[${this.name}]`; }
 	
 	get type() { return this.name }
 	set type(val) { this.name = val; }
 	
-	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
-	static get PROPS() { return ['locId', 'name']; }
-	
-	toString() {
-		return this.name;
+	toString() { return this.name; }
+	is(attr) {
+		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';
+		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		if (this.name !== 'default') this.__region__.is(attr);
+		return undefined;
 	}
 	
 	addArea(opts={}) {
@@ -318,18 +335,23 @@ class MapArea {
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
 	}
+	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
+	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
+	
 	get locId() {
 		// get from parent, and get the index as the area id
 		const p = this.__parent__.locId;
 		const a = this.__parent__.areas.indexOf(this);
 		return `${p}:${a}`;
 	}
+	get parent() { return this.__parent__; }
 	
-	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
-	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
-	
-	toString() {
-		return this.name;
+	toString() { return this.name; }
+	is(attr) {
+		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';
+		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		if (this.__parent__) return this.__parent__.is(attr);
+		return this.__region__.is(attr);
 	}
 	
 	serialize() {
@@ -398,11 +420,13 @@ const ATTRS = {
 	// English language flags
 	the: {
 		tooltip: `If the location name should use an article when printing the name.\nTrue=definite "the" | string=supplied article`,
-		allowString: true,
+		values: ['', 'the'],
+		allowOther: true,
 	},
 	preposition: {
 		tooltip: `The preposition to use before this map name. Usually 'on' or 'in' (or rarely 'at').`,
-		allowString: true,
+		values: ['in', 'on'],
+		allowOther: true,
 	},
 	
 	// Reporting flags
@@ -468,12 +492,12 @@ const ATTRS = {
 	leader: {
 		tooltip: `The name of the gym leader in this location. (Use only for Areas marking the leader)`,
 		areasOnly: true,
-		allowString: true,
+		stringValue: true,
 	},
 	legendary: {
 		tooltip: `The name of the legendary pokemon in this location. (Use only for Areas marking the pokemon)`,
 		areasOnly: true,
-		allowString: true,
+		stringValue: true,
 	},
 };
 

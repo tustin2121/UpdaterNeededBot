@@ -2,6 +2,8 @@
 -- A DeSmuME lua script that connects to the maptool for map information
 
 local hudEndpoint = "http://127.0.0.1:21345/"
+-- local OFFSET = 0x0227D4B8;
+local OFFSET = 0x0227D504;
 
 if http == nil then
 	http = require("socket.http")
@@ -12,12 +14,13 @@ JSON = (loadfile "JSON.lua")()
 
 function sendMapData()
 	local data = {};
-	data["x"] = memory.readword(0x0227D4C0);
-	data["y"] = memory.readword(0x0227D4C4);
+	data["x"] = memory.readword(OFFSET + 0x8);
+	data["y"] = memory.readword(OFFSET + 0xC);
 	data["map_bank"] = 0;
-	data["map_id"] = memory.readword(0x0227D4B8);
+	data["map_id"] = memory.readword(OFFSET + 0x0);
 	data["area_id"] = 0;
 	
+	print("sendData", data);
 	http.request(hudEndpoint, JSON:encode(data));
 end
 

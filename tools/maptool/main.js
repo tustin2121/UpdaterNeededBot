@@ -450,14 +450,20 @@ class MapPanel {
 			// let $checkThis = $(`<input type='checkbox'/>`).prop({ checked:(key in obj) }).appendTo($val);
 			$lbl.toggleClass('overridden', key in obj);
 			
-			if (key === 'preposition') { //special case
+			if (info.allowOther) {
 				let $other = $(`<input type='text' name='pother'/>`);
-				$(`<label class='radio'><input type='radio' name='prep' value='in'/> in</label>`).appendTo($val);
-				$(`<label class='radio'><input type='radio' name='prep' value='on'/> on</label>`).appendTo($val);
-				$(`<label class='radio'><input type='radio' name='prep' value='other'/> </label>`).append($other).appendTo($val);
-				if (obj[key] in {'in':1,'on':1}){
-					$val.find(`input[type=radio][value=${obj[key]}]`).prop({ checked:true });
-				} else {
+				info.values.forEach(x=>{
+					if (x === false) x = '--';
+					if (x === '') x = '_';
+					$(`<label class='radio'><input type='radio' value='${x}'/> ${x}</label>`).appendTo($val);
+				});
+				$(`<label class='radio'><input type='radio' value='other'/> </label>`).append($other).appendTo($val);
+				if (info.values.indexOf(obj[key]) > -1) {
+					let val = obj[key];
+					if (val === false) val = '--';
+					if (val === '') val = '_';
+					$val.find(`input[type=radio][value=${val}]`).prop({ checked:true });
+				} else if (obj[key] !== undefined) {
 					$other.val(obj[key]);
 					$val.find(`input[type=radio][value=other]`).prop({ checked:true });
 				}
@@ -468,7 +474,10 @@ class MapPanel {
 					} else {
 						$other.prop({ disabled:true }).val('');
 					}
-					obj[key] = this.value;
+					let val = this.value;
+					if (val == '--') val = false;
+					if (val == '_') val = '';
+					obj[key] = val;
 					$lbl.addClass('overridden');
 					App.notifyChange('prop-change', data);
 				});
@@ -486,26 +495,29 @@ class MapPanel {
 				};
 			} else if (info.values) {
 				let $sel = $('<select>').appendTo($val);
-				$sel.append(`<option value='[unset]'>[unset]</option>`);
-				$sel.append(info.values.slice(1).map(x=>$(`<option>${x}</option>`)));
+				$sel.append(info.values.map(x=>{
+					if (x === false) x = '--';
+					return $(`<option>${x}</option>`)
+				}));
 				$sel.on('change', function(){
-					obj[key] = $sel.val();
-					if (obj[key]==='[unset]') obj[key] = false;
+					let val = $sel.val();
+					if (val === '--') val = false;
+					obj[key] = val;
 					$lbl.addClass('overridden');
 					App.notifyChange('prop-change', data);
 				});
 				if (obj[key]) {
 					$sel.val(obj[key]);
 				} else {
-					$sel.val('');
+					$sel.val('--');
 				}
 				fnDel = ()=>{
-					$sel.val('');
+					$sel.val('--');
 					delete obj[key];
 					$lbl.removeClass('overridden');
 					App.notifyChange('prop-change', data);
 				};
-			} else if (info.allowString) {
+			} else if (info.stringValue) {
 				let $str = $(`<input type='text'/>`).appendTo($val)
 					.on('change', function(){
 						obj[key] = $(this).val();
@@ -696,13 +708,13 @@ class NewRegionDialog {
 				// case 'rom5': return require('./romread').Gen5Reader;
 				// case 'rom6': return require('./romread').Gen6Reader;
 				// case 'rom7': return require('./romread').Gen7Reader;
-				// case 'rom1': return require('./romread').Gen1Reader;
-				// case 'rom2': return require('./romread').Gen2Reader;
-				// case 'rom3': return require('./romread').Gen3Reader;
-				case 'rom4': return require('./romread').Gen4TableReader;
-				// case 'rom5': return require('./romread').Gen5Reader;
-				// case 'rom6': return require('./romread').Gen6Reader;
-				// case 'rom7': return require('./romread').Gen7Reader;
+				// case 'tab1': return require('./romread').Gen1TableReader;
+				// case 'tab2': return require('./romread').Gen2TableReader;
+				// case 'tab3': return require('./romread').Gen3TableReader;
+				case 'tab4': return require('./romread').Gen4TableReader;
+				// case 'tab5': return require('./romread').Gen5TableReader;
+				// case 'tab6': return require('./romread').Gen6TableReader;
+				// case 'tab7': return require('./romread').Gen7TableReader;
 				default: throw new Error('Unsupported generation!');
 			}
 		})(this.$dialog.find('[name=gen]:checked').val());
@@ -773,6 +785,10 @@ $(()=>{
 		}
 		document.title = (dirty?'*':'') + TITLE + file;
 	});
+	App.on('map-changed', (args)=>{
+		mapPanel.select(App.currData.resolve(args));
+	});
+	App.on('update-maptree', ()=> mapPanel.updateTree());
 });
 
 

@@ -180,9 +180,11 @@ body {
 }
 .proppane label .val label.radio {
     /* vertical-align: bottom; */
-    padding-right: 0;
+    /* padding-right: 0; */
     border: none;
     background-color: initial;
+	border-left: 1px solid #b7b7b7;
+    border-radius: 0;
 }
 .proppane label .val label.radio input[type="text"] {
     width: 90px;

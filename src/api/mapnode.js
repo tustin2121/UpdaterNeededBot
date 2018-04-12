@@ -50,13 +50,21 @@ class MapRegion {
 	resolve(arg) {
 		if (typeof arg === 'string') return this.resolveLocId(arg);
 		if (typeof arg === 'object') {
-			let { bank, id, area } = arg;
+			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];
 			if (area) return bank[id].areas[area];
+			if (typeof x === 'number' && typeof y == 'number') {
+				let map = bank[id];
+				for (let area of map.areas) {
+					if (area.ax >= x && area.bx <= x && area.ay >= y && area.by <= y) return area;
+				}
+			}
 			return bank[id];
 		}
 		return null;
 	}
+	
+	is(attr) { return this.types['default'].is(attr); }
 }
 
 /** Represents a map in the game. This represents data about a location id given by the API. */
@@ -84,9 +92,6 @@ class MapNode {
 				this.areas[a] = new MapArea(this, aopts);
 			}
 		}
-		
-		// Stored game map information
-		this.gamedata = opts.gamedata || opts.gameInfo || {};
 	}
 	
 	get locId() { return `${this.bank}.${this.id}`; }
@@ -96,9 +101,10 @@ class MapNode {
 	
 	toString() { return this.name; }
 	is(attr) {
+		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
 		if (this.__type__) return this.__type__.is(attr);
-		return undefined;
+		return this.__region__.is(attr);
 	}
 }
 
@@ -124,8 +130,12 @@ class MapType {
 	get type() { return this.name }
 	set type(val) { this.name = val; }
 	
-	toString() {
-		return this.name;
+	toString() { return this.name; }
+	is(attr) {
+		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';
+		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		if (this.name !== 'default') this.__region__.is(attr);
+		return undefined;
 	}
 }
 
@@ -158,10 +168,45 @@ class MapArea {
 		const a = this.__parent__.areas.indexOf(this);
 		return `${p}:${a}`;
 	}
+	get parent() { return this.__parent__; }
 	
-	toString() {
-		return this.name;
+	toString() { return this.name; }
+	is(attr) {
+		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';
+		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		if (this.__parent__) return this.__parent__.is(attr);
+		return this.__region__.is(attr);
 	}
 }
 
+/**
+ * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
+ * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
+ */
+class TransitReport {
+	constructor(region, opts={}) {
+		this.__region__ = region;
+		
+		this.from = opts.from;
+		this.to = opts.to;
+		this.text = opts.text;
+		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
+		this.timeout = opts.timeout || 10*60*1000;
+	}
+	
+	serialize() {
+		let data = {
+			from: null, to: null,
+			text: this.text,
+			timeout: this.timeout,
+		};
+		if (this.from) data.from = this.from.locId;
+		if (this.to) data.to = this.to.locId;
+		return data;
+	}
+}
 
+module.exports = {
+	MapRegion,
+	MapNode, MapArea, MapType, TransitReport,
+};
