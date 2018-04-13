@@ -58,17 +58,27 @@ function isValidToString(fn) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Format Functions: Articles and Prepositions
+// Format Functions: Meta and Conditionals
 {
 	Object.assign(FORMAT_FNS, {
 		'meta': ()=>'', //do nothing
+		'if': (...args)=>{
+			for (let a of args) {
+				if (!a) return false;
+			}
+			return '';
+		},
 	});
-}{
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Format Functions: Articles and Prepositions
+{
 	function printLocationPhrase(capitalize=false, usePreposition=true) {
 		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(loc) {
 			loc = loc || this.noun || this.subject;
-			if (!(loc instanceof SortedLocation)) {
+			if (!(loc.has === loc.is)) { //test for the attribute test functions
 				LOGGER.warn('printLocationPhrase must take a location!');
 				return 'in the area'; //error
 			}
@@ -94,7 +104,7 @@ function isValidToString(fn) {
 		const cap = (captial)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(obj) {
 			obj = obj || this.noun || this.subject;
-			if (obj instanceof SortedLocation) {
+			if (obj.has === obj.is) { //test for the attribute test functions
 				return cap(obj.get('preposition'));
 			}
 			return cap('on');
@@ -267,6 +277,33 @@ function isValidToString(fn) {
 		'Them': determineGender('Him', 'Her', 'It', 'Them'),
 		'Their': determineGender('His', 'Her', 'Its', 'Their'),
 		'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
+	});
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Format Functions: Pokemon
+{
+	function printSpecies(){
+		return function(mon){
+			mon = mon || this.noun || this.subject;
+			if (!(mon instanceof Pokemon)) return false;
+			return mon.species;
+		}
+	}
+	function testBodyFeature(opts) {
+		return function(mon) {
+			mon = mon || this.noun || this.subject;
+			if (!(mon instanceof Pokemon)) return false;
+			
+		}
+	}
+	Object.assign(FORMAT_FNS, {
+		'Species': printSpecies(),
+		'species': printSpecies(),
+		'Mon': printSpecies(),
+		'mon': printSpecies(),
+		
+		'if mon has legs': testBodyFeature({ legs:1 }),
 	});
 }
 

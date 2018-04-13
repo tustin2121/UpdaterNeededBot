@@ -28,6 +28,7 @@ class MapRegion {
 		for (let report of data.reports) {
 			report.from = this.resolveLocId(report.from);
 			report.to = this.resolveLocId(report.to);
+			if (!report.from && !report.to) continue; //skip reports that go neither from nor to a specific place
 			this.reports.push(new TransitReport(this, report));
 		}
 	}
@@ -62,6 +63,10 @@ class MapRegion {
 			return bank[id];
 		}
 		return null;
+	}
+	
+	findReports(from, to) {
+		return this.reports.filter(r=> (!r.from || r.from===from) && (!r.to || r.to===to) );
 	}
 	
 	is(attr) { return this.types['default'].is(attr); }
@@ -187,12 +192,14 @@ class TransitReport {
 	constructor(region, opts={}) {
 		this.__region__ = region;
 		
+		this.id = opts.id;
 		this.from = opts.from;
 		this.to = opts.to;
 		this.text = opts.text;
 		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
 		this.timeout = opts.timeout || 10*60*1000;
 	}
+	toString(){ return this.text; }
 	
 	serialize() {
 		let data = {
@@ -205,6 +212,13 @@ class TransitReport {
 		return data;
 	}
 }
+
+// Set aliases for is()
+[MapRegion, MapNode, MapArea, MapType].forEach((clazz)=>{
+	clazz.prototype.has = clazz.prototype.is;
+	clazz.prototype.can = clazz.prototype.is;
+	clazz.prototype.get = clazz.prototype.is;
+})
 
 module.exports = {
 	MapRegion,

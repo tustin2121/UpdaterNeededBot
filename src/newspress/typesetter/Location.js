@@ -2,20 +2,26 @@
 // The phrasebook for Location-related LedgerItems
 
 module.exports = {
+	LocationContext: null,
 	LocationChanged: {
 		// prev = the previous location
 		// curr = the current location
-		default: [
-			`Welcome to {{@curr}}!`,
-		],
-		announce: `{{@announce}}`,
-		nomap: [ //When we have no map information for the current location
+		default: [ //When we have no map information for the current location
 			`{{@curr}}.`,
 			`{{On the location|@curr}}.`,
 			`Now {{in the location|@curr}}.`,
 			`We head {{into the location|@curr}}.`,
 			`Arrived {{on the location|@curr}}.`,
 		],
+	},
+	
+	MapContext: null,
+	MapChanged: {
+		default: [
+			`Welcome to {{@curr}}!`,
+		],
+		report: `{{@report}}`,
+		
 		'enter': [ //We walk from an outside location to an inside location
 			`We head inside {{the location|@curr}}.`,
 		],
@@ -43,8 +49,16 @@ module.exports = {
 		],
 	},
 	
-	JumpedLedge: {
+	CheckpointContext: null,
+	CheckpointUpdated: {
 		default: [
+			`<b>Checkpoint {{@loc.areaName}}!</b>`
+		],
+	},
+	
+	MapMovement: {
+		default: null,
+		jumpedLedge: [
 			`We jumped the ledge.`,
 			`We hop over the ledge.`,
 			`We skip down the ledge.`,
@@ -78,18 +92,17 @@ module.exports = {
 			`We walk precariously across the ledge... and down.`,
 			`And over the ledge we go!`,
 			`The ledge is a tight rope... and we just fell.`,
-			`{{randomMon.species}} sneezes and startles us off the ledge.`,
-			`{{randomMon.species}} spots something below and bumps us off the ledge.`,
-			`{{randomMon.species}} gets startled and knocks us off the ledge.`,
-			`{{randomMon.species}} scratches {{randomMon|them}}self and accidentally hits us off the ledge.`,
+			`{{if|$@randomMon}}{{Mon}} sneezes and startles us off the ledge.`,
+			`{{if|$@randomMon}}{{Mon}} spots something below and bumps us off the ledge.`,
+			`{{if|$@randomMon}}{{Mon}} gets startled and knocks us off the ledge.`,
+			`{{if|$@randomMon}}{{Mon}} scratches {{them}}self and accidentally hits us off the ledge.`,
 		],
-	},
-	ClearedLedge: {
-		default: [
+		ClearedLedge: [
 			`<b><i>We've made it past the ledge!</i></b>`,
 			`<b><i>We've made it beyond the ledge!</i></b>`,
 			`<b><i>We've made it past the ledge!</i></b> Hopefully it stays that way.`,
 			`<b><i>We're on the other side of the {{@loc}} ledge!</i></b>`,
 		],
 	},
+	
 };

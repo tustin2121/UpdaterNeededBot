@@ -274,6 +274,26 @@ class RuleInstance {
 		return this;
 	}
 	
+	/**
+	 * Finds a MapContext item and gets the node represented in it, and passes it to the
+	 * callback lambda to test with.
+	 */
+	hasMapThatIs(attr, val) {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.ledger.findAllItemsWithName('MapContext');
+		if (this.workingList.length !== 1) {
+			this.lastResult = false;
+			return this;
+		}
+		let node = this.workingList[0].loc;
+		if (val !== undefined) {
+			this.lastResult = !!(node.is(attr) === val);
+		} else {
+			this.lastResult = !!(node.is(attr));
+		}
+		return this;
+	}
+	
 	////////////////////////////////////////////////////////////////////
 	
 	/** Adds a new item to the ledger. */

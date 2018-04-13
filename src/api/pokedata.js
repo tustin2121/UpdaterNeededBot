@@ -107,6 +107,7 @@ class Pokemon {
 		this._hp = [0,0];
 		this.moves = [];
 		this.moveInfo = [];
+		this.hms = {};
 		if (Bot.runOpts('specialSplit')) {
 			this._stats = {atk:0,def:0,hp:0,spa:0,spd:0,spe:0};
 		} else {
@@ -163,6 +164,8 @@ class Pokemon {
 		this.moves = mon.moves.map(m=> correctCase(m.name) );
 		this.moveInfo = mon.moves.map(m=>{
 			m = fillMoveInfo(m);
+			if (m.id === Bot.runOpts('moveId_surf')) this.hms.surf = true;
+			if (m.id === Bot.runOpts('moveId_fly')) this.hms.fly = true;
 			return {
 				id: m.id,
 				max_pp: m.max_pp,
@@ -171,6 +174,7 @@ class Pokemon {
 				type: m.type
 			};
 		});
+		
 		
 		if (mon.health) {
 			this._hp = [mon.health[0], mon.health[1]];

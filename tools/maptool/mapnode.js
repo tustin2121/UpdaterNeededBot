@@ -93,6 +93,10 @@ class MapRegion {
 		return null;
 	}
 	
+	findReports(from, to) {
+		return this.reports.filter(r=> (!r.from || r.from===from) && (!r.to || r.to===to) );
+	}
+	
 	ensureMap(bankId, mapId, data={}) {
 		this.nodes[bankId] = this.nodes[bankId] || [];
 		if (!this.nodes[bankId][mapId]) {
@@ -168,8 +172,6 @@ class MapRegion {
 	}
 	
 }
-
-
 
 /** Represents a map in the game. This represents data about a location id given by the API. */
 class MapNode {
@@ -373,6 +375,7 @@ class TransitReport {
 	constructor(region, opts={}) {
 		this.__region__ = region;
 		
+		this.id = opts.id || TransitReport.generateId();
 		this.from = opts.from;
 		this.to = opts.to;
 		this.text = opts.text;
@@ -380,8 +383,13 @@ class TransitReport {
 		this.timeout = opts.timeout || 10*60*1000;
 	}
 	
+	static generateId() {
+		return Math.floor(Math.random() * 0xFFFFFFFF).toString(16);
+	}
+	
 	serialize() {
 		let data = {
+			id: this.id,
 			from: null, to: null,
 			text: this.text,
 			timeout: this.timeout,
@@ -465,6 +473,15 @@ const ATTRS = {
 	},
 	
 	// Amenities which can affect reporting
+	ledge: {
+		tooltip: `If this area marks a ledge state. The bot will test if the player moved from 'ledge' to 'jump'.`,
+		values: [false,'approach','ledge','jump','clear','giveup'],
+		areasOnly: true,
+		// Route 22 ledge: The area past the Rival fight is marked 'approach'.
+		//  The area along the ledge is marked 'ledge'.
+		//  The area below the ledge is marked 'jump'. The bot tests if the player moved from 'ledge' to 'jump'.
+		//  The area below the door is marked 'clear'. The exit out of route 22 is marked 'giveup'.
+	},
 	checkpoint: {
 		tooltip: `If the location sets a checkpoint upon arriving (or when healing in gen 1).`,
 		// This is also used to check for blackouts: if we arrive back at our previously marked checkpoint

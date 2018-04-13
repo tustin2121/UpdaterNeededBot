@@ -128,7 +128,7 @@ class PartyModule extends ReportingModule {
 						code: ApiDisturbance.LOGIC_ERROR,
 						reason: `Move pairs for '${curr}' could not be de-duplicated!`,
 					}));
-				} 
+				}
 				
 				for (let pair of movePairs) {
 					if (!pair.p.id && pair.c.id) {
@@ -191,6 +191,7 @@ class PartyModule extends ReportingModule {
 	secondPass(ledger) {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
+	
 }
 
 RULES.push(new Rule(`When fully healing, don't report individual revivals`)
@@ -201,7 +202,7 @@ RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 	})
 );
 
-// NOTE: This rule fails if we have a fully-healed team and a member of that team levels up at the 
+// NOTE: This rule fails if we have a fully-healed team and a member of that team levels up at the
 // end of the battle. This means the team will delta gain some HP from the level up, and if that
 // mon is already at full health, it'd be considered a "Full Heal", which will trigger this rule.
 //
