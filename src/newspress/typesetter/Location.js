@@ -95,7 +95,10 @@ module.exports = {
 			`{{if|$@randomMon}}{{Mon}} sneezes and startles us off the ledge.`,
 			`{{if|$@randomMon}}{{Mon}} spots something below and bumps us off the ledge.`,
 			`{{if|$@randomMon}}{{Mon}} gets startled and knocks us off the ledge.`,
-			`{{if|$@randomMon}}{{Mon}} scratches {{them}}self and accidentally hits us off the ledge.`,
+			`{{if mon body has any|$@randomMon|arm|claw}}{{Mon}} scratches {{them}}self and accidentally hits us off the ledge.`,
+			`{{if mon body has|$@randomMon|electricbody}}We accidentally brush {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
+			`{{if mon body has|$@randomMon|wing}}{{Mon}} flaps {{their}} wings a little too hard and send us careening off the ledge.`,
+			
 		],
 		ClearedLedge: [
 			`<b><i>We've made it past the ledge!</i></b>`,

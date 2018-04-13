@@ -290,11 +290,22 @@ function isValidToString(fn) {
 			return mon.species;
 		}
 	}
-	function testBodyFeature(opts) {
-		return function(mon) {
+	function testBodyFeature(operation) {
+		let op;
+		switch (operation) {
+			case 'and': op = (a, b)=> a && b; break;
+			case 'or':  op = (a, b)=> a || b; break;
+		}
+		return function(mon, ...feats) {
 			mon = mon || this.noun || this.subject;
 			if (!(mon instanceof Pokemon)) return false;
+			let bodyfeats = require('../../../data/extdata/bodyfeats')[mon.dexid];
 			
+			let bool = true;
+			for (let feat of feats) {
+				bool = op(bool, !!bodyfeats[feat]);
+			}
+			return bool? '' : false;
 		}
 	}
 	Object.assign(FORMAT_FNS, {
@@ -303,7 +314,9 @@ function isValidToString(fn) {
 		'Mon': printSpecies(),
 		'mon': printSpecies(),
 		
-		'if mon has legs': testBodyFeature({ legs:1 }),
+		'if mon body has': testBodyFeature('or'),
+		'if mon body has any': testBodyFeature('or'),
+		'if mon body has all': testBodyFeature('and'),
 	});
 }
 
