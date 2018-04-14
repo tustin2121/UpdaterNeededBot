@@ -5,7 +5,11 @@ const MapChanged = {};
 
 MapChanged['report'] = `{{@report}}`;
 MapChanged['default'] = [
-	
+	`{{@curr}}.`,
+	`{{On the location|@curr}}.`,
+	`Now {{in the location|@curr}}.`,
+	`We head {{into the location|@curr}}.`,
+	`Arrived {{on the location|@curr}}.`,
 ];
 
 //////////////////////////////
@@ -21,6 +25,9 @@ MapChanged['enter'] = [
 //We walk from an inside location to an outside location
 MapChanged['exit'] = [
 	`We head outside: {{the location|@curr}}.`,
+	`We step out into the {{daylight|sunlight|moonlight|red glow of dawn}}, {{into the location|@curr}}.`,
+	`We head out {{into the location|@curr}}.`,
+	`{{time of day|Squinting against the sun|Squinting into the darkness}}, we step outside {{into the location|@curr}}.`,
 ];
 //We walk from an outside location to an inside location within 15 minutes
 MapChanged['enter_back'] = [
@@ -29,6 +36,10 @@ MapChanged['enter_back'] = [
 //We walk from an inside location to an outside location within 15 minutes
 MapChanged['exit_back'] = [
 	`We head back outside to {{the location|@curr}}.`,
+	`We head back out {{into the location|@curr}}.`,
+	`We leave back {{into the location|@curr}}.`,
+	`We exit back {{into the location|@curr}}.`,
+	`Back out {{into the location|@curr}}.`,
 ];
 MapChanged['enter_nvm'] = MapChanged['enter_back'];
 MapChanged['exit_nvm'] = MapChanged['exit_back'];
@@ -47,16 +58,19 @@ MapChanged['dungeon_exit'] = [
 //We walk back into the same dungeon within 15 minutes
 MapChanged['dungeon_enter_back'] = [
 	`We head back inside {{the location|@curr}}.`,
+	`Back inside {{the location|@curr}}.`,
 ];
 //We walk back out of the same dungeon within 15 minutes
 MapChanged['dungeon_exit_back'] = [
 	`We head back outside to {{the location|@curr}}.`,
+	`Back outside. {{the location|@curr}}.`,
 ];
 MapChanged['dungeon_enter_nvm'] = MapChanged['dungeon_enter_back'];
 MapChanged['dungeon_exit_nvm'] = MapChanged['dungeon_exit_back'];
 // We use an escape rope to exit the dungeon
 MapChanged['dungeon_escaperope'] =[
 	`<b>We use an escape rope and climb out of {{the location|@prev}}!</b> We land outside {{on the location|@curr}}.`,
+	`<b>We escape rope out of {{the location|@prev}}, and land {{in the location|@curr}}.</b>`,
 ];
 
 //////////////////////////////////
@@ -70,12 +84,17 @@ MapChanged['town_new'] = [
 ];
 //We walk into a town
 MapChanged['town_enter'] = [
-	`We head {{into the location|@curr}}.`,
+	`We arrive {{in the location|@curr}}.`,
+	`We enter the boundries of {{the location|@curr}}.`,
+	`We walk {{into the location|@curr}}.`,
+	`Welcome back to {{the location|@curr}}.`,
 ];
 //We walk out of a town
 MapChanged['town_exit'] = [
 	`We leave {{the location|@prev}}. {{The location|@curr}}`,
 	`We head out of town. Now {{on the location|@curr}}.`,
+	`We depart now. {{The location|@curr}}.`,
+	`Out {{into the location}}`,
 ];
 //We walk into a town within 15 minutes of the last time we were there
 MapChanged['town_enter_back'] = [
@@ -89,11 +108,40 @@ MapChanged['town_exit_back'] = [
 ];
 //We walk into a town within 2 minutes of the last time we were there
 MapChanged['town_enter_nvm'] = [
-	
+	`Wait, never mind. {{The location|@curr}} again.`,
+	`Never mind, we're back {{in the location|@curr}}.`,
+	`And we immedeately cross back into town.`,
+	`No, wait, back in {{the location|@curr}} again.`,
 ];
 //We walk out of a town within 2 minutes of the last time we were there
 MapChanged['town_exit_nvm'] = [
-	
+	`Never mind, back out {{on the location|@curr}} again.`,
+	`And we turn right around and leave town again. {{The location|@curr}}.`,
+];
+// Directional overrides, to be overridden using Transit Reports
+MapChanged['town_exit_west'] = [
+	...MapChanged['town_exit'],
+	`We depart westward {{onto the location|@curr}}.`,
+	`We head {{rand|westward|west}} out of town {{onto the location|@curr}}.`,
+	`We leave town heading west, out {{onto the location|@curr}}.`,
+];
+MapChanged['town_exit_east'] = [
+	...MapChanged['town_exit'],
+	`We depart eastward {{onto the location|@curr}}.`,
+	`We head {{rand|eastward|east}} out of town {{onto the location|@curr}}.`,
+	`We leave town heading east, out {{onto the location|@curr}}.`,
+];
+MapChanged['town_exit_north'] = [
+	...MapChanged['town_exit'],
+	`We depart northward {{onto the location|@curr}}.`,
+	`We head {{rand|northward|north}} out of town {{onto the location|@curr}}.`,
+	`We leave town heading north, out {{onto the location|@curr}}.`,
+];
+MapChanged['town_exit_south'] = [
+	...MapChanged['town_exit'],
+	`We depart southward {{onto the location|@curr}}.`,
+	`We head {{rand|southward|south}} out of town {{onto the location|@curr}}.`,
+	`We leave town heading south, out {{onto the location|@curr}}.`,
 ];
 
 ////////////////////////////
@@ -165,6 +213,29 @@ MapChanged['entralink_exit_nvm'] = [
 ////////////
 // Others //
 
+//We ride the magnet train (override with Transit Report)
+MapChanged['magenttrain'] = [
+	`We {{rand|hop|jump}} on the {{rand|magnet |}}train! Weeeeeee! \PogChamp/ Now {{in the location|@curr}}!`,
+	`We {{rand|take|ride|board|grab}} the {{rand|magnet |}}train to {{the location|@curr}}!`,
+];
+//We ride the magnet train within 15 minutes of the last time
+MapChanged['magenttrain_back'] = [
+	`Back for more {{rand|magnet |}}train fun! Weeee{{rand|eeee|ee|e}}e! \ PogChamp / {{The location|@curr}}!`,
+	`Back now for more train riding! To {{the location|@curr}} we go!`,
+	`TRAINS! Onward to {{the location|@curr}}!`,
+];
+//We ride the magnet train within 5 minutes of the last time
+MapChanged['magenttrain_nvm'] = [
+	`Weeeeeeeee! \ PogChamp / Now back {{in the location|@curr}}!`,
+	`Weeeeeeeeeeee! \ PogChamp / {{The location|@curr}}!`,
+	`Weeeeeeeeee! \ PogChamp / {{The location|@curr}}!`,
+	`Weeeeeeee! \ PogChamp / Back {{in the location|@curr}}!`,
+	`Weeeeeeeeeeee! \ PogChamp / Back to {{the location|@curr}}!`,
+	`That train ride was so much fun, we do it again! {{The location|@curr}}!`,
+	`This train is fun! Back {{in the location|@curr}}!`,
+	`That ride was a blast! Again! \PogChamp/ {{The location|@curr}}!`,
+	`Again! Again! \PogChamp/ We ride the train back to {{the location|@curr}}!`,
+];
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,38 +255,7 @@ module.exports = {
 	},
 	
 	MapContext: null,
-	MapChanged: {
-		default: [
-			`Welcome to {{@curr}}!`,
-		],
-		report: `{{@report}}`,
-		
-		'enter': [
-			
-		],
-		'exit': [
-			
-		],
-		'arrive': [ //We arrive in a city or town
-			`We arrive {{in the location|@curr}}.`,
-		],
-		'fly': [ //We fly to a location
-			`We fly to {{the location|@curr}}`,
-		],
-		'escape': [ //We used an escape rope to flee a location
-			`We escape rope out of {{the location|@prev}}, and land {{in the location|@curr}}.`,
-		],
-		'dig': [ //We dig out a location
-			`We dig out of {{the location|@prev}}! Welcome to {{the location|@curr}}.`,
-		],
-	},
-	EnteredEntralink: {
-		// prev = the previous location
-		// curr = the current location
-		default: [ //We enter an "entralink"-type area
-			
-		],
-	},
+	MapChanged,
 	
 	CheckpointContext: null,
 	CheckpointUpdated: {

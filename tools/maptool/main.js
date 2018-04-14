@@ -598,9 +598,9 @@ class MapPanel {
 					});
 				});
 			$(`<input class='timeout' type='number'>`).appendTo($report)
-				.val(report.timeout)
+				.val(report.timeout / (60*1000))
 				.on('change', function(){
-					report.timeout = $(this).val();
+					report.timeout = $(this).val() * (60*1000);
 					App.notifyChange('prop-change', report);
 				});
 			$(`<textarea spellcheck='true'>`).appendTo($report)
@@ -633,9 +633,9 @@ class MapPanel {
 					});
 				});
 			$(`<input class='timeout' type='number'>`).appendTo($report)
-				.val(report.timeout)
+				.val(report.timeout / (60*1000))
 				.on('change', function(){
-					report.timeout = $(this).val();
+					report.timeout = $(this).val() * (60*1000);
 					App.notifyChange('prop-change', report);
 				});
 			$(`<textarea spellcheck='true'>`).appendTo($report)
@@ -854,8 +854,8 @@ function toStr(node) {
 	if (node === undefined) return 'undefined';
 	if (typeof node === 'string') return node;
 	switch (node.constructor.name) {
-		case 'MapNode': return `Map [${this.locId}] "${this.name}"`;
-		case 'MapType': return `Type [${this.name}]`;
+		case 'MapNode': return `Map [${node.locId}] "${node.name}"`;
+		case 'MapType': return `Type [${node.name}]`;
 		case 'MapArea': return `Area [${node.locId}] "${node.name}"`;
 	}
 	return node.toString();

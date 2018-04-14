@@ -405,6 +405,22 @@ function isValidToString(fn) {
 		
 		'if mon is walking': testWalkBehind,
 	});
+}{
+	function determineTimeOfDay() {
+		return function(day, night, morn) {
+			if (!Bot.runOpts('rtc')) return day;
+			switch (this.curr_api.timeOfDay) {
+				case 'night': return night || day;
+				case 'morning': return morn || day;
+				default: return day;
+			}
+		}
+	}
+	Object.assign(FORMAT_FNS, {
+		'time of day': determineTimeOfDay(),
+		'timeOfDay': determineTimeOfDay(),
+		'daylight': determineTimeOfDay(),
+	});
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
