@@ -92,12 +92,12 @@ function posChanged(args) {
 			$('.summary [name=areaname]').text(currNode.name);
 			mapNode = mapNode.parent;
 		}
-		$('.summary [name=prep]').text(mapNode.is('preposition'));
-		$('.summary [name=the]').text(mapNode.is('the'));
-		$('.summary [name=name]').text(mapNode.name);
+		$('.summary [name=prep]').text(mapNode.is('preposition')||'');
+		$('.summary [name=the]').text(mapNode.is('the')||'');
+		$('.summary [name=name]').text(mapNode.name||'');
 	}
-	$('.summary [name=x]').text(args.x);
-	$('.summary [name=y]').text(args.y);
+	$('.summary [name=x]').text(args.x||NaN);
+	$('.summary [name=y]').text(args.y||NaN);
 	$('.quickBtns .leader').val(currNode.is('leader')||'');
 	$('.quickBtns .legendary').val(currNode.is('legendary')||'');
 	for (let attr in ATTRS) {

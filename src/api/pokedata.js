@@ -731,6 +731,7 @@ class SortedData {
 		
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
+		this.playerGender = data.gender;
 		
 		this.level_cap = data.level_cap || 100;
 		

@@ -66,7 +66,8 @@
 				"indoors": true,
 				"dungeon": true,
 				"pokewalk": "yes",
-				"preposition": "in"
+				"preposition": "in",
+				"the": "the"
 			},
 			"areas": []
 		},
@@ -1098,7 +1099,17 @@
 				"width": 96,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 415,
+						"ay": "246",
+						"bx": 415,
+						"by": "246",
+						"rad": 5,
+						"name": "Odd Tree",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "R36",
 					"tex1": 15,
@@ -1170,7 +1181,17 @@
 				"width": 32,
 				"height": 64,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "257",
+						"ay": "161",
+						"bx": 272,
+						"by": "192",
+						"rad": "0",
+						"name": "Moomoo Farm",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "R39",
 					"tex1": 15,
@@ -2523,7 +2544,26 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "45",
+						"ay": "45",
+						"bx": "57",
+						"by": "51",
+						"rad": "0",
+						"name": "Contest Endpoint",
+						"attrs": {}
+					},
+					{
+						"ax": "43",
+						"ay": "32",
+						"bx": "59",
+						"by": "47",
+						"rad": 5,
+						"name": "By the Fountain",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "D22R0101",
 					"tex1": 191,
@@ -2569,7 +2609,7 @@
 				"name": "Route 32",
 				"areaId": 31,
 				"areaName": "Route 32",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2616,13 +2656,15 @@
 			{
 				"bank": 0,
 				"id": 100,
-				"name": "Azalea Town",
+				"name": "Azalea Town Gatehouse",
 				"areaId": 58,
 				"areaName": "Azalea Town",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T23R0101",
@@ -2644,7 +2686,7 @@
 				"name": "Route 35",
 				"areaId": 34,
 				"areaName": "Route 35",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2669,11 +2711,23 @@
 				"name": "Route 35",
 				"areaId": 34,
 				"areaName": "Route 35",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 28,
+						"ay": 4,
+						"bx": 28,
+						"by": 4,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "R35R0201",
 					"tex1": 191,
@@ -2694,7 +2748,7 @@
 				"name": "Route 36",
 				"areaId": 35,
 				"areaName": "Route 36",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2719,7 +2773,7 @@
 				"name": "Route 36",
 				"areaId": 35,
 				"areaName": "Route 36",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2959,7 +3013,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 64,
-				"attrs": {},
+				"attrs": {
+					"indoors": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D24R0101",
@@ -2984,7 +3040,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D26R0101",
@@ -3009,7 +3067,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D27R0101",
@@ -3061,8 +3122,22 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": "14",
+						"ay": "52",
+						"bx": "18",
+						"by": "61",
+						"rad": 5,
+						"name": "Forest Shrine",
+						"attrs": {
+							"inconsequential": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D36R0101",
 					"tex1": 191,
@@ -3542,7 +3617,7 @@
 			{
 				"bank": 0,
 				"id": 136,
-				"name": "Azalea Town",
+				"name": "Azalea Town Gym",
 				"areaId": 58,
 				"areaName": "Azalea Town",
 				"type": "gym",
@@ -3567,14 +3642,26 @@
 			{
 				"bank": 0,
 				"id": 137,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Gym",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 13,
+						"ay": 5,
+						"bx": 13,
+						"by": 5,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Whitney"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T25GYM0101",
 					"tex1": 191,
@@ -3592,14 +3679,26 @@
 			{
 				"bank": 0,
 				"id": 138,
-				"name": "Olivine City",
+				"name": "Olivine City Gym",
 				"areaId": 61,
 				"areaName": "Olivine City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 6,
+						"bx": 6,
+						"by": 6,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Jasmine"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T26GYM0101",
 					"tex1": 143,
@@ -3896,7 +3995,7 @@
 				"name": "Route 36",
 				"areaId": 35,
 				"areaName": "Route 36",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4224,7 +4323,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T22R0601",
@@ -4243,13 +4344,15 @@
 			{
 				"bank": 0,
 				"id": 163,
-				"name": "Azalea Town",
+				"name": "Azalea Town Charcoal Kiln",
 				"areaId": 58,
 				"areaName": "Azalea Town",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T23R0201",
@@ -4268,7 +4371,7 @@
 			{
 				"bank": 0,
 				"id": 164,
-				"name": "Azalea Town",
+				"name": "Kurt's House",
 				"areaId": 58,
 				"areaName": "Azalea Town",
 				"type": "indoor",
@@ -4393,7 +4496,7 @@
 			{
 				"bank": 0,
 				"id": 169,
-				"name": "Route 32",
+				"name": "Route 32 Pokémon Center",
 				"areaId": 31,
 				"areaName": "Route 32",
 				"type": "center",
@@ -4418,10 +4521,10 @@
 			{
 				"bank": 0,
 				"id": 170,
-				"name": "Route 32",
+				"name": "Route 32 Wi-Fi Club",
 				"areaId": 31,
 				"areaName": "Route 32",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4446,7 +4549,7 @@
 				"name": "Route 34",
 				"areaId": 33,
 				"areaName": "Route 34",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4598,7 +4701,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D26R0102",
@@ -4667,14 +4772,26 @@
 			{
 				"bank": 0,
 				"id": 180,
-				"name": "Azalea Town",
+				"name": "Azalea Town Gym",
 				"areaId": 58,
 				"areaName": "Azalea Town",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 9,
+						"ay": 6,
+						"bx": 9,
+						"by": 6,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Bugsy"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T23GYM0102",
 					"tex1": 207,
@@ -4698,7 +4815,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D26R0103",
@@ -4717,7 +4836,7 @@
 			{
 				"bank": 0,
 				"id": 182,
-				"name": "Goldenrod City",
+				"name": "Goldenrod Bike Shop",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
@@ -4767,13 +4886,15 @@
 			{
 				"bank": 0,
 				"id": 184,
-				"name": "Goldenrod City",
+				"name": "Goldenrod Flower Shop",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"shopping": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R0601",
@@ -4792,7 +4913,7 @@
 			{
 				"bank": 0,
 				"id": 185,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Pokémon Center",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "center",
@@ -4998,10 +5119,10 @@
 			{
 				"bank": 0,
 				"id": 191,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5023,10 +5144,10 @@
 			{
 				"bank": 0,
 				"id": 192,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5048,10 +5169,10 @@
 			{
 				"bank": 0,
 				"id": 193,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5073,10 +5194,10 @@
 			{
 				"bank": 0,
 				"id": 194,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5098,10 +5219,10 @@
 			{
 				"bank": 0,
 				"id": 195,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5123,14 +5244,28 @@
 			{
 				"bank": 0,
 				"id": 196,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": "10",
+						"ay": 4,
+						"bx": "13",
+						"by": 4,
+						"rad": 5,
+						"name": "Vending Machine",
+						"attrs": {
+							"vending": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T25R1006",
 					"tex1": 191,
@@ -5179,7 +5314,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R0502",
@@ -5205,7 +5342,39 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "8",
+						"ay": "28",
+						"bx": "8",
+						"by": "28",
+						"rad": 5,
+						"name": "Herbal Medicine Shop",
+						"attrs": {
+							"shopping": true
+						}
+					},
+					{
+						"ax": "8",
+						"ay": "17",
+						"bx": "8",
+						"by": "21",
+						"rad": 5,
+						"name": "Haircut Brothers",
+						"attrs": {
+							"shopping": true
+						}
+					},
+					{
+						"ax": "15",
+						"ay": "5",
+						"bx": "22",
+						"by": "11",
+						"rad": 5,
+						"name": "Memorial Photo Studio",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "D37R0102",
 					"tex1": 175,
@@ -5223,13 +5392,15 @@
 			{
 				"bank": 0,
 				"id": 200,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store Basement",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D37R0103",
@@ -5248,7 +5419,7 @@
 			{
 				"bank": 0,
 				"id": 201,
-				"name": "Goldenrod City",
+				"name": "Goldenrod Tunnel Puzzle Room",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "dungeon",
@@ -5273,7 +5444,7 @@
 			{
 				"bank": 0,
 				"id": 202,
-				"name": "Goldenrod City",
+				"name": "Goldenrod Tunnel Wearhouse",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "dungeon",
@@ -5373,7 +5544,7 @@
 			{
 				"bank": 0,
 				"id": 206,
-				"name": "Goldenrod City",
+				"name": "Name Rater's House",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
@@ -5575,13 +5746,15 @@
 			{
 				"bank": 0,
 				"id": 214,
-				"name": "Route 39",
+				"name": "Moomoo Farmhouse",
 				"areaId": 38,
 				"areaName": "Route 39",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R39R0101",
@@ -5600,13 +5773,15 @@
 			{
 				"bank": 0,
 				"id": 215,
-				"name": "Route 39",
+				"name": "Moomoo Stables",
 				"areaId": 38,
 				"areaName": "Route 39",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R39R0201",
@@ -5700,10 +5875,10 @@
 			{
 				"bank": 0,
 				"id": 219,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Wi-Fi Club",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5731,7 +5906,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D27R0102",
@@ -5781,7 +5959,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D27R0104",
@@ -5806,7 +5987,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D27R0105",
@@ -5850,7 +6034,7 @@
 			{
 				"bank": 0,
 				"id": 225,
-				"name": "Lighthouse",
+				"name": "Lighthouse Lightroom",
 				"areaId": 83,
 				"areaName": "Lighthouse",
 				"type": "dungeon",
@@ -5875,7 +6059,7 @@
 			{
 				"bank": 0,
 				"id": 226,
-				"name": "Olivine City",
+				"name": "Olivine City Pokémon Center",
 				"areaId": 61,
 				"areaName": "Olivine City",
 				"type": "center",
@@ -7234,7 +7418,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D49",
@@ -7259,7 +7446,50 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 8,
+						"bx": 5,
+						"by": 8,
+						"rad": 5,
+						"name": "Vending Machine",
+						"attrs": {
+							"vending": true
+						}
+					},
+					{
+						"ax": 27,
+						"ay": 8,
+						"bx": 27,
+						"by": 8,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					},
+					{
+						"ax": 36,
+						"ay": 10,
+						"bx": 36,
+						"by": 10,
+						"rad": 5,
+						"name": "Vendor",
+						"attrs": {
+							"shopping": true
+						}
+					},
+					{
+						"ax": "21",
+						"ay": "5",
+						"bx": "24",
+						"by": "8",
+						"rad": 5,
+						"name": "In Contest",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "D49R0101",
 					"tex1": 175,
@@ -7277,13 +7507,15 @@
 			{
 				"bank": 0,
 				"id": 282,
-				"name": "Pokéathlon Dome",
+				"name": "Pokéathlon Dome Stands",
 				"areaId": 98,
 				"areaName": "Pokéathlon Dome",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D49R0102",
@@ -7308,7 +7540,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D49R0103",
@@ -7327,13 +7561,15 @@
 			{
 				"bank": 0,
 				"id": 284,
-				"name": "Pokéathlon Dome",
+				"name": "Pokéathlon Dome's Solidarity Room",
 				"areaId": 98,
 				"areaName": "Pokéathlon Dome",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D49R0104",
@@ -8508,14 +8744,28 @@
 			{
 				"bank": 0,
 				"id": 331,
-				"name": "Route 34",
+				"name": "Daycare",
 				"areaId": 33,
 				"areaName": "Route 34",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 1,
+						"ay": 8,
+						"bx": 1,
+						"by": 8,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "R34R0101",
 					"tex1": 191,
@@ -9312,10 +9562,10 @@
 			{
 				"bank": 0,
 				"id": 367,
-				"name": "Olivine City",
+				"name": "Olivine City Wi-Fi Club",
 				"areaId": 61,
 				"areaName": "Olivine City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -10174,7 +10424,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T11R0602",
@@ -11201,13 +11453,15 @@
 			{
 				"bank": 0,
 				"id": 441,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Department Store",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R1007",
@@ -11326,13 +11580,16 @@
 			{
 				"bank": 0,
 				"id": 446,
-				"name": "Lighthouse",
+				"name": "Lighthouse Elevator",
 				"areaId": 83,
 				"areaName": "Lighthouse",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D27R0108",
@@ -13150,7 +13407,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R0503",
@@ -13175,7 +13434,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T11R0603",
@@ -13569,13 +13830,15 @@
 			{
 				"bank": 0,
 				"id": 536,
-				"name": "Goldenrod City",
+				"name": "Goldenrod Game Corner",
 				"areaId": 60,
 				"areaName": "Goldenrod City",
-				"type": "town",
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25SP0101",
@@ -13814,6 +14077,124 @@
 			"to": "0.189:0",
 			"text": "We poke our head in on the director in his office on the fifth floor.",
 			"timeout": 3600000
+		},
+		{
+			"id": "4cfbfc1d",
+			"from": "0.74",
+			"to": "0.114",
+			"text": "We climb down {{rand|the ladder leading down into the old well...|into the depths of|into|into the dank depths of}} Slowpoke Well.",
+			"timeout": 600000
+		},
+		{
+			"id": "71e140fe",
+			"from": "0.114",
+			"to": "0.74",
+			"text": "We {{rand|climb up|head up}} the ladder again{{rand|, out of the deep well full of Slowpoke.|, out of the damp home of the Slowpoke.|.}} Azalea Town.",
+			"timeout": 600000
+		},
+		{
+			"id": "6c6a730d",
+			"from": "0.74",
+			"to": "0.100",
+			"text": "Now that {{rival}} isn't blocking the door anymore, we head west into the Ilix Forest gatehouse...",
+			"timeout": 2592000000
+		},
+		{
+			"id": "37b7ab8a",
+			"from": null,
+			"to": "0.117:0",
+			"text": "We cut down the tree and head through the tree line. We examine the Ilex Forest Shrine.",
+			"timeout": 2592000000
+		},
+		{
+			"id": "2815e340",
+			"from": null,
+			"to": "0.281:3",
+			"text": "We change clothes! Onwards to the Pokéathlon course!",
+			"timeout": 600000
+		},
+		{
+			"id": "44dbd3ee",
+			"from": "0.281:3",
+			"to": null,
+			"text": "Back in the Pokéathlon Dome, and back in our normal clothes again.",
+			"timeout": 300000
+		},
+		{
+			"id": "6bb479e3",
+			"from": null,
+			"to": "0.487",
+			"text": "We enter the Bug Catching Contest!",
+			"timeout": 600000
+		},
+		{
+			"id": "d74a8d8",
+			"from": "0.487",
+			"to": "0.96:0",
+			"text": "We finish the bug catching contest. Time for the results!",
+			"timeout": 600000
+		},
+		{
+			"id": "30fea6f5",
+			"from": "0.102",
+			"to": "0.96:0",
+			"text": "We finish the bug catching contest. Time for the results!",
+			"timeout": 600000
+		},
+		{
+			"id": "d13c02d",
+			"from": "0.104",
+			"to": "0.96:0",
+			"text": "We finish the bug catching contest. Time for the results!",
+			"timeout": 600000
+		},
+		{
+			"id": "83abc68c",
+			"from": "0.78",
+			"to": "0.172",
+			"text": "!town_exit_west",
+			"timeout": 0
+		},
+		{
+			"id": "3914a87e",
+			"from": "0.78",
+			"to": "0.41",
+			"text": "!town_exit_south",
+			"timeout": 600000
+		},
+		{
+			"id": "98593a42",
+			"from": "0.78",
+			"to": "0.132",
+			"text": "!town_exit_east",
+			"timeout": 600000
+		},
+		{
+			"id": "f0fbc568",
+			"from": "0.43",
+			"to": "0.43:0",
+			"text": "We stop by Moomoo Farm for a visit.",
+			"timeout": 3600000
+		},
+		{
+			"id": "d1e8d513",
+			"from": "0.77",
+			"to": "0.43",
+			"text": "!town_exit_north",
+			"timeout": 600000
+		},
+		{
+			"id": "ac47e6e",
+			"from": "0.115",
+			"to": "0.446",
+			"text": "We take the elevator up to the Lightroom.",
+			"timeout": 600000
+		},
+		{
+			"id": "34176ff1",
+			"from": "0.225",
+			"to": "0.446",
+			"timeout": 600000
 		}
 	]
 }

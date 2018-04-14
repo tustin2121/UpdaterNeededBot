@@ -85,7 +85,8 @@ class MapRegion {
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
 				for (let area of map.areas) {
-					if (area.ax >= x && area.bx <= x && area.ay >= y && area.by <= y) return area;
+					if (x >= area.ax && x <= area.bx
+						&& y >= area.ay && y <= area.by) return area;
 				}
 			}
 			return bank[id];

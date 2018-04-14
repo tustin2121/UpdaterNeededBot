@@ -58,7 +58,7 @@ function isValidToString(fn) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Format Functions: Meta and Conditionals
+// Format Functions: Meta
 {
 	Object.assign(FORMAT_FNS, {
 		'meta': ()=>'', //do nothing
@@ -297,6 +297,30 @@ function isValidToString(fn) {
 		'Them': determineGender('Him', 'Her', 'It', 'Them'),
 		'Their': determineGender('His', 'Her', 'Its', 'Their'),
 		'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
+	});
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Format Functions: Static Replacements
+{
+	function printPlayerName() { return this.curr_api.name; }
+	function printFriendlyRivalName() {
+		let name = Bot.runOpts('friendName');
+		if (Array.isArray(name)) {
+			if (name.length === 1) return name[0];
+			let gender = this.curr_api.playerGender;
+			if (gender.toLowerCase() === 'female') return name[1];
+			return name[0];
+		}
+		return name;
+	}
+	Object.assign(FORMAT_FNS, {
+		'player': printPlayerName,
+		'player name': printPlayerName,
+		'player\'s name': printPlayerName,
+		'my name': printPlayerName,
+		
+		'my friend': printFriendlyRivalName,
 	});
 }
 

@@ -52,6 +52,8 @@ module.exports = {
 	champName: "",
 	// The (default) name of the player's rival
 	rivalName: "",
+	// The (default) name of the player's friendly rival (can be an array if it's "the unchosen protagonist")
+	friendName: "",
 	
 	// Trainer classes to mark specially
 	trainerClasses: {
