@@ -50,21 +50,21 @@ $(()=>{
 		.on('click', ()=>{
 			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Vending Machine", attrs:{ vending:true, } });
 		});
-	
-	let txt = $(`<input type='text' class='leader' />`).appendTo(btns);
-	$(`<button>Mark Gym Leader</button>`).appendTo(btns)
-		.on('click', ()=>{
-			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Leader", attrs:{ leader:txt.val(), } });
-			txt.val();
-		});
-	
-	txt = $(`<input type='text' class='legendary' />`).appendTo(btns);
-	$(`<button>Mark Legendary Mon</button>`).appendTo(btns)
-		.on('click', ()=>{
-			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Legendary", attrs:{ legendary:txt.val(), } });
-			txt.val();
-		});
-	
+	{
+		const txt = $(`<input type='text' class='leader' />`).appendTo(btns);
+		$(`<button>Mark Gym Leader</button>`).appendTo(btns)
+			.on('click', ()=>{
+				currNode.addArea({ x:currPos.x, y:currPos.y, name:"Leader", attrs:{ leader:txt.val(), } });
+				txt.val('');
+			});
+	}{
+		const txt = $(`<input type='text' class='legendary' />`).appendTo(btns);
+		$(`<button>Mark Legendary Mon</button>`).appendTo(btns)
+			.on('click', ()=>{
+				currNode.addArea({ x:currPos.x, y:currPos.y, name:"Legendary", attrs:{ legendary:txt.val(), } });
+				txt.val('');
+			});
+	}
 	$(`<button>Mark Field Healing</button>`).appendTo(btns)
 		.on('click', ()=>{
 			currNode.addArea({ x:currPos.x, y:currPos.y, name:"Field Healing", attrs:{ healing:'doctor', } })

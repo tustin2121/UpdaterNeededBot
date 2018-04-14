@@ -55,7 +55,12 @@ class MapContext extends LedgerItem {
 /** Indicates that we have changed locations (when we have map information) */
 class MapChanged extends LedgerItem {
 	constructor({ prev, curr, report, type=null }) {
-		if (report && !type) type = 'report';
+		if (report instanceof TransitReport && !type) {
+			type = 'report';
+			if (report.text.startsWith('!'))
+				type = report.text.slice(1);
+		}
+		
 		super(1, { sort:-10, flavor:type });
 		/** @type {MapNode|MapArea} The previous location the player is in. */
 		this.prev = prev;

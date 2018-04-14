@@ -15,7 +15,8 @@
 			"attrs": {
 				"town": true,
 				"preposition": "in",
-				"pokewalk": "yes"
+				"pokewalk": "yes",
+				"the": ""
 			},
 			"areas": []
 		},
@@ -34,7 +35,8 @@
 			"attrs": {
 				"indoors": true,
 				"preposition": "in",
-				"pokewalk": "no-large"
+				"pokewalk": "no-large",
+				"the": ""
 			},
 			"areas": []
 		},
@@ -43,7 +45,8 @@
 			"attrs": {
 				"indoors": true,
 				"dungeon": true,
-				"pokewalk": "yes"
+				"pokewalk": "yes",
+				"preposition": "in"
 			},
 			"areas": []
 		},
@@ -52,7 +55,8 @@
 			"attrs": {
 				"indoors": true,
 				"pokewalk": "yes",
-				"route": true
+				"route": true,
+				"preposition": "on"
 			},
 			"areas": []
 		},
@@ -61,7 +65,8 @@
 			"attrs": {
 				"indoors": true,
 				"dungeon": true,
-				"pokewalk": "yes"
+				"pokewalk": "yes",
+				"preposition": "in"
 			},
 			"areas": []
 		},
@@ -71,14 +76,16 @@
 				"indoors": true,
 				"healing": "pokecenter",
 				"checkpoint": true,
-				"pokewalk": "no-large"
+				"pokewalk": "no-large",
+				"the": "the",
+				"preposition": "in"
 			},
 			"areas": [
 				{
-					"ax": 2,
-					"ay": 2,
-					"bx": 2,
-					"by": 2,
+					"ax": "11",
+					"ay": "13",
+					"bx": "11",
+					"by": "13",
 					"rad": 5,
 					"name": "PC",
 					"attrs": {
@@ -93,7 +100,8 @@
 				"indoors": true,
 				"shopping": true,
 				"pokewalk": "no-large",
-				"the": "the"
+				"the": "the",
+				"preposition": "in"
 			},
 			"areas": [
 				{
@@ -113,7 +121,8 @@
 				"indoors": true,
 				"gym": true,
 				"the": "the",
-				"pokewalk": "no-large"
+				"pokewalk": "no-large",
+				"preposition": "in"
 			},
 			"areas": []
 		},
@@ -124,6 +133,27 @@
 				"pokewalk": "yes"
 			},
 			"areas": []
+		},
+		"center_lower": {
+			"type": "center_lower",
+			"attrs": {
+				"indoors": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": [
+				{
+					"ax": "15",
+					"ay": "6",
+					"bx": "16",
+					"by": "6",
+					"rad": 5,
+					"name": "WiFi PC",
+					"attrs": {
+						"pc": true
+					}
+				}
+			]
 		}
 	},
 	"nodes": [
@@ -245,7 +275,11 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": false,
+					"preposition": "on",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D17R1101",
@@ -1561,13 +1595,15 @@
 			{
 				"bank": 0,
 				"id": 61,
-				"name": "New Bark Town",
+				"name": "Elm Pokémon Lab",
 				"areaId": 55,
 				"areaName": "New Bark Town",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"healing": "house"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T20R0101",
@@ -1586,7 +1622,7 @@
 			{
 				"bank": 0,
 				"id": 62,
-				"name": "New Bark Town",
+				"name": "Elm's House",
 				"areaId": 55,
 				"areaName": "New Bark Town",
 				"type": "indoor",
@@ -1611,7 +1647,7 @@
 			{
 				"bank": 0,
 				"id": 63,
-				"name": "New Bark Town",
+				"name": "{{player}}'s House",
 				"areaId": 55,
 				"areaName": "New Bark Town",
 				"type": "indoor",
@@ -1636,7 +1672,7 @@
 			{
 				"bank": 0,
 				"id": 64,
-				"name": "New Bark Town",
+				"name": "{{player}}'s House",
 				"areaId": 55,
 				"areaName": "New Bark Town",
 				"type": "indoor",
@@ -1686,7 +1722,7 @@
 			{
 				"bank": 0,
 				"id": 66,
-				"name": "New Bark Town",
+				"name": "{{my friend}}'s House",
 				"areaId": 55,
 				"areaName": "New Bark Town",
 				"type": "indoor",
@@ -2029,14 +2065,26 @@
 			{
 				"bank": 0,
 				"id": 80,
-				"name": "Ecruteak City",
+				"name": "Ecruteak City Gym",
 				"areaId": 62,
 				"areaName": "Ecruteak City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 9,
+						"bx": 10,
+						"by": 9,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Morty"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T27GYM0101",
 					"tex1": 191,
@@ -2179,13 +2227,15 @@
 			{
 				"bank": 0,
 				"id": 86,
-				"name": "Ecruteak City",
+				"name": "Ecruteak Dance Theater",
 				"areaId": 62,
 				"areaName": "Ecruteak City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T27R0501",
@@ -2234,8 +2284,32 @@
 				"type": "town",
 				"width": 96,
 				"height": 64,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the",
+					"preposition": "at"
+				},
+				"areas": [
+					{
+						"ax": 536,
+						"ay": 90,
+						"bx": 536,
+						"by": 90,
+						"rad": 5,
+						"name": "spawn",
+						"attrs": {
+							"flyspot": true
+						}
+					},
+					{
+						"ax": "489",
+						"ay": "36",
+						"bx": "542",
+						"by": "75",
+						"rad": 5,
+						"name": "Lake",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "T29",
 					"tex1": 15,
@@ -2259,7 +2333,19 @@
 				"width": 64,
 				"height": 64,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "659",
+						"ay": "136",
+						"bx": "667",
+						"by": "148",
+						"rad": 5,
+						"name": "Surf Pond",
+						"attrs": {
+							"water": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T30",
 					"tex1": 15,
@@ -2837,7 +2923,19 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 1,
+						"ay": 6,
+						"bx": 1,
+						"by": 6,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D23R0101",
 					"tex1": 175,
@@ -2930,13 +3028,15 @@
 			{
 				"bank": 0,
 				"id": 116,
-				"name": "Mahogany Town",
+				"name": "Mahogany Town Shop(?)",
 				"areaId": 64,
 				"areaName": "Mahogany Town",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"shopping": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D35R0101",
@@ -3305,10 +3405,10 @@
 			{
 				"bank": 0,
 				"id": 131,
-				"name": "Ecruteak City Pokémon Center",
+				"name": "Ecruteak City Wi-Fi Club",
 				"areaId": 62,
 				"areaName": "Ecruteak City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3333,7 +3433,7 @@
 				"name": "Route 42",
 				"areaId": 39,
 				"areaName": "Route 42",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3383,7 +3483,7 @@
 				"name": "Route 29",
 				"areaId": 28,
 				"areaName": "Route 29",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3542,14 +3642,26 @@
 			{
 				"bank": 0,
 				"id": 140,
-				"name": "Mahogany Town",
+				"name": "Mahogany Town Gym",
 				"areaId": 64,
 				"areaName": "Mahogany Town",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "7",
+						"ay": "5",
+						"bx": "7",
+						"by": "5",
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Pryce"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T28GYM0101",
 					"tex1": 15,
@@ -3567,7 +3679,7 @@
 			{
 				"bank": 0,
 				"id": 141,
-				"name": "Blackthorn City",
+				"name": "Blackthorn City Gym",
 				"areaId": 66,
 				"areaName": "Blackthorn City",
 				"type": "gym",
@@ -3576,7 +3688,19 @@
 				"attrs": {
 					"pokewalk": false
 				},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 12,
+						"ay": 4,
+						"bx": 12,
+						"by": 4,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Claire"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T30GYM0101",
 					"tex1": 79,
@@ -3597,7 +3721,7 @@
 				"name": "Route 43",
 				"areaId": 40,
 				"areaName": "Route 43",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3644,10 +3768,10 @@
 			{
 				"bank": 0,
 				"id": 144,
-				"name": "Cherrygrove City",
+				"name": "Cherrygrove City Wi-Fi Club",
 				"areaId": 56,
 				"areaName": "Cherrygrove City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3992,7 +4116,7 @@
 			{
 				"bank": 0,
 				"id": 158,
-				"name": "Violet City Pokemon Center",
+				"name": "Violet City Pokémon Center",
 				"areaId": 57,
 				"areaName": "Violet City",
 				"type": "center",
@@ -4194,7 +4318,7 @@
 			{
 				"bank": 0,
 				"id": 166,
-				"name": "Azalea Town",
+				"name": "Azalea Town Pokémon Center",
 				"areaId": 58,
 				"areaName": "Azalea Town",
 				"type": "center",
@@ -4219,10 +4343,10 @@
 			{
 				"bank": 0,
 				"id": 167,
-				"name": "Violet City",
+				"name": "Violet City Wi-Fi Club",
 				"areaId": 57,
 				"areaName": "Violet City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4244,10 +4368,10 @@
 			{
 				"bank": 0,
 				"id": 168,
-				"name": "Azalea Town",
+				"name": "Azalea Town Wi-Fi Club",
 				"areaId": 58,
 				"areaName": "Azalea Town",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4347,7 +4471,7 @@
 				"name": "Route 38",
 				"areaId": 37,
 				"areaName": "Route 38",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4700,7 +4824,17 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "16",
+						"ay": "11",
+						"bx": "25",
+						"by": "14",
+						"rad": 5,
+						"name": "2F Studio 2",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "D23R0102",
 					"tex1": 175,
@@ -4725,7 +4859,17 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "16",
+						"ay": "5",
+						"bx": "25",
+						"by": "11",
+						"rad": 5,
+						"name": "Back Area",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "D23R0103",
 					"tex1": 175,
@@ -4750,7 +4894,17 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "16",
+						"ay": "11",
+						"bx": "25",
+						"by": "14",
+						"rad": 5,
+						"name": "4F Studio 1",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "D23R0104",
 					"tex1": 175,
@@ -4775,7 +4929,19 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": "1",
+						"ay": "5",
+						"bx": "9",
+						"by": "14",
+						"rad": 5,
+						"name": "Director's Office",
+						"attrs": {
+							"the": "the"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D23R0105",
 					"tex1": 175,
@@ -4793,14 +4959,28 @@
 			{
 				"bank": 0,
 				"id": 190,
-				"name": "Radio Tower",
+				"name": "Radio Tower Observation Deck",
 				"areaId": 81,
 				"areaName": "Radio Tower",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 8,
+						"ay": 3,
+						"bx": 8,
+						"by": 3,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Executive Archer"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D23R0106",
 					"tex1": 175,
@@ -5224,7 +5404,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R1201",
@@ -6171,7 +6353,7 @@
 				"name": "Route 43",
 				"areaId": 40,
 				"areaName": "Route 43",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6193,7 +6375,7 @@
 			{
 				"bank": 0,
 				"id": 246,
-				"name": "Mahogany Town",
+				"name": "Mahogany Town Pokémon Center",
 				"areaId": 64,
 				"areaName": "Mahogany Town",
 				"type": "center",
@@ -6224,7 +6406,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D35R0102",
@@ -6249,7 +6433,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D35R0103",
@@ -6274,7 +6460,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D35R0104",
@@ -7270,7 +7458,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T30R0201",
@@ -7314,7 +7504,7 @@
 			{
 				"bank": 0,
 				"id": 291,
-				"name": "Blackthorn City",
+				"name": "Blackthorn City Move House",
 				"areaId": 66,
 				"areaName": "Blackthorn City",
 				"type": "indoor",
@@ -7364,7 +7554,7 @@
 			{
 				"bank": 0,
 				"id": 293,
-				"name": "Blackthorn City",
+				"name": "Blackthorn City Pokémon Center",
 				"areaId": 66,
 				"areaName": "Blackthorn City",
 				"type": "center",
@@ -7389,13 +7579,15 @@
 			{
 				"bank": 0,
 				"id": 294,
-				"name": "Lake of Rage",
+				"name": "Lake of Rage House",
 				"areaId": 65,
 				"areaName": "Lake of Rage",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T29R0101",
@@ -7420,7 +7612,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T29R0201",
@@ -9143,10 +9337,10 @@
 			{
 				"bank": 0,
 				"id": 368,
-				"name": "Mahogany Town",
+				"name": "Mahogany Town Wi-Fi Club",
 				"areaId": 64,
 				"areaName": "Mahogany Town",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9168,10 +9362,10 @@
 			{
 				"bank": 0,
 				"id": 369,
-				"name": "Blackthorn City",
+				"name": "Blackthorn City Wi-Fi Club",
 				"areaId": 66,
 				"areaName": "Blackthorn City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9543,7 +9737,7 @@
 			{
 				"bank": 0,
 				"id": 384,
-				"name": "New Bark Town",
+				"name": "{{my friend}}'s House",
 				"areaId": 55,
 				"areaName": "New Bark Town",
 				"type": "indoor",
@@ -9843,7 +10037,7 @@
 			{
 				"bank": 0,
 				"id": 396,
-				"name": "Mahogany Town",
+				"name": "Mahogany Town Gym",
 				"areaId": 64,
 				"areaName": "Mahogany Town",
 				"type": "gym",
@@ -9868,7 +10062,7 @@
 			{
 				"bank": 0,
 				"id": 397,
-				"name": "Mahogany Town",
+				"name": "Mahogany Town Gym",
 				"areaId": 64,
 				"areaName": "Mahogany Town",
 				"type": "gym",
@@ -10280,7 +10474,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R1202",
@@ -10305,7 +10501,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T25R1203",
@@ -11153,7 +11351,7 @@
 			{
 				"bank": 0,
 				"id": 447,
-				"name": "Radio Tower",
+				"name": "Radio Tower Elevator",
 				"areaId": 81,
 				"areaName": "Radio Tower",
 				"type": "dungeon",
@@ -13496,7 +13694,7 @@
 			"from": "0.520",
 			"to": "0.198",
 			"text": "!magenttrain_nvm",
-			"timeout": 0
+			"timeout": 600000
 		},
 		{
 			"id": "ec649e33",
@@ -13517,7 +13715,7 @@
 			"from": "0.520",
 			"to": "0.197",
 			"text": "!magenttrain_nvm",
-			"timeout": 0
+			"timeout": 600000
 		},
 		{
 			"id": "f83e6722",
@@ -13559,7 +13757,63 @@
 			"from": "0.519",
 			"to": "0.400",
 			"text": "!magenttrain_nvm",
-			"timeout": 0
+			"timeout": 600000
+		},
+		{
+			"id": "9359f995",
+			"from": null,
+			"to": "0.186:0",
+			"text": "We {{rand|poke our heads in on|poke around|look around}} the 2nd Floor Studio #2 for a {{rand|bit|while}}.",
+			"timeout": 900000
+		},
+		{
+			"id": "c9a5cbbe",
+			"from": "0.186",
+			"to": "0.187",
+			"text": "We head upstairs and poke around the personnel offices.",
+			"timeout": 3600000
+		},
+		{
+			"id": "29caee26",
+			"from": "0.112",
+			"to": "0.186",
+			"text": "We decide to head upstairs to the second floor.",
+			"timeout": 3600000
+		},
+		{
+			"id": "dd660d2e",
+			"from": null,
+			"to": "0.187:0",
+			"text": "<b>We swipe the keycard and get into the back room!</b>",
+			"timeout": 2592000000
+		},
+		{
+			"id": "69fa7621",
+			"from": "0.190",
+			"to": "0.447",
+			"text": "We get in the elevator, and it takes us down the spire of the radio tower to the fifth floor.",
+			"timeout": 600000
+		},
+		{
+			"id": "4a314315",
+			"from": "0.189",
+			"to": "0.447",
+			"text": "We enter the elevator, and it automatically takes us up to the Observation Deck!",
+			"timeout": 600000
+		},
+		{
+			"id": "b0cbd79e",
+			"from": null,
+			"to": "0.188:0",
+			"text": "We {{rand|poke our heads in on|poke around|look around}} Studio #1 for a {{rand|bit|while}}.",
+			"timeout": 900000
+		},
+		{
+			"id": "cc7bdc4",
+			"from": "0.188",
+			"to": "0.189:0",
+			"text": "We poke our head in on the director in his office on the fifth floor.",
+			"timeout": 3600000
 		}
 	]
 }

@@ -72,7 +72,7 @@ class MapPanel {
 			click() {
 				let id = window.prompt("Name of new type:");
 				if (!id) return;
-				App.currData.types[id] = new MapType({ name:id });
+				App.currData.types[id] = new MapType({ type:id });
 				self.updateTree();
 			}
 		}));
@@ -477,6 +477,7 @@ class MapPanel {
 					let val = this.value;
 					if (val == '--') val = false;
 					if (val == '_') val = '';
+					if (val == 'other') val = $other.val();
 					obj[key] = val;
 					$lbl.addClass('overridden');
 					App.notifyChange('prop-change', data);

@@ -213,6 +213,11 @@ MapChanged['entralink_exit_nvm'] = [
 ////////////
 // Others //
 
+MapChanged['stairs_up'] = [
+	`We {{rand|climb|head up|ascend}} the stairs. {{The location|@curr}}.`,
+	`We {{rand|climb|head up|ascend}} the stairs to {{the location|@curr}}.`,
+];
+
 //We ride the magnet train (override with Transit Report)
 MapChanged['magenttrain'] = [
 	`We {{rand|hop|jump}} on the {{rand|magnet |}}train! Weeeeeee! \PogChamp/ Now {{in the location|@curr}}!`,

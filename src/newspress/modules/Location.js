@@ -99,6 +99,10 @@ class LocationModule extends ReportingModule {
 		
 		// Don't report inconsequential maps
 		if (currMap.is('inconsequential') || prevMap.is('inconsequential')) return null;
+		if (currMap.has('inconsequential') !== false) { //explicitly false bypasses this check
+			// Don't report if the map names are the same
+			if (currMap.name === prevMap.name) return null;
+		}
 		
 		let item = new MapChanged({ prev:prevMap, curr:currMap });
 		
