@@ -1,6 +1,7 @@
 // mapnode.js
 // The classes that represent a map
 
+const { SortedLocation } = require('./pokedata');
 
 /** Represents everything in a region, including all the map nodes. */
 class MapRegion {
@@ -50,6 +51,14 @@ class MapRegion {
 	
 	resolve(arg) {
 		if (typeof arg === 'string') return this.resolveLocId(arg);
+		if (arg instanceof SortedLocation) {
+			arg = {
+				bank: arg.map_bank,
+				id: arg.map_id,
+				x: arg.x, y: arg.y,
+			};
+			// fall through to next case
+		}
 		if (typeof arg === 'object') {
 			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];

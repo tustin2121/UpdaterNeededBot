@@ -330,6 +330,7 @@ class SortedLocation {
 	}
 	
 	get name() {
+		if (this.node) return this.node.name;
 		return this.map_name || this.area_name;
 	}
 	
@@ -337,6 +338,7 @@ class SortedLocation {
 		return `Loc[${this.map_bank}.${this.map_id}]{x=${this.x},y=${this.y}}`;
 	}
 	toString() {
+		if (this.node) return this.node.name;
 		return this.map_name;
 	}
 	

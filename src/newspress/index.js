@@ -98,7 +98,7 @@ class UpdaterPress extends EventEmitter {
 		this.lastLedger.saveToMemory(this.memory['saved_ledger'+this.gameIndex]);
 		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger);
+		let update = typeset(ledger, data.curr_api);
 		if (!update || !update.length) {
 			this.lastUpdate = null;
 		}

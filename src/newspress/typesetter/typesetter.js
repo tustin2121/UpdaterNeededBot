@@ -82,6 +82,8 @@ function isValidToString(fn) {
 				LOGGER.warn('printLocationPhrase must take a location!');
 				return 'in the area'; //error
 			}
+			if (this._setNoun) this.noun = loc;
+			if (this._setSubject) this.subject = loc;
 			let on='', the='';
 			if (usePreposition) {
 				on = loc.get('preposition');
@@ -123,7 +125,7 @@ function isValidToString(fn) {
 		'onto the location': printLocationPhrase(false, 'to'),
 		'Onto the location': printLocationPhrase(true, 'to'),
 		'the location': printLocationPhrase(false, false),
-		'The location': printLocationPhrase(false, false),
+		'The location': printLocationPhrase(true, false),
 	});
 }
 
@@ -203,11 +205,13 @@ function isValidToString(fn) {
 	function printVerb(singular, plural) {
 		return function(noun) {
 			noun = noun || this.subject || this.noun;
+			if (this._setNoun) this.noun = noun;
+			if (this._setSubject) this.subject = noun;
 			if (Array.isArray(noun) && noun.length > 1) {
 				return plural;
 			}
 			if (noun instanceof Pokemon) return singular;
-			
+			return plural;
 		}
 	}
 	Object.assign(FORMAT_FNS, {
@@ -217,6 +221,22 @@ function isValidToString(fn) {
 		},
 		'verb-s': printVerb('s', ''),
 		'*s': printVerb('s', ''),
+	});
+}{
+	function printSpecies(){
+		return function(mon){
+			mon = mon || this.noun || this.subject;
+			if (!(mon instanceof Pokemon)) return false;
+			if (this._setNoun) this.noun = mon;
+			if (this._setSubject) this.subject = mon;
+			return mon.species;
+		}
+	}
+	Object.assign(FORMAT_FNS, {
+		'Species': printSpecies(),
+		'species': printSpecies(),
+		'Mon': printSpecies(),
+		'mon': printSpecies(),
 	});
 }
 
@@ -246,7 +266,7 @@ function isValidToString(fn) {
 					default: return plural;
 				}
 			}
-			
+			return plural;
 		}
 	}
 	Object.assign(FORMAT_FNS, {
@@ -281,15 +301,72 @@ function isValidToString(fn) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Format Functions: Pokemon
+// Format Functions: Randoms
 {
-	function printSpecies(){
-		return function(mon){
-			mon = mon || this.noun || this.subject;
-			if (!(mon instanceof Pokemon)) return false;
-			return mon.species;
+	function printRandom(...args) {
+		let obj = args[this.rand(args.length)];
+		if (this._setNoun) this.noun = obj;
+		if (this._setSubject) this.subject = obj;
+		return obj;
+	}
+	Object.assign(FORMAT_FNS, {
+		'rand': printRandom,
+		'random': printRandom,
+		'randomly': printRandom,
+	});
+}{
+	function findRandomPartyMon(filter=()=>true) {
+		return function(){
+			try {
+				let party = this.curr_api.party.filter(filter);
+				let mon = party[Math.floor(Math.random()*party.length)];
+				if (!mon) return false;
+				if (this._setNoun) this.noun = mon;
+				if (this._setSubject) this.subject = mon;
+				return '';
+			} catch (e) {
+				LOGGER.error(e);
+				return false;
+			}
 		}
 	}
+	function findFirstPartyMon(filter=()=>true) {
+		return function(){
+			try {
+				let party = this.curr_api.party.filter(filter);
+				let mon = party[0];
+				if (!mon) return false;
+				if (this._setNoun) this.noun = mon;
+				if (this._setSubject) this.subject = mon;
+				return '';
+			} catch (e) {
+				LOGGER.error(e);
+				return false;
+			}
+		}
+	}
+	function findWalkingMon() {
+		if (!Bot.runOpts('walkBehind')) return false;
+		if (!this.curr_api.location.has('pokewalk')) return false;
+		let party = this.curr_api.party.filter(x=>x.hp>0);
+		let mon = party[0];
+		if (this._setNoun) this.noun = mon;
+		if (this._setSubject) this.subject = mon;
+		return '';
+	}
+	Object.assign(FORMAT_FNS, {
+		'select random party mon': findRandomPartyMon(),
+		'select random healthy mon': findRandomPartyMon(x=>x.hp>0),
+		'select first party mon': findFirstPartyMon(),
+		'select walking mon': findWalkingMon,
+		'select surf mon': findFirstPartyMon(x=>x.hms.surf),
+		'select fly mon': findFirstPartyMon(x=>x.hms.fly),
+	});
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Format Functions: Conditionals
+{
 	function testBodyFeature(operation) {
 		let op;
 		switch (operation) {
@@ -308,15 +385,25 @@ function isValidToString(fn) {
 			return bool? '' : false;
 		}
 	}
+	function testPartySize(size) {
+		return function() {
+			
+		}
+	}
+	function testWalkBehind(mon) {
+		if (!Bot.runOpts('walkBehind')) return false;
+		if (!this.curr_api.location.has('pokewalk')) return false;
+		mon = mon || this.noun || this.subject;
+		let party = this.curr_api.party.filter(x=>x.hp>0);
+		if (mon === party[0]) return '';
+		return false;
+	}
 	Object.assign(FORMAT_FNS, {
-		'Species': printSpecies(),
-		'species': printSpecies(),
-		'Mon': printSpecies(),
-		'mon': printSpecies(),
-		
 		'if mon body has': testBodyFeature('or'),
 		'if mon body has any': testBodyFeature('or'),
 		'if mon body has all': testBodyFeature('and'),
+		
+		'if mon is walking': testWalkBehind,
 	});
 }
 
@@ -348,26 +435,21 @@ function isValidToString(fn) {
 		'a semicolon-separated and list of': printList('; ', 'and'),
 		'a semicolon-separated or list of': printList('; ', 'or'),
 	});
-}{
-	function printRandom(...args) {
-		return args[this.rand(args.length)];
-	}
-	Object.assign(FORMAT_FNS, {
-		'rand': printRandom,
-		'random': printRandom,
-		'randomly': printRandom,
-	});
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor() {
+	constructor(curr_api) {
 		// Phrase variables
 		this.subject = null;
 		this.noun = null;
 		
 		// Working variables
+		this.curr_api = curr_api;
+		this.item = null;
+		this.thisItem = null;
+		
 		this._setSubject = false;
 		this._setNoun = false;
 		this._itemList = null;
@@ -442,6 +524,7 @@ class TypeSetter {
 			this._itemList = item;
 			item = item[0];
 		}
+		this.item = item;
 		
 		// Get the phrase dictionary for this item
 		let phraseDict = PHRASEBOOK[item.name];
@@ -522,12 +605,29 @@ class TypeSetter {
 	 * @param {LedgerItem} item - The ledger item to use as context
 	 */
 	fillText(text, item) {
+		this.thisItem = item;
 		let i = 20;
 		while (i > 0) try {
 			let phrase = text.replace(/{{([^{}\n]+)}}/gi, (match, key)=>{
 				let args = key.split('|');
 				let func = args[0];
 				args = args.slice(1);
+				args = args.map((arg)=>{
+					if (arg === '$') return this.subject;
+					if (arg === '#') return this.noun;
+					let res = /^([#$]+)/i.exec(arg);
+					if (res && res[1]) {
+						this._setSubject = (res[1].indexOf('$') > -1);
+						this._setNoun = (res[1].indexOf('#') > -1);
+						arg = arg.slice(res[1].length);
+					}
+					if (arg.startsWith('@')) {
+						arg = getProp(item, arg.slice(1));
+					}
+					if (this._setSubject) this.subject = arg;
+					if (this._setNoun) this.noun = arg;
+					return arg;
+				});
 				func = ((arg)=>{
 					if (arg === '$') return this.subject.toString.bind(this.subject);
 					if (arg === '#') return this.noun.toString.bind(this.noun);
@@ -545,18 +645,6 @@ class TypeSetter {
 					}
 					return FORMAT_FNS[arg.trim()];
 				})(func);
-				args = args.map((arg)=>{
-					if (arg === '$') return this.subject;
-					if (arg === '#') return this.noun;
-					let res = /^([#$]+)/i.exec(arg);
-					if (res && res[1]) {
-						this._setSubject = (res[1].indexOf('$') > -1);
-						this._setNoun = (res[1].indexOf('#') > -1);
-						arg = arg.slice(res[1].length);
-					}
-					if (arg.startsWith('@')) return getProp(item, arg.slice(1));
-					return arg;
-				});
 				let res = func.apply(this, args);
 				if (res === false) throw false; //We can't use this phrase
 				return res;

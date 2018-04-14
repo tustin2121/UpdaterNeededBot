@@ -11,6 +11,8 @@ module.exports = {
 	heldItem: true,
 	// If this generation supports shiny status
 	shiny: true,
+	// If this generation supports walk-behind mon (Pikachu in Yellow, any mon in HGSS)
+	walkBehind: false,
 	// If this generation supports a real-time clock
 	rtc: false,
 	// If this generation records a pokemon's met information (caught in what pokemon mainly)
@@ -130,6 +132,8 @@ module.exports = {
 		690,691,692,693,694,
 		737,
 	],
+	// Item ids for the escape rope
+	itemIds_escapeRope: [], //TODO
 	
 	moveId_surf: 57,
 	moveId_fly: 19,

@@ -40,9 +40,9 @@ function formatDiscord(text) {
 	return { text, embeds };
 }
 
-function typeset(ledger) {
+function typeset(ledger, curr_api) {
 	// LOGGER.warn(`TYPESETTER NOT YET IMPLEMENTED`);
-	let ts = new TypeSetter();
+	let ts = new TypeSetter(curr_api);
 	return ts.typesetLedger(ledger);
 }
 

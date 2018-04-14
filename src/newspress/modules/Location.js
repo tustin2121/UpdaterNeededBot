@@ -32,8 +32,8 @@ class LocationModule extends ReportingModule {
 			return; //Can't continue without a region...
 		}
 		
-		let prev = region.resolve(prev_api.location);
-		let curr = region.resolve(curr_api.location);
+		let prev = region.resolve(prev_api.location); prev_api.location.node = prev;
+		let curr = region.resolve(curr_api.location); curr_api.location.node = curr;
 		let prevMap = prev, prevArea = null;
 		let currMap = curr, currArea = null;
 		
@@ -58,11 +58,9 @@ class LocationModule extends ReportingModule {
 		}
 		
 		if (!prev.has('water') && curr.has('water')) {
-			let surfMon = curr_api.party.filter(x=>x.hms.fly);
 			ledger.add(new MapMovement('surfStart', curr_api));
 		}
 		if (prev.has('water') && !curr.has('water')) {
-			let surfMon = curr_api.party.filter(x=>x.hms.fly);
 			ledger.add(new MapMovement('surfEnd', curr_api));
 		}
 		
@@ -106,21 +104,39 @@ class LocationModule extends ReportingModule {
 		
 		let lastVisit = this.memory.visitTimestamps[currMap.locId];
 		if (!lastVisit) { //first time visiting
-			if (currMap.is('town')) { item.flavor = 'new-town'; return item; }
+			if (currMap.is('town')) { item.flavor = 'town_new'; return item; }
+			if (currMap.is('gym')) { item.flavor = 'gym_new'; return item; }
 		}
-		let back = (lastVisit + (15*60*1000) > currTime); //visited in the last 15 minutes
+		let back = '';
+		if (lastVisit + ( 2*60*1000) > currTime) back = '_nvm'; //visited in the last 2 minutes
+		if (lastVisit + (15*60*1000) > currTime) back = '_back'; //visited in the last 15 minutes
 		
-		if (!prevMap.is('dungeon') && currMap.is('dungeon')) {
-			item.flavor = 'enter-dungeon'; return item;
+		{
+			const P = prevMap.is('entralink');
+			const C = currMap.is('entralink');
+			if (!P && C) { item.flavor = `entralink_enter${back}`; return item; }
+			if (P && !C) { item.flavor = `entralink_exit${back}`; return item; }
+		}{
+			const P = prevMap.is('dungeon');
+			const C = currMap.is('dungeon');
+			if (!P && C) { item.flavor = `dungeon_enter${back}`; return item; }
+			if (P && !C) { item.flavor = `dungeon_exit${back}`; return item; }
+		}{
+			const P = prevMap.is('gym');
+			const C = currMap.is('gym');
+			if (!P && C) { item.flavor = `gym_enter${back}`; return item; }
+			if (P && !C) { item.flavor = `gym_exit${back}`; return item; }
+		}{
+			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_enter${back}`; return item; }
+			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_exit${back}`; return item; }
+		}{
+			const P = prevMap.is('indoors');
+			const C = currMap.is('indoors');
+			if (!P && C) { item.flavor = `enter${back}`; return item; }
+			if (P && !C) { item.flavor = `exit${back}`; return item; }
 		}
-		if (prevMap.is('dungeon') && !currMap.is('dungeon')) {
-			item.flavor = 'exit-dungeon'; return item;
-		}
-		
-		
-		if (!prevMap.is('indoors') && currMap.is('indoors')) ;
-		
-		
+		item.flavor = `default${back}`;
+		return item;
 	}
 }
 
@@ -133,5 +149,17 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 		ledger.add(new CheckpointUpdated(item.loc));
 	})
 );
+{
+	const itemIds = Bot.runOpts('itemIds_escapeRope');
+	RULES.push(new Rule(`If escaping a dungeon and we lose an escape rope, we used it.`)
+		.when(ledger=>ledger.has('MapChanged').with('flavor', 'dungeon_exit', 'dungeon_exit_back'))
+		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
+		.then(ledger=>{
+			let item = ledger.get(0)[0];
+			ledger.remove(1);
+			item.flavor = 'dungeon_escaperope';
+		})
+	);
+}
 
 module.exports = LocationModule;

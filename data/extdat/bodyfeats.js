@@ -26,7 +26,7 @@ const CATS = {
 	'head-arms'		: { arm:2, },
 	'head-base'		: { base:1, },
 	'wings'			: { wing:2, levitate:1, },
-	'multi-wings'	: { wing:4, },
+	'multi-wings'	: { wing:4, levitate:1, },
 	'bipedal-tail'	: { leg:2, arm:2, tail:1, },
 	'bipedal'		: { leg:2, arm:2, },
 	'quadruped'		: { leg:4, tail:1, },
@@ -784,7 +784,7 @@ mon[ 738 ] = b('insect'			, { electricbody:1, shell:1, }) // Vikavolt
 mon[ 739 ] = b('insect'			, { shell:1, }) // Crabrawler
 mon[ 740 ] = b('insect'			, {}) // Crabominable
 mon[ 741 ] = b('wings'			, {}) // Oricorio
-mon[ 742 ] = b('insect'			, { levitate:1, wing:2, }) // Cutiefly
+mon[ 742 ] = b('insect'			, { wing:2, levitate:1, }) // Cutiefly
 mon[ 743 ] = b('wings'			, {}) // Ribombee
 mon[ 744 ] = b('quadruped'		, {}) // Rockruff
 mon[ 745 ] = b('quadruped'		, {}) // Lycanroc

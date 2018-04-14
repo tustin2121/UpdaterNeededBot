@@ -103,8 +103,20 @@ class MapMovement extends LedgerItem {
 			this._rmon.species.length; //test to be sure this won't break
 			return this._rmon;
 		} catch (e) {
-			getLogger('JumpedLedge').error(e);
+			getLogger('MapMovement').error(e);
 			return { species:`One of our pokemon`, gender:'it', };
+		}
+	}
+	get surfMon() {
+		try {
+			if (this._rmon) return this._rmon; //sticky
+			let party = this.curr_api.party.filter(x=>x.hms.surf);
+			this._rmon = party[0];
+			this._rmon.species.length; //test to be sure this won't break
+			return this._rmon;
+		} catch (e) {
+			getLogger('MapMovement').error(e);
+			return { species:`our surfer`, gender:'it', };
 		}
 	}
 }

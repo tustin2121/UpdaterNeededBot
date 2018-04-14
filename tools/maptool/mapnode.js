@@ -382,6 +382,10 @@ class TransitReport {
 		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
 		this.timeout = opts.timeout || 10*60*1000;
 	}
+	get flavorOverride() {
+		if (this.text.startsWith('!')) return this.text;
+		return undefined;
+	}
 	
 	static generateId() {
 		return Math.floor(Math.random() * 0xFFFFFFFF).toString(16);
@@ -410,7 +414,7 @@ function generateDefaultMapTypes(region) {
 	add(new MapType(region, { type:'route',  	attrs:{ route:true, } }));
 	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, } }));
 	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, } }));
+	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, town:true, } }));
 	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
 	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true },
 		areas: [
@@ -481,6 +485,10 @@ const ATTRS = {
 		//  The area along the ledge is marked 'ledge'.
 		//  The area below the ledge is marked 'jump'. The bot tests if the player moved from 'ledge' to 'jump'.
 		//  The area below the door is marked 'clear'. The exit out of route 22 is marked 'giveup'.
+	},
+	pokewalk: {
+		tooltip: `If this location allows Pokemon to walk inside it.`,
+		values: [false,'no-large','yes'],
 	},
 	checkpoint: {
 		tooltip: `If the location sets a checkpoint upon arriving (or when healing in gen 1).`,
