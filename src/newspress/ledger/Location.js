@@ -40,7 +40,7 @@ class LocationChanged extends LedgerItem {
 class MapContext extends LedgerItem {
 	constructor(node, area) {
 		if (!(node instanceof MapNode)) throw new TypeError('Map context must be a MapNode-type object!');
-		if (!(area instanceof MapArea)) throw new TypeError('Map context must be a MapNode-type object!');
+		// if (!(area instanceof MapArea)) throw new TypeError('Map context must be a MapArea-type object!');
 		
 		super(0.2);
 		this.loc = node;

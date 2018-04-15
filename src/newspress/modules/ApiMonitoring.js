@@ -58,7 +58,7 @@ class ApiMonitoringModule extends ReportingModule {
 			}
 			return false;
 		} 
-		else if (fApi) {
+		else if (fApi && fApi.msgId) {
 			this.memory.failedApi = null;
 			Bot.alertUpdaters(`Alert: ~~Unable to retrieve API update: ${fApi.lastCode}~~ API has returned after ${fApi.attempts} failed retrievals. Resuming normal operation.`, {
 				bypassTagCheck:true, 

@@ -1,0 +1,511 @@
+{
+    "badges": 0,
+    "ball_count": 0,
+    "battle_kind": "None",
+    "caught": 2,
+    "caught_list": [
+        133,
+        155
+    ],
+    "id": 46212,
+    "in_battle": false,
+    "items": {
+        "balls": [],
+        "battle": [],
+        "berries": [],
+        "items": [],
+        "key": [
+            {
+                "id": 450,
+                "name": "Bicycle"
+            },
+            {
+                "count": 1,
+                "id": 502,
+                "name": "GB Sounds"
+            },
+            {
+                "id": 445,
+                "name": "Old Rod"
+            },
+            {
+                "count": 1,
+                "id": 468,
+                "name": "Apricorn Box"
+            },
+            {
+                "count": 1,
+                "id": 484,
+                "name": "Mystery Egg"
+            }
+        ],
+        "mail": [],
+        "medicine": [
+            {
+                "count": 6,
+                "id": 17,
+                "name": "Potion"
+            },
+            {
+                "count": 1,
+                "id": 18,
+                "name": "Antidote"
+            }
+        ],
+        "tms": []
+    },
+    "level_cap": 100,
+    "map_id": 61,
+    "map_name": "New Bark Town",
+    "money": 3364,
+    "name": "AAEFFFF",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "box_mode": "Auto",
+        "button_mode": "L=A",
+        "sound": "Stereo",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Flash Fire",
+            "capsule_seals": 0,
+            "characteristic": "A little quick tempered",
+            "checksum": "965",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 4,
+                "defense": 3,
+                "hp": 4,
+                "special_attack": 1,
+                "special_defense": 1,
+                "speed": 5
+            },
+            "experience": {
+                "current": 740,
+                "next_level": 742,
+                "remaining": 2,
+                "this_level": 560
+            },
+            "form": 0,
+            "friendship": 103,
+            "gender": "Male",
+            "health": [
+                0,
+                29
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "None"
+            },
+            "is_egg": false,
+            "is_nicknamed": 1,
+            "ivs": {
+                "attack": 22,
+                "defense": 11,
+                "hp": 19,
+                "special_attack": 13,
+                "special_defense": 11,
+                "speed": 16
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 10,
+            "markings": 0,
+            "met": {
+                "area_id": 126,
+                "area_id_egg": 0,
+                "area_name": "New Bark Town",
+                "caught_in": "Pok\u00c3\u00a9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 12,
+                "game": 8,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "id": 33,
+                    "name": "Tackle",
+                    "pp": 28,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 43,
+                    "name": "Leer",
+                    "pp": 27,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 108,
+                    "name": "SmokeScreen",
+                    "pp": 20,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 52,
+                    "name": "Ember",
+                    "pp": 22,
+                    "pp_up": 0,
+                    "type": "Fire"
+                }
+            ],
+            "name": "222",
+            "nature": "Relaxed",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 3136071007,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Blaze",
+                    "Flash Fire"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 19,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 155,
+                "name": "Cyndaquil",
+                "national_dex": 155,
+                "type1": "Fire",
+                "type2": "Fire"
+            },
+            "stats": {
+                "attack": 17,
+                "defense": 15,
+                "hp": 29,
+                "special_attack": 18,
+                "special_defense": 16,
+                "speed": 17
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        },
+        {
+            "ability": "Adaptability",
+            "capsule_seals": 0,
+            "characteristic": "Strong willed",
+            "checksum": "B7A9",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 1,
+                "defense": 0,
+                "hp": 1,
+                "special_attack": 0,
+                "special_defense": 1,
+                "speed": 0
+            },
+            "experience": {
+                "current": 270,
+                "next_level": 343,
+                "remaining": 73,
+                "this_level": 216
+            },
+            "form": 0,
+            "friendship": 81,
+            "gender": "Male",
+            "health": [
+                16,
+                23
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "None"
+            },
+            "is_egg": false,
+            "is_nicknamed": 1,
+            "ivs": {
+                "attack": 18,
+                "defense": 9,
+                "hp": 16,
+                "special_attack": 12,
+                "special_defense": 20,
+                "speed": 19
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 6,
+            "markings": 0,
+            "met": {
+                "area_id": 178,
+                "area_id_egg": 0,
+                "area_name": "Route 30",
+                "caught_in": "Pok\u00c3\u00a9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 24,
+                "game": 8,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 39,
+                    "name": "Tail Whip",
+                    "pp": 29,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "id": 33,
+                    "name": "Tackle",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 0,
+                    "id": 270,
+                    "name": "Helping Hand",
+                    "pp": 20,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 28,
+                    "name": "Sand-Attack",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Ground"
+                }
+            ],
+            "name": "EEEEEEEEHH",
+            "nature": "Hardy",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 2160021675,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Run Away",
+                    "Adaptability"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 0,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Fast",
+                "id": 133,
+                "name": "Eevee",
+                "national_dex": 133,
+                "type1": "Normal",
+                "type2": "Normal"
+            },
+            "stats": {
+                "attack": 12,
+                "defense": 11,
+                "hp": 23,
+                "special_attack": 11,
+                "special_defense": 14,
+                "speed": 12
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_address": 36223236,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 1",
+                "box_number": 1
+            },
+            {
+                "box_address": 36227332,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 2",
+                "box_number": 2
+            },
+            {
+                "box_address": 36231428,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 3",
+                "box_number": 3
+            },
+            {
+                "box_address": 36235524,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 4",
+                "box_number": 4
+            },
+            {
+                "box_address": 36239620,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 5",
+                "box_number": 5
+            },
+            {
+                "box_address": 36243716,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 6",
+                "box_number": 6
+            },
+            {
+                "box_address": 36247812,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 7",
+                "box_number": 7
+            },
+            {
+                "box_address": 36251908,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 8",
+                "box_number": 8
+            },
+            {
+                "box_address": 36256004,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 9",
+                "box_number": 9
+            },
+            {
+                "box_address": 36260100,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 10",
+                "box_number": 10
+            },
+            {
+                "box_address": 36264196,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 11",
+                "box_number": 11
+            },
+            {
+                "box_address": 36268292,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 12",
+                "box_number": 12
+            },
+            {
+                "box_address": 36272388,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 13",
+                "box_number": 13
+            },
+            {
+                "box_address": 36276484,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 14",
+                "box_number": 14
+            },
+            {
+                "box_address": 36280580,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 15",
+                "box_number": 15
+            },
+            {
+                "box_address": 36284676,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 16",
+                "box_number": 16
+            },
+            {
+                "box_address": 36288772,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 17",
+                "box_number": 17
+            },
+            {
+                "box_address": 36292868,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 18",
+                "box_number": 18
+            }
+        ]
+    },
+    "secret": 49132,
+    "seen": 16,
+    "seen_list": [
+        10,
+        13,
+        19,
+        133,
+        155,
+        158,
+        163,
+        167,
+        261,
+        265,
+        270,
+        273,
+        280,
+        283,
+        399,
+        401
+    ],
+    "x": 4,
+    "y": 6,
+    "z": 0
+}

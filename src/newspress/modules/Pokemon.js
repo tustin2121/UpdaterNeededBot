@@ -99,11 +99,11 @@ class PokemonModule extends ReportingModule {
 			}
 			// Items
 			if (Bot.runOpts('heldItem')) {
-				if (!prev.item && curr.item) {
+				if (!prev.item.id && curr.item.id) {
 					ledger.addItem(new MonGiveItem(curr, curr.item));
-				} else if (prev.item && !curr.item) {
-					ledger.addItem(new MonTakeItem(curr, prev.item));
-				} else if (prev.item !== curr.item) {
+				} else if (prev.item.id && !curr.item.id) {
+					ledger.addItem(new MonTakeItem(curr, prev.item.id));
+				} else if (prev.item.id !== curr.item.id) {
 					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
 				}
 			}

@@ -245,6 +245,8 @@ function isValidToString(fn) {
 {
 	function determineGender(male, female, neuter, plural) {
 		return function(obj) {
+			obj = obj || this.noun || this.subject;
+			if (obj === undefined) return plural;
 			if (typeof obj === 'number') {
 				if (obj === 1) return neuter;
 				return plural;
@@ -304,6 +306,7 @@ function isValidToString(fn) {
 // Format Functions: Static Replacements
 {
 	function printPlayerName() { return this.curr_api.name; }
+	function printRivalName() { return this.curr_api.rival_name; }
 	function printFriendlyRivalName() {
 		let name = Bot.runOpts('friendName');
 		if (Array.isArray(name)) {
@@ -321,6 +324,9 @@ function isValidToString(fn) {
 		'my name': printPlayerName,
 		
 		'my friend': printFriendlyRivalName,
+		
+		'rival': printRivalName,
+		'my rival': printRivalName,
 	});
 }
 
@@ -480,12 +486,13 @@ function isValidToString(fn) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor(curr_api) {
+	constructor(curr_api, debugLog) {
 		// Phrase variables
 		this.subject = null;
 		this.noun = null;
 		
 		// Working variables
+		this.log = debugLog;
 		this.curr_api = curr_api;
 		this.item = null;
 		this.thisItem = null;
@@ -540,8 +547,10 @@ class TypeSetter {
 		let update = [];
 		
 		for (let items of list) try {
+			this.log.typesetterInput(items);
 			let phrase = this.typesetItems(items);
-			LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
+			this.log.typesetterOutput(phrase);
+			// LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
 			if (phrase === null) continue;
 			update.push(phrase);
 		} catch (e) {
@@ -617,19 +626,19 @@ class TypeSetter {
 				}
 				return null;
 			}
-			if (this._itemList && entry.multi) {
+			if (self._itemList && entry.multi) {
 				return _resolve(entry.multi, item);
 			}
 			if (entry.single) {
-				if (this._itemList) {
-					return this._itemList.map(i=>_resolve(entry.single, i));
+				if (self._itemList) {
+					return self._itemList.map(i=>_resolve(entry.single, i));
 				} else {
 					return _resolve(entry.single, item);
 				}
 			}
 			if (entry.item) { //should never happen
-				if (this._itemList) {
-					return this._itemList.map(i=>_resolve(entry.item, i));
+				if (self._itemList) {
+					return self._itemList.map(i=>_resolve(entry.item, i));
 				} else {
 					return _resolve(entry.item, item);
 				}

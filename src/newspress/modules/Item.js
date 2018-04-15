@@ -213,7 +213,7 @@ function getDelta(curr, prev) {
 {
 	const DrinkIds = Bot.runOpts('itemIds_vending');
 	RULES.push(new Rule(`Drinks are vended`)
-		.when(ledger=>ledger.hasMap(x=> x.attr('vending') ))
+		.when(ledger=>ledger.hasMap(x=> x.has('vending') ))
 		.when(ledger=>ledger.has('GainItem').with('item.id', DrinkIds).ofNoFlavor())
 		.then(ledger=>{
 			ledger.get(1).forEach(x=> x.flavor = 'vending');
@@ -224,14 +224,14 @@ function getDelta(curr, prev) {
 //TODO new Rule(`Items gained while shopping are postponed until the shopping is finished`)
 
 RULES.push(new Rule(`Items gained in shops have been bought`)
-	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
+	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
 	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
 RULES.push(new Rule(`Items lost in shops have been sold`)
-	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
+	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
 	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');

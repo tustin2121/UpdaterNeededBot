@@ -146,9 +146,10 @@ class LocationModule extends ReportingModule {
 
 RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false))
+	.when(ledger=>ledger.hasnt('BlackoutContext'))
+	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 	.then(ledger=>{
-		let item = ledger.get(1);
+		let item = ledger.mark(1).get(1);
 		item.isCurrent = true;
 		ledger.add(new CheckpointUpdated(item.loc));
 	})

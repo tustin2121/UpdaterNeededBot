@@ -209,7 +209,7 @@ class DebugLogs {
 		{
 			let mods = [];
 			for (let mod in this.modules) {
-				mods.push(`<mod name="${mod}">${this.modules.map(x=>`<p>${x}</p>`)}<mod>`);
+				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`)}</mod>`);
 			}
 			xml += `<modules>${mods.join('')}</modules>`;
 		}

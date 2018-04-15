@@ -59,8 +59,9 @@ class LedgerItem {
 			if (key.startsWith('_')) continue;
 			let val = this[key];
 			if (val === undefined) continue;
+			if (typeof val === 'symbol') continue;
 			
-			if (val.toXml) {
+			if (val && val.toXml) {
 				xml += val.toXml(key);
 			} else {
 				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;

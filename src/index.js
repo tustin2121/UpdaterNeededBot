@@ -20,6 +20,10 @@ const MEMORY_FILE = path.resolve(__dirname, '../memory', 'memory.json');
 
 ////////////////////////////////////////////////////////////////////////////////
 
+if (!process.stdout.isTTY) {
+	LOGGER.warn(`Warning: starting without TTY. You may not be able to Ctrl+C.`);
+}
+
 LOGGER.info('Starting UpdaterNeeded.');
 
 // Make the memory file if it does not exist
@@ -42,5 +46,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/testing-dualpyrite'));
+global.Bot = new UpdaterBot(require('../data/runs/s502-storm-silver.js'));
 Bot.start();

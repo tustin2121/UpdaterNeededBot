@@ -43,7 +43,8 @@ class UpdaterBot extends EventEmitter {
 				if (game.regionMap === undefined) throw `Invalid config: game${i} has no regionMap defined! Should be null or valid region!`;
 				if (game.regionMap !== null) {
 					try {
-						game.regionMap = require(`../data/region/${game.regionMap}`);
+						const { MapRegion } = require('./api/mapnode');
+						game.regionMap = new MapRegion(require(`../data/region/${game.regionMap}.json`));
 					} catch (e) {
 						throw `Invalid config: game${i} requires an invalid region map!`;
 					}
