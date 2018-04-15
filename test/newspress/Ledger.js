@@ -31,8 +31,8 @@ class TestItemD extends LedgerItem {
 	}
 }
 class TestContextItem extends LedgerItem {
-	constructor(type) {
-		super(0);
+	constructor(type, imp=0) {
+		super(imp);
 		this.type = type;
 	}
 }
@@ -376,10 +376,13 @@ describe('Ledger', function(){
 				new TestItemB(),
 				new TestContextItem(),
 				new TestItemC(),
+				new TestContextItem(null, 0.4),
 				new TestItemA(),
 				new TestItemB(),
 				new TestItemD('hello'),
 				new TestContextItem(),
+				new TestContextItem('', 0.8),
+				
 			]);
 		});
 		

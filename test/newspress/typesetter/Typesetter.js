@@ -9,15 +9,43 @@ const POKEDATA = require('../../../src/api/pokedata');
 const { LocationChanged, MonLeveledUp, } = LEDGER_ITEMS;
 const { SortedLocation, Pokemon } = POKEDATA;
 
-const TypeSetter = require('../../../src/newspress/typesetter');
+const TYPESET = require('../../../src/newspress/typesetter');
+
+const log = {
+	typesetterInput(){},
+	typesetterFormat(){},
+	typesetterOutput(){},
+};
 
 describe('TypeSetter', function(){
-	describe('fillText', function(){
-		const fillText = TypeSetter._methods.fillText;
-		
+	let typesetter;
+	beforeEach(function(){
+		let curr = new POKEDATA.SortedData({ data:{party:[], pc:{}} });
+		typesetter = new TYPESET.TypeSetter(curr, log);
+	});
+	function setRandom(...val){
+		let i = 0;
+		typesetter.rand = (len)=>{
+			//fix the random outcome
+			return val[(i++)%val.length] % len;
+		};
+	}
+	
+	describe('collateItems', function(){
+	//	[LocationContext | null | loc=Route 31]
+	//	[MapContext | null | loc=Route 31 | area=null]
+	//	[MonFainted | null | mon=EEEEEEEEHH (Eevee)]
+	//	[MonLostHP | null | mon=EEEEEEEEHH (Eevee) | curr=0 | prev=20]
+	//	[BattleContext | wild | battle=[object Object]]
+		it('should collate items', function(){
+			
+		});
+	});
+	
+	describe('#fillText', function(){
 		it('should replace tags in text', function(){
 			const exp = `The quick brown fox jumps over the lazy dog.`;
-			const pre = `The {{mon1.adj}} {{mon1.name}} {{verb}} over the {{mon_2.adj}} {{mon_2.name}}.`;
+			const pre = `The {{@mon1.adj}} {{@mon1.name}} {{@verb}} over the {{@mon_2.adj}} {{@mon_2.name}}.`;
 			const item = {
 				verb: 'jumps',
 				mon1: {
@@ -30,27 +58,27 @@ describe('TypeSetter', function(){
 				},
 			};
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
 		});
 		
-		it('runs {{an}} functions', function(){
+		it('runs printDefiniteNoun functions', function(){
 			const exp = `An apple a day keeps a doctor at bay.`;
-			const pre = `{{prop|An}} {{prop}} a day keeps {{person|an}} {{person}} at bay.`;
+			const pre = `{{An item|@prop}} a day keeps {{a noun|@person}} at bay.`;
 			const item = {
 				prop: 'apple',
 				person: 'doctor',
 			};
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
 		});
 		
-		it('runs {{them}} functions (object)', function(){
+		it('sets subject and runs pronoun functions (object)', function(){
 			const exp = `Bulbasaur scratches himself behind the ear with his foot. He yawns and claims a patch of grass as his.`;
-			const pre = `{{mon.species}} scratches {{mon|them}}self behind the ear with {{mon|their}} foot. {{mon|They}} yawn{{mon|s}} and claim{{mon|s}} a patch of grass as {{mon|theirs}}.`;
+			const pre = `{{Mon|$@mon}} scratches {{them}}self behind the ear with {{their}} foot. {{They}} yawn{{*s}} and claim{{*s}} a patch of grass as {{theirs}}.`;
 			const item = {
 				mon: {
 					species: 'Bulbasaur',
@@ -58,27 +86,29 @@ describe('TypeSetter', function(){
 				},
 			};
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
+			should(typesetter.subject).equal(item.mon);
+			should(typesetter.noun).be.null();
 		});
 		
-		it('runs {{them}} functions (Pokemon w/gender)', function(){
+		it('sets noun and runs pronoun functions (Pokemon w/gender)', function(){
 			Bot.setOpt('gender',true);
 			const exp = `Bulbasaur scratches himself behind the ear with his foot. He yawns and claims a patch of grass as his. He is content.`;
-			const pre = `{{mon.species}} scratches {{mon|them}}self behind the ear with {{|their}} foot. {{|They}} yawn{{|s}} and claim{{|s}} a patch of grass as {{|theirs}}. {{|They}} {{|verb[is/are]}} content.`;
+			const pre = `{{Mon|#@mon}} scratches {{mon|them}}self behind the ear with {{|their}} foot. {{|They}} yawn{{|s}} and claim{{|s}} a patch of grass as {{|theirs}}. {{|They}} {{|verb[is/are]}} content.`;
 			
 			const mon = new Pokemon();
 			mon.species = 'Bulbasaur';
 			mon._gender = 'Male';
 			const item = { mon };
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
 		});
 		
-		it('runs {{them}} functions (Pokemon w/o gender)', function(){
+		it('runs noun and runs pronoun functions (Pokemon w/o gender)', function(){
 			Bot.setOpt('gender',false);
 			const exp = `Bulbasaur scratches itself behind the ear with its foot. It stretches and claims a patch of grass as its.`;
 			const pre = `{{mon.species}} scratches {{mon|them}}self behind the ear with {{mon|their}} foot. {{mon|They}} stretch{{|es}} and claim{{mon|s}} a patch of grass as {{mon|theirs}}.`;
@@ -88,7 +118,7 @@ describe('TypeSetter', function(){
 			mon._gender = 'Male';
 			const item = { mon };
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
 		});
@@ -97,14 +127,14 @@ describe('TypeSetter', function(){
 		// 	const pre = `There is {{|an}} item.`;
 		// 	const item = { dummy:'' };
         //
-		// 	(()=>{ fillText(pre, item) }).should.throw(TypeError);
+		// 	(()=>{ typesetter.fillText(pre, item) }).should.throw(TypeError);
 		// });
 		
 		it('throws on malformatted replacements.', function(){
 			const pre = `There is {{dummy|an][,,]}} item.`;
 			const item = { dummy:'' };
 			
-			(()=>{ fillText(pre, item) }).should.throw(TypeError);
+			(()=>{ typesetter.fillText(pre, item) }).should.throw(TypeError);
 		});
 		
 		// it('runs {{pronoun}} functions', function(){
@@ -113,7 +143,7 @@ describe('TypeSetter', function(){
 		// 	const item = {
 		// 	};
         //
-		// 	let res = fillText(pre, item);
+		// 	let res = typesetter.fillText(pre, item);
         //
 		// 	res.should.equal(exp);
 		// });
@@ -125,7 +155,7 @@ describe('TypeSetter', function(){
 				new SortedLocation({ map_name:'Olivine City', map_bank:5, map_id:5, }),
 				new SortedLocation({ map_name:'Route 101', map_bank:6, map_id:3, }));
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
 		});
@@ -141,15 +171,15 @@ describe('TypeSetter', function(){
 			}
 			const item = new MonLeveledUp(pkmn, 15);
 			
-			let res = fillText(pre, item);
+			let res = typesetter.fillText(pre, item);
 			
 			res.should.equal(exp);
 		});
 	});
 	
 	describe('formatFor', function(){
-		const formatReddit = TypeSetter.formatFor.reddt;
-		const formatDiscord = TypeSetter.formatFor.discord;
+		const formatReddit = TYPESET.formatFor.reddt;
+		const formatDiscord = TYPESET.formatFor.discord;
 		
 		it('should handle <b>bold</b> tags (Reddit)', function(){
 			const exp = `Hello world **and all** good people **faces**.`;
@@ -263,10 +293,7 @@ describe('TypeSetter', function(){
 		});
 	});
 	
-	describe('getPhrase', function(){
-		const getPhrase = TypeSetter._methods.getPhrase;
-		const setRandom = TypeSetter._methods.setRandomVals;
-		
+	describe('#typesetItems', function(){
 		it('BattleStarted', function(){
 			const { BattleStarted } = LEDGER_ITEMS;
 			const battle = { //emulates SortedBattle
@@ -277,7 +304,7 @@ describe('TypeSetter', function(){
 			const exp = `<b>Vs Leader Misty!</b> Attempt #5!`;
 			const item = new BattleStarted(battle, 5);
 			
-			const str = getPhrase([item]);
+			const str = typesetter.typesetItems([item]);
 			
 			str.should.be.exactly(exp);
 		});
@@ -293,7 +320,7 @@ describe('TypeSetter', function(){
 				new GainItem(new Item({name:'Antidote'}), 1),
 			];
         
-			const str = getPhrase(items);
+			const str = typesetter.typesetItems(items);
         
 			str.should.be.exactly(exp);
 		});
@@ -321,7 +348,7 @@ describe('TypeSetter', function(){
 			const item = new UsedBallInBattle({name:'Poke Ball'}, battle);
 			item.flavor = 'trainer';
         
-			const str = getPhrase([item]);
+			const str = typesetter.typesetItems([item]);
         
 			str.should.be.exactly(exp);
 		});
