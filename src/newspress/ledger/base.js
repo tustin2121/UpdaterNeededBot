@@ -6,6 +6,7 @@ const util = require('util');
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
 		/** The importance level of this item. Ranges from 0 to 2. */
+		if (typeof imp !== 'number') throw new TypeError('Importance must be a number!');
 		this.importance = imp;
 		/**
 		 * When the bot is helping, this identifies ledger items which are posted while doing so. 
@@ -34,7 +35,7 @@ class LedgerItem {
 		}
 		let txt = `[${this.name} | ${this.flavor}`;
 		for (let key in this){
-			if (key === 'importance') continue;
+			// if (key === 'importance') continue;
 			if (key === 'helptype') continue;
 			if (key === 'flavor') continue;
 			if (key.startsWith('_')) continue;

@@ -430,7 +430,7 @@ ledgeritem:nth-child(odd) {
 	background-color: #ffa7001a;
 }
 ledgeritem::before {
-	content: attr(name)' \2295';
+	content: attr(name)' \2295  'attr(imp);
 	margin-left: -2em;
 	display: block;
 	font-weight: bold;
@@ -440,7 +440,7 @@ ledgeritem::before {
 	/* color: white; */
 }
 ledgeritem:empty::before {
-	content: attr(name);
+	content: attr(name)'  -  'attr(imp);
 }
 rule ledgeritem::before {
 	font-weight: normal;

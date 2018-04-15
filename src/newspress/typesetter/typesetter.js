@@ -515,6 +515,7 @@ class TypeSetter {
 	static collateItems(ledger) {
 		let dict = {};
 		let order = [];
+		LOGGER.debug('collateItems=>', ledger);
 		
 		// Collate
 		for (let item of ledger.list) {
@@ -544,13 +545,14 @@ class TypeSetter {
 	 */
 	typesetLedger(ledger) {
 		let list = TypeSetter.collateItems(ledger);
+		LOGGER.debug('afterCollate=>', list);
 		let update = [];
 		
 		for (let items of list) try {
 			this.log.typesetterInput(items);
 			let phrase = this.typesetItems(items);
 			this.log.typesetterOutput(phrase);
-			// LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
+			LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
 			if (phrase === null) continue;
 			update.push(phrase);
 		} catch (e) {

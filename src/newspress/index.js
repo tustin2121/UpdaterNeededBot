@@ -141,7 +141,7 @@ class UpdaterPress extends EventEmitter {
 					}
 					out.push(line);
 				}
-				let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
+				let prefix = (Bot.gameInfo(this.gameIndex).prefix||'');
 				if (info.level_cap != 100) {
 					return `${prefix}[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
 				} else {

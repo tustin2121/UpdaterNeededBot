@@ -7,8 +7,8 @@ const { LedgerItem } = require('./base');
 
 /** Common class for all ledger party-related ledger items. */
 class PartyItem extends LedgerItem {
-	constructor(mon, importance=1) {
-		super(importance);
+	constructor(mon, importance=1, obj) {
+		super(importance, obj);
 		this.mon = mon;
 	}
 	get target() { return this.mon; }
@@ -86,7 +86,7 @@ class MonPokerusCured extends PartyItem {
 /** Indicates that a pokemon has fainted. */
 class MonFainted extends PartyItem {
 	constructor(mon) {
-		super(mon, {sort:30});
+		super(mon, 1, {sort:30});
 	}
 }
 

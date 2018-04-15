@@ -217,29 +217,29 @@ module.exports = {
 	MonShinyChanged: {
 		default: null,
 		became: [
-			`{{@target}} has inexplicably became shiny...`,
+			`{{@target}} has inexplicably become shiny...`,
 		],
 		nolonger: [
-			`{{@target}} has inexplicably became no longer shiny...`,
+			`{{@target}} has inexplicably become no longer shiny...`,
 		],
 	},
 	MonSparklyChanged: {
 		default: null,
 		became: [
-			`{{@target}} has inexplicably became N's former pokemon...`,
+			`{{@target}} has inexplicably become N's former pokemon...`,
 		],
 		nolonger: [
-			`{{@target}} has inexplicably became no longer N's former pokemon...`,
+			`{{@target}} has inexplicably become no longer N's former pokemon...`,
 		],
 	},
 	MonAbilityChanged: null,
 	// MonAbilityChanged: {
 	// 	default: null,
 	// 	became: [
-	// 		`{{@target}} has inexplicably became N's former pokemon...`,
+	// 		`{{@target}} has inexplicably become N's former pokemon...`,
 	// 	],
 	// 	nolonger: [
-	// 		`{{@target}} has inexplicably became no longer N's former pokemon...`,
+	// 		`{{@target}} has inexplicably become no longer N's former pokemon...`,
 	// 	],
 	// },
 	
