@@ -515,8 +515,13 @@ const ATTRS = {
 		tooltip: `If the location is a PC. (Use only for Areas marking the PC)`,
 		areasOnly: true,
 	},
+	trainertype: {
+		tooltip: `The type of trainer at this location. (Use only for Areas marking trainers)`,
+		values: [false,'rival','leader','e4','champ'],
+		areasOnly: true,
+	},
 	leader: {
-		tooltip: `The name of the gym leader in this location. (Use only for Areas marking the leader)`,
+		tooltip: `The name of the gym leader/trainer in this location. (Use only for Areas marking the leader)`,
 		areasOnly: true,
 		stringValue: true,
 	},

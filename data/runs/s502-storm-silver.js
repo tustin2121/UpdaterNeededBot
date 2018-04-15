@@ -63,11 +63,11 @@ module.exports = {
 	
 	// The list of active modules and their configurations
 	modules: {
+		Location: {},
 		ApiMonitoring: {},
 		Pokemon: {},
 		Party: {},
 		Item: {},
-		Location: {},
 		E4: {},
 		Battle: {},
 		Politics: {},

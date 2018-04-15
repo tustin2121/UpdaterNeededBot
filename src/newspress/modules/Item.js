@@ -17,11 +17,12 @@ const RULES = [];
  */
 class ItemModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory, 1); //low priority
+		super(config, memory, 2); //low priority
 		
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
 		let invDelta = getDelta(curr.inv._inv, prev.inv._inv);
 		let bagDelta = getDelta(curr.inv.bag, prev.inv.bag);
 		let heldDelta = getDelta(curr.inv.held, prev.inv.held);
@@ -35,13 +36,13 @@ class ItemModule extends ReportingModule {
 		];
 		keySet = new Set(keySet);
 		
-		LOGGER.debug('keyset', keySet);
+		this.debug('keyset', keySet);
 		
 		for (let id of keySet) {
 			let item = curr.inv.getData(id) || prev.inv.getData(id);
 			let delta = invDelta[id] || 0;
 			
-			LOGGER.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			this.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
 			
 			const gained = invDelta[id] > 0;
 			const dropped = invDelta[id] < 0;

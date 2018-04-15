@@ -19,11 +19,12 @@ const RULES = [];
  */
 class PokemonModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory, 2);
+		super(config, memory, 3);
 		this.memory.savedBoxes = (this.memory.savedBoxes||[]);
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
 		let prev = prev_api.pokemon;
 		let curr = curr_api.pokemon;
 		
@@ -66,7 +67,7 @@ class PokemonModule extends ReportingModule {
 		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
 		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
 			
-		LOGGER.debug(`deltas: add=`, added, ` removed=`, removed, ` same.length=`, same.length);
+		this.debug(`deltas: add=`, added, ` removed=`, removed, ` same.length=`, same.length);
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {

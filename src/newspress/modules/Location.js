@@ -17,13 +17,14 @@ const RULES = [];
  */
 class LocationModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory);
+		super(config, memory, 1);
 		this.memory.reportTimes = this.memory.reportTimes || {};
 		this.memory.visitTimestamps = this.memory.visitTimestamps || {};
 		this.memory.currCheckpoint = this.memory.currCheckpoint || null;
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
 		ledger.add(new LocationContext(curr_api.location));
 		
 		let region = Bot.gameInfo().regionMap;
@@ -32,8 +33,8 @@ class LocationModule extends ReportingModule {
 			return; //Can't continue without a region...
 		}
 		
-		let prev = region.resolve(prev_api.location); prev_api.location.node = prev;
-		let curr = region.resolve(curr_api.location); curr_api.location.node = curr;
+		let prev = region.resolve(prev_api.location); //prev_api.location.node = prev;
+		let curr = region.resolve(curr_api.location); //curr_api.location.node = curr;
 		let prevMap = prev, prevArea = null;
 		let currMap = curr, currArea = null;
 		

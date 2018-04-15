@@ -209,7 +209,7 @@ class DebugLogs {
 		{
 			let mods = [];
 			for (let mod in this.modules) {
-				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`)}</mod>`);
+				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
 			}
 			xml += `<modules>${mods.join('')}</modules>`;
 		}
@@ -249,7 +249,7 @@ class DebugLogs {
 	ruleApplied(ruleInst) {
 		let matched = ruleInst.matchedItems.map((m, i)=>{
 			let itemXml;
-			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml());
+			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml()).join('');
 			else itemXml = `<matchObj index="${i}">${m}</matchObj>`;
 			return `<match index="${i}">${itemXml}</match>`;
 		});
@@ -257,18 +257,20 @@ class DebugLogs {
 	}
 	
 	premergeState(items, postItems) {
-		this.preledger = `<items>${items.map(x=>x.toXml())}</items><post>${postItems.map(x=>x.toXml())}</post>`;
+		this.preledger = `<items>${items.map(x=>x.toXml()).join('')}</items>`;
+		if (postItems.length) this.preledger += `<post>${postItems.map(x=>x.toXml()).join('')}</post>`;
 	}
 	
 	/**
 	 * @param{string} type - one of 'coalesced','replaced','removed'
 	 */
 	merged(type, ...items) {
-		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`)}</merge>`);
+		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`).join('')}</merge>`);
 	}
 	
 	ledgerState(ledger) {
-		this.postledger = `<items>${ledger.list.map(x=>x.toXml())}</items><post>${ledger.postponeList.map(x=>x.toXml())}</post>`;
+		this.postledger = `<items>${ledger.list.map(x=>x.toXml()).join('')}</items>`;
+		if (ledger.postponeList.length) this.postledger += `<post>${ledger.postponeList.map(x=>x.toXml()).join('')}</post>`;
 	}
 	
 	typesetterInput(itemArray) {

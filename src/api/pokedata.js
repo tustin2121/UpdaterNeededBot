@@ -316,6 +316,11 @@ class SortedLocation {
 	constructor(data) {
 		this.node = null;
 		this.set(data);
+		
+		let region = Bot.gameInfo().regionMap;
+		if (region instanceof require('./mapnode').MapRegion) {
+			this.node = region.resolve(this);
+		}
 	}
 	
 	set(opts={}) {
@@ -571,7 +576,7 @@ class SortedInventory {
 }
 
 class SortedBattle {
-	constructor(data, game) {
+	constructor(data, game, loc) {
 		this.in_battle = data.in_battle;
 		this.trainer = null;
 		this.party = null;
@@ -600,6 +605,10 @@ class SortedBattle {
 				}
 				this.trainer.push(data);
 			}
+		}
+		else if (data.battle_kind === 'Trainer') {
+			this.trainer = true;
+			if (loc.has('leader')) this.trainer = loc.get('leader');
 		}
 		if (data.enemy_party) {
 			this.party = [];
@@ -653,7 +662,12 @@ class SortedBattle {
 		
 		// Determine trainer classes
 		this.isImportant = false;
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			this.isImportant = true;
+			let type = loc.get('trainertype');
+			if (type) this.classes[type] = true;
+		}
+		else if (Array.isArray(this.trainer)) {
 			let types = Bot.runOpts('trainerClasses', game);
 			for (let type in types) {
 				for (let trainer of this.trainer) {
@@ -672,6 +686,8 @@ class SortedBattle {
 	
 	get displayName() {
 		let name = [];
+		if (typeof this.trainer === 'string') return this.trainer;
+		if (this.trainer === true) return 'trainer';
 		for (let trainer of this.trainer) {
 			name.push(`${trainer.className} ${trainer.name}`.trim());
 		}
@@ -684,16 +700,22 @@ class SortedBattle {
 	}
 	get attemptId() {
 		let name = [];
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			name.push(`tr[${this.trainer}]`);
+		}
+		else if (this.trainer === true) {
+			name.push('trX');
+		}
+		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
 			}
 		}
-		if (!name.length) {
+		// if (!name.length) {
 			for (let p of this.party) {
 				name.push(`pk${p.dexid}`);
 			}
-		}
+		// }
 		return name.join(';');
 	}
 	
@@ -701,7 +723,13 @@ class SortedBattle {
 		let xml = `<battle `;
 		if (hkey) xml += `key="${hkey}" `;
 		xml += `attemptId="${this.attemptId}" isImportant="${this.isImportant}">`;
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			xml += `<trainer>${this.trainer}</trainer>`;
+		}
+		else if (this.trainer === true) {
+			xml += `<trainer>trainer</trainer>`;
+		}
+		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				xml += `<trainer trClass="${trainer.class}" trId="${trainer.id}">${trainer.className} ${trainer.name}</trainer>`;
 			}
@@ -740,7 +768,7 @@ class SortedData {
 		this._pokemon = new SortedPokemon(data, game);
 		this._inventory = new SortedInventory(data, game);
 		
-		this._battle = new SortedBattle(data, game);
+		this._battle = new SortedBattle(data, game, this._location);
 		
 		// badges
 		this.badges = {};

@@ -18,9 +18,10 @@ class MaplessModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
 		ledger.add(new LocationContext(curr.location));
 		
-		LOGGER.debug(`curr=${curr.location} prev=${prev.location}`);
+		this.debug(`curr=${curr.location} prev=${prev.location}`);
 		if (!curr.location.equals(prev.location)) {
 			let item = new LocationChanged(prev.location, curr.location);
 			item.flavor = 'nomap';

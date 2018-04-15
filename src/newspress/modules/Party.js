@@ -24,12 +24,13 @@ const RULES = [];
  */
 class PartyModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory, 1);
+		super(config, memory, 2);
 		
 	}
 	
 	//TODO: Test this module against a Battle Tent or Battle Frontier tent
 	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
 		let sameMons = [];
 		// Find our mon pairs from previous party to next party.
 		for (let p of prev_api.party) {
@@ -167,14 +168,14 @@ class PartyModule extends ReportingModule {
 			// Held item changes are handled by the Pokemon Module
 		}
 		
-		LOGGER.debug(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
-		LOGGER.debug(`PP: pp=${partyPP} max=${partyMaxPP} delta=${partyDeltaPP}`);
+		this.debug(`HP: hp=${partyHP} max=${partyMaxHP} delta=${partyDeltaHP}`);
+		this.debug(`PP: pp=${partyPP} max=${partyMaxPP} delta=${partyDeltaPP}`);
 		if (partyDeltaHP < 0) { // if HP has been lost
 			if (partyHP === 0) { // If there's no HP in the party, we're definitely blacked out
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
-			LOGGER.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.86)} & ${!prev_api.location.equals(curr_api.location)}`);
+			this.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.86)} & ${!prev_api.location.equals(curr_api.location)}`);
 			let isBlackout = (partyPP >= partyMaxPP);
 			isBlackout &= (partyDeltaHP > partyMaxHP * 0.86);
 			isBlackout &= !prev_api.location.equals(curr_api.location);
