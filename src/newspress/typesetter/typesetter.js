@@ -246,12 +246,14 @@ function isValidToString(fn) {
 	function determineGender(male, female, neuter, plural) {
 		return function(obj) {
 			obj = obj || this.noun || this.subject;
+			LOGGER.debug(`determineGender: obj=${obj} | ${typeof obj}`);
 			if (obj === undefined) return plural;
 			if (typeof obj === 'number') {
 				if (obj === 1) return neuter;
 				return plural;
 			}
 			if (obj instanceof Pokemon) {
+				LOGGER.debug(`determineGender: is Pokemon: ${obj.gender}`);
 				switch(obj.gender) {
 					case '\u2642': return male;
 					case '\u2640': return female;
@@ -260,6 +262,7 @@ function isValidToString(fn) {
 				}
 			}
 			if (obj.gender) {
+				LOGGER.debug(`determineGender: has property: ${obj.gender}`);
 				switch(obj.gender.toLowerCase()) {
 					case 'm': case 'male': return male;
 					case 'f': case 'female': return female;
@@ -268,6 +271,7 @@ function isValidToString(fn) {
 					default: return plural;
 				}
 			}
+			LOGGER.debug(`determineGender: fallback`);
 			return plural;
 		}
 	}
@@ -438,7 +442,7 @@ function isValidToString(fn) {
 }{
 	function determineTimeOfDay() {
 		return function(day, night, morn) {
-			if (!Bot.runOpts('rtc')) return day;
+			if (!Bot.runOpts('rtc')) return false;
 			switch (this.curr_api.timeOfDay) {
 				case 'night': return night || day;
 				case 'morning': return morn || day;
@@ -457,13 +461,11 @@ function isValidToString(fn) {
 // Format Functions: Lists
 {
 	function printList(sep, and) {
-		return function(formatFn, ...args) {
+		return function() {
 			if (!this._itemList) throw new ReferenceError('List of items not specified!');
+			const format = this._callMeta.top().args.join('|');
 			
-			let items = this._itemList.map(item=>{
-				let fn = FORMAT_FNS[formatFn];
-				return fn.apply(this, args);
-			}).filter(x=>x);
+			let items = this._itemList.map(item=>this.fillText(format, item)).filter(x=>x);
 			if (items.length > 1 && and) {
 				items[items.length-1] = and+' '+items[items.length-1];
 			}
@@ -471,7 +473,7 @@ function isValidToString(fn) {
 				return items.join(' ');
 			}
 			return items.join(sep);
-		}
+		};
 	}
 	Object.assign(FORMAT_FNS, {
 		'a comma-separated list of': printList(', ', 'and'),
@@ -500,6 +502,10 @@ class TypeSetter {
 		this._setSubject = false;
 		this._setNoun = false;
 		this._itemList = null;
+		
+		/** @type{Stack} - A call stack with objects describing the currently being processed function. */
+		this._callMeta = [];
+		this._callMeta.top = function(){ return this[this.length-1]; }
 	}
 	
 	/** Random function. For convienence and also to allow rigging for unit testing. */
@@ -663,6 +669,7 @@ class TypeSetter {
 				let args = key.split('|');
 				let func = args[0];
 				args = args.slice(1);
+				this._callMeta.push({ text:match, func, args, });
 				args = args.map((arg)=>{
 					if (arg === '$') return this.subject;
 					if (arg === '#') return this.noun;
@@ -697,6 +704,7 @@ class TypeSetter {
 					return FORMAT_FNS[arg.trim()];
 				})(func);
 				let res = func.apply(this, args);
+				this._callMeta.pop();
 				if (res === false) throw false; //We can't use this phrase
 				return res;
 			});

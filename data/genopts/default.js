@@ -40,6 +40,8 @@ module.exports = {
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,
+	// If this run is supplying full info for the pokemone on the enemy team
+	fullEnemyInfo: false,
 	// If this generation puts its nicknaming in the current name slot, and should postpone
 	// reporting a name change until it is finished, put a regex here to match against
 	namingMatch: null,

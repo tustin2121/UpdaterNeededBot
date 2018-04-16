@@ -69,6 +69,10 @@ function fillMoveInfo(data) {
 	}
 }
 
+function calcStats({ species, ivs, evs, }) {
+	
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HeldItem {
@@ -613,11 +617,16 @@ class SortedBattle {
 		if (data.enemy_party) {
 			this.party = [];
 			for (let p of data.enemy_party) {
-				let poke = {
-					active: p.active,
-					hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-					species: p.species.name,
-					dexid: read(p.species, 'national_dex', 'id'),
+				let poke;
+				if (Bot.runOpts('fullEnemyInfo')) {
+					poke = new Pokemon(p, game);
+				} else {
+					poke = {
+						active: p.active,
+						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						species: p.species.name,
+						dexid: read(p.species, 'national_dex', 'id'),
+					};
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);

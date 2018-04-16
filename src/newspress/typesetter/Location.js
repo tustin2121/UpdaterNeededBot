@@ -41,8 +41,18 @@ MapChanged['exit_back'] = [
 	`We exit back {{into the location|@curr}}.`,
 	`Back out {{into the location|@curr}}.`,
 ];
-MapChanged['enter_nvm'] = MapChanged['enter_back'];
-MapChanged['exit_nvm'] = MapChanged['exit_back'];
+MapChanged['enter_nvm'] = [
+	`Never mind, back inside {{the location|@curr}}.`,
+	`Wait, no, back inside {{the location|@curr}}.`,
+	`Nevermind, we immedeately turn around again and head back inside.`,
+	`We change our mind. Back inside {{the location|@curr}}.`,
+	`And back inside.`,
+];
+MapChanged['exit_nvm'] = [
+	`And we turn around and leave again immedeately.`,
+	`Never mind, we head right back out again. {{The location|@curr}}.`,
+	`We turn on a heel and leave again. Back out {{in the location|@curr}}.`,
+];
 
 //////////////////////////////
 // Entering/Exiting Dungeon //

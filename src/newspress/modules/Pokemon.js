@@ -103,7 +103,7 @@ class PokemonModule extends ReportingModule {
 				if (!prev.item.id && curr.item.id) {
 					ledger.addItem(new MonGiveItem(curr, curr.item));
 				} else if (prev.item.id && !curr.item.id) {
-					ledger.addItem(new MonTakeItem(curr, prev.item.id));
+					ledger.addItem(new MonTakeItem(curr, prev.item));
 				} else if (prev.item.id !== curr.item.id) {
 					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
 				}

@@ -49,7 +49,7 @@ class ApiMonitoringModule extends ReportingModule {
 			fApi.attempts++;
 			fApi.lastCode = curr.httpCode;
 			if (fApi.attempts > 3) {
-				Bot.alertUpdaters(`Alert: Unable to retrieve API update: ${httpCode} (Failed retrievals: ${fApi.attempts})`, {
+				Bot.alertUpdaters(`Alert: Unable to retrieve API update: ${curr.httpCode} (Failed retrievals: ${fApi.attempts})`, {
 					bypassTagCheck:true, 
 					reuseId:fApi.msgId 
 				}).then(msg=>{
@@ -58,12 +58,14 @@ class ApiMonitoringModule extends ReportingModule {
 			}
 			return false;
 		} 
-		else if (fApi && fApi.msgId) {
+		else if (fApi) {
 			this.memory.failedApi = null;
-			Bot.alertUpdaters(`Alert: ~~Unable to retrieve API update: ${fApi.lastCode}~~ API has returned after ${fApi.attempts} failed retrievals. Resuming normal operation.`, {
-				bypassTagCheck:true, 
-				reuseId:fApi.msgId 
-			});
+			if (fApi.msgId) {
+				Bot.alertUpdaters(`Alert: ~~Unable to retrieve API update: ${fApi.lastCode}~~ API has returned after ${fApi.attempts} failed retrievals. Resuming normal operation.`, {
+					bypassTagCheck:true, 
+					reuseId:fApi.msgId 
+				});
+			}
 		}
 		return true;
 	}

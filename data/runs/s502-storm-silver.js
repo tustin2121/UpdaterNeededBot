@@ -18,6 +18,7 @@ module.exports = {
 		opts: {
 			// see /data/genopts
 			friendName: "Lyra",
+			fullEnemyInfo: true,
 		},
 	},
 	

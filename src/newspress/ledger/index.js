@@ -252,7 +252,7 @@ class DebugLogs {
 			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml()).join('');
 			else itemXml = `<matchObj index="${i}">${m}</matchObj>`;
 			return `<match index="${i}">${itemXml}</match>`;
-		});
+		}).join('');
 		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
 	}
 	

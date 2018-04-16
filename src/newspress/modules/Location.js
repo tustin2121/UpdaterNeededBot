@@ -132,8 +132,8 @@ class LocationModule extends ReportingModule {
 			if (!P && C) { item.flavor = `gym_enter${back}`; return item; }
 			if (P && !C) { item.flavor = `gym_exit${back}`; return item; }
 		}{
-			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_enter${back}`; return item; }
-			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_exit${back}`; return item; }
+			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_enter${back}`; return item; }
+			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_exit${back}`; return item; }
 		}{
 			const P = prevMap.is('indoors');
 			const C = currMap.is('indoors');
@@ -150,7 +150,7 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 	.when(ledger=>ledger.hasnt('BlackoutContext'))
 	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 	.then(ledger=>{
-		let item = ledger.mark(1).get(1);
+		let item = ledger.mark(2).get(2);
 		item.isCurrent = true;
 		ledger.add(new CheckpointUpdated(item.loc));
 	})
