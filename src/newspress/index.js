@@ -34,6 +34,8 @@ class UpdaterPress extends EventEmitter {
 		this.lastLedger.loadFromMemory(this.memory['saved_ledger'+this.gameIndex]);
 	}
 	
+	get lastUpdateId() { return this.lastLedger.log.uid; }
+	
 	/** Starts a new ledger and runs an update cycle.  */
 	run() {
 		let ledger = new Ledger();
@@ -117,8 +119,10 @@ class UpdaterPress extends EventEmitter {
 		// And trim the ledger to only the helpful ledger items
 		ledger.trimToHelpfulItems(helpOpts);
 		
+		let { curr } = this.apiProducer.popInfo(this.gameIndex);
+		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger);
+		let update = typeset(ledger, curr);
 		if (!update || !update.length) return null;
 		
 		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
@@ -165,6 +169,8 @@ class UpdaterPressPool extends EventEmitter {
 		}
 	}
 	
+	get lastUpdateId() { return this.pool.map(x=>x.lastUpdateId).join('+'); }
+	
 	run() {
 		let updates = [];
 		for (let press of this.pool) {
@@ -176,10 +182,10 @@ class UpdaterPressPool extends EventEmitter {
 		return updates.join('\n\n');
 	}
 	
-	runHelp() {
+	runHelp(helpOpts) {
 		let updates = [];
 		for (let press of this.pool) {
-			let up = press.runHelp();
+			let up = press.runHelp(helpOpts);
 			if (up) updates.push(up);
 		}
 		if (!updates.length) return null;

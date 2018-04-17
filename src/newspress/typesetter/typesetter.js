@@ -141,6 +141,7 @@ function isValidToString(fn) {
 	
 	function printDefiniteNoun(numArray) {
 		return function(obj, num=1) {
+			obj = obj || this.noun || this.subject;
 			// Get the noun we're going to use for this object
 			let noun = (()=>{
 				if (obj === undefined) return 'undefined';
@@ -225,7 +226,7 @@ function isValidToString(fn) {
 }{
 	function printSpecies(){
 		return function(mon){
-			mon = mon || this.noun || this.subject;
+			mon = mon || this.subject || this.noun;
 			if (!(mon instanceof Pokemon)) return false;
 			if (this._setNoun) this.noun = mon;
 			if (this._setSubject) this.subject = mon;
@@ -245,7 +246,7 @@ function isValidToString(fn) {
 {
 	function determineGender(male, female, neuter, plural) {
 		return function(obj) {
-			obj = obj || this.noun || this.subject;
+			obj = obj || this.subject || this.noun;
 			LOGGER.debug(`determineGender: obj=${obj} | ${typeof obj}`);
 			if (obj === undefined) return plural;
 			if (typeof obj === 'number') {
@@ -463,7 +464,7 @@ function isValidToString(fn) {
 	function printList(sep, and) {
 		return function() {
 			if (!this._itemList) throw new ReferenceError('List of items not specified!');
-			const format = this._callMeta.top().args.join('|');
+			const format = `{{${this._callMeta.top().args.join('|')}}}`;
 			
 			let items = this._itemList.map(item=>this.fillText(format, item)).filter(x=>x);
 			if (items.length > 1 && and) {
@@ -609,7 +610,23 @@ class TypeSetter {
 			}
 			if (entry === null) return null;
 			if (entry === false) return false;
-			
+			if (typeof entry === 'object') {
+				if (self._itemList) {
+					if (entry.multi) return _resolve(entry.multi, item); 
+					
+					let itemlist = self._itemList;
+					self._itemList = null;
+					let ret = itemlist.map(i=>_resolve(entry, i));
+					self._itemList = itemlist;
+					return ret;
+				}
+				if (entry.single) {
+					return _resolve(entry.single, item);
+				}
+				if (entry.item) { //should never happen
+					return _resolve(entry.item, item);
+				}
+			}
 			if (typeof entry === 'string') {
 				return self.fillText(entry, item);
 			}
@@ -633,23 +650,6 @@ class TypeSetter {
 					return res;
 				}
 				return null;
-			}
-			if (self._itemList && entry.multi) {
-				return _resolve(entry.multi, item);
-			}
-			if (entry.single) {
-				if (self._itemList) {
-					return self._itemList.map(i=>_resolve(entry.single, i));
-				} else {
-					return _resolve(entry.single, item);
-				}
-			}
-			if (entry.item) { //should never happen
-				if (self._itemList) {
-					return self._itemList.map(i=>_resolve(entry.item, i));
-				} else {
-					return _resolve(entry.item, item);
-				}
 			}
 			LOGGER.error(`Resolve failed!`, entry);
 			return null;
@@ -705,6 +705,9 @@ class TypeSetter {
 				})(func);
 				let res = func.apply(this, args);
 				this._callMeta.pop();
+				this._setSubject = false;
+				this._setNoun = false;
+				
 				if (res === false) throw false; //We can't use this phrase
 				return res;
 			});

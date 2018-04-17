@@ -19,7 +19,7 @@ const HANDLER = {
 				tg = 'Only ' + Bot.gameInfo(Bot.taggedIn).name;
 			}
 			else if (typeof Bot.taggedIn === 'object') {
-				tg = 'Helping';
+				tg = `Helping [${Object.keys(Bot.taggedIn).join(',')}]`;
 			}
 			else if (Bot.taggedIn === true) {
 				tg = 'Yes';
@@ -30,7 +30,7 @@ const HANDLER = {
 		if (Number.isNaN(lastTg)) {
 			lastTg = '';
 		} else {
-			lastTg = ` (for ${Math.floor(lastTg/(60*60*24))}d ${Math.floor(lastTg/(60*60))%24}h ${Math.floor(lastTg/60)%60}m ${lastTg%60}s)`;
+			lastTg = ` (for ${Math.floor(lastTg/(1000*60*60*24))}d ${Math.floor(lastTg/(1000*60*60))%24}h ${Math.floor(lastTg/(1000*60))%60}m ${(lastTg*1000)%60}s)`;
 		}
 		
 		let apid = 'NaN';

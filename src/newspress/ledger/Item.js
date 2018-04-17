@@ -9,7 +9,7 @@ const { Pokemon, SortedBattle } = require('../../api/pokedata');
 /** Indicates that a single item has been gained. */
 class GainItem extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -35,7 +35,7 @@ class GainItem extends LedgerItem {
 /** Indicates that a single item has been lost. */
 class LostItem extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -61,7 +61,7 @@ class LostItem extends LedgerItem {
 /** Indicates that a single item has been stored in the PC. */
 class StoredItemInPC extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -70,7 +70,7 @@ class StoredItemInPC extends LedgerItem {
 /** Indicates that a single item has been taken out of the PC. */
 class RetrievedItemFromPC extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}

@@ -440,7 +440,7 @@ class SortedPokemon {
 				let b = [];
 				for (let i = 0; i < box.box_contents.length; i++) {
 					let p = new Pokemon(box.box_contents[i], game);
-					p.storedIn = `box:${box.box_number||bn}-${box.box_contents[i].box_slot||i}`;
+					p.storedIn = `box:${box.box_number||bn+1}-${box.box_contents[i].box_slot||i}`;
 					this._map[p.hash] = p;
 					b.push(p);
 				}

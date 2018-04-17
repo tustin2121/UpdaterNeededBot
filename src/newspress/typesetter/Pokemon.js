@@ -28,7 +28,11 @@ module.exports = {
 			if (mon.nicknamed) txt += ` Nickname: \`${mon.name}\``;
 			else txt += ` No nickname.`;
 			
-			if (mon.box) txt += ` (Sent to Box #${mon.box}.)`;
+			if (mon.storedIn && mon.storedIn.startsWith('box:')) {
+				let box = mon.storedIn.slice(4);
+				box = box.slice(0, box.indexOf('-'));
+				txt += ` (Sent to Box #${box}.)`;
+			}
 			return txt;
 		},
 	},

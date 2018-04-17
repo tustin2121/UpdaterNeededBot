@@ -92,6 +92,7 @@ class LocationModule extends ReportingModule {
 		for (let report of reports) {
 			let lastUsed = this.memory.reportTimes[report.id];
 			if (lastUsed + report.timeout > currTime) continue; //can't use this report again so soon
+			this.memory.reportTimes[report.id] = Date.now();
 			return new MapChanged({ prev:prevMap, curr:currMap, report });
 		}
 		// No reports apply to this pairing, so fall back on the templates
@@ -146,11 +147,11 @@ class LocationModule extends ReportingModule {
 }
 
 RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
+	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 	.when(ledger=>ledger.has('FullHealed'))
 	.when(ledger=>ledger.hasnt('BlackoutContext'))
-	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 	.then(ledger=>{
-		let item = ledger.mark(2).get(2);
+		let item = ledger.mark(0).get(0);
 		item.isCurrent = true;
 		ledger.add(new CheckpointUpdated(item.loc));
 	})

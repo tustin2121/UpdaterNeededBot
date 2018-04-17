@@ -195,7 +195,7 @@ class UpdaterBot extends EventEmitter {
 			if (update) this.postUpdate({ text:update, });
 			
 			if (this.isHelping) {
-				update = this.press.runHelp();
+				update = this.press.runHelp(this.taggedIn);
 				if (update) this.postUpdate({ text:update, dest:'main' });
 			}
 			else if (typeof this.taggedIn === 'number') { //tagged in for one game only
@@ -285,7 +285,7 @@ class UpdaterBot extends EventEmitter {
 				break;
 		}
 		let ts = this.getTimestamp();
-		let debugUrl = createDebugUrl(debugXml) || '';
+		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`; //createDebugUrl(debugXml) || '';
 		//////////////////////////////////////////
 		if (mainLive && this.runConfig.run.liveID) {
 			let update = formatFor.reddit(text);

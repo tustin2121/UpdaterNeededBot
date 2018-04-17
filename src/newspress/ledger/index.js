@@ -191,6 +191,7 @@ Ledger.prototype.remove = Ledger.prototype.removeItem;
 
 class DebugLogs {
 	constructor() {
+		this.uid = DebugLogs.generateId();
 		this.apiNum = -1;
 		this.modules = {};
 		this.preledger = '';
@@ -201,6 +202,12 @@ class DebugLogs {
 		this.update = '';
 		
 		this._currTypesetter = null;
+	}
+	
+	static generateId() {
+		let ts = Date.now().toString(36);
+		let rand = Math.floor(Math.random()*0xFFFF).toString(36);
+		return ts + rand;
 	}
 	
 	getXml() {
