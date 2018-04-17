@@ -139,7 +139,8 @@ function isValidToString(fn) {
 	const determineIndefiniteArticle = require('./indefiniteArticle').query;
 	const { plural:makePlural } = require('pluralize');
 	
-	function printDefiniteNoun(numArray) {
+	function printDefiniteNoun(numArray, capitalize) {
+		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(obj, num=1) {
 			obj = obj || this.noun || this.subject;
 			// Get the noun we're going to use for this object
@@ -168,60 +169,52 @@ function isValidToString(fn) {
 			
 			if (this._setNoun) this.noun = obj;
 			if (this._setSubject) this.subject = obj;
-			return `${article} ${noun}`;
+			return cap(`${article} ${noun}`);
 		};
 	}
-	function printNumber(numArray) {
+	function printNumber(numArray, capitalize) {
+		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(num, obj) {
 			let txt = numArray[num] || (num).toString();
 			if (txt === '{an}') {
 				let noun = obj || this.noun || this.subject || 'thing';
 				txt = determineIndefiniteArticle(noun.toString);
 			}
-			return txt;
+			return cap(txt);
 		}
 	}
 	Object.assign(FORMAT_FNS, {
-		'1 noun': printDefiniteNoun(NUM_NUMS),
-		'one noun': printDefiniteNoun(WORD_NUMS),
-		'a noun': printDefiniteNoun(AN_NUMS),
-		'some nouns': printDefiniteNoun(SOME_NUMS),
+		'1 noun': printDefiniteNoun(NUM_NUMS, false),
+		'one noun': printDefiniteNoun(WORD_NUMS, false),
+		'a noun': printDefiniteNoun(AN_NUMS, false),
+		'some nouns': printDefiniteNoun(SOME_NUMS, false),
+		'One noun': printDefiniteNoun(WORD_NUMS, true),
+		'A noun': printDefiniteNoun(AN_NUMS, true),
+		'Some nouns': printDefiniteNoun(SOME_NUMS, true),
 		
-		'1 item': printDefiniteNoun(NUM_NUMS),
-		'one item': printDefiniteNoun(WORD_NUMS),
-		'an item': printDefiniteNoun(AN_NUMS),
-		'some items': printDefiniteNoun(SOME_NUMS),
+		'1 item': printDefiniteNoun(NUM_NUMS, false),
+		'one item': printDefiniteNoun(WORD_NUMS, false),
+		'an item': printDefiniteNoun(AN_NUMS, false),
+		'some items': printDefiniteNoun(SOME_NUMS, false),
+		'One item': printDefiniteNoun(WORD_NUMS, true),
+		'An item': printDefiniteNoun(AN_NUMS, true),
+		'Some items': printDefiniteNoun(SOME_NUMS, true),
 		
-		'1 thing': printDefiniteNoun(NUM_NUMS),
-		'one thing': printDefiniteNoun(WORD_NUMS),
-		'a thing': printDefiniteNoun(AN_NUMS),
-		'some things': printDefiniteNoun(SOME_NUMS),
+		'1 thing': printDefiniteNoun(NUM_NUMS, false),
+		'one thing': printDefiniteNoun(WORD_NUMS, false),
+		'a thing': printDefiniteNoun(AN_NUMS, false),
+		'some things': printDefiniteNoun(SOME_NUMS, false),
+		'One thing': printDefiniteNoun(WORD_NUMS, true),
+		'A thing': printDefiniteNoun(AN_NUMS, true),
+		'Some things': printDefiniteNoun(SOME_NUMS, true),
 		
-		'1': printNumber(NUM_NUMS),
-		'one': printNumber(WORD_NUMS),
-		'a': printNumber(AN_NUMS),
-		'some': printNumber(SOME_NUMS),
-	});
-}{
-	function printVerb(singular, plural) {
-		return function(noun) {
-			noun = noun || this.subject || this.noun;
-			if (this._setNoun) this.noun = noun;
-			if (this._setSubject) this.subject = noun;
-			if (Array.isArray(noun) && noun.length > 1) {
-				return plural;
-			}
-			if (noun instanceof Pokemon) return singular;
-			return plural;
-		}
-	}
-	Object.assign(FORMAT_FNS, {
-		'verb': function (singular, plural, noun) {
-			let fn = printVerb(singular, plural);
-			return fn.call(this, noun);
-		},
-		'verb-s': printVerb('s', ''),
-		'*s': printVerb('s', ''),
+		'1': printNumber(NUM_NUMS, false),
+		'one': printNumber(WORD_NUMS, false),
+		'a': printNumber(AN_NUMS, false),
+		'some': printNumber(SOME_NUMS, false),
+		'One': printNumber(WORD_NUMS, true),
+		'A': printNumber(AN_NUMS, true),
+		'Some': printNumber(SOME_NUMS, true),
 	});
 }{
 	function printSpecies(){
@@ -304,6 +297,13 @@ function isValidToString(fn) {
 		'Them': determineGender('Him', 'Her', 'It', 'Them'),
 		'Their': determineGender('His', 'Her', 'Its', 'Their'),
 		'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
+		
+		'verb': function (singular, plural, noun) {
+			let fn = determineGender(singular, singular, singular, plural);
+			return fn.call(this, noun);
+		},
+		'verb-s': determineGender('s','s','s', ''),
+		'*s': determineGender('s','s','s', ''),
 	});
 }
 
@@ -572,61 +572,52 @@ class TypeSetter {
 	/**
 	 * @param {LedgerItem[]} items - List of ledger items to make into a phrase
 	 */
-	typesetItems(item) {
-		if (!Array.isArray(item) || !item.length) {
-			LOGGER.error(`typesetItems passed invalid array or not an array!`, item);
+	typesetItems(items) {
+		if (!Array.isArray(items) || !items.length) {
+			LOGGER.error(`typesetItems passed invalid array or not an array!`, items);
 			return null;
 		}
-		if (item.length == 1) item = item[0];
-		else {
-			this._itemList = item;
-			item = item[0];
-		}
-		this.item = item;
+		const ritem = items[0];
+		// if (items.length == 1) items = items[0];
+		// else {
+		// 	this._itemList = items;
+		// 	items = items[0];
+		// }
+		// this.items = items;
 		
 		// Get the phrase dictionary for this item
-		let phraseDict = PHRASEBOOK[item.name];
+		let phraseDict = PHRASEBOOK[ritem.name];
 		if (phraseDict === undefined) {
-			LOGGER.error(`LedgerItem ${item.name} has no phrase dictionary in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${ritem.name} has no phrase dictionary in the phrasebook!`);
 			return null;
 		}
 		if (phraseDict === null) return null; // Skip this item
 		
 		// Resolve the flavor of this item
-		let phraseEntry = phraseDict[item.flavor || 'default'];
+		let phraseEntry = phraseDict[ritem.flavor || 'default'];
 		if (phraseEntry === undefined) {
-			LOGGER.error(`LedgerItem ${item.name}, flavor "${item.flavor || 'default'}" has no phrase entry in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${ritem.name}, flavor "${ritem.flavor || 'default'}" has no phrase entry in the phrasebook!`);
 			return null;
 		}
 		if (phraseEntry === null) return null; // Skip this item
 		
 		let self = this;
-		return _resolve(phraseEntry, item);
+		if (phraseEntry.multi && items.length > 1) {
+			this._itemList = items;
+			let res = _resolve(phraseEntry.multi, ritem);
+			this._itemList = null;
+			return res;
+		}
+		return items.map(item => _resolve(phraseEntry, item)).join(' ');
 		
 		function _resolve(entry, item) {
 			if (entry === undefined) {
-				LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an illegal value!`, entry);
+				LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an undefined value!`);
 				return null;
 			}
 			if (entry === null) return null;
 			if (entry === false) return false;
-			if (typeof entry === 'object') {
-				if (self._itemList) {
-					if (entry.multi) return _resolve(entry.multi, item); 
-					
-					let itemlist = self._itemList;
-					self._itemList = null;
-					let ret = itemlist.map(i=>_resolve(entry, i));
-					self._itemList = itemlist;
-					return ret;
-				}
-				if (entry.single) {
-					return _resolve(entry.single, item);
-				}
-				if (entry.item) { //should never happen
-					return _resolve(entry.item, item);
-				}
-			}
+			
 			if (typeof entry === 'string') {
 				return self.fillText(entry, item);
 			}
@@ -651,6 +642,8 @@ class TypeSetter {
 				}
 				return null;
 			}
+			if (entry.single) return _resolve(entry.single, item);
+			if (entry.item) return _resolve(entry.item, item);
 			LOGGER.error(`Resolve failed!`, entry);
 			return null;
 		}

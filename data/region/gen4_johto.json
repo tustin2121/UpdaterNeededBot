@@ -732,7 +732,7 @@
 			{
 				"bank": 0,
 				"id": 25,
-				"name": "Route 17",
+				"name": "Cycling Road",
 				"areaId": 20,
 				"areaName": "Route 17",
 				"type": "route",
@@ -8414,7 +8414,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0301",
@@ -8439,7 +8441,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0302",
@@ -8464,8 +8468,22 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 26,
+						"ay": 4,
+						"bx": 26,
+						"by": 4,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "P01R0303",
 					"tex1": 159,
@@ -8489,7 +8507,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0304",
@@ -8514,7 +8534,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0305",
@@ -8939,7 +8961,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0306",
@@ -8964,7 +8988,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0307",
@@ -9624,7 +9650,7 @@
 			{
 				"bank": 0,
 				"id": 359,
-				"name": "Vermilion City",
+				"name": "Vermilion City Wi-Fi Club",
 				"areaId": 49,
 				"areaName": "Vermilion City",
 				"type": "center_lower",
@@ -9776,14 +9802,27 @@
 			{
 				"bank": 0,
 				"id": 365,
-				"name": "Vermilion City",
+				"name": "Vermilion City Gym",
 				"areaId": 49,
 				"areaName": "Vermilion City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 5,
+						"bx": 6,
+						"by": 5,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Serge",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T06GYM0101",
 					"tex1": 143,
@@ -9903,13 +9942,15 @@
 			{
 				"bank": 0,
 				"id": 370,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0101",
@@ -9928,13 +9969,15 @@
 			{
 				"bank": 0,
 				"id": 371,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0102",
@@ -9953,13 +9996,15 @@
 			{
 				"bank": 0,
 				"id": 372,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0103",
@@ -9978,13 +10023,15 @@
 			{
 				"bank": 0,
 				"id": 373,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0104",
@@ -10003,13 +10050,15 @@
 			{
 				"bank": 0,
 				"id": 374,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0105",
@@ -10028,14 +10077,28 @@
 			{
 				"bank": 0,
 				"id": 375,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": "15",
+						"ay": 4,
+						"bx": 20,
+						"by": 4,
+						"rad": "2",
+						"name": "Vending Machine",
+						"attrs": {
+							"vending": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T07R0106",
 					"tex1": 95,
@@ -10053,13 +10116,15 @@
 			{
 				"bank": 0,
 				"id": 376,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0201",
@@ -10078,13 +10143,15 @@
 			{
 				"bank": 0,
 				"id": 377,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0202",
@@ -10103,13 +10170,15 @@
 			{
 				"bank": 0,
 				"id": 378,
-				"name": "Celadon City",
+				"name": "Game Freak Offices",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0203",
@@ -10128,13 +10197,16 @@
 			{
 				"bank": 0,
 				"id": 379,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": false,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0204",
@@ -10478,7 +10550,7 @@
 			{
 				"bank": 0,
 				"id": 393,
-				"name": "Celadon City",
+				"name": "Celadon City Pokémon Center",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "center",
@@ -10503,10 +10575,10 @@
 			{
 				"bank": 0,
 				"id": 394,
-				"name": "Celadon City",
+				"name": "Celadon City Wi-Fi Club",
 				"areaId": 50,
 				"areaName": "Celadon City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -10528,14 +10600,26 @@
 			{
 				"bank": 0,
 				"id": 395,
-				"name": "Celadon City",
+				"name": "Celadon City Gym",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 4,
+						"bx": 7,
+						"by": 4,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Erika"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T07GYM0101",
 					"tex1": 111,
@@ -11220,7 +11304,7 @@
 				"name": "Route 16",
 				"areaId": 19,
 				"areaName": "Route 16",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -11245,7 +11329,7 @@
 				"name": "Route 16",
 				"areaId": 19,
 				"areaName": "Route 16",
-				"type": "indoor",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -11773,13 +11857,15 @@
 			{
 				"bank": 0,
 				"id": 442,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0107",
@@ -11798,13 +11884,15 @@
 			{
 				"bank": 0,
 				"id": 443,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0206",
@@ -11823,13 +11911,15 @@
 			{
 				"bank": 0,
 				"id": 444,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0207",
@@ -14208,13 +14298,15 @@
 			{
 				"bank": 0,
 				"id": 537,
-				"name": "Celadon City",
+				"name": "Celadon Game Corner",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07SP0101",
