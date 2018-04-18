@@ -728,11 +728,11 @@ class SortedBattle {
 				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
 			}
 		}
-		// if (!name.length) {
+		if (this.party) {
 			for (let p of this.party) {
 				name.push(`pk${p.dexid}`);
 			}
-		// }
+		}
 		return name.join(';');
 	}
 	

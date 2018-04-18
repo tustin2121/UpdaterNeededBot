@@ -72,7 +72,7 @@ module.exports = {
 			`We toss {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
 		],
 		trainer: [
-			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{they|$@trainer}} block{{*s}} the ball. Don't be a thief!`,
+			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{they|@trainer}} block{{*s|@trainer}} the ball. Don't be a thief!`,
 			`We throw {{some items|@item|@amount}} at the opponents's pokemon, to no avail.`,
 			`We attempt to {{rand|steal|take|snag}} {{$@trainer}}'s {{Mon|@enemy}}. {{They}} {{rand|yell{{*s}} at us|scold{{*s}} us|tell{{*s}} us off|tell{{*s}} us where we can shove our {{@item}}}}.`,
 			`We attempt to be a thief. The game tells us off.`,
