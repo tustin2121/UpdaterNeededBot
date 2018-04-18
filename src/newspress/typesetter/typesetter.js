@@ -52,6 +52,17 @@ function isValidToString(fn) {
 	//String and Number's toString functions produce desireable output
 	return true;
 }
+function printObject(obj) {
+	if (obj === undefined) return 'undefined';
+	if (obj === null) return 'null';
+	// If the object has overridden the toString function, use it.
+	if (isValidToString(obj.toString)) return obj.toString();
+	// If the object has a name propery, use it.
+	if (obj.displayName) return obj.displayName;
+	if (obj.name) return obj.name;
+	// Return a default string
+	return 'thing';
+}
 {
 	const pluralize = require('pluralize');
 	pluralize.addUncountableRule('pokemon');
@@ -78,6 +89,10 @@ function isValidToString(fn) {
 		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(loc) {
 			loc = loc || this.noun || this.subject;
+			if (!loc) {
+				LOGGER.error(`No location provided for printLocationPhrase! => `, this._callMeta.top());
+				return false;
+			}
 			if (!(loc.has === loc.is)) { //test for the attribute test functions
 				LOGGER.warn('printLocationPhrase must take a location!');
 				return 'in the area'; //error
@@ -106,6 +121,10 @@ function isValidToString(fn) {
 		const cap = (captial)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(obj) {
 			obj = obj || this.noun || this.subject;
+			if (!obj) {
+				LOGGER.error(`No object provided for determineOnIn! => `, this._callMeta.top());
+				return false;
+			}
 			if (obj.has === obj.is) { //test for the attribute test functions
 				return cap(obj.get('preposition'));
 			}
@@ -143,17 +162,7 @@ function isValidToString(fn) {
 		return function(obj, num=1) {
 			obj = obj || this.noun || this.subject;
 			// Get the noun we're going to use for this object
-			let noun = (()=>{
-				if (obj === undefined) return 'undefined';
-				if (obj === null) return 'null';
-				// If the object has overridden the toString function, use it.
-				if (isValidToString(obj.toString)) return obj.toString();
-				// If the object has a name propery, use it.
-				if (obj.displayName) return obj.displayName;
-				if (obj.name) return obj.name;
-				// Return a default string
-				return 'thing';
-			})();
+			let noun = printObject(obj);
 			// If the noun is plural:
 			if (num !== 1) {
 				// See if the object's custom toString takes plural numbers as an argument
@@ -322,6 +331,11 @@ function isValidToString(fn) {
 		}
 		return name;
 	}
+	function printTeamStatus() { return this.press.generateUpdate('team'); }
+	function printOpt(opt, def) { 
+		//return Bot.runOpts(opt, this.press.gameIndex) || def; 
+		return def;
+	}
 	Object.assign(FORMAT_FNS, {
 		'player': printPlayerName,
 		'player name': printPlayerName,
@@ -332,6 +346,16 @@ function isValidToString(fn) {
 		
 		'rival': printRivalName,
 		'my rival': printRivalName,
+		
+		'champ': printOpt('champ', 'champion'),
+		'champion': printOpt('champ', 'champion'),
+		'enemyTeam': printOpt('enemyTeam', 'enemy team'),
+		'enemy team': printOpt('enemyTeam', 'enemy team'),
+		
+		'team status': printTeamStatus,
+		
+		'phone': printOpt('phonebook', 'phone'),
+		'phonebook': printOpt('phonebook', 'phonebook'),
 	});
 }
 
@@ -410,7 +434,10 @@ function isValidToString(fn) {
 		}
 		return function(mon, ...feats) {
 			mon = mon || this.noun || this.subject;
-			if (!(mon instanceof Pokemon)) return false;
+			if (!(mon instanceof Pokemon)) {
+				LOGGER.error(`Object is not a Pokemon! => `, this._callMeta.top());
+				return false;
+			}
 			let bodyfeats = require('../../../data/extdata/bodyfeats')[mon.dexid];
 			
 			let bool = true;
@@ -418,12 +445,12 @@ function isValidToString(fn) {
 				bool = op(bool, !!bodyfeats[feat]);
 			}
 			return bool? '' : false;
-		}
+		};
 	}
 	function testPartySize(size) {
 		return function() {
 			
-		}
+		};
 	}
 	function testWalkBehind(mon) {
 		if (!Bot.runOpts('walkBehind')) return false;
@@ -433,12 +460,25 @@ function isValidToString(fn) {
 		if (mon === party[0]) return '';
 		return false;
 	}
+	function testHealth(min, max) {
+		return function(mon){
+			mon = mon || this.noun || this.subject;
+			if (!(mon instanceof Pokemon)) {
+				LOGGER.error(`Object is not a Pokemon! => `, this._callMeta.top());
+				return false;
+			}
+			if (mon.hp >= min && mon.hp <= max) return '';
+			return false;
+		};
+	}
 	Object.assign(FORMAT_FNS, {
 		'if mon body has': testBodyFeature('or'),
 		'if mon body has any': testBodyFeature('or'),
 		'if mon body has all': testBodyFeature('and'),
 		
 		'if mon is walking': testWalkBehind,
+		
+		'if mon is full health': testHealth(100, 100),
 	});
 }{
 	function determineTimeOfDay() {
@@ -489,14 +529,16 @@ function isValidToString(fn) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor(curr_api, debugLog) {
+	constructor({ curr_api, debugLog, press }) {
+		this.log = debugLog;
+		this.curr_api = curr_api;
+		this.press = press;
+		
 		// Phrase variables
 		this.subject = null;
 		this.noun = null;
 		
 		// Working variables
-		this.log = debugLog;
-		this.curr_api = curr_api;
 		this.item = null;
 		this.thisItem = null;
 		
@@ -687,8 +729,8 @@ class TypeSetter {
 					return arg;
 				});
 				func = ((arg)=>{
-					if (arg === '$') return this.subject.toString.bind(this.subject);
-					if (arg === '#') return this.noun.toString.bind(this.noun);
+					if (arg === '$') return printObject.bind(this, this.subject);
+					if (arg === '#') return printObject.bind(this, this.noun);
 					let res = /^([#$]+)/i.exec(arg);
 					if (res && res[1]) {
 						this._setSubject = (res[1].indexOf('$') > -1);
@@ -699,7 +741,7 @@ class TypeSetter {
 						arg = getProp(item, arg.slice(1));
 						if (this._setSubject) this.subject = arg;
 						if (this._setNoun) this.noun = arg;
-						return arg.toString.bind(arg);
+						return printObject.bind(this, arg);
 					}
 					return FORMAT_FNS[arg.trim()];
 				})(func);
@@ -716,7 +758,7 @@ class TypeSetter {
 			i--; //infinite loop guard
 		} catch (e) {
 			if (e === false) return false;
-			LOGGER.error(`Error in fillText("${text}", ${item})!`, e);
+			LOGGER.error('Error in fillText(', text, ', ', item, ')!\n', e);
 			return false;
 		}
 		return text;

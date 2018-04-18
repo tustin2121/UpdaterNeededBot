@@ -101,6 +101,7 @@ class Pokemon {
 		this.name = '';
 		this.species = '';
 		this.nicknamed = false;
+		this.form = null;
 		
 		this._gender = '';
 		this.nature = '';
@@ -150,6 +151,11 @@ class Pokemon {
 		this.species = (mon.species && mon.species.name) || '';
 		this.nicknamed = !!(mon.nicknamed || checkNicknamed(this.name, this.species) || false);
 		this.name = sanatizeName(this.name);
+		
+		if (Bot.runOpts('forms') && mon.form) {
+			let forms = require('../../data/extdat/pkmnforms');
+			this.form = forms[this.species.toLowerCase()][mon.form];
+		}
 		
 		// Fix shedinja bug:
 		if (this.species.toLowerCase() === `shedinja`) this.hash++;
@@ -232,6 +238,7 @@ class Pokemon {
 	
 	/** @param {int} num - Used to trick the TypeSetter to never pluralize a pokemon name. */
 	toString(num) {
+		if (this.form) return `${this.name} (${this.species} ${this.form})`;
 		return `${this.name} (${this.species})`;
 	}
 	
@@ -535,6 +542,7 @@ class SortedInventory {
 			if (data.pc && Array.isArray(data.pc.boxes)) {
 				for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 					let box = data.pc.boxes[bn];
+					if (!box) continue; //null boxes handled elsewhere
 					for (let p of box.box_contents) {
 						if (p.held_item) {
 							this.add(p.held_item, 'held');
@@ -745,7 +753,7 @@ class SortedBattle {
 		}
 		if (this.party) {
 			for (let p of this.party) {
-				xml += `<combatant dexid="${p.dexid}" active="${p.active}" hp="${p.hp}">${p.species}</combatant>`;
+				xml += `<combatant dexid="${p.dexid}" active="${p.active}" hp="${p.hp}">${p.species}${p.form?' '+p.form:''}</combatant>`;
 			}
 		}
 		xml += `</battle>`;
@@ -841,6 +849,10 @@ class SortedData {
 	
 	clone(code=200) {
 		return new SortedData({ data:this.rawData, code, ts:this.ts, game:this._rawGameIdx });
+	}
+	
+	getFromRaw(...name) {
+		return read(this.rawData, ...name);
 	}
 	
 	get badgeProgress() {

@@ -231,6 +231,12 @@ class UpdaterBot extends EventEmitter {
 		return this.memory.global.taggedIn && typeof this.memory.global.taggedIn === 'object';
 	}
 	
+	get lastApiDisturbance() { return this.memory.global.lastApiDisturbance; }
+	set lastApiDisturbance(val) { 
+		if (typeof val !== 'number' && !Number.isFinite(val)) return;
+		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val); 
+	}
+	
 	/** Gets the current timestamp for this run. */
 	getTimestamp({ time, padded=false, compact=false }={}) {
 		let elapsed = ((time || Date.now()) - new Date(this.runConfig.run.runStart*1000).getTime()) / 1000;

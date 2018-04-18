@@ -69,12 +69,12 @@ module.exports = {
 	
 	UsedBallInBattle: {
 		default: [
-			`We toss {{some items|@item|@amount}} at a wild {{enemy.species}}.`,
+			`We toss {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
 		],
 		trainer: [
-			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{trainer.class|they}} block{{|s}} the ball. Don't be a thief!`,
+			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{they|$@trainer}} block{{*s}} the ball. Don't be a thief!`,
 			`We throw {{some items|@item|@amount}} at the opponents's pokemon, to no avail.`,
-			`We attempt to {{rand|steal|take|snag}} {{$@trainer}}'s {{enemy.species}}. {{They}} {{rand|yell{{*s}} at us|scold{{*s}} us|tell{{*s}} us off|tell{{*s}} us where we can shove our {{@item}}}}.`,
+			`We attempt to {{rand|steal|take|snag}} {{$@trainer}}'s {{Mon|@enemy}}. {{They}} {{rand|yell{{*s}} at us|scold{{*s}} us|tell{{*s}} us off|tell{{*s}} us where we can shove our {{@item}}}}.`,
 			`We attempt to be a thief. The game tells us off.`,
 		],
 	},
@@ -94,10 +94,13 @@ module.exports = {
 		],
 		hpheal: [
 			`<b>We heal {{@target}} with {{an item|@item}}!</b>`,
+			`<b>We use {{an item|@item}} to heal {{@target}}!</b>`,
+			`<b>We heal up {{@target}} by using {{an item|@item}} on {{them|@target}}.</b>`,
+			`{{if mon is full health|$@target}}<b>We heal {{$}} to full health with {{an item|@item}}!</b>`,
 		],
 		ppheal: [
-			`We restore the PP of {{@target}}'s {{move}} with <b>{{an item|@item}}!</b>`,
-			`We restore {{@target}}'s {{move}} PP with <b>{{an item|@item}}!</b>`,
+			`We restore the PP of {{@target}}'s {{@move}} with <b>{{an item|@item}}!</b>`,
+			`We restore {{@target}}'s {{@move}} PP with <b>{{an item|@item}}!</b>`,
 		],
 		pphealAll: [
 			`We restore the PP of {{@target}}'s moves with <b>{{an item|@item}}!</b>`,

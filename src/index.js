@@ -11,7 +11,6 @@ global.exeFlags = {
 const fs = require("fs");
 const path = require('path');
 const mkdirp = require('mkdirp');
-const saveProxy = require('./save-proxy');
 const UpdaterBot = require('./bot');
 
 const LOGGER = getLogger('MAIN');

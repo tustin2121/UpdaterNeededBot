@@ -34,8 +34,8 @@ module.exports = {
 	
 	BadgeGet: {
 		default: [
-			`**Received the {{@badge}} Badge!**`,
-			`**Got the {{@badge}} Badge!**`,
+			`<b>Received the {{@badge}} Badge!</b>`,
+			`<b>Got the {{@badge}} Badge!</b>`,
 		],
 	},
 };

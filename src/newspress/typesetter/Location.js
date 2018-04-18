@@ -11,6 +11,14 @@ MapChanged['default'] = [
 	`We head {{into the location|@curr}}.`,
 	`Arrived {{on the location|@curr}}.`,
 ];
+MapChanged['default_back'] = [
+	...MapChanged['default'],
+	`Back {{in the location|@curr}}.`,
+	`We head back {{into the location|@curr}}.`,
+];
+MapChanged['default_nvm'] = [
+	...MapChanged['default_back'],
+];
 
 //////////////////////////////
 // Generic Entering/Exiting //
@@ -104,7 +112,7 @@ MapChanged['town_exit'] = [
 	`We leave {{the location|@prev}}. {{The location|@curr}}`,
 	`We head out of town. Now {{on the location|@curr}}.`,
 	`We depart now. {{The location|@curr}}.`,
-	`Out {{into the location}}`,
+	`Out {{into the location|@curr}}`,
 ];
 //We walk into a town within 15 minutes of the last time we were there
 MapChanged['town_enter_back'] = [

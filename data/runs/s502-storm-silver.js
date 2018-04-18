@@ -19,6 +19,10 @@ module.exports = {
 			// see /data/genopts
 			friendName: "Lyra",
 			fullEnemyInfo: true,
+			badgeNames: [
+				"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
+				"Boulder", "Cascade", "Thunder", "Rainbow", "Marsh", "Soul", "Volcano", "Earth",
+			],
 		},
 	},
 	
@@ -74,5 +78,7 @@ module.exports = {
 		Politics: {},
 		Chat: {},
 		Timing: {},
+		Phonebook: {},
+		Options: {},
 	},
 }

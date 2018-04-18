@@ -292,9 +292,14 @@ class DebugLogs {
 		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
 		this._currTypesetter = null;
 	}
+	
+	finalUpdate(update) {
+		this.update = update;
+	}
 }
 
 function escapeHtml(str) {
+	if (!str) return str;
 	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 

@@ -30,15 +30,24 @@ const HANDLER = {
 		if (Number.isNaN(lastTg)) {
 			lastTg = '';
 		} else {
-			lastTg = ` (for ${Math.floor(lastTg/(1000*60*60*24))}d ${Math.floor(lastTg/(1000*60*60))%24}h ${Math.floor(lastTg/(1000*60))%60}m ${(lastTg*1000)%60}s)`;
+			lastTg = ` (for ${printElapsedTime(lastTg)})`;
 		}
 		
-		let apid = 'NaN';
-		//TODO get the status of the last API disturbance
+		let apid = Date.now() - Bot.lastApiDisturbance;
+		if (Number.isNaN(apid)) {
+			apid = 'NaN';
+		} else {
+			apid = `${printElapsedTime(apid)} ago`;
+		}
 		
 		msg.channel
 			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
+		return;
+		
+		function printElapsedTime(date) {
+			return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
+		}
 	},
 	
 	tagin: ({ msg, args })=>{

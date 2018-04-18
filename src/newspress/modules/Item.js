@@ -112,7 +112,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let context = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle, x.amount)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle, x.amount)));
 		})
 	);
 	RULES.push(new Rule(`Pokeballs lost when a pokemon has been gained have been thrown.`)
@@ -120,7 +120,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let gained = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, gained.mon, x.amount)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, gained.mon, x.amount)));
 		})
 	);
 }{
@@ -130,7 +130,7 @@ function getDelta(curr, prev) {
 			.when(ledger=>ledger.has('BattleContext'))
 			.when(ledger=>ledger.has('MonTakeItem').with('item.id', itemIds))
 			.then(ledger=>{
-				ledger.remove(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
+				ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
 			})
 		);
 	}
@@ -141,7 +141,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
 		})
 	);
 }{
@@ -151,7 +151,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
 		})
 	);
 }{
@@ -162,9 +162,9 @@ function getDelta(curr, prev) {
 		.then(ledger=>{
 			let item = ledger.get(0);
 			if (item.length > 1) {
-				ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('pphealAll', x.item, item[0].mon)));
+				ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('pphealAll', x.item, item[0].mon)));
 			} else {
-				ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('ppheal', x.item, item[0].mon, item[0].move)));
+				ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('ppheal', x.item, item[0].mon, item[0].move)));
 			}
 		})
 	);
@@ -175,7 +175,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('evostone', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('evostone', x.item, item.mon)));
 		})
 	);
 }{
@@ -185,7 +185,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon(null, x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon(null, x.item, item.mon)));
 		})
 	);
 }{
@@ -195,7 +195,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
 		})
 	);
 	RULES.push(new Rule(`TMs lost during move learn have been used.`)
@@ -203,7 +203,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
 		})
 	);
 }

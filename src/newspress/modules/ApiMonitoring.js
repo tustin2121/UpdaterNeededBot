@@ -48,6 +48,7 @@ class ApiMonitoringModule extends ReportingModule {
 			}
 			fApi.attempts++;
 			fApi.lastCode = curr.httpCode;
+			Bot.lastApiDisturbance = Date.now();
 			if (fApi.attempts > 3) {
 				Bot.alertUpdaters(`Alert: Unable to retrieve API update: ${curr.httpCode} (Failed retrievals: ${fApi.attempts})`, {
 					bypassTagCheck:true, 

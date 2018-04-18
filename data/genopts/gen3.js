@@ -2,6 +2,7 @@
 // Defines the default generation options for a Gen 3 run
 
 module.exports = {
+	phonebook: 'PokéNav',
 	contest: true,
 	characteristics: false,
 	infinteTM: false,

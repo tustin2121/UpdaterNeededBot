@@ -41,6 +41,8 @@ class LedgerItem {
 			if (key.startsWith('_')) continue;
 			let val = this[key];
 			if (val === undefined) continue;
+			if (typeof key === 'symbol') key = key.toString();
+			if (typeof val === 'symbol') val = val.toString();
 			txt += ` | ${key}=${val}`;
 		}
 		return txt + ']';

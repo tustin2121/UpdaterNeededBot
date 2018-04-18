@@ -31,10 +31,10 @@ module.exports = {
 	E4ReachChampion: {
 		// attempt = the champion attempt number
 		default: [
-			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion attempt #{{@attempt}} incoming!!`,
+			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion attempt #{{@attempt}} incoming!!\n\n{{team status}}`,
 		],
 		rematch: [
-			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion rematch attempt #{{@attempt}} incoming!!`,
+			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion rematch attempt #{{@attempt}} incoming!!\n\n{{team status}}`,
 		],
 	},
 	E4EndRun: {

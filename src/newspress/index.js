@@ -3,7 +3,7 @@
 
 const { inspect } = require("util");
 const { Ledger } = require('./ledger');
-const { typeset } = require('./typesetter');
+const { TypeSetter } = require('./typesetter');
 const EventEmitter = require('../api/events');
 
 const LOGGER = getLogger('UpdaterPress');
@@ -100,7 +100,10 @@ class UpdaterPress extends EventEmitter {
 		this.lastLedger.saveToMemory(this.memory['saved_ledger'+this.gameIndex]);
 		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger, data.curr_api);
+		let ts = new TypeSetter({ curr_api:data.curr_api, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
+		ledger.log.finalUpdate(update);
+		
 		if (!update || !update.length) {
 			this.lastUpdate = null;
 		}
@@ -122,7 +125,8 @@ class UpdaterPress extends EventEmitter {
 		let { curr } = this.apiProducer.popInfo(this.gameIndex);
 		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger, curr);
+		let ts = new TypeSetter({ curr_api:curr, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
 		if (!update || !update.length) return null;
 		
 		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';

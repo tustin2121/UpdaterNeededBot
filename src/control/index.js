@@ -122,8 +122,9 @@ module.exports = {
 		}
 		
 		if (reuseId) {
-			return staffChannel.fetchMessage(reuseId)
-				.edit(`${group}${text}`).catch(ERR);
+			return staffChannel.fetchMessage(reuseId).then(m=>{
+				m.edit(`${group}${text}`);
+			}).catch(ERR);
 		}
 		return staffChannel
 			.send(`${group}${text}`).catch(ERR);

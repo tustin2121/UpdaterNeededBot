@@ -173,4 +173,20 @@ module.exports = {
 		rmorning: [ `` ],
 		rnight: [ `` ],
 	},
+	
+	PhonebookAdd: {
+		default: [
+			`<b>We register {{@contact}} in our {{phone}}!</b>`,
+			`<b>We add {{@contact}} to our phonebook!</b>`,
+			`<b>{{$@contact}} give us {{their}} number, and we add it to our {{phone}}!</b>`,
+			`We liked battling {{@contact}} so much, <b>we decide to add {{them|@contact}} to our contacts!</b>`,
+		],
+	},
+	PhonebookRemove: {
+		default: [
+			`Tired of all the constant calls from {{them|@contact}}, <b>we delete {{@contact}} from our phonebook!</b>`,
+			`We make a snap decision and <b>delete {{@contact}} from our {{phone}}.</b>`,
+			`We decide that we're better without {{@contact}} in our lives. <b>We delete {{them|@contact}} from our contact list!</b>`,
+		],
+	},
 };

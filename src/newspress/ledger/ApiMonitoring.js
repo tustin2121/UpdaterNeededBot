@@ -48,4 +48,5 @@ class PartyLockdownContext extends LedgerItem {
 
 module.exports = {
 	ApiDisturbance,
+	PartyLockdownContext,
 };
