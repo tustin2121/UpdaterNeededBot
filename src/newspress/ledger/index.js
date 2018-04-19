@@ -53,6 +53,8 @@ class Ledger {
 				this.postponeList.push(item);
 				item._postponeCount++;
 			}
+		} else {
+			LOGGER.error(`Attempted to postpone item which is not allowed to be postponed!`, item, can);
 		}
 	}
 	/**

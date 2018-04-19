@@ -156,6 +156,7 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 		ledger.add(new CheckpointUpdated(item.loc));
 	})
 );
+
 {
 	const itemIds = Bot.runOpts('itemIds_escapeRope');
 	RULES.push(new Rule(`If escaping a dungeon and we lose an escape rope, we used it.`)
@@ -168,5 +169,15 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 		})
 	);
 }
+
+// This may break in early generations
+RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
+	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('center') && x.flavor !== 'blackout'))
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.then(ledger=>{
+		let item = ledger.get(0)[0];
+		item.flavor = 'blackout';
+	})
+);
 
 module.exports = LocationModule;

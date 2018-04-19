@@ -142,6 +142,35 @@ class PokemonModule extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule('Pokemon found to be in a new storage location are deposited.')
+	//PokemonFound = merge of PokemonIsMissing and PokemonGained
+	.when(ledger=>ledger.has('PokemonFound').with('inNewLocation', true).unmarked()) 
+	.then(ledger=>{
+		ledger.mark(0).get(0).forEach(x=>{
+			let { prev, curr } = x;
+			if (typeof prev.storedIn !== 'string' || typeof curr.storedIn !== 'string') return; //sanity check
+			// A copy of the Location changes above
+			if (prev.storedIn.startsWith('party') && !curr.storedIn.startsWith('party')) {
+				if (curr.storedIn.startsWith('box')) {
+					ledger.add(new PokemonDeposited(curr, prev.storedIn, 'pc'));
+				}
+				else if (curr.storedIn.startsWith('daycare')) {
+					ledger.add(new PokemonDeposited(curr, prev.storedIn, 'daycare'));
+				}
+				//TODO Poke islands in Gen 7?
+			}
+			else if (prev.storedIn.startsWith('box') && curr.storedIn.startsWith('party')) {
+				ledger.add(new PokemonRetrieved(curr, prev.storedIn, 'pc'));
+			}
+			else if (prev.storedIn.startsWith('daycare') && curr.storedIn.startsWith('party')) {
+				ledger.add(new PokemonRetrieved(curr, prev.storedIn, 'daycare'));
+			}
+			//TODO Poke islands in Gen 7?
+			// Cannot cross from box directly into daycare or visaversa
+		});
+	})
+);
+
 RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPokemon are traded')
 	.when(ledger=>ledger.has('PokemonIsMissing'))
 	.when(ledger=>ledger.has('PokemonGained'))

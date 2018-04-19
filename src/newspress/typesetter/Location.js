@@ -20,6 +20,15 @@ MapChanged['default_nvm'] = [
 	...MapChanged['default_back'],
 ];
 
+MapChanged['blackout'] = [
+	`Next thing we know, we're {{in the location|@curr}}.`,
+	`Next thing we know, we're {{in the location|@curr}} with no memory as to how we got here.`,
+	`We wake up {{in the location|@curr}}.`,
+	`We wake up {{in the location|@curr}} with no memory as to how we got here.`,
+	`We come to our senses {{in the location|@curr}}.`,
+	`We come to our senses {{in the location|@curr}}... {{rand|when|how}} did we get here?`,
+];
+
 //////////////////////////////
 // Generic Entering/Exiting //
 
@@ -103,7 +112,7 @@ MapChanged['town_new'] = [
 //We walk into a town
 MapChanged['town_enter'] = [
 	`We arrive {{in the location|@curr}}.`,
-	`We enter the boundries of {{the location|@curr}}.`,
+	`We enter the boundaries of {{the location|@curr}}.`,
 	`We walk {{into the location|@curr}}.`,
 	`Welcome back to {{the location|@curr}}.`,
 ];
@@ -326,8 +335,8 @@ module.exports = {
 			`{{if|$@randomMon}}{{Mon}} sneezes and startles us off the ledge.`,
 			`{{if|$@randomMon}}{{Mon}} spots something below and bumps us off the ledge.`,
 			`{{if|$@randomMon}}{{Mon}} gets startled and knocks us off the ledge.`,
-			`{{if mon body has any|$@randomMon|arm|claw}}{{Mon}} scratches {{them}}self and accidentally hits us off the ledge.`,
-			`{{if mon body has|$@randomMon|electricbody}}We accidentally brush {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
+			`{{if mon body has any|$@randomMon|arm|claw}}{{Mon}} scratches {{themselves}} and accidentally hits us off the ledge.`,
+			`{{if mon body has|$@randomMon|electricbody}}We accidentally brush against {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
 			`{{if mon body has|$@randomMon|wing}}{{Mon}} flaps {{their}} wings a little too hard and send us careening off the ledge.`,
 			`{{if mon body has|$@randomMon|tail}}{{Mon}} accidentally smacks us with {{their}} tail, and we topple over the ledge.`,
 			`{{if mon body has|$@randomMon|levitate}}We lie sprawled at the bottom of the ledge again. {{Mon}} hovers above us, looking down at us with mild amusement.`,

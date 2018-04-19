@@ -292,6 +292,8 @@ function printObject(obj) {
 		'them': determineGender('him', 'her', 'it', 'them'),
 		'their': determineGender('his', 'her', 'its', 'their'),
 		'theirs': determineGender('his', 'hers', 'its', 'theirs'),
+		'themself': determineGender('himself', 'herself', 'itself', 'themselves'),
+		'themselves': determineGender('himself', 'herself', 'itself', 'themselves'),
 		
 		// captial pronouns
 		'He': determineGender('He', 'She', 'It', 'They'),
@@ -306,6 +308,8 @@ function printObject(obj) {
 		'Them': determineGender('Him', 'Her', 'It', 'Them'),
 		'Their': determineGender('His', 'Her', 'Its', 'Their'),
 		'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
+		'Themself': determineGender('Himself', 'Herself', 'Itself', 'Themselves'),
+		'Themselves': determineGender('Himself', 'Herself', 'Itself', 'Themselves'),
 		
 		'verb': function (singular, plural, noun) {
 			let fn = determineGender(singular, singular, singular, plural);
