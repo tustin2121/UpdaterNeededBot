@@ -336,8 +336,8 @@ function printObject(obj) {
 		return name;
 	}
 	function printTeamStatus() { return this.press.generateUpdate('team'); }
-	function printOpt(opt, def) { 
-		//return Bot.runOpts(opt, this.press.gameIndex) || def; 
+	function printOpt(opt, def) {
+		//return Bot.runOpts(opt, this.press.gameIndex) || def;
 		return def;
 	}
 	Object.assign(FORMAT_FNS, {
@@ -587,7 +587,8 @@ class TypeSetter {
 		order.sort((a,b)=>{
 			let ai = dict[a][0];
 			let bi = dict[b][0];
-			return LedgerItem.compare(ai, bi);
+			// return LedgerItem.compare(ai, bi);
+			return bi._sort - ai._sort;
 		});
 		// Return the collected items
 		return order.map(x=>dict[x]);

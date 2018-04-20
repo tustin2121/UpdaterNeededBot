@@ -9,13 +9,13 @@ class LedgerItem {
 		if (typeof imp !== 'number') throw new TypeError('Importance must be a number!');
 		this.importance = imp;
 		/**
-		 * When the bot is helping, this identifies ledger items which are posted while doing so. 
+		 * When the bot is helping, this identifies ledger items which are posted while doing so.
 		 * Can be 'catches','shopping','items','level', or null
 		 */
 		this.helptype = helps;
 		/**
 		 * The "flavor" of a ledger item provides more context for the Typesetter for when it is
-		 * translating this item into English. 
+		 * translating this item into English.
 		 */
 		this.flavor = flavor;
 		
@@ -106,7 +106,7 @@ class LedgerItem {
 	 * Returns true if this message should be allowed to be taken from the current
 	 * ledger and postponed to the next ledger. Returns false if it should not be
 	 * allowed.
-	 * 
+	 *
 	 * If this method returns another LedgerItem, that item will instead be the one
 	 * moved to the next ledger, and this one will stay in place.
 	 */
