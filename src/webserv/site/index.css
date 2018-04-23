@@ -372,6 +372,14 @@ rules > rule {
 rules > rule:nth-child(odd) {
 	background-color: #ff7b7b1a;
 }
+rules marker {
+    display: block;
+    background-color: #505050;
+    color: white;
+    padding: 0px 3px;
+    /* border-radius: 3px; */
+    margin-top: 2px;
+}
 rule::before {
 	content: 'Rule: 'attr(name);
 	margin-left: -2em;

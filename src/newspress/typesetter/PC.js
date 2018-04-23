@@ -6,7 +6,7 @@ module.exports = {
 		// prev = Data on the previous box
 		// curr = Data on the current box
 		default: [
-			``,
+			`We change the current PC box to box #{{@curr}}.`,
 		],
 	},
 	PCBoxNameChanged: {
@@ -14,7 +14,7 @@ module.exports = {
 		// prev = The previous name of the box
 		// curr = The current name of the box
 		default: [
-			``,
+			`We rename Box #{{@boxNum}} to \`{{@curr}}\``,
 		],
 	},
 	PCBoxNowFull: {

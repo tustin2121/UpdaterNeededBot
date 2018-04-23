@@ -15,7 +15,7 @@ let singular = {
 		],
 	},
 	'frame': [
-		`We're tried of the current frame style, and switch it up in the options menu.`,
+		`We're tired of the current frame style, and switch it up in the options menu.`,
 		`We redecorate our textboxes in the options.`,
 		`I kinda like the new textbox frame we just chose.`,
 		`Out with the old, in with the new textbox frame style; gotta keep up with fashion trends.`,

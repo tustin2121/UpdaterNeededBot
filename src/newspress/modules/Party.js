@@ -217,16 +217,17 @@ RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 // 		ledger.add(new Blackout());
 // 	})
 // );
-
-const KapowMoves = ['Explosion', 'Self-Destruct', 'Selfdestruct'];//, 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Momento'];
-RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
-	.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
-	.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move', KapowMoves))
-	.then(ledger=>{
-		let items = ledger.get(0);
-		items.forEach(x=>x.flavor='kapow');
-	})
-);
+{
+	const KapowMoves = [153, 120, 515, 361, 461, 262]; //TODO move into default.js like the item ids
+	RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
+		.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
+		.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move.id', KapowMoves))
+		.then(ledger=>{
+			let items = ledger.get(0);
+			items.forEach(x=>x.flavor='kapow');
+		})
+	);
+}
 
 RULES.push(new Rule('Abilities are expected to change during evolution')
 	.when((ledger)=>ledger.has('MonEvolved'))

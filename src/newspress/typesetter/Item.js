@@ -6,18 +6,18 @@ module.exports = {
 		// item = the item in question
 		default: {
 			single: [
-				`<b>Acquired {{an item|@item|@amount}}!</b>`,
+				`<b>{{rand|Acquired|Obtained|Picked up|Got}} {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Acquired {{a comma-separated list of|an item|@item|@amount}}!</b>`,
+				`<b>{{rand|Acquired|Obtained|Picked up|Got}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
 		shopping: {
 			single: [
-				`<b>Bought {{an item|@item|@amount}}!</b>`,
+				`<b>{{rand|Bought|Purchased|Paid for}} {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Bought {{a comma-separated list of|an item|@item|@amount}}!</b>`,
+				`<b>{{rand|Bought|Purchased|Paid for}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
 		rotoloto: [
@@ -30,10 +30,10 @@ module.exports = {
 		// item = the item in question
 		default: {
 			single: [
-				`<b>Threw away {{an item|@item|@amount}}!</b>`,
+				`<b>{{rand|Threw away|Tossed|Got rid of|Pitched|Discarded|Disposed of|Scrapped}} {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
-				`<b>Threw away {{a comma-separated list of|an item|@item|@amount}}!</b>`,
+				`<b>{{rand|Threw away|Tossed|Got rid of|Pitched|Discarded|Disposed of|Scrapped}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
 		shopping: {
@@ -49,28 +49,35 @@ module.exports = {
 	StoredItemInPC: {
 		default: {
 			single: [
-				`<b>Stored {{an item|@item|@amount}} in the PC!</b>`,
+				`<b>{{rand|Stored|Deposited|Put away|Stashed}} {{an item|@item|@amount}} in the PC!</b>`,
 			],
 			multi: [
-				`<b>Stored {{a comma-separated list of|an item|@item|@amount}} in the PC!</b>`,
+				`<b>{{rand|Stored|Deposited|Put away|Stashed}} {{a comma-separated list of|an item|@item|@amount}} in the PC!</b>`,
 			],
 		},
 	},
 	RetrievedItemFromPC: {
 		default: {
 			single: [
-				`<b>Retrieved {{an item|@item|@amount}} from the PC!</b>`,
+				`<b>{{rand|Retrieved|Fetched|Salvaged}} {{an item|@item|@amount}} from the PC!</b>`,
 			],
 			multi: [
-				`<b>Retrieved {{a comma-separated list of|an item|@item|@amount}} from the PC!</b>`,
+				`<b>{{rand|Retrieved|Fetched|Salvaged}} {{a comma-separated list of|an item|@item|@amount}} from the PC!</b>`,
 			],
 		},
 	},
 	
 	UsedBallInBattle: {
-		default: [
-			`We toss {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
-		],
+		default: {
+			single: [
+				`We {{rand|toss|throw}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
+				`We try catching a wild {{Mon|@enemy}} with {{some items|@item|@amount}}.`,
+			],
+			multi: [
+				// should never happen if this thing is programmed properly?
+				`We {{rand|toss|throw}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}} that has our eye.`,
+			],
+		},
 		trainer: [
 			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{they|@trainer}} block{{*s|@trainer}} the ball. Don't be a thief!`,
 			`We throw {{some items|@item|@amount}} at the opponents's pokemon, to no avail.`,

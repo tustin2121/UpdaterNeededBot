@@ -38,10 +38,10 @@ class PCModule extends ReportingModule {
 			if (curr.isCurrent !== prev.isCurrent) currChanged = true;
 			
 			if (curr.name !== prev.name) {
-				ledger.addItem(new PCBoxNameChanged(curr.boxNum, prev.name, curr.name));
+				ledger.addItem(new PCBoxNameChanged(curr.num, prev.name, curr.name));
 			}
 			if (curr.isFull && !prev.isFull) {
-				ledger.addItem(new PCBoxNowFull(curr.boxNum, curr.name, Bot.runOpts('pcBoxRollover')?null:'noCatch'));
+				ledger.addItem(new PCBoxNowFull(curr.num, curr.name, Bot.runOpts('pcBoxRollover')?null:'noCatch'));
 			}
 		}
 		

@@ -86,7 +86,7 @@ class UsedBallInBattle extends LedgerItem {
 		this.amount = amount;
 		if (x instanceof SortedBattle) {
 			this.battle = x;
-			// this.flavor = battle.trainer?'trainer':null; //TODO
+			this.flavor = x.trainer?'trainer':null; //TODO
 		} else if (x instanceof Pokemon) {
 			this.mon = x;
 		}
@@ -96,6 +96,15 @@ class UsedBallInBattle extends LedgerItem {
 	get trainer(){ //shouldn't be called unless it's a trainer flavor
 		if (!this.battle) return null;
 		return this.battle.trainer && this.battle.trainer[0]; 
+	}
+	cancelsOut(other) {
+		if (other.name === 'UsedBallInBattle') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount += other.amount; //add together the amounts
+			if (this.amount == 0) return true; //cancels out
+			return this; //coalesce
+		}
+		return false;
 	}
 }
 

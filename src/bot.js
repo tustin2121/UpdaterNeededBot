@@ -192,15 +192,17 @@ class UpdaterBot extends EventEmitter {
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
-			if (update) this.postUpdate({ text:update, });
-			
-			if (this.isHelping) {
-				update = this.press.runHelp(this.taggedIn);
-				if (update) this.postUpdate({ text:update, dest:'main' });
-			}
-			else if (typeof this.taggedIn === 'number') { //tagged in for one game only
-				update = this.press.pool[this.taggedIn].lastUpdate;
-				if (update) this.postUpdate({ text:update, dest:'main' });
+			if (update) {
+				this.postUpdate({ text:update, });
+				
+				if (this.isHelping) {
+					update = this.press.runHelp(this.taggedIn);
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
+				else if (typeof this.taggedIn === 'number') { //tagged in for one game only
+					update = this.press.pool[this.taggedIn].lastUpdate;
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
 			}
 			
 			LOGGER.trace(`Update cycle complete.`);

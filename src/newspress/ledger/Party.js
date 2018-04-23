@@ -26,7 +26,7 @@ class PartyItem extends LedgerItem {
 /** Indicates that a pokemon in the party has leveled up. */
 class MonLeveledUp extends PartyItem {
 	constructor(mon, prevLevel) {
-		super(mon);
+		super(mon, 1, {helps:'level'});
 		this.prevLevel = prevLevel;
 		this.deltaLevel = mon.level - prevLevel;
 		if (this.deltaLevel > 1) this.flavor = 'multiple';
@@ -148,7 +148,7 @@ class MonPPUp extends PartyItem {
 /** Indicates that a pokemon has learned a new move. */
 class MonLearnedMove extends PartyItem {
 	constructor(mon, move) {
-		super(mon, 1);
+		super(mon, 1, {helps:'moves'});
 		this.move = move;
 	}
 	get curr(){ return this.move; }
@@ -157,7 +157,7 @@ class MonLearnedMove extends PartyItem {
 /** Indicates that a pokemon has learned a new move over an old move. */
 class MonLearnedMoveOverOldMove extends PartyItem {
 	constructor(mon, move, oldMove) {
-		super(mon, 1);
+		super(mon, 1, {helps:'moves'});
 		this.move = move;
 		this.oldMove = oldMove;
 	}
@@ -168,7 +168,7 @@ class MonLearnedMoveOverOldMove extends PartyItem {
 /** Indicates that a pokemon has forgot an old move. */
 class MonForgotMove extends PartyItem {
 	constructor(mon, move) {
-		super(mon, 1);
+		super(mon, 1, {helps:'moves'});
 		this.move = move;
 	}
 	get prev(){ return this.move; }
@@ -177,7 +177,7 @@ class MonForgotMove extends PartyItem {
 /** Indicates that a pokemon has been given an item to hold. */
 class MonGiveItem extends PartyItem {
 	constructor(mon, item) {
-		super(mon, 1);
+		super(mon, 1, {helps:'items'});
 		this.item = item;
 	}
 	get curr(){ return this.item; }
@@ -187,7 +187,7 @@ class MonGiveItem extends PartyItem {
 /** Indicates that a pokemon has had its item taken from it. */
 class MonTakeItem extends PartyItem {
 	constructor(mon, item) {
-		super(mon, 1);
+		super(mon, 1, {helps:'items'});
 		this.item = item;
 	}
 	get prev(){ return this.item; }
@@ -197,7 +197,7 @@ class MonTakeItem extends PartyItem {
 /** Indicates that a pokemon has had its item swapped for another item. */
 class MonSwapItem extends PartyItem {
 	constructor(mon, item, prevItem) {
-		super(mon, 1);
+		super(mon, 1, {helps:'items'});
 		this.item = item;
 		this.prevItem = prevItem;
 	}

@@ -50,7 +50,9 @@ class BattleModule extends ReportingModule {
 		}
 		else if (cb.in_battle) {
 			let healthy = cb.party.filter(p=>p.hp);
-			this.debug(`party=`,cb.party,`healthy=`,healthy);
+			this.debug(`displayName=`,cb.displayName,` isImportant=`,cb.isImportant);
+			this.debug(`party=`,cb.party);
+			LOGGER.debug(`moves=`, cb.party.map(x=>x.moveInfo));
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
 			}

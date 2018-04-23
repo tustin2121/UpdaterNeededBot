@@ -1,6 +1,6 @@
 // control/index.js
 //
-
+/* globals getLogger, Bot */
 const LOGGER = getLogger('Discord');
 const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
@@ -19,20 +19,8 @@ const queryDict = {};
 let staffChannel = null;
 let lastPing = 0;
 
-const generateId = (()=>{
-	const ALPHA = `abcdefghijklmnopqrstuvwxyz0123456789`;
-	return ()=>{
-		while (true) {
-			let id = '';
-			for (let i = 0; i < 5; i++) {
-				id += ALPHA[Math.floor(Math.random() * ALPHA.length)];
-			}
-			if (queryDict[id]) continue;
-			return id;
-		}
-	};
-})();
-
+/** Generates a random 5-character alphanumeric id. Entropy of 36^5 */
+const generateId = ()=>Math.floor(Math.random()*Math.pow(36,5)).toString(36);
 
 let dbot = new discord.Client({
 	disabledEvents: [ //Events we completely ignore entirely
@@ -99,15 +87,30 @@ dbot.on('message', (msg)=>{
 	}
 });
 
+
+function listenForQueryUpdate(query) {
+	Bot.once('query'+query.id, (res, user)=>{
+		query.result = res;
+		staffChannel.fetchMessage(query.msgId).then(msg=>{
+			if (res === true) msg.edit(`~~${query.text}~~\n[Query confirmed by ${user}]`);
+			else if (res === false) msg.edit(`~~${query.text}~~\n[Query denied by ${user}]`);
+			else if (res === null) msg.edit(`~~${query.text}~~\n[Query timed out]`);
+			else if (typeof res === 'string') msg.edit(`~~${query.text}~~\n[Query canceled: ${res}]`);
+		});
+	});
+}
+
+for (let id in Bot.memory.queries) {
+	listenForQueryUpdate(Bot.memory.queries[id]);
+}
+
 let loggedIn;
 if (!global.exeFlags.dontConnect)
 	loggedIn = dbot.login(auth.discord.token);
 
 module.exports = {
 	dbot,
-	isReady() {
-		return loggedIn
-	},
+	isReady() { return loggedIn; },
 	
 	alertUpdaters(text, { ping=false, bypassTagCheck=false, reuseId }={}) {
 		if (!bypassTagCheck && Bot.taggedIn !== true) return Promise.reject();
@@ -131,73 +134,60 @@ module.exports = {
 	},
 	
 	queryUpdaters(text, { timeout, bypassTagCheck=false }={}) {
-		if (Bot.taggedIn !== true) return Promise.reject();
-		if (!staffChannel) return Promise.reject();
+		if (Bot.taggedIn !== true) return false;
+		if (!staffChannel) return false;
 		if (!timeout) timeout = 1000 * 60 * 5; //5 minutes
+		let id = generateId();
 		
-		//TODO
-		
-		/*
-		let filter = (reaction, user)=> {
-			if (user.id === dbot.user.id) return false;
-			if (reaction.emoji.name === EMOJI_CONFIRM) return true;
-			if (reaction.emoji.name === EMOJI_DENY) return true;
-			return false;
+		text = text.replace(/\{\{confirm\}\}/gi, '`updater, confirm '+id+'`');
+		text = text.replace(/\{\{deny\}\}/gi, '`updater, deny '+id+'`');
+		let query = Bot.memory.queries[id] = {
+			id, text, msgId: null, 
+			expiresAt: Date.now() + timeout,
+			result: undefined,
 		};
+		let minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
 		
-		return new Promise((resolve, reject)=>{
-			staffChannel.send(text).catch(ERR)
-				.then((msg)=>{
-					msg.react(EMOJI_CONFIRM);
-					msg.react(EMOJI_DENY);
-					
-					msg.awaitReactions(filter, { time:timeout, maxUsers:3, })
-						.then((collected)=>{
-							let confirm = collected.get(EMOJI_CONFIRM).count;
-							let deny    = collected.get(EMOJI_DENY).count;
-							
-							if (confirm > deny) {
-								resolve({ res:true, msg });
-							} else if (confirm < deny) {
-								resolve({ res:false, msg });
-							} else {
-								resolve({ res:null, msg });
-							}
-						})
-						.catch(ERR);
-				});
-		}); */
+		staffChannel
+			.send(`${text}\n[Query expires in ${minLeft} minutes]`)
+			.then(msg=> query.msgId=msg.id )
+			.catch(ERR);
 		
-		/*
-		let resolve, reject, id = generateId();
-		text = text.replace(/#####/gi, id);
-		let p = new Promise((res, rej)=>{
-			resolve = res;
-			reject = rej;
-		}).then((val)=>{
-			delete queryDict[id];
-			return val;
-		}, (val)=>{
-			delete queryDict[id];
-			return val;
-		});
-		
-		p.id = id;
-		p.confirm = function(){ resolve(true); };
-		p.deny = function(){ resolve(false); };
-		p.cancel = function(){ resolve(null); };
-		p.timeout = function() { resolve(null); };
-		queryDict[id] = p;
-		
-		p.msg = staffChannel.send(text).catch((e)=>{
-			reject();
-			LOGGER.error('Discord Error:',e);
-		});
-		
-		return p;
-		*/
+		listenForQueryUpdate(query);
+		return id;
 	},
-	getQuery(id) { return queryDict[id]; },
+	checkQuery(id) {
+		let query = Bot.memory.queries[id];
+		if (!query) return null; //no query for the given id - assume it has been timed out
+		if (query.result !== undefined) {
+			delete Bot.memory.queries[id];
+			return query.result;
+		}
+		if (Date.now() > query.expiresAt) { //query expired
+			Bot.emit('query'+id, null);
+			delete Bot.memory.queries[id];
+			return null;
+		}
+		let minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
+		
+		if (!query.msgId) { //the message didn't send? attempt to send the query again
+			staffChannel
+				.send(`${query.text}\n[Query expires in ${minLeft} minutes]`)
+				.then(msg=> query.msgId=msg.id )
+				.catch(ERR);
+		} else {
+			staffChannel.fetchMessage(query.msgId).then(msg=>{
+				msg.edit(`${query.text}\n[Query expires in ${minLeft} minutes]`);
+			});
+		}
+	},
+	cancelQuery(id, reason) {
+		if (typeof reason !== 'string') throw new TypeError('Must give a string reason for cancelling a query!');
+		let query = Bot.memory.queries[id];
+		if (!query) return;
+		Bot.emit('query'+id, reason);
+		delete Bot.memory.queries[id];
+	},
 	
 	reconnect() {
 		dbot.destroy().then(()=>dbot.login(auth.discord.token));

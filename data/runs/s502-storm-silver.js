@@ -60,7 +60,7 @@ module.exports = {
 		// The Reddit Live Updater ID to report test information to
 		testLiveID: "10rxv0dhi05bo",
 		// The Discord channel snowflake to report test information to
-		testDiscordID: "367499647410765824",
+		testDiscordID: "436589281033715712", //"367499647410765824",
 		
 		// The Discord channel snowflake where commands are taken
 		controlChannel: "266878339346726913",
@@ -80,5 +80,6 @@ module.exports = {
 		Timing: {},
 		Phonebook: {},
 		Options: {},
+		PC: {},
 	},
 }

@@ -152,9 +152,29 @@ function printObject(obj) {
 // Format Functions: Nouns and Verbs
 {
 	const WORD_NUMS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
-	const SOME_NUMS = ['no', '{an}', 'a couple', 'a few', 'a few', 'a few', 'several', 'several', 'several', 'several', 'several', 'several', 'a dozen', 'a dozen'];
+	// const SOME_NUMS = ['no', '{an}', 'a couple', 'a few', 'a few', 'a few', 'several', 'several', 'several', 'several', 'several', 'several', 'a dozen', 'a dozen'];
 	const AN_NUMS = [undefined, '{an}'];
 	const NUM_NUMS = []; //off the end of the array are normal numbers, thus empty array
+	const SOME_NUMS = new Proxy([], { get:(target, prop)=>{
+		console.log(typeof prop, prop, '|', target, typeof target);
+		let num = Number.parseInt(prop, 10);
+		if (Number.isNaN(num) || num < 0) return undefined;
+		if (num === 0) return 'no';
+		if (num === 1) return '{an}';
+		if (num === 2) return 'a couple';
+		if (num < 6) return 'a few';
+		if (num < 12) return 'several';
+		if (num < 12+6) return 'a dozen';
+		if (num < 24+6) return 'a couple dozen';
+		if (num < 48+6) return 'dozens';
+		if (num < 90) return 'several dozen';
+		if (num < 110) return 'a hundred';
+		if (num < 190) return 'a hundred-some';
+		if (num < 210) return 'a couple hundred';
+		if (num < 290) return 'a couple hundred-some';
+		return 'several hundred';
+	} });
+	
 	const determineIndefiniteArticle = require('./indefiniteArticle').query;
 	const { plural:makePlural } = require('pluralize');
 	

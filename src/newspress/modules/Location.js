@@ -164,7 +164,7 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1);
+			ledger.demote(1);
 			item.flavor = 'dungeon_escaperope';
 		})
 	);
@@ -172,11 +172,10 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 
 // This may break in early generations
 RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
-	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('center') && x.flavor !== 'blackout'))
 	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
 	.then(ledger=>{
-		let item = ledger.get(0)[0];
-		item.flavor = 'blackout';
+		let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
 	})
 );
 

@@ -198,13 +198,15 @@
 			{
 				"bank": 0,
 				"id": 2,
-				"name": "Mystery Zone",
+				"name": "Union Room",
 				"areaId": 0,
 				"areaName": "Mystery Zone",
 				"type": null,
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "UNION",
@@ -3135,6 +3137,7 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
+					"the": "the",
 					"shopping": true
 				},
 				"areas": [],
@@ -8175,23 +8178,23 @@
 			{
 				"bank": 0,
 				"id": 301,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Will's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e1",
+					"e4": "e4",
 					"the": "the"
 				},
 				"areas": [
 					{
 						"ax": 6,
-						"ay": "10",
+						"ay": 10,
 						"bx": 6,
-						"by": "10",
-						"rad": "5",
+						"by": 10,
+						"rad": 5,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Will",
@@ -8216,14 +8219,14 @@
 			{
 				"bank": 0,
 				"id": 302,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Koga's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e2",
+					"e4": "e4",
 					"the": "the"
 				},
 				"areas": [
@@ -8232,7 +8235,7 @@
 						"ay": 12,
 						"bx": 6,
 						"by": 12,
-						"rad": "5",
+						"rad": 5,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Koga",
@@ -8257,14 +8260,14 @@
 			{
 				"bank": 0,
 				"id": 303,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Bruno's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e3",
+					"e4": "e4",
 					"the": "the"
 				},
 				"areas": [
@@ -8273,7 +8276,7 @@
 						"ay": 11,
 						"bx": 6,
 						"by": 11,
-						"rad": "5",
+						"rad": 5,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Bruno",
@@ -8298,7 +8301,7 @@
 			{
 				"bank": 0,
 				"id": 304,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Karen's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
@@ -8339,7 +8342,7 @@
 			{
 				"bank": 0,
 				"id": 305,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Champion's Chamber)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
@@ -8352,7 +8355,7 @@
 				"areas": [
 					{
 						"ax": 6,
-						"ay": "7",
+						"ay": 7,
 						"bx": 6,
 						"by": 8,
 						"rad": 5,
@@ -8380,7 +8383,7 @@
 			{
 				"bank": 0,
 				"id": 306,
-				"name": "Pokémon League",
+				"name": "Pokémon League Hall of Fame",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",

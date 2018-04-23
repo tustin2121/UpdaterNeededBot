@@ -1,5 +1,6 @@
 // control/commands.js
 //
+/* global getLogger, Bot */
 const LOGGER = getLogger('Discord');
 const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
@@ -158,7 +159,8 @@ const HANDLER = {
 		if (taggedIn['catches']) help.push('give info about our catches');
 		if (taggedIn['shopping']) help.push('list our shopping results (when we leave the map)');
 		if (taggedIn['items']) help.push('announce item aquisitions');
-		if (taggedIn['level']) help.push('announce level ups / move learns');
+		if (taggedIn['level']) help.push('announce level ups');
+		if (taggedIn['moves']) help.push('announce move learns');
 		if (help.length > 1) help[help.length-1] = "and "+help[help.length-1];
 		
 		Bot.taggedIn = taggedIn;
@@ -169,7 +171,17 @@ const HANDLER = {
 			.catch(ERR);
 	},
 	
-	chill: ({ msg, args})=>{
+	'query-respond': ({ msg, args })=>{
+		let id = args[0];
+		let res = args[1];
+		if (!Bot.memory.query[id] || Bot.memory.query[id].result !== undefined) {
+			msg.channel.send(`There is no active query by that id.`);
+			return;
+		}
+		Bot.emit('query'+args[0], res, msg.author.username);
+	},
+	
+	chill: ({ msg, args })=>{
 		
 	},
 	
@@ -250,6 +262,13 @@ function parseCmd(cmd, authed=false) {
 		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
 	}
 	
+	if ((res = /^confirm ([0-9a-z]{5})/i.exec(cmd))) {
+		return ['query-respond', res[1], true];
+	}
+	if ((res = /^deny ([0-9a-z]{5})/i.exec(cmd))) {
+		return ['query-respond', res[1], false];
+	}
+	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {
 		let opts = res[1].split(/, /);
 		let things = {};
@@ -258,6 +277,7 @@ function parseCmd(cmd, authed=false) {
 			if (/shopping|shop|vending/.test(x)) things['shopping'] = true;
 			if (/items?|pickup/.test(x)) things['items'] = true;
 			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['level'] = true;
+			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['moves'] = true;
 		});
 		if (!Object.keys(things).length) return ['helpout-help'];
 		return ['helpout', things];

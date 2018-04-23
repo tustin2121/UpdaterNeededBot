@@ -154,7 +154,7 @@ class Pokemon {
 		
 		if (Bot.runOpts('forms') && mon.form) {
 			let forms = require('../../data/extdat/pkmnforms');
-			this.form = forms[this.species.toLowerCase()][mon.form];
+			this.form = (forms[this.species.toLowerCase()]||[])[mon.form];
 		}
 		
 		// Fix shedinja bug:
@@ -414,6 +414,11 @@ class SortedLocation {
 			return 'on';
 		}
 	}
+	
+	within(attr) {
+		if (this.node) return this.node.within(attr, this.x, this.y);
+		return undefined;
+	}
 }
 SortedLocation.prototype.has = SortedLocation.prototype.is; //Alias
 SortedLocation.prototype.can = SortedLocation.prototype.is; //Alias
@@ -492,9 +497,12 @@ class SortedPokemon {
 
 class Item {
 	constructor(data) {
-		this.name = data.name;
+		this.name = data.name || '[Unnamed Item]';
 		this.id = data.id;
 		this.pockets = new Set();
+		this.pluralName = null;
+		if (this.name.startsWith('TM') || this.name.startsWith('HM'))
+			this.pluralName = this.name; //do not pluralize
 	}
 	get isTM() { return this.pockets.has('tms'); }
 	get inPC() { return this.pockets.has('pc') && this.pockets.size === 1; }
@@ -619,8 +627,8 @@ class SortedBattle {
 			}
 		}
 		else if (data.battle_kind === 'Trainer') {
-			this.trainer = true;
-			if (loc.has('leader')) this.trainer = loc.get('leader');
+			let leader = loc.within('leader');
+			this.trainer = leader || true;
 		}
 		if (data.enemy_party) {
 			this.party = [];
@@ -705,6 +713,7 @@ class SortedBattle {
 		let name = [];
 		if (typeof this.trainer === 'string') return this.trainer;
 		if (this.trainer === true) return 'trainer';
+		if (!Array.isArray(this.trainer)) return undefined;
 		for (let trainer of this.trainer) {
 			name.push(`${trainer.className} ${trainer.name}`.trim());
 		}

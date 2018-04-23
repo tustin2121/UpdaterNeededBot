@@ -239,6 +239,29 @@ RULES.push(new Rule(`Items lost in shops have been sold`)
 	})
 );
 
+// Because UsedBallInBattle is not a basic item, it doesn't get merged in the postpone merge step
+RULES.push(new Rule(`Combine all instances of UsedBallInBattle`)
+	.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
+	.then(ledger=>{
+		let items = ledger.get(0);
+		let item = items[0];
+		for (let i = 1; i < items.length; i++) {
+			item = item.cancelsOut(items[i]);
+			if (!item || !(item instanceof UsedBallInBattle)) throw new TypeError('Invalid merging!');
+		}
+		ledger.remove(0).add(item);
+	})
+);
 
+RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
+	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())
+	.when(ledger=>ledger.has('BattleContext'))
+	.then(ledger=>{
+		// After so many turns, there's a chance we don't postpone these anymore.
+		let item = ledger.get(0)[0];
+		if (item._postponeCount > 16 && item.amount > 5 && Math.random() < 0.3) return;
+		ledger.postpone(0);
+	})
+);
 
 module.exports = ItemModule;
