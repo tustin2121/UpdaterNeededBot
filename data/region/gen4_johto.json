@@ -12668,7 +12668,7 @@
 						"ay": 5,
 						"bx": 7,
 						"by": 5,
-						"rad": 5,
+						"rad": 3,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Brock",

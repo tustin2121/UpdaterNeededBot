@@ -66,7 +66,8 @@ class MapRegion {
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
 				for (let area of map.areas) {
-					if (area.ax >= x && area.bx <= x && area.ay >= y && area.by <= y) return area;
+					if (x >= area.ax && x <= area.bx
+						&& y >= area.ay && y <= area.by) return area;
 				}
 			}
 			return bank[id];
@@ -124,11 +125,11 @@ class MapNode {
 	within(attr, x, y) {
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
 		for (let area of this.areas) {
-			let within = true;
-			within |= area.ax - area.rad >= x; 
-			within |= area.bx + area.rad <= x;
-			within |= area.ay - area.rad >= y;
-			within |= area.by + area.rad <= y;
+			let within;
+			within  = x >= area.ax - area.rad;
+			within &= x <= area.bx + area.rad;
+			within &= y >= area.ay - area.rad;
+			within &= y <= area.by + area.rad;
 			if (within) return area.is(attr);
 		}
 		if (this.__type__) return this.__type__.is(attr);
