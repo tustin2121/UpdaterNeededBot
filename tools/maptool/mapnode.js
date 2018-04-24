@@ -186,8 +186,8 @@ class MapNode {
 		
 		this.areaId = opts.areaId || 0;
 		this.areaName = opts.areaName || '';
-		this.width = opts.width || opts.w || 0;
-		this.height = opts.height || opts.h || 0;
+		this.width = Number.parseInt(opts.width || opts.w || 0, 10);
+		this.height = Number.parseInt(opts.height || opts.h || 0, 10);
 		
 		// Bot information
 		this.attrs = opts.attrs || {};
@@ -326,14 +326,14 @@ class MapArea {
 		this.__region__ = parent.region;
 		
 		/** Top-right corner */
-		this.ax = opts.ax || opts.x || 0;
-		this.ay = opts.ay || opts.y || 0;
+		this.ax = Number.parseInt(opts.ax,10) || Number.parseInt(opts.x,10) || 0;
+		this.ay = Number.parseInt(opts.ay,10) || Number.parseInt(opts.y,10) || 0;
 		/** Bottom-left corner */
-		this.bx = opts.bx || (opts.x+opts.w) || this.ax;
-		this.by = opts.by || (opts.y+opts.h) || this.ay;
+		this.bx = Number.parseInt(opts.bx,10) || Number.parseInt(opts.x+opts.w,10) || this.ax;
+		this.by = Number.parseInt(opts.by,10) || Number.parseInt(opts.y+opts.h,10) || this.ay;
 		
 		/** Effective detection radius */
-		this.rad = opts.rad || (this.ax==this.bx && this.ay==this.by)?5:0;
+		this.rad = Number.parseInt(opts.rad,10) || (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};

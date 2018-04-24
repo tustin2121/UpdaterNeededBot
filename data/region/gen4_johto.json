@@ -83,10 +83,10 @@
 			},
 			"areas": [
 				{
-					"ax": "11",
-					"ay": "13",
-					"bx": "11",
-					"by": "13",
+					"ax": 11,
+					"ay": 13,
+					"bx": 11,
+					"by": 13,
 					"rad": 5,
 					"name": "PC",
 					"attrs": {
@@ -144,10 +144,10 @@
 			},
 			"areas": [
 				{
-					"ax": "15",
-					"ay": "6",
-					"bx": "16",
-					"by": "6",
+					"ax": 15,
+					"ay": 6,
+					"bx": 16,
+					"by": 6,
 					"rad": 5,
 					"name": "WiFi PC",
 					"attrs": {
@@ -791,22 +791,22 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "951",
-						"ay": "278",
-						"bx": "972",
-						"by": "281",
-						"rad": "0",
+						"ax": 951,
+						"ay": 278,
+						"bx": 972,
+						"by": 281,
+						"rad": 0,
 						"name": "Ledge",
 						"attrs": {
 							"ledge": "ledge"
 						}
 					},
 					{
-						"ax": "951",
-						"ay": "283",
-						"bx": "974",
-						"by": "285",
-						"rad": 5,
+						"ax": 951,
+						"ay": 283,
+						"bx": 974,
+						"by": 285,
+						"rad": 0,
 						"name": "Below Ledge",
 						"attrs": {}
 					}
@@ -1137,9 +1137,9 @@
 				"areas": [
 					{
 						"ax": 415,
-						"ay": "246",
+						"ay": 246,
 						"bx": 415,
-						"by": "246",
+						"by": 246,
 						"rad": 5,
 						"name": "Odd Tree",
 						"attrs": {}
@@ -1218,10 +1218,10 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "257",
-						"ay": "161",
+						"ax": 257,
+						"ay": 161,
 						"bx": 272,
-						"by": "192",
+						"by": 192,
 						"rad": 5,
 						"name": "Moomoo Farm",
 						"attrs": {}
@@ -2360,10 +2360,10 @@
 						}
 					},
 					{
-						"ax": "489",
-						"ay": "36",
-						"bx": "542",
-						"by": "75",
+						"ax": 489,
+						"ay": 36,
+						"bx": 542,
+						"by": 75,
 						"rad": 5,
 						"name": "Lake",
 						"attrs": {}
@@ -2394,10 +2394,10 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "659",
-						"ay": "136",
-						"bx": "667",
-						"by": "148",
+						"ax": 659,
+						"ay": 136,
+						"bx": 667,
+						"by": 148,
 						"rad": 5,
 						"name": "Surf Pond",
 						"attrs": {
@@ -2587,20 +2587,20 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "45",
-						"ay": "45",
-						"bx": "57",
-						"by": "51",
-						"rad": 5,
+						"ax": 45,
+						"ay": 45,
+						"bx": 57,
+						"by": 51,
+						"rad": 2,
 						"name": "Contest Endpoint",
 						"attrs": {}
 					},
 					{
-						"ax": "43",
-						"ay": "32",
-						"bx": "59",
-						"by": "47",
-						"rad": 5,
+						"ax": 43,
+						"ay": 32,
+						"bx": 59,
+						"by": 47,
+						"rad": 0,
 						"name": "By the Fountain",
 						"attrs": {}
 					}
@@ -3169,11 +3169,11 @@
 				},
 				"areas": [
 					{
-						"ax": "14",
-						"ay": "52",
-						"bx": "18",
-						"by": "61",
-						"rad": 5,
+						"ax": 14,
+						"ay": 52,
+						"bx": 18,
+						"by": 61,
+						"rad": 0,
 						"name": "Forest Shrine",
 						"attrs": {
 							"inconsequential": true
@@ -3635,7 +3635,7 @@
 						"ay": 5,
 						"bx": 15,
 						"by": 5,
-						"rad": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Falkner",
@@ -3698,7 +3698,7 @@
 						"ay": 5,
 						"bx": 13,
 						"by": 5,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Whitney",
@@ -3736,7 +3736,7 @@
 						"ay": 6,
 						"bx": 6,
 						"by": 6,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Jasmine",
@@ -3774,7 +3774,7 @@
 						"ay": 11,
 						"bx": 13,
 						"by": 11,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Chuck",
@@ -3808,11 +3808,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "7",
-						"ay": "5",
-						"bx": "7",
-						"by": "5",
-						"rad": 5,
+						"ax": 7,
+						"ay": 5,
+						"bx": 7,
+						"by": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Pryce",
@@ -3852,7 +3852,7 @@
 						"ay": 4,
 						"bx": 12,
 						"by": 4,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Claire",
@@ -4694,7 +4694,7 @@
 						"ay": 311,
 						"bx": 82,
 						"by": 311,
-						"rad": 5,
+						"rad": 3,
 						"name": "Vendor",
 						"attrs": {
 							"shopping": true
@@ -4705,7 +4705,7 @@
 						"ay": 312,
 						"bx": 95,
 						"by": 312,
-						"rad": 5,
+						"rad": 2,
 						"name": "Vendor",
 						"attrs": {
 							"shopping": true
@@ -4868,7 +4868,7 @@
 						"ay": 6,
 						"bx": 9,
 						"by": 6,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Bugsy"
@@ -5030,11 +5030,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "16",
-						"ay": "11",
-						"bx": "25",
-						"by": "14",
-						"rad": 5,
+						"ax": 16,
+						"ay": 11,
+						"bx": 25,
+						"by": 14,
+						"rad": 0,
 						"name": "2F Studio 2",
 						"attrs": {}
 					}
@@ -5065,11 +5065,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "16",
-						"ay": "5",
-						"bx": "25",
-						"by": "11",
-						"rad": 5,
+						"ax": 16,
+						"ay": 5,
+						"bx": 25,
+						"by": 11,
+						"rad": 0,
 						"name": "Back Area",
 						"attrs": {}
 					}
@@ -5100,11 +5100,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "16",
-						"ay": "11",
-						"bx": "25",
-						"by": "14",
-						"rad": 5,
+						"ax": 16,
+						"ay": 11,
+						"bx": 25,
+						"by": 14,
+						"rad": 0,
 						"name": "4F Studio 1",
 						"attrs": {}
 					}
@@ -5135,11 +5135,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "1",
-						"ay": "5",
-						"bx": "9",
-						"by": "14",
-						"rad": 5,
+						"ax": 1,
+						"ay": 5,
+						"bx": 9,
+						"by": 14,
+						"rad": 0,
 						"name": "Director's Office",
 						"attrs": {
 							"the": "the"
@@ -5178,7 +5178,7 @@
 						"ay": 3,
 						"bx": 8,
 						"by": 3,
-						"rad": 5,
+						"rad": 0,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Executive Archer"
@@ -5338,9 +5338,9 @@
 				},
 				"areas": [
 					{
-						"ax": "10",
+						"ax": 10,
 						"ay": 4,
-						"bx": "13",
+						"bx": 13,
 						"by": 4,
 						"rad": 5,
 						"name": "Vending Machine",
@@ -5427,33 +5427,33 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "8",
-						"ay": "28",
-						"bx": "8",
-						"by": "28",
-						"rad": 5,
+						"ax": 8,
+						"ay": 28,
+						"bx": 8,
+						"by": 28,
+						"rad": 2,
 						"name": "Herbal Medicine Shop",
 						"attrs": {
 							"shopping": true
 						}
 					},
 					{
-						"ax": "8",
-						"ay": "17",
-						"bx": "8",
-						"by": "21",
-						"rad": 5,
+						"ax": 8,
+						"ay": 17,
+						"bx": 8,
+						"by": 21,
+						"rad": 2,
 						"name": "Haircut Brothers",
 						"attrs": {
 							"shopping": true
 						}
 					},
 					{
-						"ax": "15",
-						"ay": "5",
-						"bx": "22",
-						"by": "11",
-						"rad": 5,
+						"ax": 15,
+						"ay": 5,
+						"bx": 22,
+						"by": 11,
+						"rad": 0,
 						"name": "Memorial Photo Studio",
 						"attrs": {}
 					}
@@ -7142,7 +7142,7 @@
 						"ay": 7,
 						"bx": 22,
 						"by": 7,
-						"rad": 5,
+						"rad": 2,
 						"name": "PC",
 						"attrs": {
 							"pc": true
@@ -7330,9 +7330,9 @@
 					{
 						"ax": 47,
 						"ay": 43,
-						"bx": "50",
+						"bx": 50,
 						"by": 43,
-						"rad": 5,
+						"rad": 2,
 						"name": "Vendor",
 						"attrs": {
 							"shopping": true
@@ -7643,11 +7643,11 @@
 						}
 					},
 					{
-						"ax": "21",
-						"ay": "5",
-						"bx": "24",
-						"by": "8",
-						"rad": 5,
+						"ax": 21,
+						"ay": 5,
+						"bx": 24,
+						"by": 8,
+						"rad": 0,
 						"name": "In Contest",
 						"attrs": {}
 					}
@@ -9818,7 +9818,7 @@
 						"ay": 5,
 						"bx": 6,
 						"by": 5,
-						"rad": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Serge",
@@ -10091,11 +10091,11 @@
 				},
 				"areas": [
 					{
-						"ax": "15",
+						"ax": 15,
 						"ay": 4,
 						"bx": 20,
 						"by": 4,
-						"rad": "2",
+						"rad": 3,
 						"name": "Vending Machine",
 						"attrs": {
 							"vending": true
@@ -10616,7 +10616,7 @@
 						"ay": 4,
 						"bx": 7,
 						"by": 4,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Erika"
@@ -11015,18 +11015,18 @@
 						"ay": 14,
 						"bx": 15,
 						"by": 14,
-						"rad": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Sabrina"
 						}
 					},
 					{
-						"ax": "11",
-						"ay": "12",
-						"bx": "19",
-						"by": "19",
-						"rad": 5,
+						"ax": 11,
+						"ay": 12,
+						"bx": 19,
+						"by": 19,
+						"rad": 0,
 						"name": "Sabrina's Room",
 						"attrs": {}
 					}
@@ -12244,14 +12244,27 @@
 			{
 				"bank": 0,
 				"id": 457,
-				"name": "Seafoam Islands",
+				"name": "Cinnabar Gym (on Seafoam Islands)",
 				"areaId": 95,
 				"areaName": "Seafoam Islands",
-				"type": "dungeon",
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 13,
+						"ay": 12,
+						"bx": 13,
+						"by": 12,
+						"rad": 2,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Blaine",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D11R0106",
 					"tex1": 63,
@@ -12668,7 +12681,7 @@
 						"ay": 5,
 						"bx": 7,
 						"by": 5,
-						"rad": 3,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Brock",
@@ -12843,14 +12856,26 @@
 			{
 				"bank": 0,
 				"id": 480,
-				"name": "Fuchsia City",
+				"name": "Fuchsia City Gym",
 				"areaId": 51,
 				"areaName": "Fuchsia City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 16,
+						"bx": 7,
+						"by": 16,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Janine"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T08GYM0101",
 					"tex1": 95,
