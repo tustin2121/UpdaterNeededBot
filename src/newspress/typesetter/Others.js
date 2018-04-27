@@ -178,7 +178,7 @@ module.exports = {
 		default: [
 			`<b>We register {{@contact}} in our {{phone}}!</b>`,
 			`<b>We add {{@contact}} to our phonebook!</b>`,
-			`<b>{{$@contact}} give us {{their}} number, and we add it to our {{phone}}!</b>`,
+			`<b>{{$@contact}} give{{*s}} us {{their}} number, and we add it to our {{phone}}!</b>`,
 			`We liked battling {{@contact}} so much, <b>we decide to add {{them|@contact}} to our contacts!</b>`,
 		],
 	},

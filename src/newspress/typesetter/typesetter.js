@@ -252,7 +252,9 @@ function printObject(obj) {
 			if (!(mon instanceof Pokemon)) return false;
 			if (this._setNoun) this.noun = mon;
 			if (this._setSubject) this.subject = mon;
-			return mon.species;
+			let txt = mon.species;
+			if (mon.form) txt += ` ${mon.form}`;
+			return txt;
 		}
 	}
 	Object.assign(FORMAT_FNS, {
@@ -357,8 +359,10 @@ function printObject(obj) {
 	}
 	function printTeamStatus() { return this.press.generateUpdate('team'); }
 	function printOpt(opt, def) {
-		//return Bot.runOpts(opt, this.press.gameIndex) || def;
-		return def;
+		return function(){
+			return Bot.runOpts(opt, this.press.gameIndex) || def;
+			// return def;
+		};
 	}
 	Object.assign(FORMAT_FNS, {
 		'player': printPlayerName,
@@ -730,53 +734,58 @@ class TypeSetter {
 				let func = args[0];
 				args = args.slice(1);
 				this._callMeta.push({ text:match, func, args, });
-				args = args.map((arg)=>{
-					if (arg === '$') return this.subject;
-					if (arg === '#') return this.noun;
-					let res = /^([#$]+)/i.exec(arg);
-					if (res && res[1]) {
-						this._setSubject = (res[1].indexOf('$') > -1);
-						this._setNoun = (res[1].indexOf('#') > -1);
-						arg = arg.slice(res[1].length);
-					}
-					if (arg.startsWith('@')) {
-						arg = getProp(item, arg.slice(1));
-					}
-					if (this._setSubject) this.subject = arg;
-					if (this._setNoun) this.noun = arg;
-					return arg;
-				});
-				func = ((arg)=>{
-					if (arg === '$') return printObject.bind(this, this.subject);
-					if (arg === '#') return printObject.bind(this, this.noun);
-					let res = /^([#$]+)/i.exec(arg);
-					if (res && res[1]) {
-						this._setSubject = (res[1].indexOf('$') > -1);
-						this._setNoun = (res[1].indexOf('#') > -1);
-						arg = arg.slice(res[1].length);
-					}
-					if (arg.startsWith('@')) {
-						arg = getProp(item, arg.slice(1));
+				try {
+					args = args.map((arg)=>{
+						if (arg === '$') return this.subject;
+						if (arg === '#') return this.noun;
+						let res = /^([#$]+)/i.exec(arg);
+						if (res && res[1]) {
+							this._setSubject = (res[1].indexOf('$') > -1);
+							this._setNoun = (res[1].indexOf('#') > -1);
+							arg = arg.slice(res[1].length);
+						}
+						if (arg.startsWith('@')) {
+							arg = getProp(item, arg.slice(1));
+						}
 						if (this._setSubject) this.subject = arg;
 						if (this._setNoun) this.noun = arg;
-						return printObject.bind(this, arg);
-					}
-					return FORMAT_FNS[arg.trim()];
-				})(func);
-				let res = func.apply(this, args);
-				this._callMeta.pop();
-				this._setSubject = false;
-				this._setNoun = false;
-				
-				if (res === false) throw false; //We can't use this phrase
-				return res;
+						return arg;
+					});
+					func = ((arg)=>{
+						if (arg === '$') return printObject.bind(this, this.subject);
+						if (arg === '#') return printObject.bind(this, this.noun);
+						let res = /^([#$]+)/i.exec(arg);
+						if (res && res[1]) {
+							this._setSubject = (res[1].indexOf('$') > -1);
+							this._setNoun = (res[1].indexOf('#') > -1);
+							arg = arg.slice(res[1].length);
+						}
+						if (arg.startsWith('@')) {
+							arg = getProp(item, arg.slice(1));
+							if (this._setSubject) this.subject = arg;
+							if (this._setNoun) this.noun = arg;
+							return printObject.bind(this, arg);
+						}
+						return FORMAT_FNS[arg.trim()];
+					})(func);
+					let res = func.apply(this, args);
+					if (res === false) throw false; //We can't use this phrase
+					return res;
+				} catch (e) {
+					if (typeof e === 'object') e.frame = this._callMeta.top();
+					throw e;
+				} finally {
+					this._callMeta.pop();
+					this._setSubject = false;
+					this._setNoun = false;
+				}
 			});
 			if (phrase === text) return phrase;
 			text = phrase;
 			i--; //infinite loop guard
 		} catch (e) {
 			if (e === false) return false;
-			LOGGER.error('Error in fillText(', text, ', ', item, ')!\n', e);
+			LOGGER.error('Error in fillText(', text, ', ', item, ')!\n', e.frame,'\n', e);
 			return false;
 		}
 		return text;

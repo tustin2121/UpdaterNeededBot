@@ -125,4 +125,20 @@ class E4Module extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule(`Supress map change announcements when we enter the hall of fame.`)
+	.when(ledger=>ledger.has('E4HallOfFame'))
+	.when(ledger=>ledger.has('MapChanged'))
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
+
+RULES.push(new Rule(`Supress map change announcements when we enter the champion's room.`)
+	.when(ledger=>ledger.has('E4ReachChampion'))
+	.when(ledger=>ledger.has('MapChanged'))
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
+
 module.exports = E4Module;

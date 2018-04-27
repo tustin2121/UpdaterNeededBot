@@ -23,6 +23,7 @@ module.exports = {
 			
 			if (mon.shiny) txt = `shiny ${txt}`;
 			if (mon.sparkly) txt = `sparkly ${txt}`;
+			if (mon.form) txt = `${txt} ${mon.form}`;
 			txt = `<b>Caught a <info ext="${ext}">${txt}</info>!</b>`;
 			
 			if (mon.nicknamed) txt += ` Nickname: \`${mon.name}\``;
