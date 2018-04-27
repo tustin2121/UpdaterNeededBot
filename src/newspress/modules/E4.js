@@ -41,15 +41,15 @@ class E4Module extends ReportingModule {
 			}
 			this.memory.inE4Run = true;
 			this.memory.e4Attempts++;
-			ledger.addItem(new E4BeginRun(this.memory.e4Attempts));
+			ledger.addItem(new E4BeginRun(this.memory));
 		}
 		else if (this.memory.inE4Run && inE4) {
 			// While we're in E4
 			if (prev.startsWith('e') && curr.startsWith('e')) {
 				if (curr[1] < prev[1]) {
-					ledger.addItem(new E4EndRun(this.memory.e4Attempts));
+					ledger.addItem(new E4EndRun(this.memory));
 					this.memory.e4Attempts++;
-					ledger.addItem(new E4BeginRun(this.memory.e4Attempts, 'quick'));
+					ledger.addItem(new E4BeginRun(this.memory, 'quick'));
 				}
 			}
 			if (prev.startsWith('e') && (curr === 'champion' || curr === 'champ')) {
@@ -59,7 +59,7 @@ class E4Module extends ReportingModule {
 			if (curr === 'hallOfFame' && !this.memory.haveWon) { //should never happen, sanity check
 				this.memory.haveWon = true;
 				this.memory.inE4Run = false;
-				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
+				ledger.addItem(new E4HallOfFame(this.memory));
 			}
 			
 		}
@@ -67,10 +67,10 @@ class E4Module extends ReportingModule {
 			this.memory.inE4Run = false;
 			if (curr === 'hallOfFame' && !this.memory.haveWon) {
 				this.memory.haveWon = true;
-				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
+				ledger.addItem(new E4HallOfFame(this.memory));
 			} else {
 				// We're no longer in an E4 run
-				ledger.addItem(new E4EndRun(this.memory.e4Attempts));
+				ledger.addItem(new E4EndRun(this.memory));
 			}
 		}
 		

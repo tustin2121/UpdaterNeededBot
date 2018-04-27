@@ -6,6 +6,8 @@ module.exports = {
 	
 	E4BeginRun: {
 		// attempt = the e4 attempt number
+		// champ = the champion attempt number
+		// rematch = the rematch count
 		first: null, //The region should supply the first attempt's E4 announcement from the room announcement.
 		default: [
 			`<b>We're locked into the E4 for Attempt #{{@attempt}}!</b>`,
@@ -29,16 +31,20 @@ module.exports = {
 		],
 	},
 	E4ReachChampion: {
-		// attempt = the champion attempt number
+		// attempt = the e4 attempt number
+		// champ = the champion attempt number
+		// rematch = the rematch count
 		default: [
-			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion attempt #{{@attempt}} incoming!!\n\n{{team status}}`,
+			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion attempt #{{@champ}} incoming!!\n\n{{team status}}`,
 		],
 		rematch: [
-			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion rematch attempt #{{@attempt}} incoming!!\n\n{{team status}}`,
+			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion rematch attempt #{{@champ}} incoming!!\n\n{{team status}}`,
 		],
 	},
 	E4EndRun: {
 		// attempt = the e4 attempt number
+		// champ = the champion attempt number
+		// rematch = the rematch count
 		default: [
 			`rip E4 Attempt #{{@attempt}}`,
 		],
@@ -48,9 +54,10 @@ module.exports = {
 	},
 	E4HallOfFame: {
 		// attempt = the e4 attempt number
-		// champAttempt = the champion attempt number
+		// champ = the champion attempt number
+		// rematch = the rematch count
 		default: {
-			select: (item)=> Math.max(item.rematch, 15),
+			select: (item)=> Math.min(item.rematch, 15),
 			0: `<b>We enter the HALL OF FAME!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
 			1: `<b>We enter the HALL OF FAME again!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
 			2: `<b>We enter the HALL OF FAME a third time!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`,

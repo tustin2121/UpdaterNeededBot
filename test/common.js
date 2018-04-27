@@ -1,7 +1,7 @@
 // test/common.js
 // Common mock items
 
-const SHOULD_LOG = false;
+const SHOULD_LOG = true;
 const should = require('should');
 const sinon = require('sinon');
 require('should-sinon');

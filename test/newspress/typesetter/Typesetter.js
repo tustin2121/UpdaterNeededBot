@@ -275,6 +275,21 @@ describe('TypeSetter', function(){
 	});
 	
 	describe('#typesetItems', function(){
+		it('E4HallOfFame', function(){
+			const { E4HallOfFame } = LEDGER_ITEMS;
+			{
+				const exp = `<b>We enter the HALL OF FAME!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`;
+				const item = new E4HallOfFame({ e4Attempts:42, champAttempts:6, rematchCount:0 });
+				const str = typesetter.typesetItems([item]);
+				str.should.be.exactly(exp);
+			}{
+				const exp = `<b>We enter the HALL OF FAME! Yet again!</b> ╰〳 ಠ 益 ಠೃ 〵╯ ELEVENTH VICTORY RIOT ╰〳 ಠ 益 ಠೃ 〵╯`;
+				const item = new E4HallOfFame({ e4Attempts:42, champAttempts:6, rematchCount:10 });
+				const str = typesetter.typesetItems([item]);
+				str.should.be.exactly(exp);
+			}
+		});
+		
 		it('BattleStarted', function(){
 			const { BattleStarted } = LEDGER_ITEMS;
 			const battle = { //emulates SortedBattle
@@ -293,6 +308,7 @@ describe('TypeSetter', function(){
 		it('GainItem', function(){
 			const { GainItem } = LEDGER_ITEMS;
 			const { Item } = POKEDATA;
+			setRandom(0);
         
 			const exp = `<b>Acquired 5 Great Balls, 8 Potions, and an Antidote!</b>`;
 			const items = [

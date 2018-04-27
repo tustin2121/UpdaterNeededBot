@@ -696,6 +696,17 @@ class TypeSetter {
 				let res = entry.call(self, item);
 				return _resolve(res, item);
 			}
+			if (typeof entry.select === 'function') {
+				let res = entry.select.call(self, item);
+				LOGGER.error(`select resolve:`, res);
+				if (res && entry[res] !== undefined) {
+					return _resolve(entry[res], item);
+				}
+				// object don't do numbers for keys, stupidly, so try this, just in case
+				if (typeof res === 'number' && entry[res.toString(10)] !== undefined) {
+					return _resolve(entry[res.toString(10)], item);
+				}
+			}
 			if (Array.isArray(entry)) {
 				// Shortcut the common case:
 				if (entry.length === 1) return _resolve(entry[0], item) || null;

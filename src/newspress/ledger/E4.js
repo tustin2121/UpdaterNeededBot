@@ -26,9 +26,11 @@ class E4RunContext extends LedgerItem {
  * An item indicating that we've begun a new E4 run.
  */
 class E4BeginRun extends LedgerItem {
-	constructor(attempt, flavor) {
+	constructor({ e4Attempts, champAttempts, rematchCount }, flavor) {
 		super(2, {flavor, sort:-10});
-		this.attempt = attempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematch = rematchCount;
 	}
 }
 
@@ -36,9 +38,11 @@ class E4BeginRun extends LedgerItem {
  * An item indicating that we've reached the champion.
  */
 class E4ReachChampion extends LedgerItem {
-	constructor(attempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount }) {
 		super(2);
-		this.attempt = attempt; //champion attempt
+		this.attempt = e4Attempts;
+		this.champ = champAttempts; //champ attempt
+		this.rematch = rematchCount;
 	}
 }
 
@@ -46,10 +50,11 @@ class E4ReachChampion extends LedgerItem {
  * An item indicating that we've blacked out or otherwise have been removed from the
  */
 class E4EndRun extends LedgerItem {
-	constructor(attempt, champAttempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount }) {
 		super(2, {sort:10});
-		this.attempt = attempt;
-		this.champAttempt = champAttempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematch = rematchCount;
 	}
 }
 
@@ -57,9 +62,11 @@ class E4EndRun extends LedgerItem {
  * An item indicating that we've entered the Hall of Fame.
  */
 class E4HallOfFame extends LedgerItem {
-	constructor(attempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount }) {
 		super(2);
-		this.attempt = attempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematch = rematchCount;
 	}
 }
 
