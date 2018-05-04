@@ -3,6 +3,7 @@
 
 module.exports = {
 	rtc: true,
+	phonebook: 'Pokégear',
 	specialSplit: false,
 	abilities: false,
 	natures: false,

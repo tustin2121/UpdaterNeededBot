@@ -2,7 +2,11 @@
 // The Location reporting module
 
 const { ReportingModule, Rule } = require('./_base');
-const { LocationContext, MapContext, LocationChanged, JumpedLedge, ClearedLedge } = require('../ledger');
+const {
+	LocationContext, MapContext, MapChanged, CheckpointContext, CheckpointUpdated,
+	MapMovement,
+} = require('../ledger');
+const { MapRegion, MapNode, MapArea } = require('../../api/mapnode');
 
 const LOGGER = getLogger('LocationModule');
 const RULES = [];
@@ -13,42 +17,166 @@ const RULES = [];
  */
 class LocationModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory);
-		
+		super(config, memory, 1);
+		this.memory.reportTimes = this.memory.reportTimes || {};
+		this.memory.visitTimestamps = this.memory.visitTimestamps || {};
+		this.memory.currCheckpoint = this.memory.currCheckpoint || null;
 	}
 	
-	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
+		ledger.add(new LocationContext(curr_api.location));
+		
 		let region = Bot.gameInfo().regionMap;
-		if (region) {
-			let node = region.find(curr.location);
-			if (node) {
-				ledger.add(new MapContext(node));
-			}
-		}
-		ledger.add(new LocationContext(curr.location));
-		
-		LOGGER.debug(`curr=${curr.location} prev=${prev.location}`);
-		if (!curr.location.equals(prev.location)) {
-			let item = new LocationChanged(prev.location, curr.location);
-			item.flavor = 'nomap';
-			ledger.add(item);
+		if (!(region instanceof MapRegion)) {
+			LOGGER.error('Cannot work without a regionMap!');
+			return; //Can't continue without a region...
 		}
 		
-		// For Red/Blue only
-		if (curr.location.map_id === 33) { //Route 22 Ledge
-			if (curr.location.y > 13 && curr.location.x < 28) { // below ledge
-				if (prev.location.y < 13 && prev.location.x < 28) { // above ledge
-					LOGGER.error('JUMPED LEDGE LOL!');
-					ledger.add(new JumpedLedge(curr));
-				}
+		let prev = region.resolve(prev_api.location); //prev_api.location.node = prev;
+		let curr = region.resolve(curr_api.location); //curr_api.location.node = curr;
+		let prevMap = prev, prevArea = null;
+		let currMap = curr, currArea = null;
+		
+		if (currMap instanceof MapArea) { currArea = currMap; currMap = currArea.parent; }
+		if (prevMap instanceof MapArea) { prevArea = prevMap; prevMap = prevArea.parent; }
+		
+		if (!currMap || !prevMap) {
+			LOGGER.error(`No MapNode found!\n\tcurr => ${curr_api.location} => ${currMap}\n\tprev => ${prev_api.location} => ${prevMap}`);
+			return; //Can't continue without a map node...
+		}
+		ledger.add(new MapContext(currMap, currArea));
+		
+		// Transit Reporting logic
+		if (currMap !== prevMap || currArea !== prevArea) {
+			let item = this.generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea });
+			if (item) ledger.add(item);
+		}
+		this.memory.visitTimestamps[currMap.locId] = Date.now();
+		
+		if (currMap.is('checkpoint')) {
+			ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
+		}
+		
+		if (!prev.has('water') && curr.has('water')) {
+			ledger.add(new MapMovement('surfStart', curr_api));
+		}
+		if (prev.has('water') && !curr.has('water')) {
+			ledger.add(new MapMovement('surfEnd', curr_api));
+		}
+		
+		if (prev.has('ledge') === 'ledge') {
+		 	if (curr.has('ledge') === 'jump') {
+				ledger.add(new MapMovement('jumpedLedge', curr_api));
 			}
-			if (curr.location.y < 9 && curr.location.x < 14) { // past ledge!
-				if (prev.location.y > 8 && prev.location.x < 28) { // not past ledge!
-					ledger.add(new ClearedLedge(curr.location));
-				}
+			else if (curr.has('ledge') === 'clear') {
+				ledger.add(new MapMovement('clearedLedge', curr_api));
 			}
 		}
 	}
+	
+	secondPass(ledger) {
+		RULES.forEach(rule=> rule.apply(ledger) );
+	}
+	
+	finalPass(ledger) {
+		let items;
+		if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
+			this.memory.currCheckpoint = items[0].loc.locId;
+		}
+	}
+	
+	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea }) {
+		let reports = region.findReports(prevArea || prevMap, currArea || currMap);
+		let currTime = Date.now();
+		for (let report of reports) {
+			let lastUsed = this.memory.reportTimes[report.id];
+			if (lastUsed + report.timeout > currTime) continue; //can't use this report again so soon
+			this.memory.reportTimes[report.id] = Date.now();
+			return new MapChanged({ prev:prevMap, curr:currMap, report });
+		}
+		// No reports apply to this pairing, so fall back on the templates
+		// We only care about reporting changes between maps, not between areas at this point.
+		if (currMap === prevMap) return null;
+		
+		// Don't report inconsequential maps
+		if (currMap.is('inconsequential') || prevMap.is('inconsequential')) return null;
+		if (currMap.has('inconsequential') !== false) { //explicitly false bypasses this check
+			// Don't report if the map names are the same
+			if (currMap.name === prevMap.name) return null;
+		}
+		
+		let item = new MapChanged({ prev:prevMap, curr:currMap });
+		
+		let lastVisit = this.memory.visitTimestamps[currMap.locId];
+		if (!lastVisit) { //first time visiting
+			if (currMap.is('town')) { item.flavor = 'town_new'; return item; }
+			if (currMap.is('gym')) { item.flavor = 'gym_new'; return item; }
+		}
+		let back = '';
+		if (lastVisit + ( 2*60*1000) > currTime) back = '_nvm'; //visited in the last 2 minutes
+		if (lastVisit + (15*60*1000) > currTime) back = '_back'; //visited in the last 15 minutes
+		
+		{
+			const P = prevMap.is('entralink');
+			const C = currMap.is('entralink');
+			if (!P && C) { item.flavor = `entralink_enter${back}`; return item; }
+			if (P && !C) { item.flavor = `entralink_exit${back}`; return item; }
+		}{
+			const P = prevMap.is('dungeon');
+			const C = currMap.is('dungeon');
+			if (!P && C) { item.flavor = `dungeon_enter${back}`; return item; }
+			if (P && !C) { item.flavor = `dungeon_exit${back}`; return item; }
+		}{
+			const P = prevMap.is('gym');
+			const C = currMap.is('gym');
+			if (!P && C) { item.flavor = `gym_enter${back}`; return item; }
+			if (P && !C) { item.flavor = `gym_exit${back}`; return item; }
+		}{
+			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_enter${back}`; return item; }
+			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_exit${back}`; return item; }
+		}{
+			const P = prevMap.is('indoors');
+			const C = currMap.is('indoors');
+			if (!P && C) { item.flavor = `enter${back}`; return item; }
+			if (P && !C) { item.flavor = `exit${back}`; return item; }
+		}
+		item.flavor = `default${back}`;
+		return item;
+	}
 }
+
+RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
+	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+	.when(ledger=>ledger.has('FullHealed'))
+	.when(ledger=>ledger.hasnt('BlackoutContext'))
+	.then(ledger=>{
+		let item = ledger.mark(0).get(0);
+		item.isCurrent = true;
+		ledger.add(new CheckpointUpdated(item.loc));
+	})
+);
+
+{
+	const itemIds = Bot.runOpts('itemIds_escapeRope');
+	RULES.push(new Rule(`If escaping a dungeon and we lose an escape rope, we used it.`)
+		.when(ledger=>ledger.has('MapChanged').with('flavor', 'dungeon_exit', 'dungeon_exit_back'))
+		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
+		.then(ledger=>{
+			let item = ledger.get(0)[0];
+			ledger.demote(1);
+			item.flavor = 'dungeon_escaperope';
+		})
+	);
+}
+
+// This may break in early generations
+RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
+	.then(ledger=>{
+		let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
+	})
+);
 
 module.exports = LocationModule;

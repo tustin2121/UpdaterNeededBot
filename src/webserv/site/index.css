@@ -1,0 +1,497 @@
+/* index.css */
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 10pt;
+}
+
+.header {
+	background-color: whitesmoke;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	left: -5px;
+	right: -5px;
+	box-shadow: 0px 0px 10px 0px #00000080;
+}
+
+@keyframes blink {
+	0% { font-weight: 900; }
+	50% { font-weight: 400; }
+}
+#playpause {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-size: 2em;
+    margin: 12px;
+}
+#playpause.paused {
+	animation-duration: 2s;
+	animation-name: blink;
+}
+#playpause::before {
+	content: '\f144';
+	
+}
+#playpause.paused::before {
+	content: '\f28b';
+}
+
+.column {
+	position: relative;
+	width: 1024px; height: 100%;
+	margin: 0 auto;
+	background-color: aliceblue;
+}
+.updateState {
+	position: absolute;
+	top: 60px; bottom: 0;
+	left: 0; right: 0;
+}
+.updateState > state {
+	position: absolute;
+	top: 15px; bottom: 15px;
+	left: 15px; right: 15px;
+	/* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+	display: grid;
+	grid-template-columns: 2fr 3fr 3fr;
+	grid-template-rows: [top] 40px 50% [middle] auto 130px [bottom];
+	grid-template-areas:
+		"gApi gPre gPost"
+		"gMod gPre gPost"
+		"gMrg gRul gType"
+		"gMrg gRul gUpd";
+	grid-gap: 15px;
+}
+
+.view {
+	position: relative;
+	box-shadow: 1px 1px 5px 0px #00000080;
+}
+.view::after {
+	position: absolute;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-size: 30pt;
+	z-index: 10;
+}
+.view::before {
+	position: absolute;
+	top: 0; left: 0;
+	background-color: #505050;
+	color: white;
+	border-bottom-right-radius: 15px;
+	font-family: sans-serif;
+	font-size: 10pt;
+	padding: 3px 14px 3px 8px;
+	z-index: 10;
+}
+.view > * {
+	display: block;
+	overflow-y: scroll;
+	position: absolute;
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+	padding: 22px 0 0;
+}
+
+dirarrow {
+	width: 1em; height: 1em;
+	z-index: 10;
+	font-size: 12pt;
+	margin: -1em;
+}
+dirarrow.down::before {
+	content: '\25BC'; /* down */
+}
+dirarrow.up::before {
+	content: '\25B2'; /* up */
+}
+dirarrow.left {
+	transform: rotate(-90deg);
+}
+dirarrow.left::before {
+	content: '\25B2'; /* up */
+}
+dirarrow.right {
+	transform: rotate(-90deg);
+}
+dirarrow.right::before {
+	content: '\25BC'; /* down */
+}
+
+.view.api {
+	grid-area: gApi;
+	background-color: white;
+	font-family: monospace;
+}
+.view.api::before {
+	content: '1. API';
+}
+.view.api > api {
+	padding: 2px 0;
+	line-height: 36px;
+	text-align: center;
+	overflow-y: auto;
+}
+.view.api > api::before { content: 'stream_api.'; }
+.view.api > api::after  { content: '.json'; }
+
+dirarrow.module {
+	grid-area: gMod;
+	justify-self: center;
+	align-self: start;
+}
+
+.view.module {
+	grid-area: gMod;
+	background-color: #f0f7ff;
+}
+.view.module::before {
+	content: '2. Modules';
+}
+.view.module > modules {
+	
+}
+
+dirarrow.ledgerpre {
+	grid-area: gPre;
+	justify-self: start;
+	align-self: center;
+}
+
+.view.ledger {
+	background-color: #fff7e7;
+}
+
+.view.ledger.pre {
+	grid-area: gPre;
+}
+.view.ledger.pre::before {
+	content: '3. Ledger (1st Pass)';
+}
+.view.ledger.pre > preledger {
+	
+}
+
+dirarrow.merges {
+	grid-area: gMrg;
+	justify-self: end;
+	align-self: start;
+	transform: rotate(45deg);
+}
+
+.view.merges {
+	grid-area: gMrg;
+	background-color: #ffd4b6;
+}
+.view.merges::before {
+	content: '4. Merges';
+}
+
+
+dirarrow.rule {
+	grid-area: gRul;
+	justify-self: start;
+	align-self: center;
+}
+
+.view.rule {
+	grid-area: gRul;
+	background-color: #ffe5e5;
+}
+.view.rule::before {
+	content: '5. Rules';
+}
+.view.rule > rules {
+	
+}
+
+dirarrow.ledgerpost {
+	grid-area: gPost;
+	justify-self: start;
+	align-self: end;
+	transform: rotate(45deg);
+}
+
+.view.ledger.post {
+	grid-area: gPost;
+}
+.view.ledger.post::before {
+	content: '6. Ledger (2nd Pass)';
+}
+.view.ledger.post > postledger {
+	
+}
+
+dirarrow.typesetter {
+	grid-area: gType;
+	justify-self: center;
+	align-self: start;
+}
+
+.view.typesetter {
+	grid-area: gType;
+	background-color: #faf0ff;
+}
+.view.typesetter::before {
+	content: '7. TypeSetter';
+}
+.view.typesetter > typesetter {
+	
+}
+
+dirarrow.update {
+	grid-area: gUpd;
+	justify-self: center;
+	align-self: start;
+}
+
+.view.update {
+	grid-area: gUpd;
+	background-color: white;
+}
+.view.update::before {
+	content: '\f1a1  \f392'; /* reddit, discord */
+	top: -70px; left: -8px;
+	background-color: initial; /* Reset the top corner label thing */
+	color: initial;
+	border-bottom-right-radius: initial;
+	padding: 0;
+	position: absolute;
+	font-family: 'Font Awesome 5 Brands';
+	font-size: 30pt;
+	z-index: 10;
+}
+.view.update::after {
+	content: '\f106'; /* angle-up */
+	left: 4%; top: -34px;
+}
+.view.update > update {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 14px;
+	padding: 1em;
+	margin: 0;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+.view.update > update p {
+	margin: 5px 0;
+}
+.view.update > update a.author {
+	color: #b6c6d6;
+	transition: color 0.3s;
+}
+.view.update > update time {
+	display: inline-block;
+	font-size: 10px;
+	width: auto;
+	text-align: left;
+	overflow: hidden;
+	vertical-align: top;
+	margin-bottom: .5em;
+	padding-top: 3px;
+	color: #888;
+	transition: color 0.3s;
+	padding-left: 15px;
+	text-indent: -20px;
+}
+.view.update > update time::before {
+	content: "";
+	display: inline-block;
+	width: 8px; height: 8px;
+	border-radius: 4px;
+	background: #ebebeb;
+	margin-right: 6px;
+	margin-left: 6px;
+	transition: background 0.3s;
+}
+
+modules > mod {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+mod::before {
+	content: attr(name)'Module';
+	margin-left: -2em;
+	display: block;
+	/*font-weight: bold;*/
+	padding: 2px;
+	margin-top: -1px;
+}
+mod p {
+	font-family: monospace;
+	margin: 0;
+}
+
+
+merges > merge {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+merge item {
+	display: block;
+}
+merge[type=coalesced] {
+	
+}
+merge[type=coalesced] item:nth-child(2)::before {
+	content: '\2BA4  ';
+}
+
+merge[type=replaced] {
+	
+}
+merge[type=replaced] item:nth-child(1)::before,
+merge[type=replaced] item:nth-child(2)::before,
+merge[type=removed] item:nth-child(1)::before,
+merge[type=removed] item:nth-child(2)::before {
+	content: '\2BA6  ';
+}
+
+merge[type=removed]::after {
+	content: 'X';
+	display: block;
+}
+
+
+rules > rule {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+rules > rule:nth-child(odd) {
+	background-color: #ff7b7b1a;
+}
+rules marker {
+    display: block;
+    background-color: #505050;
+    color: white;
+    padding: 0px 3px;
+    /* border-radius: 3px; */
+    margin-top: 2px;
+}
+rule::before {
+	content: 'Rule: 'attr(name);
+	margin-left: -2em;
+	display: block;
+	/*font-weight: bold;*/
+	padding: 2px;
+	margin-top: -1px;
+}
+rule > match,
+rule > matchObj {
+	display: block;
+	padding: 0 0 0 2em;
+}
+rule > match::before,
+rule > matchObj::before {
+	content: attr(index);
+	margin-left: -2em;
+	display: inline-block;
+	position: absolute;
+	background-color: #505050;
+	color: white;
+	padding: 0 3px;
+	border-radius: 3px;
+	margin-right: 6px;
+}
+
+
+preledger > items > ledgeritem,
+preledger > post > ledgeritem,
+postledger > items > ledgeritem,
+postledger > post > ledgeritem,
+rule > match > ledgeritem {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+
+preledger > post::before,
+postledger > post::before {
+	content: 'Postponed:';
+	display: block;
+	background-color: #505050;
+	color: white;
+	padding: 0px 3px;
+	/* border-radius: 3px; */
+	margin-top: 2px;
+}
+preledger > post,
+postledger > post {
+	display: block;
+	background-color: #f1dfbc;
+}
+ledgeritem:nth-child(odd) {
+	background-color: #ffa7001a;
+}
+ledgeritem::before {
+	content: attr(name)' \2295  'attr(imp);
+	margin-left: -2em;
+	display: block;
+	font-weight: bold;
+	/* background-color: #0200a2; */
+	padding: 2px;
+	margin-top: -1px;
+	/* color: white; */
+}
+ledgeritem:empty::before {
+	content: attr(name)'  -  'attr(imp);
+}
+rule ledgeritem::before {
+	font-weight: normal;
+}
+ledgeritem > * {
+	display: block;
+	padding: 1px 0 2px 2em;
+}
+ledgeritem > *:nth-child(odd) {
+	background-color: #ffa7001a;
+}
+ledgeritem > *::before {
+	content: attr(key)': ';
+	margin-left: -2em;
+	display: inline-block;
+	background-color: #505050;
+	color: white;
+	padding: 0 3px;
+	border-radius: 3px;
+	margin-right: 6px;
+}
+
+
+pokemon > span {
+	display: inline-block;
+	padding-right: 4px;
+}
+pokemon > span[prop=name] {
+	font-weight: bold;
+}
+pokemon > span[prop]::before {
+	content: attr(prop)': ';
+}
+pokemon > span[prop=name]::before {
+	content: none;
+}
+pokemon > span[stat]::before {
+	content: attr(stat)': ';
+	text-transform: uppercase;
+}
+pokemon > span::after {
+	content: ' | ';
+}
+pokemon > span:last-child::after {
+	content: none;
+}

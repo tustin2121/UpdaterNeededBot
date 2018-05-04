@@ -69,6 +69,10 @@ function fillMoveInfo(data) {
 	}
 }
 
+function calcStats({ species, ivs, evs, }) {
+	
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HeldItem {
@@ -77,11 +81,19 @@ class HeldItem {
 			this.name = data.name;
 			this.id = data.id;
 		} else {
-			this.name = '<NoItem>';
+			this.name = '[NoItem]';
 			this.id = 0;
 		}
 	}
 	toString(){ return this.name; }
+	toXml(hkey) {
+		let xml = `<item `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `itemid="${this.id}">`;
+		xml += `${this.name}`;
+		xml += `</item>`;
+		return xml;
+	}
 }
 
 class Pokemon {
@@ -89,6 +101,7 @@ class Pokemon {
 		this.name = '';
 		this.species = '';
 		this.nicknamed = false;
+		this.form = null;
 		
 		this._gender = '';
 		this.nature = '';
@@ -99,6 +112,7 @@ class Pokemon {
 		this._hp = [0,0];
 		this.moves = [];
 		this.moveInfo = [];
+		this.hms = {};
 		if (Bot.runOpts('specialSplit')) {
 			this._stats = {atk:0,def:0,hp:0,spa:0,spd:0,spe:0};
 		} else {
@@ -138,6 +152,11 @@ class Pokemon {
 		this.nicknamed = !!(mon.nicknamed || checkNicknamed(this.name, this.species) || false);
 		this.name = sanatizeName(this.name);
 		
+		if (Bot.runOpts('forms') && mon.form) {
+			let forms = require('../../data/extdat/pkmnforms');
+			this.form = (forms[this.species.toLowerCase()]||[])[mon.form];
+		}
+		
 		// Fix shedinja bug:
 		if (this.species.toLowerCase() === `shedinja`) this.hash++;
 		
@@ -155,6 +174,8 @@ class Pokemon {
 		this.moves = mon.moves.map(m=> correctCase(m.name) );
 		this.moveInfo = mon.moves.map(m=>{
 			m = fillMoveInfo(m);
+			if (m.id === Bot.runOpts('moveId_surf')) this.hms.surf = true;
+			if (m.id === Bot.runOpts('moveId_fly')) this.hms.fly = true;
 			return {
 				id: m.id,
 				max_pp: m.max_pp,
@@ -163,6 +184,7 @@ class Pokemon {
 				type: m.type
 			};
 		});
+		
 		
 		if (mon.health) {
 			this._hp = [mon.health[0], mon.health[1]];
@@ -214,7 +236,9 @@ class Pokemon {
 		return this;
 	}
 	
-	toString() {
+	/** @param {int} num - Used to trick the TypeSetter to never pluralize a pokemon name. */
+	toString(num) {
+		if (this.form) return `${this.name} (${this.species} ${this.form})`;
 		return `${this.name} (${this.species})`;
 	}
 	
@@ -293,7 +317,7 @@ class Pokemon {
 		let xml = `<pokemon `;
 		if (hkey) xml += `key="${hkey}" `;
 		xml += `hash="${this.hash}">`;
-		// if ()
+		xml += this.saveToMemory();
 		xml += `</pokemon>`;
 		return xml;
 	}
@@ -303,6 +327,11 @@ class SortedLocation {
 	constructor(data) {
 		this.node = null;
 		this.set(data);
+		
+		let region = Bot.gameInfo().regionMap;
+		if (region instanceof require('./mapnode').MapRegion) {
+			this.node = region.resolve(this);
+		}
 	}
 	
 	set(opts={}) {
@@ -317,6 +346,7 @@ class SortedLocation {
 	}
 	
 	get name() {
+		if (this.node) return this.node.name;
 		return this.map_name || this.area_name;
 	}
 	
@@ -324,6 +354,7 @@ class SortedLocation {
 		return `Loc[${this.map_bank}.${this.map_id}]{x=${this.x},y=${this.y}}`;
 	}
 	toString() {
+		if (this.node) return this.node.name;
 		return this.map_name;
 	}
 	
@@ -342,7 +373,9 @@ class SortedLocation {
 		let xml = `<location `;
 		if (hkey) xml += `key="${hkey}" `;
 		if (this.node) xml += `node="true" `;
-		xml += `id="${this.full_id}" pos="${this.position}">${this.map_name}</location>`;
+		xml += `id="${this.full_id}" pos="${this.position}">`;
+		xml += this.map_name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+		xml += `</location>`;
 		return xml;
 	}
 	
@@ -367,18 +400,23 @@ class SortedLocation {
 	}
 	
 	is(attr) {
-		//Hack for Red/Blue
-		if ('e4') {
-			if (this.map_id === 174) return 'lobby';	// Lobby
-			if (this.map_id === 245) return 'e1';		// Lorelei's Room
-			if (this.map_id === 246) return 'e2';		// Bruno's Room
-			if (this.map_id === 247) return 'e3';		// Agitha's Room
-			if (this.map_id === 113) return 'e4';		// Lance's Room
-			if (this.map_id === 120) return 'champ';	// Champs's Room
-			if (this.map_id === 118) return 'hallOfFame'; // Hall of Fame
-		}
-		
 		if (this.node) return this.node.is(attr);
+		switch (attr) {
+			case 'preposition': return determineOnIn(this.name);
+		}
+		return undefined;
+		
+		function determineOnIn(name) {
+			if (/town|city/i.test(name)) return 'in';
+			if (/route/i.test(name)) return 'on';
+			if (/house|center|mart|f|cave|forest/i.test(name)) return 'in';
+			if (/league/i.test(name)) return 'at';
+			return 'on';
+		}
+	}
+	
+	within(attr) {
+		if (this.node) return this.node.within(attr, this.x, this.y);
 		return undefined;
 	}
 }
@@ -388,6 +426,9 @@ SortedLocation.prototype.get = SortedLocation.prototype.is; //Alias
 
 class SortedPokemon {
 	constructor(data, game=0) {
+		/** @type{Map<int, object>} map of all raw pokemon data */
+		this._raw = {};
+		/** @type{Map<int, Pokemon>} map of all pokemon objects */
 		this._map = {};
 		
 		this._party = [];
@@ -401,6 +442,7 @@ class SortedPokemon {
 				let p = new Pokemon(data.party[i], game);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
+				this._raw[p.hash] = data.party[i];
 				this._party.push(p);
 			}
 		}
@@ -414,8 +456,9 @@ class SortedPokemon {
 				let b = [];
 				for (let i = 0; i < box.box_contents.length; i++) {
 					let p = new Pokemon(box.box_contents[i], game);
-					p.storedIn = `box:${box.box_number||bn}-${box.box_contents[i].box_slot||i}`;
+					p.storedIn = `box:${box.box_number||bn+1}-${box.box_contents[i].box_slot||i}`;
 					this._map[p.hash] = p;
+					this._raw[p.hash] = box.box_contents[i];
 					b.push(p);
 				}
 				this._pc[bn] = b;
@@ -426,6 +469,7 @@ class SortedPokemon {
 				let p = new Pokemon(data.daycare[i], game);
 				p.storedIn = 'daycare:'+i;
 				this._map[p.hash] = p;
+				this._raw[p.hash] = data.daycare[i];
 				this._daycare.push(p);
 			}
 		}
@@ -455,18 +499,35 @@ class SortedPokemon {
 			removed: rm.map(x=>prev._map[x]),
 		}
 	}
+	
+	getRawData(mon) {
+		if (mon instanceof Pokemon) return this._raw[mon.hash];
+		return this._raw[mon];
+	}
 }
 
 class Item {
 	constructor(data) {
-		this.name = data.name;
+		this.name = data.name || '[Unnamed Item]';
 		this.id = data.id;
 		this.pockets = new Set();
+		this.pluralName = null;
+		if (this.name.startsWith('TM') || this.name.startsWith('HM'))
+			this.pluralName = this.name; //do not pluralize
 	}
 	get isTM() { return this.pockets.has('tms'); }
 	get inPC() { return this.pockets.has('pc') && this.pockets.size === 1; }
 	get isHeld() { return this.pockets.has('held'); }
 	toString(){ return this.name; }
+	
+	toXml(hkey) {
+		let xml = `<item `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `itemid="${this.id}">`;
+		xml += `${this.name}`;
+		xml += `</item>`;
+		return xml;
+	}
 }
 
 class SortedInventory {
@@ -500,6 +561,7 @@ class SortedInventory {
 			if (data.pc && Array.isArray(data.pc.boxes)) {
 				for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 					let box = data.pc.boxes[bn];
+					if (!box) continue; //null boxes handled elsewhere
 					for (let p of box.box_contents) {
 						if (p.held_item) {
 							this.add(p.held_item, 'held');
@@ -545,7 +607,7 @@ class SortedInventory {
 }
 
 class SortedBattle {
-	constructor(data, game) {
+	constructor(data, game, loc) {
 		this.in_battle = data.in_battle;
 		this.trainer = null;
 		this.party = null;
@@ -559,22 +621,39 @@ class SortedBattle {
 				enemy_trainer = [enemy_trainer];
 			}
 			for (let t of enemy_trainer) {
-				this.trainer.push({
+				let data = {
 					'class': t.class_id,
 					'id': t.id,
-					'className': '',//correctCase(sanatizeName(t.class_name)), //Not used in gen 1
+					'className': (t.class_name)?correctCase(sanatizeName(t.class_name)):'', //Not used in gen 1
 					'name': correctCase(sanatizeName(t.name)),
-				});
+				};
+				if (Bot.runOpts('trainerClasses')) {
+					let cls = Bot.runOpts('trainerClasses');
+					if (cls.m[data.class]) data.gender = 'male';
+					else if (cls.f[data.class]) data.gender = 'female';
+					else if (cls.p[data.class]) data.gender = 'plural';
+					else data.gender = 'neuter';
+				}
+				this.trainer.push(data);
 			}
+		}
+		else if (data.battle_kind === 'Trainer') {
+			let leader = loc.within('leader');
+			this.trainer = leader || true;
 		}
 		if (data.enemy_party) {
 			this.party = [];
 			for (let p of data.enemy_party) {
-				let poke = {
-					active: p.active,
-					hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-					species: p.species.name,
-					dexid: read(p.species, 'national_dex', 'id'),
+				let poke;
+				if (Bot.runOpts('fullEnemyInfo')) {
+					poke = new Pokemon(p, game);
+				} else {
+					poke = {
+						active: p.active,
+						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						species: p.species.name,
+						dexid: read(p.species, 'national_dex', 'id'),
+					};
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);
@@ -619,7 +698,12 @@ class SortedBattle {
 		
 		// Determine trainer classes
 		this.isImportant = false;
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			this.isImportant = true;
+			let type = loc.get('trainertype');
+			if (type) this.classes[type] = true;
+		}
+		else if (Array.isArray(this.trainer)) {
 			let types = Bot.runOpts('trainerClasses', game);
 			for (let type in types) {
 				for (let trainer of this.trainer) {
@@ -638,6 +722,9 @@ class SortedBattle {
 	
 	get displayName() {
 		let name = [];
+		if (typeof this.trainer === 'string') return this.trainer;
+		if (this.trainer === true) return 'trainer';
+		if (!Array.isArray(this.trainer)) return undefined;
 		for (let trainer of this.trainer) {
 			name.push(`${trainer.className} ${trainer.name}`.trim());
 		}
@@ -650,17 +737,47 @@ class SortedBattle {
 	}
 	get attemptId() {
 		let name = [];
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			name.push(`tr[${this.trainer}]`);
+		}
+		else if (this.trainer === true) {
+			name.push('trX');
+		}
+		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
 			}
 		}
-		if (!name.length) {
+		if (this.party) {
 			for (let p of this.party) {
 				name.push(`pk${p.dexid}`);
 			}
 		}
 		return name.join(';');
+	}
+	
+	toXml(hkey) {
+		let xml = `<battle `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `attemptId="${this.attemptId}" isImportant="${this.isImportant}">`;
+		if (typeof this.trainer === 'string') {
+			xml += `<trainer>${this.trainer}</trainer>`;
+		}
+		else if (this.trainer === true) {
+			xml += `<trainer>trainer</trainer>`;
+		}
+		else if (Array.isArray(this.trainer)) {
+			for (let trainer of this.trainer) {
+				xml += `<trainer trClass="${trainer.class}" trId="${trainer.id}">${trainer.className} ${trainer.name}</trainer>`;
+			}
+		}
+		if (this.party) {
+			for (let p of this.party) {
+				xml += `<combatant dexid="${p.dexid}" active="${p.active}" hp="${p.hp}">${p.species}${p.form?' '+p.form:''}</combatant>`;
+			}
+		}
+		xml += `</battle>`;
+		return xml;
 	}
 }
 
@@ -679,6 +796,7 @@ class SortedData {
 		
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
+		this.playerGender = data.gender;
 		
 		this.level_cap = data.level_cap || 100;
 		
@@ -687,7 +805,7 @@ class SortedData {
 		this._pokemon = new SortedPokemon(data, game);
 		this._inventory = new SortedInventory(data, game);
 		
-		this._battle = new SortedBattle(data, game);
+		this._battle = new SortedBattle(data, game, this._location);
 		
 		// badges
 		this.badges = {};
@@ -751,6 +869,10 @@ class SortedData {
 	
 	clone(code=200) {
 		return new SortedData({ data:this.rawData, code, ts:this.ts, game:this._rawGameIdx });
+	}
+	
+	getFromRaw(...name) {
+		return read(this.rawData, ...name);
 	}
 	
 	get badgeProgress() {

@@ -5,14 +5,20 @@ module.exports = {
 	/* Game Support */
 	// If this generation supports gendered pokemon
 	gender: true,
+	// If this generation supports pokemon forms
+	forms: true,
 	// If this generation supports pokerus
 	pokerus: true,
 	// If this generation supports held items
 	heldItem: true,
 	// If this generation supports shiny status
 	shiny: true,
+	// If this generation supports walk-behind mon (Pikachu in Yellow, any mon in HGSS)
+	walkBehind: false,
 	// If this generation supports a real-time clock
 	rtc: false,
+	// If this generation has a phonebook to register contacts in. (if so, name of the device)
+	phonebook: false,
 	// If this generation records a pokemon's met information (caught in what pokemon mainly)
 	caughtInfo: true,
 	// If this generation supports a split special stat (spD and spA, instead of just special)
@@ -38,6 +44,10 @@ module.exports = {
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,
+	// If this run is supplying full info for the pokemone on the enemy team
+	fullEnemyInfo: false,
+	// If this game has external information about phone contacts
+	contactInfo: false,
 	// If this generation puts its nicknaming in the current name slot, and should postpone
 	// reporting a name change until it is finished, put a regex here to match against
 	namingMatch: null,
@@ -50,6 +60,8 @@ module.exports = {
 	champName: "",
 	// The (default) name of the player's rival
 	rivalName: "",
+	// The (default) name of the player's friendly rival (can be an array if it's "the unchosen protagonist")
+	friendName: "",
 	
 	// Trainer classes to mark specially
 	trainerClasses: {
@@ -58,6 +70,9 @@ module.exports = {
 		leader: [],
 		e4: [],
 		champ: [],
+		m: [], // Male trainer classes
+		f: [], // Female trainer classes
+		p: [], // Plural trainer classes
 	},
 	// Wild pokemon species to mark specially
 	legendarySpecies: [
@@ -97,16 +112,25 @@ module.exports = {
 		686,687,688,
 	],
 	// Item id for Rare Candy
-	itemIds_rareCandy: [], //TODO
+	itemIds_rareCandy: [ 50 ],
 	// Item ids for reviving items
-	itemIds_revive: [], //TODO
+	itemIds_revive: [ 28,29,37,44, ],
 	// Item ids for HP healing items
 	itemIds_healHP: [
-		//TODO
+		17,23,24,25,26, //Potions
+		30,31,32,33, //drinks
+		34,35,//herbal
+		155,158,159,160,161,162,163, //berries
 	],
 	// Item ids for PP healing items
-	itemIds_healPP: [
-		//TODO
+	itemIds_healPP: [ 
+		38,39,40,41, //items
+		154, //berries
+	],
+	// Item ids for status healing items
+	itemIds_healStatus: [ 
+		18,19,20,21,22,23,27,36,42,54, //items
+		149,150,151,152,153,157,//berries
 	],
 	// Item ids for evolution stones
 	itemIds_evoStones: [ 80,81,82,83,84,85,107,108,109,849, ],
@@ -127,6 +151,11 @@ module.exports = {
 		690,691,692,693,694,
 		737,
 	],
+	// Item ids for the escape rope
+	itemIds_escapeRope: [ 78 ],
+	
+	moveId_surf: 57,
+	moveId_fly: 19,
 	
 	// Capacity of a PC box
 	pcBoxCapacity: 30,

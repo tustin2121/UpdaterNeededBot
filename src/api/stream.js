@@ -6,6 +6,7 @@ const HTTP = require('http');
 const HTTPS = require('https');
 const URL = require('url');
 const PATH = require('path');
+const EventEmitter = require('./events');
 
 const API_SAVE_DIR = PATH.resolve(__dirname, '../../memory/api');
 const NUM_PREV_SAVES = 50;
@@ -14,10 +15,12 @@ const { SortedData } = require('./pokedata');
 
 const LOGGER = getLogger('StreamAPI');
 
-class StreamAPI {
+class StreamAPI extends EventEmitter {
 	constructor({ url, updatePeriod, memory }) {
+		super();
 		this.updateUrl = url;
-		this._updateInterval = setInterval(this.refresh.bind(this), updatePeriod);
+		if (!global.exeFlags.dontConnect)
+			this._updateInterval = setInterval(this.refresh.bind(this), updatePeriod);
 		this.memory = memory;
 		
 		/** The sorted stream data from the most recent update. This data may match the previous
@@ -49,11 +52,13 @@ class StreamAPI {
 				/** Indicates if the UpdaterPool has gotten the most recent update. */
 				this.memory.hasPoppedUpdate = this.memory.hasPoppedUpdate || new Array(Bot.runConfig.numGames);
 				
-				// this.refresh();
+				this.emitLater('ready');
 				resolve();
 			});
 		});
 	}
+	
+	get apiIndex() { return this.memory.lastIndex; }
 	
 	isReady() {
 		return this._startup;
@@ -71,6 +76,7 @@ class StreamAPI {
 				let str = `${ts}\n`+JSON.stringify(data, null, '\t');
 				FS.writeFile( PATH.join(API_SAVE_DIR, `stream_api.${i}.json`), str, ()=>{
 					LOGGER.debug(`Previous API saved at stream_api.${i}.json`);
+					this.emit('api-written', i);
 				});
 				this.memory.lastIndex = i;
 			}
@@ -86,11 +92,12 @@ class StreamAPI {
 			LOGGER.trace(`Stream API parsed successfully.`);
 		} catch (e) {
 			LOGGER.error(`Error parsing Stream API:`, e);
-			currInfo = prevInfo.map(x=> x.clone(e.statusCode || 500));
+			currInfo = prevInfo.map(x=> x.clone(e.statusCode || 418));
 		}
 		this.currInfo = currInfo;
 		this.prevInfo = prevInfo;
 		this.memory.hasPoppedUpdate.fill(false);
+		this.emitLater('refreshed');
 	}
 	
 	getInfo(game=0) {
@@ -104,10 +111,10 @@ class StreamAPI {
 		try {
 			if (!this.memory.hasPoppedUpdate[game]) {
 				// If we haven't yet gotten this info, return proper current and previous
-				return { curr:this.currInfo[game], prev:this.prevInfo[game] };
+				return { curr:this.currInfo[game], prev:this.prevInfo[game], apiIndex:this.memory.lastIndex };
 			} else {
 				// If we have gotten this info before, return two currents, so no updates happen twice
-				return { curr:this.currInfo[game], prev:this.currInfo[game] };
+				return { curr:this.currInfo[game], prev:this.currInfo[game], apiIndex:this.memory.lastIndex };
 			}
 		} finally {
 			this.memory.hasPoppedUpdate[game] = true;
@@ -120,8 +127,10 @@ function disk_get(index, info) {
 		LOGGER.trace(`Loading Stream API from disk: stream_api.${index}.json`);
 		let data = FS.readFileSync(PATH.join(API_SAVE_DIR, `stream_api.${index}.json`), 'utf8');
 		let ts = data.split('\n',1)[0];
-		data = JSON.parse(data.substr(ts.length+1));
-		ts = Number.parseInt(ts, 10);
+		try {
+			data = JSON.parse(data.substr(ts.length+1));
+			ts = Number.parseInt(ts, 10);
+		} catch (e) { e.statusCode = 406; }
 		LOGGER.trace(`Retrieved last Stream API. About to parse.`);
 		for (let i = 0; i < Bot.runConfig.numGames; i++) {
 			let key = Bot.gameInfo(i).key;
@@ -135,7 +144,7 @@ function disk_get(index, info) {
 	} catch (e) {
 		// If there IS no previous info (first time running), or something
 		// is wrong with the previous info, default to an empty but valid API
-		let code = 500;
+		let code = e.statusCode || 418;
 		if (e.code === 'ENOENT') {
 			LOGGER.error(`Unable to load Previous Stream info: stream_api.${index}.json does not exist.`);
 			code = 404;

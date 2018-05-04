@@ -19,17 +19,21 @@ const RULES = [];
  */
 class PokemonModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory, 2);
+		super(config, memory, 3);
 		this.memory.savedBoxes = (this.memory.savedBoxes||[]);
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
 		let prev = prev_api.pokemon;
 		let curr = curr_api.pokemon;
 		
 		// If boxes are missing, that is an ApiDisturbance
 		if (curr.numNullBoxes) {
-			ledger.add(new ApiDisturbance(`${curr.numNullBoxes} PC boxes are missing!`));
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.INVALID_DATA,
+				reason: `${curr.numNullBoxes} PC boxes are missing!`
+			}));
 		}
 		
 		// Copy the pokemon map
@@ -63,7 +67,7 @@ class PokemonModule extends ReportingModule {
 		let removed = Object.keys(prev_map).filter(x=> !curr_map[x]).map(x=>prev_map[x]);
 		let same    = Object.keys(curr_map).filter(x=>!!prev_map[x]).map(x=>({ curr:curr_map[x], prev:prev_map[x] }));
 			
-		LOGGER.debug(`deltas: add=`, added, ` removed=`, removed, ` same.length=`, same.length);
+		this.debug(`deltas: add=`, added, ` removed=`, removed, ` same.length=`, same.length);
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {
@@ -74,6 +78,21 @@ class PokemonModule extends ReportingModule {
 		for (let mon of removed) {
 			ledger.add(new PokemonIsMissing(mon));
 		}
+		
+		// Note odd behaviors with gaining or losing pokemon
+		if (added.length > 4) {
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `More than 4 pokemon have been caught in one update cycle!`
+			}));
+		}
+		if (removed.length > 4) {
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `More than 4 pokemon have gone missing in one update cycle!`
+			}));
+		}
+		
 		// Note any updates to PC Pokemon
 		for (let { prev, curr } of same) {
 			if (prev.name !== curr.name) {
@@ -81,11 +100,11 @@ class PokemonModule extends ReportingModule {
 			}
 			// Items
 			if (Bot.runOpts('heldItem')) {
-				if (!prev.item && curr.item) {
+				if (!prev.item.id && curr.item.id) {
 					ledger.addItem(new MonGiveItem(curr, curr.item));
-				} else if (prev.item && !curr.item) {
+				} else if (prev.item.id && !curr.item.id) {
 					ledger.addItem(new MonTakeItem(curr, prev.item));
-				} else if (prev.item !== curr.item) {
+				} else if (prev.item.id !== curr.item.id) {
 					ledger.addItem(new MonSwapItem(curr, curr.item, prev.item));
 				}
 			}
@@ -123,20 +142,83 @@ class PokemonModule extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule('Postpone reporting of new Pokemon when we have a temporary party')
+	.when(ledger=>ledger.has('TemporaryPartyContext'))
+	.when(ledger=>ledger.has('PokemonGained'))
+	.then(ledger=>{
+		ledger.postpone(1); //Postpone PokemonGained
+	})
+);
+
+RULES.push(new Rule('Postpone reporting of lost Pokemon when we have a temporary party')
+	.when(ledger=>ledger.has('TemporaryPartyContext'))
+	.when(ledger=>ledger.has('PokemonIsMissing'))
+	.then(ledger=>{
+		ledger.postpone(1); //Postpone PokemonIsMissing
+	})
+);
+
+
+RULES.push(new Rule('Pokemon found to be in a new storage location are deposited.')
+	//PokemonFound = merge of PokemonIsMissing and PokemonGained
+	.when(ledger=>ledger.has('PokemonFound').with('inNewLocation', true).unmarked()) 
+	.then(ledger=>{
+		ledger.mark(0).get(0).forEach(x=>{
+			let { prev, curr } = x;
+			if (typeof prev.storedIn !== 'string' || typeof curr.storedIn !== 'string') return; //sanity check
+			// A copy of the Location changes above
+			if (prev.storedIn.startsWith('party') && !curr.storedIn.startsWith('party')) {
+				if (curr.storedIn.startsWith('box')) {
+					ledger.add(new PokemonDeposited(curr, prev.storedIn, 'pc'));
+				}
+				else if (curr.storedIn.startsWith('daycare')) {
+					ledger.add(new PokemonDeposited(curr, prev.storedIn, 'daycare'));
+				}
+				//TODO Poke islands in Gen 7?
+			}
+			else if (prev.storedIn.startsWith('box') && curr.storedIn.startsWith('party')) {
+				ledger.add(new PokemonRetrieved(curr, prev.storedIn, 'pc'));
+			}
+			else if (prev.storedIn.startsWith('daycare') && curr.storedIn.startsWith('party')) {
+				ledger.add(new PokemonRetrieved(curr, prev.storedIn, 'daycare'));
+			}
+			//TODO Poke islands in Gen 7?
+			// Cannot cross from box directly into daycare or visaversa
+		});
+	})
+);
+
 RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPokemon are traded')
 	.when(ledger=>ledger.has('PokemonIsMissing'))
-	.when(ledger=>ledger.has('PokemonGained').withSame('mon.storedIn'))
+	.when(ledger=>ledger.has('PokemonGained'))
+	.when(ledger=>{// If there are PokemonIsMissing and PokemonGained entries that match, match them up
+		let MIA = new Map(ledger.get(0).map(x=> [x.mon.storedIn, x]));
+		let NEW = new Map(ledger.get(1).map(x=> [x.mon.storedIn, x]));
+		let MAP = new Map();
+		NEW.forEach((val, key)=>{
+			if (MIA.has(key)) {
+				MAP.set(val, MIA.get(key));
+			}
+		});
+		ledger.matchedItems.push(MAP); 
+		return MAP.size > 0; //return true if we found some matches
+	})
 	.then(ledger=>{
-		let MIA = ledger.get(0);
-		let NEW = ledger.get(1);
-		if (MIA.length !== NEW.length) {
-			LOGGER.error('Invalid Rule Application: Number of PokemonIsMissing does not match number of PokemonGained!', MIA, NEW);
-			return;
+		let MAP = ledger.get(2);
+		for (let match of MAP) { //match is an array [PokemonGained, PokemonIsMissing];
+			ledger.add(new PokemonTraded(match[0].mon, match[1].mon));
+			ledger.remove(match); //removes both ledger items
 		}
-		ledger.remove(0); ledger.remove(1);
-		for (let i = 0; i < MIA.length && i < NEW.length; i++) {
-			ledger.add(new PokemonTraded(NEW[i], MIA[i]));
-		}
+	})
+);
+
+RULES.push(new Rule('Report multiple Pokemon changing their name at once as an ApiDisturbance')
+	.when(ledger=>ledger.has('MonNicknameChanged').newlyAdded().moreThan(1))
+	.then(ledger=>{
+		ledger.add(new ApiDisturbance({
+			code: ApiDisturbance.LOGIC_ERROR,
+			reason: 'Multiple Pokemon changed their nicknames in one update cycle.',
+		}));
 	})
 );
 

@@ -6,15 +6,16 @@ const util = require('util');
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
 		/** The importance level of this item. Ranges from 0 to 2. */
+		if (typeof imp !== 'number') throw new TypeError('Importance must be a number!');
 		this.importance = imp;
 		/**
-		 * When the bot is helping, this identifies ledger items which are posted while doing so. 
+		 * When the bot is helping, this identifies ledger items which are posted while doing so.
 		 * Can be 'catches','shopping','items','level', or null
 		 */
 		this.helptype = helps;
 		/**
 		 * The "flavor" of a ledger item provides more context for the Typesetter for when it is
-		 * translating this item into English. 
+		 * translating this item into English.
 		 */
 		this.flavor = flavor;
 		
@@ -22,6 +23,8 @@ class LedgerItem {
 		this._sort = sort;
 		/** If this item has been processed already by a given rule. */
 		this._marked = new Set();
+		/** Number of times this item has been postponed. */
+		this._postponeCount = 0;
 	}
 	
 	get name() { return this.constructor.name; }
@@ -32,13 +35,14 @@ class LedgerItem {
 		}
 		let txt = `[${this.name} | ${this.flavor}`;
 		for (let key in this){
-			if (key === 'importance') continue;
+			// if (key === 'importance') continue;
 			if (key === 'helptype') continue;
 			if (key === 'flavor') continue;
-			if (key === '_sort') continue;
-			if (key === '_marked') continue;
+			if (key.startsWith('_')) continue;
 			let val = this[key];
 			if (val === undefined) continue;
+			if (typeof key === 'symbol') key = key.toString();
+			if (typeof val === 'symbol') val = val.toString();
 			txt += ` | ${key}=${val}`;
 		}
 		return txt + ']';
@@ -55,12 +59,12 @@ class LedgerItem {
 			if (key === 'importance') continue;
 			if (key === 'helptype') continue;
 			if (key === 'flavor') continue;
-			if (key === '_sort') continue;
-			if (key === '_marked') continue;
+			if (key.startsWith('_')) continue;
 			let val = this[key];
 			if (val === undefined) continue;
+			if (typeof val === 'symbol') continue;
 			
-			if (val.toXml) {
+			if (val && val.toXml) {
 				xml += val.toXml(key);
 			} else {
 				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;
@@ -102,7 +106,7 @@ class LedgerItem {
 	 * Returns true if this message should be allowed to be taken from the current
 	 * ledger and postponed to the next ledger. Returns false if it should not be
 	 * allowed.
-	 * 
+	 *
 	 * If this method returns another LedgerItem, that item will instead be the one
 	 * moved to the next ledger, and this one will stay in place.
 	 */

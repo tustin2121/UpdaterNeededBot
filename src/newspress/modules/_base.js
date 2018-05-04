@@ -7,6 +7,15 @@ class ReportingModule {
 		this.memory = memory;
 		this.priority = priority;
 		this.gameIndex = 0;
+		this.debug = ()=>{};
+	}
+	
+	setDebug(logger, ledger) {
+		const NAME = this.constructor.name.slice(0, -6); //slice off Module
+		this.debug = (...args)=>{
+			ledger.log.moduleLog(NAME, ...args);
+			logger.debug(...args);
+		};
 	}
 	
 	/**
@@ -31,6 +40,7 @@ class ReportingModule {
 ////////////////////////////////////////////////////////////////////////////////
 
 const LOGGER = getLogger('Rule');
+const { LedgerItem } = require('../ledger');
 
 /** The static rule that will be applied on the second passes. */
 class Rule {
@@ -223,6 +233,13 @@ class RuleInstance {
 		return this.with('flavor', null);
 	}
 	
+	newlyAdded() {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.workingList.filter(x=>x._postponeCount === 0);
+		this.lastResult = (this.workingList && this.workingList.length > 0);
+		return this;
+	}
+	
 	ofImportance() {
 		if (this.lastResult === false) return this; //do nothing
 		this.workingList = this.workingList.filter(x=>x.importance >=1);
@@ -257,68 +274,89 @@ class RuleInstance {
 		return this;
 	}
 	
+	/**
+	 * Finds a MapContext item and gets the node represented in it, and passes it to the
+	 * callback lambda to test with.
+	 */
+	hasMapThatIs(attr, val) {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.ledger.findAllItemsWithName('MapContext');
+		if (this.workingList.length !== 1) {
+			this.lastResult = false;
+			return this;
+		}
+		let node = this.workingList[0].loc;
+		if (val !== undefined) {
+			this.lastResult = !!(node.is(attr) === val);
+		} else {
+			this.lastResult = !!(node.is(attr));
+		}
+		return this;
+	}
+	
 	////////////////////////////////////////////////////////////////////
 	
 	/** Adds a new item to the ledger. */
 	add(item) {
 		this.ledger.addItem(item);
+		return this; //for chaining
 	}
 	/** Gets a previously found item. */
 	get(idx) {
-		return this.matchedItems[idx];
-	}
-	/** Marks a previously found item. */
-	mark(idx) {
-		let items = this.matchedItems[idx];
-		if (items) {
-			items.forEach((i)=>i.mark(this.rule));
+		if (typeof idx === 'number') {
+			return this.matchedItems[idx];
 		}
+		else if (idx instanceof LedgerItem) {
+			return idx; //for consistency
+		}
+		else throw new TypeError('Invalid argument!');
+	}
+	/** Internal method which modifies a set of matched elements */
+	_do(idx, fn) {
+		if (typeof idx === 'number') {
+			let items = this.matchedItems[idx];
+			if (items) {
+				items.forEach(fn);
+			}
+		}
+		else if (Array.isArray(idx)) {
+			idx.filter(x=>x instanceof LedgerItem).forEach(fn);
+		}
+		else if (idx instanceof LedgerItem) {
+			fn(idx);
+		}
+		else throw new TypeError('Invalid argument!');
 		return this; //for chaining
 	}
-	/** Marks a previously found item and gets it. */
-	markAndGet(idx) {
-		let items = this.matchedItems[idx];
-		if (items) {
-			items.forEach((i)=>i.mark(this.rule));
-		}
-		return items;
+	
+	
+	/** Marks a previously found item. */
+	mark(idx) {
+		return this._do(idx, (i)=>i.mark(this.rule));
 	}
 	/** Gets a previously found item, and removes it from the ledger. */
 	remove(idx) {
-		let items = this.matchedItems[idx];
-		if (items) {
-			items.forEach((i)=>this.ledger.removeItem(i));
-		}
-		return items;
+		return this._do(idx, (i)=>this.ledger.removeItem(i));
 	}
 	/** Postpones all matched items at index. */
 	postpone(idx) {
-		let items = this.matchedItems[idx];
-		if (items) {
-			items.forEach((i)=>this.ledger.postponeItem(i));
-		}
-		return items;
+		return this._do(idx, (i)=>this.ledger.postponeItem(i));
 	}
 	/** Promotes the importance of all matched items by 1. */
 	promote(idx, impBoost=1) {
-		let items = this.matchedItems[idx];
-		if (items) {
-			items.forEach((i)=>i.importance += impBoost);
-		}
-		return items;
+		return this._do(idx, (i)=>i.importance += impBoost);
 	}
 	/** Demotes the importance of all matched items by 1. */
 	demote(idx, impBoost=1) {
-		let items = this.matchedItems[idx];
-		if (items) {
-			items.forEach((i)=>i.importance -= impBoost);
-		}
-		return items;
+		return this._do(idx, (i)=>i.importance -= impBoost);
 	}
 	
+	// Backwards compatibility
+	getAndRemove(idx) { return this.remove(idx).get(idx);  }
+	getAndPostpone(idx) { return this.postpone(idx).get(idx);  }
+	markAndGet(idx){ return this.mark(idx).get(idx); }
+	getAndMark(idx){ return this.mark(idx).get(idx); }
 }
-RuleInstance.prototype.getAndRemove = RuleInstance.prototype.remove;
-RuleInstance.prototype.getAndPostpone = RuleInstance.prototype.postpone;
 
 /*
 new Rule("Pokeballs lost in battle are thrown at the opponent")

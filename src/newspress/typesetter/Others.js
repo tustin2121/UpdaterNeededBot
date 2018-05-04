@@ -15,10 +15,10 @@ let singular = {
 		],
 	},
 	'frame': [
-		`We're tried of the current frame style, and switch it up in the options menu.`,
+		`We're tired of the current frame style, and switch it up in the options menu.`,
 		`We redecorate our textboxes in the options.`,
 		`I kinda like the new textbox frame we just chose.`,
-		`New minute, new textbox frame style; gotta keep up with fashion trends.`,
+		`Out with the old, in with the new textbox frame style; gotta keep up with fashion trends.`,
 	],
 	'menu_account': null,
 	'print': null,
@@ -63,15 +63,15 @@ let singular = {
 };
 let plural = {
 	'__main__': [
-		`We take a tour through the options screen and {{list}}.`,
-		`We examine the options and decide to {{list}}.`,
-		`During a visit to the options screen, we {{list}}.`,
-		`We decided to {{list}}.`,
+		`We take a tour through the options screen and {{@val}}.`,
+		`We examine the options and decide to {{@val}}.`,
+		`During a visit to the options screen, we {{@val}}.`,
+		`We decided to {{@val}}.`,
 	],
 	'battle_scene': [
-		`turn battle animations {{val}}`,
-		`turn {{val}} the battle animations`,
-		`set battle scene to {{val}}`,
+		`turn battle animations {{@val}}`,
+		`turn {{@val}} the battle animations`,
+		`set battle scene to {{@val}}`,
 	],
 	'battle_style': {
 		'set': [
@@ -92,14 +92,14 @@ let plural = {
 	'menu_account': null,
 	'print': null,
 	'sound': [
-		`change the sound to {{val}}`,
-		`change the music to {{val}}`,
-		`listen to {{val}} music`,
+		`change the sound to {{@val}}`,
+		`change the music to {{@val}}`,
+		`listen to {{@val}} music`,
 	],
 	'text_speed': [
-		`adjust the text speed to {{val}}`,
-		`change the text speed to {{val}}`,
-		`make the text {{val}}`,
+		`adjust the text speed to {{@val}}`,
+		`change the text speed to {{@val}}`,
+		`make the text {{@val}}`,
 	],
 	'box_mode': {
 		'automatic': [
@@ -112,14 +112,14 @@ let plural = {
 			`change the box mode to 'manual'`,
 			`switch the box mode to 'manual'`,
 			`switch to manual handling of freshly caught pokemon`,
-			`decide what to do with newly caught pokemon`,
+			`choose to decide what to do with newly caught pokemon when we catch them`,
 		],
 	},
 };
 
 let OptionsChanged = {
 	// opts = the changed options
-	default: (item, { fillText })=>{
+	default: function(item) {
 		let keys = Object.keys(item.changes);
 		if (keys.length === 1) {
 			return get(singular, keys[0], item[keys[0]]);
@@ -148,9 +148,9 @@ let OptionsChanged = {
 			if (!p) return null;
 			if (p[val]) p = p[val];
 			if (Array.isArray(p)) {
-				p = p[Math.floor(Math.random()*p.length)];
+				p = p[this.rand(p.length)];
 			}
-			p = fillText(p, { val });
+			p = this.fillText(p, { val });
 			return p;
 		}
 	},
@@ -172,5 +172,21 @@ module.exports = {
 		rday: [ `` ],
 		rmorning: [ `` ],
 		rnight: [ `` ],
+	},
+	
+	PhonebookAdd: {
+		default: [
+			`<b>We register {{@contact}} in our {{phone}}!</b>`,
+			`<b>We add {{@contact}} to our phonebook!</b>`,
+			`<b>{{$@contact}} give{{*s}} us {{their}} number, and we add it to our {{phone}}!</b>`,
+			`We liked battling {{@contact}} so much, <b>we decide to add {{them|@contact}} to our contacts!</b>`,
+		],
+	},
+	PhonebookRemove: {
+		default: [
+			`Tired of all the constant calls from {{them|@contact}}, <b>we delete {{@contact}} from our phonebook!</b>`,
+			`We make a snap decision and <b>delete {{@contact}} from our {{phone}}.</b>`,
+			`We decide that we're better without {{@contact}} in our lives. <b>We delete {{them|@contact}} from our contact list!</b>`,
+		],
 	},
 };

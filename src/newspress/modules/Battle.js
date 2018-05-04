@@ -3,7 +3,7 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	ApiDisturbance, BadgeGet, 
+	ApiDisturbance, BadgeGet,
 	BattleContext, BattleStarted, BattleEnded,
 	BlackoutContext,
 } = require('../ledger');
@@ -19,20 +19,24 @@ const RULES = [];
  */
 class BattleModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory, 1);
+		super(config, memory, 2);
 		this.memory.attempts = this.memory.attempts || {};
+		this.memory.badgeMax = this.memory.badgeMax || 0;
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
+		
 		let pb = prev.battle;
 		let cb = curr.battle;
 		if (cb.in_battle) {
 			ledger.addItem(new BattleContext(cb));
 		}
 		
+		// Battle handling
 		if (cb.in_battle && !pb.in_battle) {
 			let attempt = 0;
-			LOGGER.debug(`battle: [${cb.attemptId}] imp=${cb.isImportant} attempts=${this.memory.attempts[cb.attemptId]}`);
+			this.debug(`battle: [${cb.attemptId}] imp=${cb.isImportant} attempts=${this.memory.attempts[cb.attemptId]}`);
 			
 			if (cb.isImportant) {
 				attempt = (this.memory.attempts[cb.attemptId] || 0);
@@ -43,23 +47,23 @@ class BattleModule extends ReportingModule {
 		}
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
-			return;
 		}
-		
-		if (cb.in_battle) {
+		else if (cb.in_battle) {
 			let healthy = cb.party.filter(p=>p.hp);
-			LOGGER.debug(`party=`,cb.party,`healthy=`,healthy);
+			this.debug(`displayName=`,cb.displayName,` isImportant=`,cb.isImportant);
+			this.debug(`party=`,cb.party);
+			LOGGER.debug(`moves=`, cb.party.map(x=>x.moveInfo));
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
-			} else {
-				
-				
 			}
 		}
 		
 		// Badges
 		if (this.memory.badgeMax > curr.numBadges) {
-			ledger.addItem(new ApiDisturbance('Number of badges has decreased!'));
+			ledger.addItem(new ApiDisturbance({ 
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: 'Number of badges has decreased!' 
+			}));
 		}
 		if (curr.numBadges > prev.numBadges) {
 			for (let badge in curr.badges) {
@@ -76,26 +80,33 @@ class BattleModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let battleItems = ledger.findAllItemsWithName('BattleStarted')
-			.filter(x=>x.battle.isImportant && !x.battle.isE4 && !x.battle.isLeader); //TODO remove leader, add rematch testing
-		if (battleItems.length) {
-			let game = ' on stream';
-			if (Bot.runConfig.numGames > 1) {
-				game = Bot.gameInfo(this.gameIndex).name;
-				game = ` in ${game}`;
+		if (Bot.runFlag('alert_battles', true)) {
+			let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
+			if (battleItems.length) {
+				let game = ' on stream';
+				if (Bot.runConfig.numGames > 1) {
+					game = Bot.gameInfo(this.gameIndex).name;
+					game = ` in ${game}`;
+				}
+				let txt = battleItems.map(x=>{
+					if (x.isLegendary) {
+						return `We've encounter legendary pokemon ${x.battle.displayName}${game}!`;
+					}
+					else if (x.isRival) {
+						return `We're battle our rival ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
+					}
+					else {
+						return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
+					}
+				}).join('\n');
+				Bot.alertUpdaters(txt, true);
 			}
-			let txt = battleItems.map(x=>{
-				if (x.isLegendary) {
-					return `We've encounter legendary pokemon ${x.battle.displayName}${game}!`;
-				}
-				else if (x.isRival) {
-					return `We're battle our rival ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
-				}
-				else {
-					return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
-				}
-			}).join('\n');
-			Bot.alertUpdaters(txt, true);
+		}
+		if (Bot.runFlag('alert_badges', true)) {
+			let badgeItems = ledger.findAllItemsWithName('BadgeGet');
+			if (badgeItems.length) {
+				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, false);
+			}
 		}
 	}
 }

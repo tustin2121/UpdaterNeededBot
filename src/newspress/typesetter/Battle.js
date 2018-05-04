@@ -11,9 +11,9 @@ module.exports = {
 			return m;
 		},
 		rematch: [
-			`<b>Vs {{battle.displayName}} again!</b>`,
-			`<b>Vs {{battle.displayName}} in a rematch!</b>`,
-			`<b>Facing off against {{battle.displayName}} in a rematch!</b>`,
+			`<b>Vs {{@battle.displayName}} again!</b>`,
+			`<b>Vs {{@battle.displayName}} in a rematch!</b>`,
+			`<b>Facing off against {{@battle.displayName}} in a rematch!</b>`,
 		],
 		wild: (item)=>{
 			let m = `<b>Vs Wild ${item.battle.displayName}!</b>`;
@@ -26,16 +26,16 @@ module.exports = {
 		//TODO
 		default: null,
 		ended: [
-			`<b>We defeat {{battle.displayName}}!</b>`,
-			`<b>Defeated {{battle.displayName}}!</b>`,
+			`<b>We defeat {{@battle.displayName}}!</b>`,
+			`<b>Defeated {{@battle.displayName}}!</b>`,
 		],
-	}, 
+	},
 	EnemyFainted: null, //TODO
 	
 	BadgeGet: {
 		default: [
-			`**Received the {{badge}} Badge!**`,
-			`**Got the {{badge}} Badge!**`,
+			`<b>Received the {{@badge}} Badge!</b>`,
+			`<b>Got the {{@badge}} Badge!</b>`,
 		],
 	},
 };

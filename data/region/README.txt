@@ -13,8 +13,8 @@ A region definition looks like this (give or take the usual JSON requirements):
 	},
 	nodes: {
 		// A map of all nodes. In "banked" mode, keys are banks to object values, and
-		// the subobjects have mapid keys to node values. In "single" mode, this is
-		// one layer deep.
+		// the subobjects have mapid keys to node values. In "single" mode, everything
+		// is under bank 0.
 		0x18: {
 			0x04: {
 				//Node definition (see below)

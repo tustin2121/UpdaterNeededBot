@@ -44,14 +44,15 @@ class Ledger {
 		LOGGER.warn('Postponing item:', item, can);
 		if (can) {
 			if (can instanceof LedgerItem) {
-				LOGGER.warn('Postponing is replacement.')
 				this.postponeList.push(can);
 			}
 			else {
-				LOGGER.warn('Postponing now.')
 				this.removeItem(item);
 				this.postponeList.push(item);
+				item._postponeCount++;
 			}
+		} else {
+			LOGGER.warn(`Attempted to postpone item which is not allowed to be postponed!`, item, can);
 		}
 	}
 	/**
@@ -61,16 +62,20 @@ class Ledger {
 	addPostponedItems(ledger) {
 		if (!ledger) return;
 		let pItems = ledger.postponeList.slice();
+		this.log.premergeState(this.list, pItems);
 		for (let a = 0; a < this.list.length; a++) {
 			for (let b = 0; b < pItems.length; b++) {
 				let res = this.list[a].cancelsOut(pItems[b]);
 				if (res) {
 					if (res === this.list[a]) {
 						// do nothing, coalesced
+						this.log.merged('coalesced', this.list[a], pItems[b]);
 					} else if (res instanceof LedgerItem) {
-						this.list.splice(a, 1, res); //replace
+						let x = this.list.splice(a, 1, res); //replace
+						this.log.merged('replaced', x[0], pItems[b], res);
 					} else {
-						this.list.splice(a, 1); a--; //remove
+						let x = this.list.splice(a, 1); a--; //remove
+						this.log.merged('removed', x[0], pItems[b]);
 					}
 					pItems.splice(b, 1); b--; //remove
 				}
@@ -94,6 +99,7 @@ class Ledger {
 	
 	/** Sorts the ledger and drops all items below 1 importance. */
 	finalize() {
+		this.log.ledgerState(this);
 		this.list.sort(LedgerItem.compare);
 		let i = 0;
 		for (i = 0; i < this.list.length; i++) {
@@ -185,7 +191,62 @@ Ledger.prototype.remove = Ledger.prototype.removeItem;
 
 class DebugLogs {
 	constructor() {
-		//TODO
+		this.uid = DebugLogs.generateId();
+		this.apiNum = -1;
+		this.modules = {};
+		this.preledger = '';
+		this.merges = [];
+		this.rules = [];
+		this.postledger = '';
+		this.typesetter = [];
+		this.update = '';
+		
+		this._currTypesetter = null;
+	}
+	
+	static generateId() {
+		let ts = Date.now().toString(36);
+		let rand = Math.floor(Math.random()*0xFFFF).toString(36);
+		return ts + rand;
+	}
+	
+	getXml() {
+		let xml = '';
+		xml += `<api>${this.apiNum}</api>`;
+		{
+			let mods = [];
+			for (let mod in this.modules) {
+				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
+			}
+			xml += `<modules>${mods.join('')}</modules>`;
+		}
+		xml += `<preledger>${this.preledger}</preledger>`;
+		xml += `<merges>${this.merges.join('')}</merges>`;
+		xml += `<rules>${this.rules.join('')}</rules>`;
+		xml += `<postledger>${this.postledger}</postledger>`;
+		xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
+		xml += `<update>${this.update}</update>`;
+		return `<state>${xml}</state>`;
+	}
+	
+	apiIndex(num) {
+		this.apiNum = num;
+	}
+	
+	moduleRun(mod) {
+		let modName = mod.constructor.name.slice(0, -6); //slice off Module
+		this.modules[modName] = this.modules[modName] || [];
+	}
+	
+	moduleLog(modName, ...str) {
+		str = str.map(x=>String(x)).join(' ');
+		this.modules[modName] = this.modules[modName] || [];
+		this.modules[modName].push(str);
+		return str;
+	}
+	
+	ruleRound(num) {
+		this.rules.push(`<marker>Round ${num}</marker>`);
 	}
 	
 	/**
@@ -193,8 +254,53 @@ class DebugLogs {
 	 * @param {RuleInstance} ruleInst - The instance of the rule applied
 	 */
 	ruleApplied(ruleInst) {
-		
+		let matched = ruleInst.matchedItems.map((m, i)=>{
+			let itemXml;
+			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml()).join('');
+			else itemXml = `<matchObj index="${i}">${m}</matchObj>`;
+			return `<match index="${i}">${itemXml}</match>`;
+		}).join('');
+		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
 	}
+	
+	premergeState(items, postItems) {
+		this.preledger = `<items>${items.map(x=>x.toXml()).join('')}</items>`;
+		if (postItems.length) this.preledger += `<post>${postItems.map(x=>x.toXml()).join('')}</post>`;
+	}
+	
+	/**
+	 * @param{string} type - one of 'coalesced','replaced','removed'
+	 */
+	merged(type, ...items) {
+		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`).join('')}</merge>`);
+	}
+	
+	ledgerState(ledger) {
+		this.postledger = `<items>${ledger.list.map(x=>x.toXml()).join('')}</items>`;
+		if (ledger.postponeList.length) this.postledger += `<post>${ledger.postponeList.map(x=>x.toXml()).join('')}</post>`;
+	}
+	
+	typesetterInput(itemArray) {
+		this._currTypesetter = [];
+		this._currTypesetter.push(`<in num="${itemArray.length}" flavor="${itemArray[0].flavor||'default'}">${itemArray[0].name}</in>`);
+	}
+	typesetterFormat(format) {
+		this._currTypesetter.push(`<format>${escapeHtml(format)}</format>`);
+	}
+	typesetterOutput(out) {
+		this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
+		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
+		this._currTypesetter = null;
+	}
+	
+	finalUpdate(update) {
+		this.update = update;
+	}
+}
+
+function escapeHtml(str) {
+	if (!str) return str;
+	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 module.exports = Object.assign({
@@ -204,7 +310,6 @@ module.exports = Object.assign({
 	require('./ApiMonitoring'),
 	require('./Battle'),
 	require('./E4'),
-	require('./Health'),
 	require('./Item'),
 	require('./Location'),
 	require('./Others'),

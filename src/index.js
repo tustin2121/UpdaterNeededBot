@@ -2,13 +2,15 @@
 // An updater bot that polls the stream API and chat and posts updates
 
 global.getLogger = require('./logging');
+global.exeFlags = {
+	dontConnect: process.argv[2] === 'noconnect',
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 
 const fs = require("fs");
 const path = require('path');
 const mkdirp = require('mkdirp');
-const saveProxy = require('./save-proxy');
 const UpdaterBot = require('./bot');
 
 const LOGGER = getLogger('MAIN');
@@ -16,6 +18,10 @@ const LOGGER = getLogger('MAIN');
 const MEMORY_FILE = path.resolve(__dirname, '../memory', 'memory.json');
 
 ////////////////////////////////////////////////////////////////////////////////
+
+if (!process.stdout.isTTY) {
+	LOGGER.warn(`Warning: starting without TTY. You may not be able to Ctrl+C.`);
+}
 
 LOGGER.info('Starting UpdaterNeeded.');
 
@@ -39,5 +45,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/s501-dual-gen1'));
+global.Bot = new UpdaterBot(require('../data/runs/s502-storm-silver.js'));
 Bot.start();

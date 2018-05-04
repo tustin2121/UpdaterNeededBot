@@ -1,0 +1,327 @@
+/* main.css */
+body {
+	margin: 0;
+	overflow: hidden;
+}
+.dialog {
+	display: none;
+	position: fixed;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.dialogInner {
+	position: relative;
+	width: 430px;
+	margin: 30px auto;
+	background-color: white;
+	padding: 20px;
+	border-radius: 20px;
+}
+.dialogInner label {
+	display: block;
+	padding: 2px 0px;
+}
+.dialogInner button[name=closeBtn] {
+	position: absolute;
+	top: -25px;
+	right: 0px;
+}
+
+.treepane {
+	overflow-y: scroll;
+	margin: 0;
+	padding: 0 0 0 5px;
+	font-family: sans-serif;
+	font-size: 10pt;
+}
+.treepane span {
+	white-space: nowrap;
+	display: block;
+	margin-left: -100px;
+	padding-left: 100px;
+}
+.treepane li.n0 > span { background-color:rgba(0,0,0, 0.06); }
+.treepane li.n1 > span { background-color:rgba(0,0,0, 0.13); }
+.treepane span.selected {
+	font-weight: bold;
+}
+.treepane span.emptyslot {
+	color: #888888;
+}
+.treepane span.emptyslot::after {
+	content: ' [empty]';
+    font-size: 65%;
+}
+.treepane span.template {
+	color: #888888;
+}
+.treepane span.template::after {
+	content: ' [templated]';
+	font-size: 65%;
+}
+.treepane ul {
+	padding-left: 12px;
+	list-style-type: none;
+}
+.treepane li {
+	position: relative;
+}
+/* .treepane li.n0::before,
+.treepane li.n1::before {
+	content: '\00a0';
+	position: absolute;
+	z-index: -10;
+	left: -100px; right: 0;
+}
+.treepane li.n0::before { background-color:#EEEEEE; }
+.treepane li.n1::before { background-color:#DDDDDD; } */
+.treepane li.closed ul { display:none; }
+
+/* Files */
+.treepane li span {
+	color: #000000;
+	cursor: pointer;
+}
+
+.treepane li span.arrow {
+	display: inline;
+	color: #AAAAAA;
+}
+.treepane li .arrow::before {
+	content: '\25BC  '; /* arrow down */
+}
+.treepane li.closed .arrow::before {
+	content: '\25BA  '; /* arrow right */
+}
+.treepane li.leaf .arrow::before,
+.treepane li .arrow.leaf::before {
+	content: '\3000  '; /* nbsp */
+}
+
+.proppane {
+	overflow-y: scroll;
+	margin: 0; padding: 0;
+	font-family: sans-serif;
+	font-size: 10pt;
+}
+.proppane header {
+	display: block;
+	padding: 3;
+	height: 15px;
+	position: relative;
+	background-color: #628aac;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+.proppane div {
+	display: block;
+	padding: 0;
+	position: relative;
+}
+.proppane div:nth-of-type(even) {
+	background-color: #d4ebff;
+}
+.proppane label {
+	display: block;
+	padding: 0;
+	height: 21px;
+	position: relative;
+}
+.proppane > label:nth-child(odd) {
+	background-color: #d4ebff;
+}
+.proppane label.overridden {
+	font-weight: bold;
+}
+.proppane label.disabled {
+	color: #888888;
+}
+.proppane label.disabled input {
+	opacity: 0.5;
+}
+.proppane label > span.key {
+	margin: 3px;
+	vertical-align: baseline;
+	display: inline-block;
+	width: 130px;
+	word-wrap: break-word;
+}
+.proppane label > span.val {
+	position: absolute;
+	display: inline-block;
+	top: 0; right: 0;
+	width: 205px;
+}
+.proppane label > .val input[type="text"] {
+    position: absolute;
+}
+.proppane label > input.val {
+	position: absolute;
+	top: 0; right: 0;
+	width: 205px;
+}
+.proppane label > select.val {
+	position: absolute;
+	top: 0; right: 0;
+	width: 205px;
+	height: inherit;
+}
+.proppane label > span.valpair {
+	position: absolute;
+	display: inline-block;
+	top: 0; right: 0;
+	width: 205px;
+}
+.proppane label > span.valpair > input.val {
+	width: 50%;
+}
+.proppane label .val label.radio {
+    /* vertical-align: bottom; */
+    /* padding-right: 0; */
+    border: none;
+    background-color: initial;
+	border-left: 1px solid #b7b7b7;
+    border-radius: 0;
+}
+.proppane label .val label.radio input[type="text"] {
+    width: 90px;
+}
+
+.proppane div.newReport > button {
+	margin: 4px 15px;
+    width: -webkit-fill-available;
+}
+
+.proppane label input[type="checkbox"] {
+	-webkit-appearance: none;
+	border: 1px solid #a6a6a6;
+	border-radius: 2px;
+	width: 1em; height: 1em;
+	background-color: #ffffff;
+	background: linear-gradient(to bottom, #ededed 0%,#dedede 100%);
+	box-shadow: 0px 1px #eaeaea;
+}
+.proppane label input[type="checkbox"]::after {
+	content: '\2716';
+	position: absolute;
+	margin-top: -4px;
+}
+.proppane label input[type="checkbox"]:checked::after {
+	content: '\2714';
+	margin-top: -3px;
+}
+.proppane label input[type="checkbox"]:indeterminate::after {
+	content: '';
+}
+
+/* */
+
+label.radio {
+	background-color: #fdfdfd;
+	border: 1px #b9b9b9 solid;
+	display: initial;
+	padding-right: 4px;
+	border-radius: 10px;
+}
+
+
+body > main {
+	position: absolute;
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+	display: grid;
+	grid-template:
+		"tree props parent" 1fr
+		"tree props trans" 1fr
+		/ 250px 1fr 1fr;
+}
+
+#maptree {
+	grid-area: tree;
+	border-right: solid 2px #888;
+}
+#mapprops {
+	grid-area: props;
+	border-right: solid 2px #888;
+}
+#parentprops {
+	grid-area: parent;
+	border-bottom: solid 2px #888;
+}
+#transprops {
+	grid-area: trans;
+}
+
+#mapprops::before { content: 'Selected Map'; }
+#parentprops::before { content: 'Parent Map'; }
+#transprops::before { content: 'Transit Reports'; }
+.proppane::before {
+	display: block;
+	padding: 3;
+	height: 15px;
+	position: relative;
+	background-color: #585858;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+#transprops .report {
+    display: grid;
+    grid-template: "map time" "txt txt" / 2fr 1fr;
+    align-items: center;
+    padding: 4px;
+}
+#transprops .report .from,
+#transprops .report .to {
+    grid-area: map;
+    display: block;
+    padding: 2px 6px;
+}
+#transprops .report .from::before { content: '[from] '; }
+#transprops .report .to::before   { content: '[to] '; }
+#transprops .report .from::before,
+#transprops .report .to::before {
+    font-size: 65%;
+    color: #888888;
+    margin-left: -5px;
+}
+#transprops .report .timeout {
+    grid-area: time;
+	width: 100%;
+    background-color: rgba(255,255,255,0.2);
+}
+#transprops .report textarea {
+    grid-area: txt;
+    background-color: rgba(255,255,255,0.2);
+	min-height: 4em;
+}
+
+#newDialog [name=genRadio] {
+	display: none;
+}
+
+#selectMapDialog .treepane {
+	background-color: #d4ffd7;
+}
+#selectMapDialog .treepane .selected {
+    background-color: #fffa6c;
+}
+
+/*
+#defaultsDialog .dialogInner {
+	width: 570px; height: 300px;
+}
+#defaultsDialog .treepane {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 15px; width: 120px;
+}
+#defaultsDialog .proppane {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 140px; right: 15px;
+} */

@@ -3,13 +3,15 @@
 
 const { inspect } = require("util");
 const { Ledger } = require('./ledger');
-const { typeset } = require('./typesetter');
+const { TypeSetter } = require('./typesetter');
+const EventEmitter = require('../api/events');
 
 const LOGGER = getLogger('UpdaterPress');
 
 /** A newspress system which uses the game API and chat records to generate an update. */
-class UpdaterPress {
+class UpdaterPress extends EventEmitter {
 	constructor({ modconfig, memory, api, chat, game=0 }) {
+		super();
 		this.memory = memory;
 		this.apiProducer = api;
 		this.chatProducer = chat;
@@ -32,12 +34,14 @@ class UpdaterPress {
 		this.lastLedger.loadFromMemory(this.memory['saved_ledger'+this.gameIndex]);
 	}
 	
+	get lastUpdateId() { return this.lastLedger.log.uid; }
+	
 	/** Starts a new ledger and runs an update cycle.  */
 	run() {
 		let ledger = new Ledger();
 		let data = null;
 		{
-			let { curr, prev } = this.apiProducer.popInfo(this.gameIndex);
+			let { curr, prev, apiIndex } = this.apiProducer.popInfo(this.gameIndex);
 			data = {
 				curr_api: curr,
 				prev_api: prev,
@@ -49,11 +53,13 @@ class UpdaterPress {
 				this.lastUpdate = null;
 				return null;
 			}
+			ledger.log.apiIndex(apiIndex);
 		}
 		
 		// First Pass: Note all changes and important context into ledger items
 		LOGGER.trace('First Pass');
 		for (let mod of this.modules) try {
+			ledger.log.moduleRun(mod);
 			mod.firstPass(ledger, data);
 		} catch (e) {
 			LOGGER.error(`Error in ${mod.constructor.name} first pass!`, e);
@@ -65,6 +71,7 @@ class UpdaterPress {
 		// Second Pass: Modify the ledger items into more useful things
 		let hash = ledger.hash();
 		for (let i = 0; i < 10; i++) {
+			ledger.log.ruleRound(i);
 			LOGGER.trace(`Second Pass [${i}]`);
 			for (let mod of this.modules) try {
 				mod.secondPass(ledger);
@@ -93,7 +100,10 @@ class UpdaterPress {
 		this.lastLedger.saveToMemory(this.memory['saved_ledger'+this.gameIndex]);
 		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger);
+		let ts = new TypeSetter({ curr_api:data.curr_api, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
+		ledger.log.finalUpdate(update);
+		
 		if (!update || !update.length) {
 			this.lastUpdate = null;
 		}
@@ -101,6 +111,7 @@ class UpdaterPress {
 			let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
 			this.lastUpdate = prefix + ' ' + update;
 		}
+		this.emitLater('run-complete', this.lastUpdate, this.lastLedger);
 		return this.lastUpdate;
 	}
 	
@@ -111,8 +122,11 @@ class UpdaterPress {
 		// And trim the ledger to only the helpful ledger items
 		ledger.trimToHelpfulItems(helpOpts);
 		
+		let { curr } = this.apiProducer.popInfo(this.gameIndex);
+		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger);
+		let ts = new TypeSetter({ curr_api:curr, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
 		if (!update || !update.length) return null;
 		
 		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
@@ -135,7 +149,7 @@ class UpdaterPress {
 					}
 					out.push(line);
 				}
-				let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
+				let prefix = (Bot.gameInfo(this.gameIndex).prefix||'');
 				if (info.level_cap != 100) {
 					return `${prefix}[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
 				} else {
@@ -150,13 +164,16 @@ class UpdaterPress {
 }
 
 /** A newspress system which uses multiple sub-presses to update a mutli-game run. */
-class UpdaterPressPool {
+class UpdaterPressPool extends EventEmitter {
 	constructor({ numGames, modconfig, memory, api, chat }) {
+		super();
 		this.pool = [];
 		for (let i = 0; i < numGames; i++) {
 			this.pool.push(new UpdaterPress({ modconfig, memory, api, chat, game:i }));
 		}
 	}
+	
+	get lastUpdateId() { return this.pool.map(x=>x.lastUpdateId).join('+'); }
 	
 	run() {
 		let updates = [];
@@ -164,14 +181,15 @@ class UpdaterPressPool {
 			let up = press.run();
 			if (up) updates.push(up);
 		}
+		process.nextTick(()=>this.emit('run-complete'));
 		if (!updates.length) return null;
 		return updates.join('\n\n');
 	}
 	
-	runHelp() {
+	runHelp(helpOpts) {
 		let updates = [];
 		for (let press of this.pool) {
-			let up = press.runHelp();
+			let up = press.runHelp(helpOpts);
 			if (up) updates.push(up);
 		}
 		if (!updates.length) return null;

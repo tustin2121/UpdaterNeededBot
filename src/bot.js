@@ -4,10 +4,12 @@
 const fs = require("fs");
 const path = require('path');
 const auth = require('../.auth');
+const EventEmitter = require('./api/events');
 
 const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
+const WebServer = require("./webserv");
 const { createDebugUrl } = require('./debug/xml');
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
@@ -23,7 +25,7 @@ const LOGGER = getLogger('UpdaterBot');
 
 let access = { token:"", timeout:0 };
 
-class UpdaterBot {
+class UpdaterBot extends EventEmitter {
 	constructor(runConfig) {
 		if (!runConfig) throw new Error('No run config provided!');
 		try { // Verify the run configuration is viable
@@ -41,7 +43,8 @@ class UpdaterBot {
 				if (game.regionMap === undefined) throw `Invalid config: game${i} has no regionMap defined! Should be null or valid region!`;
 				if (game.regionMap !== null) {
 					try {
-						game.regionMap = require(`../data/region/${game.regionMap}`);
+						const { MapRegion } = require('./api/mapnode');
+						game.regionMap = new MapRegion(require(`../data/region/${game.regionMap}.json`));
 					} catch (e) {
 						throw `Invalid config: game${i} requires an invalid region map!`;
 					}
@@ -78,16 +81,23 @@ class UpdaterBot {
 		} catch (e) {
 			throw new Error(e);
 		}
+		super();
 		this.runConfig = runConfig;
 		LOGGER.info(`Run config valid.`);
 		
 		this.loadMemory();
+		
+		// Ensure these memory regions exist
+		this.memory.global;
+		this.memory.runFlags;
 		
 		this.staff = null;
 		this.streamApi = null;
 		this.chatApi = null;
 		this.press = null;
 		this._updateInterval = null;
+		
+		this.on('error', (e)=>LOGGER.error('Error event!', e));
 	}
 	
 	start() {
@@ -109,13 +119,16 @@ class UpdaterBot {
 			api: this.streamApi,
 			chat: this.chatApi,
 		});
+		this.webserver = new WebServer();
+		this.webserver.connect();
 		
 		Promise.all([
 			this.staff.isReady(),
 			this.streamApi.isReady(),
 			this.chatApi.isReady(),
 		]).then(()=>{
-			this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
+			if (!global.exeFlags.dontConnect)
+				this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 			LOGGER.info(`UpdaterNeeded startup complete. Update interval: ${this.runConfig.run.updatePeriod/1000} sec.`);
 			this.postDebug(`[Meta] UpdaterNeeded started.`);
 		}).catch(ex=>{
@@ -127,6 +140,7 @@ class UpdaterBot {
 	shutdown() {
 		clearInterval(this._updateInterval);
 		this._updateInterval = null;
+		this.emit('shutdown');
 		
 		this.saveMemory();
 		this.postDebug('[Meta] UpdaterNeeded shutting down.')
@@ -142,6 +156,14 @@ class UpdaterBot {
 		let val = config.opts[opt];
 		if (val === undefined) throw new Error(`Could not get run option '${opt}': Invalid option!`);
 		return val;
+	}
+	
+	/** Queries whether a given run flag is enabled. Run flags are different from run options because
+	 *  they are kept in memory and can be turned on and off without restarting the bot. */
+	runFlag(flag, def) {
+		let val = this.memory.runFlags[flag];
+		if (val === undefined) val = def;
+		return !!val;
 	}
 	
 	/** Gets the game configuration for the given game. */
@@ -178,24 +200,28 @@ class UpdaterBot {
 	 */
 	run() {
 		LOGGER.note(`============ Update Cycle ${this.getTimestamp()} ============`);
+		this.emit('pre-update-cycle');
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
-			if (update) this.postUpdate({ text:update, });
-			
-			if (this.isHelping) {
-				update = this.press.runHelp();
-				if (update) this.postUpdate({ text:update, dest:'main' });
-			}
-			else if (typeof this.taggedIn === 'number') { //tagged in for one game only
-				update = this.press.pool[this.taggedIn].lastUpdate;
-				if (update) this.postUpdate({ text:update, dest:'main' });
+			if (update) {
+				this.postUpdate({ text:update, });
+				
+				if (this.isHelping) {
+					update = this.press.runHelp(this.taggedIn);
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
+				else if (typeof this.taggedIn === 'number') { //tagged in for one game only
+					update = this.press.pool[this.taggedIn].lastUpdate;
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
 			}
 			
 			LOGGER.trace(`Update cycle complete.`);
 		} catch (e) {
 			LOGGER.fatal(`Unhandled error in update cycle!`, e);
 		}
+		this.emit('post-update-cycle');
 		this.saveMemory();
 	}
 	
@@ -207,20 +233,22 @@ class UpdaterBot {
 	
 	/** If this updater is tagged in. */
 	get taggedIn() { return this.memory.global.taggedIn; }
-	set taggedIn(val) { 
-		this.memory.global.taggedIn = val; 
-		this.memory.global.lastTagChange = Date.now(); 
+	set taggedIn(val) {
+		this.memory.global.taggedIn = val;
+		this.memory.global.lastTagChange = Date.now();
+		this.emit('tagged', val);
 	}
-	
-	// /** If this updater is tagged in for a particular game. */
-	// isTaggedIn(game) {
-	// 	this.memory.global.gameTagged
-	// }
 	
 	/** If this update is helping. */
 	get isHelping() {
 		// We're helping when we're partially tagged in, ie a truthy value that is not true.
 		return this.memory.global.taggedIn && typeof this.memory.global.taggedIn === 'object';
+	}
+	
+	get lastApiDisturbance() { return this.memory.global.lastApiDisturbance; }
+	set lastApiDisturbance(val) { 
+		if (typeof val !== 'number' && !Number.isFinite(val)) return;
+		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val); 
 	}
 	
 	/** Gets the current timestamp for this run. */
@@ -277,10 +305,10 @@ class UpdaterBot {
 				break;
 		}
 		let ts = this.getTimestamp();
-		let debugUrl = createDebugUrl(debugXml) || '';
+		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`; //createDebugUrl(debugXml) || '';
 		//////////////////////////////////////////
 		if (mainLive && this.runConfig.run.liveID) {
-			let update = formatFor.reddt(text);
+			let update = formatFor.reddit(text);
 			let updateText = `${ts} [Bot] ${update.text}`;
 			promises.push(
 				postReddit.call(this, this.runConfig.run.liveID, updateText)
@@ -295,7 +323,7 @@ class UpdaterBot {
 				.catch(e=>LOGGER.error('Post to Discord Failed:', e)));
 		}
 		if (testLive && this.runConfig.run.testLiveID) {
-			let update = formatFor.reddt(text);
+			let update = formatFor.reddit(text);
 			// if (updateText.length + )
 			let updateText = `${ts} [[Bot](${debugUrl})] ${update.text}`;
 			promises.push(
@@ -309,7 +337,7 @@ class UpdaterBot {
 				postDiscord.call(this, this.runConfig.run.testDiscordID, updateText, update.embeds)
 				.catch(e=>LOGGER.error('Post to Test Discord Failed:', e)));
 		}
-		LOGGER.trace(`Update: num promises = ${promises.length}`);
+		this.emit('update', text, ts, dest);
 		return Promise.all(promises);
 		
 		function postReddit(id, updateText) {
@@ -357,12 +385,12 @@ class UpdaterBot {
 	////////////////////////////////////////////////////////////////////////////
 	
 	/** Alerts the updating staff channel, with an optional ping. */
-	alertUpdaters(text, ping, bypassTagCheck) {
-		return this.staff.alertUpdaters(text, ping, bypassTagCheck);
+	alertUpdaters(text, opts) {
+		return this.staff.alertUpdaters(text, opts);
 	}
 	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
-	queryUpdaters(text) {
-		return this.staff.queryUpdaters(text);
+	queryUpdaters(text, opts) {
+		return this.staff.queryUpdaters(text, opts);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
