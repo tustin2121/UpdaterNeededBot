@@ -16,6 +16,28 @@ body {
 	box-shadow: 0px 0px 10px 0px #00000080;
 }
 
+@keyframes blink {
+	0% { font-weight: 900; }
+	50% { font-weight: 400; }
+}
+#playpause {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-size: 2em;
+    margin: 12px;
+}
+#playpause.paused {
+	animation-duration: 2s;
+	animation-name: blink;
+}
+#playpause::before {
+	content: '\f144';
+	
+}
+#playpause.paused::before {
+	content: '\f28b';
+}
+
 .column {
 	position: relative;
 	width: 1024px; height: 100%;
@@ -350,6 +372,14 @@ rules > rule {
 rules > rule:nth-child(odd) {
 	background-color: #ff7b7b1a;
 }
+rules marker {
+    display: block;
+    background-color: #505050;
+    color: white;
+    padding: 0px 3px;
+    /* border-radius: 3px; */
+    margin-top: 2px;
+}
 rule::before {
 	content: 'Rule: 'attr(name);
 	margin-left: -2em;
@@ -408,7 +438,7 @@ ledgeritem:nth-child(odd) {
 	background-color: #ffa7001a;
 }
 ledgeritem::before {
-	content: attr(name)' \2295';
+	content: attr(name)' \2295  'attr(imp);
 	margin-left: -2em;
 	display: block;
 	font-weight: bold;
@@ -418,7 +448,7 @@ ledgeritem::before {
 	/* color: white; */
 }
 ledgeritem:empty::before {
-	content: attr(name);
+	content: attr(name)'  -  'attr(imp);
 }
 rule ledgeritem::before {
 	font-weight: normal;

@@ -3,70 +3,110 @@
 
 const MapChanged = {};
 
+const move = `{{rand|head|go|step|move|travel|walk|stroll|stride}}`;
 MapChanged['report'] = `{{@report}}`;
 MapChanged['default'] = [
 	`{{@curr}}.`,
 	`{{On the location|@curr}}.`,
 	`Now {{in the location|@curr}}.`,
-	`We head {{into the location|@curr}}.`,
+	`We ${move} {{into the location|@curr}}.`,
 	`Arrived {{on the location|@curr}}.`,
+];
+MapChanged['default_back'] = [
+	...MapChanged['default'],
+	`Back {{in the location|@curr}}.`,
+	`We head back {{into the location|@curr}}.`,
+];
+MapChanged['default_nvm'] = [
+	...MapChanged['default_back'],
+];
+
+MapChanged['blackout'] = [
+	`Next thing we know, we're {{in the location|@curr}}.`,
+	`Next thing we know, we're {{in the location|@curr}} with no memory as to how we got here.`,
+	`We wake up {{in the location|@curr}}.`,
+	`We wake up {{in the location|@curr}} with no memory as to how we got here.`,
+	`We come to our senses {{in the location|@curr}}.`,
+	`We come to our senses {{in the location|@curr}}... {{rand|when|how}} did we get here?`,
 ];
 
 //////////////////////////////
 // Generic Entering/Exiting //
 
+const enter = `{{rand|head|go|step|move|walk|stroll|stride|saunter}}`;
+const enterQuickly = `{{rand|head|go|step|move|bustle|hurry}}`;
+const leave = `{{rand|head|go|step|move|leave|exit|depart|walk|stroll|stride|take our leave}}`;
+const leaveQuickly = `{{rand|leave|leave again|flee|skedaddle|take off|abscond|hightail it|run away|run out|depart|take our leave}}`;
 //We walk from an outside location to an inside location
 MapChanged['enter'] = [
-	`We head inside {{the location|@curr}}.`,
-	`We head into {{the location|@curr}}.`,
+	`We ${enter} inside {{the location|@curr}}.`,
+	`We ${enter} into {{the location|@curr}}.`,
 	`We go in {{the location|@curr}}.`,
 	`We enter {{the location|@curr}}.`,
 ];
 //We walk from an inside location to an outside location
 MapChanged['exit'] = [
-	`We head outside: {{the location|@curr}}.`,
-	`We step out into the {{daylight|sunlight|moonlight|red glow of dawn}}, {{into the location|@curr}}.`,
-	`We head out {{into the location|@curr}}.`,
-	`{{time of day|Squinting against the sun|Squinting into the darkness}}, we step outside {{into the location|@curr}}.`,
+	`We ${leave} outside: {{the location|@curr}}.`,
+	`We ${leave} out into the {{daylight|sunlight|moonlight|red glow of dawn}}, {{into the location|@curr}}.`,
+	`We ${leave} out {{into the location|@curr}}.`,
+	`{{time of day|Squinting against the sun|Squinting into the darkness}}, we ${leave} outside {{into the location|@curr}}.`,
 ];
 //We walk from an outside location to an inside location within 15 minutes
 MapChanged['enter_back'] = [
-	`We head back inside {{the location|@curr}}.`,
+	`We ${enter} back inside {{the location|@curr}}.`,
+	`Back inside {{the location|@curr}}.`,
 ];
 //We walk from an inside location to an outside location within 15 minutes
 MapChanged['exit_back'] = [
-	`We head back outside to {{the location|@curr}}.`,
-	`We head back out {{into the location|@curr}}.`,
-	`We leave back {{into the location|@curr}}.`,
-	`We exit back {{into the location|@curr}}.`,
+	`We ${leave} back outside to {{the location|@curr}}.`,
+	`We ${leave} back out {{into the location|@curr}}.`,
+	`We ${leave} back {{into the location|@curr}}.`,
 	`Back out {{into the location|@curr}}.`,
 ];
-MapChanged['enter_nvm'] = MapChanged['enter_back'];
-MapChanged['exit_nvm'] = MapChanged['exit_back'];
+MapChanged['enter_nvm'] = [
+	`Never mind, back inside {{the location|@curr}}.`,
+	`Wait, no, back inside {{the location|@curr}}.`,
+	`We turn around and ${enterQuickly} right back inside {{the location|@curr}}.`,
+	`Nevermind, we immedeately turn around again and ${enterQuickly} back inside.`,
+	`We change our mind. Back inside {{the location|@curr}}.`,
+	`And back inside.`,
+];
+
+MapChanged['exit_nvm'] = [
+	`And we turn around and ${leaveQuickly} immedeately.`,
+	`Never mind, we ${move} right back out again. {{The location|@curr}}.`,
+	`We turn on a heel and ${leaveQuickly}. Back out {{in the location|@curr}}.`,
+];
 
 //////////////////////////////
 // Entering/Exiting Dungeon //
 
 //We walk into a dungeon or cave
 MapChanged['dungeon_enter'] = [
-	`We head inside {{the location|@curr}}.`,
+	...MapChanged['enter'],
+	`We ${enter} inside {{the location|@curr}}.`,
 ];
 //We walk out of a dungeon or cave
 MapChanged['dungeon_exit'] = [
-	`We head outside: {{the location|@curr}}.`,
+	...MapChanged['exit'],
+	`We ${leave} outside: {{the location|@curr}}.`,
 ];
 //We walk back into the same dungeon within 15 minutes
 MapChanged['dungeon_enter_back'] = [
-	`We head back inside {{the location|@curr}}.`,
+	...MapChanged['enter_back'],
 	`Back inside {{the location|@curr}}.`,
 ];
 //We walk back out of the same dungeon within 15 minutes
 MapChanged['dungeon_exit_back'] = [
-	`We head back outside to {{the location|@curr}}.`,
+	...MapChanged['exit_back'],
 	`Back outside. {{the location|@curr}}.`,
 ];
-MapChanged['dungeon_enter_nvm'] = MapChanged['dungeon_enter_back'];
-MapChanged['dungeon_exit_nvm'] = MapChanged['dungeon_exit_back'];
+MapChanged['dungeon_enter_nvm'] = [
+	...MapChanged['enter_nvm'],
+];
+MapChanged['dungeon_exit_nvm'] = [
+	...MapChanged['exit_nvm'],
+];
 // We use an escape rope to exit the dungeon
 MapChanged['dungeon_escaperope'] =[
 	`<b>We use an escape rope and climb out of {{the location|@prev}}!</b> We land outside {{on the location|@curr}}.`,
@@ -85,26 +125,26 @@ MapChanged['town_new'] = [
 //We walk into a town
 MapChanged['town_enter'] = [
 	`We arrive {{in the location|@curr}}.`,
-	`We enter the boundries of {{the location|@curr}}.`,
-	`We walk {{into the location|@curr}}.`,
+	`We enter the boundaries of {{the location|@curr}}.`,
+	`We ${move} {{into the location|@curr}}.`,
 	`Welcome back to {{the location|@curr}}.`,
 ];
 //We walk out of a town
 MapChanged['town_exit'] = [
-	`We leave {{the location|@prev}}. {{The location|@curr}}`,
+	`We {{rand|leave|depart from|take our leave from}} {{the location|@prev}}. {{The location|@curr}}`,
 	`We head out of town. Now {{on the location|@curr}}.`,
 	`We depart now. {{The location|@curr}}.`,
-	`Out {{into the location}}`,
+	`Out {{into the location|@curr}}`,
 ];
 //We walk into a town within 15 minutes of the last time we were there
 MapChanged['town_enter_back'] = [
-	`We head back to town.`,
+	`We ${enter} back to town.`,
 	`Back in town.`,
 	`Back {{in the location|@curr}}.`,
 ];
 //We walk out of a town within 15 minutes of the last time we were there
 MapChanged['town_exit_back'] = [
-	`We head back outside to {{the location|@curr}}.`,
+	`We ${leave} back outside to {{the location|@curr}}.`,
 ];
 //We walk into a town within 2 minutes of the last time we were there
 MapChanged['town_enter_nvm'] = [
@@ -308,8 +348,8 @@ module.exports = {
 			`{{if|$@randomMon}}{{Mon}} sneezes and startles us off the ledge.`,
 			`{{if|$@randomMon}}{{Mon}} spots something below and bumps us off the ledge.`,
 			`{{if|$@randomMon}}{{Mon}} gets startled and knocks us off the ledge.`,
-			`{{if mon body has any|$@randomMon|arm|claw}}{{Mon}} scratches {{them}}self and accidentally hits us off the ledge.`,
-			`{{if mon body has|$@randomMon|electricbody}}We accidentally brush {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
+			`{{if mon body has any|$@randomMon|arm|claw}}{{Mon}} scratches {{themselves}} and accidentally hits us off the ledge.`,
+			`{{if mon body has|$@randomMon|electricbody}}We accidentally brush against {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
 			`{{if mon body has|$@randomMon|wing}}{{Mon}} flaps {{their}} wings a little too hard and send us careening off the ledge.`,
 			`{{if mon body has|$@randomMon|tail}}{{Mon}} accidentally smacks us with {{their}} tail, and we topple over the ledge.`,
 			`{{if mon body has|$@randomMon|levitate}}We lie sprawled at the bottom of the ledge again. {{Mon}} hovers above us, looking down at us with mild amusement.`,

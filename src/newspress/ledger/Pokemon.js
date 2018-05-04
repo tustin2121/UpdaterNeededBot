@@ -6,7 +6,7 @@ const { Pokemon } = require('../../api/pokedata');
 
 /////////////////// Superclass ///////////////////
 
-/** Common class for all ledger party-related ledger items. */
+/** Common class for all party-related ledger items. */
 class PokemonItem extends LedgerItem {
 	constructor(mon, imp=1, obj={}) {
 		super(imp, obj);
@@ -36,14 +36,11 @@ class PokemonGained extends PokemonItem {
 	cancelsOut(other) {
 		if (other.name === 'PokemonIsMissing') {
 			if (other.mon.hash !== this.mon.hash) return false;
-			return true;
+			return new PokemonFound(other.mon, this.mon); //replace
 		}
 		return false;
 	}
-	canPostpone() {
-		getLogger('PokemonGained').warn(`canPostpone()`);
-		return true;
-	}
+	canPostpone() { return true; }
 	static loadFromMemory(m) {
 		let mon = new Pokemon(m.mon);
 		return new PokemonGained(mon);
@@ -68,6 +65,19 @@ class PokemonLost extends PokemonItem {
 	}
 }
 
+/** Indicates that a pokemon was one missing and is now found again. */
+class PokemonFound extends PokemonItem {
+	constructor(prev, curr) {
+		super(curr, 0);
+		this.prev = prev;
+	}
+	canPostpone() { return false; } //need to save both if we want to postpone
+	get curr() { return this.mon; }
+	get inNewLocation() { return this.prev.storedIn !== this.mon.storedIn; }
+}
+
+/////////////////// Advanced Items ///////////////////
+
 /** Indicates that a pokemon has been moved to a new storage location. */
 class PokemonDeposited extends PokemonItem {
 	constructor(mon, prevStored, flavor) {
@@ -89,8 +99,6 @@ class PokemonRetrieved extends PokemonItem {
 	}
 }
 
-/////////////////// Advanced Items ///////////////////
-
 /** Indicates that two pokemon have been traded. */
 class PokemonTraded extends PokemonItem {
 	constructor(mon, pastMon) {
@@ -103,6 +111,6 @@ class PokemonTraded extends PokemonItem {
 
 
 module.exports = {
-	PokemonGained, PokemonIsMissing, PokemonLost, PokemonDeposited, PokemonRetrieved,
-	PokemonTraded
+	PokemonGained, PokemonIsMissing, PokemonLost, PokemonFound, 
+	PokemonDeposited, PokemonRetrieved, PokemonTraded,
 };

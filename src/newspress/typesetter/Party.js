@@ -22,10 +22,13 @@ module.exports = {
 			],
 		},
 		multiple: [
-			`<b>{{@target}} has grown {{one noun|@deltaLevel|level}} to level {{@level}}!</b>`,
+			`<b>{{@target}} has grown {{one noun|level|@deltaLevel}} to level {{@level}}!</b>`,
 		],
 		regress: [
-			`<b>{{@target}} has lost {{one noun|@deltaLost|level}}, and is now level {{@level}}!`,
+			`<b>{{@target}} has lost {{one noun|level|@deltaLost}}, and is now level {{@level}}!</b>`,
+		],
+		level100: [
+			`<i><b>{{@target}} HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
 		],
 	},
 	MonEvolved: {
@@ -217,29 +220,29 @@ module.exports = {
 	MonShinyChanged: {
 		default: null,
 		became: [
-			`{{@target}} has inexplicably became shiny...`,
+			`{{@target}} has inexplicably become shiny...`,
 		],
 		nolonger: [
-			`{{@target}} has inexplicably became no longer shiny...`,
+			`{{@target}} has inexplicably become no longer shiny...`,
 		],
 	},
 	MonSparklyChanged: {
 		default: null,
 		became: [
-			`{{@target}} has inexplicably became N's former pokemon...`,
+			`{{@target}} has inexplicably become N's former pokemon...`,
 		],
 		nolonger: [
-			`{{@target}} has inexplicably became no longer N's former pokemon...`,
+			`{{@target}} has inexplicably become no longer N's former pokemon...`,
 		],
 	},
 	MonAbilityChanged: null,
 	// MonAbilityChanged: {
 	// 	default: null,
 	// 	became: [
-	// 		`{{@target}} has inexplicably became N's former pokemon...`,
+	// 		`{{@target}} has inexplicably become N's former pokemon...`,
 	// 	],
 	// 	nolonger: [
-	// 		`{{@target}} has inexplicably became no longer N's former pokemon...`,
+	// 		`{{@target}} has inexplicably become no longer N's former pokemon...`,
 	// 	],
 	// },
 	

@@ -52,6 +52,18 @@ function isValidToString(fn) {
 	//String and Number's toString functions produce desireable output
 	return true;
 }
+function printObject(obj) {
+	if (obj === undefined) return 'undefined';
+	if (obj === null) return 'null';
+	if (typeof obj === 'number') return (obj).toString(10);
+	// If the object has overridden the toString function, use it.
+	if (isValidToString(obj.toString)) return obj.toString();
+	// If the object has a name propery, use it.
+	if (obj.displayName) return obj.displayName;
+	if (obj.name) return obj.name;
+	// Return a default string
+	return 'thing';
+}
 {
 	const pluralize = require('pluralize');
 	pluralize.addUncountableRule('pokemon');
@@ -62,12 +74,6 @@ function isValidToString(fn) {
 {
 	Object.assign(FORMAT_FNS, {
 		'meta': ()=>'', //do nothing
-		'if': (...args)=>{
-			for (let a of args) {
-				if (!a) return false;
-			}
-			return '';
-		},
 	});
 }
 
@@ -78,6 +84,10 @@ function isValidToString(fn) {
 		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(loc) {
 			loc = loc || this.noun || this.subject;
+			if (!loc) {
+				LOGGER.error(`No location provided for printLocationPhrase! => `, this._callMeta.top());
+				return false;
+			}
 			if (!(loc.has === loc.is)) { //test for the attribute test functions
 				LOGGER.warn('printLocationPhrase must take a location!');
 				return 'in the area'; //error
@@ -106,6 +116,10 @@ function isValidToString(fn) {
 		const cap = (captial)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(obj) {
 			obj = obj || this.noun || this.subject;
+			if (!obj) {
+				LOGGER.error(`No object provided for determineOnIn! => `, this._callMeta.top());
+				return false;
+			}
 			if (obj.has === obj.is) { //test for the attribute test functions
 				return cap(obj.get('preposition'));
 			}
@@ -133,26 +147,38 @@ function isValidToString(fn) {
 // Format Functions: Nouns and Verbs
 {
 	const WORD_NUMS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
-	const SOME_NUMS = ['no', '{an}', 'a couple', 'a few', 'a few', 'a few', 'several', 'several', 'several', 'several', 'several', 'several', 'a dozen', 'a dozen'];
+	// const SOME_NUMS = ['no', '{an}', 'a couple', 'a few', 'a few', 'a few', 'several', 'several', 'several', 'several', 'several', 'several', 'a dozen', 'a dozen'];
 	const AN_NUMS = [undefined, '{an}'];
 	const NUM_NUMS = []; //off the end of the array are normal numbers, thus empty array
+	const SOME_NUMS = new Proxy([], { get:(target, prop)=>{
+		console.log(typeof prop, prop, '|', target, typeof target);
+		let num = Number.parseInt(prop, 10);
+		if (Number.isNaN(num) || num < 0) return undefined;
+		if (num === 0) return 'no';
+		if (num === 1) return '{an}';
+		if (num === 2) return 'a couple';
+		if (num < 6) return 'a few';
+		if (num < 12) return 'several';
+		if (num < 12+6) return 'a dozen';
+		if (num < 24+6) return 'a couple dozen';
+		if (num < 48+6) return 'dozens';
+		if (num < 90) return 'several dozen';
+		if (num < 110) return 'a hundred';
+		if (num < 190) return 'a hundred-some';
+		if (num < 210) return 'a couple hundred';
+		if (num < 290) return 'a couple hundred-some';
+		return 'several hundred';
+	} });
+	
 	const determineIndefiniteArticle = require('./indefiniteArticle').query;
 	const { plural:makePlural } = require('pluralize');
 	
-	function printDefiniteNoun(numArray) {
+	function printDefiniteNoun(numArray, capitalize) {
+		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(obj, num=1) {
+			obj = obj || this.noun || this.subject;
 			// Get the noun we're going to use for this object
-			let noun = (()=>{
-				if (obj === undefined) return 'undefined';
-				if (obj === null) return 'null';
-				// If the object has overridden the toString function, use it.
-				if (isValidToString(obj.toString)) return obj.toString();
-				// If the object has a name propery, use it.
-				if (obj.displayName) return obj.displayName;
-				if (obj.name) return obj.name;
-				// Return a default string
-				return 'thing';
-			})();
+			let noun = printObject(obj);
 			// If the noun is plural:
 			if (num !== 1) {
 				// See if the object's custom toString takes plural numbers as an argument
@@ -167,69 +193,63 @@ function isValidToString(fn) {
 			
 			if (this._setNoun) this.noun = obj;
 			if (this._setSubject) this.subject = obj;
-			return `${article} ${noun}`;
+			return cap(`${article} ${noun}`);
 		};
 	}
-	function printNumber(numArray) {
+	function printNumber(numArray, capitalize) {
+		const cap = (capitalize)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(num, obj) {
 			let txt = numArray[num] || (num).toString();
 			if (txt === '{an}') {
 				let noun = obj || this.noun || this.subject || 'thing';
 				txt = determineIndefiniteArticle(noun.toString);
 			}
-			return txt;
+			return cap(txt);
 		}
 	}
 	Object.assign(FORMAT_FNS, {
-		'1 noun': printDefiniteNoun(NUM_NUMS),
-		'one noun': printDefiniteNoun(WORD_NUMS),
-		'a noun': printDefiniteNoun(AN_NUMS),
-		'some nouns': printDefiniteNoun(SOME_NUMS),
+		'1 noun': printDefiniteNoun(NUM_NUMS, false),
+		'one noun': printDefiniteNoun(WORD_NUMS, false),
+		'a noun': printDefiniteNoun(AN_NUMS, false),
+		'some nouns': printDefiniteNoun(SOME_NUMS, false),
+		'One noun': printDefiniteNoun(WORD_NUMS, true),
+		'A noun': printDefiniteNoun(AN_NUMS, true),
+		'Some nouns': printDefiniteNoun(SOME_NUMS, true),
 		
-		'1 item': printDefiniteNoun(NUM_NUMS),
-		'one item': printDefiniteNoun(WORD_NUMS),
-		'an item': printDefiniteNoun(AN_NUMS),
-		'some items': printDefiniteNoun(SOME_NUMS),
+		'1 item': printDefiniteNoun(NUM_NUMS, false),
+		'one item': printDefiniteNoun(WORD_NUMS, false),
+		'an item': printDefiniteNoun(AN_NUMS, false),
+		'some items': printDefiniteNoun(SOME_NUMS, false),
+		'One item': printDefiniteNoun(WORD_NUMS, true),
+		'An item': printDefiniteNoun(AN_NUMS, true),
+		'Some items': printDefiniteNoun(SOME_NUMS, true),
 		
-		'1 thing': printDefiniteNoun(NUM_NUMS),
-		'one thing': printDefiniteNoun(WORD_NUMS),
-		'a thing': printDefiniteNoun(AN_NUMS),
-		'some things': printDefiniteNoun(SOME_NUMS),
+		'1 thing': printDefiniteNoun(NUM_NUMS, false),
+		'one thing': printDefiniteNoun(WORD_NUMS, false),
+		'a thing': printDefiniteNoun(AN_NUMS, false),
+		'some things': printDefiniteNoun(SOME_NUMS, false),
+		'One thing': printDefiniteNoun(WORD_NUMS, true),
+		'A thing': printDefiniteNoun(AN_NUMS, true),
+		'Some things': printDefiniteNoun(SOME_NUMS, true),
 		
-		'1': printNumber(NUM_NUMS),
-		'one': printNumber(WORD_NUMS),
-		'a': printNumber(AN_NUMS),
-		'some': printNumber(SOME_NUMS),
-	});
-}{
-	function printVerb(singular, plural) {
-		return function(noun) {
-			noun = noun || this.subject || this.noun;
-			if (this._setNoun) this.noun = noun;
-			if (this._setSubject) this.subject = noun;
-			if (Array.isArray(noun) && noun.length > 1) {
-				return plural;
-			}
-			if (noun instanceof Pokemon) return singular;
-			return plural;
-		}
-	}
-	Object.assign(FORMAT_FNS, {
-		'verb': function (singular, plural, noun) {
-			let fn = printVerb(singular, plural);
-			return fn.call(this, noun);
-		},
-		'verb-s': printVerb('s', ''),
-		'*s': printVerb('s', ''),
+		'1': printNumber(NUM_NUMS, false),
+		'one': printNumber(WORD_NUMS, false),
+		'a': printNumber(AN_NUMS, false),
+		'some': printNumber(SOME_NUMS, false),
+		'One': printNumber(WORD_NUMS, true),
+		'A': printNumber(AN_NUMS, true),
+		'Some': printNumber(SOME_NUMS, true),
 	});
 }{
 	function printSpecies(){
 		return function(mon){
-			mon = mon || this.noun || this.subject;
+			mon = mon || this.subject || this.noun;
 			if (!(mon instanceof Pokemon)) return false;
 			if (this._setNoun) this.noun = mon;
 			if (this._setSubject) this.subject = mon;
-			return mon.species;
+			let txt = mon.species;
+			if (mon.form) txt += ` ${mon.form}`;
+			return txt;
 		}
 	}
 	Object.assign(FORMAT_FNS, {
@@ -245,11 +265,15 @@ function isValidToString(fn) {
 {
 	function determineGender(male, female, neuter, plural) {
 		return function(obj) {
+			obj = obj || this.subject || this.noun;
+			LOGGER.debug(`determineGender: obj=${obj} | ${typeof obj}`);
+			if (obj === undefined) return plural;
 			if (typeof obj === 'number') {
 				if (obj === 1) return neuter;
 				return plural;
 			}
 			if (obj instanceof Pokemon) {
+				LOGGER.debug(`determineGender: is Pokemon: ${obj.gender}`);
 				switch(obj.gender) {
 					case '\u2642': return male;
 					case '\u2640': return female;
@@ -258,6 +282,7 @@ function isValidToString(fn) {
 				}
 			}
 			if (obj.gender) {
+				LOGGER.debug(`determineGender: has property: ${obj.gender}`);
 				switch(obj.gender.toLowerCase()) {
 					case 'm': case 'male': return male;
 					case 'f': case 'female': return female;
@@ -266,6 +291,7 @@ function isValidToString(fn) {
 					default: return plural;
 				}
 			}
+			LOGGER.debug(`determineGender: fallback`);
 			return plural;
 		}
 	}
@@ -283,6 +309,8 @@ function isValidToString(fn) {
 		'them': determineGender('him', 'her', 'it', 'them'),
 		'their': determineGender('his', 'her', 'its', 'their'),
 		'theirs': determineGender('his', 'hers', 'its', 'theirs'),
+		'themself': determineGender('himself', 'herself', 'itself', 'themselves'),
+		'themselves': determineGender('himself', 'herself', 'itself', 'themselves'),
 		
 		// captial pronouns
 		'He': determineGender('He', 'She', 'It', 'They'),
@@ -297,6 +325,15 @@ function isValidToString(fn) {
 		'Them': determineGender('Him', 'Her', 'It', 'Them'),
 		'Their': determineGender('His', 'Her', 'Its', 'Their'),
 		'Theirs': determineGender('His', 'Hers', 'Its', 'Theirs'),
+		'Themself': determineGender('Himself', 'Herself', 'Itself', 'Themselves'),
+		'Themselves': determineGender('Himself', 'Herself', 'Itself', 'Themselves'),
+		
+		'verb': function (singular, plural, noun) {
+			let fn = determineGender(singular, singular, singular, plural);
+			return fn.call(this, noun);
+		},
+		'verb-s': determineGender('s','s','s', ''),
+		'*s': determineGender('s','s','s', ''),
 	});
 }
 
@@ -304,6 +341,7 @@ function isValidToString(fn) {
 // Format Functions: Static Replacements
 {
 	function printPlayerName() { return this.curr_api.name; }
+	function printRivalName() { return this.curr_api.rival_name; }
 	function printFriendlyRivalName() {
 		let name = Bot.runOpts('friendName');
 		if (Array.isArray(name)) {
@@ -314,6 +352,13 @@ function isValidToString(fn) {
 		}
 		return name;
 	}
+	function printTeamStatus() { return this.press.generateUpdate('team'); }
+	function printOpt(opt, def) {
+		return function(){
+			return Bot.runOpts(opt, this.press.gameIndex) || def;
+			// return def;
+		};
+	}
 	Object.assign(FORMAT_FNS, {
 		'player': printPlayerName,
 		'player name': printPlayerName,
@@ -321,6 +366,19 @@ function isValidToString(fn) {
 		'my name': printPlayerName,
 		
 		'my friend': printFriendlyRivalName,
+		
+		'rival': printRivalName,
+		'my rival': printRivalName,
+		
+		'champ': printOpt('champ', 'champion'),
+		'champion': printOpt('champ', 'champion'),
+		'enemyTeam': printOpt('enemyTeam', 'enemy team'),
+		'enemy team': printOpt('enemyTeam', 'enemy team'),
+		
+		'team status': printTeamStatus,
+		
+		'phone': printOpt('phonebook', 'phone'),
+		'phonebook': printOpt('phonebook', 'phonebook'),
 	});
 }
 
@@ -391,6 +449,16 @@ function isValidToString(fn) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Format Functions: Conditionals
 {
+	function testConditional(conditon, iftrue, iffalse) {
+		if (conditon) {
+			if (iftrue === undefined) return '';
+			else return iftrue;
+		} else {
+			if (iftrue === undefined) return false; //if no true, disqualify phrase
+			if (iffalse === undefined) return ''; //if true, but no false, return empty
+			else return iffalse; //if there's a false, return it
+		}
+	}
 	function testBodyFeature(operation) {
 		let op;
 		switch (operation) {
@@ -399,7 +467,10 @@ function isValidToString(fn) {
 		}
 		return function(mon, ...feats) {
 			mon = mon || this.noun || this.subject;
-			if (!(mon instanceof Pokemon)) return false;
+			if (!(mon instanceof Pokemon)) {
+				LOGGER.error(`Object is not a Pokemon! => `, this._callMeta.top());
+				return false;
+			}
 			let bodyfeats = require('../../../data/extdata/bodyfeats')[mon.dexid];
 			
 			let bool = true;
@@ -407,12 +478,12 @@ function isValidToString(fn) {
 				bool = op(bool, !!bodyfeats[feat]);
 			}
 			return bool? '' : false;
-		}
+		};
 	}
 	function testPartySize(size) {
 		return function() {
 			
-		}
+		};
 	}
 	function testWalkBehind(mon) {
 		if (!Bot.runOpts('walkBehind')) return false;
@@ -422,17 +493,31 @@ function isValidToString(fn) {
 		if (mon === party[0]) return '';
 		return false;
 	}
+	function testHealth(min, max) {
+		return function(mon){
+			mon = mon || this.noun || this.subject;
+			if (!(mon instanceof Pokemon)) {
+				LOGGER.error(`Object is not a Pokemon! => `, this._callMeta.top());
+				return false;
+			}
+			if (mon.hp >= min && mon.hp <= max) return '';
+			return false;
+		};
+	}
 	Object.assign(FORMAT_FNS, {
+		'if': testConditional,
 		'if mon body has': testBodyFeature('or'),
 		'if mon body has any': testBodyFeature('or'),
 		'if mon body has all': testBodyFeature('and'),
 		
 		'if mon is walking': testWalkBehind,
+		
+		'if mon is full health': testHealth(100, 100),
 	});
 }{
 	function determineTimeOfDay() {
 		return function(day, night, morn) {
-			if (!Bot.runOpts('rtc')) return day;
+			if (!Bot.runOpts('rtc')) return false;
 			switch (this.curr_api.timeOfDay) {
 				case 'night': return night || day;
 				case 'morning': return morn || day;
@@ -451,13 +536,11 @@ function isValidToString(fn) {
 // Format Functions: Lists
 {
 	function printList(sep, and) {
-		return function(formatFn, ...args) {
+		return function() {
 			if (!this._itemList) throw new ReferenceError('List of items not specified!');
+			const format = `{{${this._callMeta.top().args.join('|')}}}`;
 			
-			let items = this._itemList.map(item=>{
-				let fn = FORMAT_FNS[formatFn];
-				return fn.apply(this, args);
-			}).filter(x=>x);
+			let items = this._itemList.map(item=>this.fillText(format, item)).filter(x=>x);
 			if (items.length > 1 && and) {
 				items[items.length-1] = and+' '+items[items.length-1];
 			}
@@ -465,7 +548,7 @@ function isValidToString(fn) {
 				return items.join(' ');
 			}
 			return items.join(sep);
-		}
+		};
 	}
 	Object.assign(FORMAT_FNS, {
 		'a comma-separated list of': printList(', ', 'and'),
@@ -480,19 +563,26 @@ function isValidToString(fn) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor(curr_api) {
+	constructor({ curr_api, debugLog, press }) {
+		this.log = debugLog;
+		this.curr_api = curr_api;
+		this.press = press;
+		
 		// Phrase variables
 		this.subject = null;
 		this.noun = null;
 		
 		// Working variables
-		this.curr_api = curr_api;
 		this.item = null;
 		this.thisItem = null;
 		
 		this._setSubject = false;
 		this._setNoun = false;
 		this._itemList = null;
+		
+		/** @type{Stack} - A call stack with objects describing the currently being processed function. */
+		this._callMeta = [];
+		this._callMeta.top = function(){ return this[this.length-1]; }
 	}
 	
 	/** Random function. For convienence and also to allow rigging for unit testing. */
@@ -526,7 +616,8 @@ class TypeSetter {
 		order.sort((a,b)=>{
 			let ai = dict[a][0];
 			let bi = dict[b][0];
-			return LedgerItem.compare(ai, bi);
+			// return LedgerItem.compare(ai, bi);
+			return bi._sort - ai._sort;
 		});
 		// Return the collected items
 		return order.map(x=>dict[x]);
@@ -540,7 +631,9 @@ class TypeSetter {
 		let update = [];
 		
 		for (let items of list) try {
+			this.log.typesetterInput(items);
 			let phrase = this.typesetItems(items);
+			this.log.typesetterOutput(phrase);
 			LOGGER.debug(`Typesetting item list: `, items, '=>', phrase);
 			if (phrase === null) continue;
 			update.push(phrase);
@@ -554,40 +647,47 @@ class TypeSetter {
 	/**
 	 * @param {LedgerItem[]} items - List of ledger items to make into a phrase
 	 */
-	typesetItems(item) {
-		if (!Array.isArray(item) || !item.length) {
-			LOGGER.error(`typesetItems passed invalid array or not an array!`, item);
+	typesetItems(items) {
+		if (!Array.isArray(items) || !items.length) {
+			LOGGER.error(`typesetItems passed invalid array or not an array!`, items);
 			return null;
 		}
-		if (item.length == 1) item = item[0];
-		else {
-			this._itemList = item;
-			item = item[0];
-		}
-		this.item = item;
+		const ritem = items[0];
+		// if (items.length == 1) items = items[0];
+		// else {
+		// 	this._itemList = items;
+		// 	items = items[0];
+		// }
+		// this.items = items;
 		
 		// Get the phrase dictionary for this item
-		let phraseDict = PHRASEBOOK[item.name];
+		let phraseDict = PHRASEBOOK[ritem.name];
 		if (phraseDict === undefined) {
-			LOGGER.error(`LedgerItem ${item.name} has no phrase dictionary in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${ritem.name} has no phrase dictionary in the phrasebook!`);
 			return null;
 		}
 		if (phraseDict === null) return null; // Skip this item
 		
 		// Resolve the flavor of this item
-		let phraseEntry = phraseDict[item.flavor || 'default'];
+		let phraseEntry = phraseDict[ritem.flavor || 'default'];
 		if (phraseEntry === undefined) {
-			LOGGER.error(`LedgerItem ${item.name}, flavor "${item.flavor || 'default'}" has no phrase entry in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${ritem.name}, flavor "${ritem.flavor || 'default'}" has no phrase entry in the phrasebook!`);
 			return null;
 		}
 		if (phraseEntry === null) return null; // Skip this item
 		
 		let self = this;
-		return _resolve(phraseEntry, item);
+		if (phraseEntry.multi && items.length > 1) {
+			this._itemList = items;
+			let res = _resolve(phraseEntry.multi, ritem);
+			this._itemList = null;
+			return res;
+		}
+		return items.map(item => _resolve(phraseEntry, item)).join(' ');
 		
 		function _resolve(entry, item) {
 			if (entry === undefined) {
-				LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an illegal value!`, entry);
+				LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an undefined value!`);
 				return null;
 			}
 			if (entry === null) return null;
@@ -599,6 +699,17 @@ class TypeSetter {
 			if (typeof entry === 'function') {
 				let res = entry.call(self, item);
 				return _resolve(res, item);
+			}
+			if (typeof entry.select === 'function') {
+				let res = entry.select.call(self, item);
+				LOGGER.error(`select resolve:`, res);
+				if (res && entry[res] !== undefined) {
+					return _resolve(entry[res], item);
+				}
+				// object don't do numbers for keys, stupidly, so try this, just in case
+				if (typeof res === 'number' && entry[res.toString(10)] !== undefined) {
+					return _resolve(entry[res.toString(10)], item);
+				}
 			}
 			if (Array.isArray(entry)) {
 				// Shortcut the common case:
@@ -617,23 +728,8 @@ class TypeSetter {
 				}
 				return null;
 			}
-			if (this._itemList && entry.multi) {
-				return _resolve(entry.multi, item);
-			}
-			if (entry.single) {
-				if (this._itemList) {
-					return this._itemList.map(i=>_resolve(entry.single, i));
-				} else {
-					return _resolve(entry.single, item);
-				}
-			}
-			if (entry.item) { //should never happen
-				if (this._itemList) {
-					return this._itemList.map(i=>_resolve(entry.item, i));
-				} else {
-					return _resolve(entry.item, item);
-				}
-			}
+			if (entry.single) return _resolve(entry.single, item);
+			if (entry.item) return _resolve(entry.item, item);
 			LOGGER.error(`Resolve failed!`, entry);
 			return null;
 		}
@@ -652,49 +748,59 @@ class TypeSetter {
 				let args = key.split('|');
 				let func = args[0];
 				args = args.slice(1);
-				args = args.map((arg)=>{
-					if (arg === '$') return this.subject;
-					if (arg === '#') return this.noun;
-					let res = /^([#$]+)/i.exec(arg);
-					if (res && res[1]) {
-						this._setSubject = (res[1].indexOf('$') > -1);
-						this._setNoun = (res[1].indexOf('#') > -1);
-						arg = arg.slice(res[1].length);
-					}
-					if (arg.startsWith('@')) {
-						arg = getProp(item, arg.slice(1));
-					}
-					if (this._setSubject) this.subject = arg;
-					if (this._setNoun) this.noun = arg;
-					return arg;
-				});
-				func = ((arg)=>{
-					if (arg === '$') return this.subject.toString.bind(this.subject);
-					if (arg === '#') return this.noun.toString.bind(this.noun);
-					let res = /^([#$]+)/i.exec(arg);
-					if (res && res[1]) {
-						this._setSubject = (res[1].indexOf('$') > -1);
-						this._setNoun = (res[1].indexOf('#') > -1);
-						arg = arg.slice(res[1].length);
-					}
-					if (arg.startsWith('@')) {
-						arg = getProp(item, arg.slice(1));
+				this._callMeta.push({ text:match, func, args, });
+				try {
+					args = args.map((arg)=>{
+						if (arg === '$') return this.subject;
+						if (arg === '#') return this.noun;
+						let res = /^([#$]+)/i.exec(arg);
+						if (res && res[1]) {
+							this._setSubject = (res[1].indexOf('$') > -1);
+							this._setNoun = (res[1].indexOf('#') > -1);
+							arg = arg.slice(res[1].length);
+						}
+						if (arg.startsWith('@')) {
+							arg = getProp(item, arg.slice(1));
+						}
 						if (this._setSubject) this.subject = arg;
 						if (this._setNoun) this.noun = arg;
-						return arg.toString.bind(arg);
-					}
-					return FORMAT_FNS[arg.trim()];
-				})(func);
-				let res = func.apply(this, args);
-				if (res === false) throw false; //We can't use this phrase
-				return res;
+						return arg;
+					});
+					func = ((arg)=>{
+						if (arg === '$') return printObject.bind(this, this.subject);
+						if (arg === '#') return printObject.bind(this, this.noun);
+						let res = /^([#$]+)/i.exec(arg);
+						if (res && res[1]) {
+							this._setSubject = (res[1].indexOf('$') > -1);
+							this._setNoun = (res[1].indexOf('#') > -1);
+							arg = arg.slice(res[1].length);
+						}
+						if (arg.startsWith('@')) {
+							arg = getProp(item, arg.slice(1));
+							if (this._setSubject) this.subject = arg;
+							if (this._setNoun) this.noun = arg;
+							return printObject.bind(this, arg);
+						}
+						return FORMAT_FNS[arg.trim()];
+					})(func);
+					let res = func.apply(this, args);
+					if (res === false) throw false; //We can't use this phrase
+					return res;
+				} catch (e) {
+					if (typeof e === 'object') e.frame = this._callMeta.top();
+					throw e;
+				} finally {
+					this._callMeta.pop();
+					this._setSubject = false;
+					this._setNoun = false;
+				}
 			});
 			if (phrase === text) return phrase;
 			text = phrase;
 			i--; //infinite loop guard
 		} catch (e) {
 			if (e === false) return false;
-			LOGGER.error(`Error in fillText("${text}", ${item})!`, e);
+			LOGGER.error('Error in fillText(', text, ', ', item, ')!\n', e.frame,'\n', e);
 			return false;
 		}
 		return text;

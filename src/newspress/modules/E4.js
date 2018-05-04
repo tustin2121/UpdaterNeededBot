@@ -20,6 +20,7 @@ class E4Module extends ReportingModule {
 		this.memory.e4Attempts = (this.memory.e4Attempts || 0);
 		this.memory.champAttempts = (this.memory.champAttempts || 0);
 		this.memory.rematchCount = (this.memory.rematchCount || 0);
+		this.memory.isRematchLevels = (this.memory.isRematchLevels || false);
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
@@ -41,25 +42,25 @@ class E4Module extends ReportingModule {
 			}
 			this.memory.inE4Run = true;
 			this.memory.e4Attempts++;
-			ledger.addItem(new E4BeginRun(this.memory.e4Attempts));
+			ledger.addItem(new E4BeginRun(this.memory));
 		}
 		else if (this.memory.inE4Run && inE4) {
 			// While we're in E4
 			if (prev.startsWith('e') && curr.startsWith('e')) {
 				if (curr[1] < prev[1]) {
-					ledger.addItem(new E4EndRun(this.memory.e4Attempts));
+					ledger.addItem(new E4EndRun(this.memory));
 					this.memory.e4Attempts++;
-					ledger.addItem(new E4BeginRun(this.memory.e4Attempts, 'quick'));
+					ledger.addItem(new E4BeginRun(this.memory, 'quick'));
 				}
 			}
 			if (prev.startsWith('e') && (curr === 'champion' || curr === 'champ')) {
 				this.memory.champAttempts++;
-				ledger.addItem(new E4ReachChampion(this.memory.champAttempts));
+				ledger.addItem(new E4ReachChampion(this.memory));
 			}
 			if (curr === 'hallOfFame' && !this.memory.haveWon) { //should never happen, sanity check
 				this.memory.haveWon = true;
 				this.memory.inE4Run = false;
-				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
+				ledger.addItem(new E4HallOfFame(this.memory));
 			}
 			
 		}
@@ -67,10 +68,10 @@ class E4Module extends ReportingModule {
 			this.memory.inE4Run = false;
 			if (curr === 'hallOfFame' && !this.memory.haveWon) {
 				this.memory.haveWon = true;
-				ledger.addItem(new E4HallOfFame(this.memory.e4Attempts, this.memory.champAttempts));
+				ledger.addItem(new E4HallOfFame(this.memory));
 			} else {
 				// We're no longer in an E4 run
-				ledger.addItem(new E4EndRun(this.memory.e4Attempts));
+				ledger.addItem(new E4EndRun(this.memory));
 			}
 		}
 		
@@ -114,7 +115,7 @@ class E4Module extends ReportingModule {
 				let ping = (Bot.taggedIn===true || Bot.taggedIn===this.gameIndex);
 				let txt = items.map(x=>{
 					if (ping) {
-						return `**We've reached the champion's chamber${game}!** Someone might want to play-by-play!! Champion Attempt #${x.attempt}`
+						return `**We've reached the champion's chamber${game}!** Someone might want to play-by-play!! Champion Attempt #${x.champAttempt}`
 					} else {
 						return `This is Champion Attempt #${x.attempt}${game}.`;
 					}
@@ -124,5 +125,21 @@ class E4Module extends ReportingModule {
 		}
 	}
 }
+
+RULES.push(new Rule(`Supress map change announcements when we enter the hall of fame.`)
+	.when(ledger=>ledger.has('E4HallOfFame'))
+	.when(ledger=>ledger.has('MapChanged'))
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
+
+RULES.push(new Rule(`Supress map change announcements when we enter the champion's room.`)
+	.when(ledger=>ledger.has('E4ReachChampion'))
+	.when(ledger=>ledger.has('MapChanged'))
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
 
 module.exports = E4Module;

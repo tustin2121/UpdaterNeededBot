@@ -44,15 +44,15 @@ class Ledger {
 		LOGGER.warn('Postponing item:', item, can);
 		if (can) {
 			if (can instanceof LedgerItem) {
-				LOGGER.warn('Postponing is replacement.')
 				this.postponeList.push(can);
 			}
 			else {
-				LOGGER.warn('Postponing now.')
 				this.removeItem(item);
 				this.postponeList.push(item);
 				item._postponeCount++;
 			}
+		} else {
+			LOGGER.warn(`Attempted to postpone item which is not allowed to be postponed!`, item, can);
 		}
 	}
 	/**
@@ -191,6 +191,7 @@ Ledger.prototype.remove = Ledger.prototype.removeItem;
 
 class DebugLogs {
 	constructor() {
+		this.uid = DebugLogs.generateId();
 		this.apiNum = -1;
 		this.modules = {};
 		this.preledger = '';
@@ -203,13 +204,19 @@ class DebugLogs {
 		this._currTypesetter = null;
 	}
 	
+	static generateId() {
+		let ts = Date.now().toString(36);
+		let rand = Math.floor(Math.random()*0xFFFF).toString(36);
+		return ts + rand;
+	}
+	
 	getXml() {
 		let xml = '';
 		xml += `<api>${this.apiNum}</api>`;
 		{
 			let mods = [];
 			for (let mod in this.modules) {
-				mods.push(`<mod name="${mod}">${this.modules.map(x=>`<p>${x}</p>`)}<mod>`);
+				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
 			}
 			xml += `<modules>${mods.join('')}</modules>`;
 		}
@@ -249,26 +256,28 @@ class DebugLogs {
 	ruleApplied(ruleInst) {
 		let matched = ruleInst.matchedItems.map((m, i)=>{
 			let itemXml;
-			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml());
+			if (Array.isArray(m)) itemXml = m.map(x=>x.toXml()).join('');
 			else itemXml = `<matchObj index="${i}">${m}</matchObj>`;
 			return `<match index="${i}">${itemXml}</match>`;
-		});
+		}).join('');
 		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
 	}
 	
 	premergeState(items, postItems) {
-		this.preledger = `<items>${items.map(x=>x.toXml())}</items><post>${postItems.map(x=>x.toXml())}</post>`;
+		this.preledger = `<items>${items.map(x=>x.toXml()).join('')}</items>`;
+		if (postItems.length) this.preledger += `<post>${postItems.map(x=>x.toXml()).join('')}</post>`;
 	}
 	
 	/**
 	 * @param{string} type - one of 'coalesced','replaced','removed'
 	 */
 	merged(type, ...items) {
-		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`)}</merge>`);
+		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`).join('')}</merge>`);
 	}
 	
 	ledgerState(ledger) {
-		this.postledger = `<items>${ledger.list.map(x=>x.toXml())}</items><post>${ledger.postponeList.map(x=>x.toXml())}</post>`;
+		this.postledger = `<items>${ledger.list.map(x=>x.toXml()).join('')}</items>`;
+		if (ledger.postponeList.length) this.postledger += `<post>${ledger.postponeList.map(x=>x.toXml()).join('')}</post>`;
 	}
 	
 	typesetterInput(itemArray) {
@@ -283,9 +292,14 @@ class DebugLogs {
 		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
 		this._currTypesetter = null;
 	}
+	
+	finalUpdate(update) {
+		this.update = update;
+	}
 }
 
 function escapeHtml(str) {
+	if (!str) return str;
 	return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 

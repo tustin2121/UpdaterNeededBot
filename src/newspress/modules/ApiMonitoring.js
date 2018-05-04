@@ -48,8 +48,11 @@ class ApiMonitoringModule extends ReportingModule {
 			}
 			fApi.attempts++;
 			fApi.lastCode = curr.httpCode;
+			Bot.lastApiDisturbance = Date.now();
 			if (fApi.attempts > 3) {
-				Bot.alertUpdaters(`Alert: Unable to retrieve API update: ${httpCode} (Failed retrievals: ${fApi.attempts})`, {
+				let ping = '';
+				if (curr.httpCode === 418) ping = ` <@148100682535272448>`;
+				Bot.alertUpdaters(`Alert: Unable to retrieve or parse API (Code: ${curr.httpCode}, Failed retrievals: ${fApi.attempts})${ping}\n\nI am unable to update until this is resolved. Someone else please keep an eye on the stream until then.`, {
 					bypassTagCheck:true, 
 					reuseId:fApi.msgId 
 				}).then(msg=>{
@@ -60,10 +63,14 @@ class ApiMonitoringModule extends ReportingModule {
 		} 
 		else if (fApi) {
 			this.memory.failedApi = null;
-			Bot.alertUpdaters(`Alert: ~~Unable to retrieve API update: ${fApi.lastCode}~~ API has returned after ${fApi.attempts} failed retrievals. Resuming normal operation.`, {
-				bypassTagCheck:true, 
-				reuseId:fApi.msgId 
-			});
+			if (fApi.msgId) {
+				let ping = '';
+				if (fApi.lastCode === 418) ping = ` <@148100682535272448>`;
+				Bot.alertUpdaters(`~~Alert: Unable to retrieve or parse API (Code: ${fApi.lastCode}, Failed retrievals: ${fApi.attempts})${ping}~~\n\nError state has cleared. Resuming normal operation.`, {
+					bypassTagCheck:true, 
+					reuseId:fApi.msgId 
+				});
+			}
 		}
 		return true;
 	}

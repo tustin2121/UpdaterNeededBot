@@ -17,13 +17,14 @@ const RULES = [];
  */
 class LocationModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory);
+		super(config, memory, 1);
 		this.memory.reportTimes = this.memory.reportTimes || {};
 		this.memory.visitTimestamps = this.memory.visitTimestamps || {};
 		this.memory.currCheckpoint = this.memory.currCheckpoint || null;
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
 		ledger.add(new LocationContext(curr_api.location));
 		
 		let region = Bot.gameInfo().regionMap;
@@ -32,8 +33,8 @@ class LocationModule extends ReportingModule {
 			return; //Can't continue without a region...
 		}
 		
-		let prev = region.resolve(prev_api.location); prev_api.location.node = prev;
-		let curr = region.resolve(curr_api.location); curr_api.location.node = curr;
+		let prev = region.resolve(prev_api.location); //prev_api.location.node = prev;
+		let curr = region.resolve(curr_api.location); //curr_api.location.node = curr;
 		let prevMap = prev, prevArea = null;
 		let currMap = curr, currArea = null;
 		
@@ -91,6 +92,7 @@ class LocationModule extends ReportingModule {
 		for (let report of reports) {
 			let lastUsed = this.memory.reportTimes[report.id];
 			if (lastUsed + report.timeout > currTime) continue; //can't use this report again so soon
+			this.memory.reportTimes[report.id] = Date.now();
 			return new MapChanged({ prev:prevMap, curr:currMap, report });
 		}
 		// No reports apply to this pairing, so fall back on the templates
@@ -131,8 +133,8 @@ class LocationModule extends ReportingModule {
 			if (!P && C) { item.flavor = `gym_enter${back}`; return item; }
 			if (P && !C) { item.flavor = `gym_exit${back}`; return item; }
 		}{
-			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_enter${back}`; return item; }
-			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_exit${back}`; return item; }
+			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_enter${back}`; return item; }
+			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_exit${back}`; return item; }
 		}{
 			const P = prevMap.is('indoors');
 			const C = currMap.is('indoors');
@@ -145,14 +147,16 @@ class LocationModule extends ReportingModule {
 }
 
 RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
+	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false))
+	.when(ledger=>ledger.hasnt('BlackoutContext'))
 	.then(ledger=>{
-		let item = ledger.get(1);
+		let item = ledger.mark(0).get(0);
 		item.isCurrent = true;
 		ledger.add(new CheckpointUpdated(item.loc));
 	})
 );
+
 {
 	const itemIds = Bot.runOpts('itemIds_escapeRope');
 	RULES.push(new Rule(`If escaping a dungeon and we lose an escape rope, we used it.`)
@@ -160,10 +164,19 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1);
+			ledger.demote(1);
 			item.flavor = 'dungeon_escaperope';
 		})
 	);
 }
+
+// This may break in early generations
+RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
+	.when(ledger=>ledger.has('BlackoutContext'))
+	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
+	.then(ledger=>{
+		let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
+	})
+);
 
 module.exports = LocationModule;

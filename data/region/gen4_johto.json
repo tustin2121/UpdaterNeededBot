@@ -67,7 +67,7 @@
 				"dungeon": true,
 				"pokewalk": "yes",
 				"preposition": "in",
-				"the": "the"
+				"the": ""
 			},
 			"areas": []
 		},
@@ -83,10 +83,10 @@
 			},
 			"areas": [
 				{
-					"ax": "11",
-					"ay": "13",
-					"bx": "11",
-					"by": "13",
+					"ax": 11,
+					"ay": 13,
+					"bx": 11,
+					"by": 13,
 					"rad": 5,
 					"name": "PC",
 					"attrs": {
@@ -144,10 +144,10 @@
 			},
 			"areas": [
 				{
-					"ax": "15",
-					"ay": "6",
-					"bx": "16",
-					"by": "6",
+					"ax": 15,
+					"ay": 6,
+					"bx": 16,
+					"by": 6,
 					"rad": 5,
 					"name": "WiFi PC",
 					"attrs": {
@@ -198,13 +198,15 @@
 			{
 				"bank": 0,
 				"id": 2,
-				"name": "Mystery Zone",
+				"name": "Union Room",
 				"areaId": 0,
 				"areaName": "Mystery Zone",
 				"type": null,
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "UNION",
@@ -732,7 +734,7 @@
 			{
 				"bank": 0,
 				"id": 25,
-				"name": "Route 17",
+				"name": "Cycling Road",
 				"areaId": 20,
 				"areaName": "Route 17",
 				"type": "route",
@@ -787,7 +789,28 @@
 				"width": 64,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 951,
+						"ay": 278,
+						"bx": 972,
+						"by": 281,
+						"rad": 0,
+						"name": "Ledge",
+						"attrs": {
+							"ledge": "ledge"
+						}
+					},
+					{
+						"ax": 951,
+						"ay": 283,
+						"bx": 974,
+						"by": 285,
+						"rad": 0,
+						"name": "Below Ledge",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"intName": "R22",
 					"tex1": 15,
@@ -859,7 +882,19 @@
 				"width": 32,
 				"height": 128,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 909,
+						"ay": 297,
+						"bx": 909,
+						"by": 297,
+						"rad": 5,
+						"name": "spawn",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "R26",
 					"tex1": 15,
@@ -1102,9 +1137,9 @@
 				"areas": [
 					{
 						"ax": 415,
-						"ay": "246",
+						"ay": 246,
 						"bx": 415,
-						"by": "246",
+						"by": 246,
 						"rad": 5,
 						"name": "Odd Tree",
 						"attrs": {}
@@ -1183,11 +1218,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "257",
-						"ay": "161",
+						"ax": 257,
+						"ay": 161,
 						"bx": 272,
-						"by": "192",
-						"rad": "0",
+						"by": 192,
+						"rad": 5,
 						"name": "Moomoo Farm",
 						"attrs": {}
 					}
@@ -1550,7 +1585,10 @@
 				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T10",
@@ -2322,10 +2360,10 @@
 						}
 					},
 					{
-						"ax": "489",
-						"ay": "36",
-						"bx": "542",
-						"by": "75",
+						"ax": 489,
+						"ay": 36,
+						"bx": 542,
+						"by": 75,
 						"rad": 5,
 						"name": "Lake",
 						"attrs": {}
@@ -2356,10 +2394,10 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "659",
-						"ay": "136",
-						"bx": "667",
-						"by": "148",
+						"ax": 659,
+						"ay": 136,
+						"bx": 667,
+						"by": 148,
 						"rad": 5,
 						"name": "Surf Pond",
 						"attrs": {
@@ -2389,7 +2427,10 @@
 				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside",
+					"indoors": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T31",
@@ -2546,20 +2587,20 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "45",
-						"ay": "45",
-						"bx": "57",
-						"by": "51",
-						"rad": "0",
+						"ax": 45,
+						"ay": 45,
+						"bx": 57,
+						"by": 51,
+						"rad": 2,
 						"name": "Contest Endpoint",
 						"attrs": {}
 					},
 					{
-						"ax": "43",
-						"ay": "32",
-						"bx": "59",
-						"by": "47",
-						"rad": 5,
+						"ax": 43,
+						"ay": 32,
+						"bx": 59,
+						"by": 47,
+						"rad": 0,
 						"name": "By the Fountain",
 						"attrs": {}
 					}
@@ -3096,6 +3137,7 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
+					"the": "the",
 					"shopping": true
 				},
 				"areas": [],
@@ -3127,11 +3169,11 @@
 				},
 				"areas": [
 					{
-						"ax": "14",
-						"ay": "52",
-						"bx": "18",
-						"by": "61",
-						"rad": 5,
+						"ax": 14,
+						"ay": 52,
+						"bx": 18,
+						"by": 61,
+						"rad": 0,
 						"name": "Forest Shrine",
 						"attrs": {
 							"inconsequential": true
@@ -3593,10 +3635,11 @@
 						"ay": 5,
 						"bx": 15,
 						"by": 5,
-						"rad": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Falkner"
+							"leader": "Falkner",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -3655,10 +3698,11 @@
 						"ay": 5,
 						"bx": 13,
 						"by": 5,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Whitney"
+							"leader": "Whitney",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -3692,10 +3736,11 @@
 						"ay": 6,
 						"bx": 6,
 						"by": 6,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Jasmine"
+							"leader": "Jasmine",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -3716,14 +3761,27 @@
 			{
 				"bank": 0,
 				"id": 139,
-				"name": "Cianwood City",
+				"name": "Cianwood City Gym",
 				"areaId": 59,
 				"areaName": "Cianwood City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 13,
+						"ay": 11,
+						"bx": 13,
+						"by": 11,
+						"rad": 1,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Chuck",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T24GYM0101",
 					"tex1": 95,
@@ -3750,14 +3808,15 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "7",
-						"ay": "5",
-						"bx": "7",
-						"by": "5",
-						"rad": 5,
+						"ax": 7,
+						"ay": 5,
+						"bx": 7,
+						"by": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Pryce"
+							"leader": "Pryce",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -3793,10 +3852,11 @@
 						"ay": 4,
 						"bx": 12,
 						"by": 4,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Claire"
+							"leader": "Claire",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -4628,7 +4688,30 @@
 				"width": 64,
 				"height": 64,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 82,
+						"ay": 311,
+						"bx": 82,
+						"by": 311,
+						"rad": 3,
+						"name": "Vendor",
+						"attrs": {
+							"shopping": true
+						}
+					},
+					{
+						"ax": 95,
+						"ay": 312,
+						"bx": 95,
+						"by": 312,
+						"rad": 2,
+						"name": "Vendor",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D47",
 					"tex1": 15,
@@ -4785,7 +4868,7 @@
 						"ay": 6,
 						"bx": 9,
 						"by": 6,
-						"rad": 5,
+						"rad": 1,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Bugsy"
@@ -4947,11 +5030,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "16",
-						"ay": "11",
-						"bx": "25",
-						"by": "14",
-						"rad": 5,
+						"ax": 16,
+						"ay": 11,
+						"bx": 25,
+						"by": 14,
+						"rad": 0,
 						"name": "2F Studio 2",
 						"attrs": {}
 					}
@@ -4982,11 +5065,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "16",
-						"ay": "5",
-						"bx": "25",
-						"by": "11",
-						"rad": 5,
+						"ax": 16,
+						"ay": 5,
+						"bx": 25,
+						"by": 11,
+						"rad": 0,
 						"name": "Back Area",
 						"attrs": {}
 					}
@@ -5017,11 +5100,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "16",
-						"ay": "11",
-						"bx": "25",
-						"by": "14",
-						"rad": 5,
+						"ax": 16,
+						"ay": 11,
+						"bx": 25,
+						"by": 14,
+						"rad": 0,
 						"name": "4F Studio 1",
 						"attrs": {}
 					}
@@ -5052,11 +5135,11 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "1",
-						"ay": "5",
-						"bx": "9",
-						"by": "14",
-						"rad": 5,
+						"ax": 1,
+						"ay": 5,
+						"bx": 9,
+						"by": 14,
+						"rad": 0,
 						"name": "Director's Office",
 						"attrs": {
 							"the": "the"
@@ -5095,7 +5178,7 @@
 						"ay": 3,
 						"bx": 8,
 						"by": 3,
-						"rad": 5,
+						"rad": 0,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Executive Archer"
@@ -5255,9 +5338,9 @@
 				},
 				"areas": [
 					{
-						"ax": "10",
+						"ax": 10,
 						"ay": 4,
-						"bx": "13",
+						"bx": 13,
 						"by": 4,
 						"rad": 5,
 						"name": "Vending Machine",
@@ -5344,33 +5427,33 @@
 				"attrs": {},
 				"areas": [
 					{
-						"ax": "8",
-						"ay": "28",
-						"bx": "8",
-						"by": "28",
-						"rad": 5,
+						"ax": 8,
+						"ay": 28,
+						"bx": 8,
+						"by": 28,
+						"rad": 2,
 						"name": "Herbal Medicine Shop",
 						"attrs": {
 							"shopping": true
 						}
 					},
 					{
-						"ax": "8",
-						"ay": "17",
-						"bx": "8",
-						"by": "21",
-						"rad": 5,
+						"ax": 8,
+						"ay": 17,
+						"bx": 8,
+						"by": 21,
+						"rad": 2,
 						"name": "Haircut Brothers",
 						"attrs": {
 							"shopping": true
 						}
 					},
 					{
-						"ax": "15",
-						"ay": "5",
-						"bx": "22",
-						"by": "11",
-						"rad": 5,
+						"ax": 15,
+						"ay": 5,
+						"bx": 22,
+						"by": 11,
+						"rad": 0,
 						"name": "Memorial Photo Studio",
 						"attrs": {}
 					}
@@ -5928,13 +6011,17 @@
 			{
 				"bank": 0,
 				"id": 221,
-				"name": "Lighthouse",
+				"name": "Lighthouse Balcony",
 				"areaId": 83,
 				"areaName": "Lighthouse",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"indoors": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D27R0103",
@@ -6234,10 +6321,10 @@
 			{
 				"bank": 0,
 				"id": 233,
-				"name": "Cianwood City",
+				"name": "Cianwood City Pharmacy",
 				"areaId": 59,
 				"areaName": "Cianwood City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6309,7 +6396,7 @@
 			{
 				"bank": 0,
 				"id": 236,
-				"name": "Cianwood City",
+				"name": "Cianwood City Pokémon Center",
 				"areaId": 59,
 				"areaName": "Cianwood City",
 				"type": "center",
@@ -6434,10 +6521,10 @@
 			{
 				"bank": 0,
 				"id": 241,
-				"name": "Cianwood City",
+				"name": "Cianwood City Wi-Fi Club",
 				"areaId": 59,
 				"areaName": "Cianwood City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6814,7 +6901,7 @@
 			{
 				"bank": 0,
 				"id": 256,
-				"name": "Fight Area",
+				"name": "Fight Area Pokémon Center",
 				"areaId": 104,
 				"areaName": "Fight Area",
 				"type": "center",
@@ -6964,10 +7051,10 @@
 			{
 				"bank": 0,
 				"id": 262,
-				"name": "Fight Area",
+				"name": "Fight Area Wi-Fi Club",
 				"areaId": 104,
 				"areaName": "Fight Area",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6995,7 +7082,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D31",
@@ -7019,7 +7108,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D31R0101",
@@ -7045,7 +7136,19 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 22,
+						"ay": 7,
+						"bx": 22,
+						"by": 7,
+						"rad": 2,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D31R0201",
 					"tex1": 127,
@@ -7069,7 +7172,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D31R0202",
@@ -7219,8 +7324,23 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the",
+					"indoors": false
+				},
+				"areas": [
+					{
+						"ax": 47,
+						"ay": 43,
+						"bx": 50,
+						"by": 43,
+						"rad": 2,
+						"name": "Vendor",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D32",
 					"tex1": 127,
@@ -7243,7 +7363,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D32R0101",
@@ -7268,7 +7390,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D32R0201",
@@ -7293,7 +7418,10 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D32R0301",
@@ -7318,8 +7446,23 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"tempParty": true,
+					"the": ""
+				},
+				"areas": [
+					{
+						"ax": 8,
+						"ay": 4,
+						"bx": 8,
+						"by": 4,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D32R0401",
 					"tex1": 127,
@@ -7343,8 +7486,22 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"tempParty": true
+				},
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 9,
+						"bx": 7,
+						"by": 9,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D32R0501",
 					"tex1": 127,
@@ -7368,8 +7525,22 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"tempParty": true
+				},
+				"areas": [
+					{
+						"ax": 17,
+						"ay": 6,
+						"bx": 17,
+						"by": 6,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D32R0601",
 					"tex1": 127,
@@ -7481,11 +7652,11 @@
 						}
 					},
 					{
-						"ax": "21",
-						"ay": "5",
-						"bx": "24",
-						"by": "8",
-						"rad": 5,
+						"ax": 21,
+						"ay": 5,
+						"bx": 24,
+						"by": 8,
+						"rad": 0,
 						"name": "In Contest",
 						"attrs": {}
 					}
@@ -7875,7 +8046,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"healing": "house"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R26R0101",
@@ -7944,13 +8117,16 @@
 			{
 				"bank": 0,
 				"id": 299,
-				"name": "Route 26",
+				"name": "Victory Road Gatehouse",
 				"areaId": 25,
 				"areaName": "Route 26",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R22R0101",
@@ -7975,8 +8151,25 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the",
+					"e4": "lobby",
+					"healing": "pokecenter",
+					"shopping": true
+				},
+				"areas": [
+					{
+						"ax": 8,
+						"ay": 21,
+						"bx": 8,
+						"by": 21,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T10R0101",
 					"tex1": 207,
@@ -7994,14 +8187,30 @@
 			{
 				"bank": 0,
 				"id": 301,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Will's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 10,
+						"bx": 6,
+						"by": 10,
+						"rad": 30,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Will",
+							"trainertype": "e4"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T10R0201",
 					"tex1": 207,
@@ -8019,14 +8228,30 @@
 			{
 				"bank": 0,
 				"id": 302,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Koga's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 12,
+						"bx": 6,
+						"by": 12,
+						"rad": 30,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Koga",
+							"trainertype": "e4"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T10R0301",
 					"tex1": 207,
@@ -8044,14 +8269,30 @@
 			{
 				"bank": 0,
 				"id": 303,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Bruno's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 11,
+						"bx": 6,
+						"by": 11,
+						"rad": 30,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Bruno",
+							"trainertype": "e4"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T10R0401",
 					"tex1": 207,
@@ -8069,14 +8310,30 @@
 			{
 				"bank": 0,
 				"id": 304,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Karen's Room)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 11,
+						"bx": 6,
+						"by": 11,
+						"rad": 30,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Karen",
+							"trainertype": "e4"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T10R0501",
 					"tex1": 207,
@@ -8094,14 +8351,30 @@
 			{
 				"bank": 0,
 				"id": 305,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Champion's Chamber)",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"e4": "champ",
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 7,
+						"bx": 6,
+						"by": 8,
+						"rad": 30,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Lance",
+							"trainertype": "champ"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T10R0601",
 					"tex1": 207,
@@ -8119,13 +8392,16 @@
 			{
 				"bank": 0,
 				"id": 306,
-				"name": "Pokémon League",
+				"name": "Pokémon League Hall of Fame",
 				"areaId": 113,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"e4": "hallOfFame",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T10R0701",
@@ -8150,7 +8426,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0301",
@@ -8175,7 +8453,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0302",
@@ -8200,8 +8480,22 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 26,
+						"ay": 4,
+						"bx": 26,
+						"by": 4,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "P01R0303",
 					"tex1": 159,
@@ -8225,7 +8519,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0304",
@@ -8250,7 +8546,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0305",
@@ -8675,7 +8973,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0306",
@@ -8700,7 +9000,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "P01R0307",
@@ -9335,7 +9637,7 @@
 			{
 				"bank": 0,
 				"id": 358,
-				"name": "Vermilion City",
+				"name": "Vermilion City Pokémon Center",
 				"areaId": 49,
 				"areaName": "Vermilion City",
 				"type": "center",
@@ -9360,10 +9662,10 @@
 			{
 				"bank": 0,
 				"id": 359,
-				"name": "Vermilion City",
+				"name": "Vermilion City Wi-Fi Club",
 				"areaId": 49,
 				"areaName": "Vermilion City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9435,13 +9737,15 @@
 			{
 				"bank": 0,
 				"id": 362,
-				"name": "Vermilion City",
+				"name": "Pokémon Fan Club",
 				"areaId": 49,
 				"areaName": "Vermilion City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T06R0301",
@@ -9510,14 +9814,27 @@
 			{
 				"bank": 0,
 				"id": 365,
-				"name": "Vermilion City",
+				"name": "Vermilion City Gym",
 				"areaId": 49,
 				"areaName": "Vermilion City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 5,
+						"bx": 6,
+						"by": 5,
+						"rad": 2,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Serge",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T06GYM0101",
 					"tex1": 143,
@@ -9637,13 +9954,15 @@
 			{
 				"bank": 0,
 				"id": 370,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0101",
@@ -9662,13 +9981,15 @@
 			{
 				"bank": 0,
 				"id": 371,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0102",
@@ -9687,13 +10008,15 @@
 			{
 				"bank": 0,
 				"id": 372,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0103",
@@ -9712,13 +10035,15 @@
 			{
 				"bank": 0,
 				"id": 373,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0104",
@@ -9737,13 +10062,15 @@
 			{
 				"bank": 0,
 				"id": 374,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0105",
@@ -9762,14 +10089,28 @@
 			{
 				"bank": 0,
 				"id": 375,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 15,
+						"ay": 4,
+						"bx": 20,
+						"by": 4,
+						"rad": 3,
+						"name": "Vending Machine",
+						"attrs": {
+							"vending": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T07R0106",
 					"tex1": 95,
@@ -9787,13 +10128,15 @@
 			{
 				"bank": 0,
 				"id": 376,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0201",
@@ -9812,13 +10155,15 @@
 			{
 				"bank": 0,
 				"id": 377,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0202",
@@ -9837,13 +10182,15 @@
 			{
 				"bank": 0,
 				"id": 378,
-				"name": "Celadon City",
+				"name": "Game Freak Offices",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0203",
@@ -9862,13 +10209,16 @@
 			{
 				"bank": 0,
 				"id": 379,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": false,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0204",
@@ -10212,7 +10562,7 @@
 			{
 				"bank": 0,
 				"id": 393,
-				"name": "Celadon City",
+				"name": "Celadon City Pokémon Center",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "center",
@@ -10237,10 +10587,10 @@
 			{
 				"bank": 0,
 				"id": 394,
-				"name": "Celadon City",
+				"name": "Celadon City Wi-Fi Club",
 				"areaId": 50,
 				"areaName": "Celadon City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -10262,14 +10612,26 @@
 			{
 				"bank": 0,
 				"id": 395,
-				"name": "Celadon City",
+				"name": "Celadon City Gym",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 4,
+						"bx": 7,
+						"by": 4,
+						"rad": 1,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Erika"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T07GYM0101",
 					"tex1": 111,
@@ -10662,18 +11024,18 @@
 						"ay": 14,
 						"bx": 15,
 						"by": 14,
-						"rad": 5,
+						"rad": 2,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Sabrina"
 						}
 					},
 					{
-						"ax": "11",
-						"ay": "12",
-						"bx": "19",
-						"by": "19",
-						"rad": 5,
+						"ax": 11,
+						"ay": 12,
+						"bx": 19,
+						"by": 19,
+						"rad": 0,
 						"name": "Sabrina's Room",
 						"attrs": {}
 					}
@@ -10904,7 +11266,7 @@
 				"name": "Route 2",
 				"areaId": 5,
 				"areaName": "Route 2",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -10929,7 +11291,7 @@
 				"name": "Route 2",
 				"areaId": 5,
 				"areaName": "Route 2",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -10954,7 +11316,7 @@
 				"name": "Route 16",
 				"areaId": 19,
 				"areaName": "Route 16",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -10979,7 +11341,7 @@
 				"name": "Route 16",
 				"areaId": 19,
 				"areaName": "Route 16",
-				"type": "indoor",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -11056,7 +11418,7 @@
 				"name": "Route 11",
 				"areaId": 14,
 				"areaName": "Route 11",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -11103,14 +11465,27 @@
 			{
 				"bank": 0,
 				"id": 427,
-				"name": "Cerulean City",
+				"name": "Cerulean City Gym",
 				"areaId": 47,
 				"areaName": "Cerulean City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 2,
+						"bx": 10,
+						"by": 2,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Misty",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T04GYM0101",
 					"tex1": 159,
@@ -11128,7 +11503,7 @@
 			{
 				"bank": 0,
 				"id": 428,
-				"name": "Cerulean City",
+				"name": "Cerulean City Pokémon Center",
 				"areaId": 47,
 				"areaName": "Cerulean City",
 				"type": "center",
@@ -11278,7 +11653,7 @@
 			{
 				"bank": 0,
 				"id": 434,
-				"name": "Lavender Town",
+				"name": "Lavender Town Pokémon Center",
 				"areaId": 48,
 				"areaName": "Lavender Town",
 				"type": "center",
@@ -11353,13 +11728,15 @@
 			{
 				"bank": 0,
 				"id": 437,
-				"name": "Lavender Town",
+				"name": "Lavender Town Name Rater",
 				"areaId": 48,
 				"areaName": "Lavender Town",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T05R0401",
@@ -11403,14 +11780,26 @@
 			{
 				"bank": 0,
 				"id": 439,
-				"name": "Lavender Town",
+				"name": "Lavender Town Radio Towerz",
 				"areaId": 48,
 				"areaName": "Lavender Town",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 4,
+						"bx": 3,
+						"by": 4,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T05R0701",
 					"tex1": 207,
@@ -11480,13 +11869,15 @@
 			{
 				"bank": 0,
 				"id": 442,
-				"name": "Celadon City",
+				"name": "Celadon Department Store",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0107",
@@ -11505,13 +11896,15 @@
 			{
 				"bank": 0,
 				"id": 443,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0206",
@@ -11530,13 +11923,15 @@
 			{
 				"bank": 0,
 				"id": 444,
-				"name": "Celadon City",
+				"name": "Celadon Condominiums",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07R0207",
@@ -11858,14 +12253,27 @@
 			{
 				"bank": 0,
 				"id": 457,
-				"name": "Seafoam Islands",
+				"name": "Cinnabar Gym (on Seafoam Islands)",
 				"areaId": 95,
 				"areaName": "Seafoam Islands",
-				"type": "dungeon",
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 13,
+						"ay": 12,
+						"bx": 13,
+						"by": 12,
+						"rad": 2,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Blaine",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "D11R0106",
 					"tex1": 63,
@@ -11914,7 +12322,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D41R0102",
@@ -11939,7 +12349,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D41R0103",
@@ -12058,13 +12470,16 @@
 			{
 				"bank": 0,
 				"id": 465,
-				"name": "Mt. Silver Cave",
+				"name": "Summit of Mt. Silver",
 				"areaId": 89,
 				"areaName": "Mt. Silver Cave",
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D41R0108",
@@ -12158,13 +12573,15 @@
 			{
 				"bank": 0,
 				"id": 469,
-				"name": "Route 5",
+				"name": "Underground Path",
 				"areaId": 8,
 				"areaName": "Route 5",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R05R0201",
@@ -12183,13 +12600,15 @@
 			{
 				"bank": 0,
 				"id": 470,
-				"name": "Route 6",
+				"name": "Underground Path",
 				"areaId": 9,
 				"areaName": "Route 6",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R06R0101",
@@ -12208,7 +12627,7 @@
 			{
 				"bank": 0,
 				"id": 471,
-				"name": "Pewter City",
+				"name": "Pewter Museum of Science",
 				"areaId": 46,
 				"areaName": "Pewter City",
 				"type": "indoor",
@@ -12258,14 +12677,27 @@
 			{
 				"bank": 0,
 				"id": 473,
-				"name": "Pewter City",
+				"name": "Pewter City Gym",
 				"areaId": 46,
 				"areaName": "Pewter City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 5,
+						"bx": 7,
+						"by": 5,
+						"rad": 2,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Brock",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T03GYM0101",
 					"tex1": 15,
@@ -12308,7 +12740,7 @@
 			{
 				"bank": 0,
 				"id": 475,
-				"name": "Pewter City",
+				"name": "Pewter City Pokémon Center",
 				"areaId": 46,
 				"areaName": "Pewter City",
 				"type": "center",
@@ -12333,10 +12765,10 @@
 			{
 				"bank": 0,
 				"id": 476,
-				"name": "Pewter City",
+				"name": "Pewter City Wi-Fi Club",
 				"areaId": 46,
 				"areaName": "Pewter City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -12433,14 +12865,26 @@
 			{
 				"bank": 0,
 				"id": 480,
-				"name": "Fuchsia City",
+				"name": "Fuchsia City Gym",
 				"areaId": 51,
 				"areaName": "Fuchsia City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 16,
+						"bx": 7,
+						"by": 16,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Janine"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T08GYM0101",
 					"tex1": 95,
@@ -12783,10 +13227,10 @@
 			{
 				"bank": 0,
 				"id": 494,
-				"name": "Lavender Town",
+				"name": "Lavender Town Wi-Fi Club",
 				"areaId": 48,
 				"areaName": "Lavender Town",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -12808,10 +13252,10 @@
 			{
 				"bank": 0,
 				"id": 495,
-				"name": "Cerulean City",
+				"name": "Cerulean City Wi-Fi Club",
 				"areaId": 47,
 				"areaName": "Cerulean City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -12833,14 +13277,29 @@
 			{
 				"bank": 0,
 				"id": 496,
-				"name": "Viridian City",
+				"name": "Viridian City Gym",
 				"areaId": 45,
 				"areaName": "Viridian City",
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"pokewalk": false
+				},
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 5,
+						"bx": 5,
+						"by": 5,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Blue",
+							"trainertype": "leader"
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T02GYM0101",
 					"tex1": 15,
@@ -12883,14 +13342,28 @@
 			{
 				"bank": 0,
 				"id": 498,
-				"name": "Viridian City",
+				"name": "Trainer House",
 				"areaId": 45,
 				"areaName": "Viridian City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 4,
+						"ay": 4,
+						"bx": 4,
+						"by": 4,
+						"rad": 5,
+						"name": "PC",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {
 					"intName": "T02R0301",
 					"tex1": 15,
@@ -12908,13 +13381,16 @@
 			{
 				"bank": 0,
 				"id": 499,
-				"name": "Viridian City",
+				"name": "Trainer House",
 				"areaId": 45,
 				"areaName": "Viridian City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"pokewalk": false
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T02R0302",
@@ -12958,7 +13434,7 @@
 			{
 				"bank": 0,
 				"id": 501,
-				"name": "Viridian City",
+				"name": "Viridian City Pokémon Center",
 				"areaId": 45,
 				"areaName": "Viridian City",
 				"type": "center",
@@ -12983,10 +13459,10 @@
 			{
 				"bank": 0,
 				"id": 502,
-				"name": "Viridian City",
+				"name": "Viridian City Wi-Fi Club",
 				"areaId": 45,
 				"areaName": "Viridian City",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -13208,7 +13684,7 @@
 			{
 				"bank": 0,
 				"id": 511,
-				"name": "Route 3",
+				"name": "Route 3 Pokémon Center",
 				"areaId": 6,
 				"areaName": "Route 3",
 				"type": "center",
@@ -13233,10 +13709,10 @@
 			{
 				"bank": 0,
 				"id": 512,
-				"name": "Route 3",
+				"name": "Route 3 Wi-Fi Club",
 				"areaId": 6,
 				"areaName": "Route 3",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -13283,7 +13759,7 @@
 			{
 				"bank": 0,
 				"id": 514,
-				"name": "Mt. Silver",
+				"name": "Mt. Silver Pokémon Center",
 				"areaId": 67,
 				"areaName": "Mt. Silver",
 				"type": "center",
@@ -13308,10 +13784,10 @@
 			{
 				"bank": 0,
 				"id": 515,
-				"name": "Mt. Silver",
+				"name": "Mt. Silver Wi-Fi Club",
 				"areaId": 67,
 				"areaName": "Mt. Silver",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -13630,7 +14106,7 @@
 			{
 				"bank": 0,
 				"id": 528,
-				"name": "Frontier Access",
+				"name": "Frontier Pokémon Center",
 				"areaId": 118,
 				"areaName": "Frontier Access",
 				"type": "center",
@@ -13655,10 +14131,10 @@
 			{
 				"bank": 0,
 				"id": 529,
-				"name": "Frontier Access",
+				"name": "Frontier Wi-Fi Club",
 				"areaId": 118,
 				"areaName": "Frontier Access",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -13680,7 +14156,7 @@
 			{
 				"bank": 0,
 				"id": 530,
-				"name": "Frontier Access PokéMart",
+				"name": "Frontier PokéMart",
 				"areaId": 118,
 				"areaName": "Frontier Access",
 				"type": "mart",
@@ -13730,13 +14206,15 @@
 			{
 				"bank": 0,
 				"id": 532,
-				"name": "Route 5",
+				"name": "Underground Path",
 				"areaId": 8,
 				"areaName": "Route 5",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "R05R0202",
@@ -13780,7 +14258,7 @@
 			{
 				"bank": 0,
 				"id": 534,
-				"name": "Safari Zone Gate",
+				"name": "Safari Zone Pokémon Center",
 				"areaId": 101,
 				"areaName": "Safari Zone Gate",
 				"type": "center",
@@ -13805,10 +14283,10 @@
 			{
 				"bank": 0,
 				"id": 535,
-				"name": "Safari Zone Gate",
+				"name": "Safari Zone Wi-Fi Club",
 				"areaId": 101,
 				"areaName": "Safari Zone Gate",
-				"type": "center",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -13857,13 +14335,15 @@
 			{
 				"bank": 0,
 				"id": 537,
-				"name": "Celadon City",
+				"name": "Celadon Game Corner",
 				"areaId": 50,
 				"areaName": "Celadon City",
 				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "T07SP0101",
@@ -13906,10 +14386,10 @@
 			{
 				"bank": 0,
 				"id": 539,
-				"name": "Pokémon League",
+				"name": "Pokémon League Wi-Fi Club",
 				"areaId": 113,
 				"areaName": "Pokémon League",
-				"type": "indoor",
+				"type": "center_lower",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -14153,7 +14633,7 @@
 			"from": "0.78",
 			"to": "0.172",
 			"text": "!town_exit_west",
-			"timeout": 0
+			"timeout": 600000
 		},
 		{
 			"id": "3914a87e",

@@ -43,7 +43,8 @@ class UpdaterBot extends EventEmitter {
 				if (game.regionMap === undefined) throw `Invalid config: game${i} has no regionMap defined! Should be null or valid region!`;
 				if (game.regionMap !== null) {
 					try {
-						game.regionMap = require(`../data/region/${game.regionMap}`);
+						const { MapRegion } = require('./api/mapnode');
+						game.regionMap = new MapRegion(require(`../data/region/${game.regionMap}.json`));
 					} catch (e) {
 						throw `Invalid config: game${i} requires an invalid region map!`;
 					}
@@ -85,6 +86,10 @@ class UpdaterBot extends EventEmitter {
 		LOGGER.info(`Run config valid.`);
 		
 		this.loadMemory();
+		
+		// Ensure these memory regions exist
+		this.memory.global;
+		this.memory.runFlags;
 		
 		this.staff = null;
 		this.streamApi = null;
@@ -153,6 +158,14 @@ class UpdaterBot extends EventEmitter {
 		return val;
 	}
 	
+	/** Queries whether a given run flag is enabled. Run flags are different from run options because
+	 *  they are kept in memory and can be turned on and off without restarting the bot. */
+	runFlag(flag, def) {
+		let val = this.memory.runFlags[flag];
+		if (val === undefined) val = def;
+		return !!val;
+	}
+	
 	/** Gets the game configuration for the given game. */
 	gameInfo(game=0) {
 		let config = this.runConfig['game'+game];
@@ -191,15 +204,17 @@ class UpdaterBot extends EventEmitter {
 		LOGGER.trace(`Update cycle starting.`);
 		try {
 			let update = this.press.run();
-			if (update) this.postUpdate({ text:update, });
-			
-			if (this.isHelping) {
-				update = this.press.runHelp();
-				if (update) this.postUpdate({ text:update, dest:'main' });
-			}
-			else if (typeof this.taggedIn === 'number') { //tagged in for one game only
-				update = this.press.pool[this.taggedIn].lastUpdate;
-				if (update) this.postUpdate({ text:update, dest:'main' });
+			if (update) {
+				this.postUpdate({ text:update, });
+				
+				if (this.isHelping) {
+					update = this.press.runHelp(this.taggedIn);
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
+				else if (typeof this.taggedIn === 'number') { //tagged in for one game only
+					update = this.press.pool[this.taggedIn].lastUpdate;
+					if (update) this.postUpdate({ text:update, dest:'main' });
+				}
 			}
 			
 			LOGGER.trace(`Update cycle complete.`);
@@ -228,6 +243,12 @@ class UpdaterBot extends EventEmitter {
 	get isHelping() {
 		// We're helping when we're partially tagged in, ie a truthy value that is not true.
 		return this.memory.global.taggedIn && typeof this.memory.global.taggedIn === 'object';
+	}
+	
+	get lastApiDisturbance() { return this.memory.global.lastApiDisturbance; }
+	set lastApiDisturbance(val) { 
+		if (typeof val !== 'number' && !Number.isFinite(val)) return;
+		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val); 
 	}
 	
 	/** Gets the current timestamp for this run. */
@@ -284,7 +305,7 @@ class UpdaterBot extends EventEmitter {
 				break;
 		}
 		let ts = this.getTimestamp();
-		let debugUrl = createDebugUrl(debugXml) || '';
+		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`; //createDebugUrl(debugXml) || '';
 		//////////////////////////////////////////
 		if (mainLive && this.runConfig.run.liveID) {
 			let update = formatFor.reddit(text);

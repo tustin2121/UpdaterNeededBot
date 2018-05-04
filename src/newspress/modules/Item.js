@@ -5,6 +5,7 @@ const { ReportingModule, Rule } = require('./_base');
 const {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
+	ApiDisturbance,
 } = require('../ledger');
 
 const LOGGER = getLogger('ItemModule');
@@ -17,11 +18,12 @@ const RULES = [];
  */
 class ItemModule extends ReportingModule {
 	constructor(config, memory) {
-		super(config, memory, 1); //low priority
+		super(config, memory, 2); //low priority
 		
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
 		let invDelta = getDelta(curr.inv._inv, prev.inv._inv);
 		let bagDelta = getDelta(curr.inv.bag, prev.inv.bag);
 		let heldDelta = getDelta(curr.inv.held, prev.inv.held);
@@ -35,13 +37,17 @@ class ItemModule extends ReportingModule {
 		];
 		keySet = new Set(keySet);
 		
-		LOGGER.debug('keyset', keySet);
+		let numItemsChanged = 0;
+		
+		this.debug('keyset', keySet);
 		
 		for (let id of keySet) {
 			let item = curr.inv.getData(id) || prev.inv.getData(id);
 			let delta = invDelta[id] || 0;
 			
-			LOGGER.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			this.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			
+			numItemsChanged += Math.abs(delta) + Math.abs(heldDelta[id]) + Math.abs(pcDelta[id]) + Math.abs(bagDelta[id]);
 			
 			const gained = invDelta[id] > 0;
 			const dropped = invDelta[id] < 0;
@@ -83,7 +89,13 @@ class ItemModule extends ReportingModule {
 					}
 				}
 			}
-			
+		}
+		
+		if (numItemsChanged > 200) {
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `More than 200 item updates happened in one update cycle!`
+			}));
 		}
 	}
 	
@@ -102,6 +114,16 @@ function getDelta(curr, prev) {
 	return delta;
 }
 
+
+RULES.push(new Rule(`Discard insane item updates`)
+	.when(ledger=>ledger.has('ApiDisturbance'))
+	.when(ledger=>ledger.has('LostItem').moreThan(20))
+	.when(ledger=>ledger.has('GainItem').moreThan(20))
+	.then(ledger=>{
+		ledger.demote(1, 10).demote(2, 10); //drop everything
+	})
+);
+
 //////////////////////////////////////////////////////////////////////////
 // Checking item uses
 {
@@ -111,7 +133,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let context = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle, x.amount)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, context.battle, x.amount)));
 		})
 	);
 	RULES.push(new Rule(`Pokeballs lost when a pokemon has been gained have been thrown.`)
@@ -119,7 +141,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let gained = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, gained.mon, x.amount)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, gained.mon, x.amount)));
 		})
 	);
 }{
@@ -129,7 +151,7 @@ function getDelta(curr, prev) {
 			.when(ledger=>ledger.has('BattleContext'))
 			.when(ledger=>ledger.has('MonTakeItem').with('item.id', itemIds))
 			.then(ledger=>{
-				ledger.remove(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
+				ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
 			})
 		);
 	}
@@ -140,7 +162,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
 		})
 	);
 }{
@@ -150,7 +172,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('hpheal', x.item, item.mon)));
 		})
 	);
 }{
@@ -161,9 +183,9 @@ function getDelta(curr, prev) {
 		.then(ledger=>{
 			let item = ledger.get(0);
 			if (item.length > 1) {
-				ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('pphealAll', x.item, item[0].mon)));
+				ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('pphealAll', x.item, item[0].mon)));
 			} else {
-				ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('ppheal', x.item, item[0].mon, item[0].move)));
+				ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('ppheal', x.item, item[0].mon, item[0].move)));
 			}
 		})
 	);
@@ -174,7 +196,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('evostone', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('evostone', x.item, item.mon)));
 		})
 	);
 }{
@@ -184,7 +206,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon(null, x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon(null, x.item, item.mon)));
 		})
 	);
 }{
@@ -194,7 +216,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
 		})
 	);
 	RULES.push(new Rule(`TMs lost during move learn have been used.`)
@@ -202,7 +224,7 @@ function getDelta(curr, prev) {
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
+			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('tm', x.item, item.mon)));
 		})
 	);
 }
@@ -213,7 +235,7 @@ function getDelta(curr, prev) {
 {
 	const DrinkIds = Bot.runOpts('itemIds_vending');
 	RULES.push(new Rule(`Drinks are vended`)
-		.when(ledger=>ledger.hasMap(x=> x.attr('vending') ))
+		.when(ledger=>ledger.hasMap(x=> x.has('vending') ))
 		.when(ledger=>ledger.has('GainItem').with('item.id', DrinkIds).ofNoFlavor())
 		.then(ledger=>{
 			ledger.get(1).forEach(x=> x.flavor = 'vending');
@@ -224,20 +246,43 @@ function getDelta(curr, prev) {
 //TODO new Rule(`Items gained while shopping are postponed until the shopping is finished`)
 
 RULES.push(new Rule(`Items gained in shops have been bought`)
-	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
+	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
 	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
 RULES.push(new Rule(`Items lost in shops have been sold`)
-	.when(ledger=>ledger.hasMap(x=> x.attr('shopping') ))
+	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
 	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
 
+// Because UsedBallInBattle is not a basic item, it doesn't get merged in the postpone merge step
+RULES.push(new Rule(`Combine all instances of UsedBallInBattle`)
+	.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
+	.then(ledger=>{
+		let items = ledger.get(0);
+		let item = items[0];
+		for (let i = 1; i < items.length; i++) {
+			item = item.cancelsOut(items[i]);
+			if (!item || !(item instanceof UsedBallInBattle)) throw new TypeError('Invalid merging!');
+		}
+		ledger.remove(0).add(item);
+	})
+);
 
+RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
+	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())
+	.when(ledger=>ledger.has('BattleContext'))
+	.then(ledger=>{
+		// After so many turns, there's a chance we don't postpone these anymore.
+		let item = ledger.get(0)[0];
+		if (item._postponeCount > 16 && item.amount > 5 && Math.random() < 0.3) return;
+		ledger.postpone(0);
+	})
+);
 
 module.exports = ItemModule;

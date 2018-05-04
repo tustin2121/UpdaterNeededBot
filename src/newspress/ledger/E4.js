@@ -11,24 +11,27 @@ const { MapNode } = require('../../mapinfo');
  * A context item indicating that we're currently in an E4 run.
  */
 class E4RunContext extends LedgerItem {
-	constructor({ e4Attempts, champAttempts, rematchCount }, loc) {
+	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }, loc) {
 		super(0);
 		this.attempt = e4Attempts;
 		this.champ = champAttempts;
-		this.rematch = rematchCount;
+		this.rematchCount = rematchCount;
+		this.isRematchLevels = rematchLevels;
 		this.locType = loc;
 	}
 	get champAttempt(){ return this.champ; }
-	get rematchCount(){ return this.rematch; }
 }
 
 /**
  * An item indicating that we've begun a new E4 run.
  */
 class E4BeginRun extends LedgerItem {
-	constructor(attempt, flavor) {
+	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }, flavor) {
 		super(2, {flavor, sort:-10});
-		this.attempt = attempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematchCount = rematchCount;
+		this.isRematchLevels = rematchLevels;
 	}
 }
 
@@ -36,20 +39,26 @@ class E4BeginRun extends LedgerItem {
  * An item indicating that we've reached the champion.
  */
 class E4ReachChampion extends LedgerItem {
-	constructor(attempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }) {
 		super(2);
-		this.attempt = attempt; //champion attempt
+		this.attempt = e4Attempts;
+		this.champ = champAttempts; //champ attempt
+		this.rematchCount = rematchCount;
+		this.isRematchLevels = rematchLevels;
 	}
+	get champAttempt(){ return this.champ; }
 }
 
 /**
  * An item indicating that we've blacked out or otherwise have been removed from the
  */
 class E4EndRun extends LedgerItem {
-	constructor(attempt, champAttempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }) {
 		super(2, {sort:10});
-		this.attempt = attempt;
-		this.champAttempt = champAttempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematchCount = rematchCount;
+		this.isRematchLevels = rematchLevels;
 	}
 }
 
@@ -57,9 +66,12 @@ class E4EndRun extends LedgerItem {
  * An item indicating that we've entered the Hall of Fame.
  */
 class E4HallOfFame extends LedgerItem {
-	constructor(attempt) {
+	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }) {
 		super(2);
-		this.attempt = attempt;
+		this.attempt = e4Attempts;
+		this.champ = champAttempts;
+		this.rematchCount = rematchCount;
+		this.isRematchLevels = rematchLevels;
 	}
 }
 

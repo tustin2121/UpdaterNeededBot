@@ -46,6 +46,10 @@ class WebServer {
 				}
 			});
 		});
+		app.get('/u/:id', (req, res, next)=>{
+			//TODO
+			res.sendFile(path.join(__dirname, 'site', `index.html`));
+		});
 		
 		app.use(express.static(path.join(__dirname, 'site'), {
 			extensions: ['html'],

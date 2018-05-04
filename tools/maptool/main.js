@@ -399,12 +399,12 @@ class MapPanel {
 				let $pair = $(`<span class='valpair'>`);
 				$(`<input class='val' type='number' />`).val(obj[x]).appendTo($pair)
 					.on('change', function(){
-						obj[x] = $(this).val();
+						obj[x] = Number.parseInt($(this).val(),10);
 						App.notifyChange('prop-change', data);
 					});
 				$(`<input class='val' type='number' />`).val(obj[y]).appendTo($pair)
 					.on('change', function(){
-						obj[y] = $(this).val();
+						obj[y] = Number.parseInt($(this).val(),10);
 						App.notifyChange('prop-change', data);
 					});
 				return $pair;
@@ -427,7 +427,7 @@ class MapPanel {
 				case 'number':
 					return $(`<input class='val' type='number' />`).val(val)
 						.on('change', function(){
-							obj[key] = $(this).val();
+							obj[key] = Number.parseInt($(this).val(),10);
 							App.notifyChange('prop-change', data);
 						});
 				case 'string':

@@ -23,12 +23,17 @@ module.exports = {
 			
 			if (mon.shiny) txt = `shiny ${txt}`;
 			if (mon.sparkly) txt = `sparkly ${txt}`;
+			if (mon.form) txt = `${txt} ${mon.form}`;
 			txt = `<b>Caught a <info ext="${ext}">${txt}</info>!</b>`;
 			
 			if (mon.nicknamed) txt += ` Nickname: \`${mon.name}\``;
 			else txt += ` No nickname.`;
 			
-			if (mon.box) txt += ` (Sent to Box #${mon.box}.)`;
+			if (mon.storedIn && mon.storedIn.startsWith('box:')) {
+				let box = mon.storedIn.slice(4);
+				box = box.slice(0, box.indexOf('-'));
+				txt += ` (Sent to Box #${box}.)`;
+			}
 			return txt;
 		},
 	},
@@ -61,8 +66,9 @@ module.exports = {
 	},
 	
 	PokemonTraded: {
-		default: (item, { fillText })=>{
+		default: function(item){
 			const { mon, pastMon } = item;
+			getLogger('PokemonTraded').log(`const { mon, pastMon }`, mon, pastMon);
 			
 			let ext = mon.getExtendedInfo().replace(/"/g, `''`);
 			let txt = `${mon._gender.toLowerCase()} Lv. ${mon.level} ${mon.species}`;
@@ -75,9 +81,9 @@ module.exports = {
 			else txt += ` No nickname.`;
 			
 			if (!mon.isTraded) {
-				txt += fillText(` Thanks for taking care of {{him|@mon}}!`, item);
+				txt += this.fillText(` Thanks for taking care of {{him|@mon}}!`, item);
 			} else {
-				txt += fillText(` Taking care of {{@pastMon.name}}!`, item);
+				txt += this.fillText(` Taking care of {{@pastMon.name}}!`, item);
 			}
 			return txt;
 		},

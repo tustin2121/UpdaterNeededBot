@@ -42,8 +42,8 @@ function formatDiscord(text) {
 
 function typeset(ledger, curr_api) {
 	// LOGGER.warn(`TYPESETTER NOT YET IMPLEMENTED`);
-	let ts = new TypeSetter(curr_api);
-	return ts.typesetLedger(ledger);
+	let ts = new TypeSetter(curr_api, ledger.log);
+	return (ledger.log.update = ts.typesetLedger(ledger));
 }
 
 

@@ -780,7 +780,7 @@ describe('Rule', function(){
 				.when(ledger=>ledger.has('BattleContext'))
 				.when(ledger=>ledger.has('MonTakeItem').with('item.id', BerryIds))
 				.then(ledger=>{
-					ledger.remove(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
+					ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBerryInBattle(x.item, x.mon)));
 				});
 			
 			let ledger = createTestLedger([

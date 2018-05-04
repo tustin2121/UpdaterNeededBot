@@ -66,7 +66,8 @@ class MapRegion {
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
 				for (let area of map.areas) {
-					if (area.ax >= x && area.bx <= x && area.ay >= y && area.by <= y) return area;
+					if (x >= area.ax && x <= area.bx
+						&& y >= area.ay && y <= area.by) return area;
 				}
 			}
 			return bank[id];
@@ -79,6 +80,7 @@ class MapRegion {
 	}
 	
 	is(attr) { return this.types['default'].is(attr); }
+	within(){ return undefined; }
 }
 
 /** Represents a map in the game. This represents data about a location id given by the API. */
@@ -120,6 +122,19 @@ class MapNode {
 		if (this.__type__) return this.__type__.is(attr);
 		return this.__region__.is(attr);
 	}
+	within(attr, x, y) {
+		if (this.attrs[attr] !== undefined) return this.attrs[attr];
+		for (let area of this.areas) {
+			let within;
+			within  = x >= area.ax - area.rad;
+			within &= x <= area.bx + area.rad;
+			within &= y >= area.ay - area.rad;
+			within &= y <= area.by + area.rad;
+			if (within) return area.is(attr);
+		}
+		if (this.__type__) return this.__type__.is(attr);
+		return this.__region__.is(attr);
+	}
 }
 
 /**
@@ -151,6 +166,9 @@ class MapType {
 		if (this.name !== 'default') this.__region__.is(attr);
 		return undefined;
 	}
+	within(attr, x, y) {
+		return this.is(attr);
+	}
 }
 
 /**
@@ -165,14 +183,15 @@ class MapArea {
 		this.__region__ = parent.region;
 		
 		/** Top-right corner */
-		this.ax = opts.ax || opts.x || 0;
-		this.ay = opts.ay || opts.y || 0;
+		this.ax = Number.parseInt(opts.ax, 10) || opts.x || 0;
+		this.ay = Number.parseInt(opts.ay, 10) || opts.y || 0;
 		/** Bottom-left corner */
-		this.bx = opts.bx || (opts.x+opts.w) || this.ax;
-		this.by = opts.by || (opts.y+opts.h) || this.ay;
+		this.bx = Number.parseInt(opts.bx, 10) || (opts.x+opts.w) || this.ax;
+		this.by = Number.parseInt(opts.by, 10) || (opts.y+opts.h) || this.ay;
 		
 		/** Effective detection radius */
-		this.rad = opts.rad || (this.ax==this.bx && this.ay==this.by)?5:0;
+		this.rad = Number.parseInt(opts.rad, 10);
+		if (Number.isNaN(this.rad)) (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
@@ -190,6 +209,9 @@ class MapArea {
 		if (this.attrs[attr] !== undefined) return this.attrs[attr];
 		if (this.__parent__) return this.__parent__.is(attr);
 		return this.__region__.is(attr);
+	}
+	within(attr, x, y) {
+		return this.__parent__.within(attr, x, y);
 	}
 }
 

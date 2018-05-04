@@ -69,6 +69,10 @@ function fillMoveInfo(data) {
 	}
 }
 
+function calcStats({ species, ivs, evs, }) {
+	
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HeldItem {
@@ -97,6 +101,7 @@ class Pokemon {
 		this.name = '';
 		this.species = '';
 		this.nicknamed = false;
+		this.form = null;
 		
 		this._gender = '';
 		this.nature = '';
@@ -146,6 +151,11 @@ class Pokemon {
 		this.species = (mon.species && mon.species.name) || '';
 		this.nicknamed = !!(mon.nicknamed || checkNicknamed(this.name, this.species) || false);
 		this.name = sanatizeName(this.name);
+		
+		if (Bot.runOpts('forms') && mon.form) {
+			let forms = require('../../data/extdat/pkmnforms');
+			this.form = (forms[this.species.toLowerCase()]||[])[mon.form];
+		}
 		
 		// Fix shedinja bug:
 		if (this.species.toLowerCase() === `shedinja`) this.hash++;
@@ -228,6 +238,7 @@ class Pokemon {
 	
 	/** @param {int} num - Used to trick the TypeSetter to never pluralize a pokemon name. */
 	toString(num) {
+		if (this.form) return `${this.name} (${this.species} ${this.form})`;
 		return `${this.name} (${this.species})`;
 	}
 	
@@ -316,6 +327,11 @@ class SortedLocation {
 	constructor(data) {
 		this.node = null;
 		this.set(data);
+		
+		let region = Bot.gameInfo().regionMap;
+		if (region instanceof require('./mapnode').MapRegion) {
+			this.node = region.resolve(this);
+		}
 	}
 	
 	set(opts={}) {
@@ -398,6 +414,11 @@ class SortedLocation {
 			return 'on';
 		}
 	}
+	
+	within(attr) {
+		if (this.node) return this.node.within(attr, this.x, this.y);
+		return undefined;
+	}
 }
 SortedLocation.prototype.has = SortedLocation.prototype.is; //Alias
 SortedLocation.prototype.can = SortedLocation.prototype.is; //Alias
@@ -405,6 +426,9 @@ SortedLocation.prototype.get = SortedLocation.prototype.is; //Alias
 
 class SortedPokemon {
 	constructor(data, game=0) {
+		/** @type{Map<int, object>} map of all raw pokemon data */
+		this._raw = {};
+		/** @type{Map<int, Pokemon>} map of all pokemon objects */
 		this._map = {};
 		
 		this._party = [];
@@ -418,6 +442,7 @@ class SortedPokemon {
 				let p = new Pokemon(data.party[i], game);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
+				this._raw[p.hash] = data.party[i];
 				this._party.push(p);
 			}
 		}
@@ -431,8 +456,9 @@ class SortedPokemon {
 				let b = [];
 				for (let i = 0; i < box.box_contents.length; i++) {
 					let p = new Pokemon(box.box_contents[i], game);
-					p.storedIn = `box:${box.box_number||bn}-${box.box_contents[i].box_slot||i}`;
+					p.storedIn = `box:${box.box_number||bn+1}-${box.box_contents[i].box_slot||i}`;
 					this._map[p.hash] = p;
+					this._raw[p.hash] = box.box_contents[i];
 					b.push(p);
 				}
 				this._pc[bn] = b;
@@ -443,6 +469,7 @@ class SortedPokemon {
 				let p = new Pokemon(data.daycare[i], game);
 				p.storedIn = 'daycare:'+i;
 				this._map[p.hash] = p;
+				this._raw[p.hash] = data.daycare[i];
 				this._daycare.push(p);
 			}
 		}
@@ -472,13 +499,21 @@ class SortedPokemon {
 			removed: rm.map(x=>prev._map[x]),
 		}
 	}
+	
+	getRawData(mon) {
+		if (mon instanceof Pokemon) return this._raw[mon.hash];
+		return this._raw[mon];
+	}
 }
 
 class Item {
 	constructor(data) {
-		this.name = data.name;
+		this.name = data.name || '[Unnamed Item]';
 		this.id = data.id;
 		this.pockets = new Set();
+		this.pluralName = null;
+		if (this.name.startsWith('TM') || this.name.startsWith('HM'))
+			this.pluralName = this.name; //do not pluralize
 	}
 	get isTM() { return this.pockets.has('tms'); }
 	get inPC() { return this.pockets.has('pc') && this.pockets.size === 1; }
@@ -526,6 +561,7 @@ class SortedInventory {
 			if (data.pc && Array.isArray(data.pc.boxes)) {
 				for (let bn = 0; bn < data.pc.boxes.length; bn++) {
 					let box = data.pc.boxes[bn];
+					if (!box) continue; //null boxes handled elsewhere
 					for (let p of box.box_contents) {
 						if (p.held_item) {
 							this.add(p.held_item, 'held');
@@ -571,7 +607,7 @@ class SortedInventory {
 }
 
 class SortedBattle {
-	constructor(data, game) {
+	constructor(data, game, loc) {
 		this.in_battle = data.in_battle;
 		this.trainer = null;
 		this.party = null;
@@ -601,14 +637,23 @@ class SortedBattle {
 				this.trainer.push(data);
 			}
 		}
+		else if (data.battle_kind === 'Trainer') {
+			let leader = loc.within('leader');
+			this.trainer = leader || true;
+		}
 		if (data.enemy_party) {
 			this.party = [];
 			for (let p of data.enemy_party) {
-				let poke = {
-					active: p.active,
-					hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-					species: p.species.name,
-					dexid: read(p.species, 'national_dex', 'id'),
+				let poke;
+				if (Bot.runOpts('fullEnemyInfo')) {
+					poke = new Pokemon(p, game);
+				} else {
+					poke = {
+						active: p.active,
+						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						species: p.species.name,
+						dexid: read(p.species, 'national_dex', 'id'),
+					};
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);
@@ -653,7 +698,12 @@ class SortedBattle {
 		
 		// Determine trainer classes
 		this.isImportant = false;
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			this.isImportant = true;
+			let type = loc.get('trainertype');
+			if (type) this.classes[type] = true;
+		}
+		else if (Array.isArray(this.trainer)) {
 			let types = Bot.runOpts('trainerClasses', game);
 			for (let type in types) {
 				for (let trainer of this.trainer) {
@@ -672,6 +722,9 @@ class SortedBattle {
 	
 	get displayName() {
 		let name = [];
+		if (typeof this.trainer === 'string') return this.trainer;
+		if (this.trainer === true) return 'trainer';
+		if (!Array.isArray(this.trainer)) return undefined;
 		for (let trainer of this.trainer) {
 			name.push(`${trainer.className} ${trainer.name}`.trim());
 		}
@@ -684,12 +737,18 @@ class SortedBattle {
 	}
 	get attemptId() {
 		let name = [];
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			name.push(`tr[${this.trainer}]`);
+		}
+		else if (this.trainer === true) {
+			name.push('trX');
+		}
+		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
 			}
 		}
-		if (!name.length) {
+		if (this.party) {
 			for (let p of this.party) {
 				name.push(`pk${p.dexid}`);
 			}
@@ -701,14 +760,20 @@ class SortedBattle {
 		let xml = `<battle `;
 		if (hkey) xml += `key="${hkey}" `;
 		xml += `attemptId="${this.attemptId}" isImportant="${this.isImportant}">`;
-		if (this.trainer) {
+		if (typeof this.trainer === 'string') {
+			xml += `<trainer>${this.trainer}</trainer>`;
+		}
+		else if (this.trainer === true) {
+			xml += `<trainer>trainer</trainer>`;
+		}
+		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				xml += `<trainer trClass="${trainer.class}" trId="${trainer.id}">${trainer.className} ${trainer.name}</trainer>`;
 			}
 		}
 		if (this.party) {
 			for (let p of this.party) {
-				xml += `<combatant dexid="${p.dexid}" active="${p.active}" hp="${p.hp}">${p.species}</combatant>`;
+				xml += `<combatant dexid="${p.dexid}" active="${p.active}" hp="${p.hp}">${p.species}${p.form?' '+p.form:''}</combatant>`;
 			}
 		}
 		xml += `</battle>`;
@@ -740,7 +805,7 @@ class SortedData {
 		this._pokemon = new SortedPokemon(data, game);
 		this._inventory = new SortedInventory(data, game);
 		
-		this._battle = new SortedBattle(data, game);
+		this._battle = new SortedBattle(data, game, this._location);
 		
 		// badges
 		this.badges = {};
@@ -804,6 +869,10 @@ class SortedData {
 	
 	clone(code=200) {
 		return new SortedData({ data:this.rawData, code, ts:this.ts, game:this._rawGameIdx });
+	}
+	
+	getFromRaw(...name) {
+		return read(this.rawData, ...name);
 	}
 	
 	get badgeProgress() {

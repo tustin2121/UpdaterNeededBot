@@ -9,7 +9,7 @@ const { Pokemon, SortedBattle } = require('../../api/pokedata');
 /** Indicates that a single item has been gained. */
 class GainItem extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -35,7 +35,7 @@ class GainItem extends LedgerItem {
 /** Indicates that a single item has been lost. */
 class LostItem extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -61,7 +61,7 @@ class LostItem extends LedgerItem {
 /** Indicates that a single item has been stored in the PC. */
 class StoredItemInPC extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -70,7 +70,7 @@ class StoredItemInPC extends LedgerItem {
 /** Indicates that a single item has been taken out of the PC. */
 class RetrievedItemFromPC extends LedgerItem {
 	constructor(item, amount=1) {
-		super(1);
+		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
 	}
@@ -86,7 +86,7 @@ class UsedBallInBattle extends LedgerItem {
 		this.amount = amount;
 		if (x instanceof SortedBattle) {
 			this.battle = x;
-			// this.flavor = battle.trainer?'trainer':null; //TODO
+			this.flavor = x.trainer?'trainer':null; //TODO
 		} else if (x instanceof Pokemon) {
 			this.mon = x;
 		}
@@ -96,6 +96,15 @@ class UsedBallInBattle extends LedgerItem {
 	get trainer(){ //shouldn't be called unless it's a trainer flavor
 		if (!this.battle) return null;
 		return this.battle.trainer && this.battle.trainer[0]; 
+	}
+	cancelsOut(other) {
+		if (other.name === 'UsedBallInBattle') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount += other.amount; //add together the amounts
+			if (this.amount == 0) return true; //cancels out
+			return this; //coalesce
+		}
+		return false;
 	}
 }
 

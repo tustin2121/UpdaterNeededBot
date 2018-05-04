@@ -15,7 +15,7 @@ let singular = {
 		],
 	},
 	'frame': [
-		`We're tried of the current frame style, and switch it up in the options menu.`,
+		`We're tired of the current frame style, and switch it up in the options menu.`,
 		`We redecorate our textboxes in the options.`,
 		`I kinda like the new textbox frame we just chose.`,
 		`Out with the old, in with the new textbox frame style; gotta keep up with fashion trends.`,
@@ -172,5 +172,21 @@ module.exports = {
 		rday: [ `` ],
 		rmorning: [ `` ],
 		rnight: [ `` ],
+	},
+	
+	PhonebookAdd: {
+		default: [
+			`<b>We register {{@contact}} in our {{phone}}!</b>`,
+			`<b>We add {{@contact}} to our phonebook!</b>`,
+			`<b>{{$@contact}} give{{*s}} us {{their}} number, and we add it to our {{phone}}!</b>`,
+			`We liked battling {{@contact}} so much, <b>we decide to add {{them|@contact}} to our contacts!</b>`,
+		],
+	},
+	PhonebookRemove: {
+		default: [
+			`Tired of all the constant calls from {{them|@contact}}, <b>we delete {{@contact}} from our phonebook!</b>`,
+			`We make a snap decision and <b>delete {{@contact}} from our {{phone}}.</b>`,
+			`We decide that we're better without {{@contact}} in our lives. <b>We delete {{them|@contact}} from our contact list!</b>`,
+		],
 	},
 };

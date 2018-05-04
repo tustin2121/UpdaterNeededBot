@@ -1,5 +1,6 @@
 // control/commands.js
 //
+/* global getLogger, Bot */
 const LOGGER = getLogger('Discord');
 const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
@@ -19,7 +20,7 @@ const HANDLER = {
 				tg = 'Only ' + Bot.gameInfo(Bot.taggedIn).name;
 			}
 			else if (typeof Bot.taggedIn === 'object') {
-				tg = 'Helping';
+				tg = `Helping [${Object.keys(Bot.taggedIn).join(',')}]`;
 			}
 			else if (Bot.taggedIn === true) {
 				tg = 'Yes';
@@ -30,15 +31,24 @@ const HANDLER = {
 		if (Number.isNaN(lastTg)) {
 			lastTg = '';
 		} else {
-			lastTg = ` (for ${Math.floor(lastTg/(60*60*24))}d ${Math.floor(lastTg/(60*60))%24}h ${Math.floor(lastTg/60)%60}m ${lastTg%60}s)`;
+			lastTg = ` (for ${printElapsedTime(lastTg)})`;
 		}
 		
-		let apid = 'NaN';
-		//TODO get the status of the last API disturbance
+		let apid = Date.now() - Bot.lastApiDisturbance;
+		if (Number.isNaN(apid)) {
+			apid = 'NaN';
+		} else {
+			apid = `${printElapsedTime(apid)} ago`;
+		}
 		
 		msg.channel
 			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
+		return;
+		
+		function printElapsedTime(date) {
+			return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
+		}
 	},
 	
 	tagin: ({ msg, args })=>{
@@ -114,12 +124,16 @@ const HANDLER = {
 			if (!press.lastLedger) return;
 			press.lastLedger.postponeList.length = 0;
 		});
-		msg.channel.send(`Postponed ledger items have been cleared.`).catch(e=>LOGGER.error('Discord Error:',e));
+		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
+	},
+	'clear-tempparty': ({ msg })=>{
+		Bot.emit('cmd_forceTempPartyOff');
+		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
 	},
 	
 	'save-mem': ({ msg })=>{
 		Bot.saveMemory();
-		msg.channel.send(`Memory bank saved to disk.`).catch(e=>LOGGER.error('Discord Error:',e));
+		msg.channel.send(`Memory bank saved to disk.`).catch(ERR);
 	},
 	/*
 	reload: ({ msg, memory })=>{
@@ -128,11 +142,11 @@ const HANDLER = {
 		if (__reloadFile(mod)) {
 			msg.channel
 				.send(`Module '${mod}' reloaded.`)
-				.catch(e=>LOGGER.error('Discord Error:',e));
+				.catch(ERR);
 		} else {
 			msg.channel
 				.send(`Error reloading module '${mod}'!`)
-				.catch(e=>LOGGER.error('Discord Error:',e));
+				.catch(ERR);
 		}
 	},
 	*/
@@ -149,7 +163,8 @@ const HANDLER = {
 		if (taggedIn['catches']) help.push('give info about our catches');
 		if (taggedIn['shopping']) help.push('list our shopping results (when we leave the map)');
 		if (taggedIn['items']) help.push('announce item aquisitions');
-		if (taggedIn['level']) help.push('announce level ups / move learns');
+		if (taggedIn['level']) help.push('announce level ups');
+		if (taggedIn['moves']) help.push('announce move learns');
 		if (help.length > 1) help[help.length-1] = "and "+help[help.length-1];
 		
 		Bot.taggedIn = taggedIn;
@@ -160,7 +175,23 @@ const HANDLER = {
 			.catch(ERR);
 	},
 	
-	chill: ({ msg, args})=>{
+	'set-flag': ({ msg, args })=>{
+		let [ flag, val, name ] = args;
+		Bot.memory.runFlags[flag] = val;
+		msg.channel.send(`Ok: "${name}" is now set to ${Bot.memory.runFlags[flag]?'on':'off'}.`).catch(ERR);
+	},
+	
+	'query-respond': ({ msg, args })=>{
+		let id = args[0];
+		let res = args[1];
+		if (!Bot.memory.query[id] || Bot.memory.query[id].result !== undefined) {
+			msg.channel.send(`There is no active query by that id.`).catch(ERR);
+			return;
+		}
+		Bot.emit('query'+args[0], res, msg.author.username);
+	},
+	
+	chill: ({ msg, args })=>{
 		
 	},
 	
@@ -227,6 +258,7 @@ function parseCmd(cmd, authed=false) {
 	// }
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
+	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
 	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
@@ -241,6 +273,13 @@ function parseCmd(cmd, authed=false) {
 		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
 	}
 	
+	if ((res = /^confirm ([0-9a-z]{5})/i.exec(cmd))) {
+		return ['query-respond', res[1], true];
+	}
+	if ((res = /^deny ([0-9a-z]{5})/i.exec(cmd))) {
+		return ['query-respond', res[1], false];
+	}
+	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {
 		let opts = res[1].split(/, /);
 		let things = {};
@@ -249,6 +288,7 @@ function parseCmd(cmd, authed=false) {
 			if (/shopping|shop|vending/.test(x)) things['shopping'] = true;
 			if (/items?|pickup/.test(x)) things['items'] = true;
 			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['level'] = true;
+			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['moves'] = true;
 		});
 		if (!Object.keys(things).length) return ['helpout-help'];
 		return ['helpout', things];
@@ -292,6 +332,18 @@ function parseCmd(cmd, authed=false) {
 		}
 		timeout = Math.min(timeout, 6*60*60*1000); //six hour maximum
 		return ['chill', timeout];
+	}
+	
+	if ((res = /turn (on|off) (.*)/i.exec(cmd))) {
+		let val = ['on'].includes(res[1]);
+		let flag = res[2];
+		if (/(battle|legendary|rival) (alerts?|pings?)/i.test(flag)) {
+			return ['set-flag', 'alert_battles', val, 'Battle Alerts'];
+		}
+		if (/(badge) (alerts?|pings?)/i.test(flag)) {
+			return ['set-flag', 'alert_badges', val, 'Badge Get Alerts'];
+		}
+		return ['shutup', `I don't have an option for that.`];
 	}
 	
 	// Jokes

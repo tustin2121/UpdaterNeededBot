@@ -19,13 +19,15 @@ class OptionsModule extends ReportingModule {
 		let co = curr.rawData.options;
 		if (!po || !co) return;
 		
+		let nChanges = 0;
 		let changes = {};
 		for (let key in co) {
 			if (co[key] !== po[key]) {
 				changes[key] = co[key];
+				nChanges++;
 			}
 		}
-		ledger.addItem(new OptionsChanged(changes));
+		if (nChanges) ledger.addItem(new OptionsChanged(changes));
 	}
 	
 	secondPass(ledger) {

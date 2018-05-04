@@ -1,0 +1,1710 @@
+{
+    "badges": 0,
+    "ball_count": 3,
+    "battle_kind": "None",
+    "caught": 11,
+    "caught_list": [
+        13,
+        19,
+        92,
+        133,
+        155,
+        156,
+        270,
+        273,
+        283,
+        399,
+        401
+    ],
+    "id": 46212,
+    "in_battle": false,
+    "items": {
+        "balls": [
+            {
+                "count": 3,
+                "id": 4,
+                "name": "Pok\u00e9 Ball"
+            }
+        ],
+        "battle": [],
+        "berries": [],
+        "items": [],
+        "key": [
+            {
+                "id": 450,
+                "name": "Bicycle"
+            },
+            {
+                "count": 1,
+                "id": 502,
+                "name": "GB Sounds"
+            },
+            {
+                "id": 445,
+                "name": "Old Rod"
+            },
+            {
+                "count": 1,
+                "id": 468,
+                "name": "Apricorn Box"
+            },
+            {
+                "count": 1,
+                "id": 465,
+                "name": "Vs. Recorder"
+            }
+        ],
+        "mail": [],
+        "medicine": [
+            {
+                "count": 7,
+                "id": 17,
+                "name": "Potion"
+            },
+            {
+                "count": 1,
+                "id": 22,
+                "name": "Parlyz Heal"
+            }
+        ],
+        "tms": []
+    },
+    "level_cap": 100,
+    "map_id": 155,
+    "map_name": "Sprout Tower",
+    "money": 3128,
+    "name": "AAEFFFF",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "box_mode": "Auto",
+        "button_mode": "Normal",
+        "sound": "Stereo",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Shed Skin",
+            "capsule_seals": 0,
+            "characteristic": "Often lost in thought",
+            "checksum": "E91A",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 0,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 0
+            },
+            "experience": {
+                "current": 135,
+                "next_level": 179,
+                "remaining": 44,
+                "this_level": 135
+            },
+            "form": 0,
+            "friendship": 85,
+            "gender": "Male",
+            "health": [
+                0,
+                19
+            ],
+            "held_item": {
+                "id": 216,
+                "name": "Exp. Share"
+            },
+            "is_egg": false,
+            "is_nicknamed": 0,
+            "ivs": {
+                "attack": 12,
+                "defense": 0,
+                "hp": 9,
+                "special_attack": 28,
+                "special_defense": 18,
+                "speed": 14
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 5,
+            "markings": 0,
+            "met": {
+                "area_id": 178,
+                "area_id_egg": 0,
+                "area_name": "Route 30",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 2,
+                "game": 8,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 45,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 1,
+                    "id": 117,
+                    "name": "Bide",
+                    "pp": 10,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 60,
+                    "id": 450,
+                    "name": "Bug Bite",
+                    "pp": 19,
+                    "pp_up": 0,
+                    "type": "Bug"
+                }
+            ],
+            "name": "Kricketot",
+            "nature": "Hasty",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 910258086,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Shed Skin",
+                    "Run Away"
+                ],
+                "catch_rate": 255,
+                "egg_cycles": 14,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Slow",
+                "id": 401,
+                "name": "Kricketot",
+                "national_dex": 401,
+                "type1": "Bug",
+                "type2": "Bug"
+            },
+            "stats": {
+                "attack": 8,
+                "defense": 8,
+                "hp": 19,
+                "special_attack": 8,
+                "special_defense": 10,
+                "speed": 8
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        },
+        {
+            "ability": "Rain Dish",
+            "capsule_seals": 0,
+            "characteristic": "Scatters things often",
+            "checksum": "2EEE",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 0,
+                "defense": 1,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 0
+            },
+            "experience": {
+                "current": 156,
+                "next_level": 216,
+                "remaining": 60,
+                "this_level": 125
+            },
+            "form": 0,
+            "friendship": 91,
+            "gender": "Male",
+            "health": [
+                20,
+                20
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "None"
+            },
+            "is_egg": false,
+            "is_nicknamed": 0,
+            "ivs": {
+                "attack": 5,
+                "defense": 10,
+                "hp": 23,
+                "special_attack": 17,
+                "special_defense": 10,
+                "speed": 4
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 5,
+            "markings": 0,
+            "met": {
+                "area_id": 178,
+                "area_id_egg": 0,
+                "area_name": "Route 30",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 2,
+                "game": 8,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 20,
+                    "id": 145,
+                    "name": "Bubble",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Water"
+                }
+            ],
+            "name": "Surskit",
+            "nature": "Bold",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 3354556905,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Swift Swim",
+                    "Rain Dish"
+                ],
+                "catch_rate": 200,
+                "egg_cycles": 14,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 283,
+                "name": "Surskit",
+                "national_dex": 283,
+                "type1": "Bug",
+                "type2": "Water"
+            },
+            "stats": {
+                "attack": 7,
+                "defense": 8,
+                "hp": 20,
+                "special_attack": 10,
+                "special_defense": 10,
+                "speed": 11
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        },
+        {
+            "ability": "Swift Swim",
+            "capsule_seals": 0,
+            "characteristic": "Somewhat stubborn",
+            "checksum": "9E13",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 1,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 0
+            },
+            "experience": {
+                "current": 240,
+                "next_level": 314,
+                "remaining": 74,
+                "this_level": 236
+            },
+            "form": 0,
+            "friendship": 101,
+            "gender": "Male",
+            "health": [
+                9,
+                23
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "None"
+            },
+            "is_egg": false,
+            "is_nicknamed": 1,
+            "ivs": {
+                "attack": 22,
+                "defense": 18,
+                "hp": 19,
+                "special_attack": 16,
+                "special_defense": 29,
+                "speed": 27
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 7,
+            "markings": 0,
+            "met": {
+                "area_id": 178,
+                "area_id_egg": 0,
+                "area_name": "Route 30",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 2,
+                "game": 8,
+                "level": 4
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 55,
+                    "name": "Water Gun",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Water"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 0,
+                    "id": 267,
+                    "name": "Nature Power",
+                    "pp": 20,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 45,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 20,
+                    "id": 71,
+                    "name": "Absorb",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Grass"
+                }
+            ],
+            "name": "AAAAAAAAAA",
+            "nature": "Lax",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 1318163384,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Swift Swim",
+                    "Rain Dish"
+                ],
+                "catch_rate": 255,
+                "egg_cycles": 14,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Slow",
+                "id": 270,
+                "name": "Lotad",
+                "national_dex": 270,
+                "type1": "Water",
+                "type2": "Grass"
+            },
+            "stats": {
+                "attack": 10,
+                "defense": 11,
+                "hp": 23,
+                "special_attack": 11,
+                "special_defense": 12,
+                "speed": 11
+            },
+            "status": "PAR",
+            "was_fateful_encounter": false
+        },
+        {
+            "ability": "Flash Fire",
+            "capsule_seals": 0,
+            "characteristic": "A little quick tempered",
+            "checksum": "79DC",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 16,
+                "defense": 7,
+                "hp": 11,
+                "special_attack": 15,
+                "special_defense": 1,
+                "speed": 10
+            },
+            "experience": {
+                "current": 5562,
+                "next_level": 6458,
+                "remaining": 896,
+                "this_level": 5460
+            },
+            "form": 0,
+            "friendship": 155,
+            "gender": "Male",
+            "health": [
+                15,
+                57
+            ],
+            "held_item": {
+                "id": 78,
+                "name": "Escape Rope"
+            },
+            "is_egg": false,
+            "is_nicknamed": 1,
+            "ivs": {
+                "attack": 22,
+                "defense": 11,
+                "hp": 19,
+                "special_attack": 13,
+                "special_defense": 11,
+                "speed": 16
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 20,
+            "markings": 0,
+            "met": {
+                "area_id": 126,
+                "area_id_egg": 0,
+                "area_name": "New Bark Town",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 12,
+                "game": 8,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "id": 33,
+                    "name": "Tackle",
+                    "pp": 33,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 43,
+                    "name": "Leer",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 108,
+                    "name": "SmokeScreen",
+                    "pp": 20,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 52,
+                    "name": "Ember",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Fire"
+                }
+            ],
+            "name": "222",
+            "nature": "Relaxed",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 3136071007,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Blaze",
+                    "Flash Fire"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 19,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 156,
+                "name": "Quilava",
+                "national_dex": 156,
+                "type1": "Fire",
+                "type2": "Fire"
+            },
+            "stats": {
+                "attack": 35,
+                "defense": 33,
+                "hp": 57,
+                "special_attack": 40,
+                "special_defense": 33,
+                "speed": 36
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        },
+        {
+            "ability": "Adaptability",
+            "capsule_seals": 0,
+            "characteristic": "Strong willed",
+            "checksum": "7B61",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 3,
+                "defense": 1,
+                "hp": 1,
+                "special_attack": 0,
+                "special_defense": 1,
+                "speed": 1
+            },
+            "experience": {
+                "current": 420,
+                "next_level": 512,
+                "remaining": 92,
+                "this_level": 343
+            },
+            "form": 0,
+            "friendship": 110,
+            "gender": "Male",
+            "health": [
+                0,
+                25
+            ],
+            "held_item": {
+                "id": 18,
+                "name": "Antidote"
+            },
+            "is_egg": false,
+            "is_nicknamed": 1,
+            "ivs": {
+                "attack": 18,
+                "defense": 9,
+                "hp": 16,
+                "special_attack": 12,
+                "special_defense": 20,
+                "speed": 19
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 7,
+            "markings": 0,
+            "met": {
+                "area_id": 178,
+                "area_id_egg": 0,
+                "area_name": "Route 30",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 24,
+                "game": 8,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 28,
+                    "name": "Sand-Attack",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Ground"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "id": 33,
+                    "name": "Tackle",
+                    "pp": 33,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 0,
+                    "id": 270,
+                    "name": "Helping Hand",
+                    "pp": 20,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 39,
+                    "name": "Tail Whip",
+                    "pp": 28,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "EEEEEEEEHH",
+            "nature": "Hardy",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 2160021675,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Run Away",
+                    "Adaptability"
+                ],
+                "catch_rate": 45,
+                "egg_cycles": 0,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Fast",
+                "id": 133,
+                "name": "Eevee",
+                "national_dex": 133,
+                "type1": "Normal",
+                "type2": "Normal"
+            },
+            "stats": {
+                "attack": 13,
+                "defense": 12,
+                "hp": 25,
+                "special_attack": 12,
+                "special_defense": 15,
+                "speed": 14
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        },
+        {
+            "ability": "Early Bird",
+            "capsule_seals": 0,
+            "characteristic": "Often scatters things",
+            "checksum": "7AC7",
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "evs": {
+                "attack": 0,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 0
+            },
+            "experience": {
+                "current": 96,
+                "next_level": 135,
+                "remaining": 39,
+                "this_level": 96
+            },
+            "form": 0,
+            "friendship": 88,
+            "gender": "Male",
+            "health": [
+                2,
+                18
+            ],
+            "held_item": {
+                "id": 0,
+                "name": "None"
+            },
+            "is_egg": false,
+            "is_nicknamed": 1,
+            "ivs": {
+                "attack": 22,
+                "defense": 9,
+                "hp": 27,
+                "special_attack": 8,
+                "special_defense": 14,
+                "speed": 8
+            },
+            "language": 2,
+            "leaves": 0,
+            "level": 4,
+            "markings": 0,
+            "met": {
+                "area_id": 178,
+                "area_id_egg": 0,
+                "area_name": "Route 30",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-04-14",
+                "encounter_type": 2,
+                "game": 8,
+                "level": 4
+            },
+            "moves": [
+                {
+                    "accuracy": 0,
+                    "base_power": 1,
+                    "id": 117,
+                    "name": "Bide",
+                    "pp": 10,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 25,
+                    "id": 331,
+                    "name": "Bullet Seed",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Grass"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 98,
+                    "name": "Quick Attack",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 0,
+                    "id": 106,
+                    "name": "Harden",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "K2BBCCCC..",
+            "nature": "Serious",
+            "original_trainer": {
+                "gender": "Male",
+                "id": 46212,
+                "name": "AAEFFFF",
+                "secret": 49132
+            },
+            "personality_value": 1093875137,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "ribbons": [],
+            "shiny": false,
+            "species": {
+                "abilities": [
+                    "Chlorophyll",
+                    "Early Bird"
+                ],
+                "catch_rate": 255,
+                "egg_cycles": 14,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Slow",
+                "id": 273,
+                "name": "Seedot",
+                "national_dex": 273,
+                "type1": "Grass",
+                "type2": "Grass"
+            },
+            "stats": {
+                "attack": 9,
+                "defense": 9,
+                "hp": 18,
+                "special_attack": 7,
+                "special_defense": 7,
+                "speed": 7
+            },
+            "status": 0,
+            "was_fateful_encounter": false
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_address": 36223236,
+                "box_contents": [
+                    {
+                        "ability": "Run Away",
+                        "box_slot": 1,
+                        "characteristic": "Somewhat stubborn",
+                        "checksum": "5DA3",
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 125,
+                            "next_level": 216,
+                            "remaining": 91,
+                            "this_level": 125
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "gender": "Female",
+                        "held_item": {
+                            "id": 0,
+                            "name": "None"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": 1,
+                        "ivs": {
+                            "attack": 11,
+                            "defense": 3,
+                            "hp": 18,
+                            "special_attack": 8,
+                            "special_defense": 24,
+                            "speed": 3
+                        },
+                        "language": 2,
+                        "leaves": 0,
+                        "level": 5,
+                        "markings": 0,
+                        "met": {
+                            "area_id": 178,
+                            "area_id_egg": 0,
+                            "area_name": "Route 30",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-04-15",
+                            "encounter_type": 2,
+                            "game": 8,
+                            "level": 5
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 15,
+                                "id": 40,
+                                "name": "Poison Sting",
+                                "pp": 35,
+                                "pp_up": 0,
+                                "type": "Poison"
+                            },
+                            {
+                                "accuracy": 95,
+                                "base_power": 0,
+                                "id": 81,
+                                "name": "String Shot",
+                                "pp": 40,
+                                "pp_up": 0,
+                                "type": "Bug"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 60,
+                                "id": 450,
+                                "name": "Bug Bite",
+                                "pp": 20,
+                                "pp_up": 0,
+                                "type": "Bug"
+                            }
+                        ],
+                        "name": "----",
+                        "nature": "Bold",
+                        "original_trainer": {
+                            "gender": "Male",
+                            "id": 46212,
+                            "name": "AAEFFFF",
+                            "secret": 49132
+                        },
+                        "personality_value": 3277893405,
+                        "pokerus": {
+                            "cured": false,
+                            "days_left": 0,
+                            "infected": false,
+                            "strain": 0
+                        },
+                        "ribbons": [],
+                        "shiny": false,
+                        "species": {
+                            "abilities": [
+                                "Shield Dust",
+                                "Run Away"
+                            ],
+                            "catch_rate": 255,
+                            "egg_cycles": 14,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 13,
+                            "name": "Weedle",
+                            "national_dex": 13,
+                            "type1": "Bug",
+                            "type2": "Poison"
+                        },
+                        "was_fateful_encounter": false
+                    },
+                    {
+                        "ability": "Levitate",
+                        "box_slot": 2,
+                        "characteristic": "Sturdy body",
+                        "checksum": "FBC2",
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 560,
+                            "next_level": 742,
+                            "remaining": 182,
+                            "this_level": 560
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 0,
+                            "name": "None"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": 0,
+                        "ivs": {
+                            "attack": 9,
+                            "defense": 30,
+                            "hp": 15,
+                            "special_attack": 1,
+                            "special_defense": 5,
+                            "speed": 11
+                        },
+                        "language": 2,
+                        "leaves": 0,
+                        "level": 10,
+                        "markings": 0,
+                        "met": {
+                            "area_id": 204,
+                            "area_id_egg": 0,
+                            "area_name": "Sprout Tower",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-04-15",
+                            "encounter_type": 5,
+                            "game": 8,
+                            "level": 10
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 20,
+                                "id": 122,
+                                "name": "Lick",
+                                "pp": 30,
+                                "pp_up": 0,
+                                "type": "Ghost"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 1,
+                                "id": 101,
+                                "name": "Night Shade",
+                                "pp": 15,
+                                "pp_up": 0,
+                                "type": "Ghost"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 0,
+                                "id": 180,
+                                "name": "Spite",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Ghost"
+                            },
+                            {
+                                "accuracy": 0,
+                                "base_power": 0,
+                                "id": 212,
+                                "name": "Mean Look",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "Gastly",
+                        "nature": "Docile",
+                        "original_trainer": {
+                            "gender": "Male",
+                            "id": 46212,
+                            "name": "AAEFFFF",
+                            "secret": 49132
+                        },
+                        "personality_value": 1005353381,
+                        "pokerus": {
+                            "cured": false,
+                            "days_left": 0,
+                            "infected": false,
+                            "strain": 0
+                        },
+                        "ribbons": [],
+                        "shiny": false,
+                        "species": {
+                            "abilities": [
+                                "Levitate",
+                                "-"
+                            ],
+                            "catch_rate": 190,
+                            "egg_cycles": 19,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Slow",
+                            "id": 92,
+                            "name": "Gastly",
+                            "national_dex": 92,
+                            "type1": "Ghost",
+                            "type2": "Poison"
+                        },
+                        "was_fateful_encounter": false
+                    },
+                    {
+                        "ability": "Unaware",
+                        "box_slot": 3,
+                        "characteristic": "Often dozes off",
+                        "checksum": "D994",
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 1331,
+                            "next_level": 1728,
+                            "remaining": 397,
+                            "this_level": 1331
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "gender": "Female",
+                        "held_item": {
+                            "id": 0,
+                            "name": "None"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": 1,
+                        "ivs": {
+                            "attack": 29,
+                            "defense": 17,
+                            "hp": 31,
+                            "special_attack": 14,
+                            "special_defense": 21,
+                            "speed": 7
+                        },
+                        "language": 2,
+                        "leaves": 0,
+                        "level": 11,
+                        "markings": 0,
+                        "met": {
+                            "area_id": 204,
+                            "area_id_egg": 0,
+                            "area_name": "Sprout Tower",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-04-15",
+                            "encounter_type": 5,
+                            "game": 8,
+                            "level": 11
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 50,
+                                "id": 33,
+                                "name": "Tackle",
+                                "pp": 35,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 0,
+                                "id": 45,
+                                "name": "Growl",
+                                "pp": 40,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 0,
+                                "base_power": 0,
+                                "id": 111,
+                                "name": "Defense Curl",
+                                "pp": 40,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "BBBAAAQQQ ",
+                        "nature": "Naive",
+                        "original_trainer": {
+                            "gender": "Male",
+                            "id": 46212,
+                            "name": "AAEFFFF",
+                            "secret": 49132
+                        },
+                        "personality_value": 3212609389,
+                        "pokerus": {
+                            "cured": false,
+                            "days_left": 0,
+                            "infected": false,
+                            "strain": 0
+                        },
+                        "ribbons": [],
+                        "shiny": false,
+                        "species": {
+                            "abilities": [
+                                "Simple",
+                                "Unaware"
+                            ],
+                            "catch_rate": 255,
+                            "egg_cycles": 14,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 399,
+                            "name": "Bidoof",
+                            "national_dex": 399,
+                            "type1": "Normal",
+                            "type2": "Normal"
+                        },
+                        "was_fateful_encounter": false
+                    },
+                    {
+                        "ability": "Guts",
+                        "box_slot": 4,
+                        "characteristic": "Likes to fight",
+                        "checksum": "F0B5",
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 1000,
+                            "next_level": 1331,
+                            "remaining": 331,
+                            "this_level": 1000
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 0,
+                            "name": "None"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": 0,
+                        "ivs": {
+                            "attack": 28,
+                            "defense": 4,
+                            "hp": 16,
+                            "special_attack": 2,
+                            "special_defense": 14,
+                            "speed": 3
+                        },
+                        "language": 2,
+                        "leaves": 0,
+                        "level": 10,
+                        "markings": 0,
+                        "met": {
+                            "area_id": 204,
+                            "area_id_egg": 0,
+                            "area_name": "Sprout Tower",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-04-15",
+                            "encounter_type": 5,
+                            "game": 8,
+                            "level": 10
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 0,
+                                "id": 39,
+                                "name": "Tail Whip",
+                                "pp": 30,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 40,
+                                "id": 98,
+                                "name": "Quick Attack",
+                                "pp": 30,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 0,
+                                "base_power": 0,
+                                "id": 116,
+                                "name": "Focus Energy",
+                                "pp": 30,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 60,
+                                "id": 44,
+                                "name": "Bite",
+                                "pp": 25,
+                                "pp_up": 0,
+                                "type": "Dark"
+                            }
+                        ],
+                        "name": "Rattata",
+                        "nature": "Jolly",
+                        "original_trainer": {
+                            "gender": "Male",
+                            "id": 46212,
+                            "name": "AAEFFFF",
+                            "secret": 49132
+                        },
+                        "personality_value": 769238013,
+                        "pokerus": {
+                            "cured": false,
+                            "days_left": 0,
+                            "infected": false,
+                            "strain": 0
+                        },
+                        "ribbons": [],
+                        "shiny": false,
+                        "species": {
+                            "abilities": [
+                                "Hustle",
+                                "Guts"
+                            ],
+                            "catch_rate": 255,
+                            "egg_cycles": 14,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 19,
+                            "name": "Rattata",
+                            "national_dex": 19,
+                            "type1": "Normal",
+                            "type2": "Normal"
+                        },
+                        "was_fateful_encounter": false
+                    },
+                    {
+                        "ability": "Simple",
+                        "box_slot": 5,
+                        "characteristic": "Somewhat vain",
+                        "checksum": "D69F",
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 1000,
+                            "next_level": 1331,
+                            "remaining": 331,
+                            "this_level": 1000
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 0,
+                            "name": "None"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": 1,
+                        "ivs": {
+                            "attack": 16,
+                            "defense": 20,
+                            "hp": 6,
+                            "special_attack": 17,
+                            "special_defense": 26,
+                            "speed": 21
+                        },
+                        "language": 2,
+                        "leaves": 0,
+                        "level": 10,
+                        "markings": 0,
+                        "met": {
+                            "area_id": 204,
+                            "area_id_egg": 0,
+                            "area_name": "Sprout Tower",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-04-15",
+                            "encounter_type": 5,
+                            "game": 8,
+                            "level": 10
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 50,
+                                "id": 33,
+                                "name": "Tackle",
+                                "pp": 35,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 0,
+                                "id": 45,
+                                "name": "Growl",
+                                "pp": 40,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 0,
+                                "base_power": 0,
+                                "id": 111,
+                                "name": "Defense Curl",
+                                "pp": 40,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "U0Z M5OW N",
+                        "nature": "Gentle",
+                        "original_trainer": {
+                            "gender": "Male",
+                            "id": 46212,
+                            "name": "AAEFFFF",
+                            "secret": 49132
+                        },
+                        "personality_value": 2234363846,
+                        "pokerus": {
+                            "cured": false,
+                            "days_left": 0,
+                            "infected": false,
+                            "strain": 0
+                        },
+                        "ribbons": [],
+                        "shiny": false,
+                        "species": {
+                            "abilities": [
+                                "Simple",
+                                "Unaware"
+                            ],
+                            "catch_rate": 255,
+                            "egg_cycles": 14,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 399,
+                            "name": "Bidoof",
+                            "national_dex": 399,
+                            "type1": "Normal",
+                            "type2": "Normal"
+                        },
+                        "was_fateful_encounter": false
+                    }
+                ],
+                "box_count": 5,
+                "box_name": "BOX 1",
+                "box_number": 1
+            },
+            {
+                "box_address": 36227332,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 2",
+                "box_number": 2
+            },
+            {
+                "box_address": 36231428,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 3",
+                "box_number": 3
+            },
+            {
+                "box_address": 36235524,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 4",
+                "box_number": 4
+            },
+            {
+                "box_address": 36239620,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 5",
+                "box_number": 5
+            },
+            {
+                "box_address": 36243716,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 6",
+                "box_number": 6
+            },
+            {
+                "box_address": 36247812,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 7",
+                "box_number": 7
+            },
+            {
+                "box_address": 36251908,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 8",
+                "box_number": 8
+            },
+            {
+                "box_address": 36256004,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 9",
+                "box_number": 9
+            },
+            {
+                "box_address": 36260100,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 10",
+                "box_number": 10
+            },
+            {
+                "box_address": 36264196,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 11",
+                "box_number": 11
+            },
+            {
+                "box_address": 36268292,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 12",
+                "box_number": 12
+            },
+            {
+                "box_address": 36272388,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 13",
+                "box_number": 13
+            },
+            {
+                "box_address": 36276484,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 14",
+                "box_number": 14
+            },
+            {
+                "box_address": 36280580,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 15",
+                "box_number": 15
+            },
+            {
+                "box_address": 36284676,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 16",
+                "box_number": 16
+            },
+            {
+                "box_address": 36288772,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 17",
+                "box_number": 17
+            },
+            {
+                "box_address": 36292868,
+                "box_contents": [],
+                "box_count": 0,
+                "box_name": "BOX 18",
+                "box_number": 18
+            }
+        ]
+    },
+    "rival_name": "AAA22 \u2640",
+    "secret": 49132,
+    "seen": 39,
+    "seen_list": [
+        1,
+        10,
+        13,
+        14,
+        19,
+        35,
+        39,
+        43,
+        54,
+        60,
+        63,
+        69,
+        92,
+        102,
+        133,
+        155,
+        156,
+        158,
+        161,
+        163,
+        167,
+        177,
+        179,
+        191,
+        261,
+        265,
+        270,
+        273,
+        280,
+        283,
+        300,
+        327,
+        399,
+        401,
+        406,
+        420,
+        431,
+        433,
+        434
+    ],
+    "x": 7,
+    "y": 9,
+    "z": 1
+}

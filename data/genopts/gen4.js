@@ -6,6 +6,8 @@ module.exports = {
 	hubE4: false,
 	'3d': false,
 	
+	moveInfo: 'gen4/movetable.js',
+	
 	badgeNames: [
 		"Coal", "Forest", "Cobble", "Fen", "Relic", "Mine", "Icicle", "Beacon",
 	],

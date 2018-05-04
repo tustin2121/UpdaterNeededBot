@@ -11,7 +11,6 @@ global.exeFlags = {
 const fs = require("fs");
 const path = require('path');
 const mkdirp = require('mkdirp');
-const saveProxy = require('./save-proxy');
 const UpdaterBot = require('./bot');
 
 const LOGGER = getLogger('MAIN');
@@ -19,6 +18,10 @@ const LOGGER = getLogger('MAIN');
 const MEMORY_FILE = path.resolve(__dirname, '../memory', 'memory.json');
 
 ////////////////////////////////////////////////////////////////////////////////
+
+if (!process.stdout.isTTY) {
+	LOGGER.warn(`Warning: starting without TTY. You may not be able to Ctrl+C.`);
+}
 
 LOGGER.info('Starting UpdaterNeeded.');
 
@@ -42,5 +45,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/testing-dualpyrite'));
+global.Bot = new UpdaterBot(require('../data/runs/s502-storm-silver.js'));
 Bot.start();

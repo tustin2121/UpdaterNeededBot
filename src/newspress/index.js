@@ -3,7 +3,7 @@
 
 const { inspect } = require("util");
 const { Ledger } = require('./ledger');
-const { typeset } = require('./typesetter');
+const { TypeSetter } = require('./typesetter');
 const EventEmitter = require('../api/events');
 
 const LOGGER = getLogger('UpdaterPress');
@@ -34,6 +34,8 @@ class UpdaterPress extends EventEmitter {
 		this.lastLedger.loadFromMemory(this.memory['saved_ledger'+this.gameIndex]);
 	}
 	
+	get lastUpdateId() { return this.lastLedger.log.uid; }
+	
 	/** Starts a new ledger and runs an update cycle.  */
 	run() {
 		let ledger = new Ledger();
@@ -57,7 +59,7 @@ class UpdaterPress extends EventEmitter {
 		// First Pass: Note all changes and important context into ledger items
 		LOGGER.trace('First Pass');
 		for (let mod of this.modules) try {
-			ledger.moduleRun(mod);
+			ledger.log.moduleRun(mod);
 			mod.firstPass(ledger, data);
 		} catch (e) {
 			LOGGER.error(`Error in ${mod.constructor.name} first pass!`, e);
@@ -98,7 +100,10 @@ class UpdaterPress extends EventEmitter {
 		this.lastLedger.saveToMemory(this.memory['saved_ledger'+this.gameIndex]);
 		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger, data.curr_api);
+		let ts = new TypeSetter({ curr_api:data.curr_api, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
+		ledger.log.finalUpdate(update);
+		
 		if (!update || !update.length) {
 			this.lastUpdate = null;
 		}
@@ -117,8 +122,11 @@ class UpdaterPress extends EventEmitter {
 		// And trim the ledger to only the helpful ledger items
 		ledger.trimToHelpfulItems(helpOpts);
 		
+		let { curr } = this.apiProducer.popInfo(this.gameIndex);
+		
 		// Pass ledger to the TypeSetter
-		let update = typeset(ledger);
+		let ts = new TypeSetter({ curr_api:curr, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
 		if (!update || !update.length) return null;
 		
 		let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
@@ -141,7 +149,7 @@ class UpdaterPress extends EventEmitter {
 					}
 					out.push(line);
 				}
-				let prefix = (Bot.gameInfo(this.gameIndex).prefix)+' ' || '';
+				let prefix = (Bot.gameInfo(this.gameIndex).prefix||'');
 				if (info.level_cap != 100) {
 					return `${prefix}[Info] Current Party (Current level cap is ${info.level_cap}):\n\n${out.join('\n')}`;
 				} else {
@@ -165,6 +173,8 @@ class UpdaterPressPool extends EventEmitter {
 		}
 	}
 	
+	get lastUpdateId() { return this.pool.map(x=>x.lastUpdateId).join('+'); }
+	
 	run() {
 		let updates = [];
 		for (let press of this.pool) {
@@ -176,10 +186,10 @@ class UpdaterPressPool extends EventEmitter {
 		return updates.join('\n\n');
 	}
 	
-	runHelp() {
+	runHelp(helpOpts) {
 		let updates = [];
 		for (let press of this.pool) {
-			let up = press.runHelp();
+			let up = press.runHelp(helpOpts);
 			if (up) updates.push(up);
 		}
 		if (!updates.length) return null;
