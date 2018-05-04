@@ -87,6 +87,10 @@ class UpdaterBot extends EventEmitter {
 		
 		this.loadMemory();
 		
+		// Ensure these memory regions exist
+		this.memory.global;
+		this.memory.runFlags;
+		
 		this.staff = null;
 		this.streamApi = null;
 		this.chatApi = null;
@@ -152,6 +156,14 @@ class UpdaterBot extends EventEmitter {
 		let val = config.opts[opt];
 		if (val === undefined) throw new Error(`Could not get run option '${opt}': Invalid option!`);
 		return val;
+	}
+	
+	/** Queries whether a given run flag is enabled. Run flags are different from run options because
+	 *  they are kept in memory and can be turned on and off without restarting the bot. */
+	runFlag(flag, def) {
+		let val = this.memory.runFlags[flag];
+		if (val === undefined) val = def;
+		return !!val;
 	}
 	
 	/** Gets the game configuration for the given game. */

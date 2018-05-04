@@ -124,12 +124,16 @@ const HANDLER = {
 			if (!press.lastLedger) return;
 			press.lastLedger.postponeList.length = 0;
 		});
-		msg.channel.send(`Postponed ledger items have been cleared.`).catch(e=>LOGGER.error('Discord Error:',e));
+		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
+	},
+	'clear-tempparty': ({ msg })=>{
+		Bot.emit('cmd_forceTempPartyOff');
+		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
 	},
 	
 	'save-mem': ({ msg })=>{
 		Bot.saveMemory();
-		msg.channel.send(`Memory bank saved to disk.`).catch(e=>LOGGER.error('Discord Error:',e));
+		msg.channel.send(`Memory bank saved to disk.`).catch(ERR);
 	},
 	/*
 	reload: ({ msg, memory })=>{
@@ -138,11 +142,11 @@ const HANDLER = {
 		if (__reloadFile(mod)) {
 			msg.channel
 				.send(`Module '${mod}' reloaded.`)
-				.catch(e=>LOGGER.error('Discord Error:',e));
+				.catch(ERR);
 		} else {
 			msg.channel
 				.send(`Error reloading module '${mod}'!`)
-				.catch(e=>LOGGER.error('Discord Error:',e));
+				.catch(ERR);
 		}
 	},
 	*/
@@ -171,11 +175,17 @@ const HANDLER = {
 			.catch(ERR);
 	},
 	
+	'set-flag': ({ msg, args })=>{
+		let [ flag, val, name ] = args;
+		Bot.memory.runFlags[flag] = val;
+		msg.channel.send(`Ok: "${name}" is now set to ${Bot.memory.runFlags[flag]?'on':'off'}.`).catch(ERR);
+	},
+	
 	'query-respond': ({ msg, args })=>{
 		let id = args[0];
 		let res = args[1];
 		if (!Bot.memory.query[id] || Bot.memory.query[id].result !== undefined) {
-			msg.channel.send(`There is no active query by that id.`);
+			msg.channel.send(`There is no active query by that id.`).catch(ERR);
 			return;
 		}
 		Bot.emit('query'+args[0], res, msg.author.username);
@@ -248,6 +258,7 @@ function parseCmd(cmd, authed=false) {
 	// }
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
+	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
 	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
@@ -321,6 +332,18 @@ function parseCmd(cmd, authed=false) {
 		}
 		timeout = Math.min(timeout, 6*60*60*1000); //six hour maximum
 		return ['chill', timeout];
+	}
+	
+	if ((res = /turn (on|off) (.*)/i.exec(cmd))) {
+		let val = ['on'].includes(res[1]);
+		let flag = res[2];
+		if (/(battle|legendary|rival) (alerts?|pings?)/i.test(flag)) {
+			return ['set-flag', 'alert_battles', val, 'Battle Alerts'];
+		}
+		if (/(badge) (alerts?|pings?)/i.test(flag)) {
+			return ['set-flag', 'alert_badges', val, 'Badge Get Alerts'];
+		}
+		return ['shutup', `I don't have an option for that.`];
 	}
 	
 	// Jokes

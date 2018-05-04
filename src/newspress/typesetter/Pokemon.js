@@ -66,8 +66,9 @@ module.exports = {
 	},
 	
 	PokemonTraded: {
-		default: (item, { fillText })=>{
+		default: function(item){
 			const { mon, pastMon } = item;
+			getLogger('PokemonTraded').log(`const { mon, pastMon }`, mon, pastMon);
 			
 			let ext = mon.getExtendedInfo().replace(/"/g, `''`);
 			let txt = `${mon._gender.toLowerCase()} Lv. ${mon.level} ${mon.species}`;
@@ -80,9 +81,9 @@ module.exports = {
 			else txt += ` No nickname.`;
 			
 			if (!mon.isTraded) {
-				txt += fillText(` Thanks for taking care of {{him|@mon}}!`, item);
+				txt += this.fillText(` Thanks for taking care of {{him|@mon}}!`, item);
 			} else {
-				txt += fillText(` Taking care of {{@pastMon.name}}!`, item);
+				txt += this.fillText(` Taking care of {{@pastMon.name}}!`, item);
 			}
 			return txt;
 		},

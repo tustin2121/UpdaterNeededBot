@@ -7172,7 +7172,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {
 					"intName": "D31R0202",
@@ -7389,6 +7391,7 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7416,6 +7419,7 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7443,6 +7447,7 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
+					"tempParty": true,
 					"the": ""
 				},
 				"areas": [
@@ -7481,7 +7486,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [
 					{
 						"ax": 7,
@@ -7518,7 +7525,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [
 					{
 						"ax": 17,
@@ -8194,7 +8203,7 @@
 						"ay": 10,
 						"bx": 6,
 						"by": 10,
-						"rad": 5,
+						"rad": 30,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Will",
@@ -8235,7 +8244,7 @@
 						"ay": 12,
 						"bx": 6,
 						"by": 12,
-						"rad": 5,
+						"rad": 30,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Koga",
@@ -8276,7 +8285,7 @@
 						"ay": 11,
 						"bx": 6,
 						"by": 11,
-						"rad": 5,
+						"rad": 30,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Bruno",
@@ -8317,7 +8326,7 @@
 						"ay": 11,
 						"bx": 6,
 						"by": 11,
-						"rad": 5,
+						"rad": 30,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Karen",
@@ -8358,7 +8367,7 @@
 						"ay": 7,
 						"bx": 6,
 						"by": 8,
-						"rad": 5,
+						"rad": 30,
 						"name": "Leader",
 						"attrs": {
 							"leader": "Lance",

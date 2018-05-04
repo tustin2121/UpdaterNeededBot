@@ -142,6 +142,23 @@ class PokemonModule extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule('Postpone reporting of new Pokemon when we have a temporary party')
+	.when(ledger=>ledger.has('TemporaryPartyContext'))
+	.when(ledger=>ledger.has('PokemonGained'))
+	.then(ledger=>{
+		ledger.postpone(1); //Postpone PokemonGained
+	})
+);
+
+RULES.push(new Rule('Postpone reporting of lost Pokemon when we have a temporary party')
+	.when(ledger=>ledger.has('TemporaryPartyContext'))
+	.when(ledger=>ledger.has('PokemonIsMissing'))
+	.then(ledger=>{
+		ledger.postpone(1); //Postpone PokemonIsMissing
+	})
+);
+
+
 RULES.push(new Rule('Pokemon found to be in a new storage location are deposited.')
 	//PokemonFound = merge of PokemonIsMissing and PokemonGained
 	.when(ledger=>ledger.has('PokemonFound').with('inNewLocation', true).unmarked()) 
@@ -189,7 +206,7 @@ RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPoke
 	.then(ledger=>{
 		let MAP = ledger.get(2);
 		for (let match of MAP) { //match is an array [PokemonGained, PokemonIsMissing];
-			ledger.add(new PokemonTraded(match[0], match[1]));
+			ledger.add(new PokemonTraded(match[0].mon, match[1].mon));
 			ledger.remove(match); //removes both ledger items
 		}
 	})

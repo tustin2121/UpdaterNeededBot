@@ -55,6 +55,7 @@ function isValidToString(fn) {
 function printObject(obj) {
 	if (obj === undefined) return 'undefined';
 	if (obj === null) return 'null';
+	if (typeof obj === 'number') return (obj).toString(10);
 	// If the object has overridden the toString function, use it.
 	if (isValidToString(obj.toString)) return obj.toString();
 	// If the object has a name propery, use it.
@@ -73,12 +74,6 @@ function printObject(obj) {
 {
 	Object.assign(FORMAT_FNS, {
 		'meta': ()=>'', //do nothing
-		'if': (...args)=>{
-			for (let a of args) {
-				if (!a) return false;
-			}
-			return '';
-		},
 	});
 }
 
@@ -454,6 +449,16 @@ function printObject(obj) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Format Functions: Conditionals
 {
+	function testConditional(conditon, iftrue, iffalse) {
+		if (conditon) {
+			if (iftrue === undefined) return '';
+			else return iftrue;
+		} else {
+			if (iftrue === undefined) return false; //if no true, disqualify phrase
+			if (iffalse === undefined) return ''; //if true, but no false, return empty
+			else return iffalse; //if there's a false, return it
+		}
+	}
 	function testBodyFeature(operation) {
 		let op;
 		switch (operation) {
@@ -500,6 +505,7 @@ function printObject(obj) {
 		};
 	}
 	Object.assign(FORMAT_FNS, {
+		'if': testConditional,
 		'if mon body has': testBodyFeature('or'),
 		'if mon body has any': testBodyFeature('or'),
 		'if mon body has all': testBodyFeature('and'),
@@ -592,7 +598,6 @@ class TypeSetter {
 	static collateItems(ledger) {
 		let dict = {};
 		let order = [];
-		LOGGER.debug('collateItems=>', ledger);
 		
 		// Collate
 		for (let item of ledger.list) {
@@ -623,7 +628,6 @@ class TypeSetter {
 	 */
 	typesetLedger(ledger) {
 		let list = TypeSetter.collateItems(ledger);
-		LOGGER.debug('afterCollate=>', list);
 		let update = [];
 		
 		for (let items of list) try {

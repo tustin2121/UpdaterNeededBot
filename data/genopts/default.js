@@ -152,7 +152,7 @@ module.exports = {
 		737,
 	],
 	// Item ids for the escape rope
-	itemIds_escapeRope: [], //TODO
+	itemIds_escapeRope: [ 78 ],
 	
 	moveId_surf: 57,
 	moveId_fly: 19,

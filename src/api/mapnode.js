@@ -190,7 +190,8 @@ class MapArea {
 		this.by = Number.parseInt(opts.by, 10) || (opts.y+opts.h) || this.ay;
 		
 		/** Effective detection radius */
-		this.rad = Number.parseInt(opts.rad, 10) || (this.ax==this.bx && this.ay==this.by)?5:0;
+		this.rad = Number.parseInt(opts.rad, 10);
+		if (Number.isNaN(this.rad)) (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};

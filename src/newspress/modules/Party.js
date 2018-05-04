@@ -3,6 +3,7 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
+	TemporaryPartyContext,
 	MonLeveledUp, MonEvolved, MonHatched, MonPokerusInfected, MonPokerusCured,
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
@@ -25,7 +26,11 @@ const RULES = [];
 class PartyModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory, 2);
+		this.memory.tempPartyBefore = (this.memory.tempPartyBefore||null);
 		
+		/** If this is set to true, the next update cycle will report all pending party changes. */
+		this.forceTempPartyOff = false;
+		Bot.on('cmd_forceTempPartyOff', ()=> this.forceTempPartyOff = true);
 	}
 	
 	//TODO: Test this module against a Battle Tent or Battle Frontier tent
@@ -42,6 +47,52 @@ class PartyModule extends ReportingModule {
 		}
 		// LOGGER.trace(`sameMons = ${sameMons.length}`);
 		// TODO Party makeup ApiDisturbance
+		if (this.memory.tempPartyBefore) {
+			let matchedMons = [];
+			for (let p of this.memory.tempPartyBefore) {
+				for (let c of curr_api.party) {
+					if (c.hash !== p.hash) continue;
+					if (c.level !== p.level) continue;
+					if (c.item.id !== p.item.id) continue;
+					matchedMons.push({ prev:p, curr:c });
+				}
+			}
+			this.debug('Temp party: matchedMons=>',matchedMons.length,' of ',this.memory.tempPartyBefore.length);
+			if (matchedMons.length === this.memory.tempPartyBefore.length || this.forceTempPartyOff) {
+				// We have our old party back now.
+				this.memory.tempPartyBefore = null;
+				sameMons = matchedMons; //replace sameMons so we don't get level up and heal messages
+				if (this.forceTempPartyOff) LOGGER.warn('Temporary party status is being forced off.');
+				this.forceTempPartyOff = false;
+			}
+		}
+		else {
+			let tempIndicators = 0;
+			if (prev_api.party.length > 3 && curr_api.party.length === 3) tempIndicators++;
+			if (prev_api.party.length > 1 && curr_api.party.length === 1) tempIndicators++;
+			if (prev_api.party.length > 3 && curr_api.party.length === 1) tempIndicators++;
+			if (sameMons.length === 0 && curr_api.party.length === 3) tempIndicators += 3;
+			for (let { prev, curr } of sameMons) {
+				if (prev.level !== 50 && curr.level === 50) tempIndicators++;
+				if (prev.level !== 100 && curr.level === 100) tempIndicators++;
+			}
+			if (!prev_api.location.is('tempParty') && curr_api.location.is('tempParty')) tempIndicators++;
+			if (curr_api.location.is('tempParty')) tempIndicators += 2;
+			
+			this.debug('tempIndicators: ',tempIndicators, ' => ',tempIndicators > 3);
+			if (tempIndicators > 3) {
+				this.memory.tempPartyBefore = prev_api.party;
+			}
+		}
+		
+		if (this.memory.tempPartyBefore) {
+			ledger.addItem(new TemporaryPartyContext());
+			return; //do not continue to process the party
+		}
+		if (this.forceTempPartyOff) LOGGER.warn('Temporary party status forced off unnecessarily.');
+		this.forceTempPartyOff = false;
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
 		
 		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
 		let partyPP = 0, partyMaxPP = 0, partyDeltaPP = 0;
@@ -193,6 +244,29 @@ class PartyModule extends ReportingModule {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
 	
+	finalPass(ledger) {
+		let partyAlert = this.memory.partyAlert;
+		let items = ledger.findAllItemsWithName('TemporaryPartyContext');
+		/*
+		if (items.length) {
+			if (!partyAlert) {
+				partyAlert = this.memory.partyAlert = { nTimes:0, msgId:null, };
+			}
+			partyAlert.nTimes++;
+			let game = '';
+			if (Bot.runConfig.numGames > 1) {
+				game = Bot.gameInfo(this.gameIndex).name;
+				game = ` in ${game}`;
+			}
+			let txt = `I suspect that the current party${game} is a temporary party, and am suspending party updates.`;
+			Bot.alertUpdaters(`Alert: ${txt}`, {
+				reuseId:partyAlert.msgId,
+			}).then(msg=>{
+				partyAlert.msgId = msg.id;
+			});
+			// TODO queryUpdaters
+		}*/
+	}
 }
 
 RULES.push(new Rule(`When fully healing, don't report individual revivals`)

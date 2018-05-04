@@ -20,6 +20,7 @@ class E4Module extends ReportingModule {
 		this.memory.e4Attempts = (this.memory.e4Attempts || 0);
 		this.memory.champAttempts = (this.memory.champAttempts || 0);
 		this.memory.rematchCount = (this.memory.rematchCount || 0);
+		this.memory.isRematchLevels = (this.memory.isRematchLevels || false);
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
@@ -54,7 +55,7 @@ class E4Module extends ReportingModule {
 			}
 			if (prev.startsWith('e') && (curr === 'champion' || curr === 'champ')) {
 				this.memory.champAttempts++;
-				ledger.addItem(new E4ReachChampion(this.memory.champAttempts));
+				ledger.addItem(new E4ReachChampion(this.memory));
 			}
 			if (curr === 'hallOfFame' && !this.memory.haveWon) { //should never happen, sanity check
 				this.memory.haveWon = true;
@@ -114,7 +115,7 @@ class E4Module extends ReportingModule {
 				let ping = (Bot.taggedIn===true || Bot.taggedIn===this.gameIndex);
 				let txt = items.map(x=>{
 					if (ping) {
-						return `**We've reached the champion's chamber${game}!** Someone might want to play-by-play!! Champion Attempt #${x.attempt}`
+						return `**We've reached the champion's chamber${game}!** Someone might want to play-by-play!! Champion Attempt #${x.champAttempt}`
 					} else {
 						return `This is Champion Attempt #${x.attempt}${game}.`;
 					}

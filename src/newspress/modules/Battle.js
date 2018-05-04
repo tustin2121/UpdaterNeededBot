@@ -80,30 +80,33 @@ class BattleModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
-		if (battleItems.length) {
-			let game = ' on stream';
-			if (Bot.runConfig.numGames > 1) {
-				game = Bot.gameInfo(this.gameIndex).name;
-				game = ` in ${game}`;
+		if (Bot.runFlag('alert_battles', true)) {
+			let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
+			if (battleItems.length) {
+				let game = ' on stream';
+				if (Bot.runConfig.numGames > 1) {
+					game = Bot.gameInfo(this.gameIndex).name;
+					game = ` in ${game}`;
+				}
+				let txt = battleItems.map(x=>{
+					if (x.isLegendary) {
+						return `We've encounter legendary pokemon ${x.battle.displayName}${game}!`;
+					}
+					else if (x.isRival) {
+						return `We're battle our rival ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
+					}
+					else {
+						return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
+					}
+				}).join('\n');
+				Bot.alertUpdaters(txt, true);
 			}
-			let txt = battleItems.map(x=>{
-				if (x.isLegendary) {
-					return `We've encounter legendary pokemon ${x.battle.displayName}${game}!`;
-				}
-				else if (x.isRival) {
-					return `We're battle our rival ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
-				}
-				else {
-					return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
-				}
-			}).join('\n');
-			Bot.alertUpdaters(txt, true);
 		}
-		//////////////////////////////
-		let badgeItems = ledger.findAllItemsWithName('BadgeGet');
-		if (badgeItems.length) {
-			Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, false);
+		if (Bot.runFlag('alert_badges', true)) {
+			let badgeItems = ledger.findAllItemsWithName('BadgeGet');
+			if (badgeItems.length) {
+				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, false);
+			}
 		}
 	}
 }

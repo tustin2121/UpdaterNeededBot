@@ -44,17 +44,15 @@ class Ledger {
 		LOGGER.warn('Postponing item:', item, can);
 		if (can) {
 			if (can instanceof LedgerItem) {
-				LOGGER.warn('Postponing is replacement.')
 				this.postponeList.push(can);
 			}
 			else {
-				LOGGER.warn('Postponing now.')
 				this.removeItem(item);
 				this.postponeList.push(item);
 				item._postponeCount++;
 			}
 		} else {
-			LOGGER.error(`Attempted to postpone item which is not allowed to be postponed!`, item, can);
+			LOGGER.warn(`Attempted to postpone item which is not allowed to be postponed!`, item, can);
 		}
 	}
 	/**

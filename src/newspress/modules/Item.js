@@ -5,6 +5,7 @@ const { ReportingModule, Rule } = require('./_base');
 const {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
+	ApiDisturbance,
 } = require('../ledger');
 
 const LOGGER = getLogger('ItemModule');
@@ -36,6 +37,8 @@ class ItemModule extends ReportingModule {
 		];
 		keySet = new Set(keySet);
 		
+		let numItemsChanged = 0;
+		
 		this.debug('keyset', keySet);
 		
 		for (let id of keySet) {
@@ -43,6 +46,8 @@ class ItemModule extends ReportingModule {
 			let delta = invDelta[id] || 0;
 			
 			this.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			
+			numItemsChanged += Math.abs(delta) + Math.abs(heldDelta[id]) + Math.abs(pcDelta[id]) + Math.abs(bagDelta[id]);
 			
 			const gained = invDelta[id] > 0;
 			const dropped = invDelta[id] < 0;
@@ -84,7 +89,13 @@ class ItemModule extends ReportingModule {
 					}
 				}
 			}
-			
+		}
+		
+		if (numItemsChanged > 200) {
+			ledger.add(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `More than 200 item updates happened in one update cycle!`
+			}));
 		}
 	}
 	
@@ -102,6 +113,16 @@ function getDelta(curr, prev) {
 	});
 	return delta;
 }
+
+
+RULES.push(new Rule(`Discard insane item updates`)
+	.when(ledger=>ledger.has('ApiDisturbance'))
+	.when(ledger=>ledger.has('LostItem').moreThan(20))
+	.when(ledger=>ledger.has('GainItem').moreThan(20))
+	.then(ledger=>{
+		ledger.demote(1, 10).demote(2, 10); //drop everything
+	})
+);
 
 //////////////////////////////////////////////////////////////////////////
 // Checking item uses

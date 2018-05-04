@@ -426,6 +426,9 @@ SortedLocation.prototype.get = SortedLocation.prototype.is; //Alias
 
 class SortedPokemon {
 	constructor(data, game=0) {
+		/** @type{Map<int, object>} map of all raw pokemon data */
+		this._raw = {};
+		/** @type{Map<int, Pokemon>} map of all pokemon objects */
 		this._map = {};
 		
 		this._party = [];
@@ -439,6 +442,7 @@ class SortedPokemon {
 				let p = new Pokemon(data.party[i], game);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
+				this._raw[p.hash] = data.party[i];
 				this._party.push(p);
 			}
 		}
@@ -454,6 +458,7 @@ class SortedPokemon {
 					let p = new Pokemon(box.box_contents[i], game);
 					p.storedIn = `box:${box.box_number||bn+1}-${box.box_contents[i].box_slot||i}`;
 					this._map[p.hash] = p;
+					this._raw[p.hash] = box.box_contents[i];
 					b.push(p);
 				}
 				this._pc[bn] = b;
@@ -464,6 +469,7 @@ class SortedPokemon {
 				let p = new Pokemon(data.daycare[i], game);
 				p.storedIn = 'daycare:'+i;
 				this._map[p.hash] = p;
+				this._raw[p.hash] = data.daycare[i];
 				this._daycare.push(p);
 			}
 		}
@@ -492,6 +498,11 @@ class SortedPokemon {
 			added: ad.map(x=>this._map[x]),
 			removed: rm.map(x=>prev._map[x]),
 		}
+	}
+	
+	getRawData(mon) {
+		if (mon instanceof Pokemon) return this._raw[mon.hash];
+		return this._raw[mon];
 	}
 }
 

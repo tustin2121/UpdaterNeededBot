@@ -10,18 +10,11 @@ module.exports = {
 		// rematch = the rematch count
 		first: null, //The region should supply the first attempt's E4 announcement from the room announcement.
 		default: [
-			`<b>We're locked into the E4 for Attempt #{{@attempt}}!</b>`,
-			`<b>We're in for E4 Attempt #{{@attempt}}!</b>`,
-			`<b>Welcome back to the E4! Attempt #{{@attempt}}!</b>`,
-			`<b>The door slams shut behind us! E4 Attempt #{{@attempt}}!</b>`,
-			`<b>We stroll boldly into the E4 chambers and are locked inside! Attempt #{{@attempt}}!</b>`,
-		],
-		rematch: [
-			`<b>We're locked into the E4 for Rematch Attempt #{{@attempt}}!</b>`,
-			`<b>We're in for E4 Rematch Attempt #{{@attempt}}!</b>`,
-			`<b>Welcome back to the E4! Rematch Attempt #{{@attempt}}!</b>`,
-			`<b>The door slams shut behind us! E4 Rematch Attempt #{{@attempt}}!</b>`,
-			`<b>We stroll boldly into the E4 chambers and are locked inside! Rematch Attempt #{{@attempt}}!</b>`,
+			`<b>We're locked into the E4 for {{if|@isRematchLevels|Rematch }}Attempt #{{@attempt}}!</b>`,
+			`<b>We're in for E4 {{if|@isRematchLevels|Rematch }}Attempt #{{@attempt}}!</b>`,
+			`<b>Welcome back to the E4! {{if|@isRematchLevels|Rematch }}Attempt #{{@attempt}}!</b>`,
+			`<b>The door slams shut behind us! E4 {{if|@isRematchLevels|Rematch }}Attempt #{{@attempt}}!</b>`,
+			`<b>We stroll boldly into the E4 chambers and are locked inside! {{if|@isRematchLevels|Rematch }}Attempt #{{@attempt}}!</b>`,
 		],
 		quick: [
 			`<b>Right back in for Attempt #{{@attempt}}!</b>`,
@@ -35,10 +28,7 @@ module.exports = {
 		// champ = the champion attempt number
 		// rematch = the rematch count
 		default: [
-			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion attempt #{{@champ}} incoming!!\n\n{{team status}}`,
-		],
-		rematch: [
-			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion rematch attempt #{{@champ}} incoming!!\n\n{{team status}}`,
+			`<b>WE'RE HEADING TO THE CHAMPION!!</b> Champion {{if|@isRematchLevels|rematch }}attempt #{{@champ}} incoming!!\n\n{{team status}}`,
 		],
 	},
 	E4EndRun: {
@@ -46,10 +36,7 @@ module.exports = {
 		// champ = the champion attempt number
 		// rematch = the rematch count
 		default: [
-			`rip E4 Attempt #{{@attempt}}`,
-		],
-		rematch: [
-			`rip E4 Rematch Attempt #{{@attempt}}.`,
+			`rip E4 {{if|@isRematchLevels|Rematch }}Attempt #{{@attempt}}`,
 		],
 	},
 	E4HallOfFame: {

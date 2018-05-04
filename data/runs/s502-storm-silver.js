@@ -80,6 +80,6 @@ module.exports = {
 		Timing: {},
 		Phonebook: {},
 		Options: {},
-		PC: {},
+		// PC: {},
 	},
 }
