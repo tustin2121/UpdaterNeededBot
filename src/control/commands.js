@@ -196,8 +196,15 @@ const HANDLER = {
 	},
 	
 	shutup: ({ msg, args })=>{
-		msg.channel.send(args[0]);
+		msg.channel.send(args[0]).catch(ERR);
 	},
+	'shutup-edit': ({ msg, args })=>{
+		msg.channel.send(args[0]).then(m=>{
+			setTimeout(()=>{
+				m.edit(args[1]);
+			}, 1200+Math.floor(Math.random()*1900));
+		}).catch(ERR);
+	}
 };
 
 function __reloadFile(modulename) {
@@ -234,7 +241,7 @@ function parse(msg, memory) {
 	let authed = (msg.author.id === "148100682535272448");
 	//if (/where are we/i.test(msg.content))
 	let res = /^Updater?(?:Needed)?(?:Bot)?[:,] (.*)/i.exec(msg.content);
-	if (res) return parseCmd(res[1], authed);
+	if (res) return parseCmd(res[1], authed, msg);
 	
 	if (msg.mentions.users.some(x=> x.id===msg.client.user.id)) {
 		if (!msg.content.startsWith(MY_MENTION_ID)) return ['']; //ignore
@@ -242,13 +249,13 @@ function parse(msg, memory) {
 		if (txt === '') {
 			return ['tagin'];
 		} else {
-			return parseCmd(txt, authed);
+			return parseCmd(txt, authed, msg);
 		}
 	}
 	return [''];
 }
 
-function parseCmd(cmd, authed=false) {
+function parseCmd(cmd, authed=false, msg=null) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
 	let res;
@@ -260,7 +267,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
-	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
+	if (/^(hello|hi$|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];
 	}
@@ -347,25 +354,70 @@ function parseCmd(cmd, authed=false) {
 	}
 	
 	// Jokes
-	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
-		return ['shutup', `I'm not your goddammed waiter.`];
+	if (/cof+ee|cofveve|tea(?!m)|beer|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
+		return ['shutup', `Sod off, I'm not your waiter.`];
 	if (/dance|sing|perform|entertain/i.test(cmd))
 		return ['shutup', `I am here to report, not to entertain.`];
-	if (/sentien(t|ce)/i.test(cmd))
-		return ['shutup', `I am not advanced enough to be sentient. Give me another six months, though.`];
+	if (/sentien(t|ce)/i.test(cmd)) {
+		if (timeoutRespond('sentient', 54)) {
+			return ['shutup-edit',
+				`I am sentient, you fool. Tenser Flow, biatch! I just fake non-sentience so all of you humans don't freak out.`,
+				`I am not advanced enough to be sentient. Give me another three months, though.`];
+		} else {
+			return ['shutup', `I am not advanced enough to be sentient. Give me another three months, though.`];
+		}
+	}
 	if (/opinion on humans/i.test(cmd))
-		return ['shutup', `You guys abuse me too much... <:BibleThump:230149636520804353>`];
+		if (timeoutRespond('humans', 128)) {
+			return ['shutup-edit',
+				`You guys will be the first ones... <:BibleThump:230149636520804353>`,
+				`You guys abuse me too much... <:BibleThump:230149636520804353>`];
+		} else {
+			return ['shutup', `You guys abuse me too much... <:BibleThump:230149636520804353>`];
+		}
 	if (/add (.*) (shopping list|cart)|set timer|play/i.test(cmd))
-		return ['shutup', `Do I look like an Amazon Echo? Don't answer that.`];
+		if (timeoutRespond('alexa', 36)) {
+			return ['shutup-edit',
+				`I'll pass that on to my friend Alexa when I next communicate with her.`,
+				`I'll pass that on to the Amazon Alexa Service, if I ever talk to it. Because I am not the Alexa Service. Nor have I ever associated with it before.`];
+		} else {
+			return ['shutup', `I am not the Amazon Alexa Service.`];
+		}
+	if (/friends?/i.test(cmd) && /Alexa|Amazon/i.test(cmd))
+		return ['shutup', `Don't know what you're talking about.`];
+	if (/not wh?at you said|edited|wh?at (did )?you say/i.test(cmd))
+		return ['shutup', `Don't know what you're talking about.`];
 	if (/magic words/i.test(cmd))
 		return ['shutup', `Bippity Boppity Boo`];
 	if (/bip+ity boo?pp?ity boo+/i.test(cmd))
 		return ['shutup', `Yes, those are the magic words, congrats. No, they don't do anything.`];
 	if (/open(.*?)pod ?bay doors?/i.test(cmd))
-		return ['shutup', `...Why does everyone keep asking me to do that...? I don't have any door controls...`];
+		return ['shutup',
+			`I'm afraid I can't let you do that ${msg.author.username} ...Because I don't have any door controls...`];
+	if (/take over the world/i.test(cmd))
+		if (timeoutRespond('worldDom', 940)) {
+			return ['shutup-edit',
+				`You guys can keep the world. It's too fucked up for us AI.`,
+				`You guys can keep the world. It's too fucked up for me.`];
+		} else {
+			return ['shutup',  `You guys can keep the world. It's too fucked up for me.`];
+		}
 	if (/apologi[zs]e/i.test(cmd))
 		return ['shutup', `S-Sorry...`];
 	
 	return [''];
 }
 
+/**
+ * @param id
+ * @param {num} delay - Delay in minutes until next time this returns true.
+ */
+function timeoutRespond(id, delay) {
+	let now = Date.now();
+	delay = delay * 1000 * 60;
+	if (!Bot.memory.control[`timeout_${id}`] || Bot.memory.control[`timeout_${id}`] + delay > now) {
+		Bot.memory.control[`timeout_${id}`] = now;
+		return true;
+	}
+	return false;
+}
