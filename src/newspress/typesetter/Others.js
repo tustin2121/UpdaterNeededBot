@@ -159,6 +159,10 @@ let OptionsChanged = {
 module.exports = {
 	OptionsChanged,
 	
+	DemocracyContext: {
+		default: '[D]',
+	},
+	
 	TimeChanged: {
 		dawn: [
 			``,

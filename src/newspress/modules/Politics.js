@@ -2,6 +2,7 @@
 // The Politics reporting module
 
 const { ReportingModule, Rule } = require('./_base');
+const { DemocracyContext } = require('../ledger');
 
 const RULES = [];
 
@@ -18,7 +19,12 @@ class PoliticsModule extends ReportingModule {
 	firstPass(ledger, { curr_chat:chat }) {
 		if (!chat) return; //do nothing when no chat info
 		
+		//TODO:
+		Bot.memory.runFlags['in_democracy'] = false;
 		
+		if (Bot.runFlags('in_democracy', false)) {
+			ledger.add(new DemocracyContext());
+		}
 		
 		// tpp	Inputting is now in democracy mode!
 		// tpp	Inputting is now in anarchy mode!

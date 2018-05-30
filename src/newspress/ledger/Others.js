@@ -25,6 +25,15 @@ class OptionsChanged extends LedgerItem {
 }
 
 ///////////////////
+// Politics
+
+class DemocracyContext extends LedgerItem {
+	constructor() {
+		super(2, { _sort:100, helps:true });
+	}
+}
+
+///////////////////
 // Real Time
 
 /** Indicates that the time of day in the game has changed. */
@@ -40,7 +49,7 @@ class TimeChanged extends LedgerItem {
 const getContactInfo = (name)=>{
 	let infodir = Bot.runOpts('contactInfo');
 	let obj;
-	if (infodir){ 
+	if (infodir){
 		obj = require(`../../../data/extdata/${infodir}`)[name];
 	} else {
 		obj = { name, location:false };

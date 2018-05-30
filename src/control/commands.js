@@ -9,7 +9,39 @@ const REQ_COOLDOWN = 1000*30; // 30 seconds
 const MY_MENTION_ID = '<@303732710185369601>';
 let lastReq = 0;
 
+const fs = require("fs");
+const path = require('path');
+const REBOOT_FILE = path.resolve(__dirname, '../../memory', 'reboot.log');
+
 const HANDLER = {
+	reboot: ({ msg })=>{
+		Bot.memory.global.rebootRequested = true;
+		msg.channel.send(`Now rebooting, please wait...`).catch(ERR);
+		LOGGER.info(`Reboot requested from Discord command:`, msg.author.username);
+		try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot requested.`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+		setTimeout(()=>{
+			Bot.shutdown();
+		}, 500);
+		setTimeout(()=>{
+			LOGGER.warning(`Reboot has not yet happened, killing.`);
+			console.error(`Reboot has not yet happened, killing.`);  //eslint-disable-line no-console
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, killing.`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			process.exit(-1);
+		}, 5000);
+		setTimeout(()=>{
+			LOGGER.fatal(`Reboot has not yet happened, SIGKILL.`);
+			console.error(`Reboot has not yet happened, SIGKILL.`);  //eslint-disable-line no-console
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, SIGKILL.`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			process.kill(process.id, "SIGKILL");
+		}, 15000);
+		setTimeout(()=>{
+			msg.channel.send(`Reboot unsuccessful. I am stuck and require admin assistance.`).catch(ERR);
+			LOGGER.fatal(`Reboot has not yet happened, FAILED!`);
+			console.error(`Reboot has not yet happened, FAILED!`);  //eslint-disable-line no-console
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, FAILED!`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+		}, 20000);
+	},
+	
 	status: ({ msg })=>{
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
@@ -40,9 +72,10 @@ const HANDLER = {
 		} else {
 			apid = `${printElapsedTime(apid)} ago`;
 		}
+		let version = require('../../package.json').version;
 		
 		msg.channel
-			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
+			.send(`Run-time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
 		return;
 		
@@ -176,7 +209,9 @@ const HANDLER = {
 	},
 	
 	'set-flag': ({ msg, args })=>{
-		let [ flag, val, name ] = args;
+		let [ flag, val ] = args;
+		const { FLAGS } = require('./runflags');
+		let { name } = FLAGS[flag];
 		Bot.memory.runFlags[flag] = val;
 		msg.channel.send(`Ok: "${name}" is now set to ${Bot.memory.runFlags[flag]?'on':'off'}.`).catch(ERR);
 	},
@@ -231,6 +266,13 @@ module.exports = function handleMessage(msg, memory) {
 	HANDLER[type]({ msg, memory, args });
 };
 
+const AUTHED_USERS = [
+	"148100682535272448", //Tustin2121
+//	"120002774653075457", //Deadinsky
+//	"86236068814274560",  //Ty
+//	"201624767130763264", //Kip
+];
+
 function parse(msg, memory) {
 	if (msg.content === '_tags UpdaterNeeded_') {
 		return ['tagin'];
@@ -238,7 +280,7 @@ function parse(msg, memory) {
 	if (msg.content.startsWith('_tags')) {
 		return ['tagout'];
 	}
-	let authed = (msg.author.id === "148100682535272448");
+	let authed = AUTHED_USERS.includes(msg.author.id);
 	//if (/where are we/i.test(msg.content))
 	let res = /^Updater?(?:Needed)?(?:Bot)?[:,] (.*)/i.exec(msg.content);
 	if (res) return parseCmd(res[1], authed, msg);
@@ -344,14 +386,15 @@ function parseCmd(cmd, authed=false, msg=null) {
 	if ((res = /turn (on|off) (.*)/i.exec(cmd))) {
 		let val = ['on'].includes(res[1]);
 		let flag = res[2];
-		if (/(battle|legendary|rival) (alerts?|pings?)/i.test(flag)) {
-			return ['set-flag', 'alert_battles', val, 'Battle Alerts'];
-		}
-		if (/(badge) (alerts?|pings?)/i.test(flag)) {
-			return ['set-flag', 'alert_badges', val, 'Badge Get Alerts'];
+		const runflags = require('./runflags');
+		flag = runflags.parse(flag);
+		if (flag) {
+			return ['set-flag', flag, val];
 		}
 		return ['shutup', `I don't have an option for that.`];
 	}
+	
+	if (/^reboot please$/.test(cmd) && authed) return ['reboot'];
 	
 	// Jokes
 	if (/cof+ee|cofveve|tea(?!m)|beer|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))

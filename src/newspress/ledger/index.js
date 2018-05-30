@@ -44,11 +44,11 @@ class Ledger {
 		LOGGER.warn('Postponing item:', item, can);
 		if (can) {
 			if (can instanceof LedgerItem) {
-				this.postponeList.push(can);
+				Ledger.mergeItems([can], this.postponeList);
 			}
 			else {
 				this.removeItem(item);
-				this.postponeList.push(item);
+				Ledger.mergeItems([item], this.postponeList);
 				item._postponeCount++;
 			}
 		} else {
@@ -63,25 +63,33 @@ class Ledger {
 		if (!ledger) return;
 		let pItems = ledger.postponeList.slice();
 		this.log.premergeState(this.list, pItems);
-		for (let a = 0; a < this.list.length; a++) {
-			for (let b = 0; b < pItems.length; b++) {
-				let res = this.list[a].cancelsOut(pItems[b]);
+		Ledger.mergeItems(pItems, this.list);
+	}
+	
+	/**
+	 * Merges items from the new list into the old list in place.
+	 */
+	static mergeItems(newItems, oldItems) {
+		for (let a = 0; a < oldItems.length; a++) {
+			for (let b = 0; b < newItems.length; b++) {
+				let res = oldItems[a].cancelsOut(newItems[b]);
 				if (res) {
-					if (res === this.list[a]) {
+					if (res === oldItems[a]) {
 						// do nothing, coalesced
-						this.log.merged('coalesced', this.list[a], pItems[b]);
+						this.log.merged('coalesced', oldItems[a], newItems[b]);
 					} else if (res instanceof LedgerItem) {
-						let x = this.list.splice(a, 1, res); //replace
-						this.log.merged('replaced', x[0], pItems[b], res);
+						let x = oldItems.splice(a, 1, res); //replace
+						this.log.merged('replaced', x[0], newItems[b], res);
 					} else {
-						let x = this.list.splice(a, 1); a--; //remove
-						this.log.merged('removed', x[0], pItems[b]);
+						let x = oldItems.splice(a, 1); a--; //remove
+						this.log.merged('removed', x[0], newItems[b]);
 					}
-					pItems.splice(b, 1); b--; //remove
+					newItems.splice(b, 1); b--; //remove
 				}
 			}
 		}
-		this.list.push(...pItems);
+		oldItems.push(...newItems);
+		return oldItems;
 	}
 	
 	/** Finds all items with the given name. */
@@ -114,7 +122,7 @@ class Ledger {
 		let list = [];
 		for (let item of this.list) {
 			// Check if the item's helptype is one of the help options we've been given
-			if (helpOpts[item.helptype]) {
+			if (helpOpts[item.helptype] || item.helptype === true) {
 				list.push(item);
 			}
 		}

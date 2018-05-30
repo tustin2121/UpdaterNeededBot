@@ -131,6 +131,10 @@ class UpdaterBot extends EventEmitter {
 				this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 			LOGGER.info(`UpdaterNeeded startup complete. Update interval: ${this.runConfig.run.updatePeriod/1000} sec.`);
 			this.postDebug(`[Meta] UpdaterNeeded started.`);
+			if (Bot.memory.global.rebootRequested) {
+				delete Bot.memory.global.rebootRequested;
+				this.staff.alertUpdaters(`Reboot successful.`, { bypassTagCheck:true });
+			}
 		}).catch(ex=>{
 			LOGGER.fatal(ex);
 		});
@@ -246,9 +250,9 @@ class UpdaterBot extends EventEmitter {
 	}
 	
 	get lastApiDisturbance() { return this.memory.global.lastApiDisturbance; }
-	set lastApiDisturbance(val) { 
+	set lastApiDisturbance(val) {
 		if (typeof val !== 'number' && !Number.isFinite(val)) return;
-		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val); 
+		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val);
 	}
 	
 	/** Gets the current timestamp for this run. */

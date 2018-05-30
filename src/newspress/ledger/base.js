@@ -19,7 +19,7 @@ class LedgerItem {
 		 */
 		this.flavor = flavor;
 		
-		/** The sorting order of this item, beyond importance */
+		/** The sorting order of this item, before importance */
 		this._sort = sort;
 		/** If this item has been processed already by a given rule. */
 		this._marked = new Set();
@@ -119,9 +119,9 @@ class LedgerItem {
 		if (!(a instanceof LedgerItem) || !(b instanceof LedgerItem))
 			throw new TypeError('Must compare LedgerItems to each other!');
 		
-		let res = (b.importance - a.importance);
+		let res = (b._sort - a._sort);
 		if (res === 0) {
-			res = (b._sort - a._sort);
+			res = (b.importance - a.importance);
 		}
 		return res;
 	}
