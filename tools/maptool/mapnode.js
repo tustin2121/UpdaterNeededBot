@@ -333,7 +333,9 @@ class MapArea {
 		this.by = Number.parseInt(opts.by,10) || Number.parseInt(opts.y+opts.h,10) || this.ay;
 		
 		/** Effective detection radius */
-		this.rad = Number.parseInt(opts.rad,10) || (this.ax==this.bx && this.ay==this.by)?5:0;
+		this.rad = Number.parseInt(opts.rad,10);
+		if (typeof this.rad !== 'number' || !Number.isFinite(this.rad))
+			this.rad = (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
@@ -505,7 +507,8 @@ const ATTRS = {
 		values: [false,'pokecenter','doctor','nurse','house','partner'],
 	},
 	shopping: {
-		tooltip: `If the location offers vendors. (Can be used for Areas)`,
+		tooltip: `If the location offers vendors. (Use only for Areas marking the spot)`,
+		areasOnly: true,
 	},
 	vending: {
 		tooltip: `If the location offers vending machines. (Use only for Areas marking the vending machine locations)`,

@@ -72,7 +72,7 @@ class MapPanel {
 			click() {
 				let id = window.prompt("Name of new type:");
 				if (!id) return;
-				App.currData.types[id] = new MapType({ type:id });
+				App.currData.types[id] = new MapType(App.currData, { type:id });
 				self.updateTree();
 			}
 		}));
@@ -263,6 +263,7 @@ class MapPanel {
 	updateTree($tree, { clickCallback=null, selected, includeTypes=true, startClosed=false, }={}) {
 		$tree = $tree || $('#maptree');
 		selected = selected || this.selectedData;
+		let closedArrows = new Set($tree.find('.closed').map((i,x)=>$(x).attr('cid')).get());
 		$tree.empty();
 		const ARROW = ($l, cls='')=>{
 			let $a = $(`<span class='arrow ${cls}'>`)
@@ -272,12 +273,15 @@ class MapPanel {
 				e.stopImmediatePropagation();
 			});
 			if (startClosed) $l.addClass('closed');
+			else {
+				if (closedArrows.has($l.attr('cid'))) $l.addClass('closed');
+			}
 			return $a;
 		};
 		
 		let data = App.currData;
 		if (includeTypes) {
-			const $tli = $(`<li>`).appendTo($tree);
+			const $tli = $(`<li cid='t'>`).appendTo($tree);
 			const $tlbl = $(`<span class='bank'>Map Types</span>`).prepend(ARROW($tli)).appendTo($tli);
 			const $tsub = $(`<ul>`).appendTo($tli);
 			if (!clickCallback) {
@@ -285,7 +289,7 @@ class MapPanel {
 			}
 			
 			for (let type in data.types) {
-				const $li = $(`<li>`).appendTo($tsub);
+				const $li = $(`<li cid='t:${type}'>`).appendTo($tsub);
 				const $lbl = $(`<span class='type'>Type "${type}"</span>`).prepend(ARROW($li)).appendTo($li);
 				const $sub = $(`<ul>`).appendTo($li);
 				let d = data.types[type];
@@ -311,7 +315,7 @@ class MapPanel {
 		}
 		for (let bank = 0; bank < data.nodes.length; bank++) {
 			// const $bli = $(`<li class='closed'>`);
-			const $bli = $(`<li>`).appendTo($tree);
+			const $bli = $(`<li cid='b:${bank}'>`).appendTo($tree);
 			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`).prepend(ARROW($bli)).appendTo($bli);
 			const $sub = $(`<ul>`).appendTo($bli);
 			if (!clickCallback) {
@@ -324,7 +328,7 @@ class MapPanel {
 			
 			for (let map = 0; map < data.nodes[bank].length; map++) {
 				let d = data.nodes[bank][map];
-				const $mli = $(`<li>`).appendTo($sub);
+				const $mli = $(`<li cid='m:${bank}.${map}'>`).appendTo($sub);
 				const $mlbl = $(`<span class='map'>`).appendTo($mli);
 				const $msub = $(`<ul>`).appendTo($mli);
 				if (!d) {
@@ -335,7 +339,7 @@ class MapPanel {
 					}
 					continue; //move on to the next map
 				}
-				$mlbl.text(`Map ${map}: "${d.name}"`).prepend(ARROW($mli));
+				$mlbl.text(`Map ${map}: "${d.name}"`).attr('mtype',d.mapType).prepend(ARROW($mli));
 				if (d === selected) $mlbl.addClass('selected');
 				if (!clickCallback) {
 					$mlbl.on('click', ()=>this.select(d, $mlbl));
@@ -347,7 +351,7 @@ class MapPanel {
 				for (let area = 0; area < d.areas.length || area < type.areas.length; area++) {
 					let a = d.areas[area];
 					if (a) {
-						const $ali = $(`<li>`).appendTo($msub);
+						const $ali = $(`<li cid='a:${bank}.${map}:${area}'>`).appendTo($msub);
 						const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 						if (a === selected) $albl.addClass('selected');
 						if (!clickCallback) {
@@ -357,7 +361,7 @@ class MapPanel {
 						else { $albl.on('click', (e)=> clickCallback({ e, node:a, bankId:bank, mapId:map, areaId:area })); }
 					} else {
 						a = type.areas[area];
-						const $ali = $(`<li>`).appendTo($msub);
+						const $ali = $(`<li cid='a:${bank}.${map}:${area}'>`).appendTo($msub);
 						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 						if (!clickCallback) {
 							// $albl.on('click', ()=>this.select(a, $albl));
@@ -384,6 +388,7 @@ class MapPanel {
 			let $val = createValue(key, data);
 			if (!$val) continue; //skip
 			if (key === 'name') $val.on('change', ()=>this.updateTree());
+			if (key === 'type') $val.on('change', ()=>this.updateTree());
 			$val.appendTo($lbl);
 			$lbl.appendTo($list);
 		}

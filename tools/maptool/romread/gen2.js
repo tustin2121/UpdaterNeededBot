@@ -30,35 +30,73 @@ const ENVIRONS = [ 'default', "town", "route", "indoor", "cave", 'default', "gat
 /// Caves and Dungeons can be dug out of
 /// Routes and Towns are considered outdoor maps
 
-const TILESET_POKECENTER = 0x07;
-const TILESET_MART = 0x0C;
-const MUSIC_GYM = 0x1B;
-
 class Gen2Reader extends GBReader {
 	constructor(romFile) {
 		super(romFile);
 		populateCharMap(this.CHARMAP);
+		this._OFFSETS = {};
+		this._LENGTHS = {};
+	}
+	
+	load() {
+		super.load();
 		
-		// Hardcoded offsets into the ROM file
-		this._OFFSETS = {
-			MapHeaders: 0x94000,
-			AreaNamesOffset: 0x1CA8C3,
-			SpawnPointList: 0x152AB,
-		};
-		// Hardcoded lengths for various ROM data
-		this._LENGTHS = {
-			NumAreaNames: 97,
-			MaxSpawnPoints: 0x200,
-			MapHeaderBytes: 9,
-			DefaultMapBankLength: 12,
-			MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
-		};
+		switch (this.romCode) {
+			case 0x002D63C3: //Crystal
+				// Hardcoded offsets into the ROM file
+				this._OFFSETS = {
+					MapHeaders: 0x94000,
+					AreaNamesOffset: 0x1CA8C3,
+					SpawnPointList: 0x152AB,
+				};
+				this._TILESETS = {
+					Pokecenter: 0x07,
+					Mart: 0x0C,
+				};
+				this._MUSICS = {
+					MUSIC_GYM: 0x1B,
+				};
+				// Hardcoded lengths for various ROM data
+				this._LENGTHS = {
+					NumAreaNames: 97,
+					MaxSpawnPoints: 0x200,
+					MapHeaderBytes: 9,
+					DefaultMapBankLength: 12,
+					MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
+				};
+				break;
+			case 0x002E27C3: //Gold
+				// Hardcoded offsets into the ROM file
+				this._OFFSETS = {
+					MapHeaders: 0x940ED,
+					AreaNamesOffset: 0x92382,
+					SpawnPointList: 0x15319,
+				};
+				this._TILESETS = {
+					Pokecenter: 0x06,
+					Mart: 0x0B,
+				};
+				this._MUSICS = {
+					Gym: 0x1B,
+				};
+				// Hardcoded lengths for various ROM data
+				this._LENGTHS = {
+					NumAreaNames: 97,
+					MaxSpawnPoints: 0x200,
+					MapHeaderBytes: 9,
+					DefaultMapBankLength: 12,
+					MapBankSentinal: 0x25, //specifically a sentinal if the data ISN'T this, an anti-sentinal if you will
+				};
+				break;
+		}
 	}
 	
 	readMaps() {
 		let oldOff = this.offset;
 		let mapData = [];
 		const OFFSETS = this._OFFSETS;
+		const TILESETS = this._TILESETS;
+		const MUSICS = this._MUSICS;
 		const LENGTHS = this._LENGTHS;
 		
 		const AREA_NAMES = LENGTHS.NumAreaNames; //TODO replace with way to read from ROM (there isn't)
@@ -66,8 +104,9 @@ class Gen2Reader extends GBReader {
 		// First, read in the area names for our use
 		let areaNames = this.readStridedData(OFFSETS.AreaNamesOffset, 4, AREA_NAMES).map(data=>{
 			let ptr = GBReader.sameBankPtrToLinear(OFFSETS.AreaNamesOffset, data.readUint16(2));
-			let str = this.readText(ptr);
-			return str.toLowerCase().replace(/(\b[a-z])/g, c=>c.toUpperCase());
+			let str = this.readText(ptr).trim();
+			str = str.toLowerCase().replace(/(\b[a-z])/g, c=>c.toUpperCase());
+			return str;
 		});
 		this.areas = areaNames;
 		
@@ -132,13 +171,13 @@ class Gen2Reader extends GBReader {
 				
 				// Refine map types
 				if (info.mapType === 'indoor') {
-					if (mapHeader[1] == TILESET_POKECENTER) {
+					if (mapHeader[1] == TILESETS.Pokecenter) {
 						info.mapType = 'center';
 						info.name += ' Pokémon Center';
-					} else if (mapHeader[1] == TILESET_MART) {
+					} else if (mapHeader[1] == TILESETS.Mart) {
 						info.mapType = 'mart';
 						info.name += ' PokéMart';
-					} else if (mapHeader[6] == MUSIC_GYM) {
+					} else if (mapHeader[6] == MUSICS.Gym) {
 						info.mapType = 'gym';
 						info.name += ' Gym';
 					}
@@ -271,6 +310,7 @@ function populateCharMap(c) {
 	c[0x5C] = "TM";
 	c[0x5D] = "TRAINER";
 	c[0x5E] = "ROCKET";
+	c[0x7F] = ' ';
 	c[0x80] = 'A';
 	c[0x81] = 'B';
 	c[0x82] = 'C';
@@ -340,6 +380,8 @@ function populateCharMap(c) {
 	c[0xE1] = 'Pk'; //'π';
 	c[0xE2] = 'Mn'; //'µ';
 	c[0xE3] = '-';
+	c[0xE4] = "'r";
+	c[0xE5] = "'m";
 	c[0xE6] = '?';
 	c[0xE7] = '!';
 	c[0xE8] = '.';
