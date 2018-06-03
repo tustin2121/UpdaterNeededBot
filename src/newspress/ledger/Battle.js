@@ -57,7 +57,7 @@ class EnemyFainted extends LedgerItem {
 /** Indicates we blacked out. */
 class Blackout extends LedgerItem {
 	constructor(type) {
-		super(2, {flavor:type, sort:20});
+		super(2, {flavor:type});
 	}
 }
 

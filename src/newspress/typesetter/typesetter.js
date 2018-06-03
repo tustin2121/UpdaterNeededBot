@@ -146,7 +146,7 @@ function printObject(obj) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Format Functions: Nouns and Verbs
 {
-	const WORD_NUMS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+	const WORD_NUMS = ['zero','{an}','two','three','four','five','six','seven','eight','nine','ten'];
 	// const SOME_NUMS = ['no', '{an}', 'a couple', 'a few', 'a few', 'a few', 'several', 'several', 'several', 'several', 'several', 'several', 'a dozen', 'a dozen'];
 	const AN_NUMS = [undefined, '{an}'];
 	const NUM_NUMS = []; //off the end of the array are normal numbers, thus empty array
@@ -210,33 +210,41 @@ function printObject(obj) {
 	Object.assign(FORMAT_FNS, {
 		'1 noun': printDefiniteNoun(NUM_NUMS, false),
 		'one noun': printDefiniteNoun(WORD_NUMS, false),
+		'two nouns': printDefiniteNoun(WORD_NUMS, false),
 		'a noun': printDefiniteNoun(AN_NUMS, false),
 		'some nouns': printDefiniteNoun(SOME_NUMS, false),
 		'One noun': printDefiniteNoun(WORD_NUMS, true),
+		'Two nouns': printDefiniteNoun(WORD_NUMS, true),
 		'A noun': printDefiniteNoun(AN_NUMS, true),
 		'Some nouns': printDefiniteNoun(SOME_NUMS, true),
 		
 		'1 item': printDefiniteNoun(NUM_NUMS, false),
 		'one item': printDefiniteNoun(WORD_NUMS, false),
+		'two items': printDefiniteNoun(WORD_NUMS, false),
 		'an item': printDefiniteNoun(AN_NUMS, false),
 		'some items': printDefiniteNoun(SOME_NUMS, false),
 		'One item': printDefiniteNoun(WORD_NUMS, true),
+		'Two items': printDefiniteNoun(WORD_NUMS, true),
 		'An item': printDefiniteNoun(AN_NUMS, true),
 		'Some items': printDefiniteNoun(SOME_NUMS, true),
 		
 		'1 thing': printDefiniteNoun(NUM_NUMS, false),
 		'one thing': printDefiniteNoun(WORD_NUMS, false),
+		'two things': printDefiniteNoun(WORD_NUMS, false),
 		'a thing': printDefiniteNoun(AN_NUMS, false),
 		'some things': printDefiniteNoun(SOME_NUMS, false),
 		'One thing': printDefiniteNoun(WORD_NUMS, true),
+		'Two things': printDefiniteNoun(WORD_NUMS, true),
 		'A thing': printDefiniteNoun(AN_NUMS, true),
 		'Some things': printDefiniteNoun(SOME_NUMS, true),
 		
 		'1': printNumber(NUM_NUMS, false),
 		'one': printNumber(WORD_NUMS, false),
+		'two': printNumber(WORD_NUMS, false),
 		'a': printNumber(AN_NUMS, false),
 		'some': printNumber(SOME_NUMS, false),
 		'One': printNumber(WORD_NUMS, true),
+		'Two': printNumber(WORD_NUMS, true),
 		'A': printNumber(AN_NUMS, true),
 		'Some': printNumber(SOME_NUMS, true),
 	});
@@ -379,6 +387,36 @@ function printObject(obj) {
 		
 		'phone': printOpt('phonebook', 'phone'),
 		'phonebook': printOpt('phonebook', 'phonebook'),
+	});
+}{
+	function getPhraseGeneral(type) {
+		return function(name, flavor=null) {
+			let phraseEntry = this._getPhraseEntryForItem({ name, flavor });
+			switch(type) {
+				case 'item': return this._resolve(phraseEntry.item);
+				case 'single': return this._resolve(phraseEntry.single);
+				case 'multi': return this._resolve(phraseEntry.multi);
+			}
+		}
+	}
+	function getPhraseForItem() {
+		return function(item, type='') {
+			let phraseEntry = this._getPhraseEntryForItem(item);
+			switch(type) {
+				case '': return this._resolve(phraseEntry, item);
+				case 'item': return this._resolve(phraseEntry.item, item);
+				case 'single': return this._resolve(phraseEntry.single, item);
+				case 'multi': return this._resolve(phraseEntry.multi, item);
+			}
+		};
+	}
+	
+	Object.assign(FORMAT_FNS, {
+		'get phrasebook item': getPhraseGeneral('item'),
+		'get phrasebook single': getPhraseGeneral('single'),
+		'get phrasebook multi': getPhraseGeneral('multi'),
+		
+		'resolve item phrase': getPhraseForItem(),
 	});
 }
 
@@ -590,17 +628,42 @@ class TypeSetter {
 		return Math.floor(Math.random()*len);
 	}
 	
+	static getPhraseMeta(item) {
+		let meta = { //default info
+			sort: 0,
+			merge: null,
+		};
+		// Get the phrase dictionary for this item
+		let phraseDict = PHRASEBOOK[item.name];
+		if (phraseDict === undefined) {
+			LOGGER.error(`LedgerItem ${item.name} has no phrase dictionary in the phrasebook!`);
+			return null;
+		}
+		if (phraseDict === null) return meta; // Skip this item
+		
+		if (typeof phraseDict.__meta__ === 'object') {
+			meta = Object.assign(meta, phraseDict.__meta__);
+		}
+		return meta;
+	}
+	
 	/**
 	 * Collates all of the LedgerItems in the ledger into collections of items, and sorts them
 	 * into an order of apperance. Every item that is the same type of item with the same flavor
 	 * is put into an array.
 	 */
 	static collateItems(ledger) {
+		let merges = {};
 		let dict = {};
 		let order = [];
 		
 		// Collate
 		for (let item of ledger.list) {
+			let { merge } = TypeSetter.getPhraseMeta(item.name);
+			if (merge) {
+				merges[merge] = (merges[merge] || []).push(item);
+				continue;
+			}
 			let itemname = `${item.name}/${item.flavor||'default'}`;
 			if (!dict[itemname]) {
 				order.push(itemname);
@@ -608,16 +671,23 @@ class TypeSetter {
 			}
 			dict[itemname].push(item);
 		}
+		// Execute merges
+		for (let merge in merges) {
+			let MItem = require('../ledger')[merge];
+			if (!MItem || !MItem.mergeItems) throw new TypeError('Invalid merge item!');
+			let mdict = MItem.mergeItems(merges[merge]);
+			order.push(Object.keys(mdict));
+			Object.assign(dict, mdict);
+		}
 		// Sort each collection, so the highest sorted item is first
 		for (let key in dict) {
 			dict[key].sort(LedgerItem.compare);
 		}
 		// Then sort the collections
 		order.sort((a,b)=>{
-			let ai = dict[a][0];
-			let bi = dict[b][0];
-			// return LedgerItem.compare(ai, bi);
-			return bi._sort - ai._sort;
+			let ai = TypeSetter.getPhraseMeta(dict[a][0].name);
+			let bi = TypeSetter.getPhraseMeta(dict[b][0].name);
+			return bi.sort - ai.sort;
 		});
 		// Return the collected items
 		return order.map(x=>dict[x]);
@@ -659,7 +729,69 @@ class TypeSetter {
 		// 	items = items[0];
 		// }
 		// this.items = items;
+		let phraseEntry = this._getPhraseEntryForItem(ritem);
 		
+		if (phraseEntry.multi && items.length > 1) {
+			this._itemList = items;
+			let res = this._resolve(phraseEntry.multi, ritem);
+			this._itemList = null;
+			return res;
+		}
+		return items.map(item => this._resolve(phraseEntry, item)).join(' ');
+	}
+	
+	_resolve(entry, item) {
+		if (entry === undefined) {
+			LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an undefined value!`);
+			return null;
+		}
+		if (entry === null) return null;
+		if (entry === false) return false;
+		
+		if (typeof entry === 'string') {
+			if (!item) return this.fillText(entry, item);
+			return entry;
+		}
+		if (typeof entry === 'function') {
+			let res = entry.call(this, item);
+			return this._resolve(res, item);
+		}
+		// Test for select function, which will tell us what property to select from on the entry.
+		if (typeof entry.select === 'function') {
+			let res = entry.select.call(this, item);
+			LOGGER.error(`select resolve:`, res);
+			if (res && entry[res] !== undefined) {
+				return this._resolve(entry[res], item);
+			}
+			// object don't do numbers for keys, stupidly, so try this, just in case
+			if (typeof res === 'number' && entry[res.toString(10)] !== undefined) {
+				return this._resolve(entry[res.toString(10)], item);
+			}
+		}
+		if (Array.isArray(entry)) {
+			// Shortcut the common case:
+			if (entry.length === 1) return this._resolve(entry[0], item) || null;
+			
+			// Copy off array, so below editing doesn't edit the main entry
+			let array = entry.slice();
+			while (array.length) {
+				let i = this.rand(array.length);
+				let res = this._resolve(array[i], item);
+				if (res === false) {
+					array.splice(i, 1); //Remove this entry as a possibility
+					continue;
+				}
+				return res;
+			}
+			return null;
+		}
+		if (entry.single) return this._resolve(entry.single, item);
+		if (entry.item) return this._resolve(entry.item, item);
+		LOGGER.error(`Resolve failed!`, entry);
+		return null;
+	}
+	
+	_getPhraseEntryForItem(ritem) {
 		// Get the phrase dictionary for this item
 		let phraseDict = PHRASEBOOK[ritem.name];
 		if (phraseDict === undefined) {
@@ -675,64 +807,7 @@ class TypeSetter {
 			return null;
 		}
 		if (phraseEntry === null) return null; // Skip this item
-		
-		let self = this;
-		if (phraseEntry.multi && items.length > 1) {
-			this._itemList = items;
-			let res = _resolve(phraseEntry.multi, ritem);
-			this._itemList = null;
-			return res;
-		}
-		return items.map(item => _resolve(phraseEntry, item)).join(' ');
-		
-		function _resolve(entry, item) {
-			if (entry === undefined) {
-				LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an undefined value!`);
-				return null;
-			}
-			if (entry === null) return null;
-			if (entry === false) return false;
-			
-			if (typeof entry === 'string') {
-				return self.fillText(entry, item);
-			}
-			if (typeof entry === 'function') {
-				let res = entry.call(self, item);
-				return _resolve(res, item);
-			}
-			if (typeof entry.select === 'function') {
-				let res = entry.select.call(self, item);
-				LOGGER.error(`select resolve:`, res);
-				if (res && entry[res] !== undefined) {
-					return _resolve(entry[res], item);
-				}
-				// object don't do numbers for keys, stupidly, so try this, just in case
-				if (typeof res === 'number' && entry[res.toString(10)] !== undefined) {
-					return _resolve(entry[res.toString(10)], item);
-				}
-			}
-			if (Array.isArray(entry)) {
-				// Shortcut the common case:
-				if (entry.length === 1) return _resolve(entry[0], item) || null;
-				
-				// Copy off array, so below editing doesn't edit the main entry
-				let array = entry.slice();
-				while (array.length) {
-					let i = self.rand(array.length);
-					let res = _resolve(array[i], item);
-					if (res === false) {
-						array.splice(i, 1); //Remove this entry as a possibility
-						continue;
-					}
-					return res;
-				}
-				return null;
-			}
-			if (entry.single) return _resolve(entry.single, item);
-			if (entry.item) return _resolve(entry.item, item);
-			LOGGER.error(`Resolve failed!`, entry);
-			return null;
-		}
+		return phraseEntry;
 	}
 	
 	/**

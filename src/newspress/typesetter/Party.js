@@ -8,6 +8,7 @@ module.exports = {
 	},
 	
 	MonLeveledUp: {
+		__meta__: { merge:'MonChangedCondensed' },
 		// target = the pokemon involved
 		// level = the level grown to
 		default: {
@@ -32,6 +33,7 @@ module.exports = {
 		],
 	},
 	MonEvolved: {
+		__meta__: { merge:'MonChangedCondensed' },
 		// target = the pokemon involved
 		// level = the level grown to
 		default: {
@@ -96,6 +98,7 @@ module.exports = {
 		}
 	},
 	MonRevived: {
+		__meta__: { merge:'MonChangedCondensed' },
 		default: [
 			`<b>{{@target}} has been revived!</b>`,
 		],
@@ -106,38 +109,8 @@ module.exports = {
 	MonLostPP: null,
 	MonPPUp: null,
 	
-	Blackout: {
-		default: [
-			`<b>BLACKED OUT!</b>`,
-			`<b>We BLACK OUT!</b>`,
-			`<b>BLACK OUT...</b>`,
-		],
-	},
-	FullHealed: {
-		default: [
-			`<b>We heal!</b>`,
-		],
-		blackout: null, //should be covered by Blackout above
-		pokecenter: [
-			`<b>The nurse heals us!</b>`,
-			`<b>We heal</b> at the Poké Center!`,
-		],
-		house: [ // Override with location announcement?
-			`<b>We heal</b> at a heal house!`,
-			`We sleep on a random person's floor! <b>Healed!</b>`,
-		],
-		doctor: [
-			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b>`,
-			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b> Thanks doc!`,
-		],
-		nurse: [
-			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b>`,
-			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b> Thanks!`,
-			`A {{rand|sweet|helpful}} nurse <b>heals our team!</b> Ta, love!`,
-		],
-	},
-	
 	MonLearnedMove: {
+		__meta__: { merge:'MonChangedCondensed' },
 		//move = the learned move
 		default: {
 			single: [
@@ -149,6 +122,7 @@ module.exports = {
 		},
 	},
 	MonLearnedMoveOverOldMove: {
+		__meta__: { merge:'MonChangedCondensed' },
 		//move = the learned move
 		//oldMove = the forgotton move
 		default: {
@@ -161,6 +135,7 @@ module.exports = {
 		},
 	},
 	MonForgotMove: {
+		__meta__: { merge:'MonChangedCondensed' },
 		//move = the forgotton move
 		default: {
 			single: [

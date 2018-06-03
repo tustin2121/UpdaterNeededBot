@@ -26,7 +26,7 @@ class E4RunContext extends LedgerItem {
  */
 class E4BeginRun extends LedgerItem {
 	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }, flavor) {
-		super(2, {flavor, sort:-10});
+		super(2, {flavor});
 		this.attempt = e4Attempts;
 		this.champ = champAttempts;
 		this.rematchCount = rematchCount;
@@ -53,7 +53,7 @@ class E4ReachChampion extends LedgerItem {
  */
 class E4EndRun extends LedgerItem {
 	constructor({ e4Attempts, champAttempts, rematchCount, rematchLevels }) {
-		super(2, {sort:10});
+		super(2);
 		this.attempt = e4Attempts;
 		this.champ = champAttempts;
 		this.rematchCount = rematchCount;

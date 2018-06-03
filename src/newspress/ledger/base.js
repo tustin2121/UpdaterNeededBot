@@ -119,9 +119,9 @@ class LedgerItem {
 		if (!(a instanceof LedgerItem) || !(b instanceof LedgerItem))
 			throw new TypeError('Must compare LedgerItems to each other!');
 		
-		let res = (b._sort - a._sort);
+		let res = (b.importance - a.importance);
 		if (res === 0) {
-			res = (b.importance - a.importance);
+			res = (b._sort - a._sort);
 		}
 		return res;
 	}

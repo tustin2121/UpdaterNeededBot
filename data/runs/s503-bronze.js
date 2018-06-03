@@ -81,6 +81,7 @@ module.exports = {
 		Timing: {},
 		Phonebook: {},
 		Options: {},
+		RealTime: {},
 		// PC: {},
 	},
 }

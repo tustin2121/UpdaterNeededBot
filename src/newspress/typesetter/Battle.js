@@ -32,6 +32,39 @@ module.exports = {
 	},
 	EnemyFainted: null, //TODO
 	
+	Blackout: {
+		__meta__: { sort:20 },
+		default: [
+			`<b>BLACKED OUT!</b>`,
+			`<b>We BLACK OUT!</b>`,
+			`<b>BLACK OUT...</b>`,
+		],
+	},
+	BlackoutContext: null,
+	FullHealed: {
+		default: [
+			`<b>We heal!</b>`,
+		],
+		blackout: null, //should be covered by Blackout above
+		pokecenter: [
+			`<b>The nurse heals us!</b>`,
+			`<b>We heal</b> at the Poké Center!`,
+		],
+		house: [ // Override with location announcement?
+			`<b>We heal</b> at a heal house!`,
+			`We sleep on a random person's floor! <b>Healed!</b>`,
+		],
+		doctor: [
+			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b>`,
+			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b> Thanks doc!`,
+		],
+		nurse: [
+			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b>`,
+			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b> Thanks!`,
+			`A {{rand|sweet|helpful}} nurse <b>heals our team!</b> Ta, love!`,
+		],
+	},
+	
 	BadgeGet: {
 		default: [
 			`<b>Received the {{@badge}} Badge!</b>`,

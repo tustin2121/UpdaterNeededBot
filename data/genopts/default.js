@@ -94,6 +94,8 @@ module.exports = {
 		492,493,494,495,496,497,498,499,500,
 		576,851,948,
 	],
+	// Premier Ball item ids
+	itemIds_promo: [ 12 ],
 	// Item ids for vending machine items
 	itemIds_vending: [ 0x1E, 0x1F, 0x20 ],
 	// Item ids for berries
@@ -123,12 +125,12 @@ module.exports = {
 		155,158,159,160,161,162,163, //berries
 	],
 	// Item ids for PP healing items
-	itemIds_healPP: [ 
+	itemIds_healPP: [
 		38,39,40,41, //items
 		154, //berries
 	],
 	// Item ids for status healing items
-	itemIds_healStatus: [ 
+	itemIds_healStatus: [
 		18,19,20,21,22,23,27,36,42,54, //items
 		149,150,151,152,153,157,//berries
 	],

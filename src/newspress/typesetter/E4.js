@@ -5,6 +5,7 @@ module.exports = {
 	E4RunContext: null,
 	
 	E4BeginRun: {
+		__meta__: { sort:-10 },
 		// attempt = the e4 attempt number
 		// champ = the champion attempt number
 		// rematch = the rematch count
@@ -32,6 +33,7 @@ module.exports = {
 		],
 	},
 	E4EndRun: {
+		__meta__: { sort:10 },
 		// attempt = the e4 attempt number
 		// champ = the champion attempt number
 		// rematch = the rematch count

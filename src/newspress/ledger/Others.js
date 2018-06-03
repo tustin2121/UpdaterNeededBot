@@ -29,7 +29,7 @@ class OptionsChanged extends LedgerItem {
 
 class DemocracyContext extends LedgerItem {
 	constructor() {
-		super(2, { _sort:100, helps:true });
+		super(2, { helps:true });
 	}
 }
 

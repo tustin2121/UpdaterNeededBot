@@ -21,6 +21,31 @@ class PartyItem extends LedgerItem {
 	}
 }
 
+/////////////////// Typesetter-Only Items ///////////////////
+
+class MonChangedCondensed extends LedgerItem {
+	constructor(mon) {
+		super(2, { sort:100 });
+		this.mon = mon;
+	}
+	/**
+	 * Called by the typesetter to do custom collation on various items.
+	 * This function sorts through other PartyItems and groups them based on mon.
+	 */
+	static mergeItems(itemList) {
+		let dict = {};
+		
+		for (let item of itemList) {
+			let itemname = `MonChangedCondensed/${item.mon.hash}`;
+			if (!dict[itemname]) {
+				dict[itemname] = [ new MonChangedCondensed(item.mon) ];
+			}
+			dict[itemname].push(item);
+		}
+		return dict;
+	}
+}
+
 /////////////////// Basic Items ///////////////////
 
 /** Indicates that the party is currently a temporary party, and that party updates have been suspended. */
@@ -273,7 +298,7 @@ class MonNicknameChanged extends PartyItem {
 
 
 module.exports = {
-	TemporaryPartyContext,
+	TemporaryPartyContext, MonChangedCondensed,
 	MonLeveledUp,
 	MonEvolved, MonHatched,
 	MonPokerusInfected, MonPokerusCured,

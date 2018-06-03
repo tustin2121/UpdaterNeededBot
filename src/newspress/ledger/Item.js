@@ -81,7 +81,7 @@ class RetrievedItemFromPC extends LedgerItem {
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
 	constructor(item, x, amount=1) {
-		super(1, { sort:10 }); //before PokemonGained
+		super(1);
 		this.item = item;
 		this.amount = amount;
 		if (x instanceof SortedBattle) {
@@ -95,7 +95,6 @@ class UsedBallInBattle extends LedgerItem {
 	get enemy(){ return this.mon || this.battle.active[0]; }
 	get trainer(){ //shouldn't be called unless it's a trainer flavor
 		if (!this.battle) return null;
-		return this.battle.trainer && this.battle.trainer[0]; 
 	}
 	cancelsOut(other) {
 		if (other.name === 'UsedBallInBattle') {
@@ -108,7 +107,7 @@ class UsedBallInBattle extends LedgerItem {
 	}
 }
 
-/** Indicates that an pokeball has been used in battle. */
+/** Indicates that a berry has been used in battle. */
 class UsedBerryInBattle extends LedgerItem {
 	constructor(item, mon) {
 		super(1);
@@ -121,7 +120,7 @@ class UsedBerryInBattle extends LedgerItem {
 /** Indicates that an item has been used on a pokemon. */
 class UsedItemOnMon extends LedgerItem {
 	constructor(type, item, mon, extra) {
-		super(1, { flavor:type, sort:10 }); //before move learns and stuff
+		super(1, { flavor:type });
 		this.item = item;
 		this.mon = mon;
 		this.extra = extra;

@@ -233,10 +233,10 @@ RULES.push(new Rule(`Discard insane item updates`)
 // Item aquisition categorization
 
 {
-	const DrinkIds = Bot.runOpts('itemIds_vending');
+	const itemIds = Bot.runOpts('itemIds_vending');
 	RULES.push(new Rule(`Drinks are vended`)
 		.when(ledger=>ledger.hasMap(x=> x.has('vending') ))
-		.when(ledger=>ledger.has('GainItem').with('item.id', DrinkIds).ofNoFlavor())
+		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds).ofNoFlavor())
 		.then(ledger=>{
 			ledger.get(1).forEach(x=> x.flavor = 'vending');
 		})
@@ -259,20 +259,29 @@ RULES.push(new Rule(`Items lost in shops have been sold`)
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
+{
+	const itemIds = Bot.runOpts('itemIds_promo');
+	RULES.push(new Rule(`Premire Balls are given away, not bought.`)
+		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds).ofFlavor('shopping'))
+		.then(ledger=>{
+			ledger.get(1).forEach(x=> x.flavor = 'freepromo');
+		})
+	);
+}
 
-// Because UsedBallInBattle is not a basic item, it doesn't get merged in the postpone merge step
-RULES.push(new Rule(`Combine all instances of UsedBallInBattle`)
-	.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
-	.then(ledger=>{
-		let items = ledger.get(0);
-		let item = items[0];
-		for (let i = 1; i < items.length; i++) {
-			item = item.cancelsOut(items[i]);
-			if (!item || !(item instanceof UsedBallInBattle)) throw new TypeError('Invalid merging!');
-		}
-		ledger.remove(0).add(item);
-	})
-);
+// // Because UsedBallInBattle is not a basic item, it doesn't get merged in the postpone merge step
+// RULES.push(new Rule(`Combine all instances of UsedBallInBattle`)
+// 	.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
+// 	.then(ledger=>{
+// 		let items = ledger.get(0);
+// 		let item = items[0];
+// 		for (let i = 1; i < items.length; i++) {
+// 			item = item.cancelsOut(items[i]);
+// 			if (!item || !(item instanceof UsedBallInBattle)) throw new TypeError('Invalid merging!');
+// 		}
+// 		ledger.remove(0).add(item);
+// 	})
+// );
 
 RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
 	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())

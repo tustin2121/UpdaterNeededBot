@@ -20,6 +20,11 @@ module.exports = {
 				`<b>{{rand|Bought|Purchased|Paid for}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
+		freepromo: [
+			`<b>We got {{two items|@item|@amount}} for free!</b>`,
+			`<b>We got {{two items|@item|@amount}} as a free promotion!</b>`,
+			`<b>{{Two items|@item|@amount}} gets thrown in as a package deal!</b>`,
+		],
 		rotoloto: [
 			`Roto Loto nets us <b>{{some items|@item|@amount}}</b>.`,
 			`Rotom decides to hand us <b>{{some items|@item|@amount}}</b>.`,
@@ -68,14 +73,14 @@ module.exports = {
 	},
 	
 	UsedBallInBattle: {
+		__meta__: { sort:10 }, //before PokemonGained
 		default: {
 			single: [
-				`We {{rand|toss|throw}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
+				`We {{rand|toss|throw|fling}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
 				`We try catching a wild {{Mon|@enemy}} with {{some items|@item|@amount}}.`,
 			],
 			multi: [
-				// should never happen if this thing is programmed properly?
-				`We {{rand|toss|throw}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}} that has our eye.`,
+				`We {{rand|toss|throw|fling}} {{a comma-separated list of|some items|@item|@amount}} at a wild {{Mon|@enemy}} that has our eye.`,
 			],
 		},
 		trainer: [
@@ -95,6 +100,7 @@ module.exports = {
 		],
 	},
 	UsedItemOnMon: {
+		__meta__: { sort:10 }, //before move learns and stuff
 		//
 		default: [
 			`<b>We use {{an item|@item}} on {{@target}}!</b>`,
