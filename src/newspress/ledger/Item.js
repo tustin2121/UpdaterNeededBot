@@ -95,6 +95,7 @@ class UsedBallInBattle extends LedgerItem {
 	get enemy(){ return this.mon || this.battle.active[0]; }
 	get trainer(){ //shouldn't be called unless it's a trainer flavor
 		if (!this.battle) return null;
+		return this.battle.trainer && this.battle.trainer[0];
 	}
 	cancelsOut(other) {
 		if (other.name === 'UsedBallInBattle') {
