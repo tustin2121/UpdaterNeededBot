@@ -1050,7 +1050,10 @@
 				"type": "town",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "near"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -3251,7 +3254,10 @@
 				"type": "gatehouse",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -4737,14 +4743,59 @@
 			{
 				"bank": 3,
 				"id": 48,
-				"name": "Peel City Car Park",
+				"name": "Peel City Parking Garage",
 				"areaId": 16,
 				"areaName": "Peel City",
 				"type": "indoor",
 				"width": 20,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 2,
+						"ay": 2,
+						"bx": 7,
+						"by": 3,
+						"rad": 0,
+						"name": "before slick",
+						"attrs": {
+							"flyspot": true
+						}
+					},
+					{
+						"ax": 10,
+						"ay": 2,
+						"bx": 10,
+						"by": 3,
+						"rad": 0,
+						"name": "past oil",
+						"attrs": {
+							"flyspot": true
+						}
+					},
+					{
+						"ax": 10,
+						"ay": 12,
+						"bx": 19,
+						"by": 14,
+						"rad": 0,
+						"name": "big slick",
+						"attrs": {
+							"flyspot": true
+						}
+					},
+					{
+						"ax": 10,
+						"ay": 15,
+						"bx": 17,
+						"by": 17,
+						"rad": 5,
+						"name": "after slick",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -19639,5 +19690,20 @@
 			}
 		]
 	],
-	"reports": []
+	"reports": [
+		{
+			"id": "730a078e",
+			"from": "3.48:0",
+			"to": "3.48:1",
+			"text": "We slide across a slippery oil slick and nearly fall! Then a gang member mocks us and attacks with his pokemon!",
+			"timeout": 60000000000
+		},
+		{
+			"id": "f112c029",
+			"from": "3.48:2",
+			"to": "3.48:3",
+			"text": "We slide across a large oil slick and find the robber from before! Time to battle him!",
+			"timeout": 60000000000
+		}
+	]
 }

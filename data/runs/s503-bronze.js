@@ -19,6 +19,10 @@ module.exports = {
 			// see /data/genopts
 			rivalName: "Cobolt",
 			badgeNames: [
+				"Bubble", //Sarah's Badge (Water)
+				"Weed", //Weedy's Badge (Grass)
+				"Terra", //Bianca's Badge (Fire)
+				
 				"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
 				"Boulder", "Cascade", "Thunder", "Rainbow", "Marsh", "Soul", "Volcano", "Earth",
 			],
