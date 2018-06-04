@@ -781,7 +781,7 @@
 			{
 				"bank": 2,
 				"id": 1,
-				"name": "Acre Forest",
+				"name": "Acre Forest House",
 				"areaId": 14,
 				"areaName": "Acre Forest",
 				"type": "indoor",
@@ -4519,13 +4519,16 @@
 			{
 				"bank": 3,
 				"id": 45,
-				"name": "Peel City",
+				"name": "Kohto Markets",
 				"areaId": 16,
 				"areaName": "Peel City (SHIP)",
 				"type": "indoor",
 				"width": 30,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
