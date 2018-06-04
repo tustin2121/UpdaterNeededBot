@@ -1174,13 +1174,15 @@
 			{
 				"bank": 3,
 				"id": 1,
-				"name": "Orchid City",
+				"name": "Orchid City Lookout",
 				"areaId": 6,
 				"areaName": "Orchid City",
 				"type": "indoor",
 				"width": 20,
 				"height": 16,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -2770,7 +2772,9 @@
 				"type": "cave",
 				"width": 20,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -2817,7 +2821,9 @@
 				"type": "cave",
 				"width": 20,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -3065,13 +3071,15 @@
 			{
 				"bank": 3,
 				"id": 36,
-				"name": "Orchid City",
+				"name": "Orchid City Lookout",
 				"areaId": 6,
 				"areaName": "Orchid City",
 				"type": "indoor",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -8824,7 +8832,19 @@
 				"width": 10,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 3,
+						"bx": 5,
+						"by": 3,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Weedy"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -9718,7 +9738,19 @@
 				"width": 10,
 				"height": 16,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 8,
+						"ay": 3,
+						"bx": 8,
+						"by": 3,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Sarah"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -9744,13 +9776,15 @@
 			{
 				"bank": 10,
 				"id": 8,
-				"name": "Orchid City",
+				"name": "Pokemon Science Lab",
 				"areaId": 6,
 				"areaName": "Orchid City",
 				"type": "indoor",
 				"width": 8,
 				"height": 16,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -10388,7 +10422,19 @@
 				"width": 20,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 1,
+						"bx": 6,
+						"by": 1,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Bianca"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -10726,13 +10772,15 @@
 			{
 				"bank": 11,
 				"id": 11,
-				"name": "Russet Town",
+				"name": "Name Rater's House",
 				"areaId": 12,
 				"areaName": "Russet Town",
 				"type": "indoor",
 				"width": 8,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
