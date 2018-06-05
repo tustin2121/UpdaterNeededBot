@@ -81,12 +81,21 @@ class MapRegion {
 		if (typeof arg === 'object') {
 			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];
+			if (!bank) return null;
 			if (area) return bank[id].areas[area];
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
+				if (!map) return null;
 				for (let area of map.areas) {
 					if (x >= area.ax && x <= area.bx
 						&& y >= area.ay && y <= area.by) return area;
+				}
+				let type = this.types[map.type];
+				if (type && type.areas) {
+					for (let area of type.areas) {
+						if (x >= area.ax && x <= area.bx
+							&& y >= area.ay && y <= area.by) return area;
+					}
 				}
 			}
 			return bank[id];
@@ -160,9 +169,8 @@ class MapRegion {
 	}
 	
 	renumberMaps() {
-		for (let bank = 0; bank < this.nodes.length; bank++) {
+		for (let bank = 1; bank < this.nodes.length; bank++) {
 			if (!this.nodes[bank]) continue;
-			this.nodes[bank] = [];
 			for (let map = 0; map < this.nodes[bank].length; map++) {
 				if (!this.nodes[bank][map]) continue;
 				this.nodes[bank][map].bank = bank;

@@ -69,6 +69,14 @@ class MapRegion {
 					if (x >= area.ax && x <= area.bx
 						&& y >= area.ay && y <= area.by) return area;
 				}
+				//TODO: These should be actualized on region load!
+				// let type = this.types[map.type];
+				// if (type && type.areas) {
+				// 	for (let area of type.areas) {
+				// 		if (x >= area.ax && x <= area.bx
+				// 			&& y >= area.ay && y <= area.by) return area;
+				// 	}
+				// }
 			}
 			return bank[id];
 		}

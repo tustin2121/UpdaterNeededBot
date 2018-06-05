@@ -21,7 +21,7 @@ class Application extends EventEmitter {
 		
 		this.emuConnect = new EmuConnect();
 		this.emuConnect.on('map-changed', ({ bank, id, area, x, y, z })=>{
-			this.currData.ensureMap(bank, id, { area });
+			// this.currData.ensureMap(bank, id, { area });
 			this.emit('map-changed', { bank, id, x, y, z });
 		});
 		this.emuConnect.on('pos-changed', ({ bank, id, x, y, z })=>{
@@ -79,6 +79,7 @@ class Application extends EventEmitter {
 		this.mapWindow.show();
 	}
 	openReportWindow() {
+		if (!this.currData) return;
 		this.reportWindow.show();
 		this.emuConnect.listen();
 	}

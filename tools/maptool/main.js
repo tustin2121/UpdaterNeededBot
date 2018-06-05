@@ -258,6 +258,10 @@ class MapPanel {
 		menu.popup(e.pageX, e.pageY);
 	}
 	
+	/** Scrolls the currently select map into view. */
+	scrollSelectToView() {
+		$('#maptree').find('.selected')[0].scrollIntoView({ behavior:"smooth", block:"start" });
+	}
 	
 	/** Refreshes the tree view. */
 	updateTree($tree, { clickCallback=null, selected, includeTypes=true, startClosed=false, }={}) {
@@ -793,6 +797,7 @@ $(()=>{
 	});
 	App.on('map-changed', (args)=>{
 		mapPanel.select(App.currData.resolve(args));
+		mapPanel.scrollSelectToView();
 	});
 	App.on('update-maptree', ()=> mapPanel.updateTree());
 });
@@ -848,7 +853,10 @@ function makeMenubar() {
 		}));
 		submenu.append(new nw.MenuItem({ label:'Open Report Window',
 			key:'r', modifiers:'ctrl',
-			click() { App.openReportWindow(); }
+			click() {
+				if (!App.currData) window.alert('Load a region file first.');
+				App.openReportWindow();
+			}
 		}));
 		menu.append(new nw.MenuItem({ label:'View', submenu }));
 	}
