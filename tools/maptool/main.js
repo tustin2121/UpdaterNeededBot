@@ -4,7 +4,8 @@
 // Constant values
 const fs = require('fs');
 const {
-	MapNode, MapArea, MapType, TransitReport,
+	MapNode, MapArea, MapType,
+	Report, TransitReport, ItemReport,
 	generateDefaultMapTypes, ATTRS,
 } = require('./mapnode.js');
 
@@ -48,6 +49,9 @@ class MapPanel {
 			this.parentData = data.parent;
 		}
 		else if (data instanceof MapType) {
+			this.parentData = null;
+		}
+		else if (data instanceof Report) {
 			this.parentData = null;
 		}
 		
@@ -216,28 +220,30 @@ class MapPanel {
 		menu.popup(e.pageX, e.pageY);
 	}
 	/** Shows the context menu when clicking on a transit report. */
-	showTransitMenu({ e, report, node:otherNode, }) {
+	showReportMenu({ e, report, node:otherNode, }) {
 		let self = this;
-		let thisType  = (report.from === otherNode)?'enter':'exit';
-		let otherType = (report.from === otherNode)?'exit':'enter';
-		
 		let menu = new nw.Menu();
-		menu.append(new nw.MenuItem({ label:`Select other map`,
-			enabled: !!otherNode,
-			click() {
-				self.select(otherNode);
-			}
-		}));
-		menu.append(new nw.MenuItem({ label:`Switch to ${otherType} report`,
-			click() {
-				let x = report.from;
-				report.from = report.to;
-				report.to = x;
-				self.updateTransitList();
-			}
-		}));
-		menu.append(new nw.MenuItem({ type:'separator' }));
-		menu.append(new nw.MenuItem({ label:`Delete transit report`,
+		if (report.type === 'transit' && otherNode) {
+			let thisType  = (report.from === otherNode)?'enter':'exit';
+			let otherType = (report.from === otherNode)?'exit':'enter';
+			
+			menu.append(new nw.MenuItem({ label:`Select other map`,
+				enabled: !!otherNode,
+				click() {
+					self.select(otherNode);
+				}
+			}));
+			menu.append(new nw.MenuItem({ label:`Switch to ${otherType} report`,
+				click() {
+					let x = report.from;
+					report.from = report.to;
+					report.to = x;
+					self.updateTransitList();
+				}
+			}));
+			menu.append(new nw.MenuItem({ type:'separator' }));
+		}
+		menu.append(new nw.MenuItem({ label:`Delete ${report.type} report`,
 			click() {
 				App.currData.deleteReport(report);
 				self.updateTransitList();
@@ -264,7 +270,7 @@ class MapPanel {
 	}
 	
 	/** Refreshes the tree view. */
-	updateTree($tree, { clickCallback=null, selected, includeTypes=true, startClosed=false, }={}) {
+	updateTree($tree, { clickCallback=null, selected, includeTypes=true, includeReports=true, startClosed=false, }={}) {
 		$tree = $tree || $('#maptree');
 		selected = selected || this.selectedData;
 		let closedArrows = new Set($tree.find('.closed').map((i,x)=>$(x).attr('cid')).get());
@@ -278,7 +284,7 @@ class MapPanel {
 			});
 			if (startClosed) $l.addClass('closed');
 			else {
-				if (closedArrows.has($l.attr('cid'))) $l.addClass('closed');
+				$l.toggleClass('closed', closedArrows.has($l.attr('cid')) );
 			}
 			return $a;
 		};
@@ -317,8 +323,38 @@ class MapPanel {
 				}
 			}
 		}
+		if (includeReports) {
+			const $tli = $(`<li cid='r' class='closed'>`).appendTo($tree);
+			const $tlbl = $(`<span class='bank'>All Reports</span>`).prepend(ARROW($tli)).appendTo($tli);
+			const $tsub = $(`<ul>`).appendTo($tli);
+			if (!clickCallback) {
+				$tlbl.on('contextmenu', (e)=>this.showTypeMenu({ e }));
+			}
+			
+			for (let report of data.reports) {
+				const $li = $(`<li cid='r:${report}'>`).appendTo($tsub);
+				const $lbl = $(`<span class='type'>`).prepend(ARROW($li)).appendTo($li);
+				const $sub = $(`<ul>`).appendTo($li);
+				if (report === selected) $lbl.addClass('selected');
+				if (!clickCallback) {
+					$lbl.on('click', ()=>this.select(report, $lbl));
+					$lbl.on('contextmenu', (e)=>this.showReportMenu({ e, report }));
+				}
+				if (!report) {
+					$lbl.text(`Null Report`).addClass('emptyslot');
+					continue;
+				}
+				switch (report.type) {
+					case 'transit':
+						$lbl.text(`Transit Report (${report.id}): from ${report.from} to ${report.to}`);
+						break;
+					case 'item':
+						$lbl.text(`Item Report (${report.id}): item ${report.itemid} in ${report.loc}`);
+						break;
+				}
+			}
+		}
 		for (let bank = 0; bank < data.nodes.length; bank++) {
-			// const $bli = $(`<li class='closed'>`);
 			const $bli = $(`<li cid='b:${bank}'>`).appendTo($tree);
 			const $blbl = $(`<span class='bank'>Bank ${bank}</span>`).prepend(ARROW($bli)).appendTo($bli);
 			const $sub = $(`<ul>`).appendTo($bli);
@@ -593,76 +629,112 @@ class MapPanel {
 		
 		const enterReports = App.currData.reports.filter(x=>x.to === this.selectedData);
 		const exitReports = App.currData.reports.filter(x=>x.from === this.selectedData);
+		const itemReports = App.currData.reports.filter(x=>x.loc === this.selectedData);
 		
-		$(`<header>Enter Reports</header>`).appendTo($list);
-		for (let report of enterReports) {
-			let $report = $(`<div>`).addClass('report').appendTo($list);
-			$(`<button class=''>${toStr(report.from || 'anywhere')}</button>`).appendTo($report)
-				.wrap(`<span class='from'>`)
-				.on('click', function(){
-					selectMapDialog.show(report.from).then((node)=>{
-						if (node === undefined) return; //cancled
-						report.from = node;
-						$(this).text(toStr(report.from || 'anywhere'));
+		{
+			$(`<header>Enter Reports</header>`).appendTo($list);
+			for (let report of enterReports) {
+				let $report = $(`<div>`).addClass('report').appendTo($list);
+				$(`<button class=''>${toStr(report.from || 'anywhere')}</button>`).appendTo($report)
+					.wrap(`<span class='from'>`)
+					.on('click', function(){
+						selectMapDialog.show(report.from).then((node)=>{
+							if (node === undefined) return; //cancled
+							report.from = node;
+							$(this).text(toStr(report.from || 'anywhere'));
+							App.notifyChange('prop-change', report);
+						});
+					});
+				$(`<input class='timeout' type='number'>`).appendTo($report)
+					.val(report.timeout / (60*1000))
+					.on('change', function(){
+						report.timeout = $(this).val() * (60*1000);
 						App.notifyChange('prop-change', report);
 					});
-				});
-			$(`<input class='timeout' type='number'>`).appendTo($report)
-				.val(report.timeout / (60*1000))
-				.on('change', function(){
-					report.timeout = $(this).val() * (60*1000);
-					App.notifyChange('prop-change', report);
-				});
-			$(`<textarea spellcheck='true'>`).appendTo($report)
-				.val(report.text)
-				.on('change', function(){
-					report.text = $(this).val();
-					App.notifyChange('prop-change', report);
-				});
-			$report.on('contextmenu', (e)=>this.showTransitMenu({ e, report, node:report.from }));
-		}
-		{
-			$(`<button>`).appendTo($list).wrap('<div class="newReport">')
-				.text('New Entrance Report')
-				.on('click', ()=>{
-					App.currData.addEnterReport(this.selectedData);
-					this.updateTransitList();
-				});
-		}
-		$(`<header>Exit Reports</header>`).appendTo($list);
-		for (let report of exitReports) {
-			let $report = $(`<div>`).addClass('report').appendTo($list);
-			$(`<button class=''>${toStr(report.to || 'anywhere')}</button>`).appendTo($report)
-				.wrap(`<span class='to'>`)
-				.on('click', function(){
-					selectMapDialog.show(report.to).then((node)=>{
-						if (node === undefined) return; //cancled
-						report.to = node;
-						$(this).text(toStr(report.to || 'anywhere'));
+				$(`<textarea spellcheck='true'>`).appendTo($report)
+					.val(report.text)
+					.on('change', function(){
+						report.text = $(this).val();
 						App.notifyChange('prop-change', report);
 					});
-				});
-			$(`<input class='timeout' type='number'>`).appendTo($report)
-				.val(report.timeout / (60*1000))
-				.on('change', function(){
-					report.timeout = $(this).val() * (60*1000);
-					App.notifyChange('prop-change', report);
-				});
-			$(`<textarea spellcheck='true'>`).appendTo($report)
-				.val(report.text)
-				.on('change', function(){
-					report.text = $(this).val();
-					App.notifyChange('prop-change', report);
-				});
-			$report.on('contextmenu', (e)=>this.showTransitMenu({ e, report, node:report.to }));
-		}
-		{
-			$(`<button>`).appendTo($list).wrap('<div class="newReport">')
-				.text('New Exit Report')
-				.on('click', ()=>{
-					App.currData.addExitReport(this.selectedData);
-					this.updateTransitList();
-				});
+				$report.on('contextmenu', (e)=>this.showReportMenu({ e, report, node:report.from }));
+			}
+			{
+				$(`<button>`).appendTo($list).wrap('<div class="newReport">')
+					.text('New Entrance Report')
+					.on('click', ()=>{
+						App.currData.addEnterReport(this.selectedData);
+						this.updateTransitList();
+					});
+			}
+		}{
+			$(`<header>Exit Reports</header>`).appendTo($list);
+			for (let report of exitReports) {
+				let $report = $(`<div>`).addClass('report').appendTo($list);
+				$(`<button class=''>${toStr(report.to || 'anywhere')}</button>`).appendTo($report)
+					.wrap(`<span class='to'>`)
+					.on('click', function(){
+						selectMapDialog.show(report.to).then((node)=>{
+							if (node === undefined) return; //cancled
+							report.to = node;
+							$(this).text(toStr(report.to || 'anywhere'));
+							App.notifyChange('prop-change', report);
+						});
+					});
+				$(`<input class='timeout' type='number'>`).appendTo($report)
+					.val(report.timeout / (60*1000))
+					.on('change', function(){
+						report.timeout = $(this).val() * (60*1000);
+						App.notifyChange('prop-change', report);
+					});
+				$(`<textarea spellcheck='true'>`).appendTo($report)
+					.val(report.text)
+					.on('change', function(){
+						report.text = $(this).val();
+						App.notifyChange('prop-change', report);
+					});
+				$report.on('contextmenu', (e)=>this.showReportMenu({ e, report, node:report.to }));
+			}
+			{
+				$(`<button>`).appendTo($list).wrap('<div class="newReport">')
+					.text('New Exit Report')
+					.on('click', ()=>{
+						App.currData.addExitReport(this.selectedData);
+						this.updateTransitList();
+					});
+			}
+		}{
+			$(`<header>Item Reports</header>`).appendTo($list);
+			for (let report of exitReports) {
+				let $report = $(`<div>`).addClass('report').appendTo($list);
+				$(`<input name='itemid' type='number'>`).appendTo($report)
+					.wrap(`<span class='item'>`)
+					.on('change', function(){
+						report.itemid = $(this).val();
+						App.notifyChange('prop-change', report);
+					});
+				$(`<input class='timeout' type='number'>`).appendTo($report)
+					.val(report.timeout / (60*1000))
+					.on('change', function(){
+						report.timeout = $(this).val() * (60*1000);
+						App.notifyChange('prop-change', report);
+					});
+				$(`<textarea spellcheck='true'>`).appendTo($report)
+					.val(report.text)
+					.on('change', function(){
+						report.text = $(this).val();
+						App.notifyChange('prop-change', report);
+					});
+				$report.on('contextmenu', (e)=>this.showReportMenu({ e, report, node:report.to }));
+			}
+			{
+				$(`<button>`).appendTo($list).wrap('<div class="newReport">')
+					.text('New Exit Report')
+					.on('click', ()=>{
+						App.currData.addExitReport(this.selectedData);
+						this.updateTransitList();
+					});
+			}
 		}
 	}
 	

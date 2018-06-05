@@ -28,9 +28,18 @@ class MapRegion {
 				}
 			}
 			for (let report of data.reports) {
-				report.from = this.resolveLocId(report.from);
-				report.to = this.resolveLocId(report.to);
-				this.reports.push(new TransitReport(this, report));
+				switch (report.type) {
+					case 'transit':
+						report.from = this.resolveLocId(report.from);
+						report.to = this.resolveLocId(report.to);
+						this.reports.push(new TransitReport(this, report));
+						break;
+					case 'item':
+						report.loc = this.resolveLocId(report.loc);
+						this.reports.push(new ItemReport(this, report));
+						break;
+				}
+				
 			}
 		}
 		else if (typeof data === 'string') { //new region
@@ -379,20 +388,19 @@ class MapArea {
 }
 
 /**
- * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
- * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
+ * Reports are overrides of the bot's normal text given a specific location and event. This class
+ * is the superclass for all reports.
  */
-class TransitReport {
-	constructor(region, opts={}) {
+class Report {
+	constructor(region, type, opts={}) {
 		this.__region__ = region;
-		
+		this.type = type || opts.type;
 		this.id = opts.id || TransitReport.generateId();
-		this.from = opts.from;
-		this.to = opts.to;
 		this.text = opts.text;
 		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
 		this.timeout = opts.timeout || 10*60*1000;
 	}
+	
 	get flavorOverride() {
 		if (this.text.startsWith('!')) return this.text;
 		return undefined;
@@ -404,16 +412,56 @@ class TransitReport {
 	
 	serialize() {
 		let data = {
+			type: this.type,
 			id: this.id,
-			from: null, to: null,
 			text: this.text,
 			timeout: this.timeout,
 		};
+		return data;
+	}
+}
+
+/**
+ * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
+ * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
+ */
+class TransitReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'transit', opts);
+		
+		this.from = opts.from;
+		this.to = opts.to;
+	}
+	
+	serialize() {
+		let data = super.serialize();
 		if (this.from) data.from = this.from.locId;
 		if (this.to) data.to = this.to.locId;
 		return data;
 	}
 }
+
+
+/**
+ * ItemReports are reports which the bot will send out when picking up an item, optionally checking
+ * for a distinct area.
+ */
+class ItemReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'item', opts);
+		
+		this.itemid = opts.itemid;
+		this.loc = opts.loc;
+	}
+	
+	serialize() {
+		return Object.assign(super.serialize(), {
+			itemid: this.itemid,
+			loc: this.loc,
+		});
+	}
+}
+
 
 /** Default Map Types */
 function generateDefaultMapTypes(region) {
@@ -545,6 +593,6 @@ const ATTRS = {
 
 module.exports = {
 	MapRegion,
-	MapNode, MapArea, MapType, TransitReport,
+	MapNode, MapArea, MapType, TransitReport, ItemReport,
 	generateDefaultMapTypes, ATTRS,
 };

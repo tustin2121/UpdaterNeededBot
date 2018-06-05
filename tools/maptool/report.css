@@ -69,6 +69,10 @@ body {
     content: 'y: ';
     font-size: 0.7em;
 }
+.summary span[name=z]::before {
+    content: 'z: ';
+    font-size: 0.7em;
+}
 .icons {
 	float: right;
     font-size: 20px;

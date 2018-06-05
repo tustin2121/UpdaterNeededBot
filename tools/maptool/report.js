@@ -134,6 +134,7 @@ function posChanged(args) {
 	currPos = args;
 	currNode = App.currData.resolve(args);
 	
+	$('.summary [name=mapid]').text(`${args.bank}.${args.id}`);
 	if (currNode) {
 		$('.summary [name=createbtn]').hide();
 		{
