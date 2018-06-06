@@ -830,6 +830,7 @@ class SelectMapDialog {
 			mapPanel.updateTree(this.$tree, {
 				selected: node,
 				startClosed: true,
+				includeReports: false,
 				clickCallback:(args)=>{
 					resolve(args.node);
 					this.hide();
