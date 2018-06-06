@@ -190,7 +190,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Karla"
+							"leader": "Karla",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -830,7 +831,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Elroy"
+							"leader": "Elroy",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -2891,7 +2893,9 @@
 				"type": "cave",
 				"width": 20,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -4604,7 +4608,20 @@
 				"width": 30,
 				"height": 36,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 21,
+						"ay": 5,
+						"bx": 21,
+						"by": 5,
+						"rad": 5,
+						"name": "rival fight",
+						"attrs": {
+							"leader": "{{rival}}",
+							"trainertype": "rival"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -4774,7 +4791,9 @@
 				"type": "indoor",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [
 					{
 						"ax": 2,
@@ -4819,6 +4838,15 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 2,
+						"ay": 10,
+						"bx": 2,
+						"by": 11,
+						"rad": 0,
+						"name": "first fight",
+						"attrs": {}
 					}
 				],
 				"gamedata": {
@@ -5775,7 +5803,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Gold"
+							"leader": "Gold",
+							"trainertype": "champ"
 						}
 					}
 				],
@@ -6090,7 +6119,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "{{rival}}"
+							"leader": "{{rival}}",
+							"trainertype": "rival"
 						}
 					}
 				],
@@ -6841,7 +6871,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Kohen"
+							"leader": "Kohen",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -7271,7 +7302,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Mauro"
+							"leader": "Mauro",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -8879,7 +8911,7 @@
 				"id": 4,
 				"name": "Peel City",
 				"areaId": 16,
-				"areaName": "Peel City",
+				"areaName": "Peel City (Robbed House)",
 				"type": "indoor",
 				"width": 16,
 				"height": 8,
@@ -8926,7 +8958,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Weedy"
+							"leader": "Weedy",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -9832,7 +9865,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Sarah"
+							"leader": "Sarah",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -10518,7 +10552,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Bianca"
+							"leader": "Bianca",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -11869,7 +11904,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Flynn"
+							"leader": "Flynn",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -15862,13 +15898,15 @@
 			{
 				"bank": 21,
 				"id": 12,
-				"name": "Peel City",
+				"name": "\"Game Freako\" Head Office",
 				"areaId": 16,
 				"areaName": "Peel City",
 				"type": "indoor",
 				"width": 8,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -15916,13 +15954,15 @@
 			{
 				"bank": 21,
 				"id": 13,
-				"name": "Peel City",
+				"name": "\"Game Freako\" Head Office",
 				"areaId": 16,
 				"areaName": "Peel City",
 				"type": "indoor",
 				"width": 8,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -15963,13 +16003,15 @@
 			{
 				"bank": 21,
 				"id": 14,
-				"name": "Peel City",
+				"name": "\"Game Freako\" Head Office",
 				"areaId": 16,
 				"areaName": "Peel City",
 				"type": "indoor",
 				"width": 8,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -16784,7 +16826,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "Agarx"
+							"leader": "Agarx",
+							"trainertype": "leader"
 						}
 					}
 				],
@@ -19489,7 +19532,8 @@
 						"rad": 5,
 						"name": "Leader",
 						"attrs": {
-							"leader": "{{rival}}"
+							"leader": "{{rival}}",
+							"trainertype": "rival"
 						}
 					}
 				],
@@ -19890,7 +19934,7 @@
 		{
 			"type": "transit",
 			"id": "730a078e",
-			"text": "We slide across a slippery oil slick and nearly fall! Then a gang member mocks us and attacks with his pokemon!",
+			"text": "We slide across a slippery oil slick and nearly fall! Then another Racket Teen mocks us and attacks with his pokemon!",
 			"timeout": 60000000000,
 			"from": "3.48:0",
 			"to": "3.48:1"
@@ -19898,8 +19942,8 @@
 		{
 			"type": "transit",
 			"id": "f112c029",
-			"text": "We slide across a large oil slick and find the robber from before! Time to battle him!",
-			"timeout": 60000000000,
+			"text": "We make it across the large oil slick and find the robber from before! Time to battle him!",
+			"timeout": 6000000000000,
 			"from": "3.48:2",
 			"to": "3.48:3"
 		},
@@ -19910,6 +19954,58 @@
 			"timeout": 600000,
 			"from": "3.28",
 			"to": "24.4"
+		},
+		{
+			"type": "item",
+			"id": "4055f0ee",
+			"text": "We walk into the Russet Town Bike Shop and the store owner happily informs us that we're his 1000th customer! For this, <b>he gives us a Bike for free!</b>",
+			"timeout": 600000000,
+			"itemid": "7",
+			"loc": "11.4"
+		},
+		{
+			"type": "transit",
+			"id": "56a393b1",
+			"text": "Upon defeating {{$our rival}}, {{they}} challenge us to a race to see who will become league champion first! We readily agree (because we weren't given the option to turn it down)!",
+			"timeout": 540000000000,
+			"from": "3.46",
+			"to": "11.2"
+		},
+		{
+			"type": "transit",
+			"id": "9e3b790c",
+			"text": "We walk into a woman's house as she is being actively burgled by someone in a brown hat and clothes! Everything's a mess and there's a broken TV by the door. The teen in brown looks like he doesn't know what he's doing...",
+			"timeout": 600000000000,
+			"to": "8.4"
+		},
+		{
+			"type": "transit",
+			"id": "2417e4ba",
+			"text": "We enter a parking garage in the south of the city. There had been a teen in brown guarding the door previously... a teen who had been dressed very similarly to that robber we chased off from that woman's house eariler...",
+			"timeout": 600000000000,
+			"from": "11.2",
+			"to": "3.48"
+		},
+		{
+			"type": "transit",
+			"id": "3ea4c084",
+			"text": "We get spotted by another teen in brown! Declares this parking garage for cool kids only, and he fights us! The game calls him a \"Racket Teen\".",
+			"timeout": 5400000000000,
+			"to": "3.48:4"
+		},
+		{
+			"type": "transit",
+			"id": "9a96acfe",
+			"text": "There's a big oil slick at the end of the parking garage, and we start sliding around on it, as if it were ice.",
+			"timeout": 6000000000000,
+			"to": "3.48:2"
+		},
+		{
+			"type": "transit",
+			"id": "3aaec9be",
+			"text": "We {{rand|slide|glide|slip}} around on the big oil slick.",
+			"timeout": 600000,
+			"to": "3.48:2"
 		}
 	]
 }
