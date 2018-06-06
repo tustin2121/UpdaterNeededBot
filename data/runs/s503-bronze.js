@@ -22,14 +22,12 @@ module.exports = {
 				"Bubble", //Sarah's Badge (Water) (1)
 				"Weed", //Weedy's Badge (Grass) (2)
 				"Terra", //Bianca's Badge (Fire) (3)
-				// (4)
-				// (5)
+				"Zap", //Kohen's Badge (Electric) (4)
+				"Blank", //Agar's Badge () (5)
 				"Acrobat", //Karla's Badge (Flying) (6)
 				"Pollute", //Elroy's Badge (Poison) (7)
 				"Psycho", //Mauro's Badge (Psychic) (8)
 				
-				"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
-				"Boulder", "Cascade", "Thunder", "Rainbow", "Marsh", "Soul", "Volcano", "Earth",
 			],
 			e4Names: [ "Will", "Koga", "Bruno", "Karen" ],
 			champName: "Lance",

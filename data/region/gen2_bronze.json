@@ -318,7 +318,7 @@
 			{
 				"bank": 1,
 				"id": 6,
-				"name": "Route 8",
+				"name": "Fisherman's House",
 				"areaId": 20,
 				"areaName": "Route 8",
 				"type": "indoor",
@@ -1345,7 +1345,9 @@
 				"type": "dungeon",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"dungeon": false
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -5060,13 +5062,16 @@
 			{
 				"bank": 3,
 				"id": 53,
-				"name": "Underg.",
+				"name": "Underground Path to Kanto",
 				"areaId": 39,
 				"areaName": "Underg.",
 				"type": "gatehouse",
 				"width": 40,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -5107,13 +5112,16 @@
 			{
 				"bank": 3,
 				"id": 54,
-				"name": "Underg.",
+				"name": "Underground Path to Junction Park",
 				"areaId": 39,
 				"areaName": "Underg.",
 				"type": "gatehouse",
 				"width": 20,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -5758,7 +5766,19 @@
 				"width": 20,
 				"height": 36,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 8,
+						"bx": 10,
+						"by": 8,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Gold"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -5989,13 +6009,15 @@
 			{
 				"bank": 3,
 				"id": 75,
-				"name": "Mt.Moon",
+				"name": "Mt. Moon",
 				"areaId": 52,
 				"areaName": "Mt.Moon",
 				"type": "cave",
 				"width": 20,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -6056,8 +6078,22 @@
 				"type": "cave",
 				"width": 34,
 				"height": 24,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": ""
+				},
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 3,
+						"bx": 3,
+						"by": 3,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "{{rival}}"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -6164,7 +6200,9 @@
 				"type": "cave",
 				"width": 36,
 				"height": 30,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -6225,7 +6263,9 @@
 				"type": "cave",
 				"width": 30,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -6352,7 +6392,9 @@
 				"type": "cave",
 				"width": 20,
 				"height": 72,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -6495,7 +6537,9 @@
 				"type": "gatehouse",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -6715,7 +6759,7 @@
 			{
 				"bank": 4,
 				"id": 5,
-				"name": "Gamboge Pokemon Club",
+				"name": "Gamboge Pokémon Club",
 				"areaId": 22,
 				"areaName": "Gamboge Town",
 				"type": "indoor",
@@ -6788,7 +6832,19 @@
 				"width": 16,
 				"height": 22,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 13,
+						"ay": 5,
+						"bx": 13,
+						"by": 5,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Kohen"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -7960,7 +8016,9 @@
 				"type": "town",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -10178,7 +10236,9 @@
 				"type": "gatehouse",
 				"width": 10,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -10693,13 +10753,16 @@
 			{
 				"bank": 11,
 				"id": 8,
-				"name": "Gamboge Town PokéMart",
+				"name": "Gamboge Town Post Office",
 				"areaId": 22,
 				"areaName": "Gamboge Town",
-				"type": "mart",
+				"type": "indoor",
 				"width": 16,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -12484,13 +12547,15 @@
 			{
 				"bank": 15,
 				"id": 1,
-				"name": "Cerulean City",
+				"name": "Cerulean Cave Gatehouse",
 				"areaId": 54,
 				"areaName": "Cerulean City",
 				"type": "gatehouse",
 				"width": 20,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -13212,7 +13277,19 @@
 				"width": 20,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 11,
+						"bx": 10,
+						"by": 11,
+						"rad": 5,
+						"name": "Legendary",
+						"attrs": {
+							"legendary": "Archen"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -13234,13 +13311,15 @@
 			{
 				"bank": 16,
 				"id": 1,
-				"name": "Route 23",
+				"name": "Indigo Plateau",
 				"areaId": 88,
 				"areaName": "Route 23",
 				"type": "town",
 				"width": 20,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -13281,14 +13360,15 @@
 			{
 				"bank": 16,
 				"id": 2,
-				"name": "Indigo Plateau Lobby",
+				"name": "Indigo Plateau",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "center",
 				"width": 18,
 				"height": 14,
 				"attrs": {
-					"e4": "lobby"
+					"e4": "lobby",
+					"the": ""
 				},
 				"areas": [
 					{
@@ -13390,7 +13470,7 @@
 			{
 				"bank": 16,
 				"id": 3,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Pryce's Chamber)",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
@@ -13409,7 +13489,7 @@
 						"name": "leader",
 						"attrs": {
 							"trainertype": "e4",
-							"leader": "Will"
+							"leader": "Pryce"
 						}
 					}
 				],
@@ -13445,7 +13525,7 @@
 			{
 				"bank": 16,
 				"id": 4,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Koga's Chamber)",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
@@ -13507,7 +13587,7 @@
 			{
 				"bank": 16,
 				"id": 5,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Bruno's Chamber)",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
@@ -13569,7 +13649,7 @@
 			{
 				"bank": 16,
 				"id": 6,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Karen's Chamber)",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
@@ -13642,7 +13722,7 @@
 			{
 				"bank": 16,
 				"id": 7,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Champion's Chamber)",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
@@ -13661,7 +13741,7 @@
 						"name": "leader",
 						"attrs": {
 							"trainertype": "champ",
-							"leader": "Lance"
+							"leader": "{{rival}}"
 						}
 					}
 				],
@@ -13754,14 +13834,15 @@
 			{
 				"bank": 16,
 				"id": 8,
-				"name": "Indigo Plateau",
+				"name": "Hall of Fame",
 				"areaId": 89,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 14,
 				"attrs": {
-					"e4": "hallOfFame"
+					"e4": "hallOfFame",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -14972,7 +15053,9 @@
 				"type": "town",
 				"width": 40,
 				"height": 36,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -16066,13 +16149,15 @@
 			{
 				"bank": 21,
 				"id": 19,
-				"name": "Ender Isle",
+				"name": "Ender Isle Overlook",
 				"areaId": 45,
 				"areaName": "Ender Isle",
 				"type": "indoor",
 				"width": 20,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -16690,6 +16775,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 3,
+						"ay": 5,
+						"bx": 3,
+						"by": 5,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "Agarx"
+						}
 					}
 				],
 				"gamedata": {
@@ -17122,7 +17218,9 @@
 				"type": "gatehouse",
 				"width": 10,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -19381,6 +19479,17 @@
 						"name": "spawn",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 24,
+						"ay": 8,
+						"bx": 24,
+						"by": 8,
+						"rad": 5,
+						"name": "Leader",
+						"attrs": {
+							"leader": "{{rival}}"
 						}
 					}
 				],
