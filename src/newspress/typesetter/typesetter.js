@@ -296,6 +296,11 @@ function printObject(obj) {
 					case 'f': case 'female': return female;
 					case 't': case 'they': case 'plural': return plural;
 					case 'i': case 'it': return plural;
+					case 'o': case 'opposite': {
+						let gender = this.curr_api.playerGender;
+						if (gender.toLowerCase() === 'female') return male;
+						return female;
+					}
 					default: return plural;
 				}
 			}
@@ -349,8 +354,20 @@ function printObject(obj) {
 // Format Functions: Static Replacements
 {
 	function printPlayerName() { return this.curr_api.name; }
-	function printRivalName() { return this.curr_api.rival_name; }
+	function printRivalName() {
+		let rivalItem = {
+			name: this.curr_api.rival_name,
+			gender: Bot.runOpts('rivalGender', this.press.gameIndex),
+		};
+		if (this._setNoun) this.noun = rivalItem;
+		if (this._setSubject) this.subject = rivalItem;
+		return rivalItem.name;
+	}
 	function printFriendlyRivalName() {
+		// let friendItem = {
+		// 	name: Bot.runOpts('friendName', this.press.gameIndex),
+		// 	gender: Bot.runOpts('friendGender', this.press.gameIndex),
+		// };
 		let name = Bot.runOpts('friendName');
 		if (Array.isArray(name)) {
 			if (name.length === 1) return name[0];
@@ -372,11 +389,14 @@ function printObject(obj) {
 		'player name': printPlayerName,
 		'player\'s name': printPlayerName,
 		'my name': printPlayerName,
+		'our name': printPlayerName,
 		
 		'my friend': printFriendlyRivalName,
+		'our friend': printFriendlyRivalName,
 		
 		'rival': printRivalName,
 		'my rival': printRivalName,
+		'our rival': printRivalName,
 		
 		'champ': printOpt('champ', 'champion'),
 		'champion': printOpt('champ', 'champion'),

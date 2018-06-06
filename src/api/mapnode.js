@@ -38,6 +38,10 @@ class MapRegion {
 					report.loc = this.resolveLocId(report.loc);
 					this.reports.push(new ItemReport(this, report));
 					break;
+				case 'battle':
+					report.loc = this.resolveLocId(report.loc);
+					this.reports.push(new BattleReport(this, report));
+					break;
 			}
 		}
 	}
@@ -91,8 +95,14 @@ class MapRegion {
 		return null;
 	}
 	
-	findReports(from, to) {
-		return this.reports.filter(r=> (!r.from || r.from===from) && (!r.to || r.to===to) );
+	findTransitReports(from, to) {
+		return this.reports.filter(TransitReport.filter({ from, to }));
+	}
+	findItemReports(loc, itemid) {
+		return this.reports.filter(ItemReport.filter({ loc, itemid }));
+	}
+	findBattleReports(loc, trainerid, classid) {
+		return this.reports.filter(BattleReport.filter({ loc, trainerid, classid }));
 	}
 	
 	is(attr) { return this.types['default'].is(attr); }
@@ -258,6 +268,13 @@ class TransitReport extends Report {
 		this.from = opts.from;
 		this.to = opts.to;
 	}
+	
+	static filter({ from, to }) {
+		return (r)=>{
+			if (r.type !== 'transit') return false;
+			return (!r.from || r.from===from) && (!r.to || r.to===to);
+		};
+	}
 }
 
 /**
@@ -271,6 +288,41 @@ class ItemReport extends Report {
 		this.itemid = opts.itemid;
 		this.loc = opts.loc;
 	}
+	
+	static filter({ loc, itemid }) {
+		return (r)=>{
+			if (r.type !== 'item') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (itemid && r.itemid && r.itemid !== itemid) return false;
+			return true;
+		};
+	}
+}
+
+/**
+ * BattleReports are reports which the bot will send out when we fight someone in the area,
+ * optionally checking for a trainer class and id. These can be used to add more flair to a
+ * fight in a location, or add text specifically for when we win a battle.
+ */
+class BattleReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'battle', opts);
+		this.loc = opts.loc;
+		this.classid = opts.classid;
+		this.trainerid = opts.trainerid;
+		this.wintext = opts.wintext;
+	}
+	
+	static filter({ loc, classid, trainerid }) {
+		return (r)=>{
+			if (r.type !== 'battle') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (classid && trainerid && r.classid && r.trainerid) {
+				return r.classid === classid && r.trainerid === trainerid;
+			}
+			return true;
+		};
+	}
 }
 
 // Set aliases for is()
@@ -283,5 +335,5 @@ class ItemReport extends Report {
 module.exports = {
 	MapRegion,
 	MapNode, MapArea, MapType,
-	Report, TransitReport, ItemReport,
+	Report, TransitReport, ItemReport, BattleReport,
 };

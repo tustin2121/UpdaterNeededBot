@@ -38,6 +38,10 @@ class MapRegion {
 						report.loc = this.resolveLocId(report.loc);
 						this.reports.push(new ItemReport(this, report));
 						break;
+					case 'battle':
+						report.loc = this.resolveLocId(report.loc);
+						this.reports.push(new BattleReport(this, report));
+						break;
 				}
 				
 			}
@@ -112,8 +116,14 @@ class MapRegion {
 		return null;
 	}
 	
-	findReports(from, to) {
-		return this.reports.filter(r=> (!r.from || r.from===from) && (!r.to || r.to===to) );
+	findTransitReports(from, to) {
+		return this.reports.filter(TransitReport.filter({ from, to }));
+	}
+	findItemReports(loc, itemid) {
+		return this.reports.filter(ItemReport.filter({ loc, itemid }));
+	}
+	findBattleReports(loc, trainerid, classid) {
+		return this.reports.filter(BattleReport.filter({ loc, trainerid, classid }));
 	}
 	
 	ensureMap(bankId, mapId, data={}) {
@@ -167,6 +177,16 @@ class MapRegion {
 	}
 	addExitReport(node) {
 		let r = new TransitReport(this, { from:node });
+		this.reports.push(r);
+		App.notifyChange('report-new', r);
+	}
+	addItemReport(node) {
+		let r = new ItemReport(this, { loc:node });
+		this.reports.push(r);
+		App.notifyChange('report-new', r);
+	}
+	addBattleReport(node) {
+		let r = new BattleReport(this, { loc:node });
 		this.reports.push(r);
 		App.notifyChange('report-new', r);
 	}
@@ -428,7 +448,6 @@ class Report {
 class TransitReport extends Report {
 	constructor(region, opts={}) {
 		super(region, 'transit', opts);
-		
 		this.from = opts.from;
 		this.to = opts.to;
 	}
@@ -438,6 +457,13 @@ class TransitReport extends Report {
 		if (this.from) data.from = this.from.locId;
 		if (this.to) data.to = this.to.locId;
 		return data;
+	}
+	
+	static filter({ from, to }) {
+		return (r)=>{
+			if (r.type !== 'transit') return false;
+			return (!r.from || r.from===from) && (!r.to || r.to===to);
+		};
 	}
 }
 
@@ -449,16 +475,61 @@ class TransitReport extends Report {
 class ItemReport extends Report {
 	constructor(region, opts={}) {
 		super(region, 'item', opts);
-		
-		this.itemid = opts.itemid;
 		this.loc = opts.loc;
+		this.itemid = opts.itemid;
 	}
 	
 	serialize() {
-		return Object.assign(super.serialize(), {
+		let data = Object.assign(super.serialize(), {
 			itemid: this.itemid,
-			loc: this.loc,
 		});
+		if (this.loc) data.loc = this.loc.locId;
+		return data;
+	}
+	
+	static filter({ loc, itemid }) {
+		return (r)=>{
+			if (r.type !== 'item') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (itemid && r.itemid && r.itemid !== itemid) return false;
+			return true;
+		};
+	}
+}
+
+/**
+ * BattleReports are reports which the bot will send out when we fight someone in the area,
+ * optionally checking for a trainer class and id. These can be used to add more flair to a
+ * fight in a location, or add text specifically for when we win a battle.
+ */
+class BattleReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'battle', opts);
+		this.loc = opts.loc;
+		this.classid = opts.classid;
+		this.trainerid = opts.trainerid;
+		this.wintext = opts.wintext;
+	}
+	
+	serialize() {
+		let data = Object.assign(super.serialize(), {
+			wintext: this.wintext,
+			classid: this.classid,
+			trainerid: this.trainerid,
+		});
+		if (this.loc) data.loc = this.loc.locId;
+		return data;
+	}
+	
+	static filter({ loc, classid, trainerid }) {
+		return (r)=>{
+			if (r.type !== 'battle') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (classid && trainerid && r.classid && r.trainerid) {
+				return r.classid === classid && r.trainerid === trainerid;
+			}
+			return true;
+		};
 	}
 }
 
@@ -593,6 +664,7 @@ const ATTRS = {
 
 module.exports = {
 	MapRegion,
-	MapNode, MapArea, MapType, TransitReport, ItemReport,
+	MapNode, MapArea, MapType,
+	Report, TransitReport, ItemReport, BattleReport,
 	generateDefaultMapTypes, ATTRS,
 };

@@ -279,7 +279,7 @@ body > main {
 
 #transprops .report {
     display: grid;
-    grid-template: "map time" "txt txt" / 2fr 1fr;
+    grid-template: "map time" "txt txt" "txt2 txt2" / 2fr 1fr;
     align-items: center;
     padding: 4px;
 }
@@ -300,6 +300,9 @@ body > main {
     color: #888888;
     margin-left: -5px;
 }
+#transprops .report .item input {
+	width: 60px;
+}
 #transprops .report .timeout {
     grid-area: time;
 	width: 100%;
@@ -309,6 +312,9 @@ body > main {
     grid-area: txt;
     background-color: rgba(255,255,255,0.2);
 	min-height: 4em;
+}
+#transprops .report textarea.txt2 {
+	grid-area: txt2;
 }
 
 #newDialog [name=genRadio] {

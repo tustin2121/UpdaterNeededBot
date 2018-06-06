@@ -19942,7 +19942,7 @@
 		{
 			"type": "transit",
 			"id": "f112c029",
-			"text": "We make it across the large oil slick and find the robber from before! Time to battle him!",
+			"text": "We make it across the large oil slick and find the robber from before!",
 			"timeout": 6000000000000,
 			"from": "3.48:2",
 			"to": "3.48:3"
@@ -19988,13 +19988,6 @@
 		},
 		{
 			"type": "transit",
-			"id": "3ea4c084",
-			"text": "We get spotted by another teen in brown! Declares this parking garage for cool kids only, and he fights us! The game calls him a \"Racket Teen\".",
-			"timeout": 5400000000000,
-			"to": "3.48:4"
-		},
-		{
-			"type": "transit",
 			"id": "9a96acfe",
 			"text": "There's a big oil slick at the end of the parking garage, and we start sliding around on it, as if it were ice.",
 			"timeout": 6000000000000,
@@ -20006,6 +19999,21 @@
 			"text": "We {{rand|slide|glide|slip}} around on the big oil slick.",
 			"timeout": 600000,
 			"to": "3.48:2"
+		},
+		{
+			"type": "battle",
+			"id": "b1e063ac",
+			"text": "We get spotted by another teen in brown! Declares this parking garage for cool kids only, and he fights us! The game calls him a \"Racket Teen\".",
+			"timeout": 60000000000,
+			"loc": "3.48:4"
+		},
+		{
+			"type": "battle",
+			"id": "15d100c1",
+			"text": "We engage the robber Racket Teen!",
+			"timeout": 600000,
+			"wintext": "We take out his final pokemon, and the robber none-to-subtly tells us to stay away from the Department Store...",
+			"loc": "3.48:3"
 		}
 	]
 }

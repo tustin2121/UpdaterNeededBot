@@ -60,8 +60,12 @@ module.exports = {
 	champName: "",
 	// The (default) name of the player's rival
 	rivalName: "",
+	// The gender of the rival, or "O" for "opposite the player's gender".
+	rivalGender: "O",
 	// The (default) name of the player's friendly rival (can be an array if it's "the unchosen protagonist")
 	friendName: "",
+	// The gender of the friendly rival, or "O" for "opposite the player's gender".
+	friendGender: "O",
 	
 	// Trainer classes to mark specially
 	trainerClasses: {

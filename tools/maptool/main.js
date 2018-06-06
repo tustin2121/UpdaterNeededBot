@@ -195,17 +195,7 @@ class MapPanel {
 		if (!area || !mapId) thing = 'Area Template';
 		
 		let menu = new nw.Menu();
-		if (!area) { // No actualized area
-			menu.append(new nw.MenuItem({ label:`Actualize ${thing}`,
-				click() {
-					let newarea = App.currData.types[typeId].areas[areaId].serialize();
-					let map = App.currData.nodes[bankId][mapId];
-					map.areas[areaId] = new MapArea(map, newarea);
-					self.updateTree();
-				}
-			}));
-		}
-		else { // Actual area
+		if (area) {// Actual area
 			menu.append(new nw.MenuItem({ label:`Delete ${thing}`,
 				click() {
 					let p = area.parent;
@@ -215,6 +205,19 @@ class MapPanel {
 					self.updateTree();
 				}
 			}));
+		}
+		else if (typeId) { // No actualized area
+			menu.append(new nw.MenuItem({ label:`Actualize ${thing}`,
+				click() {
+					let newarea = App.currData.types[typeId].areas[areaId].serialize();
+					let map = App.currData.nodes[bankId][mapId];
+					map.areas[areaId] = new MapArea(map, newarea);
+					self.updateTree();
+				}
+			}));
+		}
+		else {
+			
 		}
 		e.preventDefault();
 		menu.popup(e.pageX, e.pageY);
@@ -333,7 +336,7 @@ class MapPanel {
 			
 			for (let report of data.reports) {
 				const $li = $(`<li cid='r:${report}'>`).appendTo($tsub);
-				const $lbl = $(`<span class='type'>`).prepend(ARROW($li)).appendTo($li);
+				const $lbl = $(`<span class='type'>`).appendTo($li);
 				const $sub = $(`<ul>`).appendTo($li);
 				if (report === selected) $lbl.addClass('selected');
 				if (!clickCallback) {
@@ -351,7 +354,14 @@ class MapPanel {
 					case 'item':
 						$lbl.text(`Item Report (${report.id}): item ${report.itemid} in ${report.loc}`);
 						break;
+					case 'battle':
+						$lbl.text(`Battle Report (${report.id}): in ${report.loc}`);
+						break;
+					default:
+						$lbl.text(`Unknown Report (${report.id})`);
+						break;
 				}
+				$lbl.prepend(ARROW($li));
 			}
 		}
 		for (let bank = 0; bank < data.nodes.length; bank++) {
@@ -399,8 +409,8 @@ class MapPanel {
 							$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, bankId:bank, mapId:map, areaId:area }));
 						}
 						else { $albl.on('click', (e)=> clickCallback({ e, node:a, bankId:bank, mapId:map, areaId:area })); }
-					} else {
-						a = type.areas[area];
+					}
+					else if ((a = type.areas[area])) {
 						const $ali = $(`<li cid='a:${bank}.${map}:${area}'>`).appendTo($msub);
 						const $albl = $(`<span class='area template'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 						if (!clickCallback) {
@@ -408,6 +418,13 @@ class MapPanel {
 							$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:null, bankId:bank, mapId:map, areaId:area, typeId:d.type, }));
 						}
 						// else { $albl.on('click', (e)=> clickCallback({ e, node:null, bankId:bank, mapId:map, areaId:area, typeId:d.type, })); }
+					}
+					else {
+						const $ali = $(`<li cid='a:${bank}.${map}:${area}'>`).appendTo($msub);
+						const $albl = $(`<span class='area emptyslot'>Area ${area}</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
+						if (!clickCallback) {
+							$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:null, bankId:bank, mapId:map, areaId:area, }));
+						}
 					}
 				}
 			}
@@ -627,9 +644,10 @@ class MapPanel {
 		const $list = $('#transprops');
 		$list.empty();
 		
-		const enterReports = App.currData.reports.filter(x=>x.to === this.selectedData);
-		const exitReports = App.currData.reports.filter(x=>x.from === this.selectedData);
-		const itemReports = App.currData.reports.filter(x=>x.loc === this.selectedData);
+		const enterReports = App.currData.reports.filter(x=>x.type==='transit' && x.to === this.selectedData);
+		const exitReports = App.currData.reports.filter(x=>x.type==='transit' && x.from === this.selectedData);
+		const itemReports = App.currData.reports.filter(x=>x.type==='item' && x.loc === this.selectedData);
+		const battleReports = App.currData.reports.filter(x=>x.type==='battle' && x.loc === this.selectedData);
 		
 		{
 			$(`<header>Enter Reports</header>`).appendTo($list);
@@ -704,10 +722,51 @@ class MapPanel {
 					});
 			}
 		}{
+			$(`<header>Battle Reports</header>`).appendTo($list);
+			for (let report of battleReports) {
+				let $report = $(`<div>`).addClass('report').appendTo($list);
+				// TODO: Trainer Class / Trainer ID
+				// $(`<input name='itemid' type='number'>`).appendTo($report)
+				// 	.val(report.itemid)
+				// 	.wrap(`<span class='item'>`)
+				// 	.on('change', function(){
+				// 		report.itemid = $(this).val();
+				// 		App.notifyChange('prop-change', report);
+				// 	});
+				$(`<input class='timeout' type='number'>`).appendTo($report)
+					.val(report.timeout / (60*1000))
+					.on('change', function(){
+						report.timeout = $(this).val() * (60*1000);
+						App.notifyChange('prop-change', report);
+					});
+				$(`<textarea spellcheck='true' placeholder='Battle Start'>`).appendTo($report)
+					.val(report.text)
+					.on('change', function(){
+						report.text = $(this).val();
+						App.notifyChange('prop-change', report);
+					});
+				$(`<textarea spellcheck='true' class='txt2' placeholder='Battle Win'>`).appendTo($report)
+					.val(report.wintext)
+					.on('change', function(){
+						report.wintext = $(this).val();
+						App.notifyChange('prop-change', report);
+					});
+				$report.on('contextmenu', (e)=>this.showReportMenu({ e, report }));
+			}
+			{
+				$(`<button>`).appendTo($list).wrap('<div class="newReport">')
+					.text('New Battle Report')
+					.on('click', ()=>{
+						App.currData.addBattleReport(this.selectedData);
+						this.updateTransitList();
+					});
+			}
+		}{
 			$(`<header>Item Reports</header>`).appendTo($list);
-			for (let report of exitReports) {
+			for (let report of itemReports) {
 				let $report = $(`<div>`).addClass('report').appendTo($list);
 				$(`<input name='itemid' type='number'>`).appendTo($report)
+					.val(report.itemid)
 					.wrap(`<span class='item'>`)
 					.on('change', function(){
 						report.itemid = $(this).val();
@@ -725,13 +784,13 @@ class MapPanel {
 						report.text = $(this).val();
 						App.notifyChange('prop-change', report);
 					});
-				$report.on('contextmenu', (e)=>this.showReportMenu({ e, report, node:report.to }));
+				$report.on('contextmenu', (e)=>this.showReportMenu({ e, report }));
 			}
 			{
 				$(`<button>`).appendTo($list).wrap('<div class="newReport">')
-					.text('New Exit Report')
+					.text('New Item Report')
 					.on('click', ()=>{
-						App.currData.addExitReport(this.selectedData);
+						App.currData.addItemReport(this.selectedData);
 						this.updateTransitList();
 					});
 			}

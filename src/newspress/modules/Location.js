@@ -87,7 +87,7 @@ class LocationModule extends ReportingModule {
 	}
 	
 	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea }) {
-		let reports = region.findReports(prevArea || prevMap, currArea || currMap);
+		let reports = region.findTransitReports(prevArea || prevMap, currArea || currMap);
 		let currTime = Date.now();
 		for (let report of reports) {
 			let lastUsed = this.memory.reportTimes[report.id];
