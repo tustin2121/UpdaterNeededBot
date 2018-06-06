@@ -24,9 +24,9 @@ module.exports = {
 				"Terra", //Bianca's Badge (Fire) (3)
 				// (4)
 				// (5)
-				// (6)
+				"Acrobat", //Karla's Badge (Flying) (6)
 				"Pollute", //Elroy's Badge (Poison) (7)
-				// (8)
+				"Psycho", //Mauro's Badge (Psychic) (8)
 				
 				"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
 				"Boulder", "Cascade", "Thunder", "Rainbow", "Marsh", "Soul", "Volcano", "Earth",
