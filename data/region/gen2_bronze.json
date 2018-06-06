@@ -1339,7 +1339,7 @@
 			{
 				"bank": 3,
 				"id": 4,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1414,7 +1414,7 @@
 			{
 				"bank": 3,
 				"id": 6,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1447,7 +1447,7 @@
 			{
 				"bank": 3,
 				"id": 7,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1494,7 +1494,7 @@
 			{
 				"bank": 3,
 				"id": 8,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1553,7 +1553,7 @@
 			{
 				"bank": 3,
 				"id": 9,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1586,7 +1586,7 @@
 			{
 				"bank": 3,
 				"id": 10,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1640,7 +1640,7 @@
 			{
 				"bank": 3,
 				"id": 11,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -1701,7 +1701,7 @@
 			{
 				"bank": 3,
 				"id": 12,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
@@ -13270,7 +13270,7 @@
 			{
 				"bank": 15,
 				"id": 12,
-				"name": "Lab",
+				"name": "Derelict Lab",
 				"areaId": 23,
 				"areaName": "Lab",
 				"type": "dungeon",
