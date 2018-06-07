@@ -2922,7 +2922,17 @@
 				"width": 20,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 6,
+						"bx": 7,
+						"by": 6,
+						"rad": 1,
+						"name": "final guy",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -3364,7 +3374,17 @@
 				"width": 30,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 24,
+						"ay": 7,
+						"bx": 24,
+						"by": 7,
+						"rad": 2,
+						"name": "racket tower start",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -4383,7 +4403,30 @@
 				"width": 30,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 15,
+						"bx": 10,
+						"by": 15,
+						"rad": 2,
+						"name": "rival fail",
+						"attrs": {}
+					},
+					{
+						"ax": 4,
+						"ay": 7,
+						"bx": 4,
+						"by": 7,
+						"rad": 1,
+						"name": "racket leader",
+						"attrs": {
+							"pc": true,
+							"trainertype": "leader",
+							"leader": "Team Racket Leader"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
@@ -11409,7 +11452,7 @@
 			{
 				"bank": 11,
 				"id": 22,
-				"name": "Route 11",
+				"name": "Two Sister's Daycare",
 				"areaId": 33,
 				"areaName": "Route 11",
 				"type": "indoor",
@@ -20014,6 +20057,51 @@
 			"timeout": 600000,
 			"wintext": "We take out his final pokemon, and the robber none-to-subtly tells us to stay away from the Department Store...",
 			"loc": "3.48:3"
+		},
+		{
+			"type": "battle",
+			"id": "5f6c1a42",
+			"timeout": 600000,
+			"wintext": "<b>We defeat the last of the Team Racket members.</b> (yes really, Team <em>Racket</em>.) The last guy expouses about how prices for items are too damn high for them kids, and thus he is somehow justified in just taking the items in question. He says this before everyone vanishes and a cop without pokemon comes up to us thanks us for doing his job for him (yes, he really says that).",
+			"loc": "3.32:0"
+		},
+		{
+			"type": "battle",
+			"id": "4c6990c4",
+			"text": "We're suddenly jumped by some Team Racket teens, shouting at us to get out of their tower!",
+			"timeout": 60000000000,
+			"loc": "3.41:0"
+		},
+		{
+			"type": "transit",
+			"id": "6b32cb00",
+			"text": "We {{rand|head|go|move}} upstairs into the winding administrative halls of the Guard Tower.",
+			"timeout": 600000,
+			"from": "3.39",
+			"to": "3.41"
+		},
+		{
+			"type": "transit",
+			"id": "859553fb",
+			"text": "We climb up the stairs to the next floor and run into {{$our rival}}! {{They}} heal our pokemon for us, and then {{they}} head{{*s}} off to clear out more Team Racket members!",
+			"timeout": 540000000000,
+			"from": "3.41",
+			"to": "3.42"
+		},
+		{
+			"type": "transit",
+			"id": "4f1917ee",
+			"text": "We ascend to the next floor, and run into {{$our rival}} once more. {{They}} tell us to take the right path as {{they}}'re going left.",
+			"timeout": 600000000000,
+			"from": "3.42",
+			"to": "3.43"
+		},
+		{
+			"type": "transit",
+			"id": "f294e6d4",
+			"text": "{{$rival}} runs up to us and tells us {{she}} couldn't take on the leader, and that we need to do it in {{her}} place.",
+			"timeout": 5400000000000,
+			"to": "3.43:0"
 		}
 	]
 }
