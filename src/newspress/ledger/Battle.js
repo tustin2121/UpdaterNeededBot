@@ -29,6 +29,7 @@ class BattleStarted extends LedgerItem {
 		super(battle.isImportant?2:0.9);
 		this.battle = battle;
 		this.attempt = attempt;
+		this.report = null;
 	}
 }
 
@@ -40,6 +41,7 @@ class BattleEnded extends LedgerItem {
 	constructor(battle, ended=false) {
 		super(battle.isImportant?2:0.9, { flavor:(ended)?'ended':null });
 		this.battle = battle;
+		this.report = null;
 	}
 }
 

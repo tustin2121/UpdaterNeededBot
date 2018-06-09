@@ -11,7 +11,7 @@ module.exports = {
 		// The generation of this game
 		gen: 2,
 		// The region to use as the map
-		regionMap: null,//'johto',
+		regionMap: 'gen2_johto',
 		// Trainer information
 		trainer: {
 			id: 25756,

@@ -27,10 +27,9 @@ module.exports = {
 				"Acrobat", //Karla's Badge (Flying) (6)
 				"Pollute", //Elroy's Badge (Poison) (7)
 				"Psycho", //Mauro's Badge (Psychic) (8)
-				
 			],
-			e4Names: [ "Will", "Koga", "Bruno", "Karen" ],
-			champName: "Lance",
+			e4Names: [ "Pryce", "Koga", "Bruno", "Karen" ],
+			champName: "{{rival}}",
 		},
 	},
 	

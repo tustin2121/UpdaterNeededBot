@@ -12,6 +12,7 @@ class GainItem extends LedgerItem {
 		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
+		this.report = null;
 	}
 	cancelsOut(other) {
 		if (other.name === 'GainItem') {

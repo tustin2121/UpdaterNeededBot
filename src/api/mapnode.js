@@ -10,6 +10,7 @@ class MapRegion {
 		this.types = {};
 		this.nodes = [];
 		this.reports = [];
+		Bot.memory.reportTimes;
 		
 		if (typeof data !== 'object') throw new Error('Invalid data for MapRegion!');
 		
@@ -95,14 +96,30 @@ class MapRegion {
 		return null;
 	}
 	
-	findTransitReports(from, to) {
-		return this.reports.filter(TransitReport.filter({ from, to }));
+	findTransitReport(from, to) {
+		return this._findValidReport(this.reports.filter(TransitReport.filter({ from, to })));
 	}
-	findItemReports(loc, itemid) {
-		return this.reports.filter(ItemReport.filter({ loc, itemid }));
+	findItemReport(loc, itemid) {
+		return this._findValidReport(this.reports.filter(ItemReport.filter({ loc, itemid })));
 	}
-	findBattleReports(loc, trainerid, classid) {
-		return this.reports.filter(BattleReport.filter({ loc, trainerid, classid }));
+	findBattleReport(loc, battle) {
+		let opts = { loc };
+		let trainer = battle.trainer;
+		if (trainer && trainer[0]) {
+			opts.trainerid = trainer[0].id;
+			opts.classid = trainer[0].class;
+		}
+		return this._findValidReport(this.reports.filter(BattleReport.filter(opts)));
+	}
+	_findValidReport(reports) {
+		const currTime = Date.now();
+		for (let report of reports) {
+			let lastUsed = Bot.memory.reportTimes[report.id];
+			if (lastUsed + report.timeout > currTime) continue; //can't use this report again so soon
+			Bot.memory.reportTimes[report.id] = Date.now();
+			return report;
+		}
+		return null;
 	}
 	
 	is(attr) { return this.types['default'].is(attr); }

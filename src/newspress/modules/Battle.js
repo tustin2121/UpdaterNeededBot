@@ -60,9 +60,9 @@ class BattleModule extends ReportingModule {
 		
 		// Badges
 		if (this.memory.badgeMax > curr.numBadges) {
-			ledger.addItem(new ApiDisturbance({ 
+			ledger.addItem(new ApiDisturbance({
 				code: ApiDisturbance.LOGIC_ERROR,
-				reason: 'Number of badges has decreased!' 
+				reason: 'Number of badges has decreased!'
 			}));
 		}
 		if (curr.numBadges > prev.numBadges) {
@@ -109,6 +109,53 @@ class BattleModule extends ReportingModule {
 			}
 		}
 	}
+}
+
+if (!!Bot.gameInfo().regionMap) {
+	RULES.push(new Rule(`Check for reports for battle starting.`)
+		.when(ledger=>ledger.has('BattleStarted').unmarked())
+		.when(ledger=>{
+			const region = Bot.gameInfo().regionMap;
+			const currTime = Date.now();
+			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
+			if (map) map = map.loc;
+			
+			let ret = false;
+			for (let x of ledger.get(0)) {
+				let report = region.findBattleReport(map, x.battle);
+				if (report) {
+					x.report = report;
+					x.flavor = 'report';
+					x.importance++;
+					ret = true;
+				}
+			}
+			return ret;
+		})
+		.then(ledger=>ledger.mark(0))
+	);
+	RULES.push(new Rule(`Check for reports for battle ending.`)
+		.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').unmarked())
+		.when(ledger=>{
+			const region = Bot.gameInfo().regionMap;
+			const currTime = Date.now();
+			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
+			if (map) map = map.loc;
+			
+			let ret = false;
+			for (let x of ledger.get(0)) {
+				let report = region.findBattleReport(map, x.battle);
+				if (report) {
+					x.report = report;
+					x.flavor = 'report';
+					x.importance++;
+					ret = true;
+				}
+			}
+			return ret;
+		})
+		.then(ledger=>ledger.mark(0))
+	);
 }
 
 RULES.push(new Rule(`Don't report a full heal after a blackout`)

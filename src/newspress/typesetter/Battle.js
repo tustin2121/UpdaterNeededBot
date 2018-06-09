@@ -10,6 +10,7 @@ module.exports = {
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
 			return m;
 		},
+		report: `{{@report.text}}`,
 		rematch: [
 			`<b>Vs {{@battle.displayName}} again!</b>`,
 			`<b>Vs {{@battle.displayName}} in a rematch!</b>`,
@@ -25,6 +26,7 @@ module.exports = {
 	BattleEnded: {
 		//TODO
 		default: null,
+		report: `{{@report.wintext}}`,
 		ended: [
 			`<b>We defeat {{@battle.displayName}}!</b>`,
 			`<b>Defeated {{@battle.displayName}}!</b>`,

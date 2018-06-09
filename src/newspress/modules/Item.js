@@ -100,7 +100,7 @@ class ItemModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this.memory) );
 	}
 }
 
@@ -126,7 +126,29 @@ RULES.push(new Rule(`Discard insane item updates`)
 
 //////////////////////////////////////////////////////////////////////////
 // Checking item uses
-{
+if (!!Bot.gameInfo().regionMap) {
+	RULES.push(new Rule(`Check for reports for new item gains.`)
+		.when(ledger=>ledger.has('GainItem').unmarked())
+		.when(ledger=>{
+			const region = Bot.gameInfo().regionMap;
+			const currTime = Date.now();
+			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
+			if (map) map = map.loc;
+			
+			let ret = false;
+			for (let x of ledger.get(0)) {
+				let report = region.findItemReport(map, x.item.id);
+				if (report) {
+					x.report = report;
+					x.flavor = 'report';
+					ret = true;
+				}
+			}
+			return ret;
+		})
+		.then(ledger=>ledger.mark(0))
+	);
+}{
 	const itemIds = Bot.runOpts('itemIds_pokeballs');
 	RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 		.when(ledger=>ledger.has('BattleContext'))

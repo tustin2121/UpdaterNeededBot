@@ -45,5 +45,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/s502-storm-silver.js'));
+global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite.js'));
 Bot.start();

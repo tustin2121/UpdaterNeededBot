@@ -87,14 +87,10 @@ class LocationModule extends ReportingModule {
 	}
 	
 	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea }) {
-		let reports = region.findTransitReports(prevArea || prevMap, currArea || currMap);
-		let currTime = Date.now();
-		for (let report of reports) {
-			let lastUsed = this.memory.reportTimes[report.id];
-			if (lastUsed + report.timeout > currTime) continue; //can't use this report again so soon
-			this.memory.reportTimes[report.id] = Date.now();
-			return new MapChanged({ prev:prevMap, curr:currMap, report });
-		}
+		const currTime = Date.now();
+		let report = region.findTransitReport(prevArea || prevMap, currArea || currMap);
+		if (report) return new MapChanged({ prev:prevMap, curr:currMap, report });
+		
 		// No reports apply to this pairing, so fall back on the templates
 		// We only care about reporting changes between maps, not between areas at this point.
 		if (currMap === prevMap) return null;

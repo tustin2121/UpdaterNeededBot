@@ -12,6 +12,7 @@ module.exports = {
 				`<b>{{rand|Acquired|Obtained|Picked up|Got}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
+		report: `{{@report}}`,
 		shopping: {
 			single: [
 				`<b>{{rand|Bought|Purchased|Paid for}} {{an item|@item|@amount}}!</b>`,
