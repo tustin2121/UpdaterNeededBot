@@ -11,8 +11,8 @@ module.exports = {
 		regionMap: 'gen2_bronze', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 1,
-			secret: 1,
+			id: 49922,
+			secret: 49922, //gold doesn't have a secret id, so this is duped from id
 		},
 		// A list of game corrections and options
 		opts: {
@@ -60,12 +60,12 @@ module.exports = {
 		},
 		
 		// The Reddit Live Updater ID to report to
-		liveID: "10qr8xqmiy5pe",
+		liveID: "111mqavwa498g",
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: "366698530343223306",
 		
 		// The Reddit Live Updater ID to report test information to
-		testLiveID: "10rxv0dhi05bo",
+		testLiveID: "1130ge6ue2k7b",
 		// The Discord channel snowflake to report test information to
 		testDiscordID: "436589281033715712", //"367499647410765824",
 		

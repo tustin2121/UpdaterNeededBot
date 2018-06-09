@@ -27,7 +27,7 @@ class LedgerItem {
 		this._postponeCount = 0;
 	}
 	
-	get name() { return this.constructor.name; }
+	get __itemName__() { return this.constructor.name; }
 	
 	[util.inspect.custom](depth, opts) {
 		if (depth < 0) {

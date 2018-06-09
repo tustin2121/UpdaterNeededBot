@@ -10,7 +10,6 @@ const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
 const WebServer = require("./webserv");
-const { createDebugUrl } = require('./debug/xml');
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
 
@@ -46,7 +45,8 @@ class UpdaterBot extends EventEmitter {
 						const { MapRegion } = require('./api/mapnode');
 						game.regionMap = new MapRegion(require(`../data/region/${game.regionMap}.json`));
 					} catch (e) {
-						throw `Invalid config: game${i} requires an invalid region map!`;
+						e.message = `Invalid config: game${i} requires an invalid region map!\n` + e.message;
+						throw e;
 					}
 				}
 				if (!game.trainer) throw `Invalid config: game${i} must provide trainer id and secret in an object!`;
@@ -309,7 +309,7 @@ class UpdaterBot extends EventEmitter {
 				break;
 		}
 		let ts = this.getTimestamp();
-		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`; //createDebugUrl(debugXml) || '';
+		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`;
 		//////////////////////////////////////////
 		if (mainLive && this.runConfig.run.liveID) {
 			let update = formatFor.reddit(text);

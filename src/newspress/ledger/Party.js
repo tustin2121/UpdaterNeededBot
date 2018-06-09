@@ -34,7 +34,6 @@ class MonChangedCondensed extends LedgerItem {
 	 */
 	static mergeItems(itemList) {
 		let dict = {};
-		
 		for (let item of itemList) {
 			let itemname = `MonChangedCondensed/${item.mon.hash}`;
 			if (!dict[itemname]) {

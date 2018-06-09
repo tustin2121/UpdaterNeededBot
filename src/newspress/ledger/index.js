@@ -94,7 +94,7 @@ class Ledger {
 	
 	/** Finds all items with the given name. */
 	findAllItemsWithName(name) {
-		return this.list.filter(item => item.name === name);
+		return this.list.filter(item => item.__itemName__ === name);
 	}
 	
 	getNumberOfImportantItems() {
@@ -143,7 +143,7 @@ class Ledger {
 	saveToMemory(mem) {
 		let save = [];
 		for (let item of this.postponeList) {
-			let x = { __name__: item.name, };
+			let x = { __name__: item.__itemName__, };
 			if (typeof item.saveToMemory === 'function') {
 				x = item.saveToMemory(x) || x;
 			} else {

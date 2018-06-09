@@ -3,20 +3,27 @@
 	"types": {
 		"default": {
 			"type": "default",
-			"attrs": {},
+			"attrs": {
+				"preposition": "in",
+				"the": ""
+			},
 			"areas": []
 		},
 		"town": {
 			"type": "town",
 			"attrs": {
-				"town": true
+				"town": true,
+				"preposition": "in",
+				"the": ""
 			},
 			"areas": []
 		},
 		"route": {
 			"type": "route",
 			"attrs": {
-				"route": true
+				"route": true,
+				"preposition": "on",
+				"the": ""
 			},
 			"areas": []
 		},
@@ -31,7 +38,9 @@
 			"type": "cave",
 			"attrs": {
 				"indoors": true,
-				"dungeon": true
+				"dungeon": true,
+				"preposition": "in",
+				"the": ""
 			},
 			"areas": []
 		},
@@ -39,7 +48,9 @@
 			"type": "gatehouse",
 			"attrs": {
 				"indoors": true,
-				"town": true
+				"town": true,
+				"preposition": "on",
+				"the": ""
 			},
 			"areas": []
 		},
@@ -47,7 +58,9 @@
 			"type": "dungeon",
 			"attrs": {
 				"indoors": true,
-				"dungeon": true
+				"dungeon": true,
+				"preposition": "in",
+				"the": ""
 			},
 			"areas": []
 		},
@@ -56,16 +69,18 @@
 			"attrs": {
 				"indoors": true,
 				"healing": "pokecenter",
-				"checkpoint": true
+				"checkpoint": true,
+				"preposition": "in",
+				"the": "the"
 			},
 			"areas": [
 				{
-					"ax": 2,
+					"ax": 9,
 					"ay": 2,
-					"bx": 2,
+					"bx": 9,
 					"by": 2,
 					"rad": 5,
-					"name": "PC",
+					"name": "pc",
 					"attrs": {
 						"pc": true
 					}
@@ -76,22 +91,40 @@
 			"type": "mart",
 			"attrs": {
 				"indoors": true,
-				"shopping": true
+				"shopping": true,
+				"preposition": "in",
+				"the": "the"
 			},
-			"areas": []
+			"areas": [
+				{
+					"ax": 3,
+					"ay": 3,
+					"bx": 3,
+					"by": 3,
+					"rad": 1,
+					"name": "shopping",
+					"attrs": {
+						"shopping": true
+					}
+				}
+			]
 		},
 		"gym": {
 			"type": "gym",
 			"attrs": {
 				"indoors": true,
-				"gym": true
+				"gym": true,
+				"preposition": "in",
+				"the": "the"
 			},
 			"areas": []
 		},
 		"safari": {
 			"type": "safari",
 			"attrs": {
-				"safari": true
+				"safari": true,
+				"preposition": "in",
+				"the": "the"
 			},
 			"areas": []
 		}
@@ -21370,6 +21403,7 @@
 		{
 			"type": "item",
 			"id": "eaafeb27",
+			"text": "We get a berry thing!!",
 			"timeout": 600000,
 			"loc": "26.9:0"
 		}

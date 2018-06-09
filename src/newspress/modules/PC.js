@@ -34,6 +34,7 @@ class PCModule extends ReportingModule {
 		for (let i = 0; i < curr_api.pcBoxes.length; i++) {
 			let curr = curr_api.pcBoxes[i];
 			let prev = prev_api.pcBoxes[i];
+			if (!curr || !prev) continue;
 			
 			if (curr.isCurrent !== prev.isCurrent) currChanged = true;
 			

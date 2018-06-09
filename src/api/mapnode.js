@@ -10,7 +10,7 @@ class MapRegion {
 		this.types = {};
 		this.nodes = [];
 		this.reports = [];
-		Bot.memory.reportTimes;
+		// Bot.memory.reportTimes; //"Bot" is not available here
 		
 		if (typeof data !== 'object') throw new Error('Invalid data for MapRegion!');
 		
@@ -75,14 +75,16 @@ class MapRegion {
 		if (typeof arg === 'object') {
 			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];
+			if (!bank) return null;
 			if (area) return bank[id].areas[area];
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
+				if (!map) return null;
 				for (let area of map.areas) {
 					if (x >= area.ax && x <= area.bx
 						&& y >= area.ay && y <= area.by) return area;
 				}
-				//TODO: These should be actualized on region load!
+				//These are actualized on region load.
 				// let type = this.types[map.type];
 				// if (type && type.areas) {
 				// 	for (let area of type.areas) {
@@ -96,6 +98,9 @@ class MapRegion {
 		return null;
 	}
 	
+	findReportById(id) {
+		return this.reports.filter(x=>x.id === id)[0];
+	}
 	findTransitReport(from, to) {
 		return this._findValidReport(this.reports.filter(TransitReport.filter({ from, to })));
 	}

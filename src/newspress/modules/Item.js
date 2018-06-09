@@ -133,7 +133,8 @@ if (!!Bot.gameInfo().regionMap) {
 			const region = Bot.gameInfo().regionMap;
 			const currTime = Date.now();
 			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
-			if (map) map = map.loc;
+			if (map && map.area) map = map.area;
+			else if (map && map.loc) map = map.loc;
 			
 			let ret = false;
 			for (let x of ledger.get(0)) {

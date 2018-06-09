@@ -22,7 +22,7 @@ class PoliticsModule extends ReportingModule {
 		//TODO:
 		Bot.memory.runFlags['in_democracy'] = false;
 		
-		if (Bot.runFlags('in_democracy', false)) {
+		if (Bot.runFlag('in_democracy', false)) {
 			ledger.add(new DemocracyContext());
 		}
 		

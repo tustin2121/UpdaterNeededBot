@@ -4,7 +4,18 @@
 module.exports = {
 	
 	MonChangedCondensed: {
-		default: null, //TODO
+		default: {
+			multi: `<b>{{@target}} {{a comma-separated merge list of|get phrasebook item}}</b>`,
+			//  ()=>{
+			// 	let items = this._itemList.slice(1);
+			// 	items = items.map(item=>this._resolve(`{{get phrasebook item}}`, item)).filter(x=>x);
+			// 	if (items.length > 1) {
+			// 		items[items.length-1] = 'and '+items[items.length-1];
+			// 	}
+			// 	if (items.length == 2) return `<b>{{@target}} ${items.join(' ')}!</b>`;
+			// 	return `<b>{{@target}} ${items.join(', ')}!</b>`;
+			// },
+		}
 	},
 	
 	MonLeveledUp: {
@@ -18,8 +29,8 @@ module.exports = {
 				`<b>{{@target}} has leveled up to {{@level}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`levels up to {{@level}}`,
-				`grows to level {{@level}}`,
+				`leveled up to {{@level}}`,
+				`grew to level {{@level}}`,
 			],
 		},
 		multiple: [
@@ -42,7 +53,7 @@ module.exports = {
 				`<b>{{@target.name}} ({{@prev}}) evolves into a {{@curr}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`evolves into {{@curr}}`,
+				`evolved into {{@curr}}`,
 			],
 		},
 	},
@@ -117,7 +128,7 @@ module.exports = {
 				`<b>{{@target}} learned {{@move}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`learns {{@move}}`,
+				`learned {{@move}}`,
 			],
 		},
 	},
@@ -130,7 +141,7 @@ module.exports = {
 				`<b>{{@target}} learned {{@move}} over {{@oldMove}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`learns {{@move}} over {{@oldMove}}`,
+				`learned {{@move}} over {{@oldMove}}`,
 			],
 		},
 	},

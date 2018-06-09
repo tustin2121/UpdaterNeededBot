@@ -539,21 +539,25 @@ function generateDefaultMapTypes(region) {
 	const TYPES = {};
 	const add = (t)=> TYPES[t.type] = t;
 	
-	add(new MapType(region, { type:'default', 	}));
-	add(new MapType(region, { type:'town',   	attrs:{ town:true, } }));
-	add(new MapType(region, { type:'route',  	attrs:{ route:true, } }));
-	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, } }));
-	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, town:true, } }));
-	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true },
+	add(new MapType(region, { type:'default', 	attrs:{ the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'town',   	attrs:{ town:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'route',  	attrs:{ route:true, the:"", preposition:"on" } }));
+	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, town:true, the:"", preposition:"on" } }));
+	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true, the:"the", preposition:"in" },
 		areas: [
-			{ name: "PC", x:2, y:2, attrs:{ pc:true } },
+			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
-	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true } }));
-	add(new MapType(region, { type:'gym',		attrs:{ indoors:true, gym:true } }));
-	add(new MapType(region, { type:'safari',	attrs:{ safari:true, } }));
+	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true, the:"the", preposition:"in" },
+		areas: [
+			{ name: "shopping", x:2, y:2, attrs:{ shopping:true } },
+		],
+ 	}));
+	add(new MapType(region, { type:'gym',		attrs:{ indoors:true, gym:true, the:"the", preposition:"in" } }));
+	add(new MapType(region, { type:'safari',	attrs:{ safari:true, the:"the", preposition:"in" } }));
 	return TYPES;
 }
 

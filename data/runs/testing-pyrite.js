@@ -34,13 +34,27 @@ module.exports = {
 		apiPollPeriod: 1000 * 15, //15 seconds
 		
 		// The Chat URL to connect to via irc
-		chatSrc: "",
+		chatSrc: null,
 		// The irc channel to join when connected via irc (auth data is in the auth folder)
 		chatChannel: "#twitchplayspokemon",
+		// The regex
+		inputMatch: /([rl<>][:.]?)?((up|down|left|right|start|select|anarchy|democracy|[abxylrnsew])\+?)+?\-?/i,
+		// The map of chat inputs. true = this is an input, string = redirect to said input
+		inputMap: {
+			'up': true, 'down': true, 'left': true, 'right': true,
+			'a': true, 'b': true, 'x': true, 'y': true,
+			'l': true, 'r':true, 'start': true, 'select': true,
+			'n':'up', 's':'down', 'e':'east', 'w':'west',
+		},
 		
-		// The Reddit Live Updater ID to post to
-		liveID : "10f3p1gulvkl9",
-		testLiveID: "10f3p1gulvkl9",
+		// The Reddit Live Updater ID to report to
+		liveID : "1130ge6ue2k7b",
+		// The Discord LiveUpdater channel snowflake to report to
+		discordID: "367499647410765824",
+		
+		// The Reddit Live Updater ID to report test information to
+		testLiveID: "1130ge6ue2k7b",
+		// The Discord channel snowflake to report test information to
 		testDiscordID: "367499647410765824",
 		
 		// The Discord channel snowflake where commands are taken
@@ -49,15 +63,19 @@ module.exports = {
 	
 	// The list of active modules and their configurations
 	modules: {
+		Location: {},
 		ApiMonitoring: {},
 		Pokemon: {},
 		Party: {},
 		Item: {},
-		Location: {},
 		E4: {},
 		Battle: {},
 		Politics: {},
 		Chat: {},
 		Timing: {},
+		Phonebook: {},
+		Options: {},
+		RealTime: {},
+		PC: {},
 	},
 };

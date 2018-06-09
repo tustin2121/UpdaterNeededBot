@@ -48,7 +48,7 @@ class BattleModule extends ReportingModule {
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
 		}
-		else if (cb.in_battle) {
+		else if (cb.in_battle && cb.party) {
 			let healthy = cb.party.filter(p=>p.hp);
 			this.debug(`displayName=`,cb.displayName,` isImportant=`,cb.isImportant);
 			this.debug(`party=`,cb.party);
@@ -76,7 +76,7 @@ class BattleModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this.memory) );
 	}
 	
 	finalPass(ledger) {
@@ -118,12 +118,14 @@ if (!!Bot.gameInfo().regionMap) {
 			const region = Bot.gameInfo().regionMap;
 			const currTime = Date.now();
 			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
-			if (map) map = map.loc;
+			if (map && map.area) map = map.area;
+			else if (map && map.loc) map = map.loc;
 			
 			let ret = false;
 			for (let x of ledger.get(0)) {
 				let report = region.findBattleReport(map, x.battle);
 				if (report) {
+					ledger.memory.currBattleReport = report.id;
 					x.report = report;
 					x.flavor = 'report';
 					x.importance++;
@@ -140,16 +142,19 @@ if (!!Bot.gameInfo().regionMap) {
 			const region = Bot.gameInfo().regionMap;
 			const currTime = Date.now();
 			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
-			if (map) map = map.loc;
+			if (map && map.area) map = map.area;
+			else if (map && map.loc) map = map.loc;
 			
 			let ret = false;
 			for (let x of ledger.get(0)) {
-				let report = region.findBattleReport(map, x.battle);
+				let report = region.findReportById(ledger.memory.currBattleReport);
+				if (!report) report = region.findBattleReport(map, x.battle);
 				if (report) {
 					x.report = report;
 					x.flavor = 'report';
 					x.importance++;
 					ret = true;
+					ledger.memory.currBattleReport = null;
 				}
 			}
 			return ret;

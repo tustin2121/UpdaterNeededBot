@@ -593,12 +593,12 @@ function printObject(obj) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Format Functions: Lists
 {
-	function printList(sep, and) {
+	function printList(sep, and, sliceIdx=0) {
 		return function() {
 			if (!this._itemList) throw new ReferenceError('List of items not specified!');
 			const format = `{{${this._callMeta.top().args.join('|')}}}`;
 			
-			let items = this._itemList.map(item=>this.fillText(format, item)).filter(x=>x);
+			let items = this._itemList.slice(sliceIdx).map(item=>this.fillText(format, item)).filter(x=>x);
 			if (items.length > 1 && and) {
 				items[items.length-1] = and+' '+items[items.length-1];
 			}
@@ -615,6 +615,10 @@ function printObject(obj) {
 		'a semicolon-separated list of': printList('; ', 'and'),
 		'a semicolon-separated and list of': printList('; ', 'and'),
 		'a semicolon-separated or list of': printList('; ', 'or'),
+		
+		'a comma-separated merge list of': printList(', ', 'and', 1),
+		'a comma-separated and merge list of': printList(', ', 'and', 1),
+		'a comma-separated or merge list of': printList(', ', 'or', 1),
 	});
 }
 
@@ -648,15 +652,19 @@ class TypeSetter {
 		return Math.floor(Math.random()*len);
 	}
 	
-	static getPhraseMeta(item) {
+	static getPhraseMeta(itemName) {
+		if (itemName instanceof LedgerItem) {
+			itemName = itemName.__itemName__;
+		}
+		
 		let meta = { //default info
 			sort: 0,
 			merge: null,
 		};
 		// Get the phrase dictionary for this item
-		let phraseDict = PHRASEBOOK[item.name];
+		let phraseDict = PHRASEBOOK[itemName];
 		if (phraseDict === undefined) {
-			LOGGER.error(`LedgerItem ${item.name} has no phrase dictionary in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${itemName} has no phrase dictionary in the phrasebook!`);
 			return null;
 		}
 		if (phraseDict === null) return meta; // Skip this item
@@ -679,12 +687,13 @@ class TypeSetter {
 		
 		// Collate
 		for (let item of ledger.list) {
-			let { merge } = TypeSetter.getPhraseMeta(item.name);
+			let { merge } = TypeSetter.getPhraseMeta(item.__itemName__);
 			if (merge) {
-				merges[merge] = (merges[merge] || []).push(item);
+				merges[merge] = (merges[merge] || []);
+				merges[merge].push(item);
 				continue;
 			}
-			let itemname = `${item.name}/${item.flavor||'default'}`;
+			let itemname = `${item.__itemName__}/${item.flavor||'default'}`;
 			if (!dict[itemname]) {
 				order.push(itemname);
 				dict[itemname] = [];
@@ -693,6 +702,17 @@ class TypeSetter {
 		}
 		// Execute merges
 		for (let merge in merges) {
+			// Don't "merge" if there's only one item
+			if (merges[merge].length === 1) {
+				const item = merges[merge][0];
+				let itemname = `${item.__itemName__}/${item.flavor||'default'}`;
+				if (!dict[itemname]) {
+					order.push(itemname);
+					dict[itemname] = [];
+				}
+				dict[itemname].push(item);
+				continue;
+			}
 			let MItem = require('../ledger')[merge];
 			if (!MItem || !MItem.mergeItems) throw new TypeError('Invalid merge item!');
 			let mdict = MItem.mergeItems(merges[merge]);
@@ -705,8 +725,8 @@ class TypeSetter {
 		}
 		// Then sort the collections
 		order.sort((a,b)=>{
-			let ai = TypeSetter.getPhraseMeta(dict[a][0].name);
-			let bi = TypeSetter.getPhraseMeta(dict[b][0].name);
+			let ai = TypeSetter.getPhraseMeta(dict[a][0].__itemName__);
+			let bi = TypeSetter.getPhraseMeta(dict[b][0].__itemName__);
 			return bi.sort - ai.sort;
 		});
 		// Return the collected items
@@ -762,14 +782,14 @@ class TypeSetter {
 	
 	_resolve(entry, item) {
 		if (entry === undefined) {
-			LOGGER.error(`LedgerItem ${item.name}'s phrase dictionary has returned an undefined value!`);
+			LOGGER.error(`LedgerItem ${item.__itemName__}'s phrase dictionary has returned an undefined value!`);
 			return null;
 		}
 		if (entry === null) return null;
 		if (entry === false) return false;
 		
 		if (typeof entry === 'string') {
-			if (!item) return this.fillText(entry, item);
+			if (item) return this.fillText(entry, item);
 			return entry;
 		}
 		if (typeof entry === 'function') {
@@ -813,9 +833,9 @@ class TypeSetter {
 	
 	_getPhraseEntryForItem(ritem) {
 		// Get the phrase dictionary for this item
-		let phraseDict = PHRASEBOOK[ritem.name];
+		let phraseDict = PHRASEBOOK[ritem.__itemName__];
 		if (phraseDict === undefined) {
-			LOGGER.error(`LedgerItem ${ritem.name} has no phrase dictionary in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${ritem.__itemName__} has no phrase dictionary in the phrasebook!`);
 			return null;
 		}
 		if (phraseDict === null) return null; // Skip this item
@@ -823,7 +843,7 @@ class TypeSetter {
 		// Resolve the flavor of this item
 		let phraseEntry = phraseDict[ritem.flavor || 'default'];
 		if (phraseEntry === undefined) {
-			LOGGER.error(`LedgerItem ${ritem.name}, flavor "${ritem.flavor || 'default'}" has no phrase entry in the phrasebook!`);
+			LOGGER.error(`LedgerItem ${ritem.__itemName__}, flavor "${ritem.flavor || 'default'}" has no phrase entry in the phrasebook!`);
 			return null;
 		}
 		if (phraseEntry === null) return null; // Skip this item
