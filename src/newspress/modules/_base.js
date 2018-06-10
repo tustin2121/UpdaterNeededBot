@@ -270,7 +270,7 @@ class RuleInstance {
 			this.lastResult = false;
 			return this;
 		}
-		let node = this.workingList[0].loc;
+		let node = this.workingList[0].area || this.workingList[0].loc;
 		this.lastResult = fn(node);
 		return this;
 	}
@@ -286,7 +286,7 @@ class RuleInstance {
 			this.lastResult = false;
 			return this;
 		}
-		let node = this.workingList[0].loc;
+		let node = this.workingList[0].area || this.workingList[0].loc;
 		if (val !== undefined) {
 			this.lastResult = !!(node.is(attr) === val);
 		} else {

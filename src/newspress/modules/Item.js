@@ -292,20 +292,6 @@ RULES.push(new Rule(`Items lost in shops have been sold`)
 	);
 }
 
-// // Because UsedBallInBattle is not a basic item, it doesn't get merged in the postpone merge step
-// RULES.push(new Rule(`Combine all instances of UsedBallInBattle`)
-// 	.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
-// 	.then(ledger=>{
-// 		let items = ledger.get(0);
-// 		let item = items[0];
-// 		for (let i = 1; i < items.length; i++) {
-// 			item = item.cancelsOut(items[i]);
-// 			if (!item || !(item instanceof UsedBallInBattle)) throw new TypeError('Invalid merging!');
-// 		}
-// 		ledger.remove(0).add(item);
-// 	})
-// );
-
 RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
 	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())
 	.when(ledger=>ledger.has('BattleContext'))
@@ -317,4 +303,15 @@ RULES.push(new Rule(`Balls used in a wild battle are postponed until after battl
 	})
 );
 
+//////////////////////////////////////////////////////////////////////////
+// Shopping
+/*
+RULES.push(new Rule(`Add items bought during shopping to the shopping cart.`)
+	.when(ledger=>ledger.hasMapThatIs('shopping'))
+	.when(ledger=>ledger.has('GainItem').unmarked())
+	.then(ledger=>{
+		
+	})
+);
+//*/
 module.exports = ItemModule;

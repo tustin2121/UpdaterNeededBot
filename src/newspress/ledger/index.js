@@ -44,11 +44,11 @@ class Ledger {
 		LOGGER.warn('Postponing item:', item, can);
 		if (can) {
 			if (can instanceof LedgerItem) {
-				Ledger.mergeItems([can], this.postponeList);
+				Ledger.mergeItems([can], this.postponeList, this.log);
 			}
 			else {
 				this.removeItem(item);
-				Ledger.mergeItems([item], this.postponeList);
+				Ledger.mergeItems([item], this.postponeList, this.log);
 				item._postponeCount++;
 			}
 		} else {
@@ -63,26 +63,26 @@ class Ledger {
 		if (!ledger) return;
 		let pItems = ledger.postponeList.slice();
 		this.log.premergeState(this.list, pItems);
-		Ledger.mergeItems(pItems, this.list);
+		Ledger.mergeItems(pItems, this.list, this.log);
 	}
 	
 	/**
 	 * Merges items from the new list into the old list in place.
 	 */
-	static mergeItems(newItems, oldItems) {
+	static mergeItems(newItems, oldItems, debugLog) {
 		for (let a = 0; a < oldItems.length; a++) {
 			for (let b = 0; b < newItems.length; b++) {
 				let res = oldItems[a].cancelsOut(newItems[b]);
 				if (res) {
 					if (res === oldItems[a]) {
 						// do nothing, coalesced
-						this.log.merged('coalesced', oldItems[a], newItems[b]);
+						debugLog.merged('coalesced', oldItems[a], newItems[b]);
 					} else if (res instanceof LedgerItem) {
 						let x = oldItems.splice(a, 1, res); //replace
-						this.log.merged('replaced', x[0], newItems[b], res);
+						debugLog.merged('replaced', x[0], newItems[b], res);
 					} else {
 						let x = oldItems.splice(a, 1); a--; //remove
-						this.log.merged('removed', x[0], newItems[b]);
+						debugLog.merged('removed', x[0], newItems[b]);
 					}
 					newItems.splice(b, 1); b--; //remove
 				}
