@@ -39,9 +39,7 @@ class RealTimeModule extends ReportingModule {
 			else if (prev.timeOfDay === 'morning' && curr.timeOfDay === 'night') {
 				flavor = 'rnight';
 			}
-			
-			
-			ledger.addItem(new TimeChanged());
+			ledger.addItem(new TimeChanged(flavor));
 		}
 	}
 	
@@ -49,5 +47,13 @@ class RealTimeModule extends ReportingModule {
 		RULES.forEach(rule=> rule.apply(ledger) );
 	}
 }
+
+RULES.push(new Rule('Postpone time change messages when indoors.')
+	.when(ledger=>ledger.has('TimeChanged').unmarked())
+	.when(ledger=>ledger.hasMap(map=>map.is('indoors')))
+	.then(ledger=>{
+		ledger.postpone(0);
+	})
+);
 
 module.exports = RealTimeModule;

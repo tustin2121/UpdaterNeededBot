@@ -14,7 +14,7 @@ class PokemonItem extends LedgerItem {
 	}
 	get target() { return this.mon; }
 	cancelsOut(other) {
-		if (this.name !== other.name) return false;
+		if (this.__itemName__ !== other.__itemName__) return false;
 		if (this.mon.hash !== other.mon.hash) return false;
 		if (this.prev === undefined || this.curr === undefined) return false;
 		if (this.prev === other.curr && other.prev === this.curr) return true;
@@ -34,9 +34,14 @@ class PokemonGained extends PokemonItem {
 		super(mon, 2, {helps:'catches'});
 	}
 	cancelsOut(other) {
-		if (other.name === 'PokemonIsMissing') {
+		if (other.__itemName__ === 'PokemonIsMissing') {
 			if (other.mon.hash !== this.mon.hash) return false;
 			return new PokemonFound(other.mon, this.mon); //replace
+		}
+		if (other.__itemName__ === 'MonNicknameChanged') {
+			if (other.mon.hash !== this.mon.hash) return false;
+			this.mon = other.mon; //update the new pokemon with the most recent data
+			return this; //replace
 		}
 		return false;
 	}

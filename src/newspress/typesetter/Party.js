@@ -5,7 +5,7 @@ module.exports = {
 	
 	MonChangedCondensed: {
 		default: {
-			multi: `<b>{{@target}} {{a comma-separated merge list of|get phrasebook item}}</b>`,
+			multi: `<b>{{@target}} {{a comma-separated merge list of|resolve item phrase}}!</b>`,
 			//  ()=>{
 			// 	let items = this._itemList.slice(1);
 			// 	items = items.map(item=>this._resolve(`{{get phrasebook item}}`, item)).filter(x=>x);
@@ -153,7 +153,7 @@ module.exports = {
 				`<b>{{@target}} forgot {{@move}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`forgot {{@oldMove}}`,
+				`forgot {{@move}}`,
 			],
 		},
 	},

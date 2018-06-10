@@ -38,9 +38,15 @@ class DemocracyContext extends LedgerItem {
 
 /** Indicates that the time of day in the game has changed. */
 class TimeChanged extends LedgerItem {
-	constructor(changes) {
-		super(0.8);
-		this.changes = changes;
+	constructor(flavor) {
+		super(0.8, { flavor });
+		this.ttl = 20 * (60 / (Bot.runConfig.run.updatePeriod / 1000)); //time to live = 20 minutes
+	}
+	canPostpone() {
+		if (this.ttl === 0) return false; //don't postpone
+		this.ttl--;
+		if (!this.flavor.endsWith('_exit')) this.flavor += '_exit';
+		return true;
 	}
 }
 

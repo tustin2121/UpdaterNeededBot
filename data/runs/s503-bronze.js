@@ -17,6 +17,7 @@ module.exports = {
 		// A list of game corrections and options
 		opts: {
 			// see /data/genopts
+			secretId: false, //Gold/Silver doesn't support secret ids
 			rivalName: "Cobolt",
 			badgeNames: [
 				"Bubble", //Sarah's Badge (Water) (1)

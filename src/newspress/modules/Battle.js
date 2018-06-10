@@ -120,6 +120,7 @@ if (!!Bot.gameInfo().regionMap) {
 			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
 			if (map && map.area) map = map.area;
 			else if (map && map.loc) map = map.loc;
+			if (!map || !map.is) return false;
 			
 			let ret = false;
 			for (let x of ledger.get(0)) {
@@ -144,6 +145,7 @@ if (!!Bot.gameInfo().regionMap) {
 			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
 			if (map && map.area) map = map.area;
 			else if (map && map.loc) map = map.loc;
+			if (!map || !map.is) return false;
 			
 			let ret = false;
 			for (let x of ledger.get(0)) {

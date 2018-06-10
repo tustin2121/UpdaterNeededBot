@@ -15,14 +15,14 @@ class GainItem extends LedgerItem {
 		this.report = null;
 	}
 	cancelsOut(other) {
-		if (other.name === 'GainItem') {
+		if (other.__itemName__ === 'GainItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount += other.amount; //add together the amounts
 			if (this.amount == 0) return true; //cancels out
 			if (this.amount < 0) return new LostItem(this.item, -this.amount); //replace
 			return this; //coalesce
 		}
-		if (other.name === 'LostItem') {
+		if (other.__itemName__ === 'LostItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount -= other.amount; //subtract the amounts
 			if (this.amount == 0) return true; //cancels out
@@ -41,14 +41,14 @@ class LostItem extends LedgerItem {
 		this.amount = amount;
 	}
 	cancelsOut(other) {
-		if (other.name === 'LostItem') {
+		if (other.__itemName__ === 'LostItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount += other.amount;  //add together the amounts
 			if (this.amount == 0) return true; //cancels out
 			if (this.amount < 0) return new GainItem(this.item, -this.amount); //replace
 			return this; //coalesce
 		}
-		if (other.name === 'GainItem') {
+		if (other.__itemName__ === 'GainItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount -= other.amount;  //subtract the amounts
 			if (this.amount == 0) return true; //cancels out
@@ -99,7 +99,7 @@ class UsedBallInBattle extends LedgerItem {
 		return this.battle.trainer && this.battle.trainer[0];
 	}
 	cancelsOut(other) {
-		if (other.name === 'UsedBallInBattle') {
+		if (other.__itemName__ === 'UsedBallInBattle') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount += other.amount; //add together the amounts
 			if (this.amount == 0) return true; //cancels out

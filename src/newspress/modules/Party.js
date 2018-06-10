@@ -336,7 +336,7 @@ RULES.push(new Rule('Negative or more than 8 level gain usually means an API Dis
 );
 
 if (Bot.runOpts('namingMatch')) {
-	RULES.push(new Rule('Mons being nicknamed have invalid characters in their names')
+	RULES.push(new Rule('Mons being re-nicknamed have invalid characters in their names')
 		.when(ledger=>ledger.has('MonNicknameChanged').whichMatches('curr', Bot.runOpts('namingMatch')))
 		.then(ledger=>{
 			ledger.postpone(0);

@@ -45,5 +45,5 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite.js'));
+global.Bot = new UpdaterBot(require('../data/runs/s503-bronze.js'));
 Bot.start();

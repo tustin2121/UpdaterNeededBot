@@ -6,6 +6,7 @@ module.exports = {
 	pokerus: false,
 	heldItem: false,
 	shiny: false,
+	secretId: false,
 	caughtInfo: false,
 	specialSplit: false,
 	abilities: false,

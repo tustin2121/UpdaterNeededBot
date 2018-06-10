@@ -411,6 +411,7 @@ function printObject(obj) {
 }{
 	function getPhraseGeneral(type) {
 		return function(name, flavor=null) {
+			// if (!name) name = this.thisItem.__itemName__;
 			let phraseEntry = this._getPhraseEntryForItem({ name, flavor });
 			switch(type) {
 				case 'item': return this._resolve(phraseEntry.item);
@@ -419,8 +420,9 @@ function printObject(obj) {
 			}
 		}
 	}
-	function getPhraseForItem() {
-		return function(item, type='') {
+	function getPhraseForItem(type='') {
+		return function(item) {
+			if (!item) item = this._callMeta.top().item;
 			let phraseEntry = this._getPhraseEntryForItem(item);
 			switch(type) {
 				case '': return this._resolve(phraseEntry, item);
@@ -436,7 +438,7 @@ function printObject(obj) {
 		'get phrasebook single': getPhraseGeneral('single'),
 		'get phrasebook multi': getPhraseGeneral('multi'),
 		
-		'resolve item phrase': getPhraseForItem(),
+		'resolve item phrase': getPhraseForItem('item'),
 	});
 }
 
@@ -863,7 +865,7 @@ class TypeSetter {
 				let args = key.split('|');
 				let func = args[0];
 				args = args.slice(1);
-				this._callMeta.push({ text:match, func, args, });
+				this._callMeta.push({ text:match, func, args, item });
 				try {
 					args = args.map((arg)=>{
 						if (arg === '$') return this.subject;

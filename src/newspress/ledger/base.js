@@ -31,9 +31,9 @@ class LedgerItem {
 	
 	[util.inspect.custom](depth, opts) {
 		if (depth < 0) {
-			return opts.stylize(`[${this.name} | ${this.flavor}]`, 'date');
+			return opts.stylize(`[${this.__itemName__} | ${this.flavor}]`, 'date');
 		}
-		let txt = `[${this.name} | ${this.flavor}`;
+		let txt = `[${this.__itemName__} | ${this.flavor}`;
 		for (let key in this){
 			// if (key === 'importance') continue;
 			if (key === 'helptype') continue;
@@ -51,7 +51,7 @@ class LedgerItem {
 	toXml(hkey) {
 		let xml = `<LedgerItem `;
 		if (hkey) xml += `key="${hkey}" `;
-		xml += `name="${this.name}" imp="${this.importance}" `;
+		xml += `name="${this.__itemName__}" imp="${this.importance}" `;
 		if (this.helptype) xml += `helps="${this.helptype}" `;
 		if (this.flavor) xml += `flavor="${this.flavor}" `;
 		xml += `sort="${this._sort}">`;
@@ -96,7 +96,7 @@ class LedgerItem {
 	 * condensing them to one item
 	 */
 	cancelsOut(other) {
-		if (this.name !== other.name) return false;
+		if (this.__itemName__ !== other.__itemName__) return false;
 		if (this.prev === undefined || this.curr === undefined) return false;
 		if (this.prev === other.curr && other.prev === this.curr) return true;
 		return false;

@@ -143,7 +143,7 @@ class Ledger {
 	saveToMemory(mem) {
 		let save = [];
 		for (let item of this.postponeList) {
-			let x = { __name__: item.__itemName__, };
+			let x = { __itemName__: item.__itemName__, };
 			if (typeof item.saveToMemory === 'function') {
 				x = item.saveToMemory(x) || x;
 			} else {
@@ -159,12 +159,12 @@ class Ledger {
 		const LEDGER_ITEMS = module.exports;
 		this.postponeList = [];
 		for (let item of mem.items) {
-			const ITEM = LEDGER_ITEMS[item.__name__];
+			const ITEM = LEDGER_ITEMS[item.__itemName__];
 			if (typeof ITEM.loadFromMemory === 'function') {
 				this.postponeList.push(ITEM.loadFromMemory(item));
 			} else {
 				let x = new ITEM(item);
-				delete item.__name__; //don't need this anymore
+				delete item.__itemName__; //don't need this anymore
 				delete item._marked; //this can cause trouble if overwritten
 				x = Object.assign(x, item);
 				this.postponeList.push(x);

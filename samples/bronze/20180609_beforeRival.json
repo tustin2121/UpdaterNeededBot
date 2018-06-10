@@ -1,0 +1,235 @@
+{
+    "badges": 0,
+    "ball_count": 0,
+    "battle_kind": "None",
+    "caught": 1,
+    "caught_list": [
+        172
+    ],
+    "coins": 0,
+    "daycare": [],
+    "gender": "Male",
+    "id": 49922,
+    "in_battle": false,
+    "items": {
+        "balls": [],
+        "items": [
+            {
+                "count": 1,
+                "id": 18,
+                "name": "Potion"
+            }
+        ],
+        "key": [],
+        "pc": [],
+        "tms": []
+    },
+    "level_cap": 100,
+    "map_bank": 13,
+    "map_id": 2,
+    "map_name": "Pallet Town",
+    "money": 3000,
+    "name": "FEEFFr ",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Set",
+        "frame": 1,
+        "menu_account": "Off",
+        "print": "Darkest",
+        "sound": "Stereo",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "evs": {
+                "attack": 241,
+                "defense": 245,
+                "hp": 245,
+                "special_attack": 175,
+                "special_defense": 175,
+                "speed": 315
+            },
+            "experience": {
+                "current": 293,
+                "next_level": 343,
+                "remaining": 50,
+                "this_level": 216
+            },
+            "friendship": 77,
+            "gender": "Female",
+            "health": [
+                19,
+                19
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "ivs": {
+                "attack": 4,
+                "defense": 1,
+                "hp": 5,
+                "special_attack": 1,
+                "special_defense": 1,
+                "speed": 2
+            },
+            "level": 6,
+            "moves": [
+                {
+                    "accuracy": 255,
+                    "base_power": 40,
+                    "id": 84,
+                    "name": "Thundershock",
+                    "pp": 17,
+                    "pp_up": 0,
+                    "type": "Electric"
+                },
+                {
+                    "accuracy": 255,
+                    "base_power": 0,
+                    "id": 204,
+                    "name": "Charm",
+                    "pp": 20,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 255,
+                    "base_power": 0,
+                    "id": 39,
+                    "name": "Tail Whip",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "//..Wnne;\u03c0",
+            "original_trainer": {
+                "id": 49922,
+                "name": "FEEFFr "
+            },
+            "personality_value": 1092731650,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "shiny": false,
+            "species": {
+                "catch_rate": 190,
+                "egg_cycles": 10,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 172,
+                "name": "Pichu",
+                "national_dex": 172,
+                "type1": "Electric",
+                "type2": "Electric"
+            },
+            "stats": {
+                "attack": 10,
+                "defense": 7,
+                "hp": 19,
+                "special_attack": 9,
+                "special_defense": 9,
+                "speed": 12
+            },
+            "status": 0
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "BOX1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX14",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 1
+    },
+    "rival_name": "???",
+    "secret": 49922,
+    "seen": 5,
+    "seen_list": [
+        10,
+        11,
+        16,
+        19,
+        172
+    ],
+    "time": {
+        "d": "THU",
+        "h": 11,
+        "m": 9,
+        "s": 9
+    },
+    "x": 18,
+    "y": 16
+}

@@ -13,6 +13,8 @@ module.exports = {
 	heldItem: true,
 	// If this generation supports shiny status
 	shiny: true,
+	// If this generation supports a secret id as an extension of the trainer id
+	secretId: true,
 	// If this generation supports walk-behind mon (Pikachu in Yellow, any mon in HGSS)
 	walkBehind: false,
 	// If this generation supports a real-time clock

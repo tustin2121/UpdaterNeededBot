@@ -244,7 +244,7 @@ class Pokemon {
 	
 	get isTraded() {
 		let res = (this.ot.id === Bot.gameInfo(this.game).trainer.id);
-		if (Bot.gameInfo(this.game).gen > 1)
+		if (Bot.runOpts('secretId', this.game))
 			res &= this.ot.secret === Bot.gameInfo(this.game).trainer.secret
 		return !res;
 	}

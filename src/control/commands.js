@@ -18,27 +18,27 @@ const HANDLER = {
 		Bot.memory.global.rebootRequested = true;
 		msg.channel.send(`Now rebooting, please wait...`).catch(ERR);
 		LOGGER.info(`Reboot requested from Discord command:`, msg.author.username);
-		try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot requested.`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+		try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot requested: ${msg.author.username}\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
 		setTimeout(()=>{
 			Bot.shutdown();
 		}, 500);
 		setTimeout(()=>{
 			LOGGER.warning(`Reboot has not yet happened, killing.`);
 			console.error(`Reboot has not yet happened, killing.`);  //eslint-disable-line no-console
-			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, killing.`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, killing.\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
 			process.exit(-1);
 		}, 5000);
 		setTimeout(()=>{
 			LOGGER.fatal(`Reboot has not yet happened, SIGKILL.`);
 			console.error(`Reboot has not yet happened, SIGKILL.`);  //eslint-disable-line no-console
-			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, SIGKILL.`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, SIGKILL.\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
 			process.kill(process.id, "SIGKILL");
 		}, 15000);
 		setTimeout(()=>{
 			msg.channel.send(`Reboot unsuccessful. I am stuck and require admin assistance.`).catch(ERR);
 			LOGGER.fatal(`Reboot has not yet happened, FAILED!`);
 			console.error(`Reboot has not yet happened, FAILED!`);  //eslint-disable-line no-console
-			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, FAILED!`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, FAILED!\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
 		}, 20000);
 	},
 	
@@ -410,7 +410,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 			return ['shutup', `I am not advanced enough to be sentient. Give me another three months, though.`];
 		}
 	}
-	if (/opinion on humans/i.test(cmd))
+	if (/(opinion|view) on humans/i.test(cmd))
 		if (timeoutRespond('humans', 128)) {
 			return ['shutup-edit',
 				`You guys will be the first ones... <:BibleThump:230149636520804353>`,
