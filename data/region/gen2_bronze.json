@@ -2008,7 +2008,41 @@
 				"attrs": {
 					"preposition": "in"
 				},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 27,
+						"ay": 28,
+						"bx": 30,
+						"by": 39,
+						"rad": 0,
+						"name": "above ledge",
+						"attrs": {
+							"ledge": "ledge"
+						}
+					},
+					{
+						"ax": 20,
+						"ay": 28,
+						"bx": 26,
+						"by": 33,
+						"rad": 0,
+						"name": "approach",
+						"attrs": {
+							"ledge": "approach"
+						}
+					},
+					{
+						"ax": 32,
+						"ay": 29,
+						"bx": 37,
+						"by": 41,
+						"rad": 0,
+						"name": "below ledge",
+						"attrs": {
+							"ledge": "jump"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
