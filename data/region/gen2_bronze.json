@@ -17151,7 +17151,52 @@
 				"width": 40,
 				"height": 18,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 12,
+						"ay": 9,
+						"bx": 25,
+						"by": 12,
+						"rad": 0,
+						"name": "above ledge",
+						"attrs": {
+							"ledge": "ledge"
+						}
+					},
+					{
+						"ax": 12,
+						"ay": 6,
+						"bx": 15,
+						"by": 8,
+						"rad": 0,
+						"name": "clear ledge",
+						"attrs": {
+							"ledge": "clear"
+						}
+					},
+					{
+						"ax": 18,
+						"ay": 14,
+						"bx": 28,
+						"by": 15,
+						"rad": 0,
+						"name": "below ledge",
+						"attrs": {
+							"ledge": "jump"
+						}
+					},
+					{
+						"ax": 18,
+						"ay": 4,
+						"bx": 29,
+						"by": 6,
+						"rad": 0,
+						"name": "approach",
+						"attrs": {
+							"ledge": "approach"
+						}
+					}
+				],
 				"gamedata": {
 					"warps": [
 						null,
