@@ -45,7 +45,7 @@ class TimeChanged extends LedgerItem {
 	canPostpone() {
 		if (this.ttl === 0) return false; //don't postpone
 		this.ttl--;
-		if (!this.flavor.endsWith('_exit')) this.flavor += '_exit';
+		if (typeof this.flavor === 'string' && !this.flavor.endsWith('_exit')) this.flavor += '_exit';
 		return true;
 	}
 }

@@ -4,6 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const { TimeChanged } = require('../ledger');
 
+const LOGGER = getLogger('RealTimeModule');
+
 const RULES = [];
 
 /**   ** RealTime Module **
@@ -17,6 +19,8 @@ class RealTimeModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
+		this.debug('curr:', curr.timeOfDay, '/ prev:', prev.timeOfDay);
 		if (curr.timeOfDay !== prev.timeOfDay) {
 			let flavor;
 			// Normal time of day directions
@@ -30,7 +34,7 @@ class RealTimeModule extends ReportingModule {
 				flavor = 'dusk';
 			}
 			// Reverse time to day directions...
-			if (prev.timeOfDay === 'night' && curr.timeOfDay === 'day') {
+			else if (prev.timeOfDay === 'night' && curr.timeOfDay === 'day') {
 				flavor = 'rday';
 			}
 			else if (prev.timeOfDay === 'day' && curr.timeOfDay === 'morning') {
@@ -39,6 +43,7 @@ class RealTimeModule extends ReportingModule {
 			else if (prev.timeOfDay === 'morning' && curr.timeOfDay === 'night') {
 				flavor = 'rnight';
 			}
+			this.debug('FLAVOR: ', flavor);
 			ledger.addItem(new TimeChanged(flavor));
 		}
 	}

@@ -128,8 +128,10 @@ if (!!Bot.gameInfo().regionMap) {
 				if (report) {
 					ledger.memory.currBattleReport = report.id;
 					x.report = report;
-					x.flavor = 'report';
-					x.importance++;
+					if (typeof report.text === 'string') {
+						x.flavor = 'report';
+						x.importance++;
+					}
 					ret = true;
 				}
 			}
@@ -153,8 +155,10 @@ if (!!Bot.gameInfo().regionMap) {
 				if (!report) report = region.findBattleReport(map, x.battle);
 				if (report) {
 					x.report = report;
-					x.flavor = 'report';
-					x.importance++;
+					if (typeof report.wintext === 'string') {
+						x.flavor = 'report';
+						x.importance++;
+					}
 					ret = true;
 					ledger.memory.currBattleReport = null;
 				}

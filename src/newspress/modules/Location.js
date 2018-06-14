@@ -54,9 +54,9 @@ class LocationModule extends ReportingModule {
 		}
 		this.memory.visitTimestamps[currMap.locId] = Date.now();
 		
-		if (currMap.is('checkpoint')) {
-			ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
-		}
+		// if (currMap.is('checkpoint')) {
+		// 	ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
+		// }
 		
 		if (!prev.has('water') && curr.has('water')) {
 			ledger.add(new MapMovement('surfStart', curr_api));
@@ -80,10 +80,10 @@ class LocationModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let items;
-		if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
-			this.memory.currCheckpoint = items[0].loc.locId;
-		}
+		// let items;
+		// if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
+		// 	this.memory.currCheckpoint = items[0].loc.locId;
+		// }
 	}
 	
 	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea }) {

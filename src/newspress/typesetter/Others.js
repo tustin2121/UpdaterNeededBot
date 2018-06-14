@@ -148,10 +148,10 @@ let OptionsChanged = {
 			let p = arr[key];
 			if (!p) return null;
 			if (p[val]) p = p[val];
-			if (Array.isArray(p)) {
-				p = p[self.rand(p.length)];
-			}
-			p = self.fillText(p, { val });
+			// if (Array.isArray(p)) {
+			// 	p = p[self.rand(p.length)];
+			// }
+			p = self._resolve(p, { val });
 			return p;
 		}
 	},
@@ -166,6 +166,7 @@ module.exports = {
 	},
 	
 	TimeChanged: {
+		default: undefined, //should never happen
 		dawn: [
 			`The sun appears suddenly out of nowhere, and now everyone is blind!`,
 			`The sun has decided to fling itself into the air!`,

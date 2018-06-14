@@ -20141,7 +20141,7 @@
 			"type": "battle",
 			"id": "5f6c1a42",
 			"timeout": 600000,
-			"wintext": "<b>We defeat the last of the Team Racket members.</b> (yes really, Team <em>Racket</em>.) The last guy expouses about how prices for items are too damn high for them kids, and thus he is somehow justified in just taking the items in question. He says this before everyone vanishes and a cop without pokemon comes up to us thanks us for doing his job for him (yes, he really says that).",
+			"wintext": "<b>We defeat the last of the Team Racket members.</b> (yes really, Team <i>Racket</i>.) The last guy expouses about how prices for items are too damn high for them kids, and thus he is somehow justified in just taking the items in question. He says this before everyone vanishes and a cop without pokemon comes up to us thanks us for doing his job for him (yes, he really says that).",
 			"loc": "3.32:0"
 		},
 		{
