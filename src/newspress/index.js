@@ -63,6 +63,7 @@ class UpdaterPress extends EventEmitter {
 			mod.firstPass(ledger, data);
 		} catch (e) {
 			LOGGER.error(`Error in ${mod.constructor.name} first pass!`, e);
+			Bot.emit('updateError', e);
 		}
 		
 		// Add postponed items from the last run, cancelling out any items from first pass as needed
@@ -77,6 +78,7 @@ class UpdaterPress extends EventEmitter {
 				mod.secondPass(ledger);
 			} catch (e) {
 				LOGGER.error(`Error in ${mod.constructor.name} second pass [${i}]!`, e);
+				Bot.emit('updateError', e);
 			}
 			
 			let nhash = ledger.hash();
@@ -90,6 +92,7 @@ class UpdaterPress extends EventEmitter {
 			mod.finalPass(ledger);
 		} catch (e) {
 			LOGGER.error(`Error in ${mod.constructor.name} final pass!`, e);
+			Bot.emit('updateError', e);
 		}
 		
 		LOGGER.note(ledger);
@@ -158,6 +161,7 @@ class UpdaterPress extends EventEmitter {
 			}
 		} catch (e) {
 			LOGGER.error(`Error generating requested update!`, e);
+			Bot.emit('updateError', e);
 		}
 		return null;
 	}

@@ -31,6 +31,17 @@ module.exports = {
 			],
 			e4Names: [ "Pryce", "Koga", "Bruno", "Karen" ],
 			champName: "{{rival}}",
+			
+			trainerClasses: {
+				// The following have special handling available
+				rival: [9,42],
+				leader: [63],
+				e4: [11,15,13,14],
+				champ: [16],
+				m: [], // Male trainer classes
+				f: [], // Female trainer classes
+				p: [], // Plural trainer classes
+			},
 		},
 	},
 	

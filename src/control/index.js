@@ -87,6 +87,33 @@ dbot.on('message', (msg)=>{
 	}
 });
 
+const offActivities = [
+	['tiddilywinks with sewer lids', { type:'PLAYING' }],
+	['the PC beep', { type:'LISTENING' }],
+	['Netflix', { type:'WATCHING' }],
+	['Super Mario Odyssey', { type:'PLAYING' }],
+	[`the sounds of a summer's night`, { type:'LISTENING' }],
+	[`Twitter explode over something menial`, { type:'WATCHING' }],
+];
+
+Bot.on('tagged', ()=>{
+	let status = (!!Bot.taggedIn)?'online':'idle';
+	dbot.user.setStatus(status).catch(ERR);
+	if (Bot.taggedIn) {
+		dbot.user.setActivity('the stream', { type:'WATCHING', url:'http://www.twitch.tv/twitchplayspokemon' }).catch(ERR);
+	} else {
+		let activity = offActivities[Math.floor(Math.random()*offActivities.length)];
+		dbot.user.setActivity(...activity).catch(ERR);
+	}
+});
+Bot.on('pre-update-cycle', ()=>{
+	let status = (!!Bot.taggedIn)?'online':'idle';
+	dbot.user.setStatus(status).catch(ERR);
+});
+Bot.on('updateError', ()=>{
+	dbot.user.setStatus('dnd').catch(ERR);
+});
+
 
 function listenForQueryUpdate(query) {
 	Bot.once('query'+query.id, (res, user)=>{
@@ -96,7 +123,7 @@ function listenForQueryUpdate(query) {
 			else if (res === false) msg.edit(`~~${query.text}~~\n[Query denied by ${user}]`);
 			else if (res === null) msg.edit(`~~${query.text}~~\n[Query timed out]`);
 			else if (typeof res === 'string') msg.edit(`~~${query.text}~~\n[Query canceled: ${res}]`);
-		});
+		}).catch(ERR);
 	});
 }
 

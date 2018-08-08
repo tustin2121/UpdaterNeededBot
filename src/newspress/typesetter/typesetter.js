@@ -97,6 +97,7 @@ function printObject(obj) {
 			let on='', the='';
 			if (usePreposition) {
 				on = loc.get('preposition');
+				if (typeof on !== 'string') on = '';
 				if (usePreposition === 'to') {
 				 	if (/in|on/i.test(on)) on += 'to';
 					else return false; //can't use this phrase
@@ -751,6 +752,7 @@ class TypeSetter {
 			update.push(phrase);
 		} catch (e) {
 			LOGGER.error(`Error typesetting items =>`, items, '\n', e);
+			Bot.emit('updateError', e);
 		}
 		if (!update.length) return null;
 		return update.join(' ');

@@ -10,7 +10,7 @@
   "author": "tustin2121",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1",
+    "discord.js": "^11.3.2",
     "express": "^4.16.2",
     "irc": "^0.5.2",
     "log4js": "git+https://github.com/log4js-node/log4js-node.git#65685a2160",
