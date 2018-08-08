@@ -1,0 +1,2436 @@
+﻿======
+Map 000 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 001 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 002 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 003 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 004 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 005 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 006 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 007 - Vaniville Town
+======
+No encounters found.
+
+======
+Map 008 - Aquacorde Town
+======
+No encounters found.
+
+======
+Map 009 - Aquacorde Town
+======
+No encounters found.
+
+======
+Map 010 - Aquacorde Town
+======
+No encounters found.
+
+======
+Map 011 - Aquacorde Town
+======
+No encounters found.
+
+======
+Map 012 - Camphrier Town
+======
+No encounters found.
+
+======
+Map 013 - Camphrier Town
+======
+No encounters found.
+
+======
+Map 014 - Shabboneau Castle
+======
+No encounters found.
+
+======
+Map 015 - Shabboneau Castle
+======
+No encounters found.
+
+======
+Map 016 - Shabboneau Castle
+======
+No encounters found.
+
+======
+Map 017 - Camphrier Town
+======
+No encounters found.
+
+======
+Map 018 - Camphrier Town
+======
+No encounters found.
+
+======
+Map 019 - Camphrier Town
+======
+No encounters found.
+
+======
+Map 020 - Camphrier Town
+======
+No encounters found.
+
+======
+Map 021 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 022 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 023 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 024 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 025 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 026 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 027 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 028 - Geosenge Town
+======
+No encounters found.
+
+======
+Map 029 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 030 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 031 - Dendemille Gate
+======
+No encounters found.
+
+======
+Map 032 - Dendemille Gate
+======
+No encounters found.
+
+======
+Map 033 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 034 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 035 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 036 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 037 - Dendemille Town
+======
+No encounters found.
+
+======
+Map 038 - Couriway Town
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 25, Forme: 0), 35% - Poliwag (Level 25, Forme: 0), 5% - Poliwag (Level 25, Forme: 0)
+Good Rod: 60% - Basculin (Level 35, Forme: 0), 35% - Poliwhirl (Level 35, Forme: 0), 5% - Basculin (Level 35, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 45, Forme: 0), 35% - Basculin (Level 45, Forme: 1), 5% - Poliwhirl (Level 45, Forme: 0)
+Surf: 50% - Lombre (Level 44, Forme: 0), 30% - Floatzel (Level 44, Forme: 0), 15% - Lombre (Level 45, Forme: 0), 4% - Floatzel (Level 46, Forme: 0), 1% - Lombre (Level 46, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 039 - Couriway Gate
+======
+No encounters found.
+
+======
+Map 040 - Couriway Town
+======
+No encounters found.
+
+======
+Map 041 - Couriway Town
+======
+No encounters found.
+
+======
+Map 042 - Couriway Town
+======
+No encounters found.
+
+======
+Map 043 - Couriway Town
+======
+No encounters found.
+
+======
+Map 044 - Couriway Town
+======
+No encounters found.
+
+======
+Map 045 - Ambrette Town
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Dwebble (Level 13, Forme: 0), 30% - Binacle (Level 13, Forme: 0), 15% - Dwebble (Level 14, Forme: 0), 4% - Binacle (Level 15, Forme: 0), 1% - Dwebble (Level 15, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Luvdisc (Level 15, Forme: 0), 35% - Luvdisc (Level 15, Forme: 0), 5% - Luvdisc (Level 15, Forme: 0)
+Good Rod: 60% - Skrelp (Level 25, Forme: 0), 35% - Horsea (Level 25, Forme: 0), 5% - Skrelp (Level 25, Forme: 0)
+Super Rod: 60% - Relicanth (Level 35, Forme: 0), 35% - Dragalge (Level 35, Forme: 0), 5% - Seadra (Level 35, Forme: 0)
+Surf: 50% - Tentacool (Level 25, Forme: 0), 30% - Wailmer (Level 25, Forme: 0), 15% - Tentacool (Level 26, Forme: 0), 4% - Tentacool (Level 27, Forme: 0), 1% - Wailmer (Level 27, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 046 - Ambrette Gate
+======
+No encounters found.
+
+======
+Map 047 - Ambrette Town
+======
+No encounters found.
+
+======
+Map 048 - Ambrette Aquarium
+======
+No encounters found.
+
+======
+Map 049 - Ambrette Town
+======
+No encounters found.
+
+======
+Map 050 - Ambrette Town
+======
+No encounters found.
+
+======
+Map 051 - Ambrette Town
+======
+No encounters found.
+
+======
+Map 052 - Ambrette Town
+======
+No encounters found.
+
+======
+Map 053 - Santalune City
+======
+No encounters found.
+
+======
+Map 054 - Santalune City
+======
+No encounters found.
+
+======
+Map 055 - Santalune City
+======
+No encounters found.
+
+======
+Map 056 - Santalune City
+======
+No encounters found.
+
+======
+Map 057 - Santalune City
+======
+No encounters found.
+
+======
+Map 058 - Santalune City
+======
+No encounters found.
+
+======
+Map 059 - Santalune City
+======
+No encounters found.
+
+======
+Map 060 - Santalune City
+======
+No encounters found.
+
+======
+Map 061 - Santalune City
+======
+No encounters found.
+
+======
+Map 062 - Santalune City
+======
+No encounters found.
+
+======
+Map 063 - Lumiose City
+======
+No encounters found.
+
+======
+Map 064 - Lumiose City
+======
+No encounters found.
+
+======
+Map 065 - Lumiose City
+======
+No encounters found.
+
+======
+Map 066 - Lumiose City
+======
+No encounters found.
+
+======
+Map 067 - Lumiose City
+======
+No encounters found.
+
+======
+Map 068 - Lumiose City
+======
+No encounters found.
+
+======
+Map 069 - Lumiose City
+======
+No encounters found.
+
+======
+Map 070 - Lumiose Gate
+======
+No encounters found.
+
+======
+Map 071 - Lumiose Gate
+======
+No encounters found.
+
+======
+Map 072 - Lumiose Gate
+======
+No encounters found.
+
+======
+Map 073 - Lumiose Gate
+======
+No encounters found.
+
+======
+Map 074 - Lumiose Gate
+======
+No encounters found.
+
+======
+Map 075 - Lumiose City
+======
+No encounters found.
+
+======
+Map 076 - Lumiose City
+======
+No encounters found.
+
+======
+Map 077 - Prism Tower
+======
+No encounters found.
+
+======
+Map 078 - Prism Tower
+======
+No encounters found.
+
+======
+Map 079 - Prism Tower
+======
+No encounters found.
+
+======
+Map 080 - Prism Tower
+======
+No encounters found.
+
+======
+Map 081 - Prism Tower
+======
+No encounters found.
+
+======
+Map 082 - Prism Tower
+======
+No encounters found.
+
+======
+Map 083 - Lumiose City
+======
+No encounters found.
+
+======
+Map 084 - Lumiose City
+======
+No encounters found.
+
+======
+Map 085 - Lumiose City
+======
+No encounters found.
+
+======
+Map 086 - Lumiose City
+======
+No encounters found.
+
+======
+Map 087 - Lumiose City
+======
+No encounters found.
+
+======
+Map 088 - Lumiose City
+======
+No encounters found.
+
+======
+Map 089 - Lumiose City
+======
+No encounters found.
+
+======
+Map 090 - Lumiose City
+======
+No encounters found.
+
+======
+Map 091 - Lumiose City
+======
+No encounters found.
+
+======
+Map 092 - Lumiose City
+======
+No encounters found.
+
+======
+Map 093 - Lumiose City
+======
+No encounters found.
+
+======
+Map 094 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 095 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 096 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 097 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 098 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 099 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 100 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 101 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 102 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 103 - Lysandre Labs
+======
+No encounters found.
+
+======
+Map 104 - Lumiose City
+======
+No encounters found.
+
+======
+Map 105 - Lumiose City
+======
+No encounters found.
+
+======
+Map 106 - Lumiose City
+======
+No encounters found.
+
+======
+Map 107 - Lumiose City
+======
+No encounters found.
+
+======
+Map 108 - Lumiose City
+======
+No encounters found.
+
+======
+Map 109 - Lumiose Station
+======
+No encounters found.
+
+======
+Map 110 - Lumiose City
+======
+No encounters found.
+
+======
+Map 111 - Lumiose City
+======
+No encounters found.
+
+======
+Map 112 - Lumiose City
+======
+No encounters found.
+
+======
+Map 113 - Lumiose City
+======
+No encounters found.
+
+======
+Map 114 - Lumiose City
+======
+No encounters found.
+
+======
+Map 115 - Lumiose City
+======
+No encounters found.
+
+======
+Map 116 - Lumiose City
+======
+No encounters found.
+
+======
+Map 117 - Lumiose City
+======
+No encounters found.
+
+======
+Map 118 - Lumiose City
+======
+No encounters found.
+
+======
+Map 119 - Lumiose City
+======
+No encounters found.
+
+======
+Map 120 - Lumiose City
+======
+No encounters found.
+
+======
+Map 121 - Lumiose City
+======
+No encounters found.
+
+======
+Map 122 - Lumiose City
+======
+No encounters found.
+
+======
+Map 123 - Lumiose City
+======
+No encounters found.
+
+======
+Map 124 - Lumiose City
+======
+No encounters found.
+
+======
+Map 125 - Lumiose City
+======
+No encounters found.
+
+======
+Map 126 - Lumiose City
+======
+No encounters found.
+
+======
+Map 127 - Lumiose City
+======
+No encounters found.
+
+======
+Map 128 - Lumiose City
+======
+No encounters found.
+
+======
+Map 129 - Lumiose City
+======
+No encounters found.
+
+======
+Map 130 - Lumiose City
+======
+No encounters found.
+
+======
+Map 131 - Lumiose City
+======
+No encounters found.
+
+======
+Map 132 - Lumiose City
+======
+No encounters found.
+
+======
+Map 133 - Lumiose City
+======
+No encounters found.
+
+======
+Map 134 - Lumiose City
+======
+No encounters found.
+
+======
+Map 135 - Lumiose City
+======
+No encounters found.
+
+======
+Map 136 - Lumiose City
+======
+No encounters found.
+
+======
+Map 137 - Lumiose City
+======
+No encounters found.
+
+======
+Map 138 - Lumiose City
+======
+No encounters found.
+
+======
+Map 139 - Lumiose City
+======
+No encounters found.
+
+======
+Map 140 - Lumiose City
+======
+No encounters found.
+
+======
+Map 141 - Lumiose City
+======
+No encounters found.
+
+======
+Map 142 - Lumiose City
+======
+No encounters found.
+
+======
+Map 143 - Lumiose City
+======
+No encounters found.
+
+======
+Map 144 - Lumiose City
+======
+No encounters found.
+
+======
+Map 145 - Lumiose City
+======
+No encounters found.
+
+======
+Map 146 - Lumiose City
+======
+No encounters found.
+
+======
+Map 147 - Lumiose City
+======
+No encounters found.
+
+======
+Map 148 - Lumiose City
+======
+No encounters found.
+
+======
+Map 149 - Lumiose City
+======
+No encounters found.
+
+======
+Map 150 - Lumiose City
+======
+No encounters found.
+
+======
+Map 151 - Lumiose City
+======
+No encounters found.
+
+======
+Map 152 - Lumiose City
+======
+No encounters found.
+
+======
+Map 153 - Lumiose City
+======
+No encounters found.
+
+======
+Map 154 - Lumiose City
+======
+No encounters found.
+
+======
+Map 155 - Lumiose City
+======
+No encounters found.
+
+======
+Map 156 - Lumiose City
+======
+No encounters found.
+
+======
+Map 157 - Cyllage City
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Dwebble (Level 13, Forme: 0), 30% - Binacle (Level 13, Forme: 0), 15% - Dwebble (Level 14, Forme: 0), 4% - Binacle (Level 15, Forme: 0), 1% - Dwebble (Level 15, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Luvdisc (Level 15, Forme: 0), 35% - Luvdisc (Level 15, Forme: 0), 5% - Luvdisc (Level 15, Forme: 0)
+Good Rod: 60% - Skrelp (Level 25, Forme: 0), 35% - Horsea (Level 25, Forme: 0), 5% - Skrelp (Level 25, Forme: 0)
+Super Rod: 60% - Relicanth (Level 35, Forme: 0), 35% - Dragalge (Level 35, Forme: 0), 5% - Seadra (Level 35, Forme: 0)
+Surf: 50% - Tentacool (Level 25, Forme: 0), 30% - Wailmer (Level 25, Forme: 0), 15% - Tentacool (Level 26, Forme: 0), 4% - Tentacool (Level 27, Forme: 0), 1% - Wailmer (Level 27, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 158 - Cyllage City
+======
+No encounters found.
+
+======
+Map 159 - Cyllage City
+======
+No encounters found.
+
+======
+Map 160 - Cyllage City
+======
+No encounters found.
+
+======
+Map 161 - Cyllage City
+======
+No encounters found.
+
+======
+Map 162 - Cyllage City
+======
+No encounters found.
+
+======
+Map 163 - Cyllage City
+======
+No encounters found.
+
+======
+Map 164 - Cyllage City
+======
+No encounters found.
+
+======
+Map 165 - Cyllage City
+======
+No encounters found.
+
+======
+Map 166 - Cyllage City
+======
+No encounters found.
+
+======
+Map 167 - Cyllage City
+======
+No encounters found.
+
+======
+Map 168 - Cyllage City
+======
+No encounters found.
+
+======
+Map 169 - Cyllage City
+======
+No encounters found.
+
+======
+Map 170 - Cyllage City
+======
+No encounters found.
+
+======
+Map 171 - Cyllage City
+======
+No encounters found.
+
+======
+Map 172 - Shalour City
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Luvdisc (Level 15, Forme: 0), 35% - Luvdisc (Level 15, Forme: 0), 5% - Luvdisc (Level 15, Forme: 0)
+Good Rod: 60% - Remoraid (Level 25, Forme: 0), 35% - Chinchou (Level 25, Forme: 0), 5% - Remoraid (Level 25, Forme: 0)
+Super Rod: 60% - Alomomola (Level 35, Forme: 0), 35% - Octillery (Level 35, Forme: 0), 5% - Lanturn (Level 35, Forme: 0)
+Surf: 50% - Tentacool (Level 25, Forme: 0), 30% - Tentacool (Level 26, Forme: 0), 15% - Mantyke (Level 27, Forme: 0), 4% - Tentacool (Level 27, Forme: 0), 1% - Mantyke (Level 27, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 173 - Shalour Gate
+======
+No encounters found.
+
+======
+Map 174 - Shalour City
+======
+No encounters found.
+
+======
+Map 175 - Shalour City
+======
+No encounters found.
+
+======
+Map 176 - Shalour City
+======
+No encounters found.
+
+======
+Map 177 - Shalour City
+======
+No encounters found.
+
+======
+Map 178 - Shalour City
+======
+No encounters found.
+
+======
+Map 179 - Shalour City
+======
+No encounters found.
+
+======
+Map 180 - Shalour City
+======
+No encounters found.
+
+======
+Map 181 - Tower of Mastery
+======
+No encounters found.
+
+======
+Map 182 - Tower of Mastery
+======
+No encounters found.
+
+======
+Map 183 - Tower of Mastery
+======
+No encounters found.
+
+======
+Map 184 - Tower of Mastery
+======
+No encounters found.
+
+======
+Map 185 - Tower of Mastery
+======
+No encounters found.
+
+======
+Map 186 - Tower of Mastery
+======
+No encounters found.
+
+======
+Map 187 - Coumarine City
+======
+No encounters found.
+
+======
+Map 188 - Coumarine City
+======
+No encounters found.
+
+======
+Map 189 - Coumarine Gate
+======
+No encounters found.
+
+======
+Map 190 - Coumarine City
+======
+No encounters found.
+
+======
+Map 191 - Coumarine City
+======
+No encounters found.
+
+======
+Map 192 - Coumarine City
+======
+No encounters found.
+
+======
+Map 193 - Coumarine City
+======
+No encounters found.
+
+======
+Map 194 - Coumarine City
+======
+No encounters found.
+
+======
+Map 195 - Coumarine City
+======
+No encounters found.
+
+======
+Map 196 - Coumarine City
+======
+No encounters found.
+
+======
+Map 197 - Coumarine City
+======
+No encounters found.
+
+======
+Map 198 - Coumarine City
+======
+No encounters found.
+
+======
+Map 199 - Coumarine City
+======
+No encounters found.
+
+======
+Map 200 - Laverre City
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 15, Forme: 0), 35% - Poliwag (Level 15, Forme: 0), 5% - Poliwag (Level 15, Forme: 0)
+Good Rod: 60% - Basculin (Level 25, Forme: 0), 35% - Poliwhirl (Level 25, Forme: 0), 5% - Basculin (Level 25, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 35, Forme: 0), 35% - Basculin (Level 35, Forme: 1), 5% - Poliwhirl (Level 35, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 201 - Laverre Gate
+======
+No encounters found.
+
+======
+Map 202 - Laverre City
+======
+No encounters found.
+
+======
+Map 203 - Laverre City
+======
+No encounters found.
+
+======
+Map 204 - Laverre City
+======
+No encounters found.
+
+======
+Map 205 - Laverre City
+======
+No encounters found.
+
+======
+Map 206 - Laverre City
+======
+No encounters found.
+
+======
+Map 207 - Laverre City
+======
+No encounters found.
+
+======
+Map 208 - Laverre City
+======
+No encounters found.
+
+======
+Map 209 - Laverre City
+======
+No encounters found.
+
+======
+Map 210 - Laverre City
+======
+No encounters found.
+
+======
+Map 211 - Anistar City
+======
+No encounters found.
+
+======
+Map 212 - Anistar Gate
+======
+No encounters found.
+
+======
+Map 213 - Anistar Gate
+======
+No encounters found.
+
+======
+Map 214 - Anistar City
+======
+No encounters found.
+
+======
+Map 215 - Anistar City
+======
+No encounters found.
+
+======
+Map 216 - Anistar City
+======
+No encounters found.
+
+======
+Map 217 - Anistar City
+======
+No encounters found.
+
+======
+Map 218 - Anistar City
+======
+No encounters found.
+
+======
+Map 219 - Anistar City
+======
+No encounters found.
+
+======
+Map 220 - Anistar City
+======
+No encounters found.
+
+======
+Map 221 - Anistar City
+======
+No encounters found.
+
+======
+Map 222 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 223 - Snowbelle Gate
+======
+No encounters found.
+
+======
+Map 224 - Snowbelle Gate
+======
+No encounters found.
+
+======
+Map 225 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 226 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 227 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 228 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 229 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 230 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 231 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 232 - Snowbelle City
+======
+No encounters found.
+
+======
+Map 233 - Kiloude City
+======
+No encounters found.
+
+======
+Map 234 - Kiloude City
+======
+No encounters found.
+
+======
+Map 235 - Kiloude City
+======
+No encounters found.
+
+======
+Map 236 - Kiloude Station
+======
+No encounters found.
+
+======
+Map 237 - Kiloude City
+======
+No encounters found.
+
+======
+Map 238 - Kiloude City
+======
+No encounters found.
+
+======
+Map 239 - Kiloude City
+======
+No encounters found.
+
+======
+Map 240 - Kiloude City
+======
+No encounters found.
+
+======
+Map 241 - Battle Maison
+======
+No encounters found.
+
+======
+Map 242 - Battle Maison
+======
+No encounters found.
+
+======
+Map 243 - Pokémon League
+======
+No encounters found.
+
+======
+Map 244 - Pokémon League
+======
+No encounters found.
+
+======
+Map 245 - Pokémon League
+======
+No encounters found.
+
+======
+Map 246 - Pokémon League
+======
+No encounters found.
+
+======
+Map 247 - Blazing Chamber
+======
+No encounters found.
+
+======
+Map 248 - Flood Chamber
+======
+No encounters found.
+
+======
+Map 249 - Ironworks Chamber
+======
+No encounters found.
+
+======
+Map 250 - Dragonmark Chamber
+======
+No encounters found.
+
+======
+Map 251 - Blazing Chamber
+======
+No encounters found.
+
+======
+Map 252 - Flood Chamber
+======
+No encounters found.
+
+======
+Map 253 - Ironworks Chamber
+======
+No encounters found.
+
+======
+Map 254 - Dragonmark Chamber
+======
+No encounters found.
+
+======
+Map 255 - Radiant Chamber
+======
+No encounters found.
+
+======
+Map 256 - Radiant Chamber
+======
+No encounters found.
+
+======
+Map 257 - Pokémon League
+======
+No encounters found.
+
+======
+Map 258 - Route 1
+======
+No encounters found.
+
+======
+Map 259 - Route 2
+======
+Grass: 10% - Bunnelby (Level 2, Forme: 0), 10% - Bunnelby (Level 3, Forme: 0), 10% - Zigzagoon (Level 3, Forme: 0), 10% - Fletchling (Level 2, Forme: 0), 10% - Fletchling (Level 3, Forme: 0), 10% - Pidgey (Level 3, Forme: 0), 10% - Scatterbug (Level 2, Forme: 30), 10% - Scatterbug (Level 3, Forme: 30), 10% - Caterpie (Level 3, Forme: 0), 5% - Zigzagoon (Level 4, Forme: 0), 4% - Pidgey (Level 4, Forme: 0), 1% - Caterpie (Level 4, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 260 - Route 3
+======
+Grass: 10% - Bunnelby (Level 3, Forme: 0), 10% - Bunnelby (Level 4, Forme: 0), 10% - Bidoof (Level 3, Forme: 0), 10% - Bidoof (Level 4, Forme: 0), 10% - Fletchling (Level 3, Forme: 0), 10% - Fletchling (Level 5, Forme: 0), 10% - Pidgey (Level 4, Forme: 0), 10% - Burmy (Level 5, Forme: 0), 10% - Azurill (Level 5, Forme: 0), 5% - Dunsparce (Level 5, Forme: 0), 4% - Pikachu (Level 4, Forme: 0), 1% - Pikachu (Level 5, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Magikarp (Level 15, Forme: 0), 35% - Magikarp (Level 15, Forme: 0), 5% - Magikarp (Level 15, Forme: 0)
+Good Rod: 60% - Goldeen (Level 25, Forme: 0), 35% - Corphish (Level 25, Forme: 0), 5% - Goldeen (Level 25, Forme: 0)
+Super Rod: 60% - Gyarados (Level 35, Forme: 0), 35% - Seaking (Level 35, Forme: 0), 5% - Crawdaunt (Level 35, Forme: 0)
+Surf: 50% - Masquerain (Level 25, Forme: 0), 30% - Marill (Level 25, Forme: 0), 15% - Masquerain (Level 26, Forme: 0), 4% - Marill (Level 27, Forme: 0), 1% - Masquerain (Level 27, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 261 - Route 4
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Flabébé (Level 6, Forme: 1), 10% - Flabébé (Level 7, Forme: 1), 10% - Flabébé (Level 8, Forme: 1), 10% - Combee (Level 6, Forme: 0), 10% - Combee (Level 7, Forme: 0), 10% - Combee (Level 8, Forme: 0), 10% - Budew (Level 8, Forme: 0), 10% - Ledyba (Level 8, Forme: 0), 10% - Skitty (Level 8, Forme: 0), 5% - Ralts (Level 8, Forme: 0), 4% - Flabébé (Level 7, Forme: 2), 1% - Flabébé (Level 8, Forme: 4)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - Flabébé (Level 6, Forme: 0), 10% - Flabébé (Level 7, Forme: 0), 10% - Flabébé (Level 8, Forme: 0), 10% - Ledyba (Level 6, Forme: 0), 10% - Ledyba (Level 7, Forme: 0), 10% - Ledyba (Level 8, Forme: 0), 10% - Budew (Level 8, Forme: 0), 10% - Combee (Level 8, Forme: 0), 10% - Skitty (Level 8, Forme: 0), 5% - Ralts (Level 8, Forme: 0), 4% - Flabébé (Level 7, Forme: 2), 1% - Flabébé (Level 8, Forme: 4)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 262 - Route 5
+======
+Grass: 10% - Bunnelby (Level 8, Forme: 0), 10% - Bunnelby (Level 9, Forme: 0), 10% - Bunnelby (Level 10, Forme: 0), 10% - Furfrou (Level 8, Forme: 0), 10% - Furfrou (Level 9, Forme: 0), 10% - Pancham (Level 10, Forme: 0), 10% - Skiddo (Level 10, Forme: 0), 10% - Doduo (Level 10, Forme: 0), 10% - Gulpin (Level 10, Forme: 0), 5% - Abra (Level 10, Forme: 0), 4% - Minun (Level 9, Forme: 0), 1% - Minun (Level 10, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - Skiddo (Level 8, Forme: 0), 10% - Skiddo (Level 9, Forme: 0), 10% - Skiddo (Level 10, Forme: 0), 10% - Pancham (Level 8, Forme: 0), 10% - Pancham (Level 9, Forme: 0), 10% - Furfrou (Level 10, Forme: 0), 10% - Bunnelby (Level 10, Forme: 0), 10% - Doduo (Level 10, Forme: 0), 10% - Gulpin (Level 10, Forme: 0), 5% - Abra (Level 10, Forme: 0), 4% - Minun (Level 9, Forme: 0), 1% - Minun (Level 10, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Gulpin (Level 5, Forme: 0), Gulpin (Level 5, Forme: 0), Gulpin (Level 5, Forme: 0), Gulpin (Level 5, Forme: 0), Gulpin (Level 5, Forme: 0)
+Horde B (35%): Scraggy (Level 5, Forme: 0), Scraggy (Level 5, Forme: 0), Scraggy (Level 5, Forme: 0), Scraggy (Level 5, Forme: 0), Scraggy (Level 5, Forme: 0)
+Horde C (5%): Minun (Level 6, Forme: 0), Minun (Level 6, Forme: 0), Minun (Level 6, Forme: 0), Plusle (Level 6, Forme: 0), Minun (Level 6, Forme: 0)
+
+======
+Map 263 - Route 6
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - Oddish (Level 10, Forme: 0), 10% - Oddish (Level 11, Forme: 0), 10% - Oddish (Level 12, Forme: 0), 10% - Sentret (Level 10, Forme: 0), 10% - Sentret (Level 11, Forme: 0), 10% - Nincada (Level 12, Forme: 0), 10% - Espurr (Level 11, Forme: 0), 10% - Espurr (Level 12, Forme: 0), 10% - Honedge (Level 11, Forme: 0), 5% - Honedge (Level 12, Forme: 0), 4% - Kecleon (Level 11, Forme: 0), 1% - Kecleon (Level 12, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 264 - Route 7
+======
+Grass: 10% - Croagunk (Level 12, Forme: 0), 10% - Croagunk (Level 13, Forme: 0), 10% - Croagunk (Level 14, Forme: 0), 10% - Volbeat (Level 13, Forme: 0), 10% - Illumise (Level 13, Forme: 0), 10% - Spritzee (Level 14, Forme: 0), 10% - Smeargle (Level 14, Forme: 0), 10% - Ducklett (Level 14, Forme: 0), 10% - Roselia (Level 14, Forme: 0), 5% - Croagunk (Level 14, Forme: 0), 4% - Flabébé (Level 13, Forme: 2), 1% - Flabébé (Level 14, Forme: 4)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Flabébé (Level 12, Forme: 1), 10% - Flabébé (Level 13, Forme: 1), 10% - Flabébé (Level 14, Forme: 1), 10% - Volbeat (Level 13, Forme: 0), 10% - Illumise (Level 13, Forme: 0), 10% - Spritzee (Level 14, Forme: 0), 10% - Smeargle (Level 14, Forme: 0), 10% - Ducklett (Level 14, Forme: 0), 10% - Roselia (Level 14, Forme: 0), 5% - Croagunk (Level 14, Forme: 0), 4% - Flabébé (Level 13, Forme: 2), 1% - Flabébé (Level 14, Forme: 4)
+Purple Flowers: 10% - Flabébé (Level 12, Forme: 3), 10% - Flabébé (Level 13, Forme: 3), 10% - Flabébé (Level 14, Forme: 3), 10% - Volbeat (Level 13, Forme: 0), 10% - Illumise (Level 13, Forme: 0), 10% - Spritzee (Level 14, Forme: 0), 10% - Smeargle (Level 14, Forme: 0), 10% - Ducklett (Level 14, Forme: 0), 10% - Roselia (Level 14, Forme: 0), 5% - Croagunk (Level 14, Forme: 0), 4% - Flabébé (Level 13, Forme: 2), 1% - Flabébé (Level 14, Forme: 4)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Hoppip (Level 7, Forme: 0), Hoppip (Level 7, Forme: 0), Hoppip (Level 7, Forme: 0), Hoppip (Level 7, Forme: 0), Hoppip (Level 7, Forme: 0)
+Horde B (35%): Psyduck (Level 8, Forme: 0), Psyduck (Level 8, Forme: 0), Psyduck (Level 8, Forme: 0), Psyduck (Level 8, Forme: 0), Psyduck (Level 8, Forme: 0)
+Horde C (5%): Roselia (Level 7, Forme: 0), Roselia (Level 7, Forme: 0), Roselia (Level 7, Forme: 0), Roselia (Level 7, Forme: 0), Roselia (Level 7, Forme: 0)
+
+======
+Map 265 - Route 7
+======
+No encounters found.
+
+======
+Map 266 - Route 8
+======
+Grass: 10% - Drifloon (Level 13, Forme: 0), 10% - Drifloon (Level 14, Forme: 0), 10% - Drifloon (Level 15, Forme: 0), 10% - Spoink (Level 13, Forme: 0), 10% - Spoink (Level 14, Forme: 0), 10% - Absol (Level 15, Forme: 0), 10% - Mienfoo (Level 15, Forme: 0), 10% - Inkay (Level 14, Forme: 0), 10% - Seviper (Level 14, Forme: 0), 5% - Inkay (Level 15, Forme: 0), 4% - Bagon (Level 14, Forme: 0), 1% - Bagon (Level 15, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Dwebble (Level 13, Forme: 0), 30% - Binacle (Level 13, Forme: 0), 15% - Dwebble (Level 14, Forme: 0), 4% - Binacle (Level 15, Forme: 0), 1% - Dwebble (Level 15, Forme: 0)
+Yellow Flowers: 10% - Mienfoo (Level 13, Forme: 0), 10% - Mienfoo (Level 14, Forme: 0), 10% - Mienfoo (Level 15, Forme: 0), 10% - Absol (Level 13, Forme: 0), 10% - Absol (Level 14, Forme: 0), 10% - Spoink (Level 15, Forme: 0), 10% - Drifloon (Level 15, Forme: 0), 10% - Inkay (Level 14, Forme: 0), 10% - Seviper (Level 14, Forme: 0), 5% - Inkay (Level 15, Forme: 0), 4% - Bagon (Level 14, Forme: 0), 1% - Bagon (Level 15, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Luvdisc (Level 15, Forme: 0), 35% - Luvdisc (Level 15, Forme: 0), 5% - Luvdisc (Level 15, Forme: 0)
+Good Rod: 60% - Skrelp (Level 25, Forme: 0), 35% - Shellder (Level 25, Forme: 0), 5% - Skrelp (Level 25, Forme: 0)
+Super Rod: 60% - Qwilfish (Level 35, Forme: 0), 35% - Dragalge (Level 35, Forme: 0), 5% - Cloyster (Level 35, Forme: 0)
+Surf: 50% - Tentacool (Level 25, Forme: 0), 30% - Wailmer (Level 25, Forme: 0), 15% - Tentacool (Level 26, Forme: 0), 4% - Tentacool (Level 27, Forme: 0), 1% - Wailmer (Level 27, Forme: 0)
+Horde A (60%): Wingull (Level 7, Forme: 0), Wingull (Level 7, Forme: 0), Wingull (Level 7, Forme: 0), Wingull (Level 7, Forme: 0), Wingull (Level 7, Forme: 0)
+Horde B (35%): Seviper (Level 8, Forme: 0), Zangoose (Level 8, Forme: 0), Seviper (Level 8, Forme: 0), Seviper (Level 8, Forme: 0), Seviper (Level 8, Forme: 0)
+Horde C (5%): Taillow (Level 7, Forme: 0), Taillow (Level 7, Forme: 0), Taillow (Level 7, Forme: 0), Taillow (Level 7, Forme: 0), Taillow (Level 7, Forme: 0)
+
+======
+Map 267 - Route 9
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - Sandile (Level 15, Forme: 0), 10% - Sandile (Level 16, Forme: 0), 10% - Sandile (Level 16, Forme: 0), 10% - Sandile (Level 17, Forme: 0), 10% - Hippopotas (Level 15, Forme: 0), 10% - Hippopotas (Level 16, Forme: 0), 10% - Hippopotas (Level 16, Forme: 0), 10% - Hippopotas (Level 17, Forme: 0), 10% - Helioptile (Level 15, Forme: 0), 5% - Helioptile (Level 16, Forme: 0), 4% - Helioptile (Level 16, Forme: 0), 1% - Helioptile (Level 17, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 268 - Route 10
+======
+Grass: 10% - Golett (Level 19, Forme: 0), 10% - Golett (Level 20, Forme: 0), 10% - Golett (Level 21, Forme: 0), 10% - Sigilyph (Level 19, Forme: 0), 10% - Sigilyph (Level 20, Forme: 0), 10% - Hawlucha (Level 19, Forme: 0), 10% - Hawlucha (Level 20, Forme: 0), 10% - Snubbull (Level 21, Forme: 0), 10% - Electrike (Level 21, Forme: 0), 5% - Eevee (Level 21, Forme: 0), 4% - Emolga (Level 19, Forme: 0), 1% - Emolga (Level 20, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Snubbull (Level 19, Forme: 0), 10% - Snubbull (Level 20, Forme: 0), 10% - Snubbull (Level 21, Forme: 0), 10% - Electrike (Level 19, Forme: 0), 10% - Electrike (Level 20, Forme: 0), 10% - Eevee (Level 19, Forme: 0), 10% - Eevee (Level 20, Forme: 0), 10% - Golett (Level 21, Forme: 0), 10% - Sigilyph (Level 21, Forme: 0), 5% - Hawlucha (Level 21, Forme: 0), 4% - Emolga (Level 19, Forme: 0), 1% - Emolga (Level 20, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Nosepass (Level 10, Forme: 0), Nosepass (Level 10, Forme: 0), Nosepass (Level 10, Forme: 0), Nosepass (Level 10, Forme: 0), Nosepass (Level 10, Forme: 0)
+Horde B (35%): Yanma (Level 10, Forme: 0), Yanma (Level 10, Forme: 0), Yanma (Level 10, Forme: 0), Yanma (Level 10, Forme: 0), Yanma (Level 10, Forme: 0)
+Horde C (5%): Electrike (Level 11, Forme: 0), Electrike (Level 11, Forme: 0), Electrike (Level 11, Forme: 0), Electrike (Level 11, Forme: 0), Electrike (Level 11, Forme: 0)
+
+======
+Map 269 - Route 11
+======
+Grass: 10% - Hariyama (Level 22, Forme: 0), 10% - Hariyama (Level 23, Forme: 0), 10% - Throh (Level 22, Forme: 0), 10% - Throh (Level 23, Forme: 0), 10% - Staravia (Level 22, Forme: 0), 10% - Staravia (Level 23, Forme: 0), 10% - Stunky (Level 21, Forme: 0), 10% - Chingling (Level 21, Forme: 0), 10% - Nidorino (Level 21, Forme: 0), 5% - Nidorina (Level 21, Forme: 0), 4% - Dedenne (Level 21, Forme: 0), 1% - Dedenne (Level 22, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Nidoran (Level 11, Forme: 0), Nidoran (Level 11, Forme: 0), Nidoran (Level 11, Forme: 0), Nidoran (Level 11, Forme: 0), Nidoran (Level 11, Forme: 0)
+Horde B (35%): Stunky (Level 11, Forme: 0), Stunky (Level 11, Forme: 0), Stunky (Level 11, Forme: 0), Stunky (Level 11, Forme: 0), Stunky (Level 11, Forme: 0)
+Horde C (5%): Starly (Level 12, Forme: 0), Starly (Level 12, Forme: 0), Starly (Level 12, Forme: 0), Starly (Level 12, Forme: 0), Starly (Level 12, Forme: 0)
+
+======
+Map 270 - Route 12
+======
+Grass: 10% - Slowpoke (Level 23, Forme: 0), 10% - Slowpoke (Level 24, Forme: 0), 10% - Slowpoke (Level 25, Forme: 0), 10% - Chatot (Level 23, Forme: 0), 10% - Chatot (Level 24, Forme: 0), 10% - Chatot (Level 25, Forme: 0), 10% - Miltank (Level 25, Forme: 0), 10% - Tauros (Level 25, Forme: 0), 10% - Exeggcute (Level 24, Forme: 0), 5% - Heracross (Level 25, Forme: 0), 4% - Pachirisu (Level 23, Forme: 0), 1% - Pachirisu (Level 24, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Dwebble (Level 23, Forme: 0), 30% - Binacle (Level 23, Forme: 0), 15% - Dwebble (Level 24, Forme: 0), 4% - Binacle (Level 25, Forme: 0), 1% - Dwebble (Level 25, Forme: 0)
+Yellow Flowers: 10% - Tauros (Level 25, Forme: 0), 10% - Tauros (Level 26, Forme: 0), 10% - Tauros (Level 27, Forme: 0), 10% - Miltank (Level 25, Forme: 0), 10% - Miltank (Level 26, Forme: 0), 10% - Miltank (Level 27, Forme: 0), 10% - Chatot (Level 27, Forme: 0), 10% - Slowpoke (Level 27, Forme: 0), 10% - Exeggcute (Level 26, Forme: 0), 5% - Heracross (Level 27, Forme: 0), 4% - Pachirisu (Level 25, Forme: 0), 1% - Pachirisu (Level 26, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Luvdisc (Level 15, Forme: 0), 35% - Luvdisc (Level 15, Forme: 0), 5% - Luvdisc (Level 15, Forme: 0)
+Good Rod: 60% - Remoraid (Level 25, Forme: 0), 35% - Clamperl (Level 25, Forme: 0), 5% - Remoraid (Level 25, Forme: 0)
+Super Rod: 60% - Corsola (Level 35, Forme: 0), 35% - Octillery (Level 35, Forme: 0), 5% - Gorebyss (Level 35, Forme: 0)
+Surf: 50% - Tentacool (Level 25, Forme: 0), 30% - Tentacool (Level 26, Forme: 0), 15% - Mantyke (Level 27, Forme: 0), 4% - Tentacool (Level 27, Forme: 0), 1% - Lapras (Level 27, Forme: 0)
+Horde A (60%): Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0)
+Horde B (35%): Mareep (Level 13, Forme: 0), Mareep (Level 13, Forme: 0), Mareep (Level 13, Forme: 0), Mareep (Level 13, Forme: 0), Mareep (Level 13, Forme: 0)
+Horde C (5%): Tauros (Level 14, Forme: 0), Tauros (Level 14, Forme: 0), Tauros (Level 14, Forme: 0), Miltank (Level 14, Forme: 0), Tauros (Level 14, Forme: 0)
+
+======
+Map 271 - Route 12
+======
+No encounters found.
+
+======
+Map 272 - Route 13
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - Dugtrio (Level 26, Forme: 0), 10% - Dugtrio (Level 27, Forme: 0), 10% - Dugtrio (Level 27, Forme: 0), 10% - Dugtrio (Level 28, Forme: 0), 10% - Trapinch (Level 26, Forme: 0), 10% - Trapinch (Level 27, Forme: 0), 10% - Trapinch (Level 27, Forme: 0), 10% - Trapinch (Level 28, Forme: 0), 10% - Gible (Level 26, Forme: 0), 5% - Gible (Level 27, Forme: 0), 4% - Gible (Level 27, Forme: 0), 1% - Gible (Level 28, Forme: 0)
+Rock Smash: 50% - Graveler (Level 26, Forme: 0), 30% - Slugma (Level 26, Forme: 0), 15% - Graveler (Level 27, Forme: 0), 4% - Slugma (Level 28, Forme: 0), 1% - Graveler (Level 28, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 273 - Route 14
+======
+Grass: 10% - Skorupi (Level 30, Forme: 0), 10% - Skorupi (Level 31, Forme: 0), 10% - Weepinbell (Level 31, Forme: 0), 10% - Weepinbell (Level 32, Forme: 0), 10% - Quagsire (Level 30, Forme: 0), 10% - Goomy (Level 30, Forme: 0), 10% - Karrablast (Level 30, Forme: 0), 10% - Shelmet (Level 30, Forme: 0), 10% - Carnivine (Level 30, Forme: 0), 5% - Haunter (Level 31, Forme: 0), 4% - Carnivine (Level 31, Forme: 0), 1% - Carnivine (Level 32, Forme: 0)
+Rough Terrain: 10% - Quagsire (Level 30, Forme: 0), 10% - Quagsire (Level 31, Forme: 0), 10% - Quagsire (Level 32, Forme: 0), 10% - Goomy (Level 31, Forme: 0), 10% - Goomy (Level 32, Forme: 0), 10% - Stunfisk (Level 31, Forme: 0), 10% - Stunfisk (Level 32, Forme: 0), 10% - Karrablast (Level 30, Forme: 0), 10% - Shelmet (Level 30, Forme: 0), 5% - Haunter (Level 31, Forme: 0), 4% - Carnivine (Level 31, Forme: 0), 1% - Carnivine (Level 32, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 15, Forme: 0), 35% - Poliwag (Level 15, Forme: 0), 5% - Poliwag (Level 15, Forme: 0)
+Good Rod: 60% - Barboach (Level 25, Forme: 0), 35% - Poliwhirl (Level 35, Forme: 0), 5% - Barboach (Level 35, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 35, Forme: 0), 35% - Whiscash (Level 35, Forme: 0), 5% - Poliwhirl (Level 35, Forme: 0)
+Surf: 50% - Quagsire (Level 30, Forme: 0), 30% - Stunfisk (Level 30, Forme: 0), 15% - Goomy (Level 31, Forme: 0), 4% - Stunfisk (Level 31, Forme: 0), 1% - Stunfisk (Level 32, Forme: 0)
+Horde A (60%): Bellsprout (Level 16, Forme: 0), Bellsprout (Level 16, Forme: 0), Bellsprout (Level 16, Forme: 0), Bellsprout (Level 16, Forme: 0), Bellsprout (Level 16, Forme: 0)
+Horde B (35%): Skorupi (Level 16, Forme: 0), Skorupi (Level 16, Forme: 0), Skorupi (Level 16, Forme: 0), Skorupi (Level 16, Forme: 0), Skorupi (Level 16, Forme: 0)
+Horde C (5%): Ekans (Level 17, Forme: 0), Ekans (Level 17, Forme: 0), Ekans (Level 17, Forme: 0), Ekans (Level 17, Forme: 0), Ekans (Level 17, Forme: 0)
+
+======
+Map 274 - Route 14
+======
+No encounters found.
+
+======
+Map 275 - Route 15
+======
+Grass: 10% - Liepard (Level 34, Forme: 0), 10% - Liepard (Level 35, Forme: 0), 10% - Liepard (Level 36, Forme: 0), 10% - Skorupi (Level 34, Forme: 0), 10% - Skorupi (Level 35, Forme: 0), 10% - Pawniard (Level 36, Forme: 0), 10% - Watchog (Level 36, Forme: 0), 10% - Foongus (Level 34, Forme: 0), 10% - Foongus (Level 35, Forme: 0), 5% - Klefki (Level 34, Forme: 0), 4% - Klefki (Level 35, Forme: 0), 1% - Klefki (Level 36, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - Watchog (Level 34, Forme: 0), 10% - Watchog (Level 35, Forme: 0), 10% - Watchog (Level 36, Forme: 0), 10% - Pawniard (Level 34, Forme: 0), 10% - Pawniard (Level 35, Forme: 0), 10% - Skorupi (Level 36, Forme: 0), 10% - Liepard (Level 36, Forme: 0), 10% - Foongus (Level 34, Forme: 0), 10% - Foongus (Level 35, Forme: 0), 5% - Klefki (Level 34, Forme: 0), 4% - Klefki (Level 35, Forme: 0), 1% - Klefki (Level 36, Forme: 0)
+Old Rod: 60% - Poliwag (Level 15, Forme: 0), 35% - Poliwag (Level 15, Forme: 0), 5% - Poliwag (Level 15, Forme: 0)
+Good Rod: 60% - Basculin (Level 25, Forme: 0), 35% - Poliwhirl (Level 25, Forme: 0), 5% - Basculin (Level 25, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 35, Forme: 0), 35% - Basculin (Level 35, Forme: 1), 5% - Poliwhirl (Level 35, Forme: 0)
+Surf: 50% - Lombre (Level 34, Forme: 0), 30% - Floatzel (Level 34, Forme: 0), 15% - Lombre (Level 35, Forme: 0), 4% - Floatzel (Level 36, Forme: 0), 1% - Lombre (Level 36, Forme: 0)
+Horde A (60%): Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0)
+Horde B (35%): Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0)
+Horde C (5%): Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0)
+
+======
+Map 276 - Route 16
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - Pumpkaboo (Level 34, Forme: 0), 10% - Pumpkaboo (Level 34, Forme: 0), 10% - Pumpkaboo (Level 35, Forme: 0), 10% - Pumpkaboo (Level 35, Forme: 1), 10% - Pumpkaboo (Level 36, Forme: 1), 10% - Pumpkaboo (Level 36, Forme: 2), 10% - Phantump (Level 35, Forme: 0), 10% - Foongus (Level 34, Forme: 0), 10% - Foongus (Level 36, Forme: 0), 5% - Klefki (Level 34, Forme: 0), 4% - Klefki (Level 35, Forme: 0), 1% - Pumpkaboo (Level 36, Forme: 3)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Weepinbell (Level 35, Forme: 0), 10% - Weepinbell (Level 36, Forme: 0), 10% - Skorupi (Level 34, Forme: 0), 10% - Skorupi (Level 35, Forme: 0), 10% - Floatzel (Level 35, Forme: 0), 10% - Floatzel (Level 36, Forme: 0), 10% - Phantump (Level 35, Forme: 0), 10% - Foongus (Level 34, Forme: 0), 10% - Foongus (Level 36, Forme: 0), 5% - Klefki (Level 34, Forme: 0), 4% - Klefki (Level 35, Forme: 0), 1% - Klefki (Level 36, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 15, Forme: 0), 35% - Poliwag (Level 15, Forme: 0), 5% - Poliwag (Level 15, Forme: 0)
+Good Rod: 60% - Basculin (Level 25, Forme: 0), 35% - Poliwhirl (Level 25, Forme: 0), 5% - Basculin (Level 25, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 35, Forme: 0), 35% - Basculin (Level 35, Forme: 1), 5% - Poliwhirl (Level 35, Forme: 0)
+Surf: 50% - Lombre (Level 34, Forme: 0), 30% - Floatzel (Level 34, Forme: 0), 15% - Lombre (Level 35, Forme: 0), 4% - Floatzel (Level 36, Forme: 0), 1% - Lombre (Level 36, Forme: 0)
+Horde A (60%): Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0), Murkrow (Level 18, Forme: 0)
+Horde B (35%): Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0), Foongus (Level 18, Forme: 0)
+Horde C (5%): Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0), Klefki (Level 19, Forme: 0)
+
+======
+Map 277 - Route 16
+======
+No encounters found.
+
+======
+Map 278 - Route 17
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - Snover (Level 38, Forme: 0), 10% - Snover (Level 39, Forme: 0), 10% - Snover (Level 39, Forme: 0), 10% - Sneasel (Level 39, Forme: 0), 10% - Delibird (Level 38, Forme: 0), 10% - Delibird (Level 39, Forme: 0), 10% - Delibird (Level 39, Forme: 0), 10% - Delibird (Level 40, Forme: 0), 10% - Sneasel (Level 38, Forme: 0), 5% - Sneasel (Level 40, Forme: 0), 4% - Sneasel (Level 40, Forme: 0), 1% - Abomasnow (Level 40, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 279 - Route 18
+======
+Grass: 10% - Gurdurr (Level 44, Forme: 0), 10% - Gurdurr (Level 45, Forme: 0), 10% - Gurdurr (Level 46, Forme: 0), 10% - Torkoal (Level 44, Forme: 0), 10% - Torkoal (Level 45, Forme: 0), 10% - Sandslash (Level 46, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Graveler (Level 45, Forme: 0), 5% - Graveler (Level 46, Forme: 0), 4% - Heatmor (Level 45, Forme: 0), 1% - Heatmor (Level 46, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Graveler (Level 44, Forme: 0), 30% - Graveler (Level 45, Forme: 0), 15% - Graveler (Level 46, Forme: 0), 4% - Shuckle (Level 44, Forme: 0), 1% - Shuckle (Level 46, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - Pupitar (Level 44, Forme: 0), 10% - Pupitar (Level 45, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Sandslash (Level 44, Forme: 0), 10% - Sandslash (Level 45, Forme: 0), 10% - Torkoal (Level 46, Forme: 0), 10% - Gurdurr (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Graveler (Level 45, Forme: 0), 5% - Graveler (Level 46, Forme: 0), 4% - Heatmor (Level 45, Forme: 0), 1% - Heatmor (Level 46, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0)
+Horde B (35%): Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0)
+Horde C (5%): Durant (Level 24, Forme: 0), Durant (Level 24, Forme: 0), Durant (Level 24, Forme: 0), Heatmor (Level 24, Forme: 0), Durant (Level 24, Forme: 0)
+
+======
+Map 280 - Route 18
+======
+No encounters found.
+
+======
+Map 281 - Route 19
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - Quagsire (Level 46, Forme: 0), 10% - Quagsire (Level 47, Forme: 0), 10% - Quagsire (Level 48, Forme: 0), 10% - Sliggoo (Level 47, Forme: 0), 10% - Sliggoo (Level 48, Forme: 0), 10% - Stunfisk (Level 47, Forme: 0), 10% - Stunfisk (Level 48, Forme: 0), 10% - Karrablast (Level 47, Forme: 0), 10% - Shelmet (Level 47, Forme: 0), 5% - Haunter (Level 47, Forme: 0), 4% - Carnivine (Level 46, Forme: 0), 1% - Carnivine (Level 48, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Quagsire (Level 46, Forme: 0), 10% - Quagsire (Level 47, Forme: 0), 10% - Quagsire (Level 48, Forme: 0), 10% - Sliggoo (Level 46, Forme: 0), 10% - Sliggoo (Level 47, Forme: 0), 10% - Weepinbell (Level 48, Forme: 0), 10% - Drapion (Level 48, Forme: 0), 10% - Karrablast (Level 47, Forme: 0), 10% - Shelmet (Level 47, Forme: 0), 5% - Haunter (Level 47, Forme: 0), 4% - Carnivine (Level 46, Forme: 0), 1% - Carnivine (Level 48, Forme: 0)
+Purple Flowers: 10% - Drapion (Level 46, Forme: 0), 10% - Drapion (Level 47, Forme: 0), 10% - Drapion (Level 48, Forme: 0), 10% - Weepinbell (Level 46, Forme: 0), 10% - Weepinbell (Level 47, Forme: 0), 10% - Sliggoo (Level 48, Forme: 0), 10% - Quagsire (Level 48, Forme: 0), 10% - Karrablast (Level 47, Forme: 0), 10% - Shelmet (Level 47, Forme: 0), 5% - Haunter (Level 47, Forme: 0), 4% - Carnivine (Level 46, Forme: 0), 1% - Carnivine (Level 48, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 25, Forme: 0), 35% - Poliwag (Level 25, Forme: 0), 5% - Poliwag (Level 25, Forme: 0)
+Good Rod: 60% - Barboach (Level 35, Forme: 0), 35% - Poliwhirl (Level 35, Forme: 0), 5% - Barboach (Level 35, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 45, Forme: 0), 35% - Whiscash (Level 45, Forme: 0), 5% - Politoed (Level 50, Forme: 0)
+Surf: 50% - Quagsire (Level 46, Forme: 0), 30% - Stunfisk (Level 46, Forme: 0), 15% - Sliggoo (Level 47, Forme: 0), 4% - Stunfisk (Level 48, Forme: 0), 1% - Sliggoo (Level 48, Forme: 0)
+Horde A (60%): Weepinbell (Level 24, Forme: 0), Weepinbell (Level 24, Forme: 0), Weepinbell (Level 24, Forme: 0), Weepinbell (Level 24, Forme: 0), Weepinbell (Level 24, Forme: 0)
+Horde B (35%): Gligar (Level 24, Forme: 0), Gligar (Level 24, Forme: 0), Gligar (Level 24, Forme: 0), Gligar (Level 24, Forme: 0), Gligar (Level 24, Forme: 0)
+Horde C (5%): Arbok (Level 25, Forme: 0), Arbok (Level 25, Forme: 0), Arbok (Level 25, Forme: 0), Arbok (Level 25, Forme: 0), Arbok (Level 25, Forme: 0)
+
+======
+Map 282 - Route 20
+======
+Grass: 10% - Noctowl (Level 48, Forme: 0), 10% - Noctowl (Level 49, Forme: 0), 10% - Noctowl (Level 50, Forme: 0), 10% - Jigglypuff (Level 48, Forme: 0), 10% - Jigglypuff (Level 49, Forme: 0), 10% - Trevenant (Level 50, Forme: 0), 10% - Gothorita (Level 50, Forme: 0), 10% - Amoonguss (Level 48, Forme: 0), 10% - Amoonguss (Level 49, Forme: 0), 5% - Amoonguss (Level 50, Forme: 0), 4% - Zoroark (Level 48, Forme: 0), 1% - Zoroark (Level 50, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - Gothorita (Level 48, Forme: 0), 10% - Gothorita (Level 49, Forme: 0), 10% - Gothorita (Level 50, Forme: 0), 10% - Trevenant (Level 48, Forme: 0), 10% - Trevenant (Level 49, Forme: 0), 10% - Jigglypuff (Level 50, Forme: 0), 10% - Noctowl (Level 50, Forme: 0), 10% - Amoonguss (Level 48, Forme: 0), 10% - Amoonguss (Level 49, Forme: 0), 5% - Amoonguss (Level 50, Forme: 0), 4% - Zoroark (Level 48, Forme: 0), 1% - Zoroark (Level 50, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0)
+Horde B (35%): Trevenant (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0)
+Horde C (5%): Trevenant (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0), Sudowoodo (Level 25, Forme: 0), Trevenant (Level 25, Forme: 0)
+
+======
+Map 283 - Route 21
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - Floatzel (Level 50, Forme: 0), 10% - Floatzel (Level 51, Forme: 0), 10% - Floatzel (Level 52, Forme: 0), 10% - Altaria (Level 50, Forme: 0), 10% - Altaria (Level 51, Forme: 0), 10% - Floatzel (Level 50, Forme: 0), 10% - Spinda (Level 50, Forme: 0), 10% - Spinda (Level 52, Forme: 0), 10% - Ursaring (Level 52, Forme: 0), 5% - Scyther (Level 50, Forme: 0), 4% - Scyther (Level 51, Forme: 0), 1% - Scyther (Level 52, Forme: 0)
+Red Flowers: 10% - Ursaring (Level 50, Forme: 0), 10% - Ursaring (Level 51, Forme: 0), 10% - Ursaring (Level 52, Forme: 0), 10% - Altaria (Level 50, Forme: 0), 10% - Altaria (Level 51, Forme: 0), 10% - Ursaring (Level 50, Forme: 0), 10% - Spinda (Level 50, Forme: 0), 10% - Spinda (Level 52, Forme: 0), 10% - Floatzel (Level 52, Forme: 0), 5% - Scyther (Level 50, Forme: 0), 4% - Scyther (Level 51, Forme: 0), 1% - Scyther (Level 52, Forme: 0)
+Old Rod: 60% - Poliwag (Level 30, Forme: 0), 35% - Poliwag (Level 30, Forme: 0), 5% - Poliwag (Level 30, Forme: 0)
+Good Rod: 60% - Basculin (Level 40, Forme: 0), 35% - Poliwhirl (Level 40, Forme: 0), 5% - Dratini (Level 40, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 50, Forme: 0), 35% - Basculin (Level 50, Forme: 0), 5% - Dragonair (Level 50, Forme: 0)
+Surf: 50% - Lombre (Level 50, Forme: 0), 30% - Floatzel (Level 50, Forme: 0), 15% - Lombre (Level 51, Forme: 0), 4% - Floatzel (Level 52, Forme: 0), 1% - Lombre (Level 52, Forme: 0)
+Horde A (60%): Spinda (Level 26, Forme: 0), Spinda (Level 26, Forme: 0), Spinda (Level 26, Forme: 0), Spinda (Level 26, Forme: 0), Spinda (Level 26, Forme: 0)
+Horde B (35%): Swablu (Level 26, Forme: 0), Swablu (Level 26, Forme: 0), Swablu (Level 26, Forme: 0), Swablu (Level 26, Forme: 0), Swablu (Level 26, Forme: 0)
+Horde C (5%): Scyther (Level 27, Forme: 0), Scyther (Level 27, Forme: 0), Scyther (Level 27, Forme: 0), Scyther (Level 27, Forme: 0), Scyther (Level 27, Forme: 0)
+
+======
+Map 284 - Route 21
+======
+No encounters found.
+
+======
+Map 285 - Route 22
+======
+Grass: 10% - Bunnelby (Level 5, Forme: 0), 10% - Bunnelby (Level 6, Forme: 0), 10% - Litleo (Level 5, Forme: 0), 10% - Litleo (Level 6, Forme: 0), 10% - Psyduck (Level 6, Forme: 0), 10% - Bidoof (Level 6, Forme: 0), 10% - Azurill (Level 6, Forme: 0), 10% - Azurill (Level 7, Forme: 0), 10% - Farfetch’d (Level 7, Forme: 0), 5% - Dunsparce (Level 7, Forme: 0), 4% - Riolu (Level 6, Forme: 0), 1% - Riolu (Level 7, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Bibarel (Level 26, Forme: 0), 10% - Bibarel (Level 27, Forme: 0), 10% - Psyduck (Level 25, Forme: 0), 10% - Psyduck (Level 26, Forme: 0), 10% - Litleo (Level 25, Forme: 0), 10% - Diggersby (Level 27, Forme: 0), 10% - Azumarill (Level 25, Forme: 0), 10% - Azumarill (Level 26, Forme: 0), 10% - Farfetch’d (Level 26, Forme: 0), 5% - Dunsparce (Level 26, Forme: 0), 4% - Riolu (Level 25, Forme: 0), 1% - Riolu (Level 26, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Magikarp (Level 15, Forme: 0), 35% - Magikarp (Level 15, Forme: 0), 5% - Magikarp (Level 15, Forme: 0)
+Good Rod: 60% - Goldeen (Level 25, Forme: 0), 35% - Carvanha (Level 25, Forme: 0), 5% - Goldeen (Level 25, Forme: 0)
+Super Rod: 60% - Gyarados (Level 35, Forme: 0), 35% - Seaking (Level 35, Forme: 0), 5% - Sharpedo (Level 35, Forme: 0)
+Surf: 50% - Psyduck (Level 25, Forme: 0), 30% - Psyduck (Level 26, Forme: 0), 15% - Psyduck (Level 27, Forme: 0), 4% - Azumarill (Level 25, Forme: 0), 1% - Azumarill (Level 27, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 286 - Santalune Forest
+======
+Grass: 10% - Scatterbug (Level 2, Forme: 30), 10% - Scatterbug (Level 3, Forme: 30), 10% - Caterpie (Level 2, Forme: 0), 10% - Caterpie (Level 3, Forme: 0), 10% - Fletchling (Level 4, Forme: 0), 10% - Pansage (Level 4, Forme: 0), 10% - Pansear (Level 4, Forme: 0), 10% - Panpour (Level 4, Forme: 0), 10% - Weedle (Level 2, Forme: 0), 5% - Pikachu (Level 3, Forme: 0), 4% - Metapod (Level 4, Forme: 0), 1% - Pikachu (Level 4, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 287 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 288 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 289 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 290 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 291 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 292 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 293 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 294 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 295 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 296 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 297 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 298 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 299 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 300 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 301 - Parfum Palace
+======
+No encounters found.
+
+======
+Map 302 - Parfum Palace
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Magikarp (Level 15, Forme: 0), 35% - Magikarp (Level 15, Forme: 0), 5% - Magikarp (Level 15, Forme: 0)
+Good Rod: 60% - Goldeen (Level 25, Forme: 0), 35% - Corphish (Level 25, Forme: 0), 5% - Goldeen (Level 25, Forme: 0)
+Super Rod: 60% - Gyarados (Level 35, Forme: 0), 35% - Seaking (Level 35, Forme: 0), 5% - Crawdaunt (Level 35, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 303 - Glittering Cave
+======
+Grass: 10% - Machop (Level 15, Forme: 0), 10% - Machop (Level 16, Forme: 0), 10% - Machop (Level 17, Forme: 0), 10% - Rhyhorn (Level 17, Forme: 0), 10% - Onix (Level 17, Forme: 0), 10% - Cubone (Level 15, Forme: 0), 10% - Cubone (Level 16, Forme: 0), 10% - Solrock (Level 17, Forme: 0), 10% - Lunatone (Level 17, Forme: 0), 5% - Kangaskhan (Level 17, Forme: 0), 4% - Mawile (Level 15, Forme: 0), 1% - Mawile (Level 16, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 304 - Glittering Cave
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Dwebble (Level 15, Forme: 0), 30% - Onix (Level 15, Forme: 0), 15% - Dwebble (Level 17, Forme: 0), 4% - Onix (Level 16, Forme: 0), 1% - Onix (Level 17, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 305 - Reflection Cave
+======
+Grass: 10% - Mr. Mime (Level 22, Forme: 0), 10% - Mr. Mime (Level 23, Forme: 0), 10% - Solosis (Level 22, Forme: 0), 10% - Solosis (Level 23, Forme: 0), 10% - Roggenrola (Level 21, Forme: 0), 10% - Roggenrola (Level 22, Forme: 0), 10% - Carbink (Level 23, Forme: 0), 10% - Chingling (Level 21, Forme: 0), 10% - Wobbuffet (Level 22, Forme: 0), 5% - Chingling (Level 22, Forme: 0), 4% - Sableye (Level 22, Forme: 0), 1% - Sableye (Level 23, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0)
+Horde B (35%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+Horde C (5%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Carbink (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+
+======
+Map 306 - Reflection Cave
+======
+Grass: 10% - Mr. Mime (Level 22, Forme: 0), 10% - Mr. Mime (Level 23, Forme: 0), 10% - Solosis (Level 22, Forme: 0), 10% - Solosis (Level 23, Forme: 0), 10% - Roggenrola (Level 21, Forme: 0), 10% - Roggenrola (Level 22, Forme: 0), 10% - Carbink (Level 23, Forme: 0), 10% - Chingling (Level 21, Forme: 0), 10% - Wobbuffet (Level 22, Forme: 0), 5% - Chingling (Level 22, Forme: 0), 4% - Sableye (Level 22, Forme: 0), 1% - Sableye (Level 23, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0)
+Horde B (35%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+Horde C (5%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Carbink (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+
+======
+Map 307 - Reflection Cave
+======
+Grass: 10% - Mr. Mime (Level 22, Forme: 0), 10% - Mr. Mime (Level 23, Forme: 0), 10% - Solosis (Level 22, Forme: 0), 10% - Solosis (Level 23, Forme: 0), 10% - Roggenrola (Level 21, Forme: 0), 10% - Roggenrola (Level 22, Forme: 0), 10% - Carbink (Level 23, Forme: 0), 10% - Chingling (Level 21, Forme: 0), 10% - Wobbuffet (Level 22, Forme: 0), 5% - Chingling (Level 22, Forme: 0), 4% - Sableye (Level 22, Forme: 0), 1% - Sableye (Level 23, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0)
+Horde B (35%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+Horde C (5%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Carbink (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+
+======
+Map 308 - Reflection Cave
+======
+Grass: 10% - Mr. Mime (Level 22, Forme: 0), 10% - Mr. Mime (Level 23, Forme: 0), 10% - Solosis (Level 22, Forme: 0), 10% - Solosis (Level 23, Forme: 0), 10% - Roggenrola (Level 21, Forme: 0), 10% - Roggenrola (Level 22, Forme: 0), 10% - Carbink (Level 23, Forme: 0), 10% - Chingling (Level 21, Forme: 0), 10% - Wobbuffet (Level 22, Forme: 0), 5% - Chingling (Level 22, Forme: 0), 4% - Sableye (Level 22, Forme: 0), 1% - Sableye (Level 23, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0), Mime Jr. (Level 11, Forme: 0)
+Horde B (35%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+Horde C (5%): Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0), Carbink (Level 11, Forme: 0), Roggenrola (Level 11, Forme: 0)
+
+======
+Map 309 - Poké Ball Factory
+======
+No encounters found.
+
+======
+Map 310 - Poké Ball Factory
+======
+No encounters found.
+
+======
+Map 311 - Poké Ball Factory
+======
+No encounters found.
+
+======
+Map 312 - Poké Ball Factory
+======
+No encounters found.
+
+======
+Map 313 - Frost Cavern
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 20, Forme: 0), 35% - Poliwag (Level 20, Forme: 0), 5% - Poliwag (Level 20, Forme: 0)
+Good Rod: 60% - Basculin (Level 30, Forme: 0), 35% - Poliwhirl (Level 30, Forme: 0), 5% - Basculin (Level 30, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 40, Forme: 0), 35% - Basculin (Level 40, Forme: 1), 5% - Poliwhirl (Level 40, Forme: 0)
+Surf: 50% - Poliwhirl (Level 38, Forme: 0), 30% - Floatzel (Level 38, Forme: 0), 15% - Poliwhirl (Level 39, Forme: 0), 4% - Floatzel (Level 40, Forme: 0), 1% - Poliwhirl (Level 40, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 314 - Frost Cavern
+======
+Grass: 10% - Piloswine (Level 38, Forme: 0), 10% - Piloswine (Level 39, Forme: 0), 10% - Bergmite (Level 39, Forme: 0), 10% - Bergmite (Level 40, Forme: 0), 10% - Beartic (Level 39, Forme: 0), 10% - Beartic (Level 40, Forme: 0), 10% - Jynx (Level 39, Forme: 0), 10% - Jynx (Level 40, Forme: 0), 10% - Haunter (Level 38, Forme: 0), 5% - Haunter (Level 39, Forme: 0), 4% - Cryogonal (Level 40, Forme: 0), 1% - Haunter (Level 40, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0)
+Horde B (35%): Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0)
+Horde C (5%): Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0)
+
+======
+Map 315 - Frost Cavern
+======
+Grass: 10% - Piloswine (Level 38, Forme: 0), 10% - Piloswine (Level 39, Forme: 0), 10% - Bergmite (Level 39, Forme: 0), 10% - Bergmite (Level 40, Forme: 0), 10% - Beartic (Level 39, Forme: 0), 10% - Beartic (Level 40, Forme: 0), 10% - Jynx (Level 39, Forme: 0), 10% - Jynx (Level 40, Forme: 0), 10% - Haunter (Level 38, Forme: 0), 5% - Haunter (Level 39, Forme: 0), 4% - Haunter (Level 40, Forme: 0), 1% - Haunter (Level 40, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 20, Forme: 0), 35% - Poliwag (Level 20, Forme: 0), 5% - Poliwag (Level 20, Forme: 0)
+Good Rod: 60% - Basculin (Level 30, Forme: 0), 35% - Poliwhirl (Level 30, Forme: 0), 5% - Basculin (Level 30, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 40, Forme: 0), 35% - Basculin (Level 40, Forme: 1), 5% - Poliwhirl (Level 40, Forme: 0)
+Surf: 50% - Poliwhirl (Level 38, Forme: 0), 30% - Floatzel (Level 38, Forme: 0), 15% - Poliwhirl (Level 39, Forme: 0), 4% - Floatzel (Level 40, Forme: 0), 1% - Poliwhirl (Level 40, Forme: 0)
+Horde A (60%): Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0)
+Horde B (35%): Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0)
+Horde C (5%): Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0)
+
+======
+Map 316 - Frost Cavern
+======
+Grass: 10% - Piloswine (Level 38, Forme: 0), 10% - Piloswine (Level 39, Forme: 0), 10% - Bergmite (Level 39, Forme: 0), 10% - Bergmite (Level 40, Forme: 0), 10% - Beartic (Level 39, Forme: 0), 10% - Beartic (Level 40, Forme: 0), 10% - Jynx (Level 39, Forme: 0), 10% - Jynx (Level 40, Forme: 0), 10% - Haunter (Level 38, Forme: 0), 5% - Haunter (Level 39, Forme: 0), 4% - Cryogonal (Level 40, Forme: 0), 1% - Haunter (Level 40, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0)
+Horde B (35%): Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0)
+Horde C (5%): Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0)
+
+======
+Map 317 - Frost Cavern
+======
+Grass: 10% - Piloswine (Level 38, Forme: 0), 10% - Piloswine (Level 39, Forme: 0), 10% - Bergmite (Level 39, Forme: 0), 10% - Bergmite (Level 40, Forme: 0), 10% - Beartic (Level 39, Forme: 0), 10% - Beartic (Level 40, Forme: 0), 10% - Jynx (Level 39, Forme: 0), 10% - Jynx (Level 40, Forme: 0), 10% - Haunter (Level 38, Forme: 0), 5% - Haunter (Level 39, Forme: 0), 4% - Cryogonal (Level 40, Forme: 0), 1% - Haunter (Level 40, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0), Vanillite (Level 20, Forme: 0)
+Horde B (35%): Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0), Cubchoo (Level 20, Forme: 0)
+Horde C (5%): Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0), Smoochum (Level 21, Forme: 0)
+
+======
+Map 318 - Pokémon Village
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - Gothorita (Level 48, Forme: 0), 10% - Gothorita (Level 49, Forme: 0), 10% - Gothorita (Level 50, Forme: 0), 10% - Ditto (Level 48, Forme: 0), 10% - Ditto (Level 49, Forme: 0), 10% - Jigglypuff (Level 50, Forme: 0), 10% - Noctowl (Level 50, Forme: 0), 10% - Amoonguss (Level 49, Forme: 0), 10% - Amoonguss (Level 50, Forme: 0), 5% - Zoroark (Level 48, Forme: 0), 4% - Zoroark (Level 49, Forme: 0), 1% - Zoroark (Level 50, Forme: 0)
+Purple Flowers: 10% - Noctowl (Level 48, Forme: 0), 10% - Noctowl (Level 49, Forme: 0), 10% - Noctowl (Level 50, Forme: 0), 10% - Jigglypuff (Level 48, Forme: 0), 10% - Jigglypuff (Level 49, Forme: 0), 10% - Ditto (Level 50, Forme: 0), 10% - Gothorita (Level 50, Forme: 0), 10% - Amoonguss (Level 49, Forme: 0), 10% - Amoonguss (Level 50, Forme: 0), 5% - Zoroark (Level 48, Forme: 0), 4% - Zoroark (Level 49, Forme: 0), 1% - Zoroark (Level 50, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 30, Forme: 0), 35% - Poliwag (Level 30, Forme: 0), 5% - Poliwag (Level 30, Forme: 0)
+Good Rod: 60% - Basculin (Level 40, Forme: 0), 35% - Poliwhirl (Level 40, Forme: 0), 5% - Basculin (Level 40, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 50, Forme: 0), 35% - Basculin (Level 50, Forme: 1), 5% - Poliwhirl (Level 50, Forme: 0)
+Surf: 50% - Lombre (Level 48, Forme: 0), 30% - Poliwhirl (Level 48, Forme: 0), 15% - Lombre (Level 49, Forme: 0), 4% - Poliwhirl (Level 50, Forme: 0), 1% - Lombre (Level 50, Forme: 0)
+Horde A (60%): Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0), Foongus (Level 25, Forme: 0)
+Horde B (35%): Poliwag (Level 25, Forme: 0), Poliwag (Level 25, Forme: 0), Poliwag (Level 25, Forme: 0), Poliwag (Level 25, Forme: 0), Poliwag (Level 25, Forme: 0)
+Horde C (5%): Lombre (Level 25, Forme: 0), Lombre (Level 25, Forme: 0), Lombre (Level 25, Forme: 0), Lombre (Level 25, Forme: 0), Lombre (Level 25, Forme: 0)
+
+======
+Map 319 - Unknown Dungeon
+======
+No encounters found.
+
+======
+Map 320 - Victory Road
+======
+No encounters found.
+
+======
+Map 321 - Pokémon League Gate
+======
+No encounters found.
+
+======
+Map 322 - Victory Road
+======
+Grass: 10% - Gurdurr (Level 57, Forme: 0), 10% - Gurdurr (Level 58, Forme: 0), 10% - Gurdurr (Level 59, Forme: 0), 10% - Druddigon (Level 58, Forme: 0), 10% - Druddigon (Level 59, Forme: 0), 10% - Haunter (Level 58, Forme: 0), 10% - Graveler (Level 57, Forme: 0), 10% - Graveler (Level 58, Forme: 0), 10% - Lickitung (Level 58, Forme: 0), 5% - Lickitung (Level 59, Forme: 0), 4% - Zweilous (Level 59, Forme: 0), 1% - Zweilous (Level 59, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Graveler (Level 57, Forme: 0), 30% - Graveler (Level 58, Forme: 0), 15% - Graveler (Level 59, Forme: 0), 4% - Shuckle (Level 57, Forme: 0), 1% - Shuckle (Level 59, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 35, Forme: 0), 35% - Poliwag (Level 35, Forme: 0), 5% - Poliwag (Level 35, Forme: 0)
+Good Rod: 60% - Basculin (Level 45, Forme: 0), 35% - Poliwhirl (Level 45, Forme: 0), 5% - Basculin (Level 45, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 55, Forme: 0), 35% - Basculin (Level 55, Forme: 1), 5% - Poliwhirl (Level 55, Forme: 0)
+Surf: 50% - Poliwhirl (Level 57, Forme: 0), 30% - Floatzel (Level 57, Forme: 0), 15% - Poliwhirl (Level 58, Forme: 0), 4% - Floatzel (Level 59, Forme: 0), 1% - Poliwhirl (Level 59, Forme: 0)
+Horde A (60%): Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0)
+Horde B (35%): Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0)
+Horde C (5%): Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0)
+
+======
+Map 323 - Victory Road
+======
+No encounters found.
+
+======
+Map 324 - Victory Road
+======
+Grass: 10% - Gurdurr (Level 57, Forme: 0), 10% - Gurdurr (Level 58, Forme: 0), 10% - Gurdurr (Level 59, Forme: 0), 10% - Druddigon (Level 58, Forme: 0), 10% - Druddigon (Level 59, Forme: 0), 10% - Haunter (Level 58, Forme: 0), 10% - Graveler (Level 57, Forme: 0), 10% - Graveler (Level 58, Forme: 0), 10% - Lickitung (Level 58, Forme: 0), 5% - Lickitung (Level 59, Forme: 0), 4% - Zweilous (Level 59, Forme: 0), 1% - Zweilous (Level 59, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Graveler (Level 57, Forme: 0), 30% - Graveler (Level 58, Forme: 0), 15% - Graveler (Level 59, Forme: 0), 4% - Shuckle (Level 57, Forme: 0), 1% - Shuckle (Level 59, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0)
+Horde B (35%): Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0)
+Horde C (5%): Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0)
+
+======
+Map 325 - Victory Road
+======
+No encounters found.
+
+======
+Map 326 - Victory Road
+======
+Grass: 10% - Gurdurr (Level 57, Forme: 0), 10% - Gurdurr (Level 58, Forme: 0), 10% - Gurdurr (Level 59, Forme: 0), 10% - Druddigon (Level 58, Forme: 0), 10% - Druddigon (Level 59, Forme: 0), 10% - Haunter (Level 58, Forme: 0), 10% - Graveler (Level 57, Forme: 0), 10% - Graveler (Level 58, Forme: 0), 10% - Lickitung (Level 58, Forme: 0), 5% - Lickitung (Level 59, Forme: 0), 4% - Zweilous (Level 59, Forme: 0), 1% - Zweilous (Level 59, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0)
+Horde B (35%): Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0), Graveler (Level 29, Forme: 0)
+Horde C (5%): Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0)
+
+======
+Map 327 - Victory Road
+======
+Grass: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 35, Forme: 0), 35% - Poliwag (Level 35, Forme: 0), 5% - Poliwag (Level 35, Forme: 0)
+Good Rod: 60% - Basculin (Level 45, Forme: 0), 35% - Poliwhirl (Level 45, Forme: 0), 5% - Basculin (Level 45, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 55, Forme: 0), 35% - Basculin (Level 55, Forme: 1), 5% - Poliwhirl (Level 55, Forme: 0)
+Surf: 50% - Lombre (Level 57, Forme: 0), 30% - Floatzel (Level 57, Forme: 0), 15% - Lombre (Level 58, Forme: 0), 4% - Floatzel (Level 59, Forme: 0), 1% - Lombre (Level 59, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 328 - Victory Road
+======
+Grass: 10% - Gurdurr (Level 57, Forme: 0), 10% - Gurdurr (Level 58, Forme: 0), 10% - Gurdurr (Level 59, Forme: 0), 10% - Druddigon (Level 58, Forme: 0), 10% - Druddigon (Level 59, Forme: 0), 10% - Haunter (Level 58, Forme: 0), 10% - Graveler (Level 57, Forme: 0), 10% - Graveler (Level 58, Forme: 0), 10% - Lickitung (Level 58, Forme: 0), 5% - Lickitung (Level 59, Forme: 0), 4% - Zweilous (Level 59, Forme: 0), 1% - Zweilous (Level 59, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Poliwag (Level 35, Forme: 0), 35% - Poliwag (Level 35, Forme: 0), 5% - Poliwag (Level 35, Forme: 0)
+Good Rod: 60% - Basculin (Level 45, Forme: 0), 35% - Poliwhirl (Level 45, Forme: 0), 5% - Basculin (Level 45, Forme: 0)
+Super Rod: 60% - Poliwhirl (Level 55, Forme: 0), 35% - Basculin (Level 55, Forme: 1), 5% - Poliwrath (Level 60, Forme: 0)
+Surf: 50% - Poliwhirl (Level 57, Forme: 0), 30% - Floatzel (Level 57, Forme: 0), 15% - Poliwhirl (Level 58, Forme: 0), 4% - Floatzel (Level 59, Forme: 0), 1% - Poliwhirl (Level 59, Forme: 0)
+Horde A (60%): Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0), Geodude (Level 28, Forme: 0)
+Horde B (35%): Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0), Floatzel (Level 29, Forme: 0)
+Horde C (5%): Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0), Lickitung (Level 30, Forme: 0)
+
+======
+Map 329 - Battle Chateau
+======
+No encounters found.
+
+======
+Map 330 - Battle Chateau
+======
+No encounters found.
+
+======
+Map 331 - Battle Chateau
+======
+No encounters found.
+
+======
+Map 332 - Battle Chateau
+======
+No encounters found.
+
+======
+Map 333 - Battle Chateau
+======
+No encounters found.
+
+======
+Map 334 - Connecting Cave
+======
+Grass: 10% - Whismur (Level 13, Forme: 0), 10% - Whismur (Level 14, Forme: 0), 10% - Whismur (Level 15, Forme: 0), 10% - Meditite (Level 13, Forme: 0), 10% - Meditite (Level 14, Forme: 0), 10% - Meditite (Level 15, Forme: 0), 10% - Zubat (Level 13, Forme: 0), 10% - Zubat (Level 14, Forme: 0), 10% - Zubat (Level 15, Forme: 0), 5% - Axew (Level 13, Forme: 0), 4% - Axew (Level 14, Forme: 0), 1% - Axew (Level 15, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Whismur (Level 7, Forme: 0), Whismur (Level 7, Forme: 0), Whismur (Level 7, Forme: 0), Whismur (Level 7, Forme: 0), Whismur (Level 7, Forme: 0)
+Horde B (35%): Zubat (Level 8, Forme: 0), Zubat (Level 8, Forme: 0), Zubat (Level 8, Forme: 0), Zubat (Level 8, Forme: 0), Zubat (Level 8, Forme: 0)
+Horde C (5%): Axew (Level 8, Forme: 0), Axew (Level 8, Forme: 0), Axew (Level 8, Forme: 0), Axew (Level 8, Forme: 0), Axew (Level 8, Forme: 0)
+
+======
+Map 335 - Kalos Power Plant
+======
+No encounters found.
+
+======
+Map 336 - Kalos Power Plant
+======
+No encounters found.
+
+======
+Map 337 - Kalos Power Plant
+======
+No encounters found.
+
+======
+Map 338 - Kalos Power Plant
+======
+No encounters found.
+
+======
+Map 339 - Team Flare Secret HQ
+======
+No encounters found.
+
+======
+Map 340 - Team Flare Secret HQ
+======
+No encounters found.
+
+======
+Map 341 - Team Flare Secret HQ
+======
+No encounters found.
+
+======
+Map 342 - Team Flare Secret HQ
+======
+No encounters found.
+
+======
+Map 343 - Terminus Cave
+======
+Grass: 10% - Pupitar (Level 45, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Sandslash (Level 45, Forme: 0), 10% - Sandslash (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 45, Forme: 0), 10% - Durant (Level 46, Forme: 0), 10% - Graveler (Level 44, Forme: 0), 5% - Graveler (Level 45, Forme: 0), 4% - Graveler (Level 46, Forme: 0), 1% - Graveler (Level 46, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Graveler (Level 44, Forme: 0), 30% - Graveler (Level 45, Forme: 0), 15% - Graveler (Level 46, Forme: 0), 4% - Shuckle (Level 44, Forme: 0), 1% - Shuckle (Level 46, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0)
+Horde B (35%): Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0)
+Horde C (5%): Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0)
+
+======
+Map 344 - Terminus Cave
+======
+Grass: 10% - Pupitar (Level 45, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Sandslash (Level 45, Forme: 0), 10% - Sandslash (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 45, Forme: 0), 10% - Durant (Level 46, Forme: 0), 10% - Graveler (Level 44, Forme: 0), 5% - Graveler (Level 45, Forme: 0), 4% - Graveler (Level 46, Forme: 0), 1% - Graveler (Level 46, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Graveler (Level 44, Forme: 0), 30% - Graveler (Level 45, Forme: 0), 15% - Graveler (Level 46, Forme: 0), 4% - Shuckle (Level 44, Forme: 0), 1% - Shuckle (Level 46, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0)
+Horde B (35%): Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0)
+Horde C (5%): Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0)
+
+======
+Map 345 - Terminus Cave
+======
+Grass: 10% - Pupitar (Level 45, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Sandslash (Level 45, Forme: 0), 10% - Sandslash (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 45, Forme: 0), 10% - Durant (Level 46, Forme: 0), 10% - Graveler (Level 44, Forme: 0), 5% - Graveler (Level 45, Forme: 0), 4% - Graveler (Level 46, Forme: 0), 1% - Graveler (Level 46, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Graveler (Level 44, Forme: 0), 30% - Graveler (Level 45, Forme: 0), 15% - Graveler (Level 46, Forme: 0), 4% - Shuckle (Level 44, Forme: 0), 1% - Shuckle (Level 46, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0)
+Horde B (35%): Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0)
+Horde C (5%): Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0)
+
+======
+Map 346 - Terminus Cave
+======
+No encounters found.
+
+======
+Map 347 - Terminus Cave
+======
+Grass: 10% - Pupitar (Level 45, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Sandslash (Level 45, Forme: 0), 10% - Sandslash (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 45, Forme: 0), 10% - Durant (Level 46, Forme: 0), 10% - Graveler (Level 44, Forme: 0), 5% - Graveler (Level 45, Forme: 0), 4% - Graveler (Level 46, Forme: 0), 1% - Graveler (Level 46, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0)
+Horde B (35%): Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0)
+Horde C (5%): Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0)
+
+======
+Map 348 - Terminus Cave
+======
+Grass: 10% - Pupitar (Level 45, Forme: 0), 10% - Pupitar (Level 46, Forme: 0), 10% - Sandslash (Level 45, Forme: 0), 10% - Sandslash (Level 46, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 44, Forme: 0), 10% - Durant (Level 45, Forme: 0), 10% - Durant (Level 46, Forme: 0), 10% - Graveler (Level 44, Forme: 0), 5% - Graveler (Level 45, Forme: 0), 4% - Graveler (Level 46, Forme: 0), 1% - Graveler (Level 46, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0), Durant (Level 23, Forme: 0)
+Horde B (35%): Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0), Geodude (Level 23, Forme: 0)
+Horde C (5%): Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0), Larvitar (Level 24, Forme: 0)
+
+======
+Map 349 - Lost Hotel
+======
+Grass: 10% - Magneton (Level 37, Forme: 0), 10% - Magneton (Level 38, Forme: 0), 10% - Pawniard (Level 36, Forme: 0), 10% - Pawniard (Level 37, Forme: 0), 10% - Litwick (Level 37, Forme: 0), 10% - Litwick (Level 38, Forme: 0), 10% - Electrode (Level 37, Forme: 0), 10% - Electrode (Level 38, Forme: 0), 10% - Klefki (Level 36, Forme: 0), 5% - Klefki (Level 37, Forme: 0), 4% - Klefki (Level 38, Forme: 0), 1% - Klefki (Level 38, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Good Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Super Rod: 60% - --- (Level 1, Forme: 0), 35% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0)
+Surf: 50% - --- (Level 1, Forme: 0), 30% - --- (Level 1, Forme: 0), 15% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Horde A (60%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde B (35%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+Horde C (5%): --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0), --- (Level 1, Forme: 0)
+
+======
+Map 350 - Chamber of Emptiness
+======
+No encounters found.
+
+======
+Map 351 - Sea Spirit’s Den
+======
+No encounters found.
+
+======
+Map 352 - Route 7
+======
+No encounters found.
+
+======
+Map 353 - Route 7
+======
+No encounters found.
+
+======
+Map 354 - Friend Safari
+======
+No encounters found.
+
+======
+Map 355 - Friend Safari
+======
+No encounters found.
+
+======
+Map 356 - Anistar City
+======
+No encounters found.
+
+======
+Map 357 - Azure Bay
+======
+Grass: 10% - Slowpoke (Level 25, Forme: 0), 10% - Slowpoke (Level 26, Forme: 0), 10% - Slowpoke (Level 27, Forme: 0), 10% - Chatot (Level 25, Forme: 0), 10% - Chatot (Level 26, Forme: 0), 10% - Chatot (Level 27, Forme: 0), 10% - Slowpoke (Level 27, Forme: 0), 10% - Inkay (Level 26, Forme: 0), 10% - Exeggcute (Level 26, Forme: 0), 5% - Inkay (Level 27, Forme: 0), 4% - Chatot (Level 27, Forme: 0), 1% - Chatot (Level 27, Forme: 0)
+Rough Terrain: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Rock Smash: 50% - Dwebble (Level 23, Forme: 0), 30% - Binacle (Level 23, Forme: 0), 15% - Dwebble (Level 24, Forme: 0), 4% - Binacle (Level 25, Forme: 0), 1% - Dwebble (Level 25, Forme: 0)
+Yellow Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Purple Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Red Flowers: 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 10% - --- (Level 1, Forme: 0), 5% - --- (Level 1, Forme: 0), 4% - --- (Level 1, Forme: 0), 1% - --- (Level 1, Forme: 0)
+Old Rod: 60% - Luvdisc (Level 15, Forme: 0), 35% - Luvdisc (Level 15, Forme: 0), 5% - Luvdisc (Level 15, Forme: 0)
+Good Rod: 60% - Remoraid (Level 25, Forme: 0), 35% - Chinchou (Level 25, Forme: 0), 5% - Remoraid (Level 25, Forme: 0)
+Super Rod: 60% - Alomomola (Level 35, Forme: 0), 35% - Octillery (Level 35, Forme: 0), 5% - Lanturn (Level 35, Forme: 0)
+Surf: 50% - Tentacool (Level 25, Forme: 0), 30% - Tentacool (Level 26, Forme: 0), 15% - Mantyke (Level 27, Forme: 0), 4% - Tentacool (Level 27, Forme: 0), 1% - Lapras (Level 27, Forme: 0)
+Horde A (60%): Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0), Wingull (Level 13, Forme: 0)
+Horde B (35%): Slowpoke (Level 13, Forme: 0), Slowpoke (Level 13, Forme: 0), Slowpoke (Level 13, Forme: 0), Slowpoke (Level 13, Forme: 0), Slowpoke (Level 13, Forme: 0)
+Horde C (5%): Exeggcute (Level 14, Forme: 0), Exeggcute (Level 14, Forme: 0), Exeggcute (Level 14, Forme: 0), Exeggcute (Level 14, Forme: 0), Exeggcute (Level 14, Forme: 0)
+
+======
+Map 358 - Battle Maison
+======
+No encounters found.
+
+======
+Map 359 - Lumiose City
+======
+No encounters found.
+

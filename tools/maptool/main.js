@@ -854,7 +854,7 @@ class NewRegionDialog {
 				// case 'tab3': return require('./romread').Gen3TableReader;
 				case 'tab4': return require('./romread').Gen4TableReader;
 				// case 'tab5': return require('./romread').Gen5TableReader;
-				// case 'tab6': return require('./romread').Gen6TableReader;
+				case 'tab6': return require('./romread').Gen6TableReader;
 				// case 'tab7': return require('./romread').Gen7TableReader;
 				default: throw new Error('Unsupported generation!');
 			}
