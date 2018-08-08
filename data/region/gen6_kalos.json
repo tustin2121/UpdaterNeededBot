@@ -138,6 +138,15 @@
 				"preposition": "in"
 			},
 			"areas": []
+		},
+		"lumiose": {
+			"type": "lumiose",
+			"attrs": {
+				"town": true,
+				"preposition": "in",
+				"the": ""
+			},
+			"areas": []
 		}
 	},
 	"nodes": [
@@ -640,7 +649,7 @@
 			{
 				"bank": 0,
 				"id": 33,
-				"name": "Dendemille Town",
+				"name": "Dendemille Town Pokémon Center",
 				"areaId": 76,
 				"areaName": "Dendemille Town",
 				"type": "center",
@@ -745,7 +754,7 @@
 			{
 				"bank": 0,
 				"id": 40,
-				"name": "Couriway Town",
+				"name": "Couriway Town Pokémon Center",
 				"areaId": 90,
 				"areaName": "Couriway Town",
 				"type": "center",
@@ -850,7 +859,7 @@
 			{
 				"bank": 0,
 				"id": 47,
-				"name": "Ambrette Town",
+				"name": "Ambrette Town Pokémon Center",
 				"areaId": 44,
 				"areaName": "Ambrette Town",
 				"type": "center",
@@ -970,7 +979,7 @@
 			{
 				"bank": 0,
 				"id": 55,
-				"name": "Santalune City",
+				"name": "Santalune City Pokémon Center",
 				"areaId": 18,
 				"areaName": "Santalune City",
 				"type": "center",
@@ -1090,10 +1099,10 @@
 			{
 				"bank": 0,
 				"id": 63,
-				"name": "Lumiose City",
+				"name": "Southern Boulevard",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1105,10 +1114,10 @@
 			{
 				"bank": 0,
 				"id": 64,
-				"name": "Lumiose City",
+				"name": "Southern Boulevard",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1120,10 +1129,10 @@
 			{
 				"bank": 0,
 				"id": 65,
-				"name": "Lumiose City",
+				"name": "Northern Boulevard",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1135,10 +1144,10 @@
 			{
 				"bank": 0,
 				"id": 66,
-				"name": "Lumiose City",
+				"name": "Northern Boulevard",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1150,13 +1159,16 @@
 			{
 				"bank": 0,
 				"id": 67,
-				"name": "Lumiose City",
+				"name": "plazas and alleyways",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "among",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "09001a00820039010900010005000100050001000e000100660043001604570b012c020000000f0064251400cde303021200000069000000"
@@ -1165,13 +1177,16 @@
 			{
 				"bank": 0,
 				"id": 68,
-				"name": "Lumiose City",
+				"name": "plazas and alleyways",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "among"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "09001a00820038010900010005000100050001000e000100670043001604570b012c020000000f0064250400c90c000000000000b50d0000"
@@ -1180,10 +1195,10 @@
 			{
 				"bank": 0,
 				"id": 69,
-				"name": "Lumiose City",
+				"name": "Centrico Plaza",
 				"areaId": 22,
 				"areaName": "Lumiose City",
-				"type": "town",
+				"type": "lumiose",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1270,7 +1285,7 @@
 			{
 				"bank": 0,
 				"id": 75,
-				"name": "Lumiose City",
+				"name": "Southern Lumiose Pokémon Center",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "center",
@@ -1285,7 +1300,7 @@
 			{
 				"bank": 0,
 				"id": 76,
-				"name": "Lumiose City",
+				"name": "Northern Lumiose Pokémon Center",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "center",
@@ -2530,7 +2545,7 @@
 			{
 				"bank": 0,
 				"id": 159,
-				"name": "Cyllage City",
+				"name": "Cyllage City Pokémon Center",
 				"areaId": 40,
 				"areaName": "Cyllage City",
 				"type": "center",
@@ -2755,7 +2770,7 @@
 			{
 				"bank": 0,
 				"id": 174,
-				"name": "Shalour City",
+				"name": "Shalour City Pokémon Center",
 				"areaId": 58,
 				"areaName": "Shalour City",
 				"type": "center",
@@ -2995,7 +3010,7 @@
 			{
 				"bank": 0,
 				"id": 190,
-				"name": "Coumarine City",
+				"name": "Coumarine City Pokémon Center",
 				"areaId": 64,
 				"areaName": "Coumarine City",
 				"type": "center",
@@ -3175,7 +3190,7 @@
 			{
 				"bank": 0,
 				"id": 202,
-				"name": "Laverre City",
+				"name": "Laverre City Pokémon Center",
 				"areaId": 70,
 				"areaName": "Laverre City",
 				"type": "center",
@@ -3355,7 +3370,7 @@
 			{
 				"bank": 0,
 				"id": 214,
-				"name": "Anistar City",
+				"name": "Anistar City Pokémon Center",
 				"areaId": 86,
 				"areaName": "Anistar City",
 				"type": "center",
@@ -3520,7 +3535,7 @@
 			{
 				"bank": 0,
 				"id": 225,
-				"name": "Snowbelle City",
+				"name": "Snowbelle City Pokémon Center",
 				"areaId": 94,
 				"areaName": "Snowbelle City",
 				"type": "center",
@@ -3655,7 +3670,7 @@
 			{
 				"bank": 0,
 				"id": 234,
-				"name": "Kiloude City",
+				"name": "Kiloude City Pokémon Center",
 				"areaId": 108,
 				"areaName": "Kiloude City",
 				"type": "center",
@@ -3797,7 +3812,9 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "lobby"
+					"e4": "lobby",
+					"the": "the",
+					"preposition": "at"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3807,7 +3824,7 @@
 			{
 				"bank": 0,
 				"id": 244,
-				"name": "Pokémon League",
+				"name": "League Pokémon Center",
 				"areaId": 106,
 				"areaName": "Pokémon League",
 				"type": "center",
@@ -3831,7 +3848,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "lobby"
+					"e4": "lobby",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3848,7 +3866,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "lobby"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3865,7 +3884,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3882,7 +3902,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3899,7 +3920,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3916,7 +3938,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3933,7 +3956,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3950,7 +3974,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3967,7 +3992,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -3984,7 +4010,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "e4"
+					"e4": "e4",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -4001,7 +4028,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "champ"
+					"e4": "champ",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -4018,7 +4046,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "champ"
+					"e4": "champ",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -4035,7 +4064,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"e4": "hallOfFame"
+					"e4": "hallOfFame",
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
@@ -4150,13 +4180,15 @@
 			{
 				"bank": 0,
 				"id": 265,
-				"name": "Route 7",
+				"name": "Route 7 Day Care",
 				"areaId": 38,
 				"areaName": "Route 7",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006a001c0053000d0001000500010005000100060001001d01080126001d04024802000000ffffe4260400e1000000000000004d010000"
@@ -4408,7 +4440,7 @@
 				"name": "Route 20",
 				"areaId": 96,
 				"areaName": "Route 20",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4468,7 +4500,7 @@
 				"name": "Santalune Forest",
 				"areaId": 14,
 				"areaName": "Santalune Forest",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4723,7 +4755,7 @@
 				"name": "Glittering Cave",
 				"areaId": 132,
 				"areaName": "Glittering Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4738,7 +4770,7 @@
 				"name": "Glittering Cave",
 				"areaId": 132,
 				"areaName": "Glittering Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4753,7 +4785,7 @@
 				"name": "Reflection Cave",
 				"areaId": 56,
 				"areaName": "Reflection Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4768,7 +4800,7 @@
 				"name": "Reflection Cave",
 				"areaId": 56,
 				"areaName": "Reflection Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4783,7 +4815,7 @@
 				"name": "Reflection Cave",
 				"areaId": 56,
 				"areaName": "Reflection Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4798,7 +4830,7 @@
 				"name": "Reflection Cave",
 				"areaId": 56,
 				"areaName": "Reflection Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4876,7 +4908,9 @@
 				"type": "outdoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "01000d00d400bf003b00010005000100050001000e000100db00390152044c03016c02000000ffff843f04002f04000000000000d7070000"
@@ -4888,7 +4922,7 @@
 				"name": "Frost Cavern",
 				"areaId": 82,
 				"areaName": "Frost Cavern",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4903,7 +4937,7 @@
 				"name": "Frost Cavern",
 				"areaId": 82,
 				"areaName": "Frost Cavern",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4918,7 +4952,7 @@
 				"name": "Frost Cavern",
 				"areaId": 82,
 				"areaName": "Frost Cavern",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4933,7 +4967,7 @@
 				"name": "Frost Cavern",
 				"areaId": 82,
 				"areaName": "Frost Cavern",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4948,7 +4982,7 @@
 				"name": "Pokémon Village",
 				"areaId": 98,
 				"areaName": "Pokémon Village",
-				"type": "outdoor",
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4963,10 +4997,12 @@
 				"name": "Unknown Dungeon",
 				"areaId": 168,
 				"areaName": "Unknown Dungeon",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002c00db00b9005400010005000100050001000e000100e1003e01a804dd01021c02000000ffff849204005f0100000000000037020000"
@@ -4996,7 +5032,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030062004f00b70042000100050001000500010006000100e3004001a000dd15020c020000001700748304004d01000000000000ad040000"
@@ -5008,7 +5046,7 @@
 				"name": "Victory Road",
 				"areaId": 104,
 				"areaName": "Victory Road",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5038,7 +5076,7 @@
 				"name": "Victory Road",
 				"areaId": 104,
 				"areaName": "Victory Road",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5068,7 +5106,7 @@
 				"name": "Victory Road",
 				"areaId": 104,
 				"areaName": "Victory Road",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5098,7 +5136,7 @@
 				"name": "Victory Road",
 				"areaId": 104,
 				"areaName": "Victory Road",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5116,7 +5154,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002a005100af004800010005000100050001000e000100eb00080130041d06024802000000ffffa42404007101000000000000dd010000"
@@ -5131,7 +5171,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03003a005200ae004800010005000100050001000e000100ec00080130001d06024802000000ffffa4240400290100000000000083010000"
@@ -5146,7 +5188,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002a005300ad004800010005000100050001000e000100ed00080130001d06024802000000ffffa4240400290100000000000083010000"
@@ -5161,7 +5205,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03003a005400ac004800010005000100050001000e000100ee00080130001d06024802000000ffffa42404002901000000000000e1000000"
@@ -5176,7 +5222,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03003a005500ab004800010005000100050001000e000100ef00080130001d06024802000000ffffa42404003b0100000000000071010000"
@@ -5188,11 +5236,25 @@
 				"name": "Connecting Cave",
 				"areaId": 134,
 				"areaName": "Connecting Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 12,
+						"ay": 20,
+						"bx": 12,
+						"by": 20,
+						"rad": 8,
+						"name": "Healing Scientist",
+						"attrs": {
+							"healing": "nurse"
+						}
+					}
+				],
 				"gamedata": {
 					"headerData": "03002c005600aa003d00010005000100050001000e000100f0004e018604dd01025c02000000ffff86b604004104000000000000b9010000"
 				}
@@ -5206,7 +5268,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030032005700a9003f00010005000100050001000e000100f1004f0188049d15024802000000ffff94a704001701000000000000ad040000"
@@ -5221,7 +5285,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002e00b100a8003f00010005000100050001000e000100f2004f0188009d15024802000000ffff94a70400e100000000000000cb010000"
@@ -5236,7 +5302,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03003b00b200a7003f00010005000100050001000e000100f3004f0188009d150248020000001d0094a704005b02000000000000b1030000"
@@ -5251,7 +5319,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002e00b300a6003f00010005000100050001000e000100f4004f0188009d15024802000000ffff94a70400e1000000000000004d010000"
@@ -5266,7 +5336,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030031005800a5004100010005000100050001000e000100f50015008a001d16024802000000ffff94810400d902000000000000f5040000"
@@ -5281,7 +5353,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300a7005900a4004100010005000100050001000e000100f60015008a001d16024802000000ffff94810400850500000000000025020000"
@@ -5296,7 +5370,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03003c005a00a3004100010005000100050001000e000100f70015008a009d15024802000000ffff94810400c70200000000000069030000"
@@ -5311,7 +5387,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030036005b00a2004100010005000100050001000e000100f80015008a049d15024802000000ffff9481040029010000000000003b010000"
@@ -5323,7 +5401,7 @@
 				"name": "Terminus Cave",
 				"areaId": 140,
 				"areaName": "Terminus Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5338,7 +5416,7 @@
 				"name": "Terminus Cave",
 				"areaId": 140,
 				"areaName": "Terminus Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5353,7 +5431,7 @@
 				"name": "Terminus Cave",
 				"areaId": 140,
 				"areaName": "Terminus Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5368,7 +5446,7 @@
 				"name": "Terminus Cave",
 				"areaId": 140,
 				"areaName": "Terminus Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5383,7 +5461,7 @@
 				"name": "Terminus Cave",
 				"areaId": 140,
 				"areaName": "Terminus Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5398,7 +5476,7 @@
 				"name": "Terminus Cave",
 				"areaId": 140,
 				"areaName": "Terminus Cave",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5413,10 +5491,12 @@
 				"name": "Lost Hotel",
 				"areaId": 142,
 				"areaName": "Lost Hotel",
-				"type": "indoor",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300300062009b003d00010005000100050001000e000100ff005d018e04dd15025c02000000ffffb4b70400e703000000000000a7010000"
@@ -5431,7 +5511,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002c00db009a005400010005000100050001000e00010000015e019004dd01021c02000000ffff84b604005f0100000000000037020000"
@@ -5446,7 +5528,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03002c00c10099005400010005000100050001000e00010001015f019204dd01021c02000000ffff849204004d0100000000000083010000"
@@ -5476,7 +5560,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006a0075007e000700010005000100050001000e0001000301080126001d04024802000000ffffa4270400750000000000000099000000"
@@ -5536,7 +5622,9 @@
 				"type": "outdoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "01000a00040000003a00010005000100050001000c000100670165017004c802016c02000000ffffc43704008529000000000000451e0000"
@@ -5560,7 +5648,7 @@
 			{
 				"bank": 0,
 				"id": 359,
-				"name": "Lumiose City",
+				"name": "Central Lumiose Pokémon Center",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "center",

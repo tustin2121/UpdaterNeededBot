@@ -4,7 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const {
 	ApiDisturbance, BadgeGet,
-	BattleContext, BattleStarted, BattleEnded,
+	BattleContext, BattleStarted, BattleEnded, 
+	EnemyFainted, EnemySentOut,
 	BlackoutContext,
 } = require('../ledger');
 
@@ -55,6 +56,20 @@ class BattleModule extends ReportingModule {
 			LOGGER.debug(`moves=`, cb.party.map(x=>x.moveInfo));
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
+			}
+			if (pb.in_battle && pb.party && pb.attemptId === cb.attemptId) {
+				// We must assume that an enemy party never switches positions, because we have no match the pokemon otherwise
+				for (let i = 0; i < cb.party; i++) {
+					let penemy = pb.party[i];
+					let cenemy = sb.party[i];
+					
+					if (penemy.hp > 0 && cenemy.hp === 0) {
+						ledger.addItem(new EnemyFainted(cb, cenemy, prev.party[0]));
+					}
+					if (!penemy.active && cenemy.active) {
+						ledger.addItem(new EnemySentOut(cb, cenemy, curr.party[0]));
+					}
+				}
 			}
 		}
 		
@@ -140,7 +155,7 @@ if (!!Bot.gameInfo().regionMap) {
 		.then(ledger=>ledger.mark(0))
 	);
 	RULES.push(new Rule(`Check for reports for battle ending.`)
-		.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').unmarked())
+		.when(ledger=>ledger.has('BattleEnded').notOfFlavor('ending').unmarked())
 		.when(ledger=>{
 			const region = Bot.gameInfo().regionMap;
 			const currTime = Date.now();
@@ -186,7 +201,7 @@ RULES.push(new Rule(`Don't report a won battle after a blackout`)
 );
 
 RULES.push(new Rule(`Don't report battles ending due to blackout`)
-	.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').ofImportance())
+	.when(ledger=>ledger.has('BattleEnded').notOfFlavor('ending').ofImportance())
 	.when(ledger=>ledger.has('Blackout'))
 	.then(ledger=>{
 		ledger.demote(0, 2);

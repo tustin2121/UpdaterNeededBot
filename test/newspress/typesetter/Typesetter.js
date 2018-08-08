@@ -290,21 +290,6 @@ describe('TypeSetter', function(){
 			}
 		});
 		
-		it('BattleStarted', function(){
-			const { BattleStarted } = LEDGER_ITEMS;
-			const battle = { //emulates SortedBattle
-				isImportant: true,
-				displayName: `Leader Misty`,
-			};
-			
-			const exp = `<b>Vs Leader Misty!</b> Attempt #5!`;
-			const item = new BattleStarted(battle, 5);
-			
-			const str = typesetter.typesetItems([item]);
-			
-			str.should.be.exactly(exp);
-		});
-		
 		it('GainItem', function(){
 			const { GainItem } = LEDGER_ITEMS;
 			const { Item } = POKEDATA;
@@ -322,9 +307,10 @@ describe('TypeSetter', function(){
 			str.should.be.exactly(exp);
 		});
 		
-		it('UsedBallInBattle : trainer', function(){
+		it('UsedBallInBattle : trainer (Trainer Class Lists)', function(){
 			const { UsedBallInBattle } = LEDGER_ITEMS;
 			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { m:{4:true}, f:{}, p:{}, });
 			const battle = new SortedBattle({
 				enemy_trainer: {
 					class_id: 4,
@@ -339,8 +325,38 @@ describe('TypeSetter', function(){
 					}
 				],
 			});
-			battle.isImportant = true;
-			Bot.setOpt('trainerClasses', { m:{4:true}, f:{}, p:{}, });
+			battle.isImportant = true; //hack
+        	setRandom(0);
+			
+			const exp = `We toss a Poke Ball at the trainer's pokemon, but he blocks the ball. Don't be a thief!`;
+			const item = new UsedBallInBattle({name:'Poke Ball'}, battle);
+			item.flavor = 'trainer';
+        
+			const str = typesetter.typesetItems([item]);
+        
+			str.should.be.exactly(exp);
+		});
+		
+		it('UsedBallInBattle : trainer (Individual Class Info)', function(){
+			const { UsedBallInBattle } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { info:[ {}, {}, {}, {},
+				{ id:4, gender:'m', name: "Youngster", important:true, } 
+			] });
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 4,
+					class_name: 'Youngster',
+					name: 'Joey',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Rattata' },
+					}
+				],
+			});
         	setRandom(0);
 			
 			const exp = `We toss a Poke Ball at the trainer's pokemon, but he blocks the ball. Don't be a thief!`;

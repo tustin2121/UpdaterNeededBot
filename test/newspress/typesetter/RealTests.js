@@ -34,6 +34,147 @@ describe('Real-World Tests', function(){
 			res.should.equal(`<b>222 (Quilava) has fainted!</b> <b>BLACKED OUT!</b>`);
 		});
 	});
+	
+	describe('Selecting Item Flavors', function(){
+		const log = {
+			typesetterInput(){},
+			typesetterFormat(){},
+			typesetterOutput(){},
+		};
+		let typesetter;
+		beforeEach(function(){
+			let curr = new POKEDATA.SortedData({ data:{party:[], pc:{}} });
+			typesetter = new TYPESET.TypeSetter(curr, log);
+		});
+		
+		it('BattleStarted (Leader, Trainer Class Lists)', function(){
+			const { BattleStarted } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { leader:{12:true}, m:{}, f:{12:true}, p:{}, });
+			
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 12,
+					class_name: 'Leader',
+					name: 'Misty',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Starmie' },
+					}
+				],
+			});
+			
+			const exp = `<b>Vs Leader Misty!</b> Attempt #5!`;
+			const item = new BattleStarted(battle, 5);
+			item.importance.should.be.exactly(2);
+			
+			const str = typesetter.typesetItems([item]);
+			
+			str.should.be.exactly(exp);
+		});
+		
+		it('BattleStarted (Leader, Individual Class Info)', function(){
+			const { BattleStarted } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { info:[ {}, {}, 
+				{ id:2, gender:'f', name: "Leader", important:'leader', } 
+			] });
+			
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 2,
+					class_name: 'Leader',
+					name: 'Misty',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Starmie' },
+					}
+				],
+			});
+			
+			const exp = `<b>Vs Leader Misty!</b> Attempt #5!`;
+			const item = new BattleStarted(battle, 5);
+			item.importance.should.be.exactly(2);
+			
+			const str = typesetter.typesetItems([item]);
+			
+			str.should.be.exactly(exp);
+		});
+		
+		it('BattleStarted (Trainer, Trainer Class Lists)', function(){
+			const { BattleStarted } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { m:{6:true}, f:{}, p:{}, });
+			
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 6,
+					class_name: 'Bug Catcher',
+					name: 'Wade',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Weedle' },
+					}
+				],
+			});
+			
+			typesetter.setRandom(1, 1);
+			
+			const exp = `We get spotted by an eager Bug\xA0Catcher named Wade, and begin a battle against his Weedle.`;
+			const item = new BattleStarted(battle, 0);
+			item.importance.should.be.exactly(0.9);
+			item.flavor.should.be.exactly('unimportant');
+			
+			item.importance = 1;
+			const str = typesetter.typesetItems([item]);
+			
+			str.should.be.exactly(exp);
+		});
+		
+		it('BattleStarted (Trainer, Individual Class Info)', function(){
+			const { BattleStarted } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { info:[ {}, {}, 
+				{ id:2, gender:'m', name: "Bug Catcher", } 
+			] });
+			
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 2,
+					class_name: 'Bug Catcher',
+					name: 'Wade',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Weedle' },
+					}
+				],
+			});
+			
+			typesetter.setRandom(1, 1);
+			
+			const exp = `We get spotted by an eager Bug\xA0Catcher named Wade, and begin a battle against his Weedle.`;
+			const item = new BattleStarted(battle, 0);
+			item.importance.should.be.exactly(0.9);
+			item.flavor.should.be.exactly('unimportant');
+			
+			item.importance = 1;
+			const str = typesetter.typesetItems([item]);
+			
+			str.should.be.exactly(exp);
+		});
+	});
 });
 
 

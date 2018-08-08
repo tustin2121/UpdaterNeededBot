@@ -165,6 +165,8 @@ module.exports = {
 	moveId_surf: 57,
 	moveId_fly: 19,
 	
+	trainerId_joey: 0,
+	
 	// Capacity of a PC box
 	pcBoxCapacity: 30,
 	// If a full PC box rolls new pokemon into the next box

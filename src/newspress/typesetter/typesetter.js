@@ -152,7 +152,7 @@ function printObject(obj) {
 	const AN_NUMS = [undefined, '{an}'];
 	const NUM_NUMS = []; //off the end of the array are normal numbers, thus empty array
 	const SOME_NUMS = new Proxy([], { get:(target, prop)=>{
-		console.log(typeof prop, prop, '|', target, typeof target);
+		LOGGER.debug('SOME_NUMS:', typeof prop, prop, '|', target, typeof target);
 		let num = Number.parseInt(prop, 10);
 		if (Number.isNaN(num) || num < 0) return undefined;
 		if (num === 0) return 'no';
@@ -253,7 +253,7 @@ function printObject(obj) {
 	function printSpecies(){
 		return function(mon){
 			mon = mon || this.subject || this.noun;
-			if (!(mon instanceof Pokemon)) return false;
+			if (!mon.species) return false;
 			if (this._setNoun) this.noun = mon;
 			if (this._setSubject) this.subject = mon;
 			let txt = mon.species;
@@ -267,6 +267,20 @@ function printObject(obj) {
 		'Mon': printSpecies(),
 		'mon': printSpecies(),
 	});
+}{
+	function printClass(){
+		return function(item){
+			item = item || this.subject || this.noun;
+			if (!item.className) return false;
+			if (this._setNoun) this.noun = item;
+			if (this._setSubject) this.subject = item;
+			return item.className;
+		}
+	}
+	Object.assign(FORMAT_FNS, {
+		'trainer class': printClass(),
+		'trainerClass': printClass(),
+	});
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -276,11 +290,11 @@ function printObject(obj) {
 		return function(obj) {
 			obj = obj || this.subject || this.noun;
 			LOGGER.debug(`determineGender: obj=${obj} | ${typeof obj}`);
-			if (obj === undefined) return plural;
 			if (typeof obj === 'number') {
 				if (obj === 1) return neuter;
 				return plural;
 			}
+			if (!obj) return plural;
 			if (obj instanceof Pokemon) {
 				LOGGER.debug(`determineGender: is Pokemon: ${obj.gender}`);
 				switch(obj.gender) {
@@ -295,7 +309,8 @@ function printObject(obj) {
 				switch(obj.gender.toLowerCase()) {
 					case 'm': case 'male': return male;
 					case 'f': case 'female': return female;
-					case 't': case 'they': case 'plural': return plural;
+					case 't': case 'they': 
+					case 'p': case 'plural': return plural;
 					case 'i': case 'it': return plural;
 					case 'o': case 'opposite': {
 						let gender = this.curr_api.playerGender;

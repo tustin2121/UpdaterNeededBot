@@ -289,6 +289,123 @@ describe('Rule', function(){
 		});
 	});
 	
+	describe('RuleInstance#without', function(){
+		let ledger;
+		beforeEach(function(){
+			ledger = createTestLedger([
+				new TestItem1('hello'), //0
+				new TestItem1({'c':'world'}), //1
+				new TestItem1({'c':'help'}), //2
+				new TestItem1('hello'), //3
+				new TestItem1('world'), //4
+				new TestItem1({'c':'world'}), //5
+				new TestItem1(0), //6
+				new TestItem1('hello'), //7
+			]);
+		});
+		
+		it('filters items found with has()', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[1],
+					ledger.list[2],
+					ledger.list[4],
+					ledger.list[5],
+					ledger.list[6],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').without('a','hello'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('works with falsy values', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[0],
+					ledger.list[1],
+					ledger.list[2],
+					ledger.list[3],
+					ledger.list[4],
+					ledger.list[5],
+					ledger.list[7],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').without('a',0))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can take multiple values (as params)', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[1],
+					ledger.list[2],
+					ledger.list[5],
+					ledger.list[6],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').without('a','world','hello'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can take multiple values (as array)', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[1],
+					ledger.list[2],
+					ledger.list[5],
+					ledger.list[6],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').without('a',['world','hello']))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+		it('can take dotted properties', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[0],
+					ledger.list[2],
+					ledger.list[3],
+					ledger.list[6],
+					ledger.list[7],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1').without('a.c','world','hello'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
+	});
+	
 	describe('RuleInstance#withSame', function(){
 		let ledger;
 		beforeEach(function(){

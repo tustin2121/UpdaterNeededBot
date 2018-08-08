@@ -74,7 +74,7 @@ module.exports = {
 	},
 	
 	UsedBallInBattle: {
-		__meta__: { sort:10 }, //before PokemonGained
+		__meta__: { sort:100 }, //before PokemonGained
 		default: {
 			single: [
 				`We {{rand|toss|throw|fling}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
@@ -101,7 +101,7 @@ module.exports = {
 		],
 	},
 	UsedItemOnMon: {
-		__meta__: { sort:10 }, //before move learns and stuff
+		__meta__: { sort:100 }, //before move learns and stuff
 		//
 		default: [
 			`<b>We use {{an item|@item}} on {{@target}}!</b>`,

@@ -627,12 +627,17 @@ class SortedBattle {
 					'className': (t.class_name)?correctCase(sanatizeName(t.class_name)):'', //Not used in gen 1
 					'name': correctCase(sanatizeName(t.name)),
 				};
-				if (Bot.runOpts('trainerClasses')) {
-					let cls = Bot.runOpts('trainerClasses');
-					if (cls.m[data.class]) data.gender = 'male';
-					else if (cls.f[data.class]) data.gender = 'female';
-					else if (cls.p[data.class]) data.gender = 'plural';
-					else data.gender = 'neuter';
+				if (Bot.runOpts('trainerClasses', game)) {
+					let cls = Bot.runOpts('trainerClasses', game);
+					if (cls.info) { //Check for individual info first
+						let info = cls.info[t.class_id];
+						data.gender = info.gender;
+					} else {
+						if (cls.m[data.class]) data.gender = 'male';
+						else if (cls.f[data.class]) data.gender = 'female';
+						else if (cls.p[data.class]) data.gender = 'plural';
+						else data.gender = 'neuter';
+					}
 				}
 				this.trainer.push(data);
 			}
@@ -647,6 +652,7 @@ class SortedBattle {
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
 					poke = new Pokemon(p, game);
+					if (p.active !== undefined) poke.active = p.active;
 				} else {
 					poke = {
 						active: p.active,
@@ -661,28 +667,21 @@ class SortedBattle {
 		}
 		else if (data.wild_species) {
 			this.party = [];
-			if (Array.isArray(data.wild_species)) {
-				for (let p of data.wild_species) {
-					let poke = {
+			let wild_species = data.wild_species;
+			if (!Array.isArray(wild_species)) wild_species = [wild_species];
+			for (let p of wild_species) {
+				let poke;
+				if (Bot.runOpts('fullEnemyInfo')) {
+					poke = new Pokemon(p, game);
+					if (p.active !== undefined) poke.active = p.active;
+				} else {
+					poke = {
 						active: true,
 						// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
 						species: p.name,
 						dexid: read(p, 'national_dex', 'id'),
 					};
-					if (p.health) { //hack
-						poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
-						if (p.health[0] === 0) poke.hp = 0;
-					}
-					this.party.push(poke);
 				}
-			} else {
-				let p = data.wild_species;
-				let poke = {
-					active: true,
-					// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-					species: p.name,
-					dexid: read(p, 'national_dex', 'id'),
-				};
 				if (p.health) { //hack
 					poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
 					if (p.health[0] === 0) poke.hp = 0;
@@ -704,11 +703,22 @@ class SortedBattle {
 			if (type) this.classes[type] = true;
 		}
 		else if (Array.isArray(this.trainer)) {
-			let types = Bot.runOpts('trainerClasses', game);
-			for (let type in types) {
+			let cls = Bot.runOpts('trainerClasses', game);
+			if (cls.info) {
 				for (let trainer of this.trainer) {
-					this.classes[type] = !!types[type][trainer.class];
-					this.isImportant |= this.classes[type];
+					let info = cls.info[trainer.class];
+					this.isImportant = !!info.important;
+					if (typeof info.important === 'string') {
+						this.classes[info.important] = true;
+					}
+				}
+			} else {
+				for (let type in cls) {
+					if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+					for (let trainer of this.trainer) {
+						this.classes[type] = !!cls[type][trainer.class];
+						this.isImportant |= this.classes[type];
+					}
 				}
 			}
 		}
@@ -754,6 +764,16 @@ class SortedBattle {
 			}
 		}
 		return name.join(';');
+	}
+	
+	checkSpecialTrainers() {
+		if (Array.isArray(this.trainer)) {
+			for (let trainer of this.trainer) {
+				if (trainer.id === 0) continue; //skip
+				if (Bot.runOpts('trainerId_joey') === trainer.id) return 'joey';
+			}
+		}
+		return undefined;
 	}
 	
 	toXml(hkey) {

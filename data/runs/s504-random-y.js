@@ -17,18 +17,6 @@ module.exports = {
 		// A list of game corrections and options
 		opts: {
 			// see /data/genopts
-			rivalName: "Cobolt",
-			
-			trainerClasses: {
-				// The following have special handling available
-				rival: [103,55],
-				leader: [4,39,40,41,42,43,44,45,177],
-				e4: [35,36,37,38],
-				champ: [53],
-				m: [], // Male trainer classes
-				f: [], // Female trainer classes
-				p: [], // Plural trainer classes
-			},
 		},
 	},
 	

@@ -150,6 +150,37 @@ class RuleInstance {
 		return this;
 	}
 	/**
+	 * Filters a previously found list of items to ones without the given property set to
+	 * one of the the given values (or without the given property altogether).
+	 */
+	without(prop, ...val) {
+		if (this.lastResult === false) return this; //do nothing
+		if (!this.workingList || !this.workingList.length) {
+			this.lastResult = false;
+			return this;
+		}
+		if (val.length === 1 && Array.isArray(val[0])) val = val[0];
+		let props = prop.split('.');
+		let vals = new Set(val);
+		let list = this.workingList;
+		this.workingList = [];
+		outerLoop:
+		for (let item of list) {
+			let p = item;
+			for (let pp of props) {
+				if (p[pp] === undefined) {
+					this.workingList.push(item);
+					continue outerLoop;
+				} 
+				p = p[pp];
+			}
+			if (vals.has(p)) continue outerLoop;
+			this.workingList.push(item);
+		}
+		this.lastResult = (this.workingList.length > 0);
+		return this;
+	}
+	/**
 	 * Filters a previously found list of items to ones with the same property as a given previous
 	 * match. This function may reduce the size of the previous match.
 	 */
@@ -227,6 +258,9 @@ class RuleInstance {
 		return this;
 	}
 	
+	notOfFlavor(flavor) {
+		return this.without('flavor', flavor);
+	}
 	ofFlavor(flavor) {
 		return this.with('flavor', flavor);
 	}

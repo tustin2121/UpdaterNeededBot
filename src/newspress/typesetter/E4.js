@@ -5,7 +5,7 @@ module.exports = {
 	E4RunContext: null,
 	
 	E4BeginRun: {
-		__meta__: { sort:-10 },
+		__meta__: { sort:-200 }, //After "rip E4 run"
 		// attempt = the e4 attempt number
 		// champ = the champion attempt number
 		// rematch = the rematch count
@@ -33,7 +33,7 @@ module.exports = {
 		],
 	},
 	E4EndRun: {
-		__meta__: { sort:10 },
+		__meta__: { sort:-108 }, //After "Blackout!", before MapChanged
 		// attempt = the e4 attempt number
 		// champ = the champion attempt number
 		// rematch = the rematch count

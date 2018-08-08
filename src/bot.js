@@ -60,6 +60,10 @@ class UpdaterBot extends EventEmitter {
 				if (game.opts['trainerClasses']) {
 					let trc = {};
 					for (let cl in game.opts['trainerClasses']) {
+						if (cl === 'info') { //pass through trainer class array
+							trc[cl] = game.opts['trainerClasses'][cl];
+							continue;
+						}
 						let set = {};
 						for (let id of game.opts['trainerClasses'][cl]) {
 							set[id] = true;
