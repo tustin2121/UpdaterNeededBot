@@ -52,8 +52,8 @@ class Rule {
 		// The results to be run on the items selected.
 		this.resultBlocks = [];
 	}
-	apply(ledger, memory) {
-		let inst = new RuleInstance(this, ledger, memory);
+	apply(ledger, module) {
+		let inst = new RuleInstance(this, ledger, module);
 		LOGGER.trace(`Testing rule "${this.name}"`);
 		for (let cond of this.conditions) {
 			let res = cond(inst);
@@ -85,10 +85,11 @@ class Rule {
 }
 /** The currently running instance of a rule that is being applied on the second pass. */
 class RuleInstance {
-	constructor(rule, ledger, memory) {
+	constructor(rule, ledger, module) {
 		this.rule = rule;
 		this.ledger = ledger;
-		this.memory = memory;
+		this.module = module;
+		this.memory = module && module.memory;
 		this.matchedItems = [];
 		
 		this.workingList = null;

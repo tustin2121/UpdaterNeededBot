@@ -6,6 +6,7 @@ const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
 const REQ_COOLDOWN = 1000*30; // 30 seconds
 
+const HELP_URL = `https://github.com/tustin2121/UpdaterNeededBot/blob/s05-randomy/Bot%20Commands.md`;
 const MY_MENTION_ID = '<@303732710185369601>';
 let lastReq = 0;
 
@@ -66,11 +67,24 @@ const HANDLER = {
 			lastTg = ` (for ${printElapsedTime(lastTg)})`;
 		}
 		
-		let apid = Date.now() - Bot.lastApiDisturbance;
-		if (Number.isNaN(apid)) {
-			apid = 'NaN';
+		let apid = Bot.memory.lastApiDisturbance;
+		if (apid) {
+			let apiTS = Date.now() - apid.timestamp;
+			if (Number.isNaN(apiTS)) {
+				apiTS = 'NaN';
+			} else {
+				apiTS = `${printElapsedTime(apiTS)} ago`;
+			}
+			let apiErrList = '';
+			for (let i = 0; i < 3 && i < apid.items.length; i++) {
+				apiErrList += `\n\t${apid.items[i]}`;
+			}
+			if (apid.items.length > 3) {
+				apiErrList += `\n...and ${apid.items.length-3} more.`
+			}
+			apid = `${apiTS}${apiErrList}`;
 		} else {
-			apid = `${printElapsedTime(apid)} ago`;
+			apid = 'None';
 		}
 		let version = require('../../package.json').version;
 		
@@ -155,6 +169,12 @@ const HANDLER = {
 		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
 		Bot.press.pool.forEach(press=>{
 			if (!press.lastLedger) return;
+			// If there's any PokemonIsMissing items, mark them as fallen before discarding the items forever
+			press.lastLedger.postponeList.forEach((item)=>{
+				if (item.markAsFallen) {
+					item.markAsFallen("Cleared manually.");
+				}
+			});
 			press.lastLedger.postponeList.length = 0;
 		});
 		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
@@ -344,6 +364,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 	}
 	
 	if (/^h[ea]lp(?: me| us)?(?: out)?/i.test(cmd)) return ['helpout-help'];
+	if (/^(h[ea]lp|commands)/i.test(cmd)) return ['shutup', `I have a list of commands now available here: <${HELP_URL}>`];
 	
 	if ((res = /^chill(?: out)?(?: for (.*))?/i.exec(cmd))) {
 		let timeout = 1*60*60*1000; //1 hour by default
@@ -383,7 +404,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['chill', timeout];
 	}
 	
-	if ((res = /turn (on|off) (.*)/i.exec(cmd))) {
+	if ((res = /(turn (on|off)|(en|dis)able) (.*)/i.exec(cmd))) {
 		let val = ['on'].includes(res[1]);
 		let flag = res[2];
 		const runflags = require('./runflags');

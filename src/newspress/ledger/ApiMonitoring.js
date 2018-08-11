@@ -10,11 +10,25 @@ const { LedgerItem } = require('./base');
  * update cycle.
  */
 class ApiDisturbance extends LedgerItem {
-	constructor({ reason, code, data }={}) {
+	constructor({ reason, code, score=1, data }={}) {
 		super(0);
 		this.reason = reason;
 		this.code = code || ApiDisturbance.UNSPECIFIED;
 		this.data = data;
+		this.score = Math.abs(score); //always add, never remove from score
+	}
+	
+	toInfoString() {
+		let str = '';
+		switch (this.code) {
+			case ApiDisturbance.UNSPECIFIED: str += 'UNSPECIFIED: '; break;
+			case ApiDisturbance.PARTY_FAULT: str += 'PARTY FAULT: '; break;
+			case ApiDisturbance.LOGIC_ERROR: str += 'LOGIC ERROR: '; break;
+			case ApiDisturbance.INVALID_DATA:str += 'INVALID DATA: '; break;
+			case ApiDisturbance.HTTP_ERROR: str += 'HTTP ERROR: '; break;
+		}
+		str += this.reson;
+		return str;
 	}
 }
 // These values corresponde to functions in the ApiMonitoringModule

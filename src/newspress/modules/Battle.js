@@ -77,7 +77,8 @@ class BattleModule extends ReportingModule {
 		if (this.memory.badgeMax > curr.numBadges) {
 			ledger.addItem(new ApiDisturbance({
 				code: ApiDisturbance.LOGIC_ERROR,
-				reason: 'Number of badges has decreased!'
+				reason: 'Number of badges has decreased!',
+				score: 8,
 			}));
 		}
 		if (curr.numBadges > prev.numBadges) {
@@ -91,7 +92,7 @@ class BattleModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger, this.memory) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 	
 	finalPass(ledger) {

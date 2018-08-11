@@ -102,6 +102,7 @@ class UpdaterBot extends EventEmitter {
 		this._updateInterval = null;
 		
 		this.on('error', (e)=>LOGGER.error('Error event!', e));
+		this.on('api-disturbance', (e)=>this.memory.global.lastApiDisturbance = e);
 	}
 	
 	start() {
@@ -142,6 +143,12 @@ class UpdaterBot extends EventEmitter {
 		}).catch(ex=>{
 			LOGGER.fatal(ex);
 		});
+		
+		this.alertUpdaters = this.staff.alertUpdaters;
+		this.queryUpdaters = this.staff.queryUpdaters;
+		this.requestQuery = this.staff.requestQuery;
+		this.requestQuery = this.staff.checkQuery;
+		this.cancelQuery = this.staff.cancelQuery;
 	}
 	
 	/** Saves and shuts down the updater bot. */
@@ -254,10 +261,10 @@ class UpdaterBot extends EventEmitter {
 	}
 	
 	get lastApiDisturbance() { return this.memory.global.lastApiDisturbance; }
-	set lastApiDisturbance(val) {
-		if (typeof val !== 'number' && !Number.isFinite(val)) return;
-		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val);
-	}
+	// set lastApiDisturbance(val) {
+	// 	if (typeof val !== 'number' && !Number.isFinite(val)) return;
+	// 	this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val);
+	// }
 	
 	/** Gets the current timestamp for this run. */
 	getTimestamp({ time, padded=false, compact=false }={}) {
@@ -392,14 +399,7 @@ class UpdaterBot extends EventEmitter {
 	
 	////////////////////////////////////////////////////////////////////////////
 	
-	/** Alerts the updating staff channel, with an optional ping. */
-	alertUpdaters(text, opts) {
-		return this.staff.alertUpdaters(text, opts);
-	}
-	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
-	queryUpdaters(text, opts) {
-		return this.staff.queryUpdaters(text, opts);
-	}
+	
 	
 	////////////////////////////////////////////////////////////////////////////
 	
@@ -445,6 +445,28 @@ class UpdaterBot extends EventEmitter {
 		} catch (e) {
 			LOGGER.error(`Unable to merge memory:`, e);
 		}
+	}
+	
+	/** 
+	 * Appends to "the Fallen" memorial file. 
+	 * @param {any} data - Raw pokemon JSON object to write to memorial.
+	 * @param {number?} ts - Timestamp of when this pokemon was fallen
+	 */
+	appendToTheFallen(data, ts=0, notes='') {
+		LOGGER.mark('Writing to theFallen:', data);
+		if (ts === 0) ts = Date.now();
+		if (typeof data !== 'string') {
+			data = JSON.stringify(data);
+		}
+		let info = `# ${ts} | ${this.getTimestamp(ts)}\n# Notes: ${notes}\n${data}\n\n`;
+		process.nextTick(()=>{ //Do this syncronous write after the update tick
+			try {
+				fs.writeFileSync(path.join(MEMORY_DIR, 'theFallen.txt'), info, { encoding:'utf8', flag:'a' });
+				LOGGER.note('Writing to theFallen successful.');
+			} catch (e) {
+				LOGGER.error('Error writing to theFallen:', e);
+			}
+		});
 	}
 	
 }

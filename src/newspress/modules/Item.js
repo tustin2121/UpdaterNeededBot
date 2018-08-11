@@ -91,16 +91,17 @@ class ItemModule extends ReportingModule {
 			}
 		}
 		
-		if (numItemsChanged > 200) {
+		if (numItemsChanged > 10) {
 			ledger.add(new ApiDisturbance({
 				code: ApiDisturbance.LOGIC_ERROR,
-				reason: `More than 200 item updates happened in one update cycle!`
+				reason: `${numItemsChanged} item updates happened in one update cycle!`,
+				score: numItemsChanged/10,
 			}));
 		}
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger, this.memory) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 }
 

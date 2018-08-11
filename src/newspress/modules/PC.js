@@ -23,8 +23,9 @@ class PCModule extends ReportingModule {
 		// Test for the existance of the PC boxes stuff
 		if ((!!curr_api.pcBoxes) !== (!!prev_api.pcBoxes)) {
 			ledger.addItem(new ApiDisturbance({
-				code: ApiDisturbance.INVALID_DATA,
 				reason: 'Irregular presense of PC boxes.',
+				code: ApiDisturbance.INVALID_DATA,
+				score: 5,
 			}));
 			return; //Can't do anything
 		}
@@ -66,7 +67,7 @@ class PCModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 }
 

@@ -118,12 +118,18 @@ Bot.on('updateError', ()=>{
 function listenForQueryUpdate(query) {
 	Bot.once('query'+query.id, (res, user)=>{
 		query.result = res;
-		staffChannel.fetchMessage(query.msgId).then(msg=>{
-			if (res === true) msg.edit(`~~${query.text}~~\n[Query confirmed by ${user}]`);
-			else if (res === false) msg.edit(`~~${query.text}~~\n[Query denied by ${user}]`);
-			else if (res === null) msg.edit(`~~${query.text}~~\n[Query timed out]`);
-			else if (typeof res === 'string') msg.edit(`~~${query.text}~~\n[Query canceled: ${res}]`);
-		}).catch(ERR);
+		query.user = user;
+		if (query.text && query.msgId) {
+			staffChannel.fetchMessage(query.msgId).then(msg=>{
+				if (res === true) msg.edit(`~~${query.text}~~\n[Query confirmed by ${user}]`);
+				else if (res === false) msg.edit(`~~${query.text}~~\n[Query denied by ${user}]`);
+				else if (res === null) msg.edit(`~~${query.text}~~\n[Query timed out]`);
+				else if (typeof res === 'string') msg.edit(`~~${query.text}~~\n[Query canceled: ${res}]`);
+			}).catch(ERR);
+		}
+		if (typeof query.evtid === 'string' && query.evtid) {
+			Bot.emit(query.evtid, query);
+		}
 	});
 }
 
@@ -160,16 +166,27 @@ module.exports = {
 			.send(`${group}${text}`).catch(ERR);
 	},
 	
-	queryUpdaters(text, { timeout, bypassTagCheck=false }={}) {
-		if (Bot.taggedIn !== true) return false;
+	/** 
+	 * Sends a Query to the updater control channel. 
+	 * @param {string} text - The text of the query. Should contain the text 
+	 * 	'{{confirm}}' and '{{deny}}', which will be replaced with commands on how to
+	 *  confirm or deny the query, respectively.
+	 * @param {object} [opts]
+	 * @param {number} [opts.timeout] - The time until this question times out. Defaults to 5 minutes.
+	 * @param {boolean} [opts.bypassTagCheck] - If this question should be asked even if not tagged in.
+	 * @returns {string} - The ID of the query.
+	 */
+	queryUpdaters(text, { timeout=1000*60*5, bypassTagCheck=false }={}) {
+		if (!bypassTagCheck) {
+			if (Bot.taggedIn !== true) return false;
+		}
 		if (!staffChannel) return false;
-		if (!timeout) timeout = 1000 * 60 * 5; //5 minutes
 		let id = generateId();
 		
 		text = text.replace(/\{\{confirm\}\}/gi, '`updater, confirm '+id+'`');
 		text = text.replace(/\{\{deny\}\}/gi, '`updater, deny '+id+'`');
 		let query = Bot.memory.queries[id] = {
-			id, text, msgId: null, 
+			id, text, msgId:null, evtid:null,
 			expiresAt: Date.now() + timeout,
 			result: undefined,
 		};
@@ -183,12 +200,41 @@ module.exports = {
 		listenForQueryUpdate(query);
 		return id;
 	},
+	
+	/**
+	 * Requests a Query id to use for custom or multiple queries.
+	 * @param {number=} timeout - The time until the query times out. Defaults to 5 minutes.
+	 * @param {string=} evtid - The event to fire off should this query be updated.
+	 * @returns {string} - The ID of the query.
+	 */
+	requestQuery(timeout=1000*60*5, evtid=null) {
+		let id = generateId();
+		let query = Bot.memory.queries[id] = {
+			id, text:null, msgId:null, evtid:null,
+			expiresAt: Date.now() + timeout,
+			result: undefined,
+		};
+		listenForQueryUpdate(query);
+		return id;
+	},
+	
+	/**
+	 * Checks on the status of a given query.
+	 * @param {string} id - The id of the query to check.
+	 * @returns {object|number|null} - Returns a result object if the query was
+	 *   confirmed or denied, null if the query expired, or the number
+	 *   of minutes remaining to display if the query has not yet expired.
+	 */
 	checkQuery(id) {
 		let query = Bot.memory.queries[id];
 		if (!query) return null; //no query for the given id - assume it has been timed out
 		if (query.result !== undefined) {
 			delete Bot.memory.queries[id];
-			return query.result;
+			if (query.text) { //If this module asked the question, the only thing the remote module cares about is the result
+				return query.result;
+			} else { //If it's a custom query, return the whole object, so it can see the user who confirmed it.
+				return query;
+			}
 		}
 		if (Date.now() > query.expiresAt) { //query expired
 			Bot.emit('query'+id, null);
@@ -197,17 +243,26 @@ module.exports = {
 		}
 		let minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
 		
-		if (!query.msgId) { //the message didn't send? attempt to send the query again
-			staffChannel
-				.send(`${query.text}\n[Query expires in ${minLeft} minutes]`)
-				.then(msg=> query.msgId=msg.id )
-				.catch(ERR);
-		} else {
-			staffChannel.fetchMessage(query.msgId).then(msg=>{
-				msg.edit(`${query.text}\n[Query expires in ${minLeft} minutes]`);
-			});
+		if (query.text !== null) {
+			if (!query.msgId) { //the message didn't send? attempt to send the query again
+				staffChannel
+					.send(`${query.text}\n[Query expires in ${minLeft} minutes]`)
+					.then(msg=> query.msgId=msg.id )
+					.catch(ERR);
+			} else {
+				staffChannel.fetchMessage(query.msgId).then(msg=>{
+					msg.edit(`${query.text}\n[Query expires in ${minLeft} minutes]`);
+				});
+			}
 		}
+		return minLeft;
 	},
+	
+	/**
+	 * Cancels the given query with the given reason.
+	 * @param {string} id - The id of the query to cancel
+	 * @param {string} reason - The reason this query was canceled.
+	 */
 	cancelQuery(id, reason) {
 		if (typeof reason !== 'string') throw new TypeError('Must give a string reason for cancelling a query!');
 		let query = Bot.memory.queries[id];
@@ -216,6 +271,7 @@ module.exports = {
 		delete Bot.memory.queries[id];
 	},
 	
+	/** Attempts to reconnect the discord bot. */
 	reconnect() {
 		dbot.destroy().then(()=>dbot.login(auth.discord.token));
 	},
