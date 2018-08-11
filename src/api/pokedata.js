@@ -660,6 +660,7 @@ class SortedBattle {
 						species: p.species.name,
 						dexid: read(p.species, 'national_dex', 'id'),
 					};
+					if (poke.active === undefined) poke.active = (p.species.id !== 0);
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);

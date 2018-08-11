@@ -76,7 +76,7 @@ class LocationModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledge, this) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 	
 	finalPass(ledger) {

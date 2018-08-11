@@ -33,6 +33,14 @@ try {
 	fs.writeFileSync(MEMORY_FILE, '{}', { flag:'wx'});
 } catch (e) {}
 
+process.on('unhandledRejection', (e, p, ...args)=>{
+	if (typeof e === 'string') {
+		LOGGER.debug('Unhandled non-error promise rejection:\n', e, '\n', p, args);
+	} else {
+		LOGGER.fatal('Unhandled promise rejection!\n', e, '\n', p, args);
+	}
+});
+
 let sigint = false;
 process.on('SIGINT', ()=>{
 	if (sigint) {
@@ -45,5 +53,6 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/s503-bronze.js'));
+// global.Bot = new UpdaterBot(require('../data/runs/s503-bronze.js'));
+global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));
 Bot.start();

@@ -34,6 +34,8 @@ class BattleModule extends ReportingModule {
 			ledger.addItem(new BattleContext(cb));
 		}
 		
+		this.debug(`pb[${!!pb.in_battle}][${!!pb.party}] | cb[${!!cb.in_battle}][${!!cb.party}]`);
+		
 		// Battle handling
 		if (cb.in_battle && !pb.in_battle) {
 			let attempt = 0;
@@ -58,10 +60,10 @@ class BattleModule extends ReportingModule {
 				ledger.addItem(new BattleEnded(pb, false));
 			}
 			if (pb.in_battle && pb.party && pb.attemptId === cb.attemptId) {
-				// We must assume that an enemy party never switches positions, because we have no match the pokemon otherwise
+				// We must assume that an enemy party never switches positions, because we have no way to match the pokemon otherwise
 				for (let i = 0; i < cb.party; i++) {
 					let penemy = pb.party[i];
-					let cenemy = sb.party[i];
+					let cenemy = cb.party[i];
 					
 					if (penemy.hp > 0 && cenemy.hp === 0) {
 						ledger.addItem(new EnemyFainted(cb, cenemy, prev.party[0]));

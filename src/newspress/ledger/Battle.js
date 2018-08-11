@@ -20,7 +20,7 @@ class BattleItem extends LedgerItem {
 		
 		super(battle.isImportant?2:0.9, Object.assign({ flavor }, obj));
 		this.battle = battle;
-		this.enemy = this.battle.active[0];
+		this.enemy = this.battle.active && this.battle.active[0];
 	}
 	get isSingleBattle() { return this.battle.trainer && this.battle.trainer.length === 1; }
 	get isMultiBattle() { return this.battle.trainer && this.battle.trainer.length > 1; }

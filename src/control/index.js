@@ -146,8 +146,8 @@ module.exports = {
 	isReady() { return loggedIn; },
 	
 	alertUpdaters(text, { ping=false, bypassTagCheck=false, reuseId }={}) {
-		if (!bypassTagCheck && Bot.taggedIn !== true) return Promise.reject();
-		if (!staffChannel) return Promise.reject();
+		if (!bypassTagCheck && Bot.taggedIn !== true) return Promise.reject('Will not alert updaters: Not checked in.');
+		if (!staffChannel) return Promise.reject(new ReferenceError('Cannot alert updaters: Staff channel is not assigned!'));
 		
 		let group = '';
 		if (ping) {

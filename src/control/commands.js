@@ -239,7 +239,7 @@ const HANDLER = {
 	'query-respond': ({ msg, args })=>{
 		let id = args[0];
 		let res = args[1];
-		if (!Bot.memory.query[id] || Bot.memory.query[id].result !== undefined) {
+		if (!Bot.memory.queries[id] || Bot.memory.queries[id].result !== undefined) {
 			msg.channel.send(`There is no active query by that id.`).catch(ERR);
 			return;
 		}

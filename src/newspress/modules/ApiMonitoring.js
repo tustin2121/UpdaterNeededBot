@@ -4,6 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const { ApiDisturbance, } = require('../ledger');
 
+const LOGGER = getLogger('ApiDisturbance');
+
 const RULES = [];
 
 /**   ** Api Monitoring Module **
@@ -50,7 +52,8 @@ class ApiMonitoringModule extends ReportingModule {
 			timestamp: Date.now(),
 			items: items.map(x=>x.toInfoString()),
 		});
-		let score = items.reduce(x=>x.score, 0);
+		LOGGER.debug(items);
+		let score = items.reduce((a,x)=>a+x.score, 0);
 		if (score >= 10) {
 			if (this.memory.lastApiThresholdBreach < Date.now() + (1000*60*30)) {
 				// Don't re-report within the last 30 minutes, or ongoing
@@ -83,7 +86,7 @@ class ApiMonitoringModule extends ReportingModule {
 					bypassTagCheck:true, 
 					reuseId:fApi.msgId 
 				}).then(msg=>{
-					fApi.msgId = msg.id;
+					if (msg) fApi.msgId = msg.id;
 				});
 			}
 			return false;

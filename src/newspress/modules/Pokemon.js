@@ -263,27 +263,30 @@ RULES.push(new Rule('Postpone reporting missing Pokemon when asking about MIA Po
 
 RULES.push(new Rule('Ask Updaters about Missing Pokemon')
 	.when(ledger=>Bot.runFlag('query_missing', true))
-	.when(ledger=>ledger.has('PokemonIsMissing').unmarked())
+	.when(ledger=>ledger.has('PokemonIsMissing'))
 	.then(ledger=>{
 		ledger.get(0).forEach(item=>{
+			LOGGER.debug('')
 			if (!item.query) { //Make a query for this pokemon
 				item.query = Bot.queryUpdaters(
-					`Query: ${item.mon} Lv${item.mon.level} ${item.mon.gender} is missing from the API, and is suspected released.\n`+
+					`Query: A Lv${item.mon.level} ${item.mon.gender} ${item.mon} is missing from the API, and is suspected released.\n`+
 					`If anyone can confirm this release, reply {{confirm}}. If it certainly hasn't been released, reply {{deny}}. I will assume it has been released when this query expires.`, 
 					{ timeout:1000*60*10, bypassTagCheck:true });
-				ledger.mark(item).postpone(item);
+				item.ticksActive++;
+				ledger.postpone(item);
 			} else { //Check an existing query for this pokemon
 				let res = Bot.checkQuery(item.query)
 				if (res === true) { //released
 					item.markAsFallen('Confirmed released.');
-					ledger.add(new PokemonLost(item.mon, 'confirmed'));
+					ledger.remove(item).add(new PokemonLost(item.mon, 'confirmed'));
 				} else if (res === false) { //not released
 					item.query = true;
 					ledger.postpone(item);
 				} else if (res === null) { //timed out, assume released
 					item.markAsFallen('Assumed released.');
-					ledger.add(new PokemonLost(item.mon, 'timeout'));
+					ledger.remove(item).add(new PokemonLost(item.mon, 'timeout'));
 				} else { //waiting for query to resolve
+					item.ticksActive++;
 					ledger.postpone(item);
 				}
 			}

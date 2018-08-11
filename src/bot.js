@@ -147,7 +147,7 @@ class UpdaterBot extends EventEmitter {
 		this.alertUpdaters = this.staff.alertUpdaters;
 		this.queryUpdaters = this.staff.queryUpdaters;
 		this.requestQuery = this.staff.requestQuery;
-		this.requestQuery = this.staff.checkQuery;
+		this.checkQuery = this.staff.checkQuery;
 		this.cancelQuery = this.staff.cancelQuery;
 	}
 	
