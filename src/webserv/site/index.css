@@ -518,3 +518,7 @@ battle > trainer::after {
 battle > combatant[active=true]::after {
 	content: ' (active)';
 }
+
+location[mapid]:after {
+    content: ' ('attr(mapid)')';
+}

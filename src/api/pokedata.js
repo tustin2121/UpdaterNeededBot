@@ -85,10 +85,10 @@ function determineImportance(battle, game) {
 	
 	function viaTrainerId() {
 		let ids = Bot.runOpts('trainerClasses', game);
-		for (let type in ids) {
+		for (let type in cls) {
 			if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
 			for (let trainer of battle.trainer) {
-				battle.classes[type] = !!ids[type][trainer.id];
+				battle.classes[type] = !!cls[type][trainer.id];
 				battle.isImportant |= battle.classes[type];
 			}
 		}
@@ -416,7 +416,7 @@ class SortedLocation {
 		let xml = `<location `;
 		if (hkey) xml += `key="${hkey}" `;
 		if (this.node) xml += `node="true" `;
-		xml += `id="${this.full_id}" pos="${this.position}">`;
+		xml += `mapid="${this.bank_id}" pos="${this.position}">`;
 		xml += this.map_name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
 		xml += `</location>`;
 		return xml;

@@ -183,6 +183,16 @@ class MapNode {
 		if (this.__type__) return this.__type__.is(attr);
 		return this.__region__.is(attr);
 	}
+	
+	toXml(hkey) {
+		let xml = `<MapNode `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `mapid="${this.id}" mapbank="${this.bank}" maptype="${this.type}">`;
+		xml += this.name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+		xml += ` (${this.areaName.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;')})`;
+		xml += `</MapNode>`;
+		return xml;
+	}
 }
 
 /**
@@ -260,6 +270,15 @@ class MapArea {
 	}
 	within(attr, x, y) {
 		return this.__parent__.within(attr, x, y);
+	}
+	
+	toXml(hkey) {
+		let xml = `<MapArea `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `ax="${this.ax}" ay="${this.ay}" bx="${this.bx}" by="${this.by}" rad="${this.rad}" >`;
+		xml += this.name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+		xml += `</MapArea>`;
+		return xml;
 	}
 }
 
