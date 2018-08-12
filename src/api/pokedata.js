@@ -86,10 +86,10 @@ function determineImportance(battle, game) {
 	
 	function viaTrainerId() {
 		let ids = Bot.runOpts('trainerClasses', game);
-		for (let type in cls) {
+		for (let type in ids) {
 			if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
 			for (let trainer of battle.trainer) {
-				battle.classes[type] = !!cls[type][trainer.id];
+				battle.classes[type] = !!ids[type][trainer.id];
 				battle.isImportant |= battle.classes[type];
 			}
 		}
