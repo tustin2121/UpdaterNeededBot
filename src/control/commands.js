@@ -68,7 +68,7 @@ const HANDLER = {
 		}
 		
 		let apid = Bot.memory.lastApiDisturbance;
-		if (apid) {
+		if (apid && apid.timestamp) {
 			let apiTS = Date.now() - apid.timestamp;
 			if (Number.isNaN(apiTS)) {
 				apiTS = 'NaN';
@@ -76,11 +76,13 @@ const HANDLER = {
 				apiTS = `${printElapsedTime(apiTS)} ago`;
 			}
 			let apiErrList = '';
-			for (let i = 0; i < 3 && i < apid.items.length; i++) {
-				apiErrList += `\n\t${apid.items[i]}`;
-			}
-			if (apid.items.length > 3) {
-				apiErrList += `\n...and ${apid.items.length-3} more.`
+			if (apid.items) {
+				for (let i = 0; i < 3 && i < apid.items.length; i++) {
+					apiErrList += `\n\t${apid.items[i]}`;
+				}
+				if (apid.items.length > 3) {
+					apiErrList += `\n...and ${apid.items.length-3} more.`
+				}
 			}
 			apid = `${apiTS}${apiErrList}`;
 		} else {

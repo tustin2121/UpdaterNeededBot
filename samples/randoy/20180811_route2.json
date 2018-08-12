@@ -1,0 +1,367 @@
+{
+    "badges": 0,
+    "ball_count": 10,
+    "battle_kind": "",
+    "caught": 1,
+    "caught_list": [
+        708
+    ],
+    "daycare": [],
+    "enemy_party": [],
+    "enemy_trainers": [],
+    "gender": "Female",
+    "id": 44691,
+    "in_battle": false,
+    "items": {
+        "berries": [],
+        "items": [
+            {
+                "count": 10,
+                "id": 4,
+                "name": "Pok\u00e9 Ball"
+            }
+        ],
+        "key": [
+            {
+                "id": 442,
+                "name": "Town Map"
+            },
+            {
+                "id": 714,
+                "name": "Holo Caster"
+            }
+        ],
+        "medicine": [
+            {
+                "count": 1,
+                "id": 17,
+                "name": "Potion"
+            }
+        ],
+        "tms": []
+    },
+    "level_cap": 100,
+    "map_id": 259,
+    "map_name": "Route 2",
+    "money": 3000,
+    "name": "\ue08f266",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Switch",
+        "text_speed": "Med"
+    },
+    "party": [
+        {
+            "ability": "Cursed Body",
+            "affection": 0,
+            "characteristic": "Somewhat of a clown",
+            "checksum": 16841,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 205020294,
+            "enjoyment": 41,
+            "evs": {
+                "attack": 1,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 0,
+                "speed": 0
+            },
+            "experience": {
+                "current": 147,
+                "next_level": 216,
+                "remaining": 69,
+                "this_level": 125
+            },
+            "form": 0,
+            "friendship": 75,
+            "fullness": 0,
+            "gender": "Male",
+            "health": [
+                16,
+                19
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "is_nicknamed": true,
+            "ivs": {
+                "attack": 25,
+                "defense": 17,
+                "hp": 6,
+                "special_attack": 16,
+                "special_defense": 19,
+                "speed": 28
+            },
+            "language": 2,
+            "level": 5,
+            "met": {
+                "area_id": 10,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-11",
+                "game": 25,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 20,
+                    "id": 71,
+                    "name": "Absorb",
+                    "pp": 23,
+                    "pp_up": 0,
+                    "type": "Grass"
+                },
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 194,
+                    "name": "Destiny Bond",
+                    "pp": 5,
+                    "pp_up": 0,
+                    "type": "Ghost"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 60,
+                    "id": 450,
+                    "name": "Bug Bite",
+                    "pp": 17,
+                    "pp_up": 0,
+                    "type": "Bug"
+                },
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 150,
+                    "name": "Splash",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "!!!!!qqquulk",
+            "nature": "Brave",
+            "next_move": {
+                "accuracy": 101,
+                "basePP": 10,
+                "basePower": 0,
+                "id": 391,
+                "level": 13,
+                "name": "Heart Swap",
+                "type": "Psychic"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 3948487629,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 120,
+                "egg_cycles": 20,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 708,
+                "name": "Phantump",
+                "national_dex": 708,
+                "type1": "Ghost",
+                "type2": "Grass"
+            },
+            "stats": {
+                "attack": 14,
+                "defense": 10,
+                "hp": 19,
+                "special_attack": 10,
+                "special_defense": 11,
+                "speed": 9
+            },
+            "status": ""
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "BOX 1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 14",
+                "box_number": 14
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 15",
+                "box_number": 15
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 16",
+                "box_number": 16
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 17",
+                "box_number": 17
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 18",
+                "box_number": 18
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 19",
+                "box_number": 19
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 20",
+                "box_number": 20
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 21",
+                "box_number": 21
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 22",
+                "box_number": 22
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 23",
+                "box_number": 23
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 24",
+                "box_number": 24
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 25",
+                "box_number": 25
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 26",
+                "box_number": 26
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 27",
+                "box_number": 27
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 28",
+                "box_number": 28
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 29",
+                "box_number": 29
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 30",
+                "box_number": 30
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 31",
+                "box_number": 31
+            }
+        ]
+    },
+    "secret": 42453,
+    "seen": 6,
+    "seen_list": [
+        39,
+        66,
+        403,
+        603,
+        664,
+        708
+    ],
+    "x": 462,
+    "y": 446,
+    "z": 70
+}

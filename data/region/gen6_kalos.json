@@ -88,10 +88,10 @@
 					}
 				},
 				{
-					"ax": 8,
-					"ay": 0,
-					"bx": 16,
-					"by": 16,
+					"ax": 20,
+					"ay": 14,
+					"bx": 28,
+					"by": 18,
 					"rad": 0,
 					"name": "shopping",
 					"attrs": {}
@@ -964,7 +964,7 @@
 			{
 				"bank": 0,
 				"id": 54,
-				"name": "Santalune City",
+				"name": "Santalune City Pokémon Center",
 				"areaId": 18,
 				"areaName": "Santalune City",
 				"type": "center",
@@ -979,10 +979,10 @@
 			{
 				"bank": 0,
 				"id": 55,
-				"name": "Santalune City Pokémon Center",
+				"name": "Santalune Gym",
 				"areaId": 18,
 				"areaName": "Santalune City",
-				"type": "center",
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},

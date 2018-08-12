@@ -117,13 +117,13 @@ class BattleModule extends ReportingModule {
 						return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
 					}
 				}).join('\n');
-				Bot.alertUpdaters(txt, true);
+				Bot.alertUpdaters(txt, { ping:true });
 			}
 		}
 		if (Bot.runFlag('alert_badges', true)) {
 			let badgeItems = ledger.findAllItemsWithName('BadgeGet');
 			if (badgeItems.length) {
-				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, false);
+				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
 			}
 		}
 	}

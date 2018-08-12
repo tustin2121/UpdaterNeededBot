@@ -18,6 +18,9 @@ class LocationContext extends LedgerItem {
 		
 		super(0.2);
 		this.loc = loc;
+		this.x = loc.x;
+		this.y = loc.y;
+		this.z = loc.z;
 	}
 }
 

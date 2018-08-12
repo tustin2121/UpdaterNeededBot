@@ -80,6 +80,7 @@ module.exports = {
 		f: [], // Female trainer classes
 		p: [], // Plural trainer classes
 	},
+	determineImportanceMethod: 'viaClasses',
 	// Wild pokemon species to mark specially
 	legendarySpecies: [
 		// Legendary Pokemon

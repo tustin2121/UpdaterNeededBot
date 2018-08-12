@@ -1,6 +1,8 @@
 // updaters/s504-random-y.js
 // The configuration for Season 5's Anniversary run
 
+const trainerClassInfo = require("../genopts/gen6").trainerClasses.info;
+
 module.exports = {
 	// Information about the game being played
 	game0: {
@@ -11,12 +13,24 @@ module.exports = {
 		regionMap: 'gen6_kalos', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 1,
-			secret: 1, //gold doesn't have a secret id, so this is duped from id
+			id: 44691,
+			secret: 42453, //gold doesn't have a secret id, so this is duped from id
 		},
 		// A list of game corrections and options
 		opts: {
-			// see /data/genopts
+			determineImportanceMethod: 'viaTrainerId',
+			// Despite the name, the below are not classes, but individual trainer ids
+			trainerClasses: {
+				// The following have special handling available
+				rival: [
+					130,131,132,184,185,186,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,435,436,437,519,520,521,604,605,606,
+					575,576,577,578,579,580,581,582,583,584,585,586,587,588,589,590,591,592,593,594,595,596,597,598,599,600,601,607,608,609,
+				],
+				leader: [6,21,22,23,24,25,26,76,613, 635,637,665,666,680,681,682,703,704,705,706,734,735,736],
+				e4: [187,269,270,271, 661,662,770,771,778,779,780,781,783],
+				champ: [276,277,],
+				info: trainerClassInfo,
+			},
 		},
 	},
 	
@@ -74,7 +88,8 @@ module.exports = {
 		Timing: {},
 		Phonebook: {},
 		Options: {},
-		RealTime: {},
+		// RealTime: {},
 		// PC: {},
+		Meme: {},
 	},
 }

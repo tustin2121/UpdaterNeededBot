@@ -1,0 +1,195 @@
+{
+    "badges": 0,
+    "battle_kind": "",
+    "caught": 0,
+    "caught_list": [],
+    "daycare": [],
+    "enemy_party": [],
+    "enemy_trainers": [],
+    "gender": "Female",
+    "id": 44691,
+    "in_battle": false,
+    "items": {
+        "berries": [],
+        "items": [],
+        "key": [],
+        "medicine": [],
+        "tms": []
+    },
+    "level_cap": 100,
+    "map_id": 2,
+    "map_name": "Vaniville Town",
+    "money": 3000,
+    "name": "\ue08f266",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Switch",
+        "text_speed": "Med"
+    },
+    "party": [],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "BOX 1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 14",
+                "box_number": 14
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 15",
+                "box_number": 15
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 16",
+                "box_number": 16
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 17",
+                "box_number": 17
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 18",
+                "box_number": 18
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 19",
+                "box_number": 19
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 20",
+                "box_number": 20
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 21",
+                "box_number": 21
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 22",
+                "box_number": 22
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 23",
+                "box_number": 23
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 24",
+                "box_number": 24
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 25",
+                "box_number": 25
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 26",
+                "box_number": 26
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 27",
+                "box_number": 27
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 28",
+                "box_number": 28
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 29",
+                "box_number": 29
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 30",
+                "box_number": 30
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 31",
+                "box_number": 31
+            }
+        ]
+    },
+    "secret": 42453,
+    "seen": 0,
+    "seen_list": [],
+    "x": 7,
+    "y": 15,
+    "z": 1
+}

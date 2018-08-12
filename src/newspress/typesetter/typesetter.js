@@ -789,6 +789,7 @@ class TypeSetter {
 		// }
 		// this.items = items;
 		let phraseEntry = this._getPhraseEntryForItem(ritem);
+		if (phraseEntry === null) return null; //skip this item
 		
 		if (phraseEntry.multi && items.length > 1) {
 			this._itemList = items;

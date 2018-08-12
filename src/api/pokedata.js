@@ -73,6 +73,49 @@ function calcStats({ species, ivs, evs, }) {
 	
 }
 
+function determineImportance(battle, game) {
+	let method = Bot.runOpts('determineImportanceMethod', game);
+	
+	switch (method) {
+		case 'viaClasses': return viaClasses();
+		case 'viaTrainerId': return viaTrainerId();
+	}
+	
+	return;
+	
+	function viaTrainerId() {
+		let ids = Bot.runOpts('trainerClasses', game);
+		for (let type in ids) {
+			if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+			for (let trainer of battle.trainer) {
+				battle.classes[type] = !!ids[type][trainer.id];
+				battle.isImportant |= battle.classes[type];
+			}
+		}
+	}
+	
+	function viaClasses() {
+		let cls = Bot.runOpts('trainerClasses', game);
+		if (cls.info) {
+			for (let trainer of battle.trainer) {
+				let info = cls.info[trainer.class];
+				battle.isImportant = !!info.important;
+				if (typeof info.important === 'string') {
+					battle.classes[info.important] = true;
+				}
+			}
+		} else {
+			for (let type in cls) {
+				if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+				for (let trainer of battle.trainer) {
+					battle.classes[type] = !!cls[type][trainer.class];
+					battle.isImportant |= battle.classes[type];
+				}
+			}
+		}
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HeldItem {
@@ -616,30 +659,34 @@ class SortedBattle {
 		
 		let enemy_trainer = read(data, 'enemy_trainer', 'enemy_trainers');
 		if (enemy_trainer) {
-			this.trainer = [];
 			if (!Array.isArray(enemy_trainer)) {
 				enemy_trainer = [enemy_trainer];
 			}
-			for (let t of enemy_trainer) {
-				let data = {
-					'class': t.class_id,
-					'id': t.id,
-					'className': (t.class_name)?correctCase(sanatizeName(t.class_name)):'', //Not used in gen 1
-					'name': correctCase(sanatizeName(t.name)),
-				};
-				if (Bot.runOpts('trainerClasses', game)) {
-					let cls = Bot.runOpts('trainerClasses', game);
-					if (cls.info) { //Check for individual info first
-						let info = cls.info[t.class_id];
-						data.gender = info.gender;
-					} else {
-						if (cls.m[data.class]) data.gender = 'male';
-						else if (cls.f[data.class]) data.gender = 'female';
-						else if (cls.p[data.class]) data.gender = 'plural';
-						else data.gender = 'neuter';
+			if (enemy_trainer.length) {
+				this.trainer = [];
+				for (let t of enemy_trainer) {
+					let data = {
+						'class': t.class_id,
+						'id': t.id,
+						'className': (t.class_name)?correctCase(sanatizeName(t.class_name||'trainer')):'', //Not used in gen 1
+						'name': correctCase(sanatizeName(t.name||'')),
+					};
+					if (Bot.runOpts('trainerClasses', game)) {
+						let cls = Bot.runOpts('trainerClasses', game);
+						if (cls.info) { //Check for individual info first
+							let info = cls.info[t.class_id];
+							data.gender = info.gender;
+							data.realClassName = info.name;
+							if (!data.className) data.className = info.name;
+						} else {
+							if (cls.m[data.class]) data.gender = 'male';
+							else if (cls.f[data.class]) data.gender = 'female';
+							else if (cls.p[data.class]) data.gender = 'plural';
+							else data.gender = 'neuter';
+						}
 					}
+					this.trainer.push(data);
 				}
-				this.trainer.push(data);
 			}
 		}
 		else if (data.battle_kind === 'Trainer') {
@@ -704,24 +751,25 @@ class SortedBattle {
 			if (type) this.classes[type] = true;
 		}
 		else if (Array.isArray(this.trainer)) {
-			let cls = Bot.runOpts('trainerClasses', game);
-			if (cls.info) {
-				for (let trainer of this.trainer) {
-					let info = cls.info[trainer.class];
-					this.isImportant = !!info.important;
-					if (typeof info.important === 'string') {
-						this.classes[info.important] = true;
-					}
-				}
-			} else {
-				for (let type in cls) {
-					if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
-					for (let trainer of this.trainer) {
-						this.classes[type] = !!cls[type][trainer.class];
-						this.isImportant |= this.classes[type];
-					}
-				}
-			}
+			determineImportance(this, game);
+			// let cls = Bot.runOpts('trainerClasses', game);
+			// if (cls.info) {
+			// 	for (let trainer of this.trainer) {
+			// 		let info = cls.info[trainer.class];
+			// 		this.isImportant = !!info.important;
+			// 		if (typeof info.important === 'string') {
+			// 			this.classes[info.important] = true;
+			// 		}
+			// 	}
+			// } else {
+			// 	for (let type in cls) {
+			// 		if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+			// 		for (let trainer of this.trainer) {
+			// 			this.classes[type] = !!cls[type][trainer.class];
+			// 			this.isImportant |= this.classes[type];
+			// 		}
+			// 	}
+			// }
 		}
 	}
 	get isRival() { return !!this.classes['rival']; }
