@@ -3,7 +3,7 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
 	ApiDisturbance,
 } = require('../ledger');
@@ -97,6 +97,10 @@ class ItemModule extends ReportingModule {
 				reason: `${numItemsChanged} item updates happened in one update cycle!`,
 				score: numItemsChanged/10,
 			}));
+		}
+		
+		if (curr.inv.money !== prev.inv.money) {
+			ledger.add(new MoneyValueChanged(curr.inv.money - prev.inv.money));
 		}
 	}
 	
@@ -283,6 +287,22 @@ RULES.push(new Rule(`Items lost in shops have been sold`)
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
+
+RULES.push(new Rule(`Items gained in shops have been bought`)
+	.when(ledger=>ledger.has('MoneyValueChanged'))
+	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
+	.then(ledger=>{
+		ledger.get(1).forEach(x=> x.flavor = 'shopping');
+	})
+);
+RULES.push(new Rule(`Items lost in shops have been sold`)
+	.when(ledger=>ledger.has('MoneyValueChanged'))
+	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
+	.then(ledger=>{
+		ledger.get(1).forEach(x=> x.flavor = 'shopping');
+	})
+);
+
 {
 	const itemIds = Bot.runOpts('itemIds_promo');
 	RULES.push(new Rule(`Premire Balls are given away, not bought.`)

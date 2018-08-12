@@ -50,6 +50,7 @@ module.exports = {
 			],
 		},
 		level100: {
+			__meta__: { merge:'', }, //should override above and never be considered for MonChangedCondensed.
 			single: [
 				`<i><b>{{@target}} HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
 			],

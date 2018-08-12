@@ -584,6 +584,7 @@ class SortedInventory {
 		this.bag = {};
 		this.held = {};
 		this.pc = {};
+		this.money = data.money;
 		
 		if (data.items) {
 			for (let pname in data.items) {

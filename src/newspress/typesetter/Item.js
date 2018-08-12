@@ -72,6 +72,7 @@ module.exports = {
 			],
 		},
 	},
+	MoneyValueChanged: null,
 	
 	UsedBallInBattle: {
 		__meta__: { sort:100 }, //before PokemonGained
@@ -125,11 +126,6 @@ module.exports = {
 		],
 		tm: [
 			`We boot up {{an item|@item}}.`,
-		],
-	},
-	UsedTMItem: {
-		default: [
-			``, //TODO
 		],
 	},
 };

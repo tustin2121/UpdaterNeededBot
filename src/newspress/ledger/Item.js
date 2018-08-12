@@ -77,6 +77,13 @@ class RetrievedItemFromPC extends LedgerItem {
 	}
 }
 
+class MoneyValueChanged extends LedgerItem {
+	constructor(delta) {
+		super(0);
+		this.delta = delta;
+	}
+}
+
 /////////////////// Advanced Items ///////////////////
 
 /** Indicates that an pokeball has been used in battle. */
@@ -133,6 +140,6 @@ class UsedItemOnMon extends LedgerItem {
 }
 
 module.exports = {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
 };

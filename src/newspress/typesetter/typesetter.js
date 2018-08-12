@@ -692,9 +692,12 @@ class TypeSetter {
 		return Math.floor(Math.random()*len);
 	}
 	
-	static getPhraseMeta(itemName) {
-		if (itemName instanceof LedgerItem) {
-			itemName = itemName.__itemName__;
+	static getPhraseMeta(item) {
+		let itemName;
+		if (item instanceof LedgerItem) {
+			itemName = item.__itemName__;
+		} else {
+			itemName = item.toString();
 		}
 		
 		let meta = { //default info
@@ -709,9 +712,20 @@ class TypeSetter {
 		}
 		if (phraseDict === null) return meta; // Skip this item
 		
+		let phraseMeta = {};
 		if (typeof phraseDict.__meta__ === 'object') {
-			meta = Object.assign(meta, phraseDict.__meta__);
+			phraseMeta = phraseDict.__meta__;
 		}
+		
+		let flavorMeta = {};
+		if (item instanceof LedgerItem) {
+			let flavor = item.flavor || 'default';
+			if (typeof phraseDict[flavor].__meta__ === 'object') {
+				flavorMeta = phraseDict[flavor].__meta__;
+			}
+		}
+		
+		meta = Object.assign(meta, phraseMeta, flavorMeta);
 		return meta;
 	}
 	
@@ -727,7 +741,7 @@ class TypeSetter {
 		
 		// Collate
 		for (let item of ledger.list) {
-			let { merge } = TypeSetter.getPhraseMeta(item.__itemName__);
+			let { merge } = TypeSetter.getPhraseMeta(item);
 			if (merge) {
 				merges[merge] = (merges[merge] || []);
 				merges[merge].push(item);
@@ -765,8 +779,8 @@ class TypeSetter {
 		}
 		// Then sort the collections
 		order.sort((a,b)=>{
-			let ai = TypeSetter.getPhraseMeta(dict[a][0].__itemName__);
-			let bi = TypeSetter.getPhraseMeta(dict[b][0].__itemName__);
+			let ai = TypeSetter.getPhraseMeta(dict[a][0]);
+			let bi = TypeSetter.getPhraseMeta(dict[b][0]);
 			return bi.sort - ai.sort;
 		});
 		// Return the collected items
