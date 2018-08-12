@@ -349,7 +349,7 @@
 			{
 				"bank": 0,
 				"id": 13,
-				"name": "Camphrier Town",
+				"name": "Camphrier Town Pokémon Center",
 				"areaId": 30,
 				"areaName": "Camphrier Town",
 				"type": "center",
@@ -514,7 +514,7 @@
 			{
 				"bank": 0,
 				"id": 24,
-				"name": "Geosenge Town",
+				"name": "Geosenge Town Pokémon Center",
 				"areaId": 52,
 				"areaName": "Geosenge Town",
 				"type": "center",
