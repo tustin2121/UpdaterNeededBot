@@ -77,6 +77,7 @@ function determineImportance(battle, game) {
 	let method = Bot.runOpts('determineImportanceMethod', game);
 	
 	switch (method) {
+		default:
 		case 'viaClasses': return viaClasses();
 		case 'viaTrainerId': return viaTrainerId();
 	}

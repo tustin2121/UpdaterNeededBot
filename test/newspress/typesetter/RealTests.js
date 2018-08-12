@@ -197,7 +197,7 @@ describe('Real-World Tests', function(){
 			typesetter.setRandom(0, 0, 0, 0, 0, 0, 0, 0, 0);
 			let res = typesetter.typesetLedger(ledger);
 			
-			res.should.equal(`<b>Drifloon!es8 (Drifloon) leveled up to 9!</b> <b>Silcoon1666 (Silcoon) has grown two levels to level 6!</b> <b>Kabuto (Kabuto) leveled up to 10!</b> <b>!!  777      (Claydol) leveled up to 8!</b>`);
+			res.replace(/\xA0/g,' ').should.equal(`<b>Drifloon!es8 (Drifloon) leveled up to 9!</b> <b>Silcoon1666 (Silcoon) has grown two levels to level 6!</b> <b>Kabuto (Kabuto) leveled up to 10!</b> <b>!!  777      (Claydol) leveled up to 8!</b>`);
 		});
 	});
 });
