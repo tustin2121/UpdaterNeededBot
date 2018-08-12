@@ -88,9 +88,9 @@
 					}
 				},
 				{
-					"ax": 20,
-					"ay": 14,
-					"bx": 28,
+					"ax": 21,
+					"ay": 10,
+					"bx": 30,
 					"by": 18,
 					"rad": 0,
 					"name": "shopping",
@@ -1229,7 +1229,17 @@
 				"attrs": {
 					"preposition": "in"
 				},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 0,
+						"bx": 1000,
+						"by": 1000,
+						"rad": 0,
+						"name": "Test area",
+						"attrs": {}
+					}
+				],
 				"gamedata": {
 					"headerData": "00005b007c009b01470001000500010005000100060001000a003f0078005d04054c02000000ffffe4240400ab000000000000005f010000"
 				}
@@ -1288,7 +1298,7 @@
 			{
 				"bank": 0,
 				"id": 74,
-				"name": "Lumiose Gate",
+				"name": "Lumiose Route 16 Gate",
 				"areaId": 120,
 				"areaName": "Lumiose Gate",
 				"type": "gatehouse",
