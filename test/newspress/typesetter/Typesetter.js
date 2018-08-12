@@ -368,7 +368,7 @@ describe('TypeSetter', function(){
 			str.should.be.exactly(exp);
 		});
 		
-		it('Caught multiple pokemon', function(){
+		it('multiple PokemonGained', function(){
 			const { PokemonGained } = LEDGER_ITEMS;
 			Bot._gameInfo = { trainer:{id:46212,secret:49132}, gen:4 };
 			Bot.setOpt('gender', true);
@@ -398,5 +398,6 @@ HP: 0 | ATK: 0 | DEF: 0 | SPA: 0 | SPD: 0 | SPE: 0">male Lv. 14 Pineco</info>!</
 			
 			res.should.equal(exp);
 		});
+		
 	});
 });

@@ -33,15 +33,30 @@ module.exports = {
 				`grew to level {{@level}}`,
 			],
 		},
-		multiple: [
-			`<b>{{@target}} has grown {{one noun|level|@deltaLevel}} to level {{@level}}!</b>`,
-		],
-		regress: [
-			`<b>{{@target}} has lost {{one noun|level|@deltaLost}}, and is now level {{@level}}!</b>`,
-		],
-		level100: [
-			`<i><b>{{@target}} HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
-		],
+		multiple: {
+			single: [
+				`<b>{{@target}} has grown {{one noun|level|@deltaLevel}} to level {{@level}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`has grown {{one noun|level|@deltaLevel}} to level {{@level}}`,
+			],
+		},
+		regress: {
+			single: [
+				`<b>{{@target}} has lost {{one noun|level|@deltaLost}}, and is now level {{@level}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`is now level {{@level}} (losing {{one noun|level|@deltaLost}})npm `,
+			],
+		},
+		level100: {
+			single: [
+				`<i><b>{{@target}} HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
+			],
+			item: [ //used for MonChangedCondensed, really shouldn't be used....
+				`HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!! (ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ)`,
+			],
+		},
 	},
 	MonEvolved: {
 		__meta__: { merge:'MonChangedCondensed' },

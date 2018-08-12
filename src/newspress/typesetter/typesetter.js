@@ -436,15 +436,37 @@ function printObject(obj) {
 			}
 		}
 	}
-	function getPhraseForItem(type='') {
+	function getPhraseForItem(type='', force=false) {
 		return function(item) {
 			if (!item) item = this._callMeta.top().item;
 			let phraseEntry = this._getPhraseEntryForItem(item);
+			if (phraseEntry === null) {
+				LOGGER.warn(`Tried to get '${type}' phrase for '${item}', but phrase entry is empty!`);
+				return null;
+			}
 			switch(type) {
 				case '': return this._resolve(phraseEntry, item);
-				case 'item': return this._resolve(phraseEntry.item, item);
-				case 'single': return this._resolve(phraseEntry.single, item);
-				case 'multi': return this._resolve(phraseEntry.multi, item);
+				case 'item': 
+					if (phraseEntry.item || force) {
+						return this._resolve(phraseEntry.item, item);
+					} else {
+						LOGGER.warn(`Tried to get 'item' phrase for '${item}', but it doesn't not have an item phrase!`);
+						return this._resolve(phraseEntry, item);
+					}
+				case 'single': 
+					if (phraseEntry.item || force) {
+						return this._resolve(phraseEntry.single, item);
+					} else {
+						LOGGER.warn(`Tried to get 'single' phrase for '${item}', but it doesn't not have a single phrase!`);
+						return this._resolve(phraseEntry, item);
+					}
+				case 'multi': 
+					if (phraseEntry.item || force) {
+						return this._resolve(phraseEntry.multi, item);
+					} else {
+						LOGGER.warn(`Tried to get 'multi' phrase for '${item}', but it doesn't not have a multi phrase!`);
+						return this._resolve(phraseEntry, item);
+					}
 			}
 		};
 	}
@@ -734,7 +756,7 @@ class TypeSetter {
 			let MItem = require('../ledger')[merge];
 			if (!MItem || !MItem.mergeItems) throw new TypeError('Invalid merge item!');
 			let mdict = MItem.mergeItems(merges[merge]);
-			order.push(Object.keys(mdict));
+			order.push(...Object.keys(mdict));
 			Object.assign(dict, mdict);
 		}
 		// Sort each collection, so the highest sorted item is first

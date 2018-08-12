@@ -1105,7 +1105,10 @@
 				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0700040080003d010900010005000100050001000e00010062003f001604570b012c020000000f0064251400d0de0502440100007e000000"
@@ -1120,7 +1123,10 @@
 				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0700040080003c010900010005000100050001000e00010063003f001604570b012c020000000f0064251400669304010e01000047feffff"
@@ -1135,7 +1141,10 @@
 				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0700190081003b010900010005000100050001000e000100640041001604570b012c020000000f00642514006ad20103dcffffff7e000000"
@@ -1150,7 +1159,10 @@
 				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "on"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0700190081003a010900010005000100050001000e000100650041001604570b012c020000000f0064251400eba1030654ffffff98feffff"
@@ -1201,7 +1213,9 @@
 				"type": "lumiose",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "01001b00830037010900010005000100050001000e000100680043001604570b012c020000000f0064250400080400000000000002060000"
@@ -1216,7 +1230,9 @@
 				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "00005b007c009b01470001000500010005000100060001000a003f0078005d04054c02000000ffffe4240400ab000000000000005f010000"
@@ -1231,7 +1247,9 @@
 				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "000099007d009a01470001000500010005000100060001000b003f0078005d04054c02000000ffffe424040066000000000000009c000000"
@@ -1246,7 +1264,9 @@
 				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "00005b007c009901470001000500010005000100060001000c00410078005d04054c02000000ffffe4240400ab000000000000005f010000"
@@ -1261,7 +1281,9 @@
 				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "00005b007c009801470001000500010005000100060001000d00410078005d04054c02000000ffffe4240400ab000000000000005f010000"
@@ -1276,7 +1298,9 @@
 				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "000099007d009701470001000500010005000100060001000e00410078005d04054c02000000ffffe424040066000000000000009c000000"
@@ -1321,7 +1345,9 @@
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009b00390096011100010005000100050001000e0001000f00430018001d0e0348020000001a00440104005f0100000000000037020000"
@@ -1336,7 +1362,9 @@
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009e00dd0095011100010005000100050001000e0001001000430018001d0e0348020000001b00440104005f01000000000000dd010000"
@@ -1351,7 +1379,9 @@
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03004200de0094011100010005000100050001000e0001001100430018001d0e0348020000001900440104005f01000000000000dd010000"
@@ -1366,7 +1396,9 @@
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03004200de0093011100010005000100050001000e0001001200430018001d0e0348020000001900440104005f01000000000000dd010000"
@@ -1381,7 +1413,9 @@
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03004200de0092011100010005000100050001000e0001001300430018001d0e0348020000001900440104005f01000000000000dd010000"
@@ -1396,7 +1430,9 @@
 				"type": "gym",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": ""
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03004200de0091011100010005000100050001000e0001001400430018001d0e0348020000001900440104005f01000000000000dd010000"
@@ -1405,7 +1441,7 @@
 			{
 				"bank": 0,
 				"id": 83,
-				"name": "Lumiose City",
+				"name": "Sycamore Labs",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "indoor",
@@ -1420,7 +1456,7 @@
 			{
 				"bank": 0,
 				"id": 84,
-				"name": "Lumiose City",
+				"name": "Sycamore Labs",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "indoor",
@@ -1435,7 +1471,7 @@
 			{
 				"bank": 0,
 				"id": 85,
-				"name": "Lumiose City",
+				"name": "Sycamore Labs",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "indoor",
@@ -1456,7 +1492,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006700870084010900010005000100050001000e0001001b003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1471,7 +1509,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006700880083010900010005000100050001000e0001001c003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1486,7 +1526,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008000d50082010900010005000100050001000e0001001d003f0016001d04044802000000ffff842504008700000000000000e1000000"
@@ -1501,7 +1543,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030049008a0081012600010005000100050001000e0001001e00430016001d04044802000000ffff642404005f0100000000000095010000"
@@ -1516,7 +1560,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03004900b40080012600010005000100050001000e0001001f00430016001d04044802000000ffff6424040099000000000000003b010000"
@@ -1531,7 +1577,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300670087007f010900010005000100050001000e00010020003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1546,7 +1594,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300670088007e010900010005000100050001000e00010021003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1561,7 +1611,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030078008b007d010900010005000100050001000e0001002200430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -1726,7 +1778,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030077008e0072016200010005000100050001000e0001002d00410016001d04024802000000ffffa4250400d902000000000000a3020000"
@@ -1741,7 +1795,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03007700bf0071016200010005000100050001000e0001002e00410016001d04024802000000ffffa4250400d9020000000000007f020000"
@@ -1756,7 +1812,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03007700c00070016200010005000100050001000e0001002f00410016001d04024802000000ffffa4250400d90200000000000013020000"
@@ -1771,7 +1829,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030091008f006f014600010005000100050001000e00010030003f0016001d04024802000000ffffb42504003b0100000000000049020000"
@@ -1786,7 +1846,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03004800b5006e012700010005000100050001000e00010031003f0016001d04024802000000ffffb4250400bd0000000000000051000000"
@@ -1816,7 +1878,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300920091006c010900010005000100050001000e0001003300410016001d04024802000000ffffd425040099000000000000004d010000"
@@ -1831,7 +1895,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300670087006b010900010005000100050001000e0001003400410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1846,7 +1912,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300670088006a010900010005000100050001000e0001003500410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1861,7 +1929,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006700890069010900010005000100050001000e0001003600410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1876,7 +1946,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009d00870068010900010005000100050001000e0001003700410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1891,7 +1963,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009d00880067010900010005000100050001000e0001003800410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1906,7 +1980,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009d00890066010900010005000100050001000e0001003900410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -1921,7 +1997,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006300920065012700010005000100050001000e0001003a00430016001d04044802000000ffffe42504008700000000000000e1000000"
@@ -1936,7 +2014,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03007c00930064010900010005000100050001000e0001003b00430016001d04024802000000ffff342404005f0100000000000083010000"
@@ -1951,7 +2031,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006300940063010900010005000100050001000e0001003c00430016001d04044802000000ffff742404009900000000000000e1000000"
@@ -1966,7 +2048,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030081007f0062010900010005000100050001000e0001003d00410016001d04044802000000ffff842504008700000000000000e1000000"
@@ -1981,7 +2065,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008200d50061010900010005000100050001000e0001003e00410016001d04044802000000ffff842504008700000000000000e1000000"
@@ -1996,7 +2082,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03006300950060014500010005000100050001000e0001003f00430016001d04044802000000ffff742404009900000000000000e1000000"
@@ -2011,7 +2099,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300630096005f014500010005000100050001000e0001004000430016001d04044802000000ffff742404009900000000000000e1000000"
@@ -2026,7 +2116,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300480097005e012700010005000100050001000e00010041003f0016001d04044802000000ffffe425040099000000000000003b010000"
@@ -2041,7 +2133,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030083007f005d010900010005000100050001000e00010042003f0016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2056,7 +2150,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008b0098005c010900010005000100050001000e0001004300430016001d04024802000000fffff42504003b01000000000000b5020000"
@@ -2071,7 +2167,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300930099005b010900010005000100050001000e0001004400430016001d04024802000000ffff74250400e10000000000000005010000"
@@ -2086,7 +2184,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030063009a005a014500010005000100050001000e0001004500430016001d04044802000000ffff742404009900000000000000e1000000"
@@ -2101,7 +2201,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008400d50059010900010005000100050001000e0001004600410016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2116,7 +2218,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008500d50058010900010005000100050001000e0001004700430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2131,7 +2235,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030063009b0057014500010005000100050001000e0001004800430016001d04024802000000ffff742404009900000000000000e1000000"
@@ -2146,7 +2252,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030086007f0056010900010005000100050001000e0001004900430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2161,7 +2269,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008a00d50055010900010005000100050001000e0001004a00430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2176,7 +2286,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030097009c0054010900010005000100050001000e0001004b00430016001d04024802000000ffff742504009900000000000000e1000000"
@@ -2191,7 +2303,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008c00b60053016200010005000100050001000e0001004c00410016001d04024802000000ffffb42404004d0100000000000049020000"
@@ -2206,7 +2320,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009a00bd0052016200010005000100050001000e0001004d00410016001d04024802000000ffffb424040083010000000000003b010000"
@@ -2221,7 +2337,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009a00bd0051016200010005000100050001000e0001004e00410016001d04024802000000ffffb424040083010000000000003b010000"
@@ -2236,7 +2354,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009a00bd0050016200010005000100050001000e0001004f00410016001d04024802000000ffffb424040083010000000000003b010000"
@@ -2251,7 +2371,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009f00b7004f016200010005000100050001000e0001005000410016001d04024802000000ffffb42404004d01000000000000f3000000"
@@ -2266,7 +2388,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008b00ba004e010900010005000100050001000e0001005100430016001d04024802000000ffff042604003b01000000000000b5020000"
@@ -2281,7 +2405,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008b00bb004d010900010005000100050001000e00010052003f0016001d04024802000000fffff42504003b01000000000000b5020000"
@@ -2296,7 +2422,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030087007f004c010900010005000100050001000e00010053003f0016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2311,7 +2439,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "030088007f004b010900010005000100050001000e0001005400430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2326,7 +2456,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009d0087004a010900010005000100050001000e00010055003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -2341,7 +2473,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009d00880049010900010005000100050001000e00010056003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -2356,7 +2490,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008b00bc0048016100010005000100050001000e0001005700430016001d04024802000000fffff42504003b01000000000000b5020000"
@@ -2371,7 +2507,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008a007f0047010900010005000100050001000e0001005800430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2386,7 +2524,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008a00d50046010900010005000100050001000e0001005900430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2401,7 +2541,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009d00870045010900010005000100050001000e0001005a00410016001d04024802000000ffff74250400ab00000000000000e1000000"
@@ -2416,7 +2558,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008900d50044010900010005000100050001000e0001005b00430016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2431,7 +2575,9 @@
 				"type": "mart",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03008a007f0043010900010005000100050001000e0001005c00410016001d04044802000000ffff842504008700000000000000e1000000"
@@ -2446,7 +2592,9 @@
 				"type": "outdoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009600dc0042010900010005000100050001000e0001005d003f001600570b012c02000000ffff6425040085010000000000007a020000"
@@ -2461,7 +2609,9 @@
 				"type": "outdoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"indoors": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009600dc0041010900010005000100050001000e0001005e0041001600570b012c02000000ffff6425040085010000000000007a020000"
@@ -2476,7 +2626,9 @@
 				"type": "outdoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009600dc0040010900010005000100050001000e0001005f0041001600570b012c02000000ffff6425040085010000000000007a020000"
@@ -2491,7 +2643,9 @@
 				"type": "outdoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "03009600dc003f010900010005000100050001000e000100600041001600570b012c02000000ffff6425040085010000000000007a020000"
@@ -2506,7 +2660,9 @@
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"headerData": "0300930099003e01ae00010005000100050001000e0001006100430016001d04024802000000ffff74250400e10000000000000005010000"

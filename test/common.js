@@ -46,6 +46,7 @@ global.Bot = {
 	setOpt(key,val){ this._opt[key] = val; },
 	runOpts(id){ return this._opt[id] || false; },
 	gameInfo(){ return this._gameInfo; },
+	on(){}, //do nohing
 };
 
 beforeEach(function(){
