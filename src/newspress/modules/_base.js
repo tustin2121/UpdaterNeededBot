@@ -112,7 +112,7 @@ class RuleInstance {
 	has(...itemNames) {
 		if (this.lastResult === false) return this; //do nothing
 		this.workingList = [];
-		this.ledger.findAllItemsWithName(...itemNames);
+		this.workingList = this.ledger.findAllItemsWithName(...itemNames);
 		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
