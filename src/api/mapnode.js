@@ -208,7 +208,8 @@ class MapType {
 		this.areas = [];
 		if (Array.isArray(opts.areas)) {
 			for (let a = 0; a < opts.areas.length; a++) {
-				this.areas[a] = new MapArea(this, opts.areas[a]);
+				// this.areas[a] = new MapArea(this, opts.areas[a]);
+				this.areas[a] = opts.areas[a];
 			}
 		}
 	}

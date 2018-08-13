@@ -109,16 +109,17 @@ class RuleInstance {
 	/** Returns this object, for readable chaining. */
 	get and() { return this; }
 	/** Checks the ledger for one or more items with the given name. */
-	has(itemName) {
+	has(...itemNames) {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.ledger.findAllItemsWithName(itemName);
+		this.workingList = [];
+		this.ledger.findAllItemsWithName(...itemNames);
 		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
 	/** Checks the ledger for one or more items with the given name. */
-	hasnt(itemName) {
+	hasnt(...itemNames) {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.ledger.findAllItemsWithName(itemName);
+		this.workingList = this.ledger.findAllItemsWithName(...itemNames);
 		this.lastResult = (this.workingList.length === 0);
 		return this;
 	}
@@ -278,7 +279,14 @@ class RuleInstance {
 	
 	ofImportance() {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.workingList.filter(x=>x.importance >=1);
+		this.workingList = this.workingList.filter(x=>x.importance >= 1);
+		this.lastResult = (this.workingList && this.workingList.length > 0);
+		return this;
+	}
+	
+	ofNoImportance() {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.workingList.filter(x=>x.importance < 1);
 		this.lastResult = (this.workingList && this.workingList.length > 0);
 		return this;
 	}

@@ -1,0 +1,2345 @@
+{
+    "badges": 1,
+    "ball_count": 5,
+    "battle_kind": "Trainer",
+    "caught": 12,
+    "caught_list": [
+        138,
+        140,
+        173,
+        178,
+        219,
+        266,
+        344,
+        403,
+        425,
+        476,
+        502,
+        708
+    ],
+    "daycare": [],
+    "enemy_party": [
+        {
+            "active": false,
+            "form": 0,
+            "gender": "",
+            "health": [
+                0,
+                0
+            ],
+            "shiny": false,
+            "species": {
+                "id": 0
+            }
+        },
+        {
+            "active": false,
+            "form": 0,
+            "gender": "",
+            "health": [
+                0,
+                0
+            ],
+            "shiny": false,
+            "species": {
+                "id": 0
+            }
+        }
+    ],
+    "enemy_trainers": [
+        {
+            "class_id": 57,
+            "id": 164
+        }
+    ],
+    "gender": "Female",
+    "id": 44691,
+    "in_battle": true,
+    "items": {
+        "berries": [],
+        "items": [
+            {
+                "count": 1,
+                "id": 79,
+                "name": "Repel"
+            },
+            {
+                "count": 1,
+                "id": 245,
+                "name": "Poison Barb"
+            },
+            {
+                "count": 1,
+                "id": 678,
+                "name": "Charizardite Y"
+            },
+            {
+                "count": 5,
+                "id": 4,
+                "name": "Pok\u00e9 Ball"
+            },
+            {
+                "count": 3,
+                "id": 94,
+                "name": "Honey"
+            }
+        ],
+        "key": [
+            {
+                "id": 442,
+                "name": "Town Map"
+            },
+            {
+                "id": 714,
+                "name": "Holo Caster"
+            },
+            {
+                "id": 703,
+                "name": "Adventure Rules"
+            },
+            {
+                "id": 643,
+                "name": "Roller Skates"
+            },
+            {
+                "id": 216,
+                "name": "Exp. Share"
+            }
+        ],
+        "medicine": [
+            {
+                "count": 3,
+                "id": 26,
+                "name": "Super Potion"
+            },
+            {
+                "count": 1,
+                "id": 18,
+                "name": "Antidote"
+            },
+            {
+                "count": 1,
+                "id": 21,
+                "name": "Awakening"
+            },
+            {
+                "count": 1,
+                "id": 22,
+                "name": "Paralyze Heal"
+            }
+        ],
+        "tms": [
+            {
+                "id": 410,
+                "name": "TM83 Rock Smash"
+            },
+            {
+                "id": 354,
+                "name": "TM27 Grass Pledge"
+            }
+        ]
+    },
+    "level_cap": 100,
+    "map_id": 262,
+    "map_name": "Route 5",
+    "money": 2398,
+    "name": "\ue08f266",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Switch",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Infiltrator",
+            "affection": 0,
+            "characteristic": "Quick tempered",
+            "checksum": 55964,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 1917791750,
+            "enjoyment": 80,
+            "evs": {
+                "attack": 5,
+                "defense": 5,
+                "hp": 5,
+                "special_attack": 2,
+                "special_defense": 0,
+                "speed": 4
+            },
+            "experience": {
+                "current": 1582,
+                "next_level": 1591,
+                "remaining": 9,
+                "this_level": 1230
+            },
+            "form": 0,
+            "friendship": 207,
+            "fullness": 0,
+            "gender": "Female",
+            "health": [
+                47,
+                47
+            ],
+            "held_item": {
+                "id": 498,
+                "name": "Moon Ball"
+            },
+            "is_egg": false,
+            "is_nicknamed": true,
+            "ivs": {
+                "attack": 29,
+                "defense": 24,
+                "hp": 9,
+                "special_attack": 7,
+                "special_defense": 18,
+                "speed": 15
+            },
+            "language": 2,
+            "level": 13,
+            "met": {
+                "area_id": 14,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-11",
+                "game": 25,
+                "level": 4
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 30,
+                    "id": 122,
+                    "max_pp": 30,
+                    "name": "Lick",
+                    "pp": 30,
+                    "type": "Ghost"
+                },
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 106,
+                    "max_pp": 30,
+                    "name": "Harden",
+                    "pp": 30,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 194,
+                    "max_pp": 5,
+                    "name": "Destiny Bond",
+                    "pp": 5,
+                    "type": "Ghost"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "id": 313,
+                    "max_pp": 20,
+                    "name": "Fake Tears",
+                    "pp": 20,
+                    "type": "Dark"
+                }
+            ],
+            "name": "Drifloon!es8",
+            "nature": "Mild",
+            "next_move": {
+                "accuracy": 101,
+                "basePP": 5,
+                "basePower": 0,
+                "id": 288,
+                "level": 16,
+                "name": "Grudge",
+                "type": "Ghost"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 1889685012,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 125,
+                "egg_cycles": 30,
+                "gender_ratio": 127,
+                "growth_rate": "Fluctuating",
+                "id": 425,
+                "name": "Drifloon",
+                "national_dex": 425,
+                "type1": "Ghost",
+                "type2": "Flying"
+            },
+            "stats": {
+                "attack": 21,
+                "defense": 15,
+                "hp": 47,
+                "special_attack": 23,
+                "special_defense": 18,
+                "speed": 25
+            },
+            "status": ""
+        },
+        {
+            "ability": "Hydration",
+            "affection": 0,
+            "characteristic": "Scatters things often",
+            "checksum": 38187,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 3264411874,
+            "enjoyment": 255,
+            "evs": {
+                "attack": 4,
+                "defense": 7,
+                "hp": 5,
+                "special_attack": 2,
+                "special_defense": 0,
+                "speed": 4
+            },
+            "experience": {
+                "current": 1650,
+                "next_level": 1728,
+                "remaining": 78,
+                "this_level": 1331
+            },
+            "form": 0,
+            "friendship": 218,
+            "fullness": 0,
+            "gender": "Female",
+            "health": [
+                35,
+                35
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "is_nicknamed": true,
+            "ivs": {
+                "attack": 14,
+                "defense": 20,
+                "hp": 28,
+                "special_attack": 20,
+                "special_defense": 2,
+                "speed": 6
+            },
+            "language": 2,
+            "level": 11,
+            "met": {
+                "area_id": 14,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-11",
+                "game": 25,
+                "level": 2
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 20,
+                    "id": 141,
+                    "max_pp": 15,
+                    "name": "Leech Life",
+                    "pp": 15,
+                    "type": "Bug"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 75,
+                    "id": 324,
+                    "max_pp": 15,
+                    "name": "Signal Beam",
+                    "pp": 15,
+                    "type": "Bug"
+                }
+            ],
+            "name": "Silcoon1666",
+            "nature": "Mild",
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 3736786935,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 120,
+                "egg_cycles": 15,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 266,
+                "name": "Silcoon",
+                "national_dex": 266,
+                "type1": "Bug",
+                "type2": "Bug"
+            },
+            "stats": {
+                "attack": 14,
+                "defense": 17,
+                "hp": 35,
+                "special_attack": 13,
+                "special_defense": 10,
+                "speed": 9
+            },
+            "status": ""
+        },
+        {
+            "ability": "Cursed Body",
+            "affection": 0,
+            "characteristic": "Somewhat of a clown",
+            "checksum": 7521,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 205020294,
+            "enjoyment": 170,
+            "evs": {
+                "attack": 13,
+                "defense": 16,
+                "hp": 6,
+                "special_attack": 6,
+                "special_defense": 11,
+                "speed": 7
+            },
+            "experience": {
+                "current": 4118,
+                "next_level": 4913,
+                "remaining": 795,
+                "this_level": 4096
+            },
+            "form": 0,
+            "friendship": 223,
+            "fullness": 0,
+            "gender": "Male",
+            "health": [
+                40,
+                40
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "is_nicknamed": true,
+            "ivs": {
+                "attack": 25,
+                "defense": 17,
+                "hp": 6,
+                "special_attack": 16,
+                "special_defense": 19,
+                "speed": 28
+            },
+            "language": 2,
+            "level": 16,
+            "met": {
+                "area_id": 10,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-11",
+                "game": 25,
+                "level": 5
+            },
+            "moves": [
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 391,
+                    "max_pp": 10,
+                    "name": "Heart Swap",
+                    "pp": 10,
+                    "type": "Psychic"
+                },
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 150,
+                    "max_pp": 40,
+                    "name": "Splash",
+                    "pp": 38,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 20,
+                    "id": 71,
+                    "max_pp": 25,
+                    "name": "Absorb",
+                    "pp": 22,
+                    "type": "Grass"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 60,
+                    "id": 450,
+                    "max_pp": 20,
+                    "name": "Bug Bite",
+                    "pp": 20,
+                    "type": "Bug"
+                }
+            ],
+            "name": "!!!!!qqquulk",
+            "nature": "Brave",
+            "next_move": {
+                "accuracy": 100,
+                "basePP": 5,
+                "basePower": 1,
+                "id": 462,
+                "level": 19,
+                "name": "Crush Grip",
+                "type": "Normal"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 3948487629,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 120,
+                "egg_cycles": 20,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 708,
+                "name": "Phantump",
+                "national_dex": 708,
+                "type1": "Ghost",
+                "type2": "Grass"
+            },
+            "stats": {
+                "attack": 34,
+                "defense": 23,
+                "hp": 40,
+                "special_attack": 23,
+                "special_defense": 27,
+                "speed": 18
+            },
+            "status": ""
+        },
+        {
+            "ability": "Harvest",
+            "affection": 0,
+            "characteristic": "Scatters things often",
+            "checksum": 56562,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 953739445,
+            "enjoyment": 255,
+            "evs": {
+                "attack": 8,
+                "defense": 9,
+                "hp": 13,
+                "special_attack": 8,
+                "special_defense": 8,
+                "speed": 12
+            },
+            "experience": {
+                "current": 4594,
+                "next_level": 4913,
+                "remaining": 319,
+                "this_level": 4096
+            },
+            "form": 0,
+            "friendship": 215,
+            "fullness": 0,
+            "gender": "",
+            "health": [
+                25,
+                49
+            ],
+            "held_item": {
+                "id": 316,
+                "name": "Full Incense"
+            },
+            "is_egg": false,
+            "is_nicknamed": true,
+            "ivs": {
+                "attack": 8,
+                "defense": 4,
+                "hp": 23,
+                "special_attack": 9,
+                "special_defense": 10,
+                "speed": 11
+            },
+            "language": 2,
+            "level": 16,
+            "met": {
+                "area_id": 14,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-11",
+                "game": 25,
+                "level": 3
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 90,
+                    "id": 615,
+                    "max_pp": 10,
+                    "name": "Thousand Waves",
+                    "pp": 7,
+                    "type": "Ground"
+                },
+                {
+                    "accuracy": 80,
+                    "base_power": 110,
+                    "id": 56,
+                    "max_pp": 5,
+                    "name": "Hydro Pump",
+                    "pp": 5,
+                    "type": "Water"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 120,
+                    "id": 76,
+                    "max_pp": 10,
+                    "name": "Solar Beam",
+                    "pp": 9,
+                    "type": "Grass"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 80,
+                    "id": 91,
+                    "max_pp": 10,
+                    "name": "Dig",
+                    "pp": 10,
+                    "type": "Ground"
+                }
+            ],
+            "name": "!!  777     ",
+            "nature": "Gentle",
+            "next_move": {
+                "accuracy": 100,
+                "basePP": 25,
+                "basePower": 60,
+                "id": 531,
+                "level": 17,
+                "name": "Heart Stamp",
+                "type": "Psychic"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 2721179863,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 90,
+                "egg_cycles": 20,
+                "gender_ratio": 255,
+                "growth_rate": "Medium Fast",
+                "id": 344,
+                "name": "Claydol",
+                "national_dex": 344,
+                "type1": "Ground",
+                "type2": "Psychic"
+            },
+            "stats": {
+                "attack": 29,
+                "defense": 35,
+                "hp": 49,
+                "special_attack": 29,
+                "special_defense": 49,
+                "speed": 31
+            },
+            "status": ""
+        },
+        {
+            "ability": "Scrappy",
+            "affection": 0,
+            "characteristic": "Capable of taking hits",
+            "checksum": 46452,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 2697763435,
+            "enjoyment": 255,
+            "evs": {
+                "attack": 4,
+                "defense": 2,
+                "hp": 6,
+                "special_attack": 2,
+                "special_defense": 0,
+                "speed": 2
+            },
+            "experience": {
+                "current": 1566,
+                "next_level": 1612,
+                "remaining": 46,
+                "this_level": 1261
+            },
+            "form": 0,
+            "friendship": 137,
+            "fullness": 0,
+            "gender": "Female",
+            "health": [
+                36,
+                36
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "is_nicknamed": true,
+            "ivs": {
+                "attack": 16,
+                "defense": 31,
+                "hp": 12,
+                "special_attack": 31,
+                "special_defense": 3,
+                "speed": 26
+            },
+            "language": 2,
+            "level": 13,
+            "met": {
+                "area_id": 22,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-12",
+                "game": 25,
+                "level": 10
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 84,
+                    "max_pp": 30,
+                    "name": "Thunder Shock",
+                    "pp": 30,
+                    "type": "Electric"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "id": 479,
+                    "max_pp": 15,
+                    "name": "Smack Down",
+                    "pp": 15,
+                    "type": "Rock"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 60,
+                    "id": 372,
+                    "max_pp": 10,
+                    "name": "Assurance",
+                    "pp": 10,
+                    "type": "Dark"
+                },
+                {
+                    "accuracy": 95,
+                    "base_power": 55,
+                    "id": 527,
+                    "max_pp": 15,
+                    "name": "Electroweb",
+                    "pp": 15,
+                    "type": "Electric"
+                }
+            ],
+            "name": "!!aoofhnwkw6",
+            "nature": "Impish",
+            "next_move": {
+                "accuracy": 100,
+                "basePP": 5,
+                "basePower": 100,
+                "id": 559,
+                "level": 17,
+                "name": "Fusion Bolt",
+                "type": "Electric"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 723215702,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 235,
+                "egg_cycles": 20,
+                "gender_ratio": 127,
+                "growth_rate": "Medium Slow",
+                "id": 403,
+                "name": "Shinx",
+                "national_dex": 403,
+                "type1": "Electric",
+                "type2": "Electric"
+            },
+            "stats": {
+                "attack": 24,
+                "defense": 18,
+                "hp": 36,
+                "special_attack": 17,
+                "special_defense": 14,
+                "speed": 20
+            },
+            "status": ""
+        },
+        {
+            "ability": "No Guard",
+            "affection": 0,
+            "characteristic": "Good endurance",
+            "checksum": 4237,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encryption_key": 1151978697,
+            "enjoyment": 80,
+            "evs": {
+                "attack": 18,
+                "defense": 9,
+                "hp": 9,
+                "special_attack": 4,
+                "special_defense": 0,
+                "speed": 4
+            },
+            "experience": {
+                "current": 3001,
+                "next_level": 3375,
+                "remaining": 374,
+                "this_level": 2744
+            },
+            "form": 0,
+            "friendship": 224,
+            "fullness": 0,
+            "gender": "Male",
+            "health": [
+                0,
+                34
+            ],
+            "held_item": {
+                "id": 0,
+                "name": ""
+            },
+            "is_egg": false,
+            "is_nicknamed": false,
+            "ivs": {
+                "attack": 19,
+                "defense": 23,
+                "hp": 12,
+                "special_attack": 5,
+                "special_defense": 8,
+                "speed": 14
+            },
+            "language": 2,
+            "level": 14,
+            "met": {
+                "area_id": 14,
+                "area_name": "",
+                "caught_in": "Pok\u00e9 Ball",
+                "date": "2018-8-11",
+                "game": 25,
+                "level": 4
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "id": 55,
+                    "max_pp": 25,
+                    "name": "Water Gun",
+                    "pp": 23,
+                    "type": "Water"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 15,
+                    "id": 594,
+                    "max_pp": 20,
+                    "name": "Water Shuriken",
+                    "pp": 18,
+                    "type": "Water"
+                },
+                {
+                    "accuracy": 90,
+                    "base_power": 75,
+                    "id": 157,
+                    "max_pp": 10,
+                    "name": "Rock Slide",
+                    "pp": 6,
+                    "type": "Rock"
+                },
+                {
+                    "accuracy": 101,
+                    "base_power": 0,
+                    "id": 212,
+                    "max_pp": 5,
+                    "name": "Mean Look",
+                    "pp": 4,
+                    "type": "Normal"
+                }
+            ],
+            "name": "Kabuto",
+            "nature": "Adamant",
+            "next_move": {
+                "accuracy": 101,
+                "basePP": 15,
+                "basePower": 0,
+                "id": 346,
+                "level": 16,
+                "name": "Water Sport",
+                "type": "Water"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 44691,
+                "name": "\ue08f266",
+                "secret": 42453
+            },
+            "personality_value": 1840625263,
+            "shiny": false,
+            "species": {
+                "abilities": null,
+                "catch_rate": 45,
+                "egg_cycles": 30,
+                "gender_ratio": 31,
+                "growth_rate": "Medium Fast",
+                "id": 140,
+                "name": "Kabuto",
+                "national_dex": 140,
+                "type1": "Rock",
+                "type2": "Water"
+            },
+            "stats": {
+                "attack": 33,
+                "defense": 33,
+                "hp": 34,
+                "special_attack": 18,
+                "special_defense": 18,
+                "speed": 22
+            },
+            "status": ""
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [
+                    {
+                        "ability": "Limber",
+                        "affection": 0,
+                        "box_slot": 0,
+                        "characteristic": "A little quick tempered",
+                        "checksum": 198,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 3040571701,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 125,
+                            "next_level": 216,
+                            "remaining": 91,
+                            "this_level": 125
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "fullness": 0,
+                        "gender": "Female",
+                        "held_item": {
+                            "id": 568,
+                            "name": "Genius Wing"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": false,
+                        "ivs": {
+                            "attack": 22,
+                            "defense": 14,
+                            "hp": 9,
+                            "special_attack": 18,
+                            "special_defense": 12,
+                            "speed": 18
+                        },
+                        "language": 2,
+                        "level": 5,
+                        "met": {
+                            "area_id": 16,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 5
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 35,
+                                "id": 64,
+                                "name": "Peck",
+                                "pp": 35,
+                                "pp_up": 0,
+                                "type": "Flying"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 156,
+                                "name": "Rest",
+                                "pp": 8,
+                                "pp_up": 0,
+                                "type": "Psychic"
+                            },
+                            {
+                                "accuracy": 75,
+                                "base_power": 0,
+                                "id": 186,
+                                "name": "Sweet Kiss",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Fairy"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 293,
+                                "name": "Camouflage",
+                                "pp": 18,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "Xatu",
+                        "nature": "Quiet",
+                        "next_move": {
+                            "accuracy": 80,
+                            "basePP": 15,
+                            "basePower": 18,
+                            "id": 154,
+                            "level": 12,
+                            "name": "Fury Swipes",
+                            "type": "Normal"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 2436306468,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 75,
+                            "egg_cycles": 20,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 178,
+                            "name": "Xatu",
+                            "national_dex": 178,
+                            "type1": "Psychic",
+                            "type2": "Flying"
+                        }
+                    },
+                    {
+                        "ability": "Tough Claws",
+                        "affection": 0,
+                        "box_slot": 1,
+                        "characteristic": "Loves to eat",
+                        "checksum": 33468,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 4226586483,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 64,
+                            "next_level": 125,
+                            "remaining": 61,
+                            "this_level": 64
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "fullness": 0,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 188,
+                            "name": "Yache Berry"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": true,
+                        "ivs": {
+                            "attack": 22,
+                            "defense": 16,
+                            "hp": 30,
+                            "special_attack": 10,
+                            "special_defense": 19,
+                            "speed": 29
+                        },
+                        "language": 2,
+                        "level": 4,
+                        "met": {
+                            "area_id": 16,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 4
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 201,
+                                "name": "Sandstorm",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Rock"
+                            },
+                            {
+                                "accuracy": 95,
+                                "base_power": 55,
+                                "id": 555,
+                                "name": "Snarl",
+                                "pp": 13,
+                                "pp_up": 0,
+                                "type": "Dark"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 1,
+                                "id": 447,
+                                "name": "Grass Knot",
+                                "pp": 19,
+                                "pp_up": 0,
+                                "type": "Grass"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 446,
+                                "name": "Stealth Rock",
+                                "pp": 18,
+                                "pp_up": 0,
+                                "type": "Rock"
+                            }
+                        ],
+                        "name": "FFFYOOODDDYF",
+                        "nature": "Rash",
+                        "next_move": {
+                            "accuracy": 95,
+                            "basePP": 15,
+                            "basePower": 65,
+                            "id": 422,
+                            "level": 8,
+                            "name": "Thunder Fang",
+                            "type": "Electric"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 14027841,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 60,
+                            "egg_cycles": 20,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 476,
+                            "name": "Probopass",
+                            "national_dex": 476,
+                            "type1": "Rock",
+                            "type2": "Steel"
+                        }
+                    },
+                    {
+                        "ability": "Scrappy",
+                        "affection": 0,
+                        "box_slot": 2,
+                        "characteristic": "Strong willed",
+                        "checksum": 22271,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 3122706629,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 64,
+                            "next_level": 125,
+                            "remaining": 61,
+                            "this_level": 64
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "fullness": 0,
+                        "gender": "Female",
+                        "held_item": {
+                            "id": 27,
+                            "name": "Full Heal"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": true,
+                        "ivs": {
+                            "attack": 15,
+                            "defense": 9,
+                            "hp": 10,
+                            "special_attack": 0,
+                            "special_defense": 30,
+                            "speed": 24
+                        },
+                        "language": 2,
+                        "level": 4,
+                        "met": {
+                            "area_id": 16,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 4
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 75,
+                                "base_power": 0,
+                                "id": 142,
+                                "name": "Lovely Kiss",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 455,
+                                "name": "Defend Order",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Bug"
+                            },
+                            {
+                                "accuracy": 85,
+                                "base_power": 130,
+                                "id": 551,
+                                "name": "Blue Flare",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Fire"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 1,
+                                "id": 216,
+                                "name": "Return",
+                                "pp": 20,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "Magcargoif  ",
+                        "nature": "Adamant",
+                        "next_move": {
+                            "accuracy": 90,
+                            "basePP": 10,
+                            "basePower": 75,
+                            "id": 157,
+                            "level": 5,
+                            "name": "Rock Slide",
+                            "type": "Rock"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 2254758645,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 75,
+                            "egg_cycles": 20,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 219,
+                            "name": "Magcargo",
+                            "national_dex": 219,
+                            "type1": "Fire",
+                            "type2": "Rock"
+                        }
+                    },
+                    {
+                        "ability": "Serene Grace",
+                        "affection": 0,
+                        "box_slot": 3,
+                        "characteristic": "Somewhat vain",
+                        "checksum": 13760,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 2835626550,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 21,
+                            "next_level": 51,
+                            "remaining": 30,
+                            "this_level": 21
+                        },
+                        "form": 0,
+                        "friendship": 140,
+                        "fullness": 0,
+                        "gender": "Female",
+                        "held_item": {
+                            "id": 135,
+                            "name": "Adamant Orb"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": false,
+                        "ivs": {
+                            "attack": 31,
+                            "defense": 29,
+                            "hp": 31,
+                            "special_attack": 12,
+                            "special_defense": 31,
+                            "speed": 23
+                        },
+                        "language": 2,
+                        "level": 3,
+                        "met": {
+                            "area_id": 16,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 3
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 40,
+                                "id": 84,
+                                "name": "Thunder Shock",
+                                "pp": 30,
+                                "pp_up": 0,
+                                "type": "Electric"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 50,
+                                "id": 577,
+                                "name": "Draining Kiss",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Fairy"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 581,
+                                "name": "Misty Terrain",
+                                "pp": 8,
+                                "pp_up": 0,
+                                "type": "Fairy"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 335,
+                                "name": "Block",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "Cleffa",
+                        "nature": "Rash",
+                        "next_move": {
+                            "accuracy": 101,
+                            "basePP": 10,
+                            "basePower": 0,
+                            "id": 285,
+                            "level": 10,
+                            "name": "Skill Swap",
+                            "type": "Psychic"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 2311486059,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 150,
+                            "egg_cycles": 10,
+                            "gender_ratio": 191,
+                            "growth_rate": "Fast",
+                            "id": 173,
+                            "name": "Cleffa",
+                            "national_dex": 173,
+                            "type1": "Fairy",
+                            "type2": "Fairy"
+                        }
+                    },
+                    {
+                        "ability": "Sand Rush",
+                        "affection": 0,
+                        "box_slot": 4,
+                        "characteristic": "Likes to thrash about",
+                        "checksum": 49202,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 2974037935,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 21,
+                            "next_level": 51,
+                            "remaining": 30,
+                            "this_level": 21
+                        },
+                        "form": 0,
+                        "friendship": 140,
+                        "fullness": 0,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 0,
+                            "name": ""
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": false,
+                        "ivs": {
+                            "attack": 31,
+                            "defense": 31,
+                            "hp": 0,
+                            "special_attack": 31,
+                            "special_defense": 23,
+                            "speed": 17
+                        },
+                        "language": 2,
+                        "level": 3,
+                        "met": {
+                            "area_id": 16,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 3
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 40,
+                                "id": 84,
+                                "name": "Thunder Shock",
+                                "pp": 30,
+                                "pp_up": 0,
+                                "type": "Electric"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 50,
+                                "id": 577,
+                                "name": "Draining Kiss",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Fairy"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 581,
+                                "name": "Misty Terrain",
+                                "pp": 9,
+                                "pp_up": 0,
+                                "type": "Fairy"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 335,
+                                "name": "Block",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "Cleffa",
+                        "nature": "Naughty",
+                        "next_move": {
+                            "accuracy": 101,
+                            "basePP": 10,
+                            "basePower": 0,
+                            "id": 285,
+                            "level": 10,
+                            "name": "Skill Swap",
+                            "type": "Psychic"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 1603746089,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 150,
+                            "egg_cycles": 10,
+                            "gender_ratio": 191,
+                            "growth_rate": "Fast",
+                            "id": 173,
+                            "name": "Cleffa",
+                            "national_dex": 173,
+                            "type1": "Fairy",
+                            "type2": "Fairy"
+                        }
+                    },
+                    {
+                        "ability": "Hydration",
+                        "affection": 0,
+                        "box_slot": 5,
+                        "characteristic": "Strong willed",
+                        "checksum": 46045,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 1909463727,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 343,
+                            "next_level": 512,
+                            "remaining": 169,
+                            "this_level": 343
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "fullness": 0,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 193,
+                            "name": "Payapa Berry"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": true,
+                        "ivs": {
+                            "attack": 20,
+                            "defense": 18,
+                            "hp": 12,
+                            "special_attack": 9,
+                            "special_defense": 30,
+                            "speed": 23
+                        },
+                        "language": 2,
+                        "level": 7,
+                        "met": {
+                            "area_id": 102,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 7
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 20,
+                                "id": 141,
+                                "name": "Leech Life",
+                                "pp": 14,
+                                "pp_up": 0,
+                                "type": "Bug"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 75,
+                                "id": 324,
+                                "name": "Signal Beam",
+                                "pp": 15,
+                                "pp_up": 0,
+                                "type": "Bug"
+                            }
+                        ],
+                        "name": "AB   uullb22",
+                        "nature": "Calm",
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 1041101827,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 120,
+                            "egg_cycles": 15,
+                            "gender_ratio": 127,
+                            "growth_rate": "Medium Fast",
+                            "id": 266,
+                            "name": "Silcoon",
+                            "national_dex": 266,
+                            "type1": "Bug",
+                            "type2": "Bug"
+                        }
+                    },
+                    {
+                        "ability": "Shed Skin",
+                        "affection": 0,
+                        "box_slot": 6,
+                        "characteristic": "Highly curious",
+                        "checksum": 36540,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 1299192306,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 343,
+                            "next_level": 512,
+                            "remaining": 169,
+                            "this_level": 343
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "fullness": 0,
+                        "gender": "Female",
+                        "held_item": {
+                            "id": 0,
+                            "name": ""
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": true,
+                        "ivs": {
+                            "attack": 4,
+                            "defense": 20,
+                            "hp": 14,
+                            "special_attack": 25,
+                            "special_defense": 17,
+                            "speed": 23
+                        },
+                        "language": 2,
+                        "level": 7,
+                        "met": {
+                            "area_id": 20,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-12",
+                            "game": 25,
+                            "level": 7
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 40,
+                                "id": 55,
+                                "name": "Water Gun",
+                                "pp": 24,
+                                "pp_up": 0,
+                                "type": "Water"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 270,
+                                "name": "Helping Hand",
+                                "pp": 19,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 0,
+                                "id": 600,
+                                "name": "Powder",
+                                "pp": 19,
+                                "pp_up": 0,
+                                "type": "Bug"
+                            },
+                            {
+                                "accuracy": 95,
+                                "base_power": 110,
+                                "id": 592,
+                                "name": "Steam Eruption",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Water"
+                            }
+                        ],
+                        "name": "AABBVV Y Z ",
+                        "nature": "Gentle",
+                        "next_move": {
+                            "accuracy": 100,
+                            "basePP": 15,
+                            "basePower": 50,
+                            "id": 479,
+                            "level": 16,
+                            "name": "Smack Down",
+                            "type": "Rock"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 3774296601,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 45,
+                            "egg_cycles": 30,
+                            "gender_ratio": 31,
+                            "growth_rate": "Medium Fast",
+                            "id": 138,
+                            "name": "Omanyte",
+                            "national_dex": 138,
+                            "type1": "Rock",
+                            "type2": "Water"
+                        }
+                    },
+                    {
+                        "ability": "Leaf Guard",
+                        "affection": 0,
+                        "box_slot": 7,
+                        "characteristic": "A little quick tempered",
+                        "checksum": 32132,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 329972110,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 0,
+                            "defense": 0,
+                            "hp": 0,
+                            "special_attack": 0,
+                            "special_defense": 0,
+                            "speed": 0
+                        },
+                        "experience": {
+                            "current": 236,
+                            "next_level": 314,
+                            "remaining": 78,
+                            "this_level": 236
+                        },
+                        "form": 0,
+                        "friendship": 70,
+                        "fullness": 0,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 223,
+                            "name": "Amulet Coin"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": true,
+                        "ivs": {
+                            "attack": 22,
+                            "defense": 18,
+                            "hp": 18,
+                            "special_attack": 19,
+                            "special_defense": 3,
+                            "speed": 16
+                        },
+                        "language": 2,
+                        "level": 7,
+                        "met": {
+                            "area_id": 20,
+                            "area_name": "",
+                            "caught_in": "Great Ball",
+                            "date": "2018-8-12",
+                            "game": 25,
+                            "level": 7
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 90,
+                                "base_power": 100,
+                                "id": 152,
+                                "name": "Crabhammer",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Water"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 70,
+                                "id": 498,
+                                "name": "Chip Away",
+                                "pp": 20,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 50,
+                                "id": 342,
+                                "name": "Poison Tail",
+                                "pp": 23,
+                                "pp_up": 0,
+                                "type": "Poison"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 110,
+                                "name": "Withdraw",
+                                "pp": 38,
+                                "pp_up": 0,
+                                "type": "Water"
+                            }
+                        ],
+                        "name": "!!!!!!!11   ",
+                        "nature": "Relaxed",
+                        "next_move": {
+                            "accuracy": 85,
+                            "basePP": 10,
+                            "basePower": 90,
+                            "id": 330,
+                            "level": 11,
+                            "name": "Muddy Water",
+                            "type": "Water"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 2849102320,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 45,
+                            "egg_cycles": 20,
+                            "gender_ratio": 31,
+                            "growth_rate": "Medium Slow",
+                            "id": 502,
+                            "name": "Dewott",
+                            "national_dex": 502,
+                            "type1": "Water",
+                            "type2": "Water"
+                        }
+                    },
+                    {
+                        "ability": "No Guard",
+                        "affection": 0,
+                        "box_slot": 8,
+                        "characteristic": "Likes to relax",
+                        "checksum": 50349,
+                        "condition": {
+                            "beauty": 0,
+                            "coolness": 0,
+                            "cuteness": 0,
+                            "feel": 0,
+                            "smartness": 0,
+                            "toughness": 0
+                        },
+                        "encryption_key": 111714061,
+                        "enjoyment": 0,
+                        "evs": {
+                            "attack": 5,
+                            "defense": 12,
+                            "hp": 14,
+                            "special_attack": 5,
+                            "special_defense": 11,
+                            "speed": 8
+                        },
+                        "experience": {
+                            "current": 4029,
+                            "next_level": 4096,
+                            "remaining": 67,
+                            "this_level": 3375
+                        },
+                        "form": 0,
+                        "friendship": 184,
+                        "fullness": 0,
+                        "gender": "Male",
+                        "held_item": {
+                            "id": 277,
+                            "name": "Metronome"
+                        },
+                        "is_egg": false,
+                        "is_nicknamed": false,
+                        "ivs": {
+                            "attack": 20,
+                            "defense": 17,
+                            "hp": 29,
+                            "special_attack": 24,
+                            "special_defense": 14,
+                            "speed": 28
+                        },
+                        "language": 2,
+                        "level": 15,
+                        "met": {
+                            "area_id": 14,
+                            "area_name": "",
+                            "caught_in": "Pok\u00e9 Ball",
+                            "date": "2018-8-11",
+                            "game": 25,
+                            "level": 4
+                        },
+                        "moves": [
+                            {
+                                "accuracy": 100,
+                                "base_power": 40,
+                                "id": 55,
+                                "name": "Water Gun",
+                                "pp": 25,
+                                "pp_up": 0,
+                                "type": "Water"
+                            },
+                            {
+                                "accuracy": 100,
+                                "base_power": 15,
+                                "id": 594,
+                                "name": "Water Shuriken",
+                                "pp": 20,
+                                "pp_up": 0,
+                                "type": "Water"
+                            },
+                            {
+                                "accuracy": 90,
+                                "base_power": 75,
+                                "id": 157,
+                                "name": "Rock Slide",
+                                "pp": 10,
+                                "pp_up": 0,
+                                "type": "Rock"
+                            },
+                            {
+                                "accuracy": 101,
+                                "base_power": 0,
+                                "id": 212,
+                                "name": "Mean Look",
+                                "pp": 5,
+                                "pp_up": 0,
+                                "type": "Normal"
+                            }
+                        ],
+                        "name": "Kabuto",
+                        "nature": "Lonely",
+                        "next_move": {
+                            "accuracy": 101,
+                            "basePP": 15,
+                            "basePower": 0,
+                            "id": 346,
+                            "level": 16,
+                            "name": "Water Sport",
+                            "type": "Water"
+                        },
+                        "original_trainer": {
+                            "gender": "Female",
+                            "id": 44691,
+                            "name": "\ue08f266",
+                            "secret": 42453
+                        },
+                        "personality_value": 2708703042,
+                        "shiny": false,
+                        "species": {
+                            "abilities": null,
+                            "catch_rate": 45,
+                            "egg_cycles": 30,
+                            "gender_ratio": 31,
+                            "growth_rate": "Medium Fast",
+                            "id": 140,
+                            "name": "Kabuto",
+                            "national_dex": 140,
+                            "type1": "Rock",
+                            "type2": "Water"
+                        }
+                    }
+                ],
+                "box_name": "BOX 1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 14",
+                "box_number": 14
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 15",
+                "box_number": 15
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 16",
+                "box_number": 16
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 17",
+                "box_number": 17
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 18",
+                "box_number": 18
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 19",
+                "box_number": 19
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 20",
+                "box_number": 20
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 21",
+                "box_number": 21
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 22",
+                "box_number": 22
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 23",
+                "box_number": 23
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 24",
+                "box_number": 24
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 25",
+                "box_number": 25
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 26",
+                "box_number": 26
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 27",
+                "box_number": 27
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 28",
+                "box_number": 28
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 29",
+                "box_number": 29
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 30",
+                "box_number": 30
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX 31",
+                "box_number": 31
+            }
+        ]
+    },
+    "secret": 42453,
+    "seen": 86,
+    "seen_list": [
+        1,
+        22,
+        25,
+        39,
+        52,
+        66,
+        69,
+        74,
+        77,
+        83,
+        106,
+        109,
+        118,
+        120,
+        123,
+        137,
+        138,
+        139,
+        140,
+        164,
+        169,
+        170,
+        173,
+        178,
+        183,
+        192,
+        194,
+        195,
+        202,
+        206,
+        213,
+        219,
+        220,
+        226,
+        259,
+        266,
+        269,
+        298,
+        318,
+        321,
+        329,
+        331,
+        333,
+        344,
+        348,
+        364,
+        394,
+        399,
+        403,
+        406,
+        418,
+        425,
+        433,
+        435,
+        443,
+        449,
+        453,
+        455,
+        456,
+        463,
+        465,
+        469,
+        476,
+        498,
+        502,
+        504,
+        506,
+        522,
+        527,
+        532,
+        537,
+        556,
+        557,
+        559,
+        570,
+        590,
+        603,
+        610,
+        622,
+        658,
+        664,
+        678,
+        682,
+        705,
+        708,
+        712
+    ],
+    "x": 707,
+    "y": 466,
+    "z": 20
+}

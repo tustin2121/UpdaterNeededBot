@@ -23,6 +23,7 @@ class BattleModule extends ReportingModule {
 		super(config, memory, 2);
 		this.memory.attempts = this.memory.attempts || {};
 		this.memory.badgeMax = this.memory.badgeMax || 0;
+		this.memory.lastBattleReported = this.memory.lastBattleReported || null;
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -50,9 +51,10 @@ class BattleModule extends ReportingModule {
 		}
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
+			this.memory.lastBattleReported = null; //clear battle reporting
 		}
 		else if (cb.in_battle && cb.party) {
-			let healthy = cb.party.filter(p=>p.hp);
+			let healthy = cb.party.filter(p=>p.hp && p.species);
 			this.debug(`displayName=`,cb.displayName,` isImportant=`,cb.isImportant);
 			this.debug(`party=`,cb.party);
 			LOGGER.debug(`moves=`, cb.party.map(x=>x.moveInfo));
@@ -234,6 +236,35 @@ RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
 			ledger.get(0).forEach(x=>x.keepAlive());
 		}
 		ledger.mark(0).postpone(0); //see the BlackoutContext item about the special postponing it does
+	})
+);
+
+// Exposing the BattleContext item
+
+RULES.push(new Rule(`When something interesting happens in an unimportant battle, report the battle`)
+	.when(ledger=>ledger.has('BattleContext').ofNoImportance())
+	.when(ledger=>ledger.has('MonFainted', 'MonRevived', 'MonLeveledUp', 'MonPokerusInfected'))
+	.when(ledger=>{//If we haven't reported this before
+		try {
+			let id = ledger.get(0)[0].battle.attemptId;
+			return ledger.memory.lastBattleReported !== id;
+		} catch (e) {
+			LOGGER.error('Error getting the attempt ID!', e);
+			return false;
+		}
+	})
+	.then(ledger=>{
+		ledger.promote(0);
+		let id = ledger.get(0)[0].battle.attemptId;
+		ledger.memory.lastBattleReported = id;
+	})
+);
+
+RULES.push(new Rule(`If the battle is already being reported on by BattleStarted, don't double report it.`)
+	.when(ledger=>ledger.has('BattleContext').ofImportance())
+	.when(ledger=>ledger.has('BattleStarted').ofImportance())
+	.then(ledger=>{
+		ledger.demote(0);
 	})
 );
 

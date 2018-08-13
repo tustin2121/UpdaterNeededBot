@@ -93,8 +93,13 @@ class Ledger {
 	}
 	
 	/** Finds all items with the given name. */
-	findAllItemsWithName(name) {
-		return this.list.filter(item => item.__itemName__ === name);
+	findAllItemsWithName(...names) {
+		return this.list.filter(item=>{
+			for (let n of names) {
+				if (item.__itemName__ === n) return true;
+			}
+			return false;
+		});
 	}
 	
 	getNumberOfImportantItems() {

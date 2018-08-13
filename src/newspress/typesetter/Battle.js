@@ -2,7 +2,27 @@
 // The phrasebook for Pokemon-related LedgerItems
 
 module.exports = {
-	BattleContext: null,
+	BattleContext: {
+		__meta__: { sort:100 }, //Before any fainting or level ups
+		default: null,
+		important: null,
+		trainer: [
+			`We {{rand|fight|battle|face off against}} a {{rand|cheeky|rogue|roving|wandering}} {{trainer class|$@trainer}}, named {{$}}{{if|@enemy|, and {{their}} {{mon|@enemy}}}}.`,
+			`We get spotted by a{{rand| wandering|n eager}} {{trainer class|$@trainer}} named {{$}}, and begin a battle{{if|@enemy| against {{their}} {{mon|@enemy}}}}.`,
+			`{{if|@isSingleBattle}}While {{rand|fighting|facing off against|battling}} one {{trainer class|$@trainer}} {{$}}, and {{their}} {{mon|@enemy}},`,
+			`{{trainer class|$@trainer}} {{$}} picks a fight with us{{if|@enemy|, using {{their}} {{mon|@enemy}}}}.`,
+		],
+		wild: [
+			`We {{rand|come across|run into|step on|stumble upon|encounter|bump into|run across}} a wild {{mon|@enemy}}.`,
+			`{{rand|Facing off against|battling|Grappling|Affronted by|Westling}} a wild {{mon|@enemy}}.`,
+			`A wild {{mon|@enemy}} {{rand|picks a fight with|engages|thinks it can take|crashes into|smacks into|collides with|jumps|ambushes|attacks|assults}} us.`,
+		],
+		horde: [
+			`A horde of Pokémon {{rand|attacks|jumps|assails|assults|ambushes|surrounds}} us!`,
+			`We get {{rand|stopped|ambushed|attacked|jumped|assailed|assulted|besieged|surrounded}} by a large group of Pokémon!`,
+			`{{rand|Facing off against|Dealing with|Fending off|Battling|Deflecting the attacks of}} a horde of Pokémon!`,
+		],
+	},
 	
 	BattleStarted: {
 		__meta__: { sort:60 }, //Before EnemySentOut

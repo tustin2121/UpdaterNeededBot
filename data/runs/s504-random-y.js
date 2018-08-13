@@ -76,6 +76,7 @@ module.exports = {
 	
 	// The list of active modules and their configurations
 	modules: {
+		Meme: {},
 		Location: {},
 		ApiMonitoring: {},
 		Pokemon: {},
@@ -90,6 +91,5 @@ module.exports = {
 		Options: {},
 		// RealTime: {},
 		// PC: {},
-		Meme: {},
 	},
 }

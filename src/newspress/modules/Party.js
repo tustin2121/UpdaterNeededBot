@@ -392,6 +392,14 @@ if (Bot.runOpts('namingMatch')) {
 	);
 }
 
+RULES.push(new Rule('Postpone effects of Transform or Imposter')
+	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('MonLearnedMoveOverOldMove', 'MonLearnedMove').moreThan(1))
+	.when(ledger=>ledger.hasnt('MonLeveledUp'))
+	.then(ledger=>{
+		ledger.postpone(1); // postpone move learns, hopefully for the duration of battle
+	})
+);
 
 
 module.exports = PartyModule;

@@ -64,7 +64,39 @@ class BattleContext extends LedgerItem {
 		
 		super(0);
 		this.battle = battle;
-		this.flavor = battle.trainer? 'trainer':'wild';
+		if (battle.trainer) {
+			this.flavor = (battle.isImportant)?'important':'trainer';
+		} else {
+			this.flavor = (battle.party.length > 1)?'horde':'wild';
+		}
+		this.enemy = this.battle.active && this.battle.active[0];
+	}
+	get isSingleBattle() { return this.battle.trainer && this.battle.trainer.length === 1; }
+	get isMultiBattle() { return this.battle.trainer && this.battle.trainer.length > 1; }
+	get lastPokemon(){ return this.battle.party[this.battle.party.length-1]; }
+	get trainer(){
+		try {
+			if (this.battle.trainer.length == 2) {
+				return { 
+					className: 'pair of them',
+					name: this.battle.displayName, 
+					gender: 'p',
+				};
+			}
+			if (this.battle.trainer.length == 3) {
+				return { 
+					className: 'three of them',
+					name: this.battle.displayName, 
+					gender: 'p',
+				};
+			}
+			return this.battle.trainer[0];
+		} catch (e) {
+			LOGGER.error('Error getting trainer info:', e);
+			return {
+				className: 'trainer', name: '', gender: 'p',
+			};
+		}
 	}
 }
 
