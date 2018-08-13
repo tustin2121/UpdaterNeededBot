@@ -67,7 +67,7 @@ class BattleContext extends LedgerItem {
 		if (battle.trainer) {
 			this.flavor = (battle.isImportant)?'important':'trainer';
 		} else {
-			this.flavor = (battle.party.length > 1)?'horde':'wild';
+			this.flavor = (battle.party && battle.party.length > 1)?'horde':'wild';
 		}
 		this.enemy = this.battle.active && this.battle.active[0];
 	}
