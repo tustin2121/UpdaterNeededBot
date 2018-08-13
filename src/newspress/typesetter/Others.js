@@ -123,11 +123,11 @@ let OptionsChanged = {
 		const self = this;
 		let keys = Object.keys(item.changes);
 		if (keys.length === 1) {
-			return get(singular, keys[0], item[keys[0]]);
+			return get(singular, keys[0], item.changes[keys[0]]);
 		} else {
 			let list = [];
 			for (let key of keys) {
-				let phrase = get(plural, key, item[key]);
+				let phrase = get(plural, key, item.changes[key]);
 				if (!phrase) continue;
 				list.push(phrase);
 			}

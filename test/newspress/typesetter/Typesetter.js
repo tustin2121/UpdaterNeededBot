@@ -399,5 +399,20 @@ HP: 0 | ATK: 0 | DEF: 0 | SPA: 0 | SPD: 0 | SPE: 0">male Lv. 14 Pineco</info>!</
 			res.should.equal(exp);
 		});
 		
+		it('OptionsChanged', function(){
+			const { Ledger, OptionsChanged } = LEDGER_ITEMS;
+			
+			let co = {
+				"battle_style": "Set",
+				"battle_scene": "On",
+				"text_speed": "Med"
+			};
+			let item = new OptionsChanged(co);
+			
+			setRandom(0, 0, 0);
+			let res = typesetter.typesetItems([ item ]);
+			
+			res.should.equal('We take a tour through the options screen and disallow battle switching, turn battle animations on, and adjust the text speed to med.');
+		});
 	});
 });

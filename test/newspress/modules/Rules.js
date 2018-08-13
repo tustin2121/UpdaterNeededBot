@@ -187,6 +187,23 @@ describe('Rule', function(){
 			
 			r1.should.have.been.calledOnce();
 		});
+		it('can select multiple item types', function(){
+			const r1 = sinon.spy((lgr)=>{
+				lgr.ledger.should.equal(ledger);
+				lgr.get(0).should.be.an.Array().and.containDeepOrdered([
+					ledger.list[0], ledger.list[1],
+					ledger.list[4], ledger.list[5],
+				]);
+			});
+			
+			const rule = new Rule('Rule')
+				.when((lg)=>lg.has('TestItem1','TestItemA'))
+				.then(r1);
+			
+			rule.apply(ledger);
+			
+			r1.should.have.been.calledOnce();
+		});
 	});
 	
 	describe('RuleInstance#with', function(){
