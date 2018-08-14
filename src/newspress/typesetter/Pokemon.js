@@ -8,11 +8,11 @@ module.exports = {
 		// mon = the missing pokemon
 		default: null, //Do not report initially
 		confirmed: [
-			`<b>WE RELEASED {{@mon}}!</b>`,
-			`<b>{{@mon}} HAS BEEN RELEASED! BYE {{uppercase|@mon.name}}!</b>`,
+			`<b>WE'VE RELEASED {{$@mon}}!</b> (at {{@releaseTime}})`,
+			`<b>{{$@mon}} HAS BEEN RELEASED! BYE {{uppercase|@mon.name}}!</b> (at {{@releaseTime}})`,
 		],
 		timeout: [
-			`<b>We may have released {{@mon}}!</b> (The API no longer reports them!)`,
+			`<b>We may have released {{$@mon}}!</b> (The API has not reported {{them}} since {{@releaseTime}}!)`,
 		],
 	},
 	PokemonGained: {

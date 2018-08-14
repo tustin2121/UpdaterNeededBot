@@ -111,7 +111,6 @@ class RuleInstance {
 	/** Checks the ledger for one or more items with the given name. */
 	has(...itemNames) {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = [];
 		this.workingList = this.ledger.findAllItemsWithName(...itemNames);
 		this.lastResult = (this.workingList.length > 0);
 		return this;

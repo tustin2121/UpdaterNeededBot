@@ -720,7 +720,7 @@ class TypeSetter {
 		let flavorMeta = {};
 		if (item instanceof LedgerItem) {
 			let flavor = item.flavor || 'default';
-			if (typeof phraseDict[flavor].__meta__ === 'object') {
+			if (phraseDict[flavor] && typeof phraseDict[flavor].__meta__ === 'object') {
 				flavorMeta = phraseDict[flavor].__meta__;
 			}
 		}

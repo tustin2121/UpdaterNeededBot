@@ -43,6 +43,8 @@ module.exports = {
 	hubE4: true,
 	// If this generation supports 3D movement (resolve the Z axis)
 	'3d': true,
+	// If this generation has a trainer id that is dependant on the class, or if the trainer id is unique to all trainers
+	dependentTrainerId: false,
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,

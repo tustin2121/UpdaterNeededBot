@@ -658,6 +658,7 @@ class SortedBattle {
 		this.party = null;
 		this.active = null;
 		this.classes = {};
+		this.loc = (loc)?loc.describe().slice(3):null;
 		
 		let enemy_trainer = read(data, 'enemy_trainer', 'enemy_trainers');
 		if (enemy_trainer) {
@@ -802,16 +803,19 @@ class SortedBattle {
 			name.push(`tr[${this.trainer}]`);
 		}
 		else if (this.trainer === true) {
-			name.push('trX');
+			name.push('trX'+this.loc);
 		}
 		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
 			}
-		}
-		if (this.party) {
-			for (let p of this.party) {
-				name.push(`pk${p.dexid}`);
+		} 
+		else { //Wild battles
+			name.push('w'+this.loc);
+			if (this.party) {
+				for (let p of this.party) {
+					name.push(`pk${p.dexid}`);
+				}
 			}
 		}
 		return name.join(';');

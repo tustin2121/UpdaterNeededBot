@@ -14,7 +14,7 @@ module.exports = {
 		],
 		wild: [
 			`We {{rand|come across|run into|step on|stumble upon|encounter|bump into|run across}} a wild {{mon|@enemy}}.`,
-			`{{rand|Facing off against|battling|Grappling|Affronted by|Westling}} a wild {{mon|@enemy}}.`,
+			`{{rand|Facing off against|battling|Grappling|Affronted by|Wrestling}} a wild {{mon|@enemy}}.`,
 			`A wild {{mon|@enemy}} {{rand|picks a fight with|engages|thinks it can take|crashes into|smacks into|collides with|jumps|ambushes|attacks|assults}} us.`,
 		],
 		horde: [

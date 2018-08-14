@@ -146,22 +146,13 @@ class PokemonModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule('Postpone reporting of new Pokemon when we have a temporary party')
+RULES.push(new Rule('Postpone reporting of new or lost Pokemon when we have a temporary party')
 	.when(ledger=>ledger.has('TemporaryPartyContext'))
-	.when(ledger=>ledger.has('PokemonGained'))
+	.when(ledger=>ledger.has('PokemonGained', 'PokemonIsMissing'))
 	.then(ledger=>{
-		ledger.postpone(1); //Postpone PokemonGained
+		ledger.postpone(1); //Postpone PokemonGained, PokemonIsMissing
 	})
 );
-
-RULES.push(new Rule('Postpone reporting of lost Pokemon when we have a temporary party')
-	.when(ledger=>ledger.has('TemporaryPartyContext'))
-	.when(ledger=>ledger.has('PokemonIsMissing'))
-	.then(ledger=>{
-		ledger.postpone(1); //Postpone PokemonIsMissing
-	})
-);
-
 
 RULES.push(new Rule('Pokemon found to be in a new storage location are deposited.')
 	//PokemonFound = merge of PokemonIsMissing and PokemonGained
@@ -230,6 +221,34 @@ RULES.push(new Rule('Report multiple Pokemon changing their name at once as an A
 	})
 );
 
+RULES.push(new Rule(`More than 4 simultaneously missing pokemon is an API Disturbance.`)
+	// .when(ledger=>ledger.has('PokemonIsMissing').withSame('ticksActive').moreThan(4))
+	.when(ledger=>{
+		// If there are more than 4 PokemonIsMissing items that are postponed the same number of times 
+		// (that is, all created at the same time), then there's an API destrubance ongoing
+		let items = ledger.ledger.findAllItemsWithName('PokemonIsMissing');
+		if (!items || !items.length) return false;
+		let levels = [];
+		for (let item of items) {
+			let i = item._postponeCount;
+			levels[i] = (levels[i]||0) + 1;
+			if (levels[i] > 4) { 
+				ledger.has('PokemonIsMissing').with('_postponeCount', i); //set up list for then statement
+				return true;
+			}
+		}
+		return false;
+	})
+	.then(ledger=>{
+		let num = ledger.get(0).length;
+		ledger.add(new ApiDisturbance({
+			code: ApiDisturbance.LOGIC_ERROR,
+			reason: `There are ${num} Pokemon missing simultaneously!`,
+			score: num,
+		}));
+	})
+);
+// Between these two rules, more than 4 simultanious pokemon missing should never get asked about.
 RULES.push(new Rule('Postpone missing pokemon reports when an API Distrubance is active.')
 	.when(ledger=>ledger.has('ApiDisturbance'))
 	.when(ledger=>ledger.has('PokemonIsMissing'))
@@ -278,13 +297,13 @@ RULES.push(new Rule('Ask Updaters about Missing Pokemon')
 				let res = Bot.checkQuery(item.query)
 				if (res === true) { //released
 					item.markAsFallen('Confirmed released.');
-					ledger.remove(item).add(new PokemonLost(item.mon, 'confirmed'));
+					ledger.remove(item).add(new PokemonLost(item.mon, item.timestamp, 'confirmed'));
 				} else if (res === false) { //not released
 					item.query = true;
 					ledger.postpone(item);
 				} else if (res === null) { //timed out, assume released
 					item.markAsFallen('Assumed released.');
-					ledger.remove(item).add(new PokemonLost(item.mon, 'timeout'));
+					ledger.remove(item).add(new PokemonLost(item.mon, item.timestamp, 'timeout'));
 				} else { //waiting for query to resolve
 					item.ticksActive++;
 					ledger.postpone(item);

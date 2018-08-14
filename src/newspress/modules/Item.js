@@ -308,7 +308,7 @@ RULES.push(new Rule(`Items lost in shops have been sold`)
 	RULES.push(new Rule(`Premire Balls are given away, not bought.`)
 		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds).ofFlavor('shopping'))
 		.then(ledger=>{
-			ledger.get(1).forEach(x=> x.flavor = 'freepromo');
+			ledger.get(0).forEach(x=> x.flavor = 'freepromo');
 		})
 	);
 }

@@ -88,8 +88,12 @@ class PokemonIsMissing extends PokemonItem {
 
 /** Indicates that a pokemon is now being reported as irriversibly lost. */
 class PokemonLost extends PokemonItem {
-	constructor(mon, flavor) {
+	constructor(mon, timestamp, flavor) {
 		super(mon, 2, { flavor });
+		this.timestamp = timestamp;
+	}
+	get releaseTime() {
+		return Bot.getTimestamp({ time:this.timestamp });
 	}
 }
 

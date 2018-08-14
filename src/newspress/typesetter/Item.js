@@ -21,11 +21,14 @@ module.exports = {
 				`<b>{{rand|Bought|Purchased|Paid for}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
-		freepromo: [
-			`<b>We got {{two items|@item|@amount}} for free!</b>`,
-			`<b>We got {{two items|@item|@amount}} as a free promotion!</b>`,
-			`<b>{{Two items|@item|@amount}} gets thrown in as a package deal!</b>`,
-		],
+		freepromo: {
+			__meta__: { sort:-10 }, //after other GainItems
+			single: [
+				`<b>We got {{two items|@item|@amount}} for free!</b>`,
+				`<b>We got {{two items|@item|@amount}} as a free promotion!</b>`,
+				`<b>{{Two items|@item|@amount}} gets thrown in as a package deal!</b>`,
+			],
+		},
 		rotoloto: [
 			`Roto Loto nets us <b>{{some items|@item|@amount}}</b>.`,
 			`Rotom decides to hand us <b>{{some items|@item|@amount}}</b>.`,
