@@ -473,6 +473,8 @@ function parseCmd(cmd, authed=false, msg=null) {
 		}
 	if (/apologi[zs]e/i.test(cmd)) 
 		return ['shutup', `S-Sorry...`];
+	if (/xyzzy/i.test(cmd)) 
+		return ['shutup', `*Fool...*`];
 	
 	return [''];
 }
