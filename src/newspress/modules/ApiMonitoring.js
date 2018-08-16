@@ -48,24 +48,26 @@ class ApiMonitoringModule extends ReportingModule {
 	
 	finalPass(ledger) {
 		let items = ledger.findAllItemsWithName('ApiDisturbance');
-		Bot.emit('api-disturbance', {
-			timestamp: Date.now(),
-			items: items.map(x=>x.toInfoString()),
-		});
-		LOGGER.debug(items);
-		let score = items.reduce((a,x)=>a+x.score, 0);
-		if (score >= 10) {
-			if (this.memory.lastApiThresholdBreach < Date.now() + (1000*60*30)) {
-				// Don't re-report within the last 30 minutes, or ongoing
-				Bot.alertUpdaters(`Alert: High number of API disturbances detected. Something may be going wrong with the game or the overlay may have restarted.`);
+		if (items.length) {
+			Bot.emit('api-disturbance', {
+				timestamp: Date.now(),
+				items: items.map(x=>x.toInfoString()),
+			});
+			LOGGER.debug(items);
+			let score = items.reduce((a,x)=>a+x.score, 0);
+			if (score >= 10) {
+				if (this.memory.lastApiThresholdBreach > Date.now() + (1000*60*30)) {
+					// Don't re-report within the last 30 minutes, or ongoing
+					Bot.alertUpdaters(`Alert: High number of API disturbances detected. Something may be going wrong with the game or the overlay may have restarted.`);
+				}
+				this.memory.lastApiThresholdBreach = Date.now();
 			}
-			this.memory.lastApiThresholdBreach = Date.now();
-		}
-		
-		for (let item in items) {
-			// let code = item.code || ApiDisturbance.UNSPECIFIED;
-			// let fn = this[code];
-			// if (fn) fn.call(this, item);
+			
+			for (let item in items) {
+				// let code = item.code || ApiDisturbance.UNSPECIFIED;
+				// let fn = this[code];
+				// if (fn) fn.call(this, item);
+			}
 		}
 	}
 	

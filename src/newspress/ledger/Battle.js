@@ -78,14 +78,14 @@ class BattleContext extends LedgerItem {
 		try {
 			if (this.battle.trainer.length == 2) {
 				return { 
-					className: 'pair of them',
+					className: 'pair of trainers',
 					name: this.battle.displayName, 
 					gender: 'p',
 				};
 			}
 			if (this.battle.trainer.length == 3) {
 				return { 
-					className: 'three of them',
+					className: 'trio of trainers',
 					name: this.battle.displayName, 
 					gender: 'p',
 				};

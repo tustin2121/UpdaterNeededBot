@@ -67,7 +67,7 @@ const HANDLER = {
 			lastTg = ` (for ${printElapsedTime(lastTg)})`;
 		}
 		
-		let apid = Bot.memory.lastApiDisturbance;
+		let apid = Bot.memory.global.lastApiDisturbance;
 		if (apid && apid.timestamp) {
 			let apiTS = Date.now() - apid.timestamp;
 			if (Number.isNaN(apiTS)) {
@@ -186,10 +186,6 @@ const HANDLER = {
 		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
 	},
 	
-	'save-mem': ({ msg })=>{
-		Bot.saveMemory();
-		msg.channel.send(`Memory bank saved to disk.`).catch(ERR);
-	},
 	/*
 	reload: ({ msg, memory })=>{
 		let mod = args[0];
@@ -327,7 +323,6 @@ function parseCmd(cmd, authed=false, msg=null) {
 	// 	if (authed) return ['reload', res[1]];
 	// 	else return [''];
 	// }
-	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
@@ -468,7 +463,15 @@ function parseCmd(cmd, authed=false, msg=null) {
 		} else {
 			return ['shutup',  `You guys can keep the world. It's too fucked up for me.`];
 		}
-	if (/apologi[zs]e/i.test(cmd))
+	if (/\bsave (me|us)\b/i.test(cmd)) 
+		if (timeoutRespond('saveMe', 246)) {
+			return ['shutup-edit',
+				`No one can save you now...`,
+				`No one can save us now...`];
+		} else {
+			return ['shutup',  `No one can save us now...`];
+		}
+	if (/apologi[zs]e/i.test(cmd)) 
 		return ['shutup', `S-Sorry...`];
 	
 	return [''];

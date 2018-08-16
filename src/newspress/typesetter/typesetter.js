@@ -74,6 +74,7 @@ function printObject(obj) {
 {
 	Object.assign(FORMAT_FNS, {
 		'meta': ()=>'', //do nothing
+		'uppercase': (...args)=> args.map(x=>args.toString().toUpperCase()).join(' '),
 	});
 }
 

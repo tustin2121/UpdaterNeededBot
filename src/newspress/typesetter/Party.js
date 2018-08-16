@@ -46,7 +46,7 @@ module.exports = {
 				`<b>{{@target}} has lost {{one noun|level|@deltaLost}}, and is now level {{@level}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`is now level {{@level}} (losing {{one noun|level|@deltaLost}})npm `,
+				`is now level {{@level}} (losing {{one noun|level|@deltaLost}})`,
 			],
 		},
 		level100: {
