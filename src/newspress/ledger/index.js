@@ -113,12 +113,12 @@ class Ledger {
 	/** Sorts the ledger and drops all items below 1 importance. */
 	finalize() {
 		this.log.ledgerState(this);
-		this.list.sort(LedgerItem.compare);
-		let i = 0;
-		for (i = 0; i < this.list.length; i++) {
-			if (this.list[i].importance < 1) break;
-		}
-		this.list.length = i;
+		// this.list.sort(LedgerItem.compare);
+		// let i = 0;
+		// for (i = 0; i < this.list.length; i++) {
+		// 	if (this.list[i].importance < 1) break;
+		// }
+		// this.list.length = i;
 	}
 	
 	/** Trims out all ledger items that are not helpful for the given help options. */
@@ -129,6 +129,9 @@ class Ledger {
 			// Check if the item's helptype is one of the help options we've been given
 			if (helpOpts[item.helptype] || item.helptype === true) {
 				list.push(item);
+			} else if (typeof item.getHelpItem === 'function') {
+				let xitem = item.getHelpItem(helpOpts);
+				if (xitem) list.push(xitem);
 			}
 		}
 		this.list = list;

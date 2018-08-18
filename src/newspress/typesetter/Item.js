@@ -77,6 +77,11 @@ module.exports = {
 	},
 	MoneyValueChanged: null,
 	
+	ShoppingContext: null,
+	ShoppingReport: { //TODO
+		
+	},
+	
 	UsedBallInBattle: {
 		__meta__: { sort:100 }, //before PokemonGained
 		default: {

@@ -5,6 +5,7 @@ const { ReportingModule, Rule } = require('./_base');
 const {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
+	ShoppingContext, ShoppingReport, 
 	ApiDisturbance,
 } = require('../ledger');
 
@@ -100,7 +101,7 @@ class ItemModule extends ReportingModule {
 		}
 		
 		if (curr.inv.money !== prev.inv.money) {
-			ledger.add(new MoneyValueChanged(curr.inv.money - prev.inv.money));
+			ledger.add(new MoneyValueChanged(prev.inv.money, curr.inv.money));
 		}
 	}
 	
@@ -273,33 +274,59 @@ if (!!Bot.gameInfo().regionMap) {
 
 //TODO new Rule(`Items gained while shopping are postponed until the shopping is finished`)
 
-RULES.push(new Rule(`Items gained in shops have been bought`)
+RULES.push(new Rule(`Items gained/lost in shops have been bought/sold`)
 	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
-	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
+	.when(ledger=>ledger.has('GainItem','LostItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
-RULES.push(new Rule(`Items lost in shops have been sold`)
-	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
-	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
+RULES.push(new Rule(`Items gained/lost with a change in money on hand has been bought/sold`)
+	.when(ledger=>ledger.has('MoneyValueChanged'))
+	.when(ledger=>ledger.has('GainItem', 'LostItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
 
-RULES.push(new Rule(`Items gained in shops have been bought`)
-	.when(ledger=>ledger.has('MoneyValueChanged'))
-	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
+RULES.push(new Rule(`When shopping happens, we need a shopping context.`)
+	.when(ledger=>ledger.has('GainItem','LostItem').ofFlavor('shopping'))
+	.when(ledger=>ledger.hasnt('ShoppingContext'))
 	.then(ledger=>{
-		ledger.get(1).forEach(x=> x.flavor = 'shopping');
+		ledger.add(new ShoppingContext());
 	})
 );
-RULES.push(new Rule(`Items lost in shops have been sold`)
-	.when(ledger=>ledger.has('MoneyValueChanged'))
-	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
+
+RULES.push(new Rule(`Mark bough items in the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext'))
+	.when(ledger=>ledger.has('GainItem').ofFlavor('shopping').unmarked())
 	.then(ledger=>{
-		ledger.get(1).forEach(x=> x.flavor = 'shopping');
+		let ctx = ledger.get(0)[0];
+		ctx.keepAlive();
+		ledger.mark(1).get(1).forEach(x=>ctx.boughtItem(x.item, x.amount));
+	})
+);
+RULES.push(new Rule(`Mark sold items in the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext'))
+	.when(ledger=>ledger.has('LostItem').ofFlavor('shopping').unmarked())
+	.then(ledger=>{
+		let ctx = ledger.get(0)[0];
+		ctx.keepAlive();
+		ledger.mark(1).get(1).forEach(x=>ctx.soldItem(x.item, x.amount));
+	})
+);
+RULES.push(new Rule(`Update the money count on the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext'))
+	.when(ledger=>ledger.has('MoneyValueChanged').unmarked())
+	.then(ledger=>{
+		let ctx = ledger.get(0)[0];
+		ledger.mark(1).get(1).forEach(x=>ctx.cart.money = x.curr);
+	})
+);
+RULES.push(new Rule(`Postpone the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext').unmarked())
+	.then(ledger=>{
+		ledger.mark(0).postpone(0);
 	})
 );
 

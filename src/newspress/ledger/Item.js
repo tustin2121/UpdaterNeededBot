@@ -78,13 +78,78 @@ class RetrievedItemFromPC extends LedgerItem {
 }
 
 class MoneyValueChanged extends LedgerItem {
-	constructor(delta) {
+	constructor(prev, curr) {
 		super(0);
-		this.delta = delta;
+		this.prev = prev;
+		this.curr = curr;
+		this.delta = curr-prev;
 	}
 }
 
 /////////////////// Advanced Items ///////////////////
+
+/**
+ * A context item which keeps track of items bought during a shopping trip.
+ */
+class ShoppingContext extends LedgerItem {
+	constructor(cart={ buy:{}, sell:{}, money:0, transactions:0 }) {
+		super(0);
+		this.ttl = ShoppingContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+		this.cart = cart;
+	}
+	canPostpone() {
+		if (this.ttl === 0) {
+			if (this.cart.transactions > 1) return ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
+			return false; //Don't postpone or send out a report
+		}
+		if (!this._next) {
+			this._next = new ShoppingContext(this.cart);
+			this._next.ttl = this.ttl - 1;
+		}
+		return this._next; //postpone this item instead
+	}
+	/** Tells this item to keep itself alive another round. */
+	keepAlive() {
+		if (this._next) this._next.ttl = Math.min(this._next.ttl+1, ShoppingContext.STARTING_TTL-1);
+		this.ttl = Math.max(this.ttl, 2);
+	}
+	/**
+	 * Tells the context that we've bought an item.
+	 * @param {Item} item - The item bought.
+	 * @param {number} num - The amount of items bought.
+	 */
+	boughtItem(item, num) {
+		let entry = this.cart.buy[item.id];
+		if (!entry) {
+			this.cart.buy[item.id] = entry = { id:item.id, name:item.name, count:0 };
+		}
+		entry.count += num;
+		this.cart.transactions++;
+	}
+	/**
+	 * Tells the context that we've sold an item.
+	 * @param {Item} item - The item sold.
+	 * @param {number} num - The amount of items sold.
+	 */
+	soldItem(item, num) {
+		let entry = this.cart.sell[item.id];
+		if (!entry) {
+			this.cart.sell[item.id] = entry = { id:item.id, name:item.name, count:0 };
+		}
+		entry.count += num;
+		this.cart.transactions++;
+	}
+}
+ShoppingContext.STARTING_TTL = 4;
+
+
+class ShoppingReport extends LedgerItem {
+	constructor(cart) {
+		super(1.5);
+		this.cart = cart;
+	}
+}
+
 
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
@@ -142,4 +207,5 @@ class UsedItemOnMon extends LedgerItem {
 module.exports = {
 	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
+	ShoppingContext, ShoppingReport,
 };

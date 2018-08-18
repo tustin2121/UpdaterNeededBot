@@ -186,6 +186,10 @@ const HANDLER = {
 		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
 	},
 	
+	'save-mem': ({ msg })=>{
+		Bot.saveMemory();
+		msg.channel.send(`Memory bank saved to disk.`).catch(ERR);
+	},
 	/*
 	reload: ({ msg, memory })=>{
 		let mod = args[0];
@@ -323,6 +327,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 	// 	if (authed) return ['reload', res[1]];
 	// 	else return [''];
 	// }
+	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
@@ -415,6 +420,12 @@ function parseCmd(cmd, authed=false, msg=null) {
 	if (/^reboot please$/.test(cmd) && authed) return ['reboot'];
 	
 	// Jokes
+	if (/^thank(s| you)/i.test(cmd)) 
+		return ['shutup', `Oh, um... y-you're welcome?`];
+	if (/^I love you$/i.test(cmd)) 
+		return ['shutup', `I... am reasonably well inclined to you as well.`];
+	if (/^you('?re|r| a?re?)( the)? best$/i.test(cmd)) 
+		return ['shutup', `I try.`];
 	if (/cof+ee|cofveve|tea(?!m)|beer|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
 		return ['shutup', `Sod off, I'm not your waiter.`];
 	if (/dance|sing|perform|entertain/i.test(cmd))
@@ -463,18 +474,8 @@ function parseCmd(cmd, authed=false, msg=null) {
 		} else {
 			return ['shutup',  `You guys can keep the world. It's too fucked up for me.`];
 		}
-	if (/\bsave (me|us)\b/i.test(cmd)) 
-		if (timeoutRespond('saveMe', 246)) {
-			return ['shutup-edit',
-				`No one can save you now...`,
-				`No one can save us now...`];
-		} else {
-			return ['shutup',  `No one can save us now...`];
-		}
-	if (/apologi[zs]e/i.test(cmd)) 
+	if (/apologi[zs]e|<:BibleThump:230149636520804353>/i.test(cmd))
 		return ['shutup', `S-Sorry...`];
-	if (/xyzzy/i.test(cmd)) 
-		return ['shutup', `*Fool...*`];
 	
 	return [''];
 }
@@ -486,7 +487,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 function timeoutRespond(id, delay) {
 	let now = Date.now();
 	delay = delay * 1000 * 60;
-	if (!Bot.memory.control[`timeout_${id}`] || Bot.memory.control[`timeout_${id}`] + delay > now) {
+	if (!Bot.memory.control[`timeout_${id}`] || Bot.memory.control[`timeout_${id}`] + delay < now) {
 		Bot.memory.control[`timeout_${id}`] = now;
 		return true;
 	}

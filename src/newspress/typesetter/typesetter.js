@@ -736,12 +736,22 @@ class TypeSetter {
 	 * is put into an array.
 	 */
 	static collateItems(ledger) {
+		const list = ledger.list.slice();
+		{
+			list.sort(LedgerItem.compare);
+			let i = 0;
+			for (i = 0; i < list.length; i++) {
+				if (list[i].importance < 1) break;
+			}
+			list.length = i;
+		}
+		
 		let merges = {};
 		let dict = {};
 		let order = [];
 		
 		// Collate
-		for (let item of ledger.list) {
+		for (let item of list) {
 			let { merge } = TypeSetter.getPhraseMeta(item);
 			if (merge) {
 				merges[merge] = (merges[merge] || []);
