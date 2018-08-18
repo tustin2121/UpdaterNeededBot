@@ -2157,14 +2157,15 @@
 			{
 				"bank": 0,
 				"id": 127,
-				"name": "Lumiose City",
+				"name": "Looker Bureau",
 				"areaId": 22,
 				"areaName": "Lumiose City",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"inconsequential": true
+					"inconsequential": false,
+					"the": "the"
 				},
 				"areas": [],
 				"gamedata": {
