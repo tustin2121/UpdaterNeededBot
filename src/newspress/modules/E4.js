@@ -27,6 +27,10 @@ class E4Module extends ReportingModule {
 		let prev = prev_api.location.is('e4');
 		let curr = curr_api.location.is('e4');
 		
+		if (this.memory.isRematchLevels !== Bot.runFlag('e4_rematch', false)) {
+			this.memory.isRematchLevels = Bot.runFlag('e4_rematch', false);
+		}
+		
 		let inE4 = false;
 		if (curr && curr !== 'lobby' && curr !== 'hallOfFame') {
 			inE4 = true;

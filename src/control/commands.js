@@ -406,8 +406,8 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['chill', timeout];
 	}
 	
-	if ((res = /(turn (on|off)|(en|dis)able) (.*)/i.exec(cmd))) {
-		let val = ['on'].includes(res[1]);
+	if ((res = /(turn (?:on|off)|(?:en|dis)able|set (?:on|off)?) (.*)/i.exec(cmd))) {
+		let val = ['on', 'en'].includes(res[1]) || true;
 		let flag = res[2];
 		const runflags = require('./runflags');
 		flag = runflags.parse(flag);

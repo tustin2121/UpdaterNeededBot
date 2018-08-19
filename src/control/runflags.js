@@ -20,6 +20,12 @@ const FLAGS = {
 		match: /temp(orary)?( party)? (alerts?|pings?)/i,
 	},
 	
+	e4_rematch: { //default: false
+		name: 'E4 Rematch Levels',
+		purpose: `I will make note if we're running against higher level Rematch E4 in my E4 rematch count if this is turned on.`,
+		match: /(e4 ?)?rematch( levels)?/i,
+	},
+	
 	query_missing: { //default: true
 		name: 'Missing Pokemon Queries',
 		purpose: `I will ask updaters if a missing pokemon has been released. If this is off, I will assume it's been released after a few minutes.`,
