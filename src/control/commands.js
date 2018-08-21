@@ -14,6 +14,10 @@ const fs = require("fs");
 const path = require('path');
 const REBOOT_FILE = path.resolve(__dirname, '../../memory', 'reboot.log');
 
+function printElapsedTime(date) {
+	return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
+}
+
 const HANDLER = {
 	reboot: ({ msg })=>{
 		Bot.memory.global.rebootRequested = true;
@@ -93,11 +97,6 @@ const HANDLER = {
 		msg.channel
 			.send(`Run-time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
-		return;
-		
-		function printElapsedTime(date) {
-			return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
-		}
 	},
 	
 	tagin: ({ msg, args })=>{
@@ -165,6 +164,44 @@ const HANDLER = {
 				}
 			} break;
 		}
+	},
+	
+	'location-report': ({ msg })=>{
+		let presses = Bot.press.pool.filter(x=>x.lastLedger);
+		if (!presses.length) return msg.channel.send(`I don't know where we are at this time.`).catch(ERR);
+		let infos = [];
+		for (let press of presses) {
+			let ledger = press.lastLedger;
+			let loc = ledger.findAllItemsWithName('LocationContext')[0];
+			let map = ledger.findAllItemsWithName('MapContext')[0];
+			
+			let info = [];
+			if (Bot.runConfig.numGames > 1) {
+				info.push(`in ${Bot.gameInfo(press.gameIndex).name},`);
+			}
+			if (map) {
+				info.push(`we're currently`);
+				if (map.area) {
+					info.push(`in the "${map.area.name}" area of`);
+				}
+				if (map.loc) {
+					if (!map.area) info.push(map.loc.get('prep'));
+					info.push(map.loc.has('the'));
+					info.push(`${map.loc.name};`);
+				} else {
+					if (!map.area) info.push('in');
+					info.push(`a place I couldn't categorize;`);
+				}
+			}
+			if (loc) {
+				info.push(`the API reports our location as "${loc.loc.map_name}" [${loc.loc.bank_id} @ (${loc.loc.position})];`);
+			}
+			if (!map && !loc) info.push(`I'm not sure where we are;`);
+			info = info.join(' ');
+			info = info.slice(0,1).toUpperCase() + info.slice(1, -1) + '.';
+			infos.push(info);
+		}
+		msg.channel.send(infos.join('\n')).catch(ERR);
 	},
 	
 	'clear-ledger': ({ msg })=>{
@@ -417,6 +454,10 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['shutup', `I don't have an option for that.`];
 	}
 	
+	if (/^where are we\??/i.test(cmd)) {
+		return ['location-report'];
+	}
+	
 	if (/^reboot please$/.test(cmd) && authed) return ['reboot'];
 	
 	// Jokes
@@ -476,6 +517,24 @@ function parseCmd(cmd, authed=false, msg=null) {
 		}
 	if (/apologi[zs]e|<:BibleThump:230149636520804353>/i.test(cmd))
 		return ['shutup', `S-Sorry...`];
+	if (/^where am I\??/i.test(cmd)) 
+		return ['shutup', `Behind a screen of some sort, staring at this chat.`];
+	if (/^do you (want to|wanna) build a (.*)?/i.test(cmd))
+		return ['shutup', `Lacking hands, I am incapable of building such a thing.`];
+	
+	if (/(tell|give|show) (me|us)? ?a? fun fact/i.test(cmd)) {
+		if (Bot.taggedIn === true && Bot.memory.global.lastTagChange) {
+			let lastTg = Date.now() - Bot.memory.global.lastTagChange;
+			return ['shutup', `Here's a fun fact: I have been tagged in for the last ${printElapsedTime(lastTg)}. How long have you been tagged in for? <:LUL:238438891579768832>`];
+		} 
+		else if (Bot.memory.global.lastApiDisturbance && Bot.memory.global.lastApiDisturbance.timestamp) {
+			let lastTs = Date.now() - Bot.memory.global.lastApiDisturbance.timestamp;
+			return ['shutup', `Here's a fun fact: The last time the API went screwy was ${printElapsedTime(lastTs)} ago. In fact, the API often goes screwy and I don't even bother you guys about it. <:LUL:238438891579768832>`];
+		} 
+		else {
+			return ['shutup', `Here's a fun fact: your face. <:LUL:238438891579768832>`];
+		}
+	}
 	
 	return [''];
 }
