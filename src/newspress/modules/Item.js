@@ -338,6 +338,13 @@ RULES.push(new Rule(`Postpone the shopping context.`)
 			ledger.get(0).forEach(x=> x.flavor = 'freepromo');
 		})
 	);
+	RULES.push(new Rule(`Premire Balls are given away while we're shopping.`)
+		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds))
+		.when(ledger=>ledger.has('ShoppingContext'))
+		.then(ledger=>{
+			ledger.get(0).forEach(x=> x.flavor = 'freepromo');
+		})
+	);
 }
 
 RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)

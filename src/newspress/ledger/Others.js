@@ -33,6 +33,12 @@ class DemocracyContext extends LedgerItem {
 	}
 }
 
+class InputModeChanged extends LedgerItem {
+	constructor(newMode) {
+		super(1, { flavor:newMode });
+	}
+}
+
 ///////////////////
 // Real Time
 
@@ -87,6 +93,7 @@ class PhonebookRemove extends LedgerItem {
 
 module.exports = {
 	OptionsChanged,
+	DemocracyContext, InputModeChanged,
 	TimeChanged,
 	PhonebookAdd, PhonebookRemove,
 };

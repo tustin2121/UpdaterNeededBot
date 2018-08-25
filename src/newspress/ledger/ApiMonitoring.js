@@ -27,7 +27,7 @@ class ApiDisturbance extends LedgerItem {
 			case ApiDisturbance.INVALID_DATA:str += 'INVALID DATA: '; break;
 			case ApiDisturbance.HTTP_ERROR: str += 'HTTP ERROR: '; break;
 		}
-		str += this.reson;
+		str += this.reason;
 		return str;
 	}
 }

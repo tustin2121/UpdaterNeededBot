@@ -268,7 +268,9 @@ RULES.push(new Rule('Postpone (and wait for) confirmed unreleased Pokemon')
 RULES.push(new Rule('Postpone recently missing Pokemon')
 	.when(ledger=>ledger.has('PokemonIsMissing').which(x=>x.ticksActive < 5)) //~1 minute
 	.then(ledger=>{
-		ledger.getAndPostpone(0).forEach(x=>x.ticksActive++); //Postpone PokemonIsMissing
+		//TODO: DON'T USE LASTRESULT!
+		let tickDelta = (ledger.has('DemocracyContext').lastResult)?0.1:1; //~10 minutes in democracy
+		ledger.getAndPostpone(0).forEach(x=>x.ticksActive += tickDelta); //Postpone PokemonIsMissing
 	})
 );
 
@@ -276,7 +278,9 @@ RULES.push(new Rule('Postpone reporting missing Pokemon when asking about MIA Po
 	.when(ledger=>!Bot.runFlag('query_missing', true))
 	.when(ledger=>ledger.has('PokemonIsMissing').which(x=>x.ticksActive < 25)) //~6 minutes
 	.then(ledger=>{
-		ledger.getAndPostpone(0).forEach(x=>x.ticksActive++); //Postpone PokemonIsMissing
+		//TODO: DON'T USE LASTRESULT!
+		let tickDelta = (ledger.has('DemocracyContext').lastResult)?0.2:1; //~30 minutes in democracy
+		ledger.getAndPostpone(0).forEach(x=>x.ticksActive += tickDelta); //Postpone PokemonIsMissing
 	})
 );
 

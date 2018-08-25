@@ -47,7 +47,8 @@ module.exports = {
 		apiPollPeriod: 1000 * 15, //15 seconds
 		
 		// The Chat URLs to connect to via irc. If one doesn't work, the next will be tried, looping.
-		chatSrc: null,//['irc.chat.twitch.tv:6667'],
+		// chatSrc: null,
+		chatSrc: 'irc.chat.twitch.tv',
 		// The irc channel to join when connected via irc (auth data is in the auth folder)
 		chatChannel: "#twitchplayspokemon",
 		// The regex
@@ -58,6 +59,7 @@ module.exports = {
 			'a': true, 'b': true, 'x': true, 'y': true,
 			'l': true, 'r':true, 'start': true, 'select': true,
 			'n':'up', 's':'down', 'e':'east', 'w':'west',
+			'exp': true, 'xp':'exp', 'p':'exp',
 		},
 		
 		// The Reddit Live Updater ID to report to

@@ -443,13 +443,21 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['chill', timeout];
 	}
 	
-	if ((res = /(turn (?:on|off)|(?:en|dis)able|set (?:on|off)?) (.*)/i.exec(cmd))) {
-		let val = ['on', 'en'].includes(res[1]) || true;
+	if ((res = /^(?:turn on|enable|set on) (.*)/i.exec(cmd))) {
 		let flag = res[2];
 		const runflags = require('./runflags');
 		flag = runflags.parse(flag);
 		if (flag) {
-			return ['set-flag', flag, val];
+			return ['set-flag', flag, true];
+		}
+		return ['shutup', `I don't have an option for that.`];
+	}
+	if ((res = /^(?:turn off|disable|set off) (.*)/i.exec(cmd))) {
+		let flag = res[2];
+		const runflags = require('./runflags');
+		flag = runflags.parse(flag);
+		if (flag) {
+			return ['set-flag', flag, false];
 		}
 		return ['shutup', `I don't have an option for that.`];
 	}

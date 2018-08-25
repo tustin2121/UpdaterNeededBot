@@ -165,6 +165,18 @@ module.exports = {
 		default: '[D]',
 	},
 	
+	InputModeChanged: {
+		// flavor = the new mode
+		'anarchy': [
+			`We drop back into Anarchy.`,
+			`Back to Anarchy.`,
+		],
+		'democracy': [
+			`We enter Democracy!`,
+			`Now in Democracy!`,
+		],
+	},
+	
 	TimeChanged: {
 		default: undefined, //should never happen
 		dawn: [
