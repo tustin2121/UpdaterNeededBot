@@ -12,16 +12,17 @@ class GainItem extends LedgerItem {
 		super(1, {helps:'items'});
 		this.item = item;
 		this.amount = amount;
+		this.report = null;
 	}
 	cancelsOut(other) {
-		if (other.name === 'GainItem') {
+		if (other.__itemName__ === 'GainItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount += other.amount; //add together the amounts
 			if (this.amount == 0) return true; //cancels out
 			if (this.amount < 0) return new LostItem(this.item, -this.amount); //replace
 			return this; //coalesce
 		}
-		if (other.name === 'LostItem') {
+		if (other.__itemName__ === 'LostItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount -= other.amount; //subtract the amounts
 			if (this.amount == 0) return true; //cancels out
@@ -40,14 +41,14 @@ class LostItem extends LedgerItem {
 		this.amount = amount;
 	}
 	cancelsOut(other) {
-		if (other.name === 'LostItem') {
+		if (other.__itemName__ === 'LostItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount += other.amount;  //add together the amounts
 			if (this.amount == 0) return true; //cancels out
 			if (this.amount < 0) return new GainItem(this.item, -this.amount); //replace
 			return this; //coalesce
 		}
-		if (other.name === 'GainItem') {
+		if (other.__itemName__ === 'GainItem') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount -= other.amount;  //subtract the amounts
 			if (this.amount == 0) return true; //cancels out
@@ -76,12 +77,84 @@ class RetrievedItemFromPC extends LedgerItem {
 	}
 }
 
+class MoneyValueChanged extends LedgerItem {
+	constructor(prev, curr) {
+		super(0);
+		this.prev = prev;
+		this.curr = curr;
+		this.delta = curr-prev;
+	}
+}
+
 /////////////////// Advanced Items ///////////////////
+
+/**
+ * A context item which keeps track of items bought during a shopping trip.
+ */
+class ShoppingContext extends LedgerItem {
+	constructor(cart={ buy:{}, sell:{}, money:0, transactions:0 }) {
+		super(0);
+		this.ttl = ShoppingContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+		this.cart = cart;
+	}
+	canPostpone() {
+		if (this.ttl === 0) {
+			if (this.cart.transactions > 1) return ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
+			return false; //Don't postpone or send out a report
+		}
+		if (!this._next) {
+			this._next = new ShoppingContext(this.cart);
+			this._next.ttl = this.ttl - 1;
+		}
+		return this._next; //postpone this item instead
+	}
+	/** Tells this item to keep itself alive another round. */
+	keepAlive() {
+		if (this._next) this._next.ttl = Math.min(this._next.ttl+1, ShoppingContext.STARTING_TTL-1);
+		this.ttl = Math.max(this.ttl, 2);
+	}
+	/**
+	 * Tells the context that we've bought an item.
+	 * @param {Item} item - The item bought.
+	 * @param {number} num - The amount of items bought.
+	 */
+	boughtItem(item, num) {
+		let entry = this.cart.buy[item.id];
+		if (!entry) {
+			this.cart.buy[item.id] = entry = { id:item.id, name:item.name, count:0 };
+		}
+		entry.count += num;
+		this.cart.transactions++;
+	}
+	/**
+	 * Tells the context that we've sold an item.
+	 * @param {Item} item - The item sold.
+	 * @param {number} num - The amount of items sold.
+	 */
+	soldItem(item, num) {
+		let entry = this.cart.sell[item.id];
+		if (!entry) {
+			this.cart.sell[item.id] = entry = { id:item.id, name:item.name, count:0 };
+		}
+		entry.count += num;
+		this.cart.transactions++;
+	}
+}
+ShoppingContext.STARTING_TTL = 4;
+
+
+class ShoppingReport extends LedgerItem {
+	constructor(cart) {
+		super(1.5);
+		this.cart = cart;
+	}
+}
+
 
 /** Indicates that an pokeball has been used in battle. */
 class UsedBallInBattle extends LedgerItem {
 	constructor(item, x, amount=1) {
-		super(1, { sort:10 }); //before PokemonGained
+		super(1);
 		this.item = item;
 		this.amount = amount;
 		if (x instanceof SortedBattle) {
@@ -95,10 +168,10 @@ class UsedBallInBattle extends LedgerItem {
 	get enemy(){ return this.mon || this.battle.active[0]; }
 	get trainer(){ //shouldn't be called unless it's a trainer flavor
 		if (!this.battle) return null;
-		return this.battle.trainer && this.battle.trainer[0]; 
+		return this.battle.trainer && this.battle.trainer[0];
 	}
 	cancelsOut(other) {
-		if (other.name === 'UsedBallInBattle') {
+		if (other.__itemName__ === 'UsedBallInBattle') {
 			if (this.item.id !== other.item.id) return false;
 			this.amount += other.amount; //add together the amounts
 			if (this.amount == 0) return true; //cancels out
@@ -108,7 +181,7 @@ class UsedBallInBattle extends LedgerItem {
 	}
 }
 
-/** Indicates that an pokeball has been used in battle. */
+/** Indicates that a berry has been used in battle. */
 class UsedBerryInBattle extends LedgerItem {
 	constructor(item, mon) {
 		super(1);
@@ -121,7 +194,7 @@ class UsedBerryInBattle extends LedgerItem {
 /** Indicates that an item has been used on a pokemon. */
 class UsedItemOnMon extends LedgerItem {
 	constructor(type, item, mon, extra) {
-		super(1, { flavor:type, sort:10 }); //before move learns and stuff
+		super(1, { flavor:type });
 		this.item = item;
 		this.mon = mon;
 		this.extra = extra;
@@ -132,6 +205,7 @@ class UsedItemOnMon extends LedgerItem {
 }
 
 module.exports = {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
+	ShoppingContext, ShoppingReport,
 };

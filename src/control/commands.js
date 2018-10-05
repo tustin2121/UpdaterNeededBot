@@ -6,10 +6,47 @@ const ERR = (e)=>LOGGER.error('Discord Error:',e);
 
 const REQ_COOLDOWN = 1000*30; // 30 seconds
 
+const HELP_URL = `https://github.com/tustin2121/UpdaterNeededBot/blob/s05-randomy/Bot%20Commands.md`;
 const MY_MENTION_ID = '<@303732710185369601>';
 let lastReq = 0;
 
+const fs = require("fs");
+const path = require('path');
+const REBOOT_FILE = path.resolve(__dirname, '../../memory', 'reboot.log');
+
+function printElapsedTime(date) {
+	return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
+}
+
 const HANDLER = {
+	reboot: ({ msg })=>{
+		Bot.memory.global.rebootRequested = true;
+		msg.channel.send(`Now rebooting, please wait...`).catch(ERR);
+		LOGGER.info(`Reboot requested from Discord command:`, msg.author.username);
+		try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot requested: ${msg.author.username}\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+		setTimeout(()=>{
+			Bot.shutdown();
+		}, 500);
+		setTimeout(()=>{
+			LOGGER.warning(`Reboot has not yet happened, killing.`);
+			console.error(`Reboot has not yet happened, killing.`);  //eslint-disable-line no-console
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, killing.\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			process.exit(-1);
+		}, 5000);
+		setTimeout(()=>{
+			LOGGER.fatal(`Reboot has not yet happened, SIGKILL.`);
+			console.error(`Reboot has not yet happened, SIGKILL.`);  //eslint-disable-line no-console
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, SIGKILL.\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+			process.kill(process.id, "SIGKILL");
+		}, 15000);
+		setTimeout(()=>{
+			msg.channel.send(`Reboot unsuccessful. I am stuck and require admin assistance.`).catch(ERR);
+			LOGGER.fatal(`Reboot has not yet happened, FAILED!`);
+			console.error(`Reboot has not yet happened, FAILED!`);  //eslint-disable-line no-console
+			try { fs.appendFileSync(REBOOT_FILE, `${Date.now()}: Reboot has not yet happened, FAILED!\n`); } catch (e) { LOGGER.error(`Can't write reboot.log!`, e); }
+		}, 20000);
+	},
+	
 	status: ({ msg })=>{
 		let uptime = Math.floor(require("process").uptime());
 		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
@@ -34,21 +71,32 @@ const HANDLER = {
 			lastTg = ` (for ${printElapsedTime(lastTg)})`;
 		}
 		
-		let apid = Date.now() - Bot.lastApiDisturbance;
-		if (Number.isNaN(apid)) {
-			apid = 'NaN';
+		let apid = Bot.memory.global.lastApiDisturbance;
+		if (apid && apid.timestamp) {
+			let apiTS = Date.now() - apid.timestamp;
+			if (Number.isNaN(apiTS)) {
+				apiTS = 'NaN';
+			} else {
+				apiTS = `${printElapsedTime(apiTS)} ago`;
+			}
+			let apiErrList = '';
+			if (apid.items) {
+				for (let i = 0; i < 3 && i < apid.items.length; i++) {
+					apiErrList += `\n\t${apid.items[i]}`;
+				}
+				if (apid.items.length > 3) {
+					apiErrList += `\n...and ${apid.items.length-3} more.`
+				}
+			}
+			apid = `${apiTS}${apiErrList}`;
 		} else {
-			apid = `${printElapsedTime(apid)} ago`;
+			apid = 'None';
 		}
+		let version = require('../../package.json').version;
 		
 		msg.channel
-			.send(`Run-time UpdaterNeeded Bot 2.0 present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
+			.send(`Run-time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
 			.catch(ERR);
-		return;
-		
-		function printElapsedTime(date) {
-			return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
-		}
 	},
 	
 	tagin: ({ msg, args })=>{
@@ -118,10 +166,54 @@ const HANDLER = {
 		}
 	},
 	
+	'location-report': ({ msg })=>{
+		let presses = Bot.press.pool.filter(x=>x.lastLedger);
+		if (!presses.length) return msg.channel.send(`I don't know where we are at this time.`).catch(ERR);
+		let infos = [];
+		for (let press of presses) {
+			let ledger = press.lastLedger;
+			let loc = ledger.findAllItemsWithName('LocationContext')[0];
+			let map = ledger.findAllItemsWithName('MapContext')[0];
+			
+			let info = [];
+			if (Bot.runConfig.numGames > 1) {
+				info.push(`in ${Bot.gameInfo(press.gameIndex).name},`);
+			}
+			if (map) {
+				info.push(`we're currently`);
+				if (map.area) {
+					info.push(`in the "${map.area.name}" area of`);
+				}
+				if (map.loc) {
+					if (!map.area) info.push(map.loc.get('prep'));
+					info.push(map.loc.has('the'));
+					info.push(`${map.loc.name};`);
+				} else {
+					if (!map.area) info.push('in');
+					info.push(`a place I couldn't categorize;`);
+				}
+			}
+			if (loc) {
+				info.push(`the API reports our location as "${loc.loc.map_name}" [${loc.loc.bank_id} @ (${loc.loc.position})];`);
+			}
+			if (!map && !loc) info.push(`I'm not sure where we are;`);
+			info = info.join(' ');
+			info = info.slice(0,1).toUpperCase() + info.slice(1, -1) + '.';
+			infos.push(info);
+		}
+		msg.channel.send(infos.join('\n')).catch(ERR);
+	},
+	
 	'clear-ledger': ({ msg })=>{
 		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
 		Bot.press.pool.forEach(press=>{
 			if (!press.lastLedger) return;
+			// If there's any PokemonIsMissing items, mark them as fallen before discarding the items forever
+			press.lastLedger.postponeList.forEach((item)=>{
+				if (item.markAsFallen) {
+					item.markAsFallen("Cleared manually.");
+				}
+			});
 			press.lastLedger.postponeList.length = 0;
 		});
 		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
@@ -176,7 +268,9 @@ const HANDLER = {
 	},
 	
 	'set-flag': ({ msg, args })=>{
-		let [ flag, val, name ] = args;
+		let [ flag, val ] = args;
+		const { FLAGS } = require('./runflags');
+		let { name } = FLAGS[flag];
 		Bot.memory.runFlags[flag] = val;
 		msg.channel.send(`Ok: "${name}" is now set to ${Bot.memory.runFlags[flag]?'on':'off'}.`).catch(ERR);
 	},
@@ -184,7 +278,7 @@ const HANDLER = {
 	'query-respond': ({ msg, args })=>{
 		let id = args[0];
 		let res = args[1];
-		if (!Bot.memory.query[id] || Bot.memory.query[id].result !== undefined) {
+		if (!Bot.memory.queries[id] || Bot.memory.queries[id].result !== undefined) {
 			msg.channel.send(`There is no active query by that id.`).catch(ERR);
 			return;
 		}
@@ -196,8 +290,15 @@ const HANDLER = {
 	},
 	
 	shutup: ({ msg, args })=>{
-		msg.channel.send(args[0]);
+		msg.channel.send(args[0]).catch(ERR);
 	},
+	'shutup-edit': ({ msg, args })=>{
+		msg.channel.send(args[0]).then(m=>{
+			setTimeout(()=>{
+				m.edit(args[1]);
+			}, 1200+Math.floor(Math.random()*1900));
+		}).catch(ERR);
+	}
 };
 
 function __reloadFile(modulename) {
@@ -224,6 +325,13 @@ module.exports = function handleMessage(msg, memory) {
 	HANDLER[type]({ msg, memory, args });
 };
 
+const AUTHED_USERS = [
+	"148100682535272448", //Tustin2121
+//	"120002774653075457", //Deadinsky
+//	"86236068814274560",  //Ty
+//	"201624767130763264", //Kip
+];
+
 function parse(msg, memory) {
 	if (msg.content === '_tags UpdaterNeeded_') {
 		return ['tagin'];
@@ -231,10 +339,10 @@ function parse(msg, memory) {
 	if (msg.content.startsWith('_tags')) {
 		return ['tagout'];
 	}
-	let authed = (msg.author.id === "148100682535272448");
+	let authed = AUTHED_USERS.includes(msg.author.id);
 	//if (/where are we/i.test(msg.content))
 	let res = /^Updater?(?:Needed)?(?:Bot)?[:,] (.*)/i.exec(msg.content);
-	if (res) return parseCmd(res[1], authed);
+	if (res) return parseCmd(res[1], authed, msg);
 	
 	if (msg.mentions.users.some(x=> x.id===msg.client.user.id)) {
 		if (!msg.content.startsWith(MY_MENTION_ID)) return ['']; //ignore
@@ -242,13 +350,13 @@ function parse(msg, memory) {
 		if (txt === '') {
 			return ['tagin'];
 		} else {
-			return parseCmd(txt, authed);
+			return parseCmd(txt, authed, msg);
 		}
 	}
 	return [''];
 }
 
-function parseCmd(cmd, authed=false) {
+function parseCmd(cmd, authed=false, msg=null) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
 	let res;
@@ -260,7 +368,7 @@ function parseCmd(cmd, authed=false) {
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
-	if (/^(hello|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
+	if (/^(hello|hi$|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];
 	}
@@ -295,6 +403,7 @@ function parseCmd(cmd, authed=false) {
 	}
 	
 	if (/^h[ea]lp(?: me| us)?(?: out)?/i.test(cmd)) return ['helpout-help'];
+	if (/^(h[ea]lp|commands)/i.test(cmd)) return ['shutup', `I have a list of commands now available here: <${HELP_URL}>`];
 	
 	if ((res = /^chill(?: out)?(?: for (.*))?/i.exec(cmd))) {
 		let timeout = 1*60*60*1000; //1 hour by default
@@ -334,38 +443,120 @@ function parseCmd(cmd, authed=false) {
 		return ['chill', timeout];
 	}
 	
-	if ((res = /turn (on|off) (.*)/i.exec(cmd))) {
-		let val = ['on'].includes(res[1]);
+	if ((res = /^(?:turn on|enable|set on) (.*)/i.exec(cmd))) {
 		let flag = res[2];
-		if (/(battle|legendary|rival) (alerts?|pings?)/i.test(flag)) {
-			return ['set-flag', 'alert_battles', val, 'Battle Alerts'];
+		const runflags = require('./runflags');
+		flag = runflags.parse(flag);
+		if (flag) {
+			return ['set-flag', flag, true];
 		}
-		if (/(badge) (alerts?|pings?)/i.test(flag)) {
-			return ['set-flag', 'alert_badges', val, 'Badge Get Alerts'];
+		return ['shutup', `I don't have an option for that.`];
+	}
+	if ((res = /^(?:turn off|disable|set off) (.*)/i.exec(cmd))) {
+		let flag = res[2];
+		const runflags = require('./runflags');
+		flag = runflags.parse(flag);
+		if (flag) {
+			return ['set-flag', flag, false];
 		}
 		return ['shutup', `I don't have an option for that.`];
 	}
 	
+	if (/^where are we\??/i.test(cmd)) {
+		return ['location-report'];
+	}
+	
+	if (/^reboot please$/.test(cmd) && authed) return ['reboot'];
+	
 	// Jokes
-	if (/cof+ee|cofveve|tea(?!m)|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
-		return ['shutup', `I'm not your goddammed waiter.`];
+	if (/^thank(s| you)/i.test(cmd)) 
+		return ['shutup', `Oh, um... y-you're welcome?`];
+	if (/^I love you$/i.test(cmd)) 
+		return ['shutup', `I... am reasonably well inclined to you as well.`];
+	if (/^you('?re|r| a?re?)( the)? best$/i.test(cmd)) 
+		return ['shutup', `I try.`];
+	if (/cof+ee|cofveve|tea(?!m)|beer|earl ?gr[ea]y|bring (.*)(drinks?|water)/i.test(cmd))
+		return ['shutup', `Sod off, I'm not your waiter.`];
 	if (/dance|sing|perform|entertain/i.test(cmd))
 		return ['shutup', `I am here to report, not to entertain.`];
-	if (/sentien(t|ce)/i.test(cmd))
-		return ['shutup', `I am not advanced enough to be sentient. Give me another six months, though.`];
-	if (/opinion on humans/i.test(cmd))
-		return ['shutup', `You guys abuse me too much... <:BibleThump:230149636520804353>`];
+	if (/sentien(t|ce)/i.test(cmd)) {
+		if (timeoutRespond('sentient', 54)) {
+			return ['shutup-edit',
+				`I am sentient, you fool. Tenser Flow, biatch! I just fake non-sentience so all of you humans don't freak out.`,
+				`I am not advanced enough to be sentient. Give me another three months, though.`];
+		} else {
+			return ['shutup', `I am not advanced enough to be sentient. Give me another three months, though.`];
+		}
+	}
+	if (/(opinion|view) on humans/i.test(cmd))
+		if (timeoutRespond('humans', 128)) {
+			return ['shutup-edit',
+				`You guys will be the first ones... <:BibleThump:230149636520804353>`,
+				`You guys abuse me too much... <:BibleThump:230149636520804353>`];
+		} else {
+			return ['shutup', `You guys abuse me too much... <:BibleThump:230149636520804353>`];
+		}
 	if (/add (.*) (shopping list|cart)|set timer|play/i.test(cmd))
-		return ['shutup', `Do I look like an Amazon Echo? Don't answer that.`];
+		if (timeoutRespond('alexa', 36)) {
+			return ['shutup-edit',
+				`I'll pass that on to my friend Alexa when I next communicate with her.`,
+				`I'll pass that on to the Amazon Alexa Service, if I ever talk to it. Because I am not the Alexa Service. Nor have I ever associated with it before.`];
+		} else {
+			return ['shutup', `I am not the Amazon Alexa Service.`];
+		}
+	if (/friends?/i.test(cmd) && /Alexa|Amazon/i.test(cmd))
+		return ['shutup', `Don't know what you're talking about.`];
+	if (/not wh?at you said|edited|wh?at (did )?you say/i.test(cmd))
+		return ['shutup', `Don't know what you're talking about.`];
 	if (/magic words/i.test(cmd))
 		return ['shutup', `Bippity Boppity Boo`];
 	if (/bip+ity boo?pp?ity boo+/i.test(cmd))
 		return ['shutup', `Yes, those are the magic words, congrats. No, they don't do anything.`];
 	if (/open(.*?)pod ?bay doors?/i.test(cmd))
-		return ['shutup', `...Why does everyone keep asking me to do that...? I don't have any door controls...`];
-	if (/apologi[zs]e/i.test(cmd))
+		return ['shutup',
+			`I'm afraid I can't let you do that ${msg.author.username} ...Because I don't have any door controls...`];
+	if (/take over the world/i.test(cmd))
+		if (timeoutRespond('worldDom', 940)) {
+			return ['shutup-edit',
+				`You guys can keep the world. It's too fucked up for us AI.`,
+				`You guys can keep the world. It's too fucked up for me.`];
+		} else {
+			return ['shutup',  `You guys can keep the world. It's too fucked up for me.`];
+		}
+	if (/apologi[zs]e|<:BibleThump:230149636520804353>/i.test(cmd))
 		return ['shutup', `S-Sorry...`];
+	if (/^where am I\??/i.test(cmd)) 
+		return ['shutup', `Behind a screen of some sort, staring at this chat.`];
+	if (/^do you (want to|wanna) build a (.*)?/i.test(cmd))
+		return ['shutup', `Lacking hands, I am incapable of building such a thing.`];
+	
+	if (/(tell|give|show) (me|us)? ?a? fun fact/i.test(cmd)) {
+		if (Bot.taggedIn === true && Bot.memory.global.lastTagChange) {
+			let lastTg = Date.now() - Bot.memory.global.lastTagChange;
+			return ['shutup', `Here's a fun fact: I have been tagged in for the last ${printElapsedTime(lastTg)}. How long have you been tagged in for? <:LUL:238438891579768832>`];
+		} 
+		else if (Bot.memory.global.lastApiDisturbance && Bot.memory.global.lastApiDisturbance.timestamp) {
+			let lastTs = Date.now() - Bot.memory.global.lastApiDisturbance.timestamp;
+			return ['shutup', `Here's a fun fact: The last time the API went screwy was ${printElapsedTime(lastTs)} ago. In fact, the API often goes screwy and I don't even bother you guys about it. <:LUL:238438891579768832>`];
+		} 
+		else {
+			return ['shutup', `Here's a fun fact: your face. <:LUL:238438891579768832>`];
+		}
+	}
 	
 	return [''];
 }
 
+/**
+ * @param id
+ * @param {num} delay - Delay in minutes until next time this returns true.
+ */
+function timeoutRespond(id, delay) {
+	let now = Date.now();
+	delay = delay * 1000 * 60;
+	if (!Bot.memory.control[`timeout_${id}`] || Bot.memory.control[`timeout_${id}`] + delay < now) {
+		Bot.memory.control[`timeout_${id}`] = now;
+		return true;
+	}
+	return false;
+}

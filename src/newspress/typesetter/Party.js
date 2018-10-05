@@ -4,10 +4,22 @@
 module.exports = {
 	
 	MonChangedCondensed: {
-		default: null, //TODO
+		default: {
+			multi: `<b>{{@target}} {{a comma-separated merge list of|resolve item phrase}}!</b>`,
+			//  ()=>{
+			// 	let items = this._itemList.slice(1);
+			// 	items = items.map(item=>this._resolve(`{{get phrasebook item}}`, item)).filter(x=>x);
+			// 	if (items.length > 1) {
+			// 		items[items.length-1] = 'and '+items[items.length-1];
+			// 	}
+			// 	if (items.length == 2) return `<b>{{@target}} ${items.join(' ')}!</b>`;
+			// 	return `<b>{{@target}} ${items.join(', ')}!</b>`;
+			// },
+		}
 	},
 	
 	MonLeveledUp: {
+		__meta__: { merge:'MonChangedCondensed' },
 		// target = the pokemon involved
 		// level = the level grown to
 		default: {
@@ -17,21 +29,38 @@ module.exports = {
 				`<b>{{@target}} has leveled up to {{@level}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`levels up to {{@level}}`,
-				`grows to level {{@level}}`,
+				`leveled up to {{@level}}`,
+				`grew to level {{@level}}`,
 			],
 		},
-		multiple: [
-			`<b>{{@target}} has grown {{one noun|level|@deltaLevel}} to level {{@level}}!</b>`,
-		],
-		regress: [
-			`<b>{{@target}} has lost {{one noun|level|@deltaLost}}, and is now level {{@level}}!</b>`,
-		],
-		level100: [
-			`<i><b>{{@target}} HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
-		],
+		multiple: {
+			single: [
+				`<b>{{@target}} has grown {{one noun|level|@deltaLevel}} to level {{@level}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`has grown {{one noun|level|@deltaLevel}} to level {{@level}}`,
+			],
+		},
+		regress: {
+			single: [
+				`<b>{{@target}} has lost {{one noun|level|@deltaLost}}, and is now level {{@level}}!</b>`,
+			],
+			item: [ //used for MonChangedCondensed
+				`is now level {{@level}} (losing {{one noun|level|@deltaLost}})`,
+			],
+		},
+		level100: {
+			__meta__: { merge:'', }, //should override above and never be considered for MonChangedCondensed.
+			single: [
+				`<i><b>{{@target}} HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
+			],
+			item: [ //used for MonChangedCondensed, really shouldn't be used....
+				`HAS {{rand|HIT|REACHED|GROWN TO}} LEVEL 100!!! (ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ)`,
+			],
+		},
 	},
 	MonEvolved: {
+		__meta__: { merge:'MonChangedCondensed' },
 		// target = the pokemon involved
 		// level = the level grown to
 		default: {
@@ -40,7 +69,7 @@ module.exports = {
 				`<b>{{@target.name}} ({{@prev}}) evolves into a {{@curr}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`evolves into {{@curr}}`,
+				`evolved into {{@curr}}`,
 			],
 		},
 	},
@@ -96,6 +125,7 @@ module.exports = {
 		}
 	},
 	MonRevived: {
+		__meta__: { merge:'MonChangedCondensed' },
 		default: [
 			`<b>{{@target}} has been revived!</b>`,
 		],
@@ -106,49 +136,20 @@ module.exports = {
 	MonLostPP: null,
 	MonPPUp: null,
 	
-	Blackout: {
-		default: [
-			`<b>BLACKED OUT!</b>`,
-			`<b>We BLACK OUT!</b>`,
-			`<b>BLACK OUT...</b>`,
-		],
-	},
-	FullHealed: {
-		default: [
-			`<b>We heal!</b>`,
-		],
-		blackout: null, //should be covered by Blackout above
-		pokecenter: [
-			`<b>The nurse heals us!</b>`,
-			`<b>We heal</b> at the Poké Center!`,
-		],
-		house: [ // Override with location announcement?
-			`<b>We heal</b> at a heal house!`,
-			`We sleep on a random person's floor! <b>Healed!</b>`,
-		],
-		doctor: [
-			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b>`,
-			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b> Thanks doc!`,
-		],
-		nurse: [
-			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b>`,
-			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b> Thanks!`,
-			`A {{rand|sweet|helpful}} nurse <b>heals our team!</b> Ta, love!`,
-		],
-	},
-	
 	MonLearnedMove: {
+		__meta__: { merge:'MonChangedCondensed' },
 		//move = the learned move
 		default: {
 			single: [
 				`<b>{{@target}} learned {{@move}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`learns {{@move}}`,
+				`learned {{@move}}`,
 			],
 		},
 	},
 	MonLearnedMoveOverOldMove: {
+		__meta__: { merge:'MonChangedCondensed' },
 		//move = the learned move
 		//oldMove = the forgotton move
 		default: {
@@ -156,18 +157,19 @@ module.exports = {
 				`<b>{{@target}} learned {{@move}} over {{@oldMove}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`learns {{@move}} over {{@oldMove}}`,
+				`learned {{@move}} over {{@oldMove}}`,
 			],
 		},
 	},
 	MonForgotMove: {
+		__meta__: { merge:'MonChangedCondensed' },
 		//move = the forgotton move
 		default: {
 			single: [
 				`<b>{{@target}} forgot {{@move}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`forgot {{@oldMove}}`,
+				`forgot {{@move}}`,
 			],
 		},
 	},

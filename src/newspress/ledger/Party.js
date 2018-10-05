@@ -13,11 +13,36 @@ class PartyItem extends LedgerItem {
 	}
 	get target() { return this.mon; }
 	cancelsOut(other) {
-		if (this.name !== other.name) return false;
+		if (this.__itemName__ !== other.__itemName__) return false;
 		if (this.mon.hash !== other.mon.hash) return false;
 		if (this.prev === undefined || this.curr === undefined) return false;
 		if (this.prev === other.curr && other.prev === this.curr) return true;
 		return false;
+	}
+}
+
+/////////////////// Typesetter-Only Items ///////////////////
+
+class MonChangedCondensed extends LedgerItem { //NOT PartyItem
+	constructor(mon) {
+		super(2, { sort:100 });
+		this.mon = mon;
+	}
+	get target() { return this.mon; }
+	/**
+	 * Called by the typesetter to do custom collation on various items.
+	 * This function sorts through other PartyItems and groups them based on mon.
+	 */
+	static mergeItems(itemList) {
+		let dict = {};
+		for (let item of itemList) {
+			let itemname = `MonChangedCondensed/${item.mon.hash}`;
+			if (!dict[itemname]) {
+				dict[itemname] = [ new MonChangedCondensed(item.mon) ];
+			}
+			dict[itemname].push(item);
+		}
+		return dict;
 	}
 }
 
@@ -46,7 +71,7 @@ class MonLeveledUp extends PartyItem {
 	get prev(){ return this.prevLevel; }
 	cancelsOut(other) {
 		// other is the older, postponed item. this is the newer item
-		if (this.name !== other.name) return false;
+		if (this.__itemName__ !== other.__itemName__) return false;
 		if (this.mon.hash !== other.mon.hash) return false;
 		if (this.deltaLevel + other.deltaLevel === 0) return true; //cancels out
 		// coelesce
@@ -253,13 +278,13 @@ class MonNicknameChanged extends PartyItem {
 	get curr(){ return this.mon.name; }
 	get prev(){ return this.prevNick; }
 	cancelsOut(other) {
-		if (other.name === 'MonNicknameChanged') {
+		if (other.__itemName__ === 'MonNicknameChanged') {
 			if (this.mon.hash !== other.mon.hash) return false;
 			this.prevNick = other.prevNick; //pull in the eldest previous name
 			if (this.curr == this.prev) return true; //cancels out
 			return this; //coalesce
 		}
-		if (other.name === 'PokemonGained') {
+		if (other.__itemName__ === 'PokemonGained') {
 			if (this.mon.hash !== other.mon.hash) return false;
 			other.mon = this.mon; //update the new pokemon with the most recent data
 			return other; //replace
@@ -273,7 +298,7 @@ class MonNicknameChanged extends PartyItem {
 
 
 module.exports = {
-	TemporaryPartyContext,
+	TemporaryPartyContext, MonChangedCondensed,
 	MonLeveledUp,
 	MonEvolved, MonHatched,
 	MonPokerusInfected, MonPokerusCured,

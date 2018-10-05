@@ -28,9 +28,22 @@ class MapRegion {
 				}
 			}
 			for (let report of data.reports) {
-				report.from = this.resolveLocId(report.from);
-				report.to = this.resolveLocId(report.to);
-				this.reports.push(new TransitReport(this, report));
+				switch (report.type) {
+					case 'transit':
+						report.from = this.resolveLocId(report.from);
+						report.to = this.resolveLocId(report.to);
+						this.reports.push(new TransitReport(this, report));
+						break;
+					case 'item':
+						report.loc = this.resolveLocId(report.loc);
+						this.reports.push(new ItemReport(this, report));
+						break;
+					case 'battle':
+						report.loc = this.resolveLocId(report.loc);
+						this.reports.push(new BattleReport(this, report));
+						break;
+				}
+				
 			}
 		}
 		else if (typeof data === 'string') { //new region
@@ -81,12 +94,21 @@ class MapRegion {
 		if (typeof arg === 'object') {
 			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];
+			if (!bank) return null;
 			if (area) return bank[id].areas[area];
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
+				if (!map) return null;
 				for (let area of map.areas) {
 					if (x >= area.ax && x <= area.bx
 						&& y >= area.ay && y <= area.by) return area;
+				}
+				let type = this.types[map.type];
+				if (type && type.areas) {
+					for (let area of type.areas) {
+						if (x >= area.ax && x <= area.bx
+							&& y >= area.ay && y <= area.by) return area;
+					}
 				}
 			}
 			return bank[id];
@@ -94,8 +116,14 @@ class MapRegion {
 		return null;
 	}
 	
-	findReports(from, to) {
-		return this.reports.filter(r=> (!r.from || r.from===from) && (!r.to || r.to===to) );
+	findTransitReports(from, to) {
+		return this.reports.filter(TransitReport.filter({ from, to }));
+	}
+	findItemReports(loc, itemid) {
+		return this.reports.filter(ItemReport.filter({ loc, itemid }));
+	}
+	findBattleReports(loc, trainerid, classid) {
+		return this.reports.filter(BattleReport.filter({ loc, trainerid, classid }));
 	}
 	
 	ensureMap(bankId, mapId, data={}) {
@@ -152,6 +180,16 @@ class MapRegion {
 		this.reports.push(r);
 		App.notifyChange('report-new', r);
 	}
+	addItemReport(node) {
+		let r = new ItemReport(this, { loc:node });
+		this.reports.push(r);
+		App.notifyChange('report-new', r);
+	}
+	addBattleReport(node) {
+		let r = new BattleReport(this, { loc:node });
+		this.reports.push(r);
+		App.notifyChange('report-new', r);
+	}
 	deleteReport(report) {
 		let i = this.reports.indexOf(report);
 		if (i === -1) return;
@@ -160,9 +198,8 @@ class MapRegion {
 	}
 	
 	renumberMaps() {
-		for (let bank = 0; bank < this.nodes.length; bank++) {
+		for (let bank = 1; bank < this.nodes.length; bank++) {
 			if (!this.nodes[bank]) continue;
-			this.nodes[bank] = [];
 			for (let map = 0; map < this.nodes[bank].length; map++) {
 				if (!this.nodes[bank][map]) continue;
 				this.nodes[bank][map].bank = bank;
@@ -333,7 +370,9 @@ class MapArea {
 		this.by = Number.parseInt(opts.by,10) || Number.parseInt(opts.y+opts.h,10) || this.ay;
 		
 		/** Effective detection radius */
-		this.rad = Number.parseInt(opts.rad,10) || (this.ax==this.bx && this.ay==this.by)?5:0;
+		this.rad = Number.parseInt(opts.rad,10);
+		if (typeof this.rad !== 'number' || !Number.isFinite(this.rad))
+			this.rad = (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
 		this.attrs = opts.attrs || {};
@@ -369,20 +408,19 @@ class MapArea {
 }
 
 /**
- * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
- * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
+ * Reports are overrides of the bot's normal text given a specific location and event. This class
+ * is the superclass for all reports.
  */
-class TransitReport {
-	constructor(region, opts={}) {
+class Report {
+	constructor(region, type, opts={}) {
 		this.__region__ = region;
-		
+		this.type = type || opts.type;
 		this.id = opts.id || TransitReport.generateId();
-		this.from = opts.from;
-		this.to = opts.to;
 		this.text = opts.text;
 		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
 		this.timeout = opts.timeout || 10*60*1000;
 	}
+	
 	get flavorOverride() {
 		if (this.text.startsWith('!')) return this.text;
 		return undefined;
@@ -394,37 +432,132 @@ class TransitReport {
 	
 	serialize() {
 		let data = {
+			type: this.type,
 			id: this.id,
-			from: null, to: null,
 			text: this.text,
 			timeout: this.timeout,
 		};
+		return data;
+	}
+}
+
+/**
+ * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
+ * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
+ */
+class TransitReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'transit', opts);
+		this.from = opts.from;
+		this.to = opts.to;
+	}
+	
+	serialize() {
+		let data = super.serialize();
 		if (this.from) data.from = this.from.locId;
 		if (this.to) data.to = this.to.locId;
 		return data;
 	}
+	
+	static filter({ from, to }) {
+		return (r)=>{
+			if (r.type !== 'transit') return false;
+			return (!r.from || r.from===from) && (!r.to || r.to===to);
+		};
+	}
 }
+
+
+/**
+ * ItemReports are reports which the bot will send out when picking up an item, optionally checking
+ * for a distinct area.
+ */
+class ItemReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'item', opts);
+		this.loc = opts.loc;
+		this.itemid = opts.itemid;
+	}
+	
+	serialize() {
+		let data = Object.assign(super.serialize(), {
+			itemid: this.itemid,
+		});
+		if (this.loc) data.loc = this.loc.locId;
+		return data;
+	}
+	
+	static filter({ loc, itemid }) {
+		return (r)=>{
+			if (r.type !== 'item') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (itemid && r.itemid && r.itemid !== itemid) return false;
+			return true;
+		};
+	}
+}
+
+/**
+ * BattleReports are reports which the bot will send out when we fight someone in the area,
+ * optionally checking for a trainer class and id. These can be used to add more flair to a
+ * fight in a location, or add text specifically for when we win a battle.
+ */
+class BattleReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'battle', opts);
+		this.loc = opts.loc;
+		this.classid = opts.classid;
+		this.trainerid = opts.trainerid;
+		this.wintext = opts.wintext;
+	}
+	
+	serialize() {
+		let data = Object.assign(super.serialize(), {
+			wintext: this.wintext,
+			classid: this.classid,
+			trainerid: this.trainerid,
+		});
+		if (this.loc) data.loc = this.loc.locId;
+		return data;
+	}
+	
+	static filter({ loc, classid, trainerid }) {
+		return (r)=>{
+			if (r.type !== 'battle') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (classid && trainerid && r.classid && r.trainerid) {
+				return r.classid === classid && r.trainerid === trainerid;
+			}
+			return true;
+		};
+	}
+}
+
 
 /** Default Map Types */
 function generateDefaultMapTypes(region) {
 	const TYPES = {};
 	const add = (t)=> TYPES[t.type] = t;
 	
-	add(new MapType(region, { type:'default', 	}));
-	add(new MapType(region, { type:'town',   	attrs:{ town:true, } }));
-	add(new MapType(region, { type:'route',  	attrs:{ route:true, } }));
-	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, } }));
-	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, town:true, } }));
-	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true } }));
-	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true },
+	add(new MapType(region, { type:'default', 	attrs:{ the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'town',   	attrs:{ town:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'route',  	attrs:{ route:true, the:"", preposition:"on" } }));
+	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, town:true, the:"", preposition:"on" } }));
+	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true, the:"the", preposition:"in" },
 		areas: [
-			{ name: "PC", x:2, y:2, attrs:{ pc:true } },
+			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
-	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true } }));
-	add(new MapType(region, { type:'gym',		attrs:{ indoors:true, gym:true } }));
-	add(new MapType(region, { type:'safari',	attrs:{ safari:true, } }));
+	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true, the:"the", preposition:"in" },
+		areas: [
+			{ name: "shopping", x:2, y:2, attrs:{ shopping:true } },
+		],
+ 	}));
+	add(new MapType(region, { type:'gym',		attrs:{ indoors:true, gym:true, the:"the", preposition:"in" } }));
+	add(new MapType(region, { type:'safari',	attrs:{ safari:true, the:"the", preposition:"in" } }));
 	return TYPES;
 }
 
@@ -505,7 +638,8 @@ const ATTRS = {
 		values: [false,'pokecenter','doctor','nurse','house','partner'],
 	},
 	shopping: {
-		tooltip: `If the location offers vendors. (Can be used for Areas)`,
+		tooltip: `If the location offers vendors. (Use only for Areas marking the spot)`,
+		areasOnly: true,
 	},
 	vending: {
 		tooltip: `If the location offers vending machines. (Use only for Areas marking the vending machine locations)`,
@@ -534,6 +668,7 @@ const ATTRS = {
 
 module.exports = {
 	MapRegion,
-	MapNode, MapArea, MapType, TransitReport,
+	MapNode, MapArea, MapType,
+	Report, TransitReport, ItemReport, BattleReport,
 	generateDefaultMapTypes, ATTRS,
 };

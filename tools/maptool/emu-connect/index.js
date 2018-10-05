@@ -27,6 +27,7 @@ class EmuConnect extends EventEmitter {
 	
 	listen() {
 		this.server.listen(21345);
+		console.log("LISTENING 21345");
 	}
 	
 	setState(data) {

@@ -1,0 +1,122 @@
+{
+    "badges": 0,
+    "ball_count": 0,
+    "battle_kind": "None",
+    "caught": 0,
+    "caught_list": [],
+    "coins": 0,
+    "daycare": [],
+    "gender": "Male",
+    "id": 49922,
+    "in_battle": false,
+    "items": {
+        "balls": [],
+        "items": [],
+        "key": [],
+        "pc": [],
+        "tms": []
+    },
+    "level_cap": 100,
+    "map_bank": 24,
+    "map_id": 5,
+    "map_name": "Cartridge",
+    "money": 3000,
+    "name": "FEEFFr ",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "frame": 1,
+        "menu_account": "On",
+        "print": "Normal",
+        "sound": "Stereo",
+        "text_speed": "Fast"
+    },
+    "party": [],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "BOX1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX14",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 1
+    },
+    "rival_name": "???",
+    "secret": 49922,
+    "seen": 0,
+    "seen_list": [],
+    "time": {
+        "d": "THU",
+        "h": 10,
+        "m": 5,
+        "s": 33
+    },
+    "x": 4,
+    "y": 1
+}

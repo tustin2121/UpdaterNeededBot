@@ -1,6 +1,6 @@
 {
   "name": "updaterneeded",
-  "version": "1.0.0",
+  "version": "2.1.2",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -10,10 +10,10 @@
   "author": "tustin2121",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1",
+    "discord.js": "^11.3.2",
     "express": "^4.16.2",
     "irc": "^0.5.2",
-    "log4js": "git+https://github.com/log4js-node/log4js-node.git#65685a2160",
+    "log4js": "^3.0.4",
     "mkdirp": "^0.5.1",
     "object-hash": "^1.2.0",
     "pluralize": "^7.0.0",

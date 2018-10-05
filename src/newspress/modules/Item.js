@@ -3,8 +3,9 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
+	ShoppingContext, ShoppingReport, 
 	ApiDisturbance,
 } = require('../ledger');
 
@@ -91,16 +92,21 @@ class ItemModule extends ReportingModule {
 			}
 		}
 		
-		if (numItemsChanged > 200) {
+		if (numItemsChanged > 10) {
 			ledger.add(new ApiDisturbance({
 				code: ApiDisturbance.LOGIC_ERROR,
-				reason: `More than 200 item updates happened in one update cycle!`
+				reason: `${numItemsChanged} item updates happened in one update cycle!`,
+				score: numItemsChanged/10,
 			}));
+		}
+		
+		if (curr.inv.money !== prev.inv.money) {
+			ledger.add(new MoneyValueChanged(prev.inv.money, curr.inv.money));
 		}
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 }
 
@@ -126,7 +132,30 @@ RULES.push(new Rule(`Discard insane item updates`)
 
 //////////////////////////////////////////////////////////////////////////
 // Checking item uses
-{
+if (!!Bot.gameInfo().regionMap) {
+	RULES.push(new Rule(`Check for reports for new item gains.`)
+		.when(ledger=>ledger.has('GainItem').unmarked())
+		.when(ledger=>{
+			const region = Bot.gameInfo().regionMap;
+			const currTime = Date.now();
+			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
+			if (map && map.area) map = map.area;
+			else if (map && map.loc) map = map.loc;
+			
+			let ret = false;
+			for (let x of ledger.get(0)) {
+				let report = region.findItemReport(map, x.item.id);
+				if (report) {
+					x.report = report;
+					x.flavor = 'report';
+					ret = true;
+				}
+			}
+			return ret;
+		})
+		.then(ledger=>ledger.mark(0))
+	);
+}{
 	const itemIds = Bot.runOpts('itemIds_pokeballs');
 	RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 		.when(ledger=>ledger.has('BattleContext'))
@@ -233,10 +262,10 @@ RULES.push(new Rule(`Discard insane item updates`)
 // Item aquisition categorization
 
 {
-	const DrinkIds = Bot.runOpts('itemIds_vending');
+	const itemIds = Bot.runOpts('itemIds_vending');
 	RULES.push(new Rule(`Drinks are vended`)
 		.when(ledger=>ledger.hasMap(x=> x.has('vending') ))
-		.when(ledger=>ledger.has('GainItem').with('item.id', DrinkIds).ofNoFlavor())
+		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds).ofNoFlavor())
 		.then(ledger=>{
 			ledger.get(1).forEach(x=> x.flavor = 'vending');
 		})
@@ -245,34 +274,78 @@ RULES.push(new Rule(`Discard insane item updates`)
 
 //TODO new Rule(`Items gained while shopping are postponed until the shopping is finished`)
 
-RULES.push(new Rule(`Items gained in shops have been bought`)
+RULES.push(new Rule(`Items gained/lost in shops have been bought/sold`)
 	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
-	.when(ledger=>ledger.has('GainItem').ofNoFlavor())
+	.when(ledger=>ledger.has('GainItem','LostItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
-RULES.push(new Rule(`Items lost in shops have been sold`)
-	.when(ledger=>ledger.hasMap(x=> x.has('shopping') ))
-	.when(ledger=>ledger.has('LostItem').ofNoFlavor())
+RULES.push(new Rule(`Items gained/lost with a change in money on hand has been bought/sold`)
+	.when(ledger=>ledger.has('MoneyValueChanged'))
+	.when(ledger=>ledger.has('GainItem', 'LostItem').ofNoFlavor())
 	.then(ledger=>{
 		ledger.get(1).forEach(x=> x.flavor = 'shopping');
 	})
 );
 
-// Because UsedBallInBattle is not a basic item, it doesn't get merged in the postpone merge step
-RULES.push(new Rule(`Combine all instances of UsedBallInBattle`)
-	.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
+RULES.push(new Rule(`When shopping happens, we need a shopping context.`)
+	.when(ledger=>ledger.has('GainItem','LostItem').ofFlavor('shopping'))
+	.when(ledger=>ledger.hasnt('ShoppingContext'))
 	.then(ledger=>{
-		let items = ledger.get(0);
-		let item = items[0];
-		for (let i = 1; i < items.length; i++) {
-			item = item.cancelsOut(items[i]);
-			if (!item || !(item instanceof UsedBallInBattle)) throw new TypeError('Invalid merging!');
-		}
-		ledger.remove(0).add(item);
+		ledger.add(new ShoppingContext());
 	})
 );
+
+RULES.push(new Rule(`Mark bough items in the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext'))
+	.when(ledger=>ledger.has('GainItem').ofFlavor('shopping').unmarked())
+	.then(ledger=>{
+		let ctx = ledger.get(0)[0];
+		ctx.keepAlive();
+		ledger.mark(1).get(1).forEach(x=>ctx.boughtItem(x.item, x.amount));
+	})
+);
+RULES.push(new Rule(`Mark sold items in the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext'))
+	.when(ledger=>ledger.has('LostItem').ofFlavor('shopping').unmarked())
+	.then(ledger=>{
+		let ctx = ledger.get(0)[0];
+		ctx.keepAlive();
+		ledger.mark(1).get(1).forEach(x=>ctx.soldItem(x.item, x.amount));
+	})
+);
+RULES.push(new Rule(`Update the money count on the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext'))
+	.when(ledger=>ledger.has('MoneyValueChanged').unmarked())
+	.then(ledger=>{
+		let ctx = ledger.get(0)[0];
+		ledger.mark(1).get(1).forEach(x=>ctx.cart.money = x.curr);
+	})
+);
+RULES.push(new Rule(`Postpone the shopping context.`)
+	.when(ledger=>ledger.has('ShoppingContext').unmarked())
+	.then(ledger=>{
+		ledger.mark(0).postpone(0);
+	})
+);
+
+{
+	const itemIds = Bot.runOpts('itemIds_promo');
+	RULES.push(new Rule(`Premire Balls are given away, not bought.`)
+		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds).ofFlavor('shopping'))
+		.then(ledger=>{
+			ledger.get(0).forEach(x=> x.flavor = 'freepromo');
+		})
+	);
+	RULES.push(new Rule(`Premire Balls are given away while we're shopping.`)
+		.when(ledger=>ledger.has('GainItem').with('item.id', itemIds))
+		.when(ledger=>ledger.has('ShoppingContext'))
+		.then(ledger=>{
+			ledger.get(0).forEach(x=> x.flavor = 'freepromo');
+		})
+	);
+}
 
 RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
 	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())
@@ -285,4 +358,15 @@ RULES.push(new Rule(`Balls used in a wild battle are postponed until after battl
 	})
 );
 
+//////////////////////////////////////////////////////////////////////////
+// Shopping
+/*
+RULES.push(new Rule(`Add items bought during shopping to the shopping cart.`)
+	.when(ledger=>ledger.hasMapThatIs('shopping'))
+	.when(ledger=>ledger.has('GainItem').unmarked())
+	.then(ledger=>{
+		
+	})
+);
+//*/
 module.exports = ItemModule;

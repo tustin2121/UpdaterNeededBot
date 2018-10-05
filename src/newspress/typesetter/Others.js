@@ -120,13 +120,14 @@ let plural = {
 let OptionsChanged = {
 	// opts = the changed options
 	default: function(item) {
+		const self = this;
 		let keys = Object.keys(item.changes);
 		if (keys.length === 1) {
-			return get(singular, keys[0], item[keys[0]]);
+			return get(singular, keys[0], item.changes[keys[0]]);
 		} else {
 			let list = [];
 			for (let key of keys) {
-				let phrase = get(plural, key, item[key]);
+				let phrase = get(plural, key, item.changes[key]);
 				if (!phrase) continue;
 				list.push(phrase);
 			}
@@ -147,10 +148,10 @@ let OptionsChanged = {
 			let p = arr[key];
 			if (!p) return null;
 			if (p[val]) p = p[val];
-			if (Array.isArray(p)) {
-				p = p[this.rand(p.length)];
-			}
-			p = this.fillText(p, { val });
+			// if (Array.isArray(p)) {
+			// 	p = p[self.rand(p.length)];
+			// }
+			p = self._resolve(p, { val });
 			return p;
 		}
 	},
@@ -159,19 +160,60 @@ let OptionsChanged = {
 module.exports = {
 	OptionsChanged,
 	
+	DemocracyContext: {
+		__meta__: { sort:9000 }, //In front of everything else
+		default: '[D]',
+	},
+	
+	InputModeChanged: {
+		// flavor = the new mode
+		'anarchy': [
+			`We drop back into Anarchy.`,
+			`Back to Anarchy.`,
+		],
+		'democracy': [
+			`We enter Democracy!`,
+			`Now in Democracy!`,
+		],
+	},
+	
 	TimeChanged: {
+		default: undefined, //should never happen
 		dawn: [
-			``,
+			`The sun appears suddenly out of nowhere, and now everyone is blind!`,
+			`The sun has decided to fling itself into the air!`,
+			`The sun explodes into sky and it is daytime!`,
+			`The sun comes out from behind a really really really really really really really really thick cloud. Suddenly daytime!`,
+			`Somewhere, someone uses {{rand|Sunny Day|Morning Sun}}, and the sun appears in the sky.`,
 		],
-		noon: [
-			``,
-		],
+		noon: null, //No one cares about noon
 		dusk: [
-			``,
+			`Suddenly, nighttime falls upon the city, as if the Sun suddenly crashed out of the sky.`,
+			`The sun splashes into the sea and the torrents of steam rising from the ocean blots out the whole sky! Night time!`,
+			`The sun has crashed into the moon and has been extinguished! Sudden nighttime!`,
+			`The sun slams into the horizon and it is suddenly nighttime.`,
+			`The sun sets. Violently so. Sudden nighttime engulfs us.`,
 		],
-		rday: [ `` ],
-		rmorning: [ `` ],
-		rnight: [ `` ],
+		dawn_exit: [
+			`We step out into the sudden bright morning!`,
+			`Oh god, my eyes! The sun is out now!`,
+			`Gah! Sudden sun!`,
+			`The morning sun blinds us!`,
+		],
+		noon_exit: [
+			`The sun is beating down horribly from overhead.`,
+			`The sunlight is strong.`,
+			`Who used Sunny Day out here?`,
+		],
+		dusk_exit: [
+			`It's nighttime now.`,
+			`The sun vanished while we were inside.`,
+			`It's dark out all of a sudden.`,
+			`The sun hid itself while we were inside.`,
+		],
+		rday: [ `The sun is suddenly back in the sky! Noontime again??` ],
+		rmorning: [ `The sun moves the wrong direction! It's morning again??` ],
+		rnight: [ `The sun sets suddenly in the east. Nighttime again??` ],
 	},
 	
 	PhonebookAdd: {

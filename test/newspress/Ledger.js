@@ -175,7 +175,7 @@ describe('Ledger', function(){
 				super(0);
 			}
 			cancelsOut(other) {
-				if (other.name !== 'TestMergeItem') return false;
+				if (other.__itemName__ !== 'TestMergeItem') return false;
 				return this;
 			}
 		}
@@ -184,7 +184,7 @@ describe('Ledger', function(){
 				super(1);
 			}
 			cancelsOut(other) {
-				if (other.name !== 'TestCancelItem') return false;
+				if (other.__itemName__ !== 'TestCancelItem') return false;
 				return true;
 			}
 		}

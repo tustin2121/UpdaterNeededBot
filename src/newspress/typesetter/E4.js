@@ -5,6 +5,7 @@ module.exports = {
 	E4RunContext: null,
 	
 	E4BeginRun: {
+		__meta__: { sort:-200 }, //After "rip E4 run"
 		// attempt = the e4 attempt number
 		// champ = the champion attempt number
 		// rematch = the rematch count
@@ -32,6 +33,7 @@ module.exports = {
 		],
 	},
 	E4EndRun: {
+		__meta__: { sort:-108 }, //After "Blackout!", before MapChanged
 		// attempt = the e4 attempt number
 		// champ = the champion attempt number
 		// rematch = the rematch count
@@ -44,7 +46,7 @@ module.exports = {
 		// champ = the champion attempt number
 		// rematch = the rematch count
 		default: {
-			select: (item)=> Math.min(item.rematch, 15),
+			select: (item)=> Math.min((item.rematchCount||0), 15),
 			0: `<b>We enter the HALL OF FAME!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
 			1: `<b>We enter the HALL OF FAME again!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`,
 			2: `<b>We enter the HALL OF FAME a third time!</b> ヽ༼ຈل͜ຈ༽ﾉ VICTORY RIOT ヽ༼ຈل͜ຈ༽ﾉ`,

@@ -31,7 +31,8 @@ class PhonebookModule extends ReportingModule {
 		if (add.length > 1 || rem.length > 1) {
 			ledger.add(new ApiDisturbance({
 				code: ApiDisturbance.LOGIC_ERROR,
-				reason: `More than 1 phonebook entry has been changed in one update cycle!`
+				reason: `More than 1 phonebook entry has been changed in one update cycle!`,
+				score: add.length + rem.length
 			}));
 		}
 		
@@ -40,7 +41,7 @@ class PhonebookModule extends ReportingModule {
 	}
 	
 	// secondPass(ledger) {
-	// 	RULES.forEach(rule=> rule.apply(ledger) );
+	// 	RULES.forEach(rule=> rule.apply(ledger, this) );
 	// }
 }
 

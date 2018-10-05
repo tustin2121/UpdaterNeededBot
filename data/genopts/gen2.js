@@ -11,6 +11,7 @@ module.exports = {
 	infinteTM: false,
 	hubE4: false,
 	'3d': false,
+	dependentTrainerId: true,
 	
 	namingMatch: /-_/i,
 	moveInfo: 'gen2/movetable.js',
@@ -25,6 +26,7 @@ module.exports = {
 	correctCase: true,
 	
 	itemIds_pokeballs: [ 1,2,4,5,157,159,160,161,163,164,165,166,177, ],
+	itemIds_promo: [ ],
 	itemIds_vending: [ 0x2E, 0x2F, 0x30 ],
 	itemIds_berries: [ 74,78,79,80,83,84,109,139,150,173,174 ],
 	itemIds_evoStones: [ 8,22,23,24,34,169, ],

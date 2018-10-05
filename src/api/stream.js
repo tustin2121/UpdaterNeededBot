@@ -9,7 +9,7 @@ const PATH = require('path');
 const EventEmitter = require('./events');
 
 const API_SAVE_DIR = PATH.resolve(__dirname, '../../memory/api');
-const NUM_PREV_SAVES = 50;
+const NUM_PREV_SAVES = 100;
 
 const { SortedData } = require('./pokedata');
 

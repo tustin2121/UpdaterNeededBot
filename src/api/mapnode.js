@@ -10,6 +10,7 @@ class MapRegion {
 		this.types = {};
 		this.nodes = [];
 		this.reports = [];
+		// Bot.memory.reportTimes; //"Bot" is not available here
 		
 		if (typeof data !== 'object') throw new Error('Invalid data for MapRegion!');
 		
@@ -27,10 +28,22 @@ class MapRegion {
 			}
 		}
 		for (let report of data.reports) {
-			report.from = this.resolveLocId(report.from);
-			report.to = this.resolveLocId(report.to);
-			if (!report.from && !report.to) continue; //skip reports that go neither from nor to a specific place
-			this.reports.push(new TransitReport(this, report));
+			switch (report.type) {
+				case 'transit':
+					report.from = this.resolveLocId(report.from);
+					report.to = this.resolveLocId(report.to);
+					if (!report.from && !report.to) continue; //skip reports that go neither from nor to a specific place
+					this.reports.push(new TransitReport(this, report));
+					break;
+				case 'item':
+					report.loc = this.resolveLocId(report.loc);
+					this.reports.push(new ItemReport(this, report));
+					break;
+				case 'battle':
+					report.loc = this.resolveLocId(report.loc);
+					this.reports.push(new BattleReport(this, report));
+					break;
+			}
 		}
 	}
 	
@@ -62,21 +75,56 @@ class MapRegion {
 		if (typeof arg === 'object') {
 			let { bank, id, area, x, y } = arg;
 			bank = this.nodes[bank];
+			if (!bank) return null;
 			if (area) return bank[id].areas[area];
 			if (typeof x === 'number' && typeof y == 'number') {
 				let map = bank[id];
+				if (!map) return null;
 				for (let area of map.areas) {
 					if (x >= area.ax && x <= area.bx
 						&& y >= area.ay && y <= area.by) return area;
 				}
+				//These are actualized on region load.
+				// let type = this.types[map.type];
+				// if (type && type.areas) {
+				// 	for (let area of type.areas) {
+				// 		if (x >= area.ax && x <= area.bx
+				// 			&& y >= area.ay && y <= area.by) return area;
+				// 	}
+				// }
 			}
 			return bank[id];
 		}
 		return null;
 	}
 	
-	findReports(from, to) {
-		return this.reports.filter(r=> (!r.from || r.from===from) && (!r.to || r.to===to) );
+	findReportById(id) {
+		return this.reports.filter(x=>x.id === id)[0];
+	}
+	findTransitReport(from, to) {
+		return this._findValidReport(this.reports.filter(TransitReport.filter({ from, to })));
+	}
+	findItemReport(loc, itemid) {
+		return this._findValidReport(this.reports.filter(ItemReport.filter({ loc, itemid })));
+	}
+	findBattleReport(loc, battle) {
+		let opts = { loc };
+		let trainer = battle.trainer;
+		if (trainer && trainer[0]) {
+			opts.trainerid = trainer[0].id;
+			opts.classid = trainer[0].class;
+		}
+		return this._findValidReport(this.reports.filter(BattleReport.filter(opts)));
+	}
+	_findValidReport(reports) {
+		const currTime = Date.now();
+		for (let report of reports) {
+			let lastUsed = Bot.memory.reportTimes[report.id];
+			if (lastUsed + report.timeout > currTime) continue; //can't use this report again so soon
+			Bot.memory.reportTimes[report.id] = Date.now();
+			return report;
+		}
+		return null;
 	}
 	
 	is(attr) { return this.types['default'].is(attr); }
@@ -135,6 +183,16 @@ class MapNode {
 		if (this.__type__) return this.__type__.is(attr);
 		return this.__region__.is(attr);
 	}
+	
+	toXml(hkey) {
+		let xml = `<MapNode `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `mapid="${this.id}" mapbank="${this.bank}" maptype="${this.type}">`;
+		xml += this.name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+		xml += ` (${this.areaName.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;')})`;
+		xml += `</MapNode>`;
+		return xml;
+	}
 }
 
 /**
@@ -150,7 +208,8 @@ class MapType {
 		this.areas = [];
 		if (Array.isArray(opts.areas)) {
 			for (let a = 0; a < opts.areas.length; a++) {
-				this.areas[a] = new MapArea(this, opts.areas[a]);
+				// this.areas[a] = new MapArea(this, opts.areas[a]);
+				this.areas[a] = opts.areas[a];
 			}
 		}
 	}
@@ -213,34 +272,98 @@ class MapArea {
 	within(attr, x, y) {
 		return this.__parent__.within(attr, x, y);
 	}
+	
+	toXml(hkey) {
+		let xml = `<MapArea `;
+		if (hkey) xml += `key="${hkey}" `;
+		xml += `ax="${this.ax}" ay="${this.ay}" bx="${this.bx}" by="${this.by}" rad="${this.rad}" >`;
+		xml += this.name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+		xml += `</MapArea>`;
+		return xml;
+	}
+}
+
+/**
+ * Reports are overrides of the bot's normal text given a specific location and event. This class
+ * is the superclass for all reports.
+ */
+class Report {
+	constructor(region, type, opts={}) {
+		this.__region__ = region;
+		this.type = type || opts.type;
+		this.id = opts.id || TransitReport.generateId();
+		this.text = opts.text;
+		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
+		this.timeout = opts.timeout || 10*60*1000;
+	}
+	toString(){ return this.text; }
 }
 
 /**
  * TransitReports are reports which the bot will send out when moving from one distinct area (map, type, area)
  * to another. The from and to indicate a direction, and the from and to can indicate any of the above.
  */
-class TransitReport {
+class TransitReport extends Report {
 	constructor(region, opts={}) {
-		this.__region__ = region;
+		super(region, 'transit', opts);
 		
-		this.id = opts.id;
 		this.from = opts.from;
 		this.to = opts.to;
-		this.text = opts.text;
-		/** @param{number} timeout - Timeout before this rule should be used again. Put very high for only once. */
-		this.timeout = opts.timeout || 10*60*1000;
 	}
-	toString(){ return this.text; }
 	
-	serialize() {
-		let data = {
-			from: null, to: null,
-			text: this.text,
-			timeout: this.timeout,
+	static filter({ from, to }) {
+		return (r)=>{
+			if (r.type !== 'transit') return false;
+			return (!r.from || r.from===from) && (!r.to || r.to===to);
 		};
-		if (this.from) data.from = this.from.locId;
-		if (this.to) data.to = this.to.locId;
-		return data;
+	}
+}
+
+/**
+ * ItemReports are reports which the bot will send out when picking up an item, optionally checking
+ * for a distinct area.
+ */
+class ItemReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'item', opts);
+		
+		this.itemid = opts.itemid;
+		this.loc = opts.loc;
+	}
+	
+	static filter({ loc, itemid }) {
+		return (r)=>{
+			if (r.type !== 'item') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (itemid && r.itemid && r.itemid !== itemid) return false;
+			return true;
+		};
+	}
+}
+
+/**
+ * BattleReports are reports which the bot will send out when we fight someone in the area,
+ * optionally checking for a trainer class and id. These can be used to add more flair to a
+ * fight in a location, or add text specifically for when we win a battle.
+ */
+class BattleReport extends Report {
+	constructor(region, opts={}) {
+		super(region, 'battle', opts);
+		this.loc = opts.loc;
+		this.classid = opts.classid;
+		this.trainerid = opts.trainerid;
+		this.wintext = opts.wintext;
+	}
+	
+	static filter({ loc, classid, trainerid }) {
+		return (r)=>{
+			if (r.type !== 'battle') return false;
+			if (loc && r.loc && r.loc !== loc) return false;
+			if (classid && trainerid && r.classid && r.trainerid) {
+				return r.classid === classid && r.trainerid === trainerid;
+			}
+			return true;
+		};
 	}
 }
 
@@ -253,5 +376,6 @@ class TransitReport {
 
 module.exports = {
 	MapRegion,
-	MapNode, MapArea, MapType, TransitReport,
+	MapNode, MapArea, MapType,
+	Report, TransitReport, ItemReport, BattleReport,
 };

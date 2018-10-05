@@ -25,13 +25,34 @@ class OptionsChanged extends LedgerItem {
 }
 
 ///////////////////
+// Politics
+
+class DemocracyContext extends LedgerItem {
+	constructor() {
+		super(2, { helps:true });
+	}
+}
+
+class InputModeChanged extends LedgerItem {
+	constructor(newMode) {
+		super(1, { flavor:newMode });
+	}
+}
+
+///////////////////
 // Real Time
 
 /** Indicates that the time of day in the game has changed. */
 class TimeChanged extends LedgerItem {
-	constructor(changes) {
-		super(0.8);
-		this.changes = changes;
+	constructor(flavor) {
+		super(0.8, { flavor });
+		this.ttl = 20 * (60 / (Bot.runConfig.run.updatePeriod / 1000)); //time to live = 20 minutes
+	}
+	canPostpone() {
+		if (this.ttl === 0) return false; //don't postpone
+		this.ttl--;
+		if (typeof this.flavor === 'string' && !this.flavor.endsWith('_exit')) this.flavor += '_exit';
+		return true;
 	}
 }
 
@@ -40,7 +61,7 @@ class TimeChanged extends LedgerItem {
 const getContactInfo = (name)=>{
 	let infodir = Bot.runOpts('contactInfo');
 	let obj;
-	if (infodir){ 
+	if (infodir){
 		obj = require(`../../../data/extdata/${infodir}`)[name];
 	} else {
 		obj = { name, location:false };
@@ -72,6 +93,7 @@ class PhonebookRemove extends LedgerItem {
 
 module.exports = {
 	OptionsChanged,
+	DemocracyContext, InputModeChanged,
 	TimeChanged,
 	PhonebookAdd, PhonebookRemove,
 };

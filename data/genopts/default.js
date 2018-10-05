@@ -13,6 +13,8 @@ module.exports = {
 	heldItem: true,
 	// If this generation supports shiny status
 	shiny: true,
+	// If this generation supports a secret id as an extension of the trainer id
+	secretId: true,
 	// If this generation supports walk-behind mon (Pikachu in Yellow, any mon in HGSS)
 	walkBehind: false,
 	// If this generation supports a real-time clock
@@ -41,6 +43,8 @@ module.exports = {
 	hubE4: true,
 	// If this generation supports 3D movement (resolve the Z axis)
 	'3d': true,
+	// If this generation has a trainer id that is dependant on the class, or if the trainer id is unique to all trainers
+	dependentTrainerId: false,
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,
@@ -60,8 +64,12 @@ module.exports = {
 	champName: "",
 	// The (default) name of the player's rival
 	rivalName: "",
+	// The gender of the rival, or "O" for "opposite the player's gender".
+	rivalGender: "O",
 	// The (default) name of the player's friendly rival (can be an array if it's "the unchosen protagonist")
 	friendName: "",
+	// The gender of the friendly rival, or "O" for "opposite the player's gender".
+	friendGender: "O",
 	
 	// Trainer classes to mark specially
 	trainerClasses: {
@@ -74,6 +82,7 @@ module.exports = {
 		f: [], // Female trainer classes
 		p: [], // Plural trainer classes
 	},
+	determineImportanceMethod: 'viaClasses',
 	// Wild pokemon species to mark specially
 	legendarySpecies: [
 		// Legendary Pokemon
@@ -94,6 +103,8 @@ module.exports = {
 		492,493,494,495,496,497,498,499,500,
 		576,851,948,
 	],
+	// Premier Ball item ids
+	itemIds_promo: [ 12 ],
 	// Item ids for vending machine items
 	itemIds_vending: [ 0x1E, 0x1F, 0x20 ],
 	// Item ids for berries
@@ -123,12 +134,12 @@ module.exports = {
 		155,158,159,160,161,162,163, //berries
 	],
 	// Item ids for PP healing items
-	itemIds_healPP: [ 
+	itemIds_healPP: [
 		38,39,40,41, //items
 		154, //berries
 	],
 	// Item ids for status healing items
-	itemIds_healStatus: [ 
+	itemIds_healStatus: [
 		18,19,20,21,22,23,27,36,42,54, //items
 		149,150,151,152,153,157,//berries
 	],
@@ -156,6 +167,8 @@ module.exports = {
 	
 	moveId_surf: 57,
 	moveId_fly: 19,
+	
+	trainerId_joey: 0,
 	
 	// Capacity of a PC box
 	pcBoxCapacity: 30,

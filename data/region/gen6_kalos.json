@@ -1,0 +1,5819 @@
+{
+	"name": "Kalos",
+	"types": {
+		"default": {
+			"type": "default",
+			"attrs": {
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"town": {
+			"type": "town",
+			"attrs": {
+				"town": true,
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"outdoor": {
+			"type": "outdoor",
+			"attrs": {
+				"route": true,
+				"the": "",
+				"preposition": "on"
+			},
+			"areas": []
+		},
+		"indoor": {
+			"type": "indoor",
+			"attrs": {
+				"indoors": true,
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"cave": {
+			"type": "cave",
+			"attrs": {
+				"indoors": true,
+				"dungeon": true,
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"gatehouse": {
+			"type": "gatehouse",
+			"attrs": {
+				"indoors": true,
+				"town": true,
+				"the": "",
+				"preposition": "on"
+			},
+			"areas": []
+		},
+		"dungeon": {
+			"type": "dungeon",
+			"attrs": {
+				"indoors": true,
+				"dungeon": true,
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"center": {
+			"type": "center",
+			"attrs": {
+				"indoors": true,
+				"healing": "pokecenter",
+				"checkpoint": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": [
+				{
+					"ax": 2,
+					"ay": 2,
+					"bx": 2,
+					"by": 2,
+					"rad": 5,
+					"name": "pc",
+					"attrs": {
+						"pc": true
+					}
+				},
+				{
+					"ax": 21,
+					"ay": 10,
+					"bx": 30,
+					"by": 18,
+					"rad": 0,
+					"name": "shopping",
+					"attrs": {}
+				}
+			]
+		},
+		"mart": {
+			"type": "mart",
+			"attrs": {
+				"indoors": true,
+				"shopping": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": [
+				{
+					"ax": 0,
+					"ay": 0,
+					"bx": 100,
+					"by": 100,
+					"rad": 0,
+					"name": "shopping",
+					"attrs": {
+						"shopping": true
+					}
+				}
+			]
+		},
+		"gym": {
+			"type": "gym",
+			"attrs": {
+				"indoors": true,
+				"gym": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"safari": {
+			"type": "safari",
+			"attrs": {
+				"safari": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"lumiose": {
+			"type": "lumiose",
+			"attrs": {
+				"town": true,
+				"preposition": "in",
+				"the": ""
+			},
+			"areas": []
+		}
+	},
+	"nodes": [
+		[
+			{
+				"bank": 0,
+				"id": 0,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0100020000003900050001000500010005000100050001003201000006044005016c02000000ffff14340400df20000000000000032a0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 1,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300760009003800050001000500010005000100050001003301000006001d04024802000000ffff24240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 2,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004a000a003700050001000500010005000100050001003401000006001d040248020000000800242404003f00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 3,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004a000f003600050001000500010005000100050001003501000006001d04024802000000ffff24240400ef010000000000007f020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 4,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004b000b003500050001000500010005000100050001003601000006001d04024802000000ffff34240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 5,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004b000c003400050001000500010005000100050001003701000006001d04024802000000080034240400510000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 6,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030047000d003300050001000500010005000100050001003801000006001d04024802000000ffff44240400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 7,
+				"name": "Vaniville Town",
+				"areaId": 6,
+				"areaName": "Vaniville Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030047000e003200050001000500010005000100050001003901000006001d04024802000000ffff4424040087000000000000003f000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 8,
+				"name": "Aquacorde Town",
+				"areaId": 10,
+				"areaName": "Aquacorde Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0100020000003100060001000500010005000100060001003a0108000a044005016c02000000ffff5434040061200000420000005f250000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 9,
+				"name": "Aquacorde Town",
+				"areaId": 10,
+				"areaName": "Aquacorde Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300690010003000060001000500010005000100060001003b0108000a001d04024802000000ffff442404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 10,
+				"name": "Aquacorde Town",
+				"areaId": 10,
+				"areaName": "Aquacorde Town",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300690011002f00450001000500010005000100060001003c0108000a001d04044802000000ffff742404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 11,
+				"name": "Aquacorde Town",
+				"areaId": 10,
+				"areaName": "Aquacorde Town",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300690012002e00450001000500010005000100060001003d0108000a001d04044802000000ffff742404001701000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 12,
+				"name": "Camphrier Town",
+				"areaId": 30,
+				"areaName": "Camphrier Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0100050002002d00070001000500010005000100060001003e010c001e044205016c02000000ffff84340400132f000000000000f3240000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 13,
+				"name": "Camphrier Town Pokémon Center",
+				"areaId": 30,
+				"areaName": "Camphrier Town",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00003d0031002c00100001000500010005000100060001003f010c001e001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 14,
+				"name": "Shabboneau Castle",
+				"areaId": 32,
+				"areaName": "Shabboneau Castle",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300570013002b000700010005000100050001000600010040010c0020041d04024802000000ffffa424040071010000000000006d020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 15,
+				"name": "Shabboneau Castle",
+				"areaId": 32,
+				"areaName": "Shabboneau Castle",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005700140029000700010005000100050001000600010041010c0020001d04024802000000ffffa4240400710100000000000071010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 16,
+				"name": "Shabboneau Castle",
+				"areaId": 32,
+				"areaName": "Shabboneau Castle",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005800150028000700010005000100050001000600010042010c0020001d04024802000000ffffa42404003b0100000000000071010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 17,
+				"name": "Camphrier Town",
+				"areaId": 30,
+				"areaName": "Camphrier Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007a0027000700010005000100050001000600010043010c001e001d04024802000000ffffb424040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 18,
+				"name": "Camphrier Town",
+				"areaId": 30,
+				"areaName": "Camphrier Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007b0026000700010005000100050001000600010044010c001e001d04024802000000ffffb42404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 19,
+				"name": "Camphrier Town",
+				"areaId": 30,
+				"areaName": "Camphrier Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006a00a10025000700010005000100050001000600010045010c001e001d04024802000000ffff442404007500000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 20,
+				"name": "Camphrier Town",
+				"areaId": 30,
+				"areaName": "Camphrier Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006a00750024000700010005000100050001000600010046010c001e001d04024802000000ffff44240400750000000000000099000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 21,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01001600ce002300350001000500010005000100060001004701150034044405016c02000000ffffc4340400d104000038ffffffa5060000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 22,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01001600cf002200350001000500010005000100060001004801150034044405016c02000000ffffc4340400d104000038ffffffa5060000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 23,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01001600e0002100350001000500010005000100060001004901150034044405016c02000000ffffc4340400d104000038ffffffa5060000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 24,
+				"name": "Geosenge Town Pokémon Center",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008d00310020001000010005000100050001000e0001004a01150034001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 25,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007a001f00350001000500010005000100060001004b01150034001d04024802000000ffffb424040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 26,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007b001e00350001000500010005000100060001004c01150034001d04024802000000ffffb42404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 27,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006b0079001d00350001000500010005000100060001004d01150034001d04024802000000ffff44240400bd00000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 28,
+				"name": "Geosenge Town",
+				"areaId": 52,
+				"areaName": "Geosenge Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006b0079001c00350001000500010005000100060001004e01150034001d04024802000000ffff44240400bd00000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 29,
+				"name": "Dendemille Town",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03001800d2001b00360001000500010005000100060001004f011d004c044d05016c02000000ffffd43c04003303000000000000d5030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 30,
+				"name": "Dendemille Town",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03001800d3001a003600010005000100050001000600010050011d004c044d05016c02000000ffffd43c04006903000000000000d9020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 31,
+				"name": "Dendemille Gate",
+				"areaId": 114,
+				"areaName": "Dendemille Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000099007d0019004700010005000100050001000600010051011d0072005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 32,
+				"name": "Dendemille Gate",
+				"areaId": 114,
+				"areaName": "Dendemille Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000099007d0018004700010005000100050001000600010052011d0072005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 33,
+				"name": "Dendemille Town Pokémon Center",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008e00310017001000010005000100050001000e00010053011d004c001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 34,
+				"name": "Dendemille Town",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006c009d0016003600010005000100050001000600010054011d004c001d04024802000000ffff44240400bd00000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 35,
+				"name": "Dendemille Town",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006c00ae0015003600010005000100050001000600010055011d004c001d04024802000000ffff44240400bd00000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 36,
+				"name": "Dendemille Town",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006c00ae0014003600010005000100050001000600010056011d004c001d04024802000000ffff44240400bd00000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 37,
+				"name": "Dendemille Town",
+				"areaId": 76,
+				"areaName": "Dendemille Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006c00ae0013003600010005000100050001000600010057011d004c001d04024802000000ffff44240400bd00000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 38,
+				"name": "Couriway Town",
+				"areaId": 90,
+				"areaName": "Couriway Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000e000700120007000100050001000500010006000100580126005a045005016c02000000fffff4340400dd25000000000000a12b0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 39,
+				"name": "Couriway Gate",
+				"areaId": 116,
+				"areaName": "Couriway Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005b007c001100470001000500010005000100060001005901260074005d04054c02000000ffffe4240400ab000000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 40,
+				"name": "Couriway Town Pokémon Center",
+				"areaId": 90,
+				"areaName": "Couriway Town",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008e00310010001000010005000100050001000e0001005a0126005a001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 41,
+				"name": "Couriway Town",
+				"areaId": 90,
+				"areaName": "Couriway Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007a000f00070001000500010005000100060001005b0126005a001d04024802000000ffffb424040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 42,
+				"name": "Couriway Town",
+				"areaId": 90,
+				"areaName": "Couriway Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007b000e00070001000500010005000100060001005c0126005a001d04024802000000ffffb42404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 43,
+				"name": "Couriway Town",
+				"areaId": 90,
+				"areaName": "Couriway Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006d0078000d00070001000500010005000100060001005d0126005a001d04024802000000ffff442404007500000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 44,
+				"name": "Couriway Town",
+				"areaId": 90,
+				"areaName": "Couriway Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006d0078000c00070001000500010005000100060001005e0126005a001d04024802000000ffff442404007500000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 45,
+				"name": "Ambrette Town",
+				"areaId": 44,
+				"areaName": "Ambrette Town",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0000070003000b00060001000500010005000100060001005f012d002c04c403016c02000000ffff24350400ef250000baffffffc1350000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 46,
+				"name": "Ambrette Gate",
+				"areaId": 118,
+				"areaName": "Ambrette Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000099007d000a004700010005000100050001000600010060012d0076005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 47,
+				"name": "Ambrette Town Pokémon Center",
+				"areaId": 44,
+				"areaName": "Ambrette Town",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008d00310009001000010005000100050001000600010061012d002c001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 48,
+				"name": "Ambrette Aquarium",
+				"areaId": 166,
+				"areaName": "Ambrette Aquarium",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005a00190008000600010005000100050001000600010062012d00a6041d04024802000000ffff14250400dd0100000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 49,
+				"name": "Ambrette Town",
+				"areaId": 44,
+				"areaName": "Ambrette Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008f001a0007000600010005000100050001000600010063012d002c001d04024802000000ffff042504007101000000000000cb010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 50,
+				"name": "Ambrette Town",
+				"areaId": 44,
+				"areaName": "Ambrette Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006e00770006000600010005000100050001000600010064012d002c001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 51,
+				"name": "Ambrette Town",
+				"areaId": 44,
+				"areaName": "Ambrette Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007a0005000600010005000100050001000600010065012d002c001d04024802000000ffffb424040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 52,
+				"name": "Ambrette Town",
+				"areaId": 44,
+				"areaName": "Ambrette Town",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007b0004000600010005000100050001000600010066012d002c001d04024802000000ffffb42404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 53,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000003000100a5010800010005000100050001000e000100000035001204c004016c02000000ffff343504006b2200002600000061290000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 54,
+				"name": "Santalune City Pokémon Center",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00003d003100a2011000010005000100050001000e0001000300350012001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 55,
+				"name": "Santalune Gym",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003e003200a4011100010005000100050001000e0001000100350012001d0c034802000000ffff44010400710100000000000025020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 56,
+				"name": "Santalune Gym",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003e003300a3011100010005000100050001000e0001000200350012001d0c024802000000020045010400710100000000000089040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 57,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030049003400a1012600010005000100050001000e0001000400350012001d040448020000000800642404003b01000000000000b9010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 58,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006f007500a0010800010005000100050001000e0001000500350012001d04024802000000ffff44240400750000000000000099000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 59,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006f0076009f010800010005000100050001000e0001000600350012001d04024802000000ffff442404003f00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 60,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006f0076009e010800010005000100050001000e0001000700350012001d04024802000000ffff442404003f00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 61,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006f0076009d010800010005000100050001000e0001000800350012001d04024802000000ffff442404003f00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 62,
+				"name": "Santalune City",
+				"areaId": 18,
+				"areaName": "Santalune City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300900038009c010800010005000100050001000e0001000900350012001d04024802000000ffff54250400e100000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 63,
+				"name": "Southern Boulevard",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0700040080003d010900010005000100050001000e00010062003f001604570b012c020000000f0064251400d0de0502440100007e000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 64,
+				"name": "Southern Boulevard",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0700040080003c010900010005000100050001000e00010063003f001604570b012c020000000f0064251400669304010e01000047feffff"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 65,
+				"name": "Northern Boulevard",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0700190081003b010900010005000100050001000e000100640041001604570b012c020000000f00642514006ad20103dcffffff7e000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 66,
+				"name": "Northern Boulevard",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0700190081003a010900010005000100050001000e000100650041001604570b012c020000000f0064251400eba1030654ffffff98feffff"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 67,
+				"name": "plazas and alleyways",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "among",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "09001a00820039010900010005000100050001000e000100660043001604570b012c020000000f0064251400cde303021200000069000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 68,
+				"name": "plazas and alleyways",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the",
+					"preposition": "among"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "09001a00820038010900010005000100050001000e000100670043001604570b012c020000000f0064250400c90c000000000000b50d0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 69,
+				"name": "Centrico Plaza",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "lumiose",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01001b00830037010900010005000100050001000e000100680043001604570b012c020000000f0064250400080400000000000002060000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 70,
+				"name": "Lumiose Route 4 Gate",
+				"areaId": 120,
+				"areaName": "Lumiose Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005b007c009b01470001000500010005000100060001000a003f0078005d04054c02000000ffffe4240400ab000000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 71,
+				"name": "Lumiose Route 5 Gate",
+				"areaId": 120,
+				"areaName": "Lumiose Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000099007d009a01470001000500010005000100060001000b003f0078005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 72,
+				"name": "Lumiose Route 13 Gate",
+				"areaId": 120,
+				"areaName": "Lumiose Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005b007c009901470001000500010005000100060001000c00410078005d04054c02000000ffffe4240400ab000000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 73,
+				"name": "Lumiose Route 14 Gate",
+				"areaId": 120,
+				"areaName": "Lumiose Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005b007c009801470001000500010005000100060001000d00410078005d04054c02000000ffffe4240400ab000000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 74,
+				"name": "Lumiose Route 16 Gate",
+				"areaId": 120,
+				"areaName": "Lumiose Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000099007d009701470001000500010005000100060001000e00410078005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 75,
+				"name": "Southern Lumiose Pokémon Center",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00003d0031008a011000010005000100050001000e00010015003f0016001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 76,
+				"name": "Northern Lumiose Pokémon Center",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00003d00310089011000010005000100050001000e0001001600410016001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 77,
+				"name": "Prism Tower",
+				"areaId": 24,
+				"areaName": "Prism Tower",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009b00390096011100010005000100050001000e0001000f00430018001d0e0348020000001a00440104005f0100000000000037020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 78,
+				"name": "Prism Tower",
+				"areaId": 24,
+				"areaName": "Prism Tower",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009e00dd0095011100010005000100050001000e0001001000430018001d0e0348020000001b00440104005f01000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 79,
+				"name": "Prism Tower",
+				"areaId": 24,
+				"areaName": "Prism Tower",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004200de0094011100010005000100050001000e0001001100430018001d0e0348020000001900440104005f01000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 80,
+				"name": "Prism Tower",
+				"areaId": 24,
+				"areaName": "Prism Tower",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004200de0093011100010005000100050001000e0001001200430018001d0e0348020000001900440104005f01000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 81,
+				"name": "Prism Tower",
+				"areaId": 24,
+				"areaName": "Prism Tower",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004200de0092011100010005000100050001000e0001001300430018001d0e0348020000001900440104005f01000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 82,
+				"name": "Prism Tower",
+				"areaId": 24,
+				"areaName": "Prism Tower",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004200de0091011100010005000100050001000e0001001400430018001d0e0348020000001900440104005f01000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 83,
+				"name": "Sycamore Labs",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006500840087011200010005000100050001000e00010018003f0016001d04024802000000ffff04250400cf0000000000000075000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 84,
+				"name": "Sycamore Labs",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006500850086011200010005000100050001000e00010019003f0016001d04024802000000ffff04250400cf0000000000000075000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 85,
+				"name": "Sycamore Labs",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006500860085011200010005000100050001000e0001001a003f0016001d04024802000000ffff04250400cf0000000000000075000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 86,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006700870084010900010005000100050001000e0001001b003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 87,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006700880083010900010005000100050001000e0001001c003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 88,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008000d50082010900010005000100050001000e0001001d003f0016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 89,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030049008a0081012600010005000100050001000e0001001e00430016001d04044802000000ffff642404005f0100000000000095010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 90,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004900b40080012600010005000100050001000e0001001f00430016001d04044802000000ffff6424040099000000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 91,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300670087007f010900010005000100050001000e00010020003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 92,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300670088007e010900010005000100050001000e00010021003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 93,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030078008b007d010900010005000100050001000e0001002200430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 94,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030064008c007c018500010005000100050001000e000100230043001a009d15024802000000ffff94010400910200000000000099000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 95,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030064008d007b018500010005000100050001000e000100240043001a009d15024802000000ffff94010400f30000000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 96,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006600a5007a018500010005000100050001000e000100250043001a049d15024802000000ffff9401040025020000000000007f020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 97,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006400a60079018500010005000100050001000e000100260043001a009d15024802000000ffff94010400750000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 98,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006400a70078018500010005000100050001000e000100270043001a009d15024802000000ffff94010400750000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 99,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006400a80077018500010005000100050001000e000100280043001a009d15024802000000ffff940104003f00000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 100,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006400a90076018500010005000100050001000e000100290043001a009d15024802000000ffff940104002901000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 101,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006400aa0075018500010005000100050001000e0001002a0043001a009d15024802000000ffff94010400750000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 102,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006600a50074018500010005000100050001000e0001002b0043001a009d15024802000000ffff9401040025020000000000007f020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 103,
+				"name": "Lysandre Labs",
+				"areaId": 26,
+				"areaName": "Lysandre Labs",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006400aa0073018500010005000100050001000e0001002c0043001a009d15024802000000ffff94010400750000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 104,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030077008e0072016200010005000100050001000e0001002d00410016001d04024802000000ffffa4250400d902000000000000a3020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 105,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007700bf0071016200010005000100050001000e0001002e00410016001d04024802000000ffffa4250400d9020000000000007f020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 106,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007700c00070016200010005000100050001000e0001002f00410016001d04024802000000ffffa4250400d90200000000000013020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 107,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030091008f006f014600010005000100050001000e00010030003f0016001d04024802000000ffffb42504003b0100000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 108,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004800b5006e012700010005000100050001000e00010031003f0016001d04024802000000ffffb4250400bd0000000000000051000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 109,
+				"name": "Lumiose Station",
+				"areaId": 162,
+				"areaName": "Lumiose Station",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300680090006d010900010005000100050001000e00010032004100a2041d04024802000000ffffc4250400990000000000000013020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 110,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300920091006c010900010005000100050001000e0001003300410016001d04024802000000ffffd425040099000000000000004d010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 111,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300670087006b010900010005000100050001000e0001003400410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 112,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300670088006a010900010005000100050001000e0001003500410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 113,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006700890069010900010005000100050001000e0001003600410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 114,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009d00870068010900010005000100050001000e0001003700410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 115,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009d00880067010900010005000100050001000e0001003800410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 116,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009d00890066010900010005000100050001000e0001003900410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 117,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006300920065012700010005000100050001000e0001003a00430016001d04044802000000ffffe42504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 118,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007c00930064010900010005000100050001000e0001003b00430016001d04024802000000ffff342404005f0100000000000083010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 119,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006300940063010900010005000100050001000e0001003c00430016001d04044802000000ffff742404009900000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 120,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030081007f0062010900010005000100050001000e0001003d00410016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 121,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008200d50061010900010005000100050001000e0001003e00410016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 122,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006300950060014500010005000100050001000e0001003f00430016001d04044802000000ffff742404009900000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 123,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300630096005f014500010005000100050001000e0001004000430016001d04044802000000ffff742404009900000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 124,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300480097005e012700010005000100050001000e00010041003f0016001d04044802000000ffffe425040099000000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 125,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030083007f005d010900010005000100050001000e00010042003f0016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 126,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008b0098005c010900010005000100050001000e0001004300430016001d04024802000000fffff42504003b01000000000000b5020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 127,
+				"name": "Looker Bureau",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": false,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300930099005b010900010005000100050001000e0001004400430016001d04024802000000ffff74250400e10000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 128,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030063009a005a014500010005000100050001000e0001004500430016001d04044802000000ffff742404009900000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 129,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008400d50059010900010005000100050001000e0001004600410016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 130,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008500d50058010900010005000100050001000e0001004700430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 131,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030063009b0057014500010005000100050001000e0001004800430016001d04024802000000ffff742404009900000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 132,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030086007f0056010900010005000100050001000e0001004900430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 133,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008a00d50055010900010005000100050001000e0001004a00430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 134,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030097009c0054010900010005000100050001000e0001004b00430016001d04024802000000ffff742504009900000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 135,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008c00b60053016200010005000100050001000e0001004c00410016001d04024802000000ffffb42404004d0100000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 136,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009a00bd0052016200010005000100050001000e0001004d00410016001d04024802000000ffffb424040083010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 137,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009a00bd0051016200010005000100050001000e0001004e00410016001d04024802000000ffffb424040083010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 138,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009a00bd0050016200010005000100050001000e0001004f00410016001d04024802000000ffffb424040083010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 139,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009f00b7004f016200010005000100050001000e0001005000410016001d04024802000000ffffb42404004d01000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 140,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008b00ba004e010900010005000100050001000e0001005100430016001d04024802000000ffff042604003b01000000000000b5020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 141,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008b00bb004d010900010005000100050001000e00010052003f0016001d04024802000000fffff42504003b01000000000000b5020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 142,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030087007f004c010900010005000100050001000e00010053003f0016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 143,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030088007f004b010900010005000100050001000e0001005400430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 144,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009d0087004a010900010005000100050001000e00010055003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 145,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009d00880049010900010005000100050001000e00010056003f0016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 146,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008b00bc0048016100010005000100050001000e0001005700430016001d04024802000000fffff42504003b01000000000000b5020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 147,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008a007f0047010900010005000100050001000e0001005800430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 148,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008a00d50046010900010005000100050001000e0001005900430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 149,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009d00870045010900010005000100050001000e0001005a00410016001d04024802000000ffff74250400ab00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 150,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"indoors": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008900d50044010900010005000100050001000e0001005b00430016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 151,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"indoors": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03008a007f0043010900010005000100050001000e0001005c00410016001d04044802000000ffff842504008700000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 152,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"indoors": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009600dc0042010900010005000100050001000e0001005d003f001600570b012c02000000ffff6425040085010000000000007a020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 153,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"indoors": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009600dc0041010900010005000100050001000e0001005e0041001600570b012c02000000ffff6425040085010000000000007a020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 154,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009600dc0040010900010005000100050001000e0001005f0041001600570b012c02000000ffff6425040085010000000000007a020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 155,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009600dc003f010900010005000100050001000e000100600041001600570b012c02000000ffff6425040085010000000000007a020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 156,
+				"name": "Lumiose City",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300930099003e01ae00010005000100050001000e0001006100430016001d04024802000000ffff74250400e10000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 157,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000700030036010a00010005000100050001000e00010069009d002804c404016c02000000ffff143604008724000027ffffffc92a0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 158,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000700e10028010a00010005000100050001000e00010077009d0028004804016c02000000ffff142604009705000027ffffffeb0b0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 159,
+				"name": "Cyllage City Pokémon Center",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008d00310034011000010005000100050001000e0001006b009d0028001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 160,
+				"name": "Cyllage Gym",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003f003a0035011100010005000100050001000e0001006a009d0028009d0c034802000000030044010400710100000000000091020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 161,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007a0033010a00010005000100050001000e0001006c009d0028001d04024802000000ffffb424040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 162,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007b0032010a00010005000100050001000e0001006d009d0028001d04024802000000ffffb42404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 163,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005e007e0031010a00010005000100050001000e0001006e009d0028001d04044802000000ffff842504004d010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 164,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005e00c20030010a00010005000100050001000e0001006f009d0028001d04024802000000ffff842504004d010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 165,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300700048002f010a00010005000100050001000e00010070009d0028001d04044802000000ffff7424040071010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 166,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004900ca002e012600010005000100050001000e00010071009d0028001d040448020000000800642404003b010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 167,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300700077002d010a00010005000100050001000e00010072009d0028001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 168,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300700077002c010a00010005000100050001000e00010073009d0028001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 169,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300700077002b010a00010005000100050001000e00010074009d0028001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 170,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300700077002a010a00010005000100050001000e00010075009d0028001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 171,
+				"name": "Cyllage City",
+				"areaId": 40,
+				"areaName": "Cyllage City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007000770029010a00010005000100050001000e00010076009d0028001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 172,
+				"name": "Shalour City",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "010009003b0027013700010005000100050001000e0001007800ac003a04c704016c02000000ffff14360400690300000000000087090000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 173,
+				"name": "Shalour Gate",
+				"areaId": 122,
+				"areaName": "Shalour Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005c007d002601470001000500010005000100060001007900ac007a005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 174,
+				"name": "Shalour City Pokémon Center",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008d00310024011000010005000100050001000e0001007b00ac003a001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 175,
+				"name": "Shalour Gym",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030040003c0025011100010005000100050001000e0001007a00ac003a005d0d034802000000000044010400bf040000000000003d050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 176,
+				"name": "Shalour City",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007100770023013700010005000100050001000e0001007c00ac003a001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 177,
+				"name": "Shalour City",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007100770022013700010005000100050001000e0001007d00ac003a001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 178,
+				"name": "Shalour City",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007100770021013700010005000100050001000e0001007e00ac003a001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 179,
+				"name": "Shalour City",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007100770020013700010005000100050001000e0001007f00ac003a001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 180,
+				"name": "Shalour City",
+				"areaId": 58,
+				"areaName": "Shalour City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300710077001f013700010005000100050001000e0001008000ac003a001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 181,
+				"name": "Tower of Mastery",
+				"areaId": 60,
+				"areaName": "Tower of Mastery",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005f003d001e013100010005000100050001000e0001008100ac003c045d04024802000000ffff2426040071010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 182,
+				"name": "Tower of Mastery",
+				"areaId": 60,
+				"areaName": "Tower of Mastery",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030060003e001d013100010005000100050001000e0001008200ac003c00c71c026802000000ffff24260400830100000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 183,
+				"name": "Tower of Mastery",
+				"areaId": 60,
+				"areaName": "Tower of Mastery",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006100ab001c013100010005000100050001000e0001008300ac003c001d04024802000000ffff24260400ab0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 184,
+				"name": "Tower of Mastery",
+				"areaId": 60,
+				"areaName": "Tower of Mastery",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006100ab001b013100010005000100050001000e0001008400ac003c001d04024802000000ffff24260400ab0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 185,
+				"name": "Tower of Mastery",
+				"areaId": 60,
+				"areaName": "Tower of Mastery",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006100ab001a013100010005000100050001000e0001008500ac003c001d04024802000000ffff24260400ab0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 186,
+				"name": "Tower of Mastery",
+				"areaId": 60,
+				"areaName": "Tower of Mastery",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006100ab0019013100010005000100050001000e0001008600ac003c001d04024802000000ffff24260400ab0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 187,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000a00040018013800010005000100050001000e0001008700bc004004c804016c02000000ffff143604001b2d00001400000087240000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 188,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000011003f0017013800010005000100050001000e0001008800bc004004c804016c02000000ffff143604001d0400000000000097050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 189,
+				"name": "Coumarine Gate",
+				"areaId": 124,
+				"areaName": "Coumarine Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005b007c001601470001000500010005000100060001008900bc007c005d04054c02000000ffffe4240400ab000000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 190,
+				"name": "Coumarine City Pokémon Center",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008d00310014011000010005000100050001000e0001008b00bc0040001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 191,
+				"name": "Coumarine Gym",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "02004100400015011100010005000100050001000e0001008a00bc0040009d0d0348020000000400400104004104000000000000cd050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 192,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005900410013013800010005000100050001000e0001008c00bc0040001d04024802000000ffffc4250400bd000000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 193,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005900420012013800010005000100050001000e0001008d00bc0040001d04024802000000ffffc4250400e1000000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 194,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007a0011013800010005000100050001000e0001008e00bc0040001d04024802000000ffffb424040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 195,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005d007b0010013800010005000100050001000e0001008f00bc0040001d04024802000000ffffb42404008700000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 196,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300720077000f013800010005000100050001000e0001009000bc0040001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 197,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300720077000e013800010005000100050001000e0001009100bc0040001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 198,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300720077000d013800010005000100050001000e0001009200bc0040001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 199,
+				"name": "Coumarine City",
+				"areaId": 64,
+				"areaName": "Coumarine City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300720077000c013800010005000100050001000e0001009300bc0040001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 200,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000b0005000b013900010005000100050001000e0001009400c80046044a1f016c02000000ffff34360400db21000000000000af230000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 201,
+				"name": "Laverre Gate",
+				"areaId": 126,
+				"areaName": "Laverre Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005c007d000a01470001000500010005000100060001009500c8007e005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 202,
+				"name": "Laverre City Pokémon Center",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008e00310008011000010005000100050001000e0001009700c80046001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 203,
+				"name": "Laverre Gym",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004300430009011100010005000100050001000e0001009600c80046009d0e0348020000000100440104001701000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 204,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005e007e0007013900010005000100050001000e0001009800c80046001d04044802000000ffff842504004d010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 205,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005e00c20006013900010005000100050001000e0001009900c80046001d04024802000000ffff842504004d010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 206,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004900cb0005012600010005000100050001000e0001009a00c80046001d040448020000000800642404003b010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 207,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007300780004013900010005000100050001000e0001009b00c80046001d04024802000000ffff44240400750000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 208,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007300780003013900010005000100050001000e0001009c00c80046001d04024802000000ffff44240400750000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 209,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007300780002013900010005000100050001000e0001009d00c80046001d04024802000000ffff44240400750000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 210,
+				"name": "Laverre City",
+				"areaId": 70,
+				"areaName": "Laverre City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007300780001013900010005000100050001000e0001009e00c80046001d04024802000000ffff44240400750000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 211,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00001c00d60000018300010005000100050001000e0001009f00d3005604cf04016c02000000ffff443e0400610500000000000053040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 212,
+				"name": "Anistar Gate",
+				"areaId": 128,
+				"areaName": "Anistar Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005c007d00ff0047000100050001000500010006000100a000d30080005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 213,
+				"name": "Anistar Gate",
+				"areaId": 128,
+				"areaName": "Anistar Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005b007c00fe0047000100050001000500010006000100a100d30080005d04054c02000000ffffe4240400ab000000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 214,
+				"name": "Anistar City Pokémon Center",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008e003100fc001000010005000100050001000e000100a300d30056001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 215,
+				"name": "Anistar Gym",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030044004400fd001100010005000100050001000e000100a200d30056001d0f0348020000000d0040010400d90200005301000040040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 216,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005e007e00fb008300010005000100050001000e000100a400d30056001d04044802000000ffff842504004d010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 217,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005e00c200fa008300010005000100050001000e000100a500d30056001d04024802000000ffff842504004d010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 218,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004900cc00f9002600010005000100050001000e000100a600d30056001d040448020000000800642404003b010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 219,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007400af00f8008300010005000100050001000e000100a700d30056001d04024802000000ffff44240400cf00000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 220,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007400af00f7008300010005000100050001000e000100a800d30056001d04024802000000ffff44240400cf00000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 221,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007400af00f6008300010005000100050001000e000100a900d30056001d04024802000000ffff44240400cf00000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 222,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01001d00d800f5008400010005000100050001000e000100aa00de005e045203016c02000000ffff543e0400730500000000000053040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 223,
+				"name": "Snowbelle Gate",
+				"areaId": 130,
+				"areaName": "Snowbelle Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005c007d00f40047000100050001000500010006000100ab00de0082005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 224,
+				"name": "Snowbelle Gate",
+				"areaId": 130,
+				"areaName": "Snowbelle Gate",
+				"type": "gatehouse",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00005c007d00f30047000100050001000500010006000100ac00de0082005d04054c02000000ffffe424040066000000000000009c000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 225,
+				"name": "Snowbelle City Pokémon Center",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008e003100f1001000010005000100050001000e000100ae00de005e001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 226,
+				"name": "Snowbelle Gym",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "gym",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030045004500f2001100010005000100050001000e000100ad00de005e009d0f0348020000000e0044010400710100000000000097050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 227,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "mart",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004900cd00f0002600010005000100050001000e000100af00de005e001d040448020000000800642404003b010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 228,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007500b000ef008400010005000100050001000e000100b000de005e001d04024802000000ffff44240400bd0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 229,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007500b000ee008400010005000100050001000e000100b100de005e001d04024802000000ffff44240400bd0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 230,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007500b000ed008400010005000100050001000e000100b200de005e001d04024802000000ffff44240400bd0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 231,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007500b000ec008400010005000100050001000e000100b300de005e001d04024802000000ffff44240400bd0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 232,
+				"name": "Snowbelle City",
+				"areaId": 94,
+				"areaName": "Snowbelle City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007500b000eb008400010005000100050001000e000100b400de005e001d04024802000000ffff44240400bd0000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 233,
+				"name": "Kiloude City",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01002000df00ea00a800010005000100050001000e000100b500e9006c04c704016c02000000ffff35350400eb0200000000000039060000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 234,
+				"name": "Kiloude City Pokémon Center",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00003d003100e9001000010005000100050001000e000100b600e9006c001d040348020000001c00942404007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 235,
+				"name": "Kiloude City",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007900d000e800a800010005000100050001000e000100b700e9006c001d04024802000000ffff44240400cf0000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 236,
+				"name": "Kiloude Station",
+				"areaId": 164,
+				"areaName": "Kiloude Station",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007a00d100e700a800010005000100050001000e000100b800e900a4041d04024802000000ffffc4250400830100000000000061050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 237,
+				"name": "Kiloude City",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007900d000e600a800010005000100050001000e000100b900e9006c001d04024802000000ffff44240400cf0000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 238,
+				"name": "Kiloude City",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007900d000e500a800010005000100050001000e000100ba00e9006c001d04024802000000ffff44240400cf0000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 239,
+				"name": "Kiloude City",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007900d000e400a800010005000100050001000e000100bb00e9006c001d04024802000000ffff44240400cf0000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 240,
+				"name": "Kiloude City",
+				"areaId": 108,
+				"areaName": "Kiloude City",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007900d000e300a800010005000100050001000e000100bc00e9006c001d04024802000000ffff44240400cf0000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 241,
+				"name": "Battle Maison",
+				"areaId": 110,
+				"areaName": "Battle Maison",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007b00ac00e2004800010005000100050001000e000100bd00e9006e041d06024802000000ffffd425040017010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 242,
+				"name": "Battle Maison",
+				"areaId": 110,
+				"areaName": "Battle Maison",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007b00ad00e1004800010005000100050001000e000100be00e9006e001d06024802000000ffffd4250400710100000000000025020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 243,
+				"name": "Pokémon League",
+				"areaId": 106,
+				"areaName": "Pokémon League",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "lobby",
+					"the": "the",
+					"preposition": "at"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01001000650071008600010005000100050001000e0001000701f3006a045615012c02000000ffff6412040037020000000000005d060000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 244,
+				"name": "League Pokémon Center",
+				"areaId": 106,
+				"areaName": "Pokémon League",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "lobby"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00008e00310070008600010005000100050001000e0001000801f3006a001d040208020000001c009c0004007101000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 245,
+				"name": "Pokémon League",
+				"areaId": 106,
+				"areaName": "Pokémon League",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "lobby",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300460066006f008600010005000100050001000e0001000901f3006a001d04020802000000ffff6c820400d902000000000000ad040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 246,
+				"name": "Pokémon League",
+				"areaId": 106,
+				"areaName": "Pokémon League",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007d0067006e008600010005000100050001000e0001000a01f3006a001d04020802000000ffff6c820400170100000000000083010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 247,
+				"name": "Blazing Chamber",
+				"areaId": 150,
+				"areaName": "Blazing Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007e0068006d008600010005000100050001000e0001000b01f30096041d0402080200000013006c8204005f0100000000000073050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 248,
+				"name": "Flood Chamber",
+				"areaId": 152,
+				"areaName": "Flood Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007e006a006b008600010005000100050001000e0001000d01f30098041d0402080200000013006c8204005f0100000000000073050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 249,
+				"name": "Ironworks Chamber",
+				"areaId": 154,
+				"areaName": "Ironworks Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007e006c0069008600010005000100050001000e0001000f01f3009a041d0402080200000013006c8204005f0100000000000073050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 250,
+				"name": "Dragonmark Chamber",
+				"areaId": 156,
+				"areaName": "Dragonmark Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007e006e0067008600010005000100050001000e0001001101f3009c041d0402080200000013006c8204005f0100000000000073050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 251,
+				"name": "Blazing Chamber",
+				"areaId": 150,
+				"areaName": "Blazing Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004c0069006c008600010005000100050001000e0001000c01f30096001d0402080200000006006c8208005f01000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 252,
+				"name": "Flood Chamber",
+				"areaId": 152,
+				"areaName": "Flood Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004d006b006a008600010005000100050001000e0001000e01f30098001d040208020000000b006c8208005f01000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 253,
+				"name": "Ironworks Chamber",
+				"areaId": 154,
+				"areaName": "Ironworks Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004e006d0068008600010005000100050001000e0001001001f3009a001d040208020000000a006c8208005f01000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 254,
+				"name": "Dragonmark Chamber",
+				"areaId": 156,
+				"areaName": "Dragonmark Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "e4",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03004f006f0066008600010005000100050001000e0001001201f3009c001d0402080200000009006c8208005f01000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 255,
+				"name": "Radiant Chamber",
+				"areaId": 158,
+				"areaName": "Radiant Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "champ",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007f00700065008600010005000100050001000e0001001301f3009e041d0402080200000014006c820400f30000000000000057030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 256,
+				"name": "Radiant Chamber",
+				"areaId": 158,
+				"areaName": "Radiant Chamber",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "champ",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03005000710064008600010005000100050001000e0001001401f3009e001d0402080200000015006c8204005f01000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 257,
+				"name": "Pokémon League",
+				"areaId": 106,
+				"areaName": "Pokémon League",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"e4": "hallOfFame",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009500720063002c00010005000100050001000e0001001501f3006a001d0402480200000016006c8204005f01000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 258,
+				"name": "Route 1",
+				"areaId": 8,
+				"areaName": "Route 1",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0100020000005a000b00010005000100050001000b0001001601020108044015016c02000000ffffa436040061200000820000003d290000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 259,
+				"name": "Route 2",
+				"areaId": 12,
+				"areaName": "Route 2",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000200000059000c00010005000100050001000c000100170103010c044015016c02000000ffffb43604006120000032000000ed210000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 260,
+				"name": "Route 3",
+				"areaId": 16,
+				"areaName": "Route 3",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000300010058000c00010005000100050001000c0001001801040110044015016c02000000ffffc4360400c1230000000000009d2c0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 261,
+				"name": "Route 4",
+				"areaId": 20,
+				"areaName": "Route 4",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000300010057000d00010005000100050001000c0001001901050114044015016c02000000ffffd43604004f2000000000000033270000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 262,
+				"name": "Route 5",
+				"areaId": 28,
+				"areaName": "Route 5",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000500020056000d00010005000100050001000c0001001a0106011c04c200016c02000000fffff4360400b93700004fffffff73200000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 263,
+				"name": "Route 6",
+				"areaId": 34,
+				"areaName": "Route 6",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "080006001b0055000d00010005000100050001000c0001001b0107012204c200016c02000000ffffa4360400d902000024000000e9070000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 264,
+				"name": "Route 7",
+				"areaId": 38,
+				"areaName": "Route 7",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000500020054000d00010005000100050001000c0001001c0108012604c200016c02000000ffffb4360400f72c0000020000001b240000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 265,
+				"name": "Route 7 Day Care",
+				"areaId": 38,
+				"areaName": "Route 7",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006a001c0053000d0001000500010005000100060001001d01080126001d04024802000000ffffe4260400e1000000000000004d010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 266,
+				"name": "Route 8",
+				"areaId": 42,
+				"areaName": "Route 8",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000700030052003a00010005000100050001000c0001001e010a012a04c403016c02000000ffff143704002127000038000000f32d0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 267,
+				"name": "Route 9",
+				"areaId": 46,
+				"areaName": "Route 9",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000008001d0051003a00010005000100050001000c0001001f010b012e04c503016c02000000fffff4360400bd000000bafffffff9030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 268,
+				"name": "Route 10",
+				"areaId": 50,
+				"areaName": "Route 10",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000700030050003a00010005000100050001000c00010020010c013204c400016c02000000ffff04370400672300002bffffff57270000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 269,
+				"name": "Route 11",
+				"areaId": 54,
+				"areaName": "Route 11",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000017001e004f003a00010005000100050001000c00010021010d013604c600016c02000000fffff4360400210300002bffffff1d040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 270,
+				"name": "Route 12",
+				"areaId": 62,
+				"areaName": "Route 12",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000a0004004e003a00010005000100050001000c00010022010e013e044815016c02000000ffff14370400b925000000000000d3230000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 271,
+				"name": "Route 12",
+				"areaId": 62,
+				"areaName": "Route 12",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300710077004d003a00010005000100050001000600010023010e013e001d04024802000000ffff44240400ab00000000000000bd000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 272,
+				"name": "Route 13",
+				"areaId": 66,
+				"areaName": "Route 13",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000014001f004c003a00010005000100050001000c000100240110014204c903016c0200000018003437040055080000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 273,
+				"name": "Route 14",
+				"areaId": 68,
+				"areaName": "Route 14",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000b0005004b003d00010005000100050001000c0001002501110144044a1f016c02000000ffff243704004f200000020000008b2c0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 274,
+				"name": "Route 14",
+				"areaId": 68,
+				"areaName": "Route 14",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300980078004a002c0001000500010005000100060001002601110144001d04024802000000ffff44240400750000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 275,
+				"name": "Route 15",
+				"areaId": 74,
+				"areaName": "Route 15",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000c00060049003b00010005000100050001000c000100270113014a044b1f016c02000000120044370400ad1f000002000000f51f0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 276,
+				"name": "Route 16",
+				"areaId": 78,
+				"areaName": "Route 16",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00000c00060048003b00010005000100050001000c000100280114014e044b1f016c02000000120044370400651f0000000000000b280000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 277,
+				"name": "Route 16",
+				"areaId": 78,
+				"areaName": "Route 16",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007300780047003b000100050001000500010006000100290114014e001d04024802000000ffff44240400750000000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 278,
+				"name": "Route 17",
+				"areaId": 84,
+				"areaName": "Route 17",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00001300200046003b00010005000100050001000c0001002a01160154044e03016c02000000ffff543f0400c303000000000000d5030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 279,
+				"name": "Route 18",
+				"areaId": 88,
+				"areaName": "Route 18",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000e00070045003c00010005000100050001000c0001002b0117015804d003016c02000000fffff43604001f23000000000000ef250000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 280,
+				"name": "Route 18",
+				"areaId": 88,
+				"areaName": "Route 18",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007400af0044003c00010005000100050001000e0001002c01170158001d04024802000000ffff44240400cf00000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 281,
+				"name": "Route 19",
+				"areaId": 92,
+				"areaName": "Route 19",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "08000f00d70043003c00010005000100050001000c0001002d0119015c04d103016c02000000fffff4360400d5030000000000000b040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 282,
+				"name": "Route 20",
+				"areaId": 96,
+				"areaName": "Route 20",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00001e00d90042003e00010005000100050001000c0001002e011a0160045d02066c02000000ffff94360400430800000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 283,
+				"name": "Route 21",
+				"areaId": 100,
+				"areaName": "Route 21",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00001f00da0041003c00010005000100050001000c0001002f011b0164045415016c02000000ffffb436040097050000000000000b040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 284,
+				"name": "Route 21",
+				"areaId": 100,
+				"areaName": "Route 21",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03007300780040003c00010005000100050001000e00010030011b0164001d04024802000000ffff44240400750000000000000099000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 285,
+				"name": "Route 22",
+				"areaId": 102,
+				"areaName": "Route 22",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0000030001003f000d00010005000100050001000c00010031011d016604c000016c02000000ffffc4360400c327000000000000c3270000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 286,
+				"name": "Santalune Forest",
+				"areaId": 14,
+				"areaName": "Santalune Forest",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030022000800da000e00010005000100050001000e000100c0001e010e045d02066c02000000ffff94360400d9020000000000002b050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 287,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "010023002100d9000f00010005000100050001000e000100c1001f0124044315016c02000000ffff74360400c702000002000000250b0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 288,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030051002200d7000f00010005000100050001000e000100c3001f0124001d06024802000000ffff742604008d03000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 289,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002300d6000f00010005000100050001000e000100c4001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 290,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002400d5000f00010005000100050001000e000100c5001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 291,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002500d4000f00010005000100050001000e000100c6001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 292,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002600d3000f00010005000100050001000e000100c7001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 293,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030051002700d2000f00010005000100050001000e000100c8001f0124001d06024802000000ffff74260400bd0000000000000099000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 294,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030052002800d1000f00010005000100050001000e000100c9001f0124000306024802000000080074260400b901000000000000ab000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 295,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030051002900d0000f00010005000100050001000e000100ca001f0124001d06024802000000ffff74260400130200000000000075000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 296,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030053002a00cf000f00010005000100050001000e000100cb001f0124000306014802000000ffff74260400dd010000000000004d010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 297,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002b00ce000f00010005000100050001000e000100cc001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 298,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002c00cd000f00010005000100050001000e000100cd001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 299,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002d00cc000f00010005000100050001000e000100ce001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 300,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030054002e00cb000f00010005000100050001000e000100cf001f0124001d06024802000000ffff74260400cf0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 301,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030056002f00ca000f00010005000100050001000e000100d0001f0124000306014802000000ffff74260400dd0100000000000085050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 302,
+				"name": "Parfum Palace",
+				"areaId": 36,
+				"areaName": "Parfum Palace",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00002d003000d8000f00010005000100050001000e000100c2001f0124000315016802000000ffff743604002f0400000000000047070000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 303,
+				"name": "Glittering Cave",
+				"areaId": 132,
+				"areaName": "Glittering Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000024004600c9003d00010005000100050001000e000100d1002f0184049d0902580200000010008cb60400490200000000000007050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 304,
+				"name": "Glittering Cave",
+				"areaId": 132,
+				"areaName": "Glittering Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030033004700c8003d00010005000100050001000e000100d2002f018400dd09025c02000000ffff84b604005f010000000000006d020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 305,
+				"name": "Reflection Cave",
+				"areaId": 56,
+				"areaName": "Reflection Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030025004900c7003e00010005000100050001000e000100d300310138041d0a025802000000080087260400bd00000000000000fd020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 306,
+				"name": "Reflection Cave",
+				"areaId": 56,
+				"areaName": "Reflection Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002500a200c6003e00010005000100050001000e000100d400310138001d0a0258020000000800872604000501000000000000eb020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 307,
+				"name": "Reflection Cave",
+				"areaId": 56,
+				"areaName": "Reflection Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002500a300c5003e00010005000100050001000e000100d500310138001d0a025802000000080087260400e7030000000000007b030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 308,
+				"name": "Reflection Cave",
+				"areaId": 56,
+				"areaName": "Reflection Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002500a400c4003e00010005000100050001000e000100d600310138001d0a025802000000ffff872604007101000000000000f3000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 309,
+				"name": "Poké Ball Factory",
+				"areaId": 72,
+				"areaName": "Poké Ball Factory",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "000034004a00c3003f00010005000100050001000e000100d70035014804ca04016c02000000ffff643704009b0400000000000073050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 310,
+				"name": "Poké Ball Factory",
+				"areaId": 72,
+				"areaName": "Poké Ball Factory",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030026004b00c2003f00010005000100050001000e000100d800350148001d01024802000000110064a7040017010000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 311,
+				"name": "Poké Ball Factory",
+				"areaId": 72,
+				"areaName": "Poké Ball Factory",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300a6009f00c1003f00010005000100050001000e000100d900350148001d01024802000000ffff64a70400ab00000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 312,
+				"name": "Poké Ball Factory",
+				"areaId": 72,
+				"areaName": "Poké Ball Factory",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300a600a000c0003f00010005000100050001000e000100da00350148001d01024802000000ffff64a70400ab00000000000000cf000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 313,
+				"name": "Frost Cavern",
+				"areaId": 82,
+				"areaName": "Frost Cavern",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"preposition": "outside"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000d00d400bf003b00010005000100050001000e000100db00390152044c03016c02000000ffff843f04002f04000000000000d7070000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 314,
+				"name": "Frost Cavern",
+				"areaId": 82,
+				"areaName": "Frost Cavern",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030027004c00be003e00010005000100050001000e000100dc00390152009d08025802000000ffff86bf040001020000000000005b020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 315,
+				"name": "Frost Cavern",
+				"areaId": 82,
+				"areaName": "Frost Cavern",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002700b800bd003e00010005000100050001000e000100dd00390152009d08025802000000ffff86bf04007704000000000000c7020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 316,
+				"name": "Frost Cavern",
+				"areaId": 82,
+				"areaName": "Frost Cavern",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002700b900bc003e00010005000100050001000e000100de00390152009d08025802000000ffff86bf04001302000000000000d5030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 317,
+				"name": "Frost Cavern",
+				"areaId": 82,
+				"areaName": "Frost Cavern",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002700be00bb003e00010005000100050001000e000100df00390152009d08025802000000ffff86bf0400ab0000000000000017010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 318,
+				"name": "Pokémon Village",
+				"areaId": 98,
+				"areaName": "Pokémon Village",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030028004d00ba004000010005000100050001000e000100e0003e016204d300016c02000000ffff94360400bf04000000000000a3020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 319,
+				"name": "Unknown Dungeon",
+				"areaId": 168,
+				"areaName": "Unknown Dungeon",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002c00db00b9005400010005000100050001000e000100e1003e01a804dd01021c02000000ffff849204005f0100000000000037020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 320,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030029004e00b8004200010005000100050001000e000100e20040016804d500012c02000000ffff743704004902000000000000e3040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 321,
+				"name": "Pokémon League Gate",
+				"areaId": 160,
+				"areaName": "Pokémon League Gate",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030062004f00b70042000100050001000500010006000100e3004001a000dd15020c020000001700748304004d01000000000000ad040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 322,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030035005000b6004200010005000100050001000e000100e40040016800dd01021c02000000ffff76b704000f0300000000000019050000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 323,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003700c400b5004200010005000100050001000e000100e500400168005515013c02000000ffff743704001d040000000000009b040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 324,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300a800c500b4004200010005000100050001000e000100e60040016800dd01021c02000000ffff76b70400710100000000000077040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 325,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003800c600b3004200010005000100050001000e000100e700400168005515013c02000000ffff74370400cf000000000000002f040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 326,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003500c700b2004200010005000100050001000e000100e80040016800dd01021c02000000ffff76b70400290100000000000095010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 327,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003900c800b1004200010005000100050001000e000100e900400168005515013c02000000ffff743704006d02000000000000ef010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 328,
+				"name": "Victory Road",
+				"areaId": 104,
+				"areaName": "Victory Road",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300a900c900b0004200010005000100050001000e000100ea0040016804dd01021c02000000ffff76b704007b03000000000000f9030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 329,
+				"name": "Battle Chateau",
+				"areaId": 48,
+				"areaName": "Battle Chateau",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002a005100af004800010005000100050001000e000100eb00080130041d06024802000000ffffa42404007101000000000000dd010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 330,
+				"name": "Battle Chateau",
+				"areaId": 48,
+				"areaName": "Battle Chateau",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003a005200ae004800010005000100050001000e000100ec00080130001d06024802000000ffffa4240400290100000000000083010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 331,
+				"name": "Battle Chateau",
+				"areaId": 48,
+				"areaName": "Battle Chateau",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002a005300ad004800010005000100050001000e000100ed00080130001d06024802000000ffffa4240400290100000000000083010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 332,
+				"name": "Battle Chateau",
+				"areaId": 48,
+				"areaName": "Battle Chateau",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003a005400ac004800010005000100050001000e000100ee00080130001d06024802000000ffffa42404002901000000000000e1000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 333,
+				"name": "Battle Chateau",
+				"areaId": 48,
+				"areaName": "Battle Chateau",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003a005500ab004800010005000100050001000e000100ef00080130001d06024802000000ffffa42404003b0100000000000071010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 334,
+				"name": "Connecting Cave",
+				"areaId": 134,
+				"areaName": "Connecting Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 12,
+						"ay": 20,
+						"bx": 12,
+						"by": 20,
+						"rad": 8,
+						"name": "Healing Scientist",
+						"attrs": {
+							"healing": "nurse"
+						}
+					}
+				],
+				"gamedata": {
+					"headerData": "03002c005600aa003d00010005000100050001000e000100f0004e018604dd01025c02000000ffff86b604004104000000000000b9010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 335,
+				"name": "Kalos Power Plant",
+				"areaId": 136,
+				"areaName": "Kalos Power Plant",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030032005700a9003f00010005000100050001000e000100f1004f0188049d15024802000000ffff94a704001701000000000000ad040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 336,
+				"name": "Kalos Power Plant",
+				"areaId": 136,
+				"areaName": "Kalos Power Plant",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002e00b100a8003f00010005000100050001000e000100f2004f0188009d15024802000000ffff94a70400e100000000000000cb010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 337,
+				"name": "Kalos Power Plant",
+				"areaId": 136,
+				"areaName": "Kalos Power Plant",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003b00b200a7003f00010005000100050001000e000100f3004f0188009d150248020000001d0094a704005b02000000000000b1030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 338,
+				"name": "Kalos Power Plant",
+				"areaId": 136,
+				"areaName": "Kalos Power Plant",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002e00b300a6003f00010005000100050001000e000100f4004f0188009d15024802000000ffff94a70400e1000000000000004d010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 339,
+				"name": "Team Flare Secret HQ",
+				"areaId": 138,
+				"areaName": "Team Flare Secret HQ",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030031005800a5004100010005000100050001000e000100f50015008a001d16024802000000ffff94810400d902000000000000f5040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 340,
+				"name": "Team Flare Secret HQ",
+				"areaId": 138,
+				"areaName": "Team Flare Secret HQ",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": ""
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300a7005900a4004100010005000100050001000e000100f60015008a001d16024802000000ffff94810400850500000000000025020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 341,
+				"name": "Team Flare Secret HQ",
+				"areaId": 138,
+				"areaName": "Team Flare Secret HQ",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03003c005a00a3004100010005000100050001000e000100f70015008a009d15024802000000ffff94810400c70200000000000069030000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 342,
+				"name": "Team Flare Secret HQ",
+				"areaId": 138,
+				"areaName": "Team Flare Secret HQ",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "030036005b00a2004100010005000100050001000e000100f80015008a049d15024802000000ffff9481040029010000000000003b010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 343,
+				"name": "Terminus Cave",
+				"areaId": 140,
+				"areaName": "Terminus Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002f005c00a1003d00010005000100050001000e000100f90057018c04dd01025c02000000ffff86b60400cf0000000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 344,
+				"name": "Terminus Cave",
+				"areaId": 140,
+				"areaName": "Terminus Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002f005d00a0003d00010005000100050001000e000100fa0057018c00dd01025c02000000ffff86b604004d0100000000000005010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 345,
+				"name": "Terminus Cave",
+				"areaId": 140,
+				"areaName": "Terminus Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002f005e009f003d00010005000100050001000e000100fb0057018c00dd01025c02000000ffff86b604005b02000000000000bf040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 346,
+				"name": "Terminus Cave",
+				"areaId": 140,
+				"areaName": "Terminus Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002f005f009e005400010005000100050001000e000100fc0057018c00dd01021c02000000ffff849204000f03000000000000e3040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 347,
+				"name": "Terminus Cave",
+				"areaId": 140,
+				"areaName": "Terminus Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002f0060009d003d00010005000100050001000e000100fd0057018c04dd01025c02000000ffff86b604005f0100000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 348,
+				"name": "Terminus Cave",
+				"areaId": 140,
+				"areaName": "Terminus Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002f0061009c003d00010005000100050001000e000100fe0057018c04dd01025c02000000ffff86b604003b0100000000000049020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 349,
+				"name": "Lost Hotel",
+				"areaId": 142,
+				"areaName": "Lost Hotel",
+				"type": "dungeon",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300300062009b003d00010005000100050001000e000100ff005d018e04dd15025c02000000ffffb4b70400e703000000000000a7010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 350,
+				"name": "Chamber of Emptiness",
+				"areaId": 144,
+				"areaName": "Chamber of Emptiness",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002c00db009a005400010005000100050001000e00010000015e019004dd01021c02000000ffff84b604005f0100000000000037020000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 351,
+				"name": "Sea Spirit's Den",
+				"areaId": 146,
+				"areaName": "Sea Spirit's Den",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03002c00c10099005400010005000100050001000e00010001015f019204dd01021c02000000ffff849204004d0100000000000083010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 352,
+				"name": "Route 7",
+				"areaId": 38,
+				"areaName": "Route 7",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300120063007f000700010005000100050001000e0001000201080126004215016c020000000700a4370400250200000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 353,
+				"name": "Route 7",
+				"areaId": 38,
+				"areaName": "Route 7",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03006a0075007e000700010005000100050001000e0001000301080126001d04024802000000ffffa4270400750000000000000099000000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 354,
+				"name": "Friend Safari",
+				"areaId": 148,
+				"areaName": "Friend Safari",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "0300210064007d006300010005000100050001000e0001000401e90094004015014c02000000ffffd43704007101000000000000cb010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 355,
+				"name": "Friend Safari",
+				"areaId": 148,
+				"areaName": "Friend Safari",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01009400c3007c006300010005000100050001000e0001000501e90094041d04024802000000ffffd4270400990000000000000029010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 356,
+				"name": "Anistar City",
+				"areaId": 86,
+				"areaName": "Anistar City",
+				"type": "town",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "060015009e007b008300010005000100050001000e0001000601d3005600cf04012c02000000ffff443e0400ef010000000000002f040000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 357,
+				"name": "Azure Bay",
+				"areaId": 112,
+				"areaName": "Azure Bay",
+				"type": "outdoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {
+					"water": true
+				},
+				"areas": [],
+				"gamedata": {
+					"headerData": "01000a00040000003a00010005000100050001000c000100670165017004c802016c02000000ffffc43704008529000000000000451e0000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 358,
+				"name": "Battle Maison",
+				"areaId": 110,
+				"areaName": "Battle Maison",
+				"type": "indoor",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "03009c00e200e0004800010005000100050001000e000100bf00e9006e001d04024802000000ffffd425040029010000000000005f010000"
+				}
+			},
+			{
+				"bank": 0,
+				"id": 359,
+				"name": "Central Lumiose Pokémon Center",
+				"areaId": 22,
+				"areaName": "Lumiose City",
+				"type": "center",
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"headerData": "00003d00310088011000010005000100050001000e0001001700430016001d040348020000001c00942404007101000000000000ef010000"
+				}
+			}
+		]
+	],
+	"reports": []
+}

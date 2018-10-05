@@ -8,6 +8,7 @@ module.exports = {
 	infinteTM: false,
 	hubE4: false,
 	'3d': false,
+	dependentTrainerId: true,
 	
 	badgeNames: [
 		"Stone", "Knuckle", "Dynamo", "Heat", "Balance", "Feather", "Mind", "Rain",

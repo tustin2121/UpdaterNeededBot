@@ -33,6 +33,7 @@ class GBReader extends RomReader {
 	load() {
 		this.data = ByteBuffer.wrap(fs.readFileSync(this.romFile));
 		this.data.LE(); //switch to Little Endian
+		this.romCode = this.readUint32(0x08);
 		return this;
 	}
 	

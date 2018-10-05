@@ -52,8 +52,8 @@ class Rule {
 		// The results to be run on the items selected.
 		this.resultBlocks = [];
 	}
-	apply(ledger) {
-		let inst = new RuleInstance(this, ledger);
+	apply(ledger, module) {
+		let inst = new RuleInstance(this, ledger, module);
 		LOGGER.trace(`Testing rule "${this.name}"`);
 		for (let cond of this.conditions) {
 			let res = cond(inst);
@@ -85,9 +85,11 @@ class Rule {
 }
 /** The currently running instance of a rule that is being applied on the second pass. */
 class RuleInstance {
-	constructor(rule, ledger) {
+	constructor(rule, ledger, module) {
 		this.rule = rule;
 		this.ledger = ledger;
+		this.module = module;
+		this.memory = module && module.memory;
 		this.matchedItems = [];
 		
 		this.workingList = null;
@@ -107,16 +109,16 @@ class RuleInstance {
 	/** Returns this object, for readable chaining. */
 	get and() { return this; }
 	/** Checks the ledger for one or more items with the given name. */
-	has(itemName) {
+	has(...itemNames) {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.ledger.findAllItemsWithName(itemName);
+		this.workingList = this.ledger.findAllItemsWithName(...itemNames);
 		this.lastResult = (this.workingList.length > 0);
 		return this;
 	}
 	/** Checks the ledger for one or more items with the given name. */
-	hasnt(itemName) {
+	hasnt(...itemNames) {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.ledger.findAllItemsWithName(itemName);
+		this.workingList = this.ledger.findAllItemsWithName(...itemNames);
 		this.lastResult = (this.workingList.length === 0);
 		return this;
 	}
@@ -143,6 +145,37 @@ class RuleInstance {
 				p = p[pp];
 			}
 			if (!vals.has(p)) continue outerLoop;
+			this.workingList.push(item);
+		}
+		this.lastResult = (this.workingList.length > 0);
+		return this;
+	}
+	/**
+	 * Filters a previously found list of items to ones without the given property set to
+	 * one of the the given values (or without the given property altogether).
+	 */
+	without(prop, ...val) {
+		if (this.lastResult === false) return this; //do nothing
+		if (!this.workingList || !this.workingList.length) {
+			this.lastResult = false;
+			return this;
+		}
+		if (val.length === 1 && Array.isArray(val[0])) val = val[0];
+		let props = prop.split('.');
+		let vals = new Set(val);
+		let list = this.workingList;
+		this.workingList = [];
+		outerLoop:
+		for (let item of list) {
+			let p = item;
+			for (let pp of props) {
+				if (p[pp] === undefined) {
+					this.workingList.push(item);
+					continue outerLoop;
+				} 
+				p = p[pp];
+			}
+			if (vals.has(p)) continue outerLoop;
 			this.workingList.push(item);
 		}
 		this.lastResult = (this.workingList.length > 0);
@@ -226,6 +259,9 @@ class RuleInstance {
 		return this;
 	}
 	
+	notOfFlavor(flavor) {
+		return this.without('flavor', flavor);
+	}
 	ofFlavor(flavor) {
 		return this.with('flavor', flavor);
 	}
@@ -242,7 +278,14 @@ class RuleInstance {
 	
 	ofImportance() {
 		if (this.lastResult === false) return this; //do nothing
-		this.workingList = this.workingList.filter(x=>x.importance >=1);
+		this.workingList = this.workingList.filter(x=>x.importance >= 1);
+		this.lastResult = (this.workingList && this.workingList.length > 0);
+		return this;
+	}
+	
+	ofNoImportance() {
+		if (this.lastResult === false) return this; //do nothing
+		this.workingList = this.workingList.filter(x=>x.importance < 1);
 		this.lastResult = (this.workingList && this.workingList.length > 0);
 		return this;
 	}
@@ -269,7 +312,7 @@ class RuleInstance {
 			this.lastResult = false;
 			return this;
 		}
-		let node = this.workingList[0].loc;
+		let node = this.workingList[0].area || this.workingList[0].loc;
 		this.lastResult = fn(node);
 		return this;
 	}
@@ -285,7 +328,7 @@ class RuleInstance {
 			this.lastResult = false;
 			return this;
 		}
-		let node = this.workingList[0].loc;
+		let node = this.workingList[0].area || this.workingList[0].loc;
 		if (val !== undefined) {
 			this.lastResult = !!(node.is(attr) === val);
 		} else {

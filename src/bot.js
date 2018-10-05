@@ -10,7 +10,6 @@ const RedditAPI = require("./api/reddit");
 const StreamAPI = require("./api/stream");
 const ChatAPI = require("./api/chat");
 const WebServer = require("./webserv");
-const { createDebugUrl } = require('./debug/xml');
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
 
@@ -46,7 +45,8 @@ class UpdaterBot extends EventEmitter {
 						const { MapRegion } = require('./api/mapnode');
 						game.regionMap = new MapRegion(require(`../data/region/${game.regionMap}.json`));
 					} catch (e) {
-						throw `Invalid config: game${i} requires an invalid region map!`;
+						e.message = `Invalid config: game${i} requires an invalid region map!\n` + e.message;
+						throw e;
 					}
 				}
 				if (!game.trainer) throw `Invalid config: game${i} must provide trainer id and secret in an object!`;
@@ -60,6 +60,10 @@ class UpdaterBot extends EventEmitter {
 				if (game.opts['trainerClasses']) {
 					let trc = {};
 					for (let cl in game.opts['trainerClasses']) {
+						if (cl === 'info') { //pass through trainer class array
+							trc[cl] = game.opts['trainerClasses'][cl];
+							continue;
+						}
 						let set = {};
 						for (let id of game.opts['trainerClasses'][cl]) {
 							set[id] = true;
@@ -98,6 +102,7 @@ class UpdaterBot extends EventEmitter {
 		this._updateInterval = null;
 		
 		this.on('error', (e)=>LOGGER.error('Error event!', e));
+		this.on('api-disturbance', (e)=>this.memory.global.lastApiDisturbance = e);
 	}
 	
 	start() {
@@ -131,9 +136,19 @@ class UpdaterBot extends EventEmitter {
 				this._updateInterval = setInterval(this.run.bind(this), this.runConfig.run.updatePeriod);
 			LOGGER.info(`UpdaterNeeded startup complete. Update interval: ${this.runConfig.run.updatePeriod/1000} sec.`);
 			this.postDebug(`[Meta] UpdaterNeeded started.`);
+			if (Bot.memory.global.rebootRequested) {
+				delete Bot.memory.global.rebootRequested;
+				this.staff.alertUpdaters(`Reboot successful.`, { bypassTagCheck:true });
+			}
 		}).catch(ex=>{
 			LOGGER.fatal(ex);
 		});
+		
+		this.alertUpdaters = this.staff.alertUpdaters;
+		this.queryUpdaters = this.staff.queryUpdaters;
+		this.requestQuery = this.staff.requestQuery;
+		this.checkQuery = this.staff.checkQuery;
+		this.cancelQuery = this.staff.cancelQuery;
 	}
 	
 	/** Saves and shuts down the updater bot. */
@@ -246,10 +261,10 @@ class UpdaterBot extends EventEmitter {
 	}
 	
 	get lastApiDisturbance() { return this.memory.global.lastApiDisturbance; }
-	set lastApiDisturbance(val) { 
-		if (typeof val !== 'number' && !Number.isFinite(val)) return;
-		this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val); 
-	}
+	// set lastApiDisturbance(val) {
+	// 	if (typeof val !== 'number' && !Number.isFinite(val)) return;
+	// 	this.memory.global.lastApiDisturbance = Math.max(this.memory.global.lastApiDisturbance, val);
+	// }
 	
 	/** Gets the current timestamp for this run. */
 	getTimestamp({ time, padded=false, compact=false }={}) {
@@ -305,7 +320,7 @@ class UpdaterBot extends EventEmitter {
 				break;
 		}
 		let ts = this.getTimestamp();
-		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`; //createDebugUrl(debugXml) || '';
+		let debugUrl = `https://u.tppleague.me/u/${this.press.lastUpdateId}`;
 		//////////////////////////////////////////
 		if (mainLive && this.runConfig.run.liveID) {
 			let update = formatFor.reddit(text);
@@ -384,14 +399,7 @@ class UpdaterBot extends EventEmitter {
 	
 	////////////////////////////////////////////////////////////////////////////
 	
-	/** Alerts the updating staff channel, with an optional ping. */
-	alertUpdaters(text, opts) {
-		return this.staff.alertUpdaters(text, opts);
-	}
-	/** Poses a query to the updating staff channel, who can confirm or deny the query. */
-	queryUpdaters(text, opts) {
-		return this.staff.queryUpdaters(text, opts);
-	}
+	
 	
 	////////////////////////////////////////////////////////////////////////////
 	
@@ -437,6 +445,28 @@ class UpdaterBot extends EventEmitter {
 		} catch (e) {
 			LOGGER.error(`Unable to merge memory:`, e);
 		}
+	}
+	
+	/** 
+	 * Appends to "the Fallen" memorial file. 
+	 * @param {any} data - Raw pokemon JSON object to write to memorial.
+	 * @param {number?} ts - Timestamp of when this pokemon was fallen
+	 */
+	appendToTheFallen(data, ts=0, notes='') {
+		LOGGER.mark('Writing to theFallen:', data);
+		if (ts === 0) ts = Date.now();
+		if (typeof data !== 'string') {
+			data = JSON.stringify(data);
+		}
+		let info = `# ${ts} | ${this.getTimestamp(ts)}\n# Notes: ${notes}\n${data}\n\n`;
+		process.nextTick(()=>{ //Do this syncronous write after the update tick
+			try {
+				fs.writeFileSync(path.join(MEMORY_DIR, 'theFallen.txt'), info, { encoding:'utf8', flag:'a' });
+				LOGGER.note('Writing to theFallen successful.');
+			} catch (e) {
+				LOGGER.error('Error writing to theFallen:', e);
+			}
+		});
 	}
 	
 }

@@ -4,7 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const {
 	ApiDisturbance, BadgeGet,
-	BattleContext, BattleStarted, BattleEnded,
+	BattleContext, BattleStarted, BattleEnded, 
+	EnemyFainted, EnemySentOut,
 	BlackoutContext,
 } = require('../ledger');
 
@@ -22,6 +23,7 @@ class BattleModule extends ReportingModule {
 		super(config, memory, 2);
 		this.memory.attempts = this.memory.attempts || {};
 		this.memory.badgeMax = this.memory.badgeMax || 0;
+		this.memory.lastBattleReported = this.memory.lastBattleReported || null;
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -32,6 +34,8 @@ class BattleModule extends ReportingModule {
 		if (cb.in_battle) {
 			ledger.addItem(new BattleContext(cb));
 		}
+		
+		this.debug(`pb[${!!pb.in_battle}][${!!pb.party}] | cb[${!!cb.in_battle}][${!!cb.party}]`);
 		
 		// Battle handling
 		if (cb.in_battle && !pb.in_battle) {
@@ -47,22 +51,38 @@ class BattleModule extends ReportingModule {
 		}
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
+			this.memory.lastBattleReported = null; //clear battle reporting
 		}
-		else if (cb.in_battle) {
-			let healthy = cb.party.filter(p=>p.hp);
+		else if (cb.in_battle && cb.party) {
+			let healthy = cb.party.filter(p=>p.hp && p.species);
 			this.debug(`displayName=`,cb.displayName,` isImportant=`,cb.isImportant);
 			this.debug(`party=`,cb.party);
 			LOGGER.debug(`moves=`, cb.party.map(x=>x.moveInfo));
 			if (healthy.length === 0) {
 				ledger.addItem(new BattleEnded(pb, false));
 			}
+			if (pb.in_battle && pb.party && pb.attemptId === cb.attemptId) {
+				// We must assume that an enemy party never switches positions, because we have no way to match the pokemon otherwise
+				for (let i = 0; i < cb.party; i++) {
+					let penemy = pb.party[i];
+					let cenemy = cb.party[i];
+					
+					if (penemy.hp > 0 && cenemy.hp === 0) {
+						ledger.addItem(new EnemyFainted(cb, cenemy, prev.party[0]));
+					}
+					if (!penemy.active && cenemy.active) {
+						ledger.addItem(new EnemySentOut(cb, cenemy, curr.party[0]));
+					}
+				}
+			}
 		}
 		
 		// Badges
 		if (this.memory.badgeMax > curr.numBadges) {
-			ledger.addItem(new ApiDisturbance({ 
+			ledger.addItem(new ApiDisturbance({
 				code: ApiDisturbance.LOGIC_ERROR,
-				reason: 'Number of badges has decreased!' 
+				reason: 'Number of badges has decreased!',
+				score: 8,
 			}));
 		}
 		if (curr.numBadges > prev.numBadges) {
@@ -76,7 +96,7 @@ class BattleModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 	
 	finalPass(ledger) {
@@ -99,16 +119,74 @@ class BattleModule extends ReportingModule {
 						return `We're facing off against ${x.battle.displayName}${game} right now! This is attempt #${x.attempt}`;
 					}
 				}).join('\n');
-				Bot.alertUpdaters(txt, true);
+				Bot.alertUpdaters(txt, { ping:true });
 			}
 		}
 		if (Bot.runFlag('alert_badges', true)) {
 			let badgeItems = ledger.findAllItemsWithName('BadgeGet');
 			if (badgeItems.length) {
-				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, false);
+				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
 			}
 		}
 	}
+}
+
+if (!!Bot.gameInfo().regionMap) {
+	RULES.push(new Rule(`Check for reports for battle starting.`)
+		.when(ledger=>ledger.has('BattleStarted').unmarked())
+		.when(ledger=>{
+			const region = Bot.gameInfo().regionMap;
+			const currTime = Date.now();
+			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
+			if (map && map.area) map = map.area;
+			else if (map && map.loc) map = map.loc;
+			if (!map || !map.is) return false;
+			
+			let ret = false;
+			for (let x of ledger.get(0)) {
+				let report = region.findBattleReport(map, x.battle);
+				if (report) {
+					ledger.memory.currBattleReport = report.id;
+					x.report = report;
+					if (typeof report.text === 'string') {
+						x.flavor = 'report';
+						x.importance++;
+					}
+					ret = true;
+				}
+			}
+			return ret;
+		})
+		.then(ledger=>ledger.mark(0))
+	);
+	RULES.push(new Rule(`Check for reports for battle ending.`)
+		.when(ledger=>ledger.has('BattleEnded').notOfFlavor('ending').unmarked())
+		.when(ledger=>{
+			const region = Bot.gameInfo().regionMap;
+			const currTime = Date.now();
+			let map = ledger.ledger.findAllItemsWithName('MapContext')[0];
+			if (map && map.area) map = map.area;
+			else if (map && map.loc) map = map.loc;
+			if (!map || !map.is) return false;
+			
+			let ret = false;
+			for (let x of ledger.get(0)) {
+				let report = region.findReportById(ledger.memory.currBattleReport);
+				if (!report) report = region.findBattleReport(map, x.battle);
+				if (report) {
+					x.report = report;
+					if (typeof report.wintext === 'string') {
+						x.flavor = 'report';
+						x.importance++;
+					}
+					ret = true;
+					ledger.memory.currBattleReport = null;
+				}
+			}
+			return ret;
+		})
+		.then(ledger=>ledger.mark(0))
+	);
 }
 
 RULES.push(new Rule(`Don't report a full heal after a blackout`)
@@ -128,7 +206,7 @@ RULES.push(new Rule(`Don't report a won battle after a blackout`)
 );
 
 RULES.push(new Rule(`Don't report battles ending due to blackout`)
-	.when(ledger=>ledger.has('BattleEnded').ofFlavor('ended').ofImportance())
+	.when(ledger=>ledger.has('BattleEnded').notOfFlavor('ending').ofImportance())
 	.when(ledger=>ledger.has('Blackout'))
 	.then(ledger=>{
 		ledger.demote(0, 2);
@@ -158,6 +236,35 @@ RULES.push(new Rule(`Echo BlackoutContext into the next ledger`)
 			ledger.get(0).forEach(x=>x.keepAlive());
 		}
 		ledger.mark(0).postpone(0); //see the BlackoutContext item about the special postponing it does
+	})
+);
+
+// Exposing the BattleContext item
+
+RULES.push(new Rule(`When something interesting happens in an unimportant battle, report the battle`)
+	.when(ledger=>ledger.has('BattleContext').ofNoImportance())
+	.when(ledger=>ledger.has('MonFainted', 'MonRevived', 'MonLeveledUp', 'MonPokerusInfected'))
+	.when(ledger=>{//If we haven't reported this before
+		try {
+			let id = ledger.get(0)[0].battle.attemptId;
+			return ledger.memory.lastBattleReported !== id;
+		} catch (e) {
+			LOGGER.error('Error getting the attempt ID!', e);
+			return false;
+		}
+	})
+	.then(ledger=>{
+		ledger.promote(0);
+		let id = ledger.get(0)[0].battle.attemptId;
+		ledger.memory.lastBattleReported = id;
+	})
+);
+
+RULES.push(new Rule(`If the battle is already being reported on by BattleStarted, don't double report it.`)
+	.when(ledger=>ledger.has('BattleContext').ofImportance())
+	.when(ledger=>ledger.has('BattleStarted').ofImportance())
+	.then(ledger=>{
+		ledger.demote(0);
 	})
 );
 

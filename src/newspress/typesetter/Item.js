@@ -12,12 +12,21 @@ module.exports = {
 				`<b>{{rand|Acquired|Obtained|Picked up|Got}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
+		report: `{{@report}}`,
 		shopping: {
 			single: [
 				`<b>{{rand|Bought|Purchased|Paid for}} {{an item|@item|@amount}}!</b>`,
 			],
 			multi: [
 				`<b>{{rand|Bought|Purchased|Paid for}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
+			],
+		},
+		freepromo: {
+			__meta__: { sort:-10 }, //after other GainItems
+			single: [
+				`<b>We got {{two items|@item|@amount}} for free!</b>`,
+				`<b>We got {{two items|@item|@amount}} as a free promotion!</b>`,
+				`<b>{{Two items|@item|@amount}} gets thrown in as a package deal!</b>`,
 			],
 		},
 		rotoloto: [
@@ -66,16 +75,22 @@ module.exports = {
 			],
 		},
 	},
+	MoneyValueChanged: null,
+	
+	ShoppingContext: null,
+	ShoppingReport: { //TODO
+		
+	},
 	
 	UsedBallInBattle: {
+		__meta__: { sort:100 }, //before PokemonGained
 		default: {
 			single: [
-				`We {{rand|toss|throw}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
+				`We {{rand|toss|throw|fling}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}}.`,
 				`We try catching a wild {{Mon|@enemy}} with {{some items|@item|@amount}}.`,
 			],
 			multi: [
-				// should never happen if this thing is programmed properly?
-				`We {{rand|toss|throw}} {{some items|@item|@amount}} at a wild {{Mon|@enemy}} that has our eye.`,
+				`We {{rand|toss|throw|fling}} {{a comma-separated list of|some items|@item|@amount}} at a wild {{Mon|@enemy}} that has our eye.`,
 			],
 		},
 		trainer: [
@@ -95,6 +110,7 @@ module.exports = {
 		],
 	},
 	UsedItemOnMon: {
+		__meta__: { sort:100 }, //before move learns and stuff
 		//
 		default: [
 			`<b>We use {{an item|@item}} on {{@target}}!</b>`,
@@ -118,11 +134,6 @@ module.exports = {
 		],
 		tm: [
 			`We boot up {{an item|@item}}.`,
-		],
-	},
-	UsedTMItem: {
-		default: [
-			``, //TODO
 		],
 	},
 };

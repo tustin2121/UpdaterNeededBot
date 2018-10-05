@@ -1,0 +1,178 @@
+﻿000: Pokémon Trainer
+001: Pokémon Trainer
+002: Youngster
+003: Lass
+004: Leader
+005: Sky Trainer
+006: Sky Trainer
+007: Waitress
+008: Ace Duo
+009: Ace Trainer
+010: Ace Trainer
+011: Preschooler
+012: Preschooler
+013: Hex Maniac
+014: Lady
+015: Beauty
+016: Rich Boy
+017: Swimmer M
+018: Team Flare
+019: Team Flare
+020: Team Flare
+021: Team Flare
+022: Team Flare
+023: Black Belt
+024: Tourist
+025: Garçon
+026: Artist Family
+027: Artist
+028: Artist
+029: Scientist
+030: Scientist
+031: Psychic
+032: Worker
+033: Worker
+034: Butler
+035: Elite Four
+036: Elite Four
+037: Elite Four
+038: Elite Four
+039: Leader
+040: Leader
+041: Leader
+042: Leader
+043: Leader
+044: Leader
+045: Leader
+046: Brains & Brawn
+047: Punk Guy
+048: Schoolgirl
+049: Schoolboy
+050: Poké Fan
+051: Poké Fan
+052: Poké Fan Family
+053: Champion
+054: Fisherman
+055: Pokémon Trainer
+056: Pokémon Trainer
+057: Pokémon Trainer
+058: Ace Surfer
+059: Ace Surfer
+060: Gardener
+061: Backpacker
+062: Punk Girl
+063: Battle Girl
+064: Battle Chatelaine
+065: Battle Chatelaine
+066: Battle Chatelaine
+067: Battle Chatelaine
+068: Tourist
+069: Tourist
+070: Swimmer F
+071: Mysterious Sisters
+072: Twins
+073: Furisode Girl
+074: Furisode Girl
+075: Furisode Girl
+076: Furisode Girl
+077: Team Flare
+078: Team Flare
+079: Team Flare
+080: Team Flare
+081: Team Flare
+082: Veteran
+083: Veteran
+084: Rising Star
+085: Rising Star
+086: Pokémon Breeder
+087: Pokémon Breeder
+088: Pokémon Ranger
+089: Pokémon Ranger
+090: Owner
+091: Madame
+092: Swimmers
+093: Monsieur
+094: Maid
+095: Fairy Tale Girl
+096: Hiker
+097: Honeymooners
+098: Chef
+099: Rangers
+100: Roller Skater
+101: Roller Skater
+102: Pokémon Trainer
+103: Pokémon Trainer
+104: Pokémon Trainer
+105: Pokémon Professor
+106: Punk Couple
+107: Team Flare
+108: Team Flare
+109: Baron
+110: Viscount
+111: Earl
+112: Marquis
+113: Duke
+114: Baron
+115: Viscount
+116: Earl
+117: Marquis
+118: Duke
+119: Baron
+120: Viscount
+121: Earl
+122: Marquis
+123: Duke
+124: Baroness
+125: Viscountess
+126: Countess
+127: Marchioness
+128: Duchess
+129: Baroness
+130: Viscountess
+131: Countess
+132: Marchioness
+133: Duchess
+134: Baroness
+135: Viscountess
+136: Countess
+137: Marchioness
+138: Duchess
+139: Marchioness
+140: Marquis
+141: Marchioness
+142: Marquis
+143: Marquis
+144: Marchioness
+145: Marchioness
+146: Marquis
+147: Duke
+148: Duchess
+149: Duchess
+150: Duke
+151: Grand Duchess
+152: Marchioness
+153: Marchioness
+154: Marchioness
+155: Marchioness
+156: Duchess
+157: Duchess
+158: Duchess
+159: Duchess
+160: Pokémon Trainer
+161: Pokémon Trainer
+162: Driver
+163: Driver
+164: Driver
+165: Lumiose Gang Member
+166: Lumiose Gang Member
+167: Suspicious Lady
+168: Suspicious Woman
+169: Suspicious Child
+170: Pokémon Trainer
+171: Pokémon Trainer
+172: Pokémon Trainer
+173: Team Flare
+174: Team Flare
+175: Team Flare Boss
+176: Successor
+177: Leader

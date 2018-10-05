@@ -27,6 +27,7 @@ class PartyModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory, 2);
 		this.memory.tempPartyBefore = (this.memory.tempPartyBefore||null);
+		this.memory.tempPartyMeta = (this.memory.tempPartyMeta||null);
 		
 		/** If this is set to true, the next update cycle will report all pending party changes. */
 		this.forceTempPartyOff = false;
@@ -62,8 +63,16 @@ class PartyModule extends ReportingModule {
 				// We have our old party back now.
 				this.memory.tempPartyBefore = null;
 				sameMons = matchedMons; //replace sameMons so we don't get level up and heal messages
-				if (this.forceTempPartyOff) LOGGER.warn('Temporary party status is being forced off.');
+				let resolveTxt = 'The party has been restored to its original state.';
+				if (this.forceTempPartyOff) {
+					LOGGER.warn('Temporary party status is being forced off.');
+					resolveTxt = 'This party is now considered the new permenient party.';
+				}
 				this.forceTempPartyOff = false;
+				if (this.memory.tempPartyMeta) {
+					Bot.alertUpdaters(`~~Alert: The party has drastically changed.~~ ${resolveTxt}`, { reuseId:this.memory.tempPartyMeta });
+					this.memory.tempPartyMeta = null;
+				}
 			}
 		}
 		else {
@@ -82,6 +91,10 @@ class PartyModule extends ReportingModule {
 			this.debug('tempIndicators: ',tempIndicators, ' => ',tempIndicators > 3);
 			if (tempIndicators > 3) {
 				this.memory.tempPartyBefore = prev_api.party;
+				if (Bot.runFlags('alert_temp', true)) {
+					Bot.alertUpdaters(`Alert: The party has drastically changed. I am assuming this is a temporary team and will withold party updates until the usual party is restored.`)
+						.then(msg=> this.memory.tempPartyMeta=msg.id);
+				}
 			}
 		}
 		
@@ -179,6 +192,7 @@ class PartyModule extends ReportingModule {
 					ledger.addItem(new ApiDisturbance({
 						code: ApiDisturbance.LOGIC_ERROR,
 						reason: `Move pairs for '${curr}' could not be de-duplicated!`,
+						score: 8,
 					}));
 				}
 				
@@ -208,9 +222,17 @@ class PartyModule extends ReportingModule {
 			// Now things that don't usually randomly change
 			if (Bot.runOpts('shiny') && prev.shiny !== curr.shiny) {
 				ledger.addItem(new MonShinyChanged(curr));
+				ledger.addItem(new ApiDisturbance({
+					code: ApiDisturbance.LOGIC_ERROR,
+					reason: `'${curr}' has suddenly changed shiny status!`,
+				}));
 			}
 			if (Bot.runOpts('sparkly') && prev.sparkly !== curr.sparkly) {
 				ledger.addItem(new MonSparklyChanged(curr, prev.sparkly));
+				ledger.addItem(new ApiDisturbance({
+					code: ApiDisturbance.LOGIC_ERROR,
+					reason: `'${curr}' has suddenly changed sparkly status!`,
+				}));
 			}
 			if (Bot.runOpts('abilities') && prev.ability !== curr.ability) {
 				ledger.addItem(new MonAbilityChanged(curr, prev.ability));
@@ -241,7 +263,7 @@ class PartyModule extends ReportingModule {
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 	
 	finalPass(ledger) {
@@ -319,6 +341,18 @@ RULES.push(new Rule('Abilities might change during battle')
 	})
 );
 
+RULES.push(new Rule('Abilities changing when not expected are API Disturbances')
+	.when((ledger)=>ledger.has('MonAbilityChanged').unmarked())
+	.then((ledger)=>{
+		ledger.mark(0).get(0).forEach(x=>{
+			ledger.addItem(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: `'${curr}' has unexpectantly changed ability!`,
+			}));
+		});
+	})
+);
+
 RULES.push(new Rule('Postpone learning moves over Mimic until the end of battle')
 	.when((ledger)=>ledger.has('BattleContext'))
 	.when((ledger)=>ledger.has('MonLearnedMoveOverOldMove').with('prev', 'Mimic'))
@@ -330,13 +364,27 @@ RULES.push(new Rule('Postpone learning moves over Mimic until the end of battle'
 RULES.push(new Rule('Negative or more than 8 level gain usually means an API Disturbance')
 	.when((ledger)=>ledger.has('MonLeveledUp').which(x=>x.deltaLevel < 0 || x.deltaLevel > 8).unmarked())
 	.then((ledger)=>{
-		ledger.mark(0).postpone(0); //Postpone levelup report once, as the level might debounce
-		ledger.add(new ApiDisturbance('Negative levels'));
+		// Postpone levelup report once, as the level might debounce
+		ledger.mark(0).getAndPostpone(0).forEach(x=>{
+			if (x.deltaLevel < 0) {
+				ledger.add(new ApiDisturbance({
+					reson: `The delta level of ${x.mon} is negative!`,
+					code: ApiDisturbance.LOGIC_ERROR,
+					score: x.deltaLevel, //constructor will abs() this value
+				}));
+			} else {
+				ledger.add(new ApiDisturbance({
+					reson: `The delta level of ${x.mon} is greater than 8!`,
+					code: ApiDisturbance.LOGIC_ERROR,
+					score: x.deltaLevel - 8,
+				}));
+			}
+		});
 	})
 );
 
 if (Bot.runOpts('namingMatch')) {
-	RULES.push(new Rule('Mons being nicknamed have invalid characters in their names')
+	RULES.push(new Rule('Mons being re-nicknamed have invalid characters in their names')
 		.when(ledger=>ledger.has('MonNicknameChanged').whichMatches('curr', Bot.runOpts('namingMatch')))
 		.then(ledger=>{
 			ledger.postpone(0);
@@ -344,6 +392,22 @@ if (Bot.runOpts('namingMatch')) {
 	);
 }
 
+RULES.push(new Rule('Postpone effects of Mimic')
+	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('MonLearnedMoveOverOldMove').with('prev', 'Mimic'))
+	.then(ledger=>{
+		ledger.postpone(1); // postpone move learn, for the duration of battle
+	})
+);
+
+RULES.push(new Rule('Postpone effects of Transform or Imposter')
+	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('MonLearnedMoveOverOldMove', 'MonLearnedMove').moreThan(1))
+	.when(ledger=>ledger.hasnt('MonLeveledUp'))
+	.then(ledger=>{
+		ledger.postpone(1); // postpone move learns, hopefully for the duration of battle
+	})
+);
 
 
 module.exports = PartyModule;

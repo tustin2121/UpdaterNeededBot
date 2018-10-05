@@ -14,7 +14,7 @@ class PokemonItem extends LedgerItem {
 	}
 	get target() { return this.mon; }
 	cancelsOut(other) {
-		if (this.name !== other.name) return false;
+		if (this.__itemName__ !== other.__itemName__) return false;
 		if (this.mon.hash !== other.mon.hash) return false;
 		if (this.prev === undefined || this.curr === undefined) return false;
 		if (this.prev === other.curr && other.prev === this.curr) return true;
@@ -34,9 +34,14 @@ class PokemonGained extends PokemonItem {
 		super(mon, 2, {helps:'catches'});
 	}
 	cancelsOut(other) {
-		if (other.name === 'PokemonIsMissing') {
+		if (other.__itemName__ === 'PokemonIsMissing') {
 			if (other.mon.hash !== this.mon.hash) return false;
-			return new PokemonFound(other.mon, this.mon); //replace
+			return new PokemonFound(other, this.mon); //replace
+		}
+		if (other.__itemName__ === 'MonNicknameChanged') {
+			if (other.mon.hash !== this.mon.hash) return false;
+			this.mon = other.mon; //update the new pokemon with the most recent data
+			return this; //replace
 		}
 		return false;
 	}
@@ -49,30 +54,58 @@ class PokemonGained extends PokemonItem {
 
 /** Indicates that a pokemon is missing from the API, and a search is ongoing. This is a context item. */
 class PokemonIsMissing extends PokemonItem {
-	constructor(mon) {
+	constructor(mon, raw) {
 		super(mon, 0);
+		this.raw = raw;
+		this.timestamp = Date.now();
+		this.ticksActive = 0;
+		this.query = null;
+	}
+	saveToMemory(m) {
+		m.__monhash = this.mon.hash;
+		m.mon = this.mon.saveToMemory();
+		m.raw = Buffer.from(JSON.stringify(this.raw), 'utf8').toString('base64');
+		m.ts = this.timestamp;
+		m.ticksActive = this.ticksActive;
+		m.query = this.query;
 	}
 	static loadFromMemory(m) {
 		let mon = new Pokemon(m.mon);
-		return new PokemonIsMissing(mon);
+		let raw = JSON.parse(Buffer.from(m.raw, 'base64').toString('utf8'));
+		let item = new PokemonIsMissing(mon, raw);
+		item.timestamp = m.ts;
+		item.ticksActive = m.ticksActive;
+		item.query = m.query;
+		return item;
+	}
+	
+	/** Calls to Bot.appendToTheFallen() with the appropriate information to
+	 *  memorialize this pokemon as among the fallen. */
+	markAsFallen(notes='') {
+		Bot.appendToTheFallen(this.raw, this.timestamp, notes+` (Searched for ${this.ticksActive} ticks, query ${this.query}.)`);
 	}
 }
 
 /** Indicates that a pokemon is now being reported as irriversibly lost. */
 class PokemonLost extends PokemonItem {
-	constructor(mon) {
-		super(mon, 2);
+	constructor(mon, timestamp, flavor) {
+		super(mon, 2, { flavor });
+		this.timestamp = timestamp;
+	}
+	get releaseTime() {
+		return Bot.getTimestamp({ time:this.timestamp });
 	}
 }
 
-/** Indicates that a pokemon was one missing and is now found again. */
+/** Indicates that a pokemon was once missing and is now found again. */
 class PokemonFound extends PokemonItem {
 	constructor(prev, curr) {
 		super(curr, 0);
-		this.prev = prev;
+		this.miaItem = prev;
 	}
 	canPostpone() { return false; } //need to save both if we want to postpone
 	get curr() { return this.mon; }
+	get prev() { return this.miaItem.mon; }
 	get inNewLocation() { return this.prev.storedIn !== this.mon.storedIn; }
 }
 

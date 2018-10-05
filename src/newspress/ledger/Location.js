@@ -18,6 +18,9 @@ class LocationContext extends LedgerItem {
 		
 		super(0.2);
 		this.loc = loc;
+		this.x = loc.x;
+		this.y = loc.y;
+		this.z = loc.z;
 	}
 }
 
@@ -61,7 +64,7 @@ class MapChanged extends LedgerItem {
 				type = report.text.slice(1);
 		}
 		
-		super(1, { sort:-10, flavor:type });
+		super(1, { flavor:type });
 		/** @type {MapNode|MapArea} The previous location the player is in. */
 		this.prev = prev;
 		/** @type {MapNode|MapArea} The now current location the player is in. */
@@ -86,7 +89,7 @@ class CheckpointContext extends LedgerItem {
 /** Indicates that we have updated our checkpoint to the given location. */
 class CheckpointUpdated extends LedgerItem {
 	constructor(loc) {
-		super(1, {sort:-10});
+		super(1);
 		/** @type {MapNode|MapArea} The now current location the player is in. */
 		this.loc = loc;
 	}

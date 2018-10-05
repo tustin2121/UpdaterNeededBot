@@ -73,6 +73,50 @@ function calcStats({ species, ivs, evs, }) {
 	
 }
 
+function determineImportance(battle, game) {
+	let method = Bot.runOpts('determineImportanceMethod', game);
+	
+	switch (method) {
+		default:
+		case 'viaClasses': return viaClasses();
+		case 'viaTrainerId': return viaTrainerId();
+	}
+	
+	return;
+	
+	function viaTrainerId() {
+		let ids = Bot.runOpts('trainerClasses', game);
+		for (let type in ids) {
+			if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+			for (let trainer of battle.trainer) {
+				battle.classes[type] = !!ids[type][trainer.id];
+				battle.isImportant |= battle.classes[type];
+			}
+		}
+	}
+	
+	function viaClasses() {
+		let cls = Bot.runOpts('trainerClasses', game);
+		if (cls.info) {
+			for (let trainer of battle.trainer) {
+				let info = cls.info[trainer.class];
+				battle.isImportant = !!info.important;
+				if (typeof info.important === 'string') {
+					battle.classes[info.important] = true;
+				}
+			}
+		} else {
+			for (let type in cls) {
+				if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+				for (let trainer of battle.trainer) {
+					battle.classes[type] = !!cls[type][trainer.class];
+					battle.isImportant |= battle.classes[type];
+				}
+			}
+		}
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HeldItem {
@@ -244,7 +288,7 @@ class Pokemon {
 	
 	get isTraded() {
 		let res = (this.ot.id === Bot.gameInfo(this.game).trainer.id);
-		if (Bot.gameInfo(this.game).gen > 1)
+		if (Bot.runOpts('secretId', this.game))
 			res &= this.ot.secret === Bot.gameInfo(this.game).trainer.secret
 		return !res;
 	}
@@ -373,7 +417,7 @@ class SortedLocation {
 		let xml = `<location `;
 		if (hkey) xml += `key="${hkey}" `;
 		if (this.node) xml += `node="true" `;
-		xml += `id="${this.full_id}" pos="${this.position}">`;
+		xml += `mapid="${this.bank_id}" pos="${this.position}">`;
 		xml += this.map_name.replace(/&/g,'&amp;').replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
 		xml += `</location>`;
 		return xml;
@@ -540,6 +584,7 @@ class SortedInventory {
 		this.bag = {};
 		this.held = {};
 		this.pc = {};
+		this.money = data.money;
 		
 		if (data.items) {
 			for (let pname in data.items) {
@@ -613,28 +658,38 @@ class SortedBattle {
 		this.party = null;
 		this.active = null;
 		this.classes = {};
+		this.loc = (loc)?loc.describe().slice(3):null;
 		
 		let enemy_trainer = read(data, 'enemy_trainer', 'enemy_trainers');
 		if (enemy_trainer) {
-			this.trainer = [];
 			if (!Array.isArray(enemy_trainer)) {
 				enemy_trainer = [enemy_trainer];
 			}
-			for (let t of enemy_trainer) {
-				let data = {
-					'class': t.class_id,
-					'id': t.id,
-					'className': (t.class_name)?correctCase(sanatizeName(t.class_name)):'', //Not used in gen 1
-					'name': correctCase(sanatizeName(t.name)),
-				};
-				if (Bot.runOpts('trainerClasses')) {
-					let cls = Bot.runOpts('trainerClasses');
-					if (cls.m[data.class]) data.gender = 'male';
-					else if (cls.f[data.class]) data.gender = 'female';
-					else if (cls.p[data.class]) data.gender = 'plural';
-					else data.gender = 'neuter';
+			if (enemy_trainer.length) {
+				this.trainer = [];
+				for (let t of enemy_trainer) {
+					let data = {
+						'class': t.class_id,
+						'id': t.id,
+						'className': (t.class_name)?correctCase(sanatizeName(t.class_name||'trainer')):'', //Not used in gen 1
+						'name': correctCase(sanatizeName(t.name||'')),
+					};
+					if (Bot.runOpts('trainerClasses', game)) {
+						let cls = Bot.runOpts('trainerClasses', game);
+						if (cls.info) { //Check for individual info first
+							let info = cls.info[t.class_id];
+							data.gender = info.gender;
+							data.realClassName = info.name;
+							if (!data.className) data.className = info.name;
+						} else {
+							if (cls.m[data.class]) data.gender = 'male';
+							else if (cls.f[data.class]) data.gender = 'female';
+							else if (cls.p[data.class]) data.gender = 'plural';
+							else data.gender = 'neuter';
+						}
+					}
+					this.trainer.push(data);
 				}
-				this.trainer.push(data);
 			}
 		}
 		else if (data.battle_kind === 'Trainer') {
@@ -647,6 +702,7 @@ class SortedBattle {
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
 					poke = new Pokemon(p, game);
+					if (p.active !== undefined) poke.active = p.active;
 				} else {
 					poke = {
 						active: p.active,
@@ -654,6 +710,7 @@ class SortedBattle {
 						species: p.species.name,
 						dexid: read(p.species, 'national_dex', 'id'),
 					};
+					if (poke.active === undefined) poke.active = (p.species.id !== 0);
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);
@@ -661,28 +718,21 @@ class SortedBattle {
 		}
 		else if (data.wild_species) {
 			this.party = [];
-			if (Array.isArray(data.wild_species)) {
-				for (let p of data.wild_species) {
-					let poke = {
+			let wild_species = data.wild_species;
+			if (!Array.isArray(wild_species)) wild_species = [wild_species];
+			for (let p of wild_species) {
+				let poke;
+				if (Bot.runOpts('fullEnemyInfo')) {
+					poke = new Pokemon(p, game);
+					if (p.active !== undefined) poke.active = p.active;
+				} else {
+					poke = {
 						active: true,
 						// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
 						species: p.name,
 						dexid: read(p, 'national_dex', 'id'),
 					};
-					if (p.health) { //hack
-						poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
-						if (p.health[0] === 0) poke.hp = 0;
-					}
-					this.party.push(poke);
 				}
-			} else {
-				let p = data.wild_species;
-				let poke = {
-					active: true,
-					// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-					species: p.name,
-					dexid: read(p, 'national_dex', 'id'),
-				};
 				if (p.health) { //hack
 					poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
 					if (p.health[0] === 0) poke.hp = 0;
@@ -704,13 +754,25 @@ class SortedBattle {
 			if (type) this.classes[type] = true;
 		}
 		else if (Array.isArray(this.trainer)) {
-			let types = Bot.runOpts('trainerClasses', game);
-			for (let type in types) {
-				for (let trainer of this.trainer) {
-					this.classes[type] = !!types[type][trainer.class];
-					this.isImportant |= this.classes[type];
-				}
-			}
+			determineImportance(this, game);
+			// let cls = Bot.runOpts('trainerClasses', game);
+			// if (cls.info) {
+			// 	for (let trainer of this.trainer) {
+			// 		let info = cls.info[trainer.class];
+			// 		this.isImportant = !!info.important;
+			// 		if (typeof info.important === 'string') {
+			// 			this.classes[info.important] = true;
+			// 		}
+			// 	}
+			// } else {
+			// 	for (let type in cls) {
+			// 		if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
+			// 		for (let trainer of this.trainer) {
+			// 			this.classes[type] = !!cls[type][trainer.class];
+			// 			this.isImportant |= this.classes[type];
+			// 		}
+			// 	}
+			// }
 		}
 	}
 	get isRival() { return !!this.classes['rival']; }
@@ -741,19 +803,32 @@ class SortedBattle {
 			name.push(`tr[${this.trainer}]`);
 		}
 		else if (this.trainer === true) {
-			name.push('trX');
+			name.push('trX'+this.loc);
 		}
 		else if (Array.isArray(this.trainer)) {
 			for (let trainer of this.trainer) {
 				name.push(`tr${trainer.class}:${trainer.id}[${trainer.name}]`);
 			}
-		}
-		if (this.party) {
-			for (let p of this.party) {
-				name.push(`pk${p.dexid}`);
+		} 
+		else { //Wild battles
+			name.push('w'+this.loc);
+			if (this.party) {
+				for (let p of this.party) {
+					name.push(`pk${p.dexid}`);
+				}
 			}
 		}
 		return name.join(';');
+	}
+	
+	checkSpecialTrainers() {
+		if (Array.isArray(this.trainer)) {
+			for (let trainer of this.trainer) {
+				if (trainer.id === 0) continue; //skip
+				if (Bot.runOpts('trainerId_joey') === trainer.id) return 'joey';
+			}
+		}
+		return undefined;
 	}
 	
 	toXml(hkey) {
@@ -797,6 +872,7 @@ class SortedData {
 		this._name = data.name || '';
 		this._rival = data.rival_name || Bot.runOpts('rivalName', game) || null;
 		this.playerGender = data.gender;
+		this.trainerId = [data.id, data.secret];
 		
 		this.level_cap = data.level_cap || 100;
 		

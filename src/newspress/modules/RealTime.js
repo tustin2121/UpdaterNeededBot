@@ -4,6 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const { TimeChanged } = require('../ledger');
 
+const LOGGER = getLogger('RealTimeModule');
+
 const RULES = [];
 
 /**   ** RealTime Module **
@@ -17,6 +19,8 @@ class RealTimeModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
+		this.setDebug(LOGGER, ledger);
+		this.debug('curr:', curr.timeOfDay, '/ prev:', prev.timeOfDay);
 		if (curr.timeOfDay !== prev.timeOfDay) {
 			let flavor;
 			// Normal time of day directions
@@ -30,7 +34,7 @@ class RealTimeModule extends ReportingModule {
 				flavor = 'dusk';
 			}
 			// Reverse time to day directions...
-			if (prev.timeOfDay === 'night' && curr.timeOfDay === 'day') {
+			else if (prev.timeOfDay === 'night' && curr.timeOfDay === 'day') {
 				flavor = 'rday';
 			}
 			else if (prev.timeOfDay === 'day' && curr.timeOfDay === 'morning') {
@@ -39,15 +43,22 @@ class RealTimeModule extends ReportingModule {
 			else if (prev.timeOfDay === 'morning' && curr.timeOfDay === 'night') {
 				flavor = 'rnight';
 			}
-			
-			
-			ledger.addItem(new TimeChanged());
+			this.debug('FLAVOR: ', flavor);
+			ledger.addItem(new TimeChanged(flavor));
 		}
 	}
 	
 	secondPass(ledger) {
-		RULES.forEach(rule=> rule.apply(ledger) );
+		RULES.forEach(rule=> rule.apply(ledger, this) );
 	}
 }
+
+RULES.push(new Rule('Postpone time change messages when indoors.')
+	.when(ledger=>ledger.has('TimeChanged').unmarked())
+	.when(ledger=>ledger.hasMap(map=>map.is('indoors')))
+	.then(ledger=>{
+		ledger.postpone(0);
+	})
+);
 
 module.exports = RealTimeModule;

@@ -15,6 +15,12 @@ function formatReddit(text) {
 	text = text.replace(/<i>([\s\S]+?)<\/i>/ig, (match, inner)=>{
 		return `*${inner}*`;
 	});
+	text = text.replace(/<strong>([\s\S]+?)<\/strong>/ig, (match, inner)=>{
+		return `**${inner}**`;
+	});
+	text = text.replace(/<em>([\s\S]+?)<\/em>/ig, (match, inner)=>{
+		return `*${inner}*`;
+	});
 	return { text };
 }
 
@@ -35,6 +41,12 @@ function formatDiscord(text) {
 		return `**${inner}**`;
 	});
 	text = text.replace(/<i>([\s\S]+?)<\/i>/ig, (match, inner)=>{
+		return `*${inner}*`;
+	});
+	text = text.replace(/<strong>([\s\S]+?)<\/strong>/ig, (match, inner)=>{
+		return `**${inner}**`;
+	});
+	text = text.replace(/<em>([\s\S]+?)<\/em>/ig, (match, inner)=>{
 		return `*${inner}*`;
 	});
 	return { text, embeds };

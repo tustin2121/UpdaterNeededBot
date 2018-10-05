@@ -1,7 +1,7 @@
 // test/common.js
 // Common mock items
 
-const SHOULD_LOG = true;
+const SHOULD_LOG = false;
 const should = require('should');
 const sinon = require('sinon');
 require('should-sinon');
@@ -46,6 +46,7 @@ global.Bot = {
 	setOpt(key,val){ this._opt[key] = val; },
 	runOpts(id){ return this._opt[id] || false; },
 	gameInfo(){ return this._gameInfo; },
+	on(){}, //do nohing
 };
 
 beforeEach(function(){

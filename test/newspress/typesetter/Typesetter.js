@@ -290,21 +290,6 @@ describe('TypeSetter', function(){
 			}
 		});
 		
-		it('BattleStarted', function(){
-			const { BattleStarted } = LEDGER_ITEMS;
-			const battle = { //emulates SortedBattle
-				isImportant: true,
-				displayName: `Leader Misty`,
-			};
-			
-			const exp = `<b>Vs Leader Misty!</b> Attempt #5!`;
-			const item = new BattleStarted(battle, 5);
-			
-			const str = typesetter.typesetItems([item]);
-			
-			str.should.be.exactly(exp);
-		});
-		
 		it('GainItem', function(){
 			const { GainItem } = LEDGER_ITEMS;
 			const { Item } = POKEDATA;
@@ -322,9 +307,10 @@ describe('TypeSetter', function(){
 			str.should.be.exactly(exp);
 		});
 		
-		it('UsedBallInBattle : trainer', function(){
+		it('UsedBallInBattle : trainer (Trainer Class Lists)', function(){
 			const { UsedBallInBattle } = LEDGER_ITEMS;
 			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { m:{4:true}, f:{}, p:{}, });
 			const battle = new SortedBattle({
 				enemy_trainer: {
 					class_id: 4,
@@ -339,8 +325,7 @@ describe('TypeSetter', function(){
 					}
 				],
 			});
-			battle.isImportant = true;
-			Bot.setOpt('trainerClasses', { m:{4:true}, f:{}, p:{}, });
+			battle.isImportant = true; //hack
         	setRandom(0);
 			
 			const exp = `We toss a Poke Ball at the trainer's pokemon, but he blocks the ball. Don't be a thief!`;
@@ -352,7 +337,38 @@ describe('TypeSetter', function(){
 			str.should.be.exactly(exp);
 		});
 		
-		it('Caught multiple pokemon', function(){
+		it('UsedBallInBattle : trainer (Individual Class Info)', function(){
+			const { UsedBallInBattle } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			Bot.setOpt('trainerClasses', { info:[ {}, {}, {}, {},
+				{ id:4, gender:'m', name: "Youngster", important:true, } 
+			] });
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 4,
+					class_name: 'Youngster',
+					name: 'Joey',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Rattata' },
+					}
+				],
+			});
+        	setRandom(0);
+			
+			const exp = `We toss a Poke Ball at the trainer's pokemon, but he blocks the ball. Don't be a thief!`;
+			const item = new UsedBallInBattle({name:'Poke Ball'}, battle);
+			item.flavor = 'trainer';
+        
+			const str = typesetter.typesetItems([item]);
+        
+			str.should.be.exactly(exp);
+		});
+		
+		it('multiple PokemonGained', function(){
 			const { PokemonGained } = LEDGER_ITEMS;
 			Bot._gameInfo = { trainer:{id:46212,secret:49132}, gen:4 };
 			Bot.setOpt('gender', true);
@@ -381,6 +397,22 @@ HP: 0 | ATK: 0 | DEF: 0 | SPA: 0 | SPD: 0 | SPE: 0">male Lv. 14 Pineco</info>!</
 			let res = typesetter.typesetItems(items);
 			
 			res.should.equal(exp);
+		});
+		
+		it('OptionsChanged', function(){
+			const { Ledger, OptionsChanged } = LEDGER_ITEMS;
+			
+			let co = {
+				"battle_style": "Set",
+				"battle_scene": "On",
+				"text_speed": "Med"
+			};
+			let item = new OptionsChanged(co);
+			
+			setRandom(0, 0, 0);
+			let res = typesetter.typesetItems([ item ]);
+			
+			res.should.equal('We take a tour through the options screen and disallow battle switching, turn battle animations on, and adjust the text speed to med.');
 		});
 	});
 });

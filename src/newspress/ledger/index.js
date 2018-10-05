@@ -44,11 +44,11 @@ class Ledger {
 		LOGGER.warn('Postponing item:', item, can);
 		if (can) {
 			if (can instanceof LedgerItem) {
-				this.postponeList.push(can);
+				Ledger.mergeItems([can], this.postponeList, this.log);
 			}
 			else {
 				this.removeItem(item);
-				this.postponeList.push(item);
+				Ledger.mergeItems([item], this.postponeList, this.log);
 				item._postponeCount++;
 			}
 		} else {
@@ -63,30 +63,43 @@ class Ledger {
 		if (!ledger) return;
 		let pItems = ledger.postponeList.slice();
 		this.log.premergeState(this.list, pItems);
-		for (let a = 0; a < this.list.length; a++) {
-			for (let b = 0; b < pItems.length; b++) {
-				let res = this.list[a].cancelsOut(pItems[b]);
+		Ledger.mergeItems(pItems, this.list, this.log);
+	}
+	
+	/**
+	 * Merges items from the new list into the old list in place.
+	 */
+	static mergeItems(newItems, oldItems, debugLog) {
+		for (let a = 0; a < oldItems.length; a++) {
+			for (let b = 0; b < newItems.length; b++) {
+				let res = oldItems[a].cancelsOut(newItems[b]);
 				if (res) {
-					if (res === this.list[a]) {
+					if (res === oldItems[a]) {
 						// do nothing, coalesced
-						this.log.merged('coalesced', this.list[a], pItems[b]);
+						debugLog.merged('coalesced', oldItems[a], newItems[b]);
 					} else if (res instanceof LedgerItem) {
-						let x = this.list.splice(a, 1, res); //replace
-						this.log.merged('replaced', x[0], pItems[b], res);
+						let x = oldItems.splice(a, 1, res); //replace
+						debugLog.merged('replaced', x[0], newItems[b], res);
 					} else {
-						let x = this.list.splice(a, 1); a--; //remove
-						this.log.merged('removed', x[0], pItems[b]);
+						let x = oldItems.splice(a, 1); a--; //remove
+						debugLog.merged('removed', x[0], newItems[b]);
 					}
-					pItems.splice(b, 1); b--; //remove
+					newItems.splice(b, 1); b--; //remove
 				}
 			}
 		}
-		this.list.push(...pItems);
+		oldItems.push(...newItems);
+		return oldItems;
 	}
 	
 	/** Finds all items with the given name. */
-	findAllItemsWithName(name) {
-		return this.list.filter(item => item.name === name);
+	findAllItemsWithName(...names) {
+		return this.list.filter(item=>{
+			for (let n of names) {
+				if (item.__itemName__ === n) return true;
+			}
+			return false;
+		});
 	}
 	
 	getNumberOfImportantItems() {
@@ -100,12 +113,12 @@ class Ledger {
 	/** Sorts the ledger and drops all items below 1 importance. */
 	finalize() {
 		this.log.ledgerState(this);
-		this.list.sort(LedgerItem.compare);
-		let i = 0;
-		for (i = 0; i < this.list.length; i++) {
-			if (this.list[i].importance < 1) break;
-		}
-		this.list.length = i;
+		// this.list.sort(LedgerItem.compare);
+		// let i = 0;
+		// for (i = 0; i < this.list.length; i++) {
+		// 	if (this.list[i].importance < 1) break;
+		// }
+		// this.list.length = i;
 	}
 	
 	/** Trims out all ledger items that are not helpful for the given help options. */
@@ -114,8 +127,11 @@ class Ledger {
 		let list = [];
 		for (let item of this.list) {
 			// Check if the item's helptype is one of the help options we've been given
-			if (helpOpts[item.helptype]) {
+			if (helpOpts[item.helptype] || item.helptype === true) {
 				list.push(item);
+			} else if (typeof item.getHelpItem === 'function') {
+				let xitem = item.getHelpItem(helpOpts);
+				if (xitem) list.push(xitem);
 			}
 		}
 		this.list = list;
@@ -135,7 +151,7 @@ class Ledger {
 	saveToMemory(mem) {
 		let save = [];
 		for (let item of this.postponeList) {
-			let x = { __name__: item.name, };
+			let x = { __itemName__: item.__itemName__, };
 			if (typeof item.saveToMemory === 'function') {
 				x = item.saveToMemory(x) || x;
 			} else {
@@ -151,12 +167,12 @@ class Ledger {
 		const LEDGER_ITEMS = module.exports;
 		this.postponeList = [];
 		for (let item of mem.items) {
-			const ITEM = LEDGER_ITEMS[item.__name__];
+			const ITEM = LEDGER_ITEMS[item.__itemName__];
 			if (typeof ITEM.loadFromMemory === 'function') {
 				this.postponeList.push(ITEM.loadFromMemory(item));
 			} else {
 				let x = new ITEM(item);
-				delete item.__name__; //don't need this anymore
+				delete item.__itemName__; //don't need this anymore
 				delete item._marked; //this can cause trouble if overwritten
 				x = Object.assign(x, item);
 				this.postponeList.push(x);

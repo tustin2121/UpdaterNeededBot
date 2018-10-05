@@ -283,6 +283,8 @@ MapChanged['magenttrain_nvm'] = [
 ];
 
 
+MapChanged.__meta__ = { sort:-110 }; //After "Blackout!"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = {
@@ -304,6 +306,7 @@ module.exports = {
 	
 	CheckpointContext: null,
 	CheckpointUpdated: {
+		__meta__ : { sort:-120 }, //After MapChanged
 		default: [
 			`<b>Checkpoint {{@loc.areaName}}!</b>`
 		],
