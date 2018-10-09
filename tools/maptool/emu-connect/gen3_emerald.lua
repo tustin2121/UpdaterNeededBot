@@ -1,5 +1,5 @@
 -- maptool emu-connect/gen3_emerald.lua
--- A Bizhawk lua script that connects to the maptool for map information
+-- A VBA-RR lua script that connects to the maptool for map information
 
 local hudEndpoint = "http://127.0.0.1:21345/"
 
@@ -12,10 +12,10 @@ JSON = (loadfile "JSON.lua")()
 
 function sendMapData()
 	local data = {};
-	data["x"] = memory.readbyte(0x1A03);
-	data["y"] = memory.readbyte(0x1A02);
-	data["map_bank"] =  memory.readbyte(0x1A00);
-	data["map_id"] = memory.readbyte(0x1A01);
+	data["x"] = memory.readbyte(0x03005E5C);
+	data["y"] = memory.readbyte(0x03005E5E);
+	data["map_bank"] =  memory.readshort(0x03005E59);
+	data["map_id"] = memory.readshort(0x03005E58);
 	data["area_id"] = 0;
 	
 	--print("sendData", data);

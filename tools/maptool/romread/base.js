@@ -68,8 +68,9 @@ class GBReader extends RomReader {
 		}
 	}
 	
-	readBytes(len) {
-		return this.data.copy(this.data.offset, this.data.offset+len);
+	readBytes(len, offset) {
+		if (offset === undefined) offset = this.data.offset;
+		return this.data.copy(offset, offset+len);
 	}
 	
 	readStridedData(offset, stride, len=0, lenIsMax=false) {
@@ -142,6 +143,7 @@ class GBReader extends RomReader {
 		return charArray.map(c=> this.CHARMAP[c]||' ').join('');
 	}
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
