@@ -551,6 +551,11 @@ function generateDefaultMapTypes(region) {
 			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
+	add(new MapType(region, { type:'center2',	attrs:{ indoors:true, the:"the", preposition:"in" },
+		areas: [
+			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
+		],
+	}));
 	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true, the:"the", preposition:"in" },
 		areas: [
 			{ name: "shopping", x:2, y:2, attrs:{ shopping:true } },
