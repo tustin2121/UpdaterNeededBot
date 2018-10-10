@@ -846,7 +846,7 @@ class NewRegionDialog {
 				switch (gen) {
 					case 'rom1': return require('./romread').Gen1Reader;
 					case 'rom2': return require('./romread').Gen2Reader;
-					// case 'rom3': return require('./romread').Gen3Reader;
+					case 'rom3': return require('./romread').Gen3Reader;
 					// case 'rom4': return require('./romread').Gen4Reader;
 					// case 'rom5': return require('./romread').Gen5Reader;
 					// case 'rom6': return require('./romread').Gen6Reader;

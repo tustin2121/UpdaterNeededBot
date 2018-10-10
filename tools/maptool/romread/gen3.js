@@ -10,7 +10,7 @@ class Gen3Reader extends GBReader {
 	constructor(romFile) {
 		super(romFile);
 		/** This ROM's string terminator character. */
-		this.STR_TERM = 0x50; //?????????
+		this.STR_TERM = 0xFF;
 		populateCharMap(this.CHARMAP);
 		this._OFFSETS = {};
 		this._LENGTHS = {};
@@ -34,12 +34,30 @@ class Gen3Reader extends GBReader {
 				};
 				this._LENGTHS = {
 					NumMapBanks: 33,
-					MapHeaderBytes: 9,
+					MapHeaderBytes: 28,
 					MapBankSentinal: 0xF7F7F7F7,
 				};
 				break;
 		}
 	}
+	
+	// readText(offset, limit) {
+	// 	let advance = (offset === undefined);
+	// 	offset = offset || this.data.offset;
+	// 	limit = Math.min(offset+limit, this.data.limit) || this.data.limit;
+	// 	if (offset >= this.data.limit || limit === 0) return '';
+		
+	// 	let str = [];
+	// 	for (let i = offset; i < limit; i++) {
+	// 		if (i >= this.data.limit) break;
+	// 		let char = this.readUint8(i);
+	// 		if (char === this.STR_TERM) break;
+	// 		str.push(this.CHARMAP[char] || ' ');
+	// 	}
+	// 	//Note: .length before join, because CHARMAP might not have 1 character long result
+	// 	if (advance) this.data.skip(str.length);
+	// 	return str.join('');
+	// }
 	
 	readMaps() {
 		let oldOff = this.offset;
@@ -49,12 +67,15 @@ class Gen3Reader extends GBReader {
 		const MUSICS = this._MUSICS;
 		const LENGTHS = this._LENGTHS;
 		
-		const AREA_NAMES = LENGTHS.NumAreaNames; //TODO: find this
+		const NUM_AREA_NAMES = LENGTHS.NumAreaNames; //TODO: find this
 		let areaNames = []; //TODO
 		this.offset = OFFSETS.AreaNames;
 		for (let i = 0; i < NUM_AREA_NAMES; i++) {
 			this.skip(4); //skip region map info we don't care about
-			areaNames.push(this.readText().trim());
+			let ptr = this.readUint32() & 0x00FFFFFF;
+			let str = this.readText(ptr).trim();
+			str = str.toLowerCase().replace(/(\b[a-z])/g, c=>c.toUpperCase());
+			areaNames.push(str);
 		}
 		// https://github.com/pret/pokeemerald/blob/60dff848aace7226f903eb6759273c4b52ea1813/src/data/region_map/region_map_entries.h
 		// https://github.com/pret/pokeemerald/blob/8defc345f09a53ecb501f1597b1b264d69992cdc/include/constants/region_map_sections.h
@@ -62,7 +83,7 @@ class Gen3Reader extends GBReader {
 		const MAP_HEADER_BYTES = LENGTHS.MapHeaderBytes;
 		const MAP_BANKS = LENGTHS.NumMapBanks;
 		// https://github.com/pret/pokeemerald/blob/efebc51972b23ddffa2700b1dd6895d4728646a3/data/maps/groups.inc
-		let bankTable = this.readStridedData(OFFSETS.MapHeaders, 4, MAP_BANKS)
+		let bankTable = this.readStridedData(OFFSETS.MapBankPointers, 4, MAP_BANKS)
 			.map(bankPtr => bankPtr.readUint32(0) & 0x00FFFFFF );
 		
 		// Then, go through each bank and read the map header pointers
@@ -72,9 +93,9 @@ class Gen3Reader extends GBReader {
 			let mapHeaders = [];
 			this.offset = ptr;
 			for (let i = 0; i < 100; i++) {
-				let mapPtr = this.readUint32() & 0x00FFFFFF;
-				if (mapPtr == 0 || mapPtr == LENGTHS.MapBankSentinal) break;
-				let header = this.readBytes(MAP_HEADER_BYTES, mapPtr);
+				let mapPtr = this.readUint32();
+				if (mapPtr === 0 || mapPtr === LENGTHS.MapBankSentinal) break;
+				let header = this.readBytes(MAP_HEADER_BYTES, mapPtr & 0x00FFFFFF);
 				mapHeaders.push(header);
 			}
 			
@@ -94,9 +115,9 @@ class Gen3Reader extends GBReader {
 				data.skip(3);
 				let battleScene = data.readUint8();
 				
-				let layout = readLayout(layoutPtr);
+				let layout = readLayout.call(this, layoutPtr);
 				let gamedata = Object.assign({},
-					readEvents(eventPtr), readConnections(mapConnsPtr),
+					readEvents.call(this, eventPtr), readConnections.call(this, mapConnsPtr),
 				);
 				
 				let info = new MapNode(null, {
@@ -176,6 +197,11 @@ class Gen3Reader extends GBReader {
 				let nCoord = this.readUint8();
 				let nSigns = this.readUint8();
 				
+				if (nNpcs > 64) throw new RangeError(`There are NOT ${nNpcs} npcs in this map!`);
+				if (nWarps > 64) throw new RangeError(`There are NOT ${nNpcs} warps in this map!`);
+				if (nCoord > 64) throw new RangeError(`There are NOT ${nNpcs} events in this map!`);
+				if (nSigns > 64) throw new RangeError(`There are NOT ${nNpcs} signs in this map!`);
+				
 				let pNpcs = this.readUint32() & 0x00FFFFFF;
 				let pWarps = this.readUint32() & 0x00FFFFFF;
 				let pCoord = this.readUint32() & 0x00FFFFFF;
@@ -217,11 +243,11 @@ class Gen3Reader extends GBReader {
 				}
 				this.offset = pCoord;
 				for (let i = 0; i < nCoord; i++) {
-					out.events.push(readEvent());
+					out.events.push(readEvent.call(this, i));
 				}
 				this.offset = pSigns;
 				for (let i = 0; i < nSigns; i++) {
-					out.events.push(readEvent());
+					out.events.push(readEvent.call(this, i));
 				}
 				return out;
 			} finally {	
@@ -234,6 +260,10 @@ class Gen3Reader extends GBReader {
 				let out = { conns:{} };
 				this.offset = ptr;
 				let conns = this.readUint32();
+				if (conns > 6) {
+					// debugger;
+					throw new RangeError(`There are NOT ${conns} connections to this map!`);
+				}
 				for (let i = 0; i < conns; i++) {
 					let dir = this.readUint32();
 					let off = this.readUint32();
@@ -258,10 +288,10 @@ class Gen3Reader extends GBReader {
 				this.offset = oldOff;
 			}
 		}
-		function readEvent() {
+		function readEvent(id) {
 			//TODO https://github.com/pret/pokeemerald/blob/24f6484643ed3d7115fd4ebd92f254f224f1ca97/asm/macros/map.inc#L17
 			let evt = {
-				id: i, type:'g3:coord',
+				id, type:'g3:coord',
 				x: this.readUint16(),
 				y: this.readUint16(),
 				z: this.readUint8(),
@@ -326,7 +356,7 @@ c[0x28] = 'û';
 c[0x29] = 'ñ';
 c[0x2A] = 'º';
 c[0x2B] = 'ª';
-c[0x2C] = SUPER_ER ;
+// c[0x2C] = SUPER_ER ;
 c[0x2D] = '&';
 c[0x2E] = '+';
 c[0x34] = 'Lv';
@@ -342,10 +372,10 @@ c[0x5C] = '(';
 c[0x5D] = ')';
 c[0x68] = 'â';
 c[0x6F] = 'í';
-c[0x79] = UP_ARROW ;
-c[0x7A] = DOWN_ARROW ;
-c[0x7B] = LEFT_ARROW ;
-c[0x7C] = RIGHT_ARROW;
+// c[0x79] = UP_ARROW ;
+// c[0x7A] = DOWN_ARROW ;
+// c[0x7B] = LEFT_ARROW ;
+// c[0x7C] = RIGHT_ARROW;
 c[0xA1] = '0';
 c[0xA2] = '1';
 c[0xA3] = '2';

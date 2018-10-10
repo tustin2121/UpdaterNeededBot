@@ -63,7 +63,7 @@ class MapRegion {
 			if (!this.nodes[bank]) continue;
 			data.nodes[bank] = [];
 			for (let map = 0; map < this.nodes[bank].length; map++) {
-				if (!this.nodes[bank][map]) continue;
+				if (!this.nodes[bank][map] || !this.nodes[bank][map].serialize) continue;
 				data.nodes[bank][map] = this.nodes[bank][map].serialize();
 			}
 		}
