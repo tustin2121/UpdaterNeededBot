@@ -120,11 +120,11 @@
 			},
 			"areas": [
 				{
-					"ax": 2,
+					"ax": 0,
 					"ay": 2,
-					"bx": 2,
-					"by": 2,
-					"rad": 5,
+					"bx": 4,
+					"by": 7,
+					"rad": 0,
 					"name": "shopping",
 					"attrs": {
 						"shopping": true
@@ -186,6 +186,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 14,
+						"ay": 21,
+						"bx": 14,
+						"by": 21,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -210,6 +221,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 23,
+						"ay": 54,
+						"bx": 23,
+						"by": 54,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -236,6 +258,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 29,
+						"ay": 40,
+						"bx": 29,
+						"by": 40,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -260,6 +293,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 21,
+						"ay": 29,
+						"bx": 21,
+						"by": 29,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -286,6 +330,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 71,
+						"ay": 25,
+						"bx": 71,
+						"by": 25,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -310,6 +365,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 36,
+						"ay": 8,
+						"bx": 36,
+						"by": 8,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -336,6 +402,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 26,
+						"ay": 18,
+						"bx": 26,
+						"by": 18,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -360,6 +437,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 34,
+						"ay": 38,
+						"bx": 34,
+						"by": 38,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -396,6 +484,17 @@
 						"name": "flyspot upper",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 20,
+						"ay": 8,
+						"bx": 20,
+						"by": 8,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -458,6 +557,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 15,
+						"ay": 8,
+						"bx": 15,
+						"by": 8,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -482,6 +592,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 7,
+						"ay": 8,
+						"bx": 7,
+						"by": 8,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -508,6 +629,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 22,
+						"ay": 12,
+						"bx": 22,
+						"by": 12,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -532,6 +664,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 38,
+						"ay": 31,
+						"bx": 38,
+						"by": 31,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -558,6 +701,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 11,
+						"ay": 11,
+						"bx": 11,
+						"by": 11,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -582,6 +736,17 @@
 						"name": "flyspot",
 						"attrs": {
 							"flyspot": true
+						}
+					},
+					{
+						"ax": 23,
+						"ay": 16,
+						"bx": 23,
+						"by": 16,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
 						}
 					}
 				],
@@ -1000,7 +1165,19 @@
 				"width": 80,
 				"height": 40,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 23,
+						"ay": 8,
+						"bx": 23,
+						"by": 8,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1182,7 +1359,19 @@
 				"width": 58,
 				"height": 54,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 27,
+						"ay": 22,
+						"bx": 27,
+						"by": 22,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1208,7 +1397,19 @@
 				"width": 34,
 				"height": 30,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 18,
+						"ay": 22,
+						"bx": 18,
+						"by": 22,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1242,7 +1443,21 @@
 						"by": 21,
 						"rad": 5,
 						"name": "flyspot",
-						"attrs": {}
+						"attrs": {
+							"flyspot": true
+						}
+					},
+					{
+						"ax": 23,
+						"ay": 20,
+						"bx": 23,
+						"by": 20,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"tepeort": true,
+							"teleport": true
+						}
 					}
 				],
 				"gamedata": {}
@@ -1257,7 +1472,19 @@
 				"width": 30,
 				"height": 30,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 18,
+						"bx": 16,
+						"by": 18,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1335,7 +1562,19 @@
 				"width": 40,
 				"height": 20,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 11,
+						"ay": 8,
+						"bx": 11,
+						"by": 8,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1361,7 +1600,19 @@
 				"width": 50,
 				"height": 40,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 30,
+						"bx": 16,
+						"by": 30,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1374,7 +1625,19 @@
 				"width": 40,
 				"height": 30,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 8,
+						"ay": 23,
+						"bx": 8,
+						"by": 23,
+						"rad": 5,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			}
 		],
@@ -1600,7 +1863,7 @@
 				"name": "Union Gate",
 				"areaId": 150,
 				"areaName": "Union Gate",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 50,
 				"height": 50,
 				"attrs": {},
@@ -1626,7 +1889,7 @@
 				"name": "Torn World",
 				"areaId": 164,
 				"areaName": "Torn World",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 15,
 				"height": 31,
 				"attrs": {},
@@ -1639,14 +1902,28 @@
 			{
 				"bank": 5,
 				"id": 1,
-				"name": "Mystic Town",
+				"name": "Mystic Town Herb Shop",
 				"areaId": 2,
 				"areaName": "Mystic Town",
-				"type": "indoor",
+				"type": "mart",
 				"width": 11,
 				"height": 8,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 2,
+						"ay": 2,
+						"bx": 4,
+						"by": 4,
+						"rad": 0,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1704,10 +1981,10 @@
 			{
 				"bank": 5,
 				"id": 6,
-				"name": "Surence Town",
+				"name": "Surence Town Pokémon Center",
 				"areaId": 3,
 				"areaName": "Surence Town",
-				"type": "indoor",
+				"type": "center",
 				"width": 14,
 				"height": 9,
 				"attrs": {},
@@ -1947,7 +2224,7 @@
 				"name": "Golden Station",
 				"areaId": 96,
 				"areaName": "Golden Station",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 50,
 				"height": 50,
 				"attrs": {},
@@ -1973,7 +2250,7 @@
 				"name": "Golden Station",
 				"areaId": 96,
 				"areaName": "Golden Station",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 50,
 				"height": 50,
 				"attrs": {},
@@ -2103,23 +2380,25 @@
 			{
 				"bank": 8,
 				"id": 8,
-				"name": "Golden City",
+				"name": "Golden City Pokémon Center",
 				"areaId": 90,
 				"areaName": "Golden City",
-				"type": "indoor",
+				"type": "center",
 				"width": 14,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"checkpoint": false
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 8,
 				"id": 9,
-				"name": "Golden City",
+				"name": "Golden City PokéMart",
 				"areaId": 90,
 				"areaName": "Golden City",
-				"type": "indoor",
+				"type": "mart",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -2262,36 +2541,40 @@
 			{
 				"bank": 9,
 				"id": 8,
-				"name": "Route J",
+				"name": "Route J Pokémon Center",
 				"areaId": 25,
 				"areaName": "Route J",
-				"type": "indoor",
+				"type": "center",
 				"width": 14,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"checkpoint": false
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 9,
 				"id": 9,
-				"name": "R Area",
+				"name": "R Area Pokémon Center",
 				"areaId": 73,
 				"areaName": "R Area",
-				"type": "indoor",
+				"type": "center",
 				"width": 14,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"checkpoint": false
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 9,
 				"id": 10,
-				"name": "R Area",
+				"name": "R Area PokéMart",
 				"areaId": 73,
 				"areaName": "R Area",
-				"type": "indoor",
+				"type": "mart",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -2301,23 +2584,25 @@
 			{
 				"bank": 9,
 				"id": 11,
-				"name": "Q Area",
+				"name": "Q Area Pokémon Center",
 				"areaId": 89,
 				"areaName": "Q Area",
-				"type": "indoor",
+				"type": "center",
 				"width": 14,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"checkpoint": false
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 9,
 				"id": 12,
-				"name": "Q Area",
+				"name": "Q Area PokéMart",
 				"areaId": 89,
 				"areaName": "Q Area",
-				"type": "indoor",
+				"type": "mart",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -2684,13 +2969,15 @@
 			{
 				"bank": 11,
 				"id": 2,
-				"name": "Route E",
+				"name": "Bike Shop",
 				"areaId": 20,
 				"areaName": "Route E",
 				"type": "indoor",
 				"width": 12,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2710,13 +2997,15 @@
 			{
 				"bank": 11,
 				"id": 4,
-				"name": "Golden City",
+				"name": "Golden City Game Corner",
 				"areaId": 90,
 				"areaName": "Golden City",
 				"type": "indoor",
 				"width": 22,
 				"height": 11,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2795,7 +3084,17 @@
 				"width": 20,
 				"height": 16,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 8,
+						"bx": 3,
+						"by": 15,
+						"rad": 5,
+						"name": "shopping",
+						"attrs": {}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -2817,7 +3116,7 @@
 			{
 				"bank": 12,
 				"id": 1,
-				"name": "Platepics City",
+				"name": "Platepics City Radio Tower",
 				"areaId": 8,
 				"areaName": "Platepics City",
 				"type": "indoor",
@@ -2830,20 +3129,57 @@
 			{
 				"bank": 12,
 				"id": 2,
-				"name": "Platepics City",
+				"name": "Platepics City Radio Tower",
 				"areaId": 8,
 				"areaName": "Platepics City",
 				"type": "indoor",
 				"width": 60,
 				"height": 50,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 0,
+						"bx": 21,
+						"by": 12,
+						"rad": 5,
+						"name": "Floor 1",
+						"attrs": {}
+					},
+					{
+						"ax": 0,
+						"ay": 15,
+						"bx": 21,
+						"by": 27,
+						"rad": 5,
+						"name": "Floor 2",
+						"attrs": {}
+					},
+					{
+						"ax": 0,
+						"ay": 31,
+						"bx": 27,
+						"by": 46,
+						"rad": 5,
+						"name": "Floor 3",
+						"attrs": {}
+					},
+					{
+						"ax": 29,
+						"ay": 0,
+						"bx": 61,
+						"by": 27,
+						"rad": 5,
+						"name": "Floor 4",
+						"attrs": {}
+					}
+				],
 				"gamedata": {}
 			},
 			{
 				"bank": 12,
 				"id": 3,
-				"name": "Platepics City",
+				"name": "Platepics City Radio Tower",
 				"areaId": 8,
 				"areaName": "Platepics City",
 				"type": "indoor",
@@ -3542,7 +3878,7 @@
 				"name": "Route J",
 				"areaId": 25,
 				"areaName": "Route J",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 9,
 				"height": 8,
 				"attrs": {},
@@ -3555,7 +3891,7 @@
 				"name": "Abandoned Island",
 				"areaId": 160,
 				"areaName": "Abandoned Island",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 70,
 				"height": 70,
 				"attrs": {},
@@ -4040,7 +4376,7 @@
 				"name": "St1 Cave",
 				"areaId": 177,
 				"areaName": "St1 Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 21,
 				"height": 22,
 				"attrs": {},
@@ -4376,7 +4712,7 @@
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 30,
 				"height": 42,
 				"attrs": {},
@@ -4389,7 +4725,7 @@
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 30,
 				"height": 32,
 				"attrs": {},
@@ -4402,7 +4738,7 @@
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 29,
 				"height": 38,
 				"attrs": {},
@@ -4415,7 +4751,7 @@
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 11,
 				"height": 18,
 				"attrs": {},
@@ -4428,7 +4764,7 @@
 				"name": "Water Cave",
 				"areaId": 60,
 				"areaName": "Water Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 36,
 				"height": 24,
 				"attrs": {},
@@ -4454,7 +4790,7 @@
 				"name": "Ember Ruins",
 				"areaId": 82,
 				"areaName": "Ember Ruins",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 17,
 				"height": 33,
 				"attrs": {},
@@ -4467,7 +4803,7 @@
 				"name": "Dark Cave",
 				"areaId": 55,
 				"areaName": "Dark Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 30,
 				"height": 20,
 				"attrs": {},
@@ -4480,7 +4816,7 @@
 				"name": "Dark Cave",
 				"areaId": 55,
 				"areaName": "Dark Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 32,
 				"height": 26,
 				"attrs": {},
@@ -4493,7 +4829,7 @@
 				"name": "Dark Cave",
 				"areaId": 55,
 				"areaName": "Dark Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 32,
 				"height": 26,
 				"attrs": {},
@@ -4506,7 +4842,7 @@
 				"name": "Dark Cave",
 				"areaId": 55,
 				"areaName": "Dark Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 15,
 				"height": 14,
 				"attrs": {},
@@ -4558,7 +4894,7 @@
 				"name": "Mt. Fiery",
 				"areaId": 74,
 				"areaName": "Mt. Fiery",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 35,
 				"height": 38,
 				"attrs": {},
@@ -4727,7 +5063,7 @@
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 20,
 				"height": 20,
 				"attrs": {},
@@ -4740,7 +5076,7 @@
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 20,
 				"height": 21,
 				"attrs": {},
@@ -4753,7 +5089,7 @@
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 18,
 				"height": 12,
 				"attrs": {},
@@ -4766,7 +5102,7 @@
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 16,
 				"height": 17,
 				"attrs": {},
@@ -4779,7 +5115,7 @@
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 18,
 				"height": 19,
 				"attrs": {},
@@ -4792,7 +5128,7 @@
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 20,
 				"height": 20,
 				"attrs": {},
@@ -4805,7 +5141,7 @@
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 24,
 				"height": 23,
 				"attrs": {},
@@ -4818,7 +5154,7 @@
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 23,
 				"height": 25,
 				"attrs": {},
@@ -4831,7 +5167,7 @@
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 11,
 				"height": 14,
 				"attrs": {},
@@ -4844,7 +5180,7 @@
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 27,
 				"height": 46,
 				"attrs": {},
@@ -4857,7 +5193,7 @@
 				"name": "Lost Cave",
 				"areaId": 181,
 				"areaName": "Lost Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 19,
 				"height": 26,
 				"attrs": {},
@@ -4870,7 +5206,7 @@
 				"name": "Mt. Fullmoon",
 				"areaId": 56,
 				"areaName": "Mt. Fullmoon",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 23,
 				"height": 23,
 				"attrs": {},
@@ -4909,7 +5245,7 @@
 				"name": "Mt. Fullmoon",
 				"areaId": 56,
 				"areaName": "Mt. Fullmoon",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 19,
 				"height": 21,
 				"attrs": {},
@@ -4922,7 +5258,7 @@
 				"name": "Cave Of Origin",
 				"areaId": 72,
 				"areaName": "Cave Of Origin",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 19,
 				"height": 19,
 				"attrs": {},
@@ -4935,7 +5271,7 @@
 				"name": "Victory Road",
 				"areaId": 70,
 				"areaName": "Victory Road",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 46,
 				"height": 45,
 				"attrs": {},
@@ -4948,7 +5284,7 @@
 				"name": "Victory Road",
 				"areaId": 70,
 				"areaName": "Victory Road",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 46,
 				"height": 31,
 				"attrs": {},
@@ -4961,7 +5297,7 @@
 				"name": "Victory Road",
 				"areaId": 70,
 				"areaName": "Victory Road",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 46,
 				"height": 31,
 				"attrs": {},
@@ -4974,7 +5310,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 35,
 				"height": 35,
 				"attrs": {},
@@ -4987,7 +5323,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 46,
 				"height": 38,
 				"attrs": {},
@@ -5000,7 +5336,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 21,
 				"height": 15,
 				"attrs": {},
@@ -5013,7 +5349,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 31,
 				"height": 14,
 				"attrs": {},
@@ -5026,7 +5362,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 35,
 				"height": 35,
 				"attrs": {},
@@ -5039,7 +5375,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 46,
 				"height": 38,
 				"attrs": {},
@@ -5091,7 +5427,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 18,
 				"height": 12,
 				"attrs": {},
@@ -5117,7 +5453,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 13,
 				"height": 10,
 				"attrs": {},
@@ -5130,7 +5466,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 27,
 				"height": 8,
 				"attrs": {},
@@ -5143,7 +5479,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 18,
 				"height": 8,
 				"attrs": {},
@@ -5169,7 +5505,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 9,
 				"height": 8,
 				"attrs": {},
@@ -5195,7 +5531,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 9,
 				"height": 7,
 				"attrs": {},
@@ -5221,7 +5557,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 13,
 				"height": 11,
 				"attrs": {},
@@ -5234,7 +5570,7 @@
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 44,
 				"height": 15,
 				"attrs": {},
@@ -5247,7 +5583,7 @@
 				"name": "Thunder Ruins",
 				"areaId": 81,
 				"areaName": "Thunder Ruins",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 17,
 				"height": 33,
 				"attrs": {},
@@ -5260,7 +5596,7 @@
 				"name": "North Wind Ruins",
 				"areaId": 83,
 				"areaName": "North Wind Ruins",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 17,
 				"height": 33,
 				"attrs": {},
@@ -5299,7 +5635,7 @@
 				"name": "Sealed Chamber",
 				"areaId": 78,
 				"areaName": "Sealed Chamber",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 21,
 				"height": 23,
 				"attrs": {},
@@ -5312,7 +5648,7 @@
 				"name": "Sealed Chamber",
 				"areaId": 78,
 				"areaName": "Sealed Chamber",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 21,
 				"height": 23,
 				"attrs": {},
@@ -5325,7 +5661,7 @@
 				"name": "Scorched Slab",
 				"areaId": 80,
 				"areaName": "Scorched Slab",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 15,
 				"height": 20,
 				"attrs": {},
@@ -5377,7 +5713,7 @@
 				"name": "Hippowdon Temple",
 				"areaId": 161,
 				"areaName": "Hippowdon Temple",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 18,
 				"height": 18,
 				"attrs": {},
@@ -5390,7 +5726,7 @@
 				"name": "Route U",
 				"areaId": 36,
 				"areaName": "Route U",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 28,
 				"height": 23,
 				"attrs": {},
@@ -5403,7 +5739,7 @@
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 14,
 				"attrs": {},
@@ -5416,7 +5752,7 @@
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 14,
 				"attrs": {},
@@ -5429,7 +5765,7 @@
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 14,
 				"attrs": {},
@@ -5442,7 +5778,7 @@
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 14,
 				"attrs": {},
@@ -5455,7 +5791,7 @@
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 20,
 				"height": 30,
 				"attrs": {},
@@ -5468,7 +5804,7 @@
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 14,
 				"attrs": {},
@@ -5494,7 +5830,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 37,
 				"height": 38,
 				"attrs": {},
@@ -5507,7 +5843,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 33,
 				"height": 39,
 				"attrs": {},
@@ -5520,7 +5856,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 49,
 				"height": 28,
 				"attrs": {},
@@ -5533,7 +5869,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 28,
 				"height": 24,
 				"attrs": {},
@@ -5546,7 +5882,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 24,
 				"height": 17,
 				"attrs": {},
@@ -5559,7 +5895,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 59,
 				"height": 28,
 				"attrs": {},
@@ -5572,7 +5908,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 33,
 				"height": 24,
 				"attrs": {},
@@ -5585,7 +5921,7 @@
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 60,
 				"height": 19,
 				"attrs": {},
@@ -5598,7 +5934,7 @@
 				"name": "Route Af",
 				"areaId": 49,
 				"areaName": "Route Af",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 21,
 				"height": 17,
 				"attrs": {},
@@ -5611,7 +5947,7 @@
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 20,
 				"height": 20,
 				"attrs": {},
@@ -5637,7 +5973,7 @@
 				"name": "Route K",
 				"areaId": 22,
 				"areaName": "Route K",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 13,
 				"height": 10,
 				"attrs": {},
@@ -5650,7 +5986,7 @@
 				"name": "Desert Underpass",
 				"areaId": 209,
 				"areaName": "Desert Underpass",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 139,
 				"height": 23,
 				"attrs": {},
@@ -5663,7 +5999,7 @@
 				"name": "Artisan Hill",
 				"areaId": 202,
 				"areaName": "Artisan Hill",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 46,
 				"height": 54,
 				"attrs": {},
@@ -7372,7 +7708,7 @@
 				"name": "Hidden Chamber",
 				"areaId": 189,
 				"areaName": "Hidden Chamber",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 23,
 				"height": 11,
 				"attrs": {},
@@ -7411,7 +7747,7 @@
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -7437,7 +7773,7 @@
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -7463,7 +7799,7 @@
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 9,
 				"attrs": {},
@@ -7476,7 +7812,7 @@
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -7528,7 +7864,7 @@
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -7593,7 +7929,7 @@
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 14,
 				"height": 9,
 				"attrs": {},
@@ -7894,7 +8230,7 @@
 				"name": "Lost Cave",
 				"areaId": 181,
 				"areaName": "Lost Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 19,
 				"height": 26,
 				"attrs": {},
@@ -7907,7 +8243,7 @@
 				"name": "Lost Cave",
 				"areaId": 181,
 				"areaName": "Lost Cave",
-				"type": "underground",
+				"type": "dungeon",
 				"width": 19,
 				"height": 26,
 				"attrs": {},

@@ -638,6 +638,10 @@ const ATTRS = {
 		tooltip: `If the location is a fly location or spawn point. (Use only for Areas marking the spot)`,
 		areasOnly: true,
 	},
+	teleport: {
+		tooltip: `If the location is a teleport kiosk location (used often in ROM Hacks in place of increasing the number of fly spots). (Use only for Areas marking the spot)`,
+		areasOnly: true,
+	},
 	healing: {
 		tooltip: `If the location offers a type of healing.`,
 		values: [false,'pokecenter','doctor','nurse','house','partner'],
