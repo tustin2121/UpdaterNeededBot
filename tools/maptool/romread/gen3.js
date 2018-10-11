@@ -33,7 +33,8 @@ class Gen3Reader extends GBReader {
 					CENTER: [256, 400, 515],
 				};
 				this._LENGTHS = {
-					NumMapBanks: 33,
+					NumAreaNames: 0xD5,
+					NumMapBanks: 34,
 					MapHeaderBytes: 28,
 					MapBankSentinal: 0xF7F7F7F7,
 				};
@@ -85,16 +86,17 @@ class Gen3Reader extends GBReader {
 		// https://github.com/pret/pokeemerald/blob/efebc51972b23ddffa2700b1dd6895d4728646a3/data/maps/groups.inc
 		let bankTable = this.readStridedData(OFFSETS.MapBankPointers, 4, MAP_BANKS)
 			.map(bankPtr => bankPtr.readUint32(0) & 0x00FFFFFF );
+		bankTable.push(OFFSETS.MapBankPointers); //for the b+1 check below
 		
 		// Then, go through each bank and read the map header pointers
-		for (let b = 0; b < bankTable.length; b++) {
+		for (let b = 0; b < bankTable.length && b < MAP_BANKS; b++) {
 			let ptr = bankTable[b];
 			let bankData = [];
 			let mapHeaders = [];
 			this.offset = ptr;
-			for (let i = 0; i < 100; i++) {
+			for (let i = 0; i < 100 && this.offset !== bankTable[b+1]; i++) {
 				let mapPtr = this.readUint32();
-				if (mapPtr === 0 || mapPtr === LENGTHS.MapBankSentinal) break;
+				if (mapPtr & 0xFF000000 !== 0x08000000) break;
 				let header = this.readBytes(MAP_HEADER_BYTES, mapPtr & 0x00FFFFFF);
 				mapHeaders.push(header);
 			}
@@ -172,6 +174,7 @@ class Gen3Reader extends GBReader {
 		return { mapData };
 		
 		function readLayout(ptr) {
+			if (ptr === 0) return {};
 			let oldOff = this.offset;
 			try {
 				this.offset = ptr;
@@ -188,6 +191,7 @@ class Gen3Reader extends GBReader {
 			}
 		}
 		function readEvents(ptr) {
+			if (ptr === 0) return {};
 			let oldOff = this.offset;
 			try {
 				let out = { events:[], warps:[] };
@@ -255,6 +259,7 @@ class Gen3Reader extends GBReader {
 			}
 		}
 		function readConnections(ptr) {
+			if (ptr === 0) return {};
 			let oldOff = this.offset;
 			try {
 				let out = { conns:{} };
