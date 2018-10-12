@@ -177,7 +177,9 @@
 		},
 		"underwater": {
 			"type": "underwater",
-			"attrs": {},
+			"attrs": {
+				"underwater": true
+			},
 			"areas": []
 		}
 	},
@@ -935,7 +937,9 @@
 				"type": "route",
 				"width": 60,
 				"height": 30,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -948,7 +952,9 @@
 				"type": "route",
 				"width": 60,
 				"height": 20,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -961,7 +967,9 @@
 				"type": "route",
 				"width": 80,
 				"height": 30,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1007,7 +1015,7 @@
 			{
 				"bank": 0,
 				"id": 34,
-				"name": "Route Ab",
+				"name": "Route AB",
 				"areaId": 44,
 				"areaName": "Route Ab",
 				"type": "route",
@@ -1027,13 +1035,25 @@
 				"width": 84,
 				"height": 60,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 27,
+						"ay": 58,
+						"bx": 84,
+						"by": 58,
+						"rad": 0,
+						"name": "water",
+						"attrs": {
+							"water": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
 				"bank": 0,
 				"id": 36,
-				"name": "Route Af",
+				"name": "Route AF",
 				"areaId": 49,
 				"areaName": "Route Af",
 				"type": "route",
@@ -1066,7 +1086,19 @@
 				"width": 40,
 				"height": 80,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 0,
+						"bx": 16,
+						"by": 58,
+						"rad": 5,
+						"name": "water",
+						"attrs": {
+							"water": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -1078,7 +1110,9 @@
 				"type": "default",
 				"width": 80,
 				"height": 80,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1091,7 +1125,9 @@
 				"type": "default",
 				"width": 80,
 				"height": 40,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1104,7 +1140,9 @@
 				"type": "route",
 				"width": 80,
 				"height": 80,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1117,33 +1155,39 @@
 				"type": "default",
 				"width": 80,
 				"height": 80,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 0,
 				"id": 43,
-				"name": "Route Ac",
+				"name": "Route AC",
 				"areaId": 45,
 				"areaName": "Route Ac",
 				"type": "default",
 				"width": 120,
 				"height": 40,
-				"attrs": {},
+				"attrs": {
+					"route": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 0,
 				"id": 44,
-				"name": "Route V",
+				"name": "Route V?",
 				"areaId": 38,
 				"areaName": "Route V",
 				"type": "route",
 				"width": 80,
 				"height": 40,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1156,7 +1200,9 @@
 				"type": "route",
 				"width": 80,
 				"height": 40,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1214,7 +1260,7 @@
 			{
 				"bank": 0,
 				"id": 49,
-				"name": "Route Ah",
+				"name": "Route AH",
 				"areaId": 111,
 				"areaName": "Route Ah",
 				"type": "city",
@@ -1344,13 +1390,15 @@
 			{
 				"bank": 0,
 				"id": 59,
-				"name": "Route Aa",
+				"name": "Route AA",
 				"areaId": 43,
 				"areaName": "Route Aa",
 				"type": "route",
 				"width": 80,
 				"height": 40,
-				"attrs": {},
+				"attrs": {
+					"water": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -5144,7 +5192,7 @@
 				"name": "Bee-Bug Forest",
 				"areaId": 59,
 				"areaName": "Bee-Bug Forest",
-				"type": "route",
+				"type": "cave",
 				"width": 48,
 				"height": 54,
 				"attrs": {},
@@ -5278,7 +5326,19 @@
 				"width": 38,
 				"height": 51,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 20,
+						"ay": 7,
+						"bx": 20,
+						"by": 7,
+						"rad": 5,
+						"name": "legendary",
+						"attrs": {
+							"legendary": "Mew"
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -8647,6 +8707,20 @@
 			"timeout": 60000,
 			"from": "19.0",
 			"to": "19.1"
+		},
+		{
+			"type": "transit",
+			"id": "183843f2",
+			"text": "We surf onto Route V... except... there's this snow-covered island at the junction point... that's not on any maps...",
+			"timeout": 6000000000,
+			"to": "0.44"
+		},
+		{
+			"type": "transit",
+			"id": "6e891395",
+			"text": "We surf our way onto Route V. There's that snow-covered island again.",
+			"timeout": 600000,
+			"to": "0.44"
 		}
 	]
 }

@@ -621,6 +621,9 @@ const ATTRS = {
 	water: {
 		tooltip: `If the location is surf-required water.`,
 	},
+	underwater: {
+		tooltip: `If the location is underwater.`,
+	},
 	gym: {
 		tooltip: `If the location is a gym (badge/TM getting, attempt counting).`,
 	},
