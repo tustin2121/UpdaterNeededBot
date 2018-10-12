@@ -172,12 +172,10 @@
 		}
 	},
 	"nodes": [
-		null,
 		[
-			null,
 			{
-				"bank": 1,
-				"id": 1,
+				"bank": 0,
+				"id": 0,
 				"name": "Puel City",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -212,8 +210,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 2,
+				"bank": 0,
+				"id": 1,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -248,8 +246,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 3,
+				"bank": 0,
+				"id": 2,
 				"name": "Hotasita City",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -284,8 +282,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 4,
+				"bank": 0,
+				"id": 3,
 				"name": "Turzoro City",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -320,8 +318,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 5,
+				"bank": 0,
+				"id": 4,
 				"name": "Searound City",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -356,8 +354,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 6,
+				"bank": 0,
+				"id": 5,
 				"name": "Teaes City",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -392,8 +390,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 7,
+				"bank": 0,
+				"id": 6,
 				"name": "Charpos Island",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -428,8 +426,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 8,
+				"bank": 0,
+				"id": 7,
 				"name": "Pulhia City",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -464,8 +462,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 9,
+				"bank": 0,
+				"id": 8,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -511,8 +509,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 10,
+				"bank": 0,
+				"id": 9,
 				"name": "Small Town",
 				"areaId": 0,
 				"areaName": "Small Town",
@@ -547,8 +545,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 11,
+				"bank": 0,
+				"id": 10,
 				"name": "Forest Entrance",
 				"areaId": 1,
 				"areaName": "Forest Entrance",
@@ -583,8 +581,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 12,
+				"bank": 0,
+				"id": 11,
 				"name": "Mystic Town",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -619,8 +617,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 13,
+				"bank": 0,
+				"id": 12,
 				"name": "Surence Town",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -655,8 +653,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 14,
+				"bank": 0,
+				"id": 13,
 				"name": "Malias City",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -691,8 +689,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 15,
+				"bank": 0,
+				"id": 14,
 				"name": "Habutest Town",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -727,8 +725,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 16,
+				"bank": 0,
+				"id": 15,
 				"name": "Ocepac Town",
 				"areaId": 6,
 				"areaName": "Ocepac Town",
@@ -763,8 +761,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 17,
+				"bank": 0,
+				"id": 16,
 				"name": "Route A",
 				"areaId": 16,
 				"areaName": "Route A",
@@ -776,8 +774,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 18,
+				"bank": 0,
+				"id": 17,
 				"name": "Route B",
 				"areaId": 37,
 				"areaName": "Route B",
@@ -789,8 +787,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 19,
+				"bank": 0,
+				"id": 18,
 				"name": "Route C",
 				"areaId": 17,
 				"areaName": "Route C",
@@ -802,8 +800,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 20,
+				"bank": 0,
+				"id": 19,
 				"name": "Route G",
 				"areaId": 18,
 				"areaName": "Route G",
@@ -815,8 +813,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 21,
+				"bank": 0,
+				"id": 20,
 				"name": "Route F",
 				"areaId": 19,
 				"areaName": "Route F",
@@ -828,8 +826,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 22,
+				"bank": 0,
+				"id": 21,
 				"name": "Route E",
 				"areaId": 20,
 				"areaName": "Route E",
@@ -841,8 +839,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 23,
+				"bank": 0,
+				"id": 22,
 				"name": "Route L",
 				"areaId": 21,
 				"areaName": "Route L",
@@ -854,8 +852,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 24,
+				"bank": 0,
+				"id": 23,
 				"name": "Route K",
 				"areaId": 22,
 				"areaName": "Route K",
@@ -867,8 +865,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 25,
+				"bank": 0,
+				"id": 24,
 				"name": "Route D",
 				"areaId": 23,
 				"areaName": "Route D",
@@ -880,8 +878,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 26,
+				"bank": 0,
+				"id": 25,
 				"name": "Route H",
 				"areaId": 24,
 				"areaName": "Route H",
@@ -893,8 +891,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 27,
+				"bank": 0,
+				"id": 26,
 				"name": "Route J",
 				"areaId": 25,
 				"areaName": "Route J",
@@ -906,8 +904,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 28,
+				"bank": 0,
+				"id": 27,
 				"name": "Route I",
 				"areaId": 26,
 				"areaName": "Route I",
@@ -919,8 +917,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 29,
+				"bank": 0,
+				"id": 28,
 				"name": "Route O",
 				"areaId": 27,
 				"areaName": "Route O",
@@ -932,8 +930,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 30,
+				"bank": 0,
+				"id": 29,
 				"name": "Route M",
 				"areaId": 28,
 				"areaName": "Route M",
@@ -945,8 +943,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 31,
+				"bank": 0,
+				"id": 30,
 				"name": "Route N",
 				"areaId": 29,
 				"areaName": "Route N",
@@ -958,8 +956,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 32,
+				"bank": 0,
+				"id": 31,
 				"name": "A Path",
 				"areaId": 88,
 				"areaName": "A Path",
@@ -971,8 +969,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 33,
+				"bank": 0,
+				"id": 32,
 				"name": "Route P",
 				"areaId": 47,
 				"areaName": "Route P",
@@ -984,8 +982,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 34,
+				"bank": 0,
+				"id": 33,
 				"name": "Route X",
 				"areaId": 40,
 				"areaName": "Route X",
@@ -997,8 +995,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 35,
+				"bank": 0,
+				"id": 34,
 				"name": "Route Ab",
 				"areaId": 44,
 				"areaName": "Route Ab",
@@ -1010,8 +1008,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 36,
+				"bank": 0,
+				"id": 35,
 				"name": "Route T",
 				"areaId": 35,
 				"areaName": "Route T",
@@ -1023,8 +1021,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 37,
+				"bank": 0,
+				"id": 36,
 				"name": "Route Af",
 				"areaId": 49,
 				"areaName": "Route Af",
@@ -1036,8 +1034,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 38,
+				"bank": 0,
+				"id": 37,
 				"name": "Route Y",
 				"areaId": 41,
 				"areaName": "Route Y",
@@ -1049,8 +1047,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 39,
+				"bank": 0,
+				"id": 38,
 				"name": "Route Z",
 				"areaId": 42,
 				"areaName": "Route Z",
@@ -1062,8 +1060,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 40,
+				"bank": 0,
+				"id": 39,
 				"name": "Route S",
 				"areaId": 34,
 				"areaName": "Route S",
@@ -1075,8 +1073,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 41,
+				"bank": 0,
+				"id": 40,
 				"name": "Route R",
 				"areaId": 33,
 				"areaName": "Route R",
@@ -1088,8 +1086,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 42,
+				"bank": 0,
+				"id": 41,
 				"name": "Route U",
 				"areaId": 36,
 				"areaName": "Route U",
@@ -1101,8 +1099,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 43,
+				"bank": 0,
+				"id": 42,
 				"name": "Route Q",
 				"areaId": 32,
 				"areaName": "Route Q",
@@ -1114,8 +1112,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 44,
+				"bank": 0,
+				"id": 43,
 				"name": "Route Ac",
 				"areaId": 45,
 				"areaName": "Route Ac",
@@ -1127,7 +1125,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
+				"bank": 0,
+				"id": 44,
+				"name": "Route V",
+				"areaId": 38,
+				"areaName": "Route V",
+				"type": "route",
+				"width": 80,
+				"height": 40,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 0,
 				"id": 45,
 				"name": "Route V",
 				"areaId": 38,
@@ -1140,21 +1151,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
+				"bank": 0,
 				"id": 46,
-				"name": "Route V",
-				"areaId": 38,
-				"areaName": "Route V",
-				"type": "route",
-				"width": 80,
-				"height": 40,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 1,
-				"id": 47,
 				"name": "L Path",
 				"areaId": 99,
 				"areaName": "L Path",
@@ -1166,8 +1164,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 48,
+				"bank": 0,
+				"id": 47,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -1191,8 +1189,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 49,
+				"bank": 0,
+				"id": 48,
 				"name": "Route W",
 				"areaId": 39,
 				"areaName": "Route W",
@@ -1204,8 +1202,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 50,
+				"bank": 0,
+				"id": 49,
 				"name": "Route Ah",
 				"areaId": 111,
 				"areaName": "Route Ah",
@@ -1217,8 +1215,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 51,
+				"bank": 0,
+				"id": 50,
 				"name": "Underwater",
 				"areaId": 50,
 				"areaName": "Underwater",
@@ -1230,8 +1228,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 52,
+				"bank": 0,
+				"id": 51,
 				"name": "Underwater",
 				"areaId": 51,
 				"areaName": "Underwater",
@@ -1243,8 +1241,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 53,
+				"bank": 0,
+				"id": 52,
 				"name": "Underwater",
 				"areaId": 52,
 				"areaName": "Underwater",
@@ -1256,8 +1254,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 54,
+				"bank": 0,
+				"id": 53,
 				"name": "Underwater",
 				"areaId": 53,
 				"areaName": "Underwater",
@@ -1269,8 +1267,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 55,
+				"bank": 0,
+				"id": 54,
 				"name": "Underwater",
 				"areaId": 208,
 				"areaName": "Underwater",
@@ -1282,8 +1280,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 56,
+				"bank": 0,
+				"id": 55,
 				"name": "Underwater",
 				"areaId": 206,
 				"areaName": "Underwater",
@@ -1295,8 +1293,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 57,
+				"bank": 0,
+				"id": 56,
 				"name": "Underwater",
 				"areaId": 207,
 				"areaName": "Underwater",
@@ -1308,8 +1306,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 58,
+				"bank": 0,
+				"id": 57,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -1321,8 +1319,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 59,
+				"bank": 0,
+				"id": 58,
 				"name": "Honey Village",
 				"areaId": 92,
 				"areaName": "Honey Village",
@@ -1334,8 +1332,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 60,
+				"bank": 0,
+				"id": 59,
 				"name": "Route Aa",
 				"areaId": 43,
 				"areaName": "Route Aa",
@@ -1347,8 +1345,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 61,
+				"bank": 0,
+				"id": 60,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -1360,8 +1358,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 62,
+				"bank": 0,
+				"id": 61,
 				"name": "Golden City",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -1385,8 +1383,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 63,
+				"bank": 0,
+				"id": 62,
 				"name": "Route Ad",
 				"areaId": 48,
 				"areaName": "Route Ad",
@@ -1398,8 +1396,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 64,
+				"bank": 0,
+				"id": 63,
 				"name": "Q Area",
 				"areaId": 89,
 				"areaName": "Q Area",
@@ -1423,8 +1421,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 65,
+				"bank": 0,
+				"id": 64,
 				"name": "Ancient Ruins",
 				"areaId": 184,
 				"areaName": "Ancient Ruins",
@@ -1436,8 +1434,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 66,
+				"bank": 0,
+				"id": 65,
 				"name": "R Area",
 				"areaId": 73,
 				"areaName": "R Area",
@@ -1473,8 +1471,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 67,
+				"bank": 0,
+				"id": 66,
 				"name": "L Area",
 				"areaId": 95,
 				"areaName": "L Area",
@@ -1498,8 +1496,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 68,
+				"bank": 0,
+				"id": 67,
 				"name": "Froster Town",
 				"areaId": 98,
 				"areaName": "Froster Town",
@@ -1511,8 +1509,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 69,
+				"bank": 0,
+				"id": 68,
 				"name": "Chall. Islands",
 				"areaId": 159,
 				"areaName": "Chall. Islands",
@@ -1524,8 +1522,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 70,
+				"bank": 0,
+				"id": 69,
 				"name": "Gloomist Forest",
 				"areaId": 126,
 				"areaName": "Gloomist Forest",
@@ -1537,8 +1535,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 71,
+				"bank": 0,
+				"id": 70,
 				"name": "Q Path",
 				"areaId": 91,
 				"areaName": "Q Path",
@@ -1550,8 +1548,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 72,
+				"bank": 0,
+				"id": 71,
 				"name": "Ch. Harbor",
 				"areaId": 94,
 				"areaName": "Ch. Harbor",
@@ -1563,8 +1561,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 73,
+				"bank": 0,
+				"id": 72,
 				"name": "A Area",
 				"areaId": 100,
 				"areaName": "A Area",
@@ -1588,8 +1586,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 74,
+				"bank": 0,
+				"id": 73,
 				"name": "Outcast Island",
 				"areaId": 163,
 				"areaName": "Outcast Island",
@@ -1601,8 +1599,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 75,
+				"bank": 0,
+				"id": 74,
 				"name": "Cryptic City",
 				"areaId": 151,
 				"areaName": "Cryptic City",
@@ -1626,8 +1624,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 1,
-				"id": 76,
+				"bank": 0,
+				"id": 75,
 				"name": "Memory Town",
 				"areaId": 162,
 				"areaName": "Memory Town",
@@ -1652,40 +1650,39 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 2,
+				"bank": 1,
+				"id": 0,
+				"name": "Small Town",
+				"areaId": 0,
+				"areaName": "Small Town",
+				"type": "indoor",
+				"width": 11,
+				"height": 9,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
 				"id": 1,
 				"name": "Small Town",
 				"areaId": 0,
 				"areaName": "Small Town",
 				"type": "indoor",
-				"width": 11,
-				"height": 9,
+				"width": 9,
+				"height": 8,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
-				"bank": 2,
+				"bank": 1,
 				"id": 2,
 				"name": "Small Town",
 				"areaId": 0,
 				"areaName": "Small Town",
 				"type": "indoor",
-				"width": 9,
-				"height": 8,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 2,
-				"id": 3,
-				"name": "Small Town",
-				"areaId": 0,
-				"areaName": "Small Town",
-				"type": "indoor",
 				"width": 11,
 				"height": 9,
 				"attrs": {},
@@ -1693,8 +1690,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 2,
-				"id": 4,
+				"bank": 1,
+				"id": 3,
 				"name": "Small Town",
 				"areaId": 0,
 				"areaName": "Small Town",
@@ -1706,8 +1703,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 2,
-				"id": 5,
+				"bank": 1,
+				"id": 4,
 				"name": "Small Town",
 				"areaId": 0,
 				"areaName": "Small Town",
@@ -1720,10 +1717,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 3,
-				"id": 1,
+				"bank": 2,
+				"id": 0,
 				"name": "Route A",
 				"areaId": 16,
 				"areaName": "Route A",
@@ -1735,8 +1731,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 3,
-				"id": 2,
+				"bank": 2,
+				"id": 1,
 				"name": "Forest Entrance",
 				"areaId": 1,
 				"areaName": "Forest Entrance",
@@ -1748,8 +1744,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 3,
-				"id": 3,
+				"bank": 2,
+				"id": 2,
 				"name": "Forest Entrance Pokémon Center",
 				"areaId": 1,
 				"areaName": "Forest Entrance",
@@ -1761,8 +1757,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 3,
-				"id": 4,
+				"bank": 2,
+				"id": 3,
 				"name": "Forest Entrance Trading Center",
 				"areaId": 1,
 				"areaName": "Forest Entrance",
@@ -1774,8 +1770,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 3,
-				"id": 5,
+				"bank": 2,
+				"id": 4,
 				"name": "Forest Entrance PokéMart",
 				"areaId": 1,
 				"areaName": "Forest Entrance",
@@ -1788,10 +1784,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 4,
-				"id": 1,
+				"bank": 3,
+				"id": 0,
 				"name": "Mystic Town",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1803,8 +1798,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 2,
+				"bank": 3,
+				"id": 1,
 				"name": "Mystic Town Pokémon Center",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1816,8 +1811,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 3,
+				"bank": 3,
+				"id": 2,
 				"name": "Mystic Town Trading Center",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1829,8 +1824,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 4,
+				"bank": 3,
+				"id": 3,
 				"name": "Puel City Gym",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -1854,8 +1849,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 5,
+				"bank": 3,
+				"id": 4,
 				"name": "Mystic Town",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1867,8 +1862,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 6,
+				"bank": 3,
+				"id": 5,
 				"name": "Mystic Town",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1880,8 +1875,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 7,
+				"bank": 3,
+				"id": 6,
 				"name": "Union Gate",
 				"areaId": 150,
 				"areaName": "Union Gate",
@@ -1893,8 +1888,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 8,
+				"bank": 3,
+				"id": 7,
 				"name": "Mystic Town",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1906,8 +1901,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 4,
-				"id": 9,
+				"bank": 3,
+				"id": 8,
 				"name": "Torn World",
 				"areaId": 164,
 				"areaName": "Torn World",
@@ -1920,10 +1915,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 5,
-				"id": 1,
+				"bank": 4,
+				"id": 0,
 				"name": "Mystic Town Herb Shop",
 				"areaId": 2,
 				"areaName": "Mystic Town",
@@ -1949,7 +1943,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 5,
+				"bank": 4,
+				"id": 1,
+				"name": "Magma Hideout",
+				"areaId": 198,
+				"areaName": "Magma Hideout",
+				"type": "indoor",
+				"width": 17,
+				"height": 19,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 4,
 				"id": 2,
 				"name": "Magma Hideout",
 				"areaId": 198,
@@ -1962,21 +1969,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 5,
+				"bank": 4,
 				"id": 3,
-				"name": "Magma Hideout",
-				"areaId": 198,
-				"areaName": "Magma Hideout",
-				"type": "indoor",
-				"width": 17,
-				"height": 19,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 5,
-				"id": 4,
 				"name": "Surence Town",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -1988,8 +1982,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 5,
-				"id": 5,
+				"bank": 4,
+				"id": 4,
 				"name": "Surence Town PokéMart",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -2001,8 +1995,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 5,
-				"id": 6,
+				"bank": 4,
+				"id": 5,
 				"name": "Surence Town Pokémon Center",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -2014,8 +2008,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 5,
-				"id": 7,
+				"bank": 4,
+				"id": 6,
 				"name": "Surence Town Trading Center",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -2027,8 +2021,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 5,
-				"id": 8,
+				"bank": 4,
+				"id": 7,
 				"name": "Surence Town",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -2041,10 +2035,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 6,
-				"id": 1,
+				"bank": 5,
+				"id": 0,
 				"name": "Malias City PokéMart",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -2056,8 +2049,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 2,
+				"bank": 5,
+				"id": 1,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2069,8 +2062,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 3,
+				"bank": 5,
+				"id": 2,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2082,8 +2075,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 4,
+				"bank": 5,
+				"id": 3,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2095,8 +2088,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 5,
+				"bank": 5,
+				"id": 4,
 				"name": "Malias City Pokémon Center",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -2108,8 +2101,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 6,
+				"bank": 5,
+				"id": 5,
 				"name": "Malias City Trading Center",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -2121,8 +2114,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 7,
+				"bank": 5,
+				"id": 6,
 				"name": "Malias City",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -2134,8 +2127,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 6,
-				"id": 8,
+				"bank": 5,
+				"id": 7,
 				"name": "Malias City",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -2148,10 +2141,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 7,
-				"id": 1,
+				"bank": 6,
+				"id": 0,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2163,8 +2155,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 2,
+				"bank": 6,
+				"id": 1,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2176,8 +2168,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 3,
+				"bank": 6,
+				"id": 2,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2189,8 +2181,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 4,
+				"bank": 6,
+				"id": 3,
 				"name": "Habutest Town PokéMart",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -2202,8 +2194,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 5,
+				"bank": 6,
+				"id": 4,
 				"name": "Habutest Town Pokémon Center",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -2215,8 +2207,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 6,
+				"bank": 6,
+				"id": 5,
 				"name": "Habutest Town Trading Center",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -2228,8 +2220,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 7,
+				"bank": 6,
+				"id": 6,
 				"name": "Habutest Town",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -2241,8 +2233,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 8,
+				"bank": 6,
+				"id": 7,
 				"name": "Golden Station",
 				"areaId": 96,
 				"areaName": "Golden Station",
@@ -2254,8 +2246,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 9,
+				"bank": 6,
+				"id": 8,
 				"name": "Habutest Town",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -2267,8 +2259,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 10,
+				"bank": 6,
+				"id": 9,
 				"name": "Golden Station",
 				"areaId": 96,
 				"areaName": "Golden Station",
@@ -2280,8 +2272,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 11,
+				"bank": 6,
+				"id": 10,
 				"name": "Hole Woods",
 				"areaId": 180,
 				"areaName": "Hole Woods",
@@ -2293,8 +2285,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 7,
-				"id": 12,
+				"bank": 6,
+				"id": 11,
 				"name": "Malias Library",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -2307,10 +2299,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 8,
-				"id": 1,
+				"bank": 7,
+				"id": 0,
 				"name": "Ocepac Town Pokémon Center",
 				"areaId": 6,
 				"areaName": "Ocepac Town",
@@ -2322,8 +2313,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 2,
+				"bank": 7,
+				"id": 1,
 				"name": "Ocepac Town Trading Center",
 				"areaId": 6,
 				"areaName": "Ocepac Town",
@@ -2335,7 +2326,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
+				"bank": 7,
+				"id": 2,
+				"name": "Ocepac Town",
+				"areaId": 6,
+				"areaName": "Ocepac Town",
+				"type": "indoor",
+				"width": 10,
+				"height": 9,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
 				"id": 3,
 				"name": "Ocepac Town",
 				"areaId": 6,
@@ -2348,21 +2352,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
+				"bank": 7,
 				"id": 4,
-				"name": "Ocepac Town",
-				"areaId": 6,
-				"areaName": "Ocepac Town",
-				"type": "indoor",
-				"width": 10,
-				"height": 9,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 8,
-				"id": 5,
 				"name": "Golden City",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -2374,8 +2365,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 6,
+				"bank": 7,
+				"id": 5,
 				"name": "Ocepac Town",
 				"areaId": 6,
 				"areaName": "Ocepac Town",
@@ -2387,8 +2378,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 7,
+				"bank": 7,
+				"id": 6,
 				"name": "Searound City",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -2400,8 +2391,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 8,
+				"bank": 7,
+				"id": 7,
 				"name": "Golden City Pokémon Center",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -2415,8 +2406,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 9,
+				"bank": 7,
+				"id": 8,
 				"name": "Golden City PokéMart",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -2428,8 +2419,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 10,
+				"bank": 7,
+				"id": 9,
 				"name": "Golden City",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -2441,8 +2432,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 11,
+				"bank": 7,
+				"id": 10,
 				"name": "Honey Village",
 				"areaId": 92,
 				"areaName": "Honey Village",
@@ -2454,8 +2445,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 8,
-				"id": 12,
+				"bank": 7,
+				"id": 11,
 				"name": "Ocepac Town",
 				"areaId": 6,
 				"areaName": "Ocepac Town",
@@ -2468,10 +2459,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 9,
-				"id": 1,
+				"bank": 8,
+				"id": 0,
 				"name": "Northern Isle",
 				"areaId": 190,
 				"areaName": "Northern Isle",
@@ -2483,8 +2473,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 2,
+				"bank": 8,
+				"id": 1,
 				"name": "Chall. Islands",
 				"areaId": 159,
 				"areaName": "Chall. Islands",
@@ -2496,8 +2486,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 3,
+				"bank": 8,
+				"id": 2,
 				"name": "Ancient Ruins",
 				"areaId": 184,
 				"areaName": "Ancient Ruins",
@@ -2509,8 +2499,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 4,
+				"bank": 8,
+				"id": 3,
 				"name": "Puel City",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -2522,8 +2512,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 5,
+				"bank": 8,
+				"id": 4,
 				"name": "Puel City Pokémon Center",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -2535,8 +2525,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 6,
+				"bank": 8,
+				"id": 5,
 				"name": "Puel City Trading Center",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -2548,8 +2538,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 7,
+				"bank": 8,
+				"id": 6,
 				"name": "Puel City PokéMart",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -2561,8 +2551,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 8,
+				"bank": 8,
+				"id": 7,
 				"name": "Route J Pokémon Center",
 				"areaId": 25,
 				"areaName": "Route J",
@@ -2576,8 +2566,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 9,
+				"bank": 8,
+				"id": 8,
 				"name": "R Area Pokémon Center",
 				"areaId": 73,
 				"areaName": "R Area",
@@ -2591,8 +2581,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 10,
+				"bank": 8,
+				"id": 9,
 				"name": "R Area PokéMart",
 				"areaId": 73,
 				"areaName": "R Area",
@@ -2604,8 +2594,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 11,
+				"bank": 8,
+				"id": 10,
 				"name": "Q Area Pokémon Center",
 				"areaId": 89,
 				"areaName": "Q Area",
@@ -2619,8 +2609,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 12,
+				"bank": 8,
+				"id": 11,
 				"name": "Q Area PokéMart",
 				"areaId": 89,
 				"areaName": "Q Area",
@@ -2632,8 +2622,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 13,
+				"bank": 8,
+				"id": 12,
 				"name": "Memory Town",
 				"areaId": 162,
 				"areaName": "Memory Town",
@@ -2645,8 +2635,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 14,
+				"bank": 8,
+				"id": 13,
 				"name": "Cryptic City",
 				"areaId": 151,
 				"areaName": "Cryptic City",
@@ -2658,8 +2648,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 9,
-				"id": 15,
+				"bank": 8,
+				"id": 14,
 				"name": "Cryptic City Gym",
 				"areaId": 151,
 				"areaName": "Cryptic City",
@@ -2684,10 +2674,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 10,
-				"id": 1,
+				"bank": 9,
+				"id": 0,
 				"name": "Surence Town Gym",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -2699,8 +2688,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 2,
+				"bank": 9,
+				"id": 1,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2712,8 +2701,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 3,
+				"bank": 9,
+				"id": 2,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2725,8 +2714,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 4,
+				"bank": 9,
+				"id": 3,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2738,8 +2727,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 5,
+				"bank": 9,
+				"id": 4,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2751,8 +2740,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 6,
+				"bank": 9,
+				"id": 5,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -2764,8 +2753,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 7,
+				"bank": 9,
+				"id": 6,
 				"name": "Pokémon Fan Club",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -2779,7 +2768,22 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
+				"bank": 9,
+				"id": 7,
+				"name": "Oceanic Museum",
+				"areaId": 11,
+				"areaName": "Searound City",
+				"type": "indoor",
+				"width": 20,
+				"height": 9,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
 				"id": 8,
 				"name": "Oceanic Museum",
 				"areaId": 11,
@@ -2794,23 +2798,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
+				"bank": 9,
 				"id": 9,
-				"name": "Oceanic Museum",
-				"areaId": 11,
-				"areaName": "Searound City",
-				"type": "indoor",
-				"width": 20,
-				"height": 9,
-				"attrs": {
-					"the": "the"
-				},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 10,
-				"id": 10,
 				"name": "Teaes City",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -2822,8 +2811,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 11,
+				"bank": 9,
+				"id": 10,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2835,8 +2824,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 12,
+				"bank": 9,
+				"id": 11,
 				"name": "Platepics City Pokémon Center",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -2848,8 +2837,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 13,
+				"bank": 9,
+				"id": 12,
 				"name": "Platepics City Trading Center",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -2861,8 +2850,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 14,
+				"bank": 9,
+				"id": 13,
 				"name": "Platepics City PokéMart",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -2874,8 +2863,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 15,
+				"bank": 9,
+				"id": 14,
 				"name": "Platepics City Gym",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -2900,8 +2889,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 16,
+				"bank": 9,
+				"id": 15,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -2913,8 +2902,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 17,
+				"bank": 9,
+				"id": 16,
 				"name": "Teaes City",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -2926,8 +2915,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 18,
+				"bank": 9,
+				"id": 17,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2939,8 +2928,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 19,
+				"bank": 9,
+				"id": 18,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2952,8 +2941,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 20,
+				"bank": 9,
+				"id": 19,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2965,8 +2954,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 21,
+				"bank": 9,
+				"id": 20,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2978,8 +2967,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 22,
+				"bank": 9,
+				"id": 21,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -2991,8 +2980,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 10,
-				"id": 23,
+				"bank": 9,
+				"id": 22,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3005,10 +2994,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 11,
-				"id": 1,
+				"bank": 10,
+				"id": 0,
 				"name": "Turzoro City Gym",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3032,8 +3020,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 2,
+				"bank": 10,
+				"id": 1,
 				"name": "Bike Shop",
 				"areaId": 20,
 				"areaName": "Route E",
@@ -3047,8 +3035,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 3,
+				"bank": 10,
+				"id": 2,
 				"name": "Hotasita City",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -3060,8 +3048,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 4,
+				"bank": 10,
+				"id": 3,
 				"name": "Golden City Game Corner",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -3075,8 +3063,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 5,
+				"bank": 10,
+				"id": 4,
 				"name": "Golden City",
 				"areaId": 90,
 				"areaName": "Golden City",
@@ -3088,8 +3076,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 6,
+				"bank": 10,
+				"id": 5,
 				"name": "Hotasita City Pokémon Center",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -3101,8 +3089,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 7,
+				"bank": 10,
+				"id": 6,
 				"name": "Hotasita City Trading Center",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -3114,8 +3102,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 8,
+				"bank": 10,
+				"id": 7,
 				"name": "Hotasita City PokéMart",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -3127,8 +3115,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 9,
+				"bank": 10,
+				"id": 8,
 				"name": "Hotasita City",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -3140,8 +3128,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 10,
+				"bank": 10,
+				"id": 9,
 				"name": "Q Area",
 				"areaId": 89,
 				"areaName": "Q Area",
@@ -3163,8 +3151,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 11,
-				"id": 11,
+				"bank": 10,
+				"id": 10,
 				"name": "Q Area",
 				"areaId": 89,
 				"areaName": "Q Area",
@@ -3177,10 +3165,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 12,
-				"id": 1,
+				"bank": 11,
+				"id": 0,
 				"name": "Platepics City Radio Tower",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3192,8 +3179,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 2,
+				"bank": 11,
+				"id": 1,
 				"name": "Platepics City Radio Tower",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3242,8 +3229,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 3,
+				"bank": 11,
+				"id": 2,
 				"name": "Platepics City Radio Tower",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3255,8 +3242,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 4,
+				"bank": 11,
+				"id": 3,
 				"name": "Malias City Gym",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -3280,8 +3267,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 5,
+				"bank": 11,
+				"id": 4,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3293,8 +3280,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 6,
+				"bank": 11,
+				"id": 5,
 				"name": "Turzoro City Pokémon Center",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3306,8 +3293,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 7,
+				"bank": 11,
+				"id": 6,
 				"name": "Turzoro City Trading Center",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3319,8 +3306,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 8,
+				"bank": 11,
+				"id": 7,
 				"name": "Turzoro City PokéMart",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3332,8 +3319,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 9,
+				"bank": 11,
+				"id": 8,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3345,8 +3332,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 10,
+				"bank": 11,
+				"id": 9,
 				"name": "Honey Village",
 				"areaId": 92,
 				"areaName": "Honey Village",
@@ -3358,8 +3345,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 11,
+				"bank": 11,
+				"id": 10,
 				"name": "Turzoro City",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3371,8 +3358,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 12,
+				"bank": 11,
+				"id": 11,
 				"name": "Malias City",
 				"areaId": 4,
 				"areaName": "Malias City",
@@ -3384,8 +3371,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 13,
+				"bank": 11,
+				"id": 12,
 				"name": "Turzoro City",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3397,8 +3384,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 14,
+				"bank": 11,
+				"id": 13,
 				"name": "R Area",
 				"areaId": 73,
 				"areaName": "R Area",
@@ -3410,8 +3397,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 15,
+				"bank": 11,
+				"id": 14,
 				"name": "Turzoro City",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -3423,8 +3410,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 16,
+				"bank": 11,
+				"id": 15,
 				"name": "Pulhia City",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -3436,8 +3423,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 17,
+				"bank": 11,
+				"id": 16,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3449,8 +3436,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 12,
-				"id": 18,
+				"bank": 11,
+				"id": 17,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -3463,10 +3450,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 13,
-				"id": 1,
+				"bank": 12,
+				"id": 0,
 				"name": "Searound City",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3478,8 +3464,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 2,
+				"bank": 12,
+				"id": 1,
 				"name": "Hotasita City Gym",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -3503,8 +3489,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 3,
+				"bank": 12,
+				"id": 2,
 				"name": "Searound City Pokémon Center",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3516,8 +3502,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 4,
+				"bank": 12,
+				"id": 3,
 				"name": "Searound City Trading Center",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3529,8 +3515,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 5,
+				"bank": 12,
+				"id": 4,
 				"name": "Searound City PokéMart",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3542,8 +3528,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 6,
+				"bank": 12,
+				"id": 5,
 				"name": "Surence Town",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -3555,8 +3541,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 7,
+				"bank": 12,
+				"id": 6,
 				"name": "Searound City",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3568,7 +3554,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
+				"bank": 12,
+				"id": 7,
+				"name": "Honey Village",
+				"areaId": 92,
+				"areaName": "Honey Village",
+				"type": "indoor",
+				"width": 14,
+				"height": 12,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
 				"id": 8,
 				"name": "Honey Village",
 				"areaId": 92,
@@ -3581,21 +3580,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
+				"bank": 12,
 				"id": 9,
-				"name": "Honey Village",
-				"areaId": 92,
-				"areaName": "Honey Village",
-				"type": "indoor",
-				"width": 14,
-				"height": 12,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 13,
-				"id": 10,
 				"name": "Surence Town",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -3619,8 +3605,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 11,
+				"bank": 12,
+				"id": 10,
 				"name": "Searound Underground",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3635,8 +3621,8 @@
 			},
 			null,
 			{
-				"bank": 13,
-				"id": 13,
+				"bank": 12,
+				"id": 12,
 				"name": "Searound City",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3648,8 +3634,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 13,
-				"id": 14,
+				"bank": 12,
+				"id": 13,
 				"name": "Searound City Gym",
 				"areaId": 11,
 				"areaName": "Searound City",
@@ -3674,9 +3660,21 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 14,
+				"bank": 13,
+				"id": 0,
+				"name": "Surence Town",
+				"areaId": 3,
+				"areaName": "Surence Town",
+				"type": "indoor",
+				"width": 12,
+				"height": 9,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 13,
 				"id": 1,
 				"name": "Surence Town",
 				"areaId": 3,
@@ -3689,21 +3687,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
+				"bank": 13,
 				"id": 2,
-				"name": "Surence Town",
-				"areaId": 3,
-				"areaName": "Surence Town",
-				"type": "indoor",
-				"width": 12,
-				"height": 9,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 14,
-				"id": 3,
 				"name": "Puel City Art Muesum",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -3717,8 +3702,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 4,
+				"bank": 13,
+				"id": 3,
 				"name": "Puel City Art Muesum",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -3732,8 +3717,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 5,
+				"bank": 13,
+				"id": 4,
 				"name": "Pulhia City Contest Hall",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -3747,8 +3732,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 6,
+				"bank": 13,
+				"id": 5,
 				"name": "Pulhia City Contest Hall",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -3762,8 +3747,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 7,
+				"bank": 13,
+				"id": 6,
 				"name": "Teaes City Pokémon Center",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3775,8 +3760,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 8,
+				"bank": 13,
+				"id": 7,
 				"name": "Teaes City Trading Center",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3788,8 +3773,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 9,
+				"bank": 13,
+				"id": 8,
 				"name": "Teaes City PokéMart",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3801,8 +3786,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 10,
+				"bank": 13,
+				"id": 9,
 				"name": "Teaes City Fan Club",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3816,8 +3801,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 11,
+				"bank": 13,
+				"id": 10,
 				"name": "Charpos Harbor",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -3829,7 +3814,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
+				"bank": 13,
+				"id": 11,
+				"name": "Teaes City",
+				"areaId": 12,
+				"areaName": "Teaes City",
+				"type": "indoor",
+				"width": 18,
+				"height": 13,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 13,
 				"id": 12,
 				"name": "Teaes City",
 				"areaId": 12,
@@ -3842,21 +3840,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
+				"bank": 13,
 				"id": 13,
-				"name": "Teaes City",
-				"areaId": 12,
-				"areaName": "Teaes City",
-				"type": "indoor",
-				"width": 18,
-				"height": 13,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 14,
-				"id": 14,
 				"name": "Teaes City",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3868,8 +3853,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 15,
+				"bank": 13,
+				"id": 14,
 				"name": "[Error]",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3881,8 +3866,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 16,
+				"bank": 13,
+				"id": 15,
 				"name": "Teaes City",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3894,8 +3879,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 17,
+				"bank": 13,
+				"id": 16,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3907,8 +3892,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 18,
+				"bank": 13,
+				"id": 17,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3932,8 +3917,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 19,
+				"bank": 13,
+				"id": 18,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3957,8 +3942,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 20,
+				"bank": 13,
+				"id": 19,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -3982,8 +3967,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 21,
+				"bank": 13,
+				"id": 20,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -4007,8 +3992,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 22,
+				"bank": 13,
+				"id": 21,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -4030,8 +4015,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 23,
+				"bank": 13,
+				"id": 22,
 				"name": "Teaes City Department Store",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -4043,8 +4028,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 24,
+				"bank": 13,
+				"id": 23,
 				"name": "Teaes City",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -4056,8 +4041,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 25,
+				"bank": 13,
+				"id": 24,
 				"name": "Route J",
 				"areaId": 25,
 				"areaName": "Route J",
@@ -4069,8 +4054,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 14,
-				"id": 26,
+				"bank": 13,
+				"id": 25,
 				"name": "Abandoned Island Caverns",
 				"areaId": 160,
 				"areaName": "Abandoned Island",
@@ -4097,10 +4082,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 15,
-				"id": 1,
+				"bank": 14,
+				"id": 0,
 				"name": "Surence Town Gym",
 				"areaId": 3,
 				"areaName": "Surence Town",
@@ -4124,8 +4108,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 2,
+				"bank": 14,
+				"id": 1,
 				"name": "[Error]",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4137,8 +4121,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 3,
+				"bank": 14,
+				"id": 2,
 				"name": "Hotasita City",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -4150,8 +4134,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 4,
+				"bank": 14,
+				"id": 3,
 				"name": "Charpos Island Pokémon Center",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4163,8 +4147,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 5,
+				"bank": 14,
+				"id": 4,
 				"name": "Charpos Island Trading Center",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4176,8 +4160,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 6,
+				"bank": 14,
+				"id": 5,
 				"name": "Charpos Island PokéMart",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4189,8 +4173,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 7,
+				"bank": 14,
+				"id": 6,
 				"name": "Charpos Island",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4202,8 +4186,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 8,
+				"bank": 14,
+				"id": 7,
 				"name": "Northern Isle",
 				"areaId": 190,
 				"areaName": "Northern Isle",
@@ -4215,8 +4199,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 9,
+				"bank": 14,
+				"id": 8,
 				"name": "Charpos Island",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4228,7 +4212,22 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
+				"bank": 14,
+				"id": 9,
+				"name": "Malias Library",
+				"areaId": 4,
+				"areaName": "Malias City",
+				"type": "indoor",
+				"width": 16,
+				"height": 10,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
 				"id": 10,
 				"name": "Malias Library",
 				"areaId": 4,
@@ -4243,23 +4242,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
+				"bank": 14,
 				"id": 11,
-				"name": "Malias Library",
-				"areaId": 4,
-				"areaName": "Malias City",
-				"type": "indoor",
-				"width": 16,
-				"height": 10,
-				"attrs": {
-					"the": "the"
-				},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 15,
-				"id": 12,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -4271,8 +4255,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 13,
+				"bank": 14,
+				"id": 12,
 				"name": "Searound Underground",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4284,8 +4268,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 15,
-				"id": 14,
+				"bank": 14,
+				"id": 13,
 				"name": "Charpos Island Bike Shop",
 				"areaId": 13,
 				"areaName": "Charpos Island",
@@ -4300,10 +4284,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 16,
-				"id": 1,
+				"bank": 15,
+				"id": 0,
 				"name": "Teaes City Gym",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -4327,8 +4310,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 2,
+				"bank": 15,
+				"id": 1,
 				"name": "Teaes City Gym",
 				"areaId": 12,
 				"areaName": "Teaes City",
@@ -4340,8 +4323,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 3,
+				"bank": 15,
+				"id": 2,
 				"name": "Pulhia City Pokémon Center",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4353,8 +4336,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 4,
+				"bank": 15,
+				"id": 3,
 				"name": "Pulhia City Trading Center",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4366,8 +4349,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 5,
+				"bank": 15,
+				"id": 4,
 				"name": "Pulhia City PokéMart",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4379,8 +4362,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 6,
+				"bank": 15,
+				"id": 5,
 				"name": "Pulhia City",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4392,8 +4375,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 7,
+				"bank": 15,
+				"id": 6,
 				"name": "Pulhia Hotel",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4407,8 +4390,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 8,
+				"bank": 15,
+				"id": 7,
 				"name": "Pulhia Hotel",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4422,7 +4405,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
+				"bank": 15,
+				"id": 8,
+				"name": "Pulhia City",
+				"areaId": 14,
+				"areaName": "Pulhia City",
+				"type": "indoor",
+				"width": 8,
+				"height": 7,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 15,
 				"id": 9,
 				"name": "Pulhia City",
 				"areaId": 14,
@@ -4435,7 +4431,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
+				"bank": 15,
 				"id": 10,
 				"name": "Pulhia City",
 				"areaId": 14,
@@ -4448,7 +4444,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
+				"bank": 15,
 				"id": 11,
 				"name": "Pulhia City",
 				"areaId": 14,
@@ -4461,21 +4457,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
+				"bank": 15,
 				"id": 12,
-				"name": "Pulhia City",
-				"areaId": 14,
-				"areaName": "Pulhia City",
-				"type": "indoor",
-				"width": 8,
-				"height": 7,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 16,
-				"id": 13,
 				"name": "Hotasita City",
 				"areaId": 9,
 				"areaName": "Hotasita City",
@@ -4487,8 +4470,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 14,
+				"bank": 15,
+				"id": 13,
 				"name": "Pulhia City",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4500,8 +4483,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 15,
+				"bank": 15,
+				"id": 14,
 				"name": "Pulhia City",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4513,8 +4496,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 16,
-				"id": 16,
+				"bank": 15,
+				"id": 15,
 				"name": "Pulhia City",
 				"areaId": 14,
 				"areaName": "Pulhia City",
@@ -4527,10 +4510,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 17,
-				"id": 1,
+				"bank": 16,
+				"id": 0,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4556,8 +4538,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 2,
+				"bank": 16,
+				"id": 1,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4583,8 +4565,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 3,
+				"bank": 16,
+				"id": 2,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4610,8 +4592,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 4,
+				"bank": 16,
+				"id": 3,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4637,8 +4619,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 5,
+				"bank": 16,
+				"id": 4,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4650,8 +4632,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 6,
+				"bank": 16,
+				"id": 5,
 				"name": "St1 Cave",
 				"areaId": 177,
 				"areaName": "St1 Cave",
@@ -4663,8 +4645,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 7,
+				"bank": 16,
+				"id": 6,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -4676,8 +4658,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 8,
+				"bank": 16,
+				"id": 7,
 				"name": "Pokemon League",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4689,8 +4671,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 9,
+				"bank": 16,
+				"id": 8,
 				"name": "Froster Town",
 				"areaId": 98,
 				"areaName": "Froster Town",
@@ -4702,8 +4684,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 10,
+				"bank": 16,
+				"id": 9,
 				"name": "[Error]",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4715,8 +4697,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 11,
+				"bank": 16,
+				"id": 10,
 				"name": "Pokemon League Loby",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4742,8 +4724,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 12,
+				"bank": 16,
+				"id": 11,
 				"name": "Hall of Fame",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4757,8 +4739,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
-				"id": 13,
+				"bank": 16,
+				"id": 12,
 				"name": "Pokémon League Lower Center",
 				"areaId": 15,
 				"areaName": "Pokemon League",
@@ -4770,7 +4752,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
+				"bank": 16,
+				"id": 13,
+				"name": "League Trading Center",
+				"areaId": 15,
+				"areaName": "Pokemon League",
+				"type": "center2",
+				"width": 14,
+				"height": 10,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 16,
 				"id": 14,
 				"name": "League Trading Center",
 				"areaId": 15,
@@ -4783,21 +4778,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 17,
+				"bank": 16,
 				"id": 15,
-				"name": "League Trading Center",
-				"areaId": 15,
-				"areaName": "Pokemon League",
-				"type": "center2",
-				"width": 14,
-				"height": 10,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 17,
-				"id": 16,
 				"name": "Platepics City",
 				"areaId": 8,
 				"areaName": "Platepics City",
@@ -4810,10 +4792,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 18,
-				"id": 1,
+				"bank": 17,
+				"id": 0,
 				"name": "Habutest Town",
 				"areaId": 5,
 				"areaName": "Habutest Town",
@@ -4825,8 +4806,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 18,
-				"id": 2,
+				"bank": 17,
+				"id": 1,
 				"name": "Route F",
 				"areaId": 19,
 				"areaName": "Route F",
@@ -4839,10 +4820,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 19,
-				"id": 1,
+				"bank": 18,
+				"id": 0,
 				"name": "Route I",
 				"areaId": 26,
 				"areaName": "Route I",
@@ -4854,8 +4834,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 19,
-				"id": 2,
+				"bank": 18,
+				"id": 1,
 				"name": "Route I",
 				"areaId": 26,
 				"areaName": "Route I",
@@ -4867,8 +4847,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 19,
-				"id": 3,
+				"bank": 18,
+				"id": 2,
 				"name": "Polar Forest",
 				"areaId": 176,
 				"areaName": "Polar Forest",
@@ -4881,10 +4861,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 20,
-				"id": 1,
+				"bank": 19,
+				"id": 0,
 				"name": "Route Af",
 				"areaId": 49,
 				"areaName": "Route Af",
@@ -4896,8 +4875,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 20,
-				"id": 2,
+				"bank": 19,
+				"id": 1,
 				"name": "Mt. Blizzard",
 				"areaId": 141,
 				"areaName": "Mt. Blizzard",
@@ -4910,10 +4889,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 21,
-				"id": 1,
+				"bank": 20,
+				"id": 0,
 				"name": "Route N",
 				"areaId": 29,
 				"areaName": "Route N",
@@ -4925,8 +4903,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 21,
-				"id": 2,
+				"bank": 20,
+				"id": 1,
 				"name": "A Area",
 				"areaId": 100,
 				"areaName": "A Area",
@@ -4938,8 +4916,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 21,
-				"id": 3,
+				"bank": 20,
+				"id": 2,
 				"name": "Route N",
 				"areaId": 29,
 				"areaName": "Route N",
@@ -4952,10 +4930,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 22,
-				"id": 1,
+				"bank": 21,
+				"id": 0,
 				"name": "Route E",
 				"areaId": 20,
 				"areaName": "Route E",
@@ -4968,10 +4945,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 23,
-				"id": 1,
+				"bank": 22,
+				"id": 0,
 				"name": "Route Q",
 				"areaId": 32,
 				"areaName": "Route Q",
@@ -4984,10 +4960,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 24,
-				"id": 1,
+				"bank": 23,
+				"id": 0,
 				"name": "Turzoro City",
 				"areaId": 10,
 				"areaName": "Turzoro City",
@@ -5000,10 +4975,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 25,
-				"id": 1,
+				"bank": 24,
+				"id": 0,
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
@@ -5015,8 +4989,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 2,
+				"bank": 24,
+				"id": 1,
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
@@ -5028,8 +5002,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 3,
+				"bank": 24,
+				"id": 2,
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
@@ -5041,8 +5015,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 4,
+				"bank": 24,
+				"id": 3,
 				"name": "Meteor Falls",
 				"areaId": 63,
 				"areaName": "Meteor Falls",
@@ -5054,8 +5028,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 5,
+				"bank": 24,
+				"id": 4,
 				"name": "Water Cave",
 				"areaId": 60,
 				"areaName": "Water Cave",
@@ -5067,8 +5041,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 6,
+				"bank": 24,
+				"id": 5,
 				"name": "Underwater",
 				"areaId": 54,
 				"areaName": "Underwater",
@@ -5080,8 +5054,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 7,
+				"bank": 24,
+				"id": 6,
 				"name": "Ember Ruins",
 				"areaId": 82,
 				"areaName": "Ember Ruins",
@@ -5093,8 +5067,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 8,
+				"bank": 24,
+				"id": 7,
 				"name": "Dark Cave",
 				"areaId": 55,
 				"areaName": "Dark Cave",
@@ -5106,7 +5080,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
+				"id": 8,
+				"name": "Dark Cave",
+				"areaId": 55,
+				"areaName": "Dark Cave",
+				"type": "dungeon",
+				"width": 32,
+				"height": 26,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 24,
 				"id": 9,
 				"name": "Dark Cave",
 				"areaId": 55,
@@ -5119,21 +5106,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 10,
-				"name": "Dark Cave",
-				"areaId": 55,
-				"areaName": "Dark Cave",
-				"type": "dungeon",
-				"width": 32,
-				"height": 26,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 25,
-				"id": 11,
 				"name": "Dark Cave",
 				"areaId": 55,
 				"areaName": "Dark Cave",
@@ -5145,8 +5119,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 12,
+				"bank": 24,
+				"id": 11,
 				"name": "Bee-Bug Forest",
 				"areaId": 59,
 				"areaName": "Bee-Bug Forest",
@@ -5158,8 +5132,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 13,
+				"bank": 24,
+				"id": 12,
 				"name": "Mt. Blizzard",
 				"areaId": 141,
 				"areaName": "Mt. Blizzard",
@@ -5171,8 +5145,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 14,
+				"bank": 24,
+				"id": 13,
 				"name": "Route Ag",
 				"areaId": 110,
 				"areaName": "Route Ag",
@@ -5184,8 +5158,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 15,
+				"bank": 24,
+				"id": 14,
 				"name": "Mt. Fiery",
 				"areaId": 74,
 				"areaName": "Mt. Fiery",
@@ -5197,8 +5171,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 16,
+				"bank": 24,
+				"id": 15,
 				"name": "Pyre Tower",
 				"areaId": 65,
 				"areaName": "Pyre Tower",
@@ -5210,7 +5184,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
+				"id": 16,
+				"name": "Pyre Tower",
+				"areaId": 65,
+				"areaName": "Pyre Tower",
+				"type": "indoor",
+				"width": 13,
+				"height": 13,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 24,
 				"id": 17,
 				"name": "Pyre Tower",
 				"areaId": 65,
@@ -5223,7 +5210,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 18,
 				"name": "Pyre Tower",
 				"areaId": 65,
@@ -5236,7 +5223,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 19,
 				"name": "Pyre Tower",
 				"areaId": 65,
@@ -5249,7 +5236,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 20,
 				"name": "Pyre Tower",
 				"areaId": 65,
@@ -5262,21 +5249,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 21,
-				"name": "Pyre Tower",
-				"areaId": 65,
-				"areaName": "Pyre Tower",
-				"type": "indoor",
-				"width": 13,
-				"height": 13,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 25,
-				"id": 22,
 				"name": "Artisan Hill",
 				"areaId": 202,
 				"areaName": "Artisan Hill",
@@ -5288,8 +5262,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 23,
+				"bank": 24,
+				"id": 22,
 				"name": "Mt. Fullmoon",
 				"areaId": 56,
 				"areaName": "Mt. Fullmoon",
@@ -5301,8 +5275,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 24,
+				"bank": 24,
+				"id": 23,
 				"name": "Aqua Hideout",
 				"areaId": 197,
 				"areaName": "Aqua Hideout",
@@ -5314,8 +5288,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 25,
+				"bank": 24,
+				"id": 24,
 				"name": "Aqua Hideout",
 				"areaId": 197,
 				"areaName": "Aqua Hideout",
@@ -5327,8 +5301,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 26,
+				"bank": 24,
+				"id": 25,
 				"name": "Aqua Hideout",
 				"areaId": 197,
 				"areaName": "Aqua Hideout",
@@ -5340,8 +5314,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 27,
+				"bank": 24,
+				"id": 26,
 				"name": "Underwater",
 				"areaId": 69,
 				"areaName": "Underwater",
@@ -5353,8 +5327,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 28,
+				"bank": 24,
+				"id": 27,
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
@@ -5366,8 +5340,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 29,
+				"bank": 24,
+				"id": 28,
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
@@ -5379,8 +5353,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 30,
+				"bank": 24,
+				"id": 29,
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
@@ -5392,8 +5366,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 31,
+				"bank": 24,
+				"id": 30,
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
@@ -5405,8 +5379,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 32,
+				"bank": 24,
+				"id": 31,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -5418,8 +5392,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 33,
+				"bank": 24,
+				"id": 32,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -5431,8 +5405,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 34,
+				"bank": 24,
+				"id": 33,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -5444,8 +5418,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 35,
+				"bank": 24,
+				"id": 34,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -5457,8 +5431,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 36,
+				"bank": 24,
+				"id": 35,
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
@@ -5470,8 +5444,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 37,
+				"bank": 24,
+				"id": 36,
 				"name": "Seafloor Cavern",
 				"areaId": 68,
 				"areaName": "Seafloor Cavern",
@@ -5483,8 +5457,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 38,
+				"bank": 24,
+				"id": 37,
 				"name": "Lost Cave",
 				"areaId": 181,
 				"areaName": "Lost Cave",
@@ -5496,8 +5470,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 39,
+				"bank": 24,
+				"id": 38,
 				"name": "Mt. Fullmoon",
 				"areaId": 56,
 				"areaName": "Mt. Fullmoon",
@@ -5509,8 +5483,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 40,
+				"bank": 24,
+				"id": 39,
 				"name": "Flower Garden",
 				"areaId": 169,
 				"areaName": "Flower Garden",
@@ -5522,8 +5496,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 41,
+				"bank": 24,
+				"id": 40,
 				"name": "Flora Sky Isle",
 				"areaId": 185,
 				"areaName": "Flora Sky Isle",
@@ -5535,8 +5509,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 42,
+				"bank": 24,
+				"id": 41,
 				"name": "Mt. Fullmoon",
 				"areaId": 56,
 				"areaName": "Mt. Fullmoon",
@@ -5548,8 +5522,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 43,
+				"bank": 24,
+				"id": 42,
 				"name": "Cave Of Origin",
 				"areaId": 72,
 				"areaName": "Cave Of Origin",
@@ -5561,8 +5535,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 44,
+				"bank": 24,
+				"id": 43,
 				"name": "Victory Road",
 				"areaId": 70,
 				"areaName": "Victory Road",
@@ -5574,7 +5548,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
+				"id": 44,
+				"name": "Victory Road",
+				"areaId": 70,
+				"areaName": "Victory Road",
+				"type": "dungeon",
+				"width": 46,
+				"height": 31,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 24,
 				"id": 45,
 				"name": "Victory Road",
 				"areaId": 70,
@@ -5587,21 +5574,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 46,
-				"name": "Victory Road",
-				"areaId": 70,
-				"areaName": "Victory Road",
-				"type": "dungeon",
-				"width": 46,
-				"height": 31,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 25,
-				"id": 47,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -5613,8 +5587,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 48,
+				"bank": 24,
+				"id": 47,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -5626,8 +5600,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 49,
+				"bank": 24,
+				"id": 48,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -5639,8 +5613,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 50,
+				"bank": 24,
+				"id": 49,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -5652,8 +5626,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 51,
+				"bank": 24,
+				"id": 50,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -5665,8 +5639,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 52,
+				"bank": 24,
+				"id": 51,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -5678,8 +5652,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 53,
+				"bank": 24,
+				"id": 52,
 				"name": "Silver Town",
 				"areaId": 93,
 				"areaName": "Silver Town",
@@ -5691,8 +5665,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 54,
+				"bank": 24,
+				"id": 53,
 				"name": "Aragi‘S Lab",
 				"areaId": 62,
 				"areaName": "Aragi‘S Lab",
@@ -5704,8 +5678,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 55,
+				"bank": 24,
+				"id": 54,
 				"name": "Cave Of Origin",
 				"areaId": 72,
 				"areaName": "Cave Of Origin",
@@ -5717,8 +5691,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 56,
+				"bank": 24,
+				"id": 55,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5730,8 +5704,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 57,
+				"bank": 24,
+				"id": 56,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5743,8 +5717,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 58,
+				"bank": 24,
+				"id": 57,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5756,8 +5730,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 59,
+				"bank": 24,
+				"id": 58,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5769,8 +5743,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 60,
+				"bank": 24,
+				"id": 59,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5782,8 +5756,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 61,
+				"bank": 24,
+				"id": 60,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5795,8 +5769,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 62,
+				"bank": 24,
+				"id": 61,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5808,8 +5782,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 63,
+				"bank": 24,
+				"id": 62,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5821,8 +5795,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 64,
+				"bank": 24,
+				"id": 63,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5834,8 +5808,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 65,
+				"bank": 24,
+				"id": 64,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5847,8 +5821,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 66,
+				"bank": 24,
+				"id": 65,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5860,8 +5834,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 67,
+				"bank": 24,
+				"id": 66,
 				"name": "Abandoned Ship",
 				"areaId": 61,
 				"areaName": "Abandoned Ship",
@@ -5873,8 +5847,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 68,
+				"bank": 24,
+				"id": 67,
 				"name": "Thunder Ruins",
 				"areaId": 81,
 				"areaName": "Thunder Ruins",
@@ -5886,8 +5860,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 69,
+				"bank": 24,
+				"id": 68,
 				"name": "North Wind Ruins",
 				"areaId": 83,
 				"areaName": "North Wind Ruins",
@@ -5899,8 +5873,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 70,
+				"bank": 24,
+				"id": 69,
 				"name": "Immortal Isle",
 				"areaId": 191,
 				"areaName": "Immortal Isle",
@@ -5912,8 +5886,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 71,
+				"bank": 24,
+				"id": 70,
 				"name": "Underwater",
 				"areaId": 79,
 				"areaName": "Underwater",
@@ -5925,7 +5899,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
+				"id": 71,
+				"name": "Sealed Chamber",
+				"areaId": 78,
+				"areaName": "Sealed Chamber",
+				"type": "dungeon",
+				"width": 21,
+				"height": 23,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 24,
 				"id": 72,
 				"name": "Sealed Chamber",
 				"areaId": 78,
@@ -5938,21 +5925,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 73,
-				"name": "Sealed Chamber",
-				"areaId": 78,
-				"areaName": "Sealed Chamber",
-				"type": "dungeon",
-				"width": 21,
-				"height": 23,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 25,
-				"id": 74,
 				"name": "Scorched Slab",
 				"areaId": 80,
 				"areaName": "Scorched Slab",
@@ -5964,8 +5938,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 75,
+				"bank": 24,
+				"id": 74,
 				"name": "Magma Building",
 				"areaId": 188,
 				"areaName": "Magma Building",
@@ -5977,8 +5951,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 76,
+				"bank": 24,
+				"id": 75,
 				"name": "Magma Building",
 				"areaId": 188,
 				"areaName": "Magma Building",
@@ -5990,8 +5964,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 77,
+				"bank": 24,
+				"id": 76,
 				"name": "Art Muesum Basement",
 				"areaId": 7,
 				"areaName": "Puel City",
@@ -6005,8 +5979,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 78,
+				"bank": 24,
+				"id": 77,
 				"name": "Hippowdon Temple",
 				"areaId": 161,
 				"areaName": "Hippowdon Temple",
@@ -6018,8 +5992,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 79,
+				"bank": 24,
+				"id": 78,
 				"name": "Route U",
 				"areaId": 36,
 				"areaName": "Route U",
@@ -6031,7 +6005,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
+				"id": 79,
+				"name": "Sky Pillar",
+				"areaId": 85,
+				"areaName": "Sky Pillar",
+				"type": "dungeon",
+				"width": 14,
+				"height": 14,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 24,
 				"id": 80,
 				"name": "Sky Pillar",
 				"areaId": 85,
@@ -6044,7 +6031,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 81,
 				"name": "Sky Pillar",
 				"areaId": 85,
@@ -6057,7 +6044,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 82,
 				"name": "Sky Pillar",
 				"areaId": 85,
@@ -6070,21 +6057,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
+				"bank": 24,
 				"id": 83,
-				"name": "Sky Pillar",
-				"areaId": 85,
-				"areaName": "Sky Pillar",
-				"type": "dungeon",
-				"width": 14,
-				"height": 14,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 25,
-				"id": 84,
 				"name": "Shoal Cave",
 				"areaId": 67,
 				"areaName": "Shoal Cave",
@@ -6096,8 +6070,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 85,
+				"bank": 24,
+				"id": 84,
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
@@ -6109,8 +6083,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 86,
+				"bank": 24,
+				"id": 85,
 				"name": "Sky Pillar",
 				"areaId": 85,
 				"areaName": "Sky Pillar",
@@ -6122,8 +6096,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 87,
+				"bank": 24,
+				"id": 86,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6135,8 +6109,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 88,
+				"bank": 24,
+				"id": 87,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6148,8 +6122,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 89,
+				"bank": 24,
+				"id": 88,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6161,8 +6135,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 90,
+				"bank": 24,
+				"id": 89,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6174,8 +6148,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 91,
+				"bank": 24,
+				"id": 90,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6187,8 +6161,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 92,
+				"bank": 24,
+				"id": 91,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6200,8 +6174,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 93,
+				"bank": 24,
+				"id": 92,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6213,8 +6187,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 94,
+				"bank": 24,
+				"id": 93,
 				"name": "Magma Hideout",
 				"areaId": 198,
 				"areaName": "Magma Hideout",
@@ -6226,8 +6200,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 95,
+				"bank": 24,
+				"id": 94,
 				"name": "Route Af",
 				"areaId": 49,
 				"areaName": "Route Af",
@@ -6239,8 +6213,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 96,
+				"bank": 24,
+				"id": 95,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -6252,8 +6226,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 97,
+				"bank": 24,
+				"id": 96,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
@@ -6265,8 +6239,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 98,
+				"bank": 24,
+				"id": 97,
 				"name": "Route K",
 				"areaId": 22,
 				"areaName": "Route K",
@@ -6278,8 +6252,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 99,
+				"bank": 24,
+				"id": 98,
 				"name": "Desert Underpass",
 				"areaId": 209,
 				"areaName": "Desert Underpass",
@@ -6291,8 +6265,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 25,
-				"id": 100,
+				"bank": 24,
+				"id": 99,
 				"name": "Artisan Hill",
 				"areaId": 202,
 				"areaName": "Artisan Hill",
@@ -6305,9 +6279,21 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 26,
+				"bank": 25,
+				"id": 0,
+				"name": "Secret Base",
+				"areaId": 86,
+				"areaName": "Secret Base",
+				"type": "secretbase",
+				"width": 11,
+				"height": 9,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 25,
 				"id": 1,
 				"name": "Secret Base",
 				"areaId": 86,
@@ -6320,7 +6306,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 2,
 				"name": "Secret Base",
 				"areaId": 86,
@@ -6333,7 +6319,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 3,
 				"name": "Secret Base",
 				"areaId": 86,
@@ -6346,7 +6332,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 4,
 				"name": "Secret Base",
 				"areaId": 86,
@@ -6359,7 +6345,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 5,
 				"name": "Secret Base",
 				"areaId": 86,
@@ -6372,51 +6358,38 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 6,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
 				"type": "secretbase",
-				"width": 11,
-				"height": 9,
+				"width": 7,
+				"height": 16,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 7,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
 				"type": "secretbase",
-				"width": 7,
-				"height": 16,
+				"width": 14,
+				"height": 9,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 8,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
 				"type": "secretbase",
-				"width": 14,
-				"height": 9,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 26,
-				"id": 9,
-				"name": "Secret Base",
-				"areaId": 86,
-				"areaName": "Secret Base",
-				"type": "secretbase",
 				"width": 15,
 				"height": 7,
 				"attrs": {},
@@ -6424,8 +6397,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 10,
+				"bank": 25,
+				"id": 9,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6437,8 +6410,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 11,
+				"bank": 25,
+				"id": 10,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6450,8 +6423,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 12,
+				"bank": 25,
+				"id": 11,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6463,8 +6436,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 13,
+				"bank": 25,
+				"id": 12,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6476,8 +6449,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 14,
+				"bank": 25,
+				"id": 13,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6489,8 +6462,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 15,
+				"bank": 25,
+				"id": 14,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6502,8 +6475,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 16,
+				"bank": 25,
+				"id": 15,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6515,8 +6488,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 17,
+				"bank": 25,
+				"id": 16,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6528,8 +6501,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 18,
+				"bank": 25,
+				"id": 17,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6541,8 +6514,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 19,
+				"bank": 25,
+				"id": 18,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6554,8 +6527,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 20,
+				"bank": 25,
+				"id": 19,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6567,8 +6540,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 21,
+				"bank": 25,
+				"id": 20,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6580,8 +6553,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 22,
+				"bank": 25,
+				"id": 21,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6593,8 +6566,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 23,
+				"bank": 25,
+				"id": 22,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6606,8 +6579,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 24,
+				"bank": 25,
+				"id": 23,
 				"name": "Secret Base",
 				"areaId": 86,
 				"areaName": "Secret Base",
@@ -6619,8 +6592,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 25,
+				"bank": 25,
+				"id": 24,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6632,8 +6605,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 26,
+				"bank": 25,
+				"id": 25,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6645,8 +6618,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 27,
+				"bank": 25,
+				"id": 26,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6658,8 +6631,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 28,
+				"bank": 25,
+				"id": 27,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6671,8 +6644,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 29,
+				"bank": 25,
+				"id": 28,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6684,7 +6657,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
+				"id": 29,
+				"name": "",
+				"areaId": 87,
+				"areaName": "",
+				"type": "indoor",
+				"width": 1,
+				"height": 1,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 25,
 				"id": 30,
 				"name": "",
 				"areaId": 87,
@@ -6697,7 +6683,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 31,
 				"name": "",
 				"areaId": 87,
@@ -6710,7 +6696,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 32,
 				"name": "",
 				"areaId": 87,
@@ -6723,7 +6709,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 33,
 				"name": "",
 				"areaId": 87,
@@ -6736,7 +6722,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 34,
 				"name": "",
 				"areaId": 87,
@@ -6749,20 +6735,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 35,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
 				"type": "indoor",
-				"width": 1,
-				"height": 1,
+				"width": 15,
+				"height": 11,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 36,
 				"name": "",
 				"areaId": 87,
@@ -6775,7 +6761,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 37,
 				"name": "",
 				"areaId": 87,
@@ -6788,7 +6774,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 38,
 				"name": "",
 				"areaId": 87,
@@ -6801,7 +6787,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 39,
 				"name": "",
 				"areaId": 87,
@@ -6814,21 +6800,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 40,
-				"name": "",
-				"areaId": 87,
-				"areaName": "",
-				"type": "indoor",
-				"width": 15,
-				"height": 11,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 26,
-				"id": 41,
 				"name": "Inside Of Truck",
 				"areaId": 84,
 				"areaName": "Inside Of Truck",
@@ -6840,8 +6813,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 42,
+				"bank": 25,
+				"id": 41,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6853,8 +6826,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 43,
+				"bank": 25,
+				"id": 42,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6866,8 +6839,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
-				"id": 44,
+				"bank": 25,
+				"id": 43,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -6879,7 +6852,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
+				"id": 44,
+				"name": " Gym",
+				"areaId": 87,
+				"areaName": "",
+				"type": "gym",
+				"width": 8,
+				"height": 8,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 25,
 				"id": 45,
 				"name": " Gym",
 				"areaId": 87,
@@ -6892,7 +6878,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 46,
 				"name": " Gym",
 				"areaId": 87,
@@ -6905,7 +6891,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 47,
 				"name": " Gym",
 				"areaId": 87,
@@ -6918,7 +6904,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 48,
 				"name": " Gym",
 				"areaId": 87,
@@ -6931,7 +6917,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 49,
 				"name": " Gym",
 				"areaId": 87,
@@ -6944,7 +6930,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 50,
 				"name": " Gym",
 				"areaId": 87,
@@ -6957,7 +6943,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 51,
 				"name": " Gym",
 				"areaId": 87,
@@ -6970,7 +6956,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 52,
 				"name": " Gym",
 				"areaId": 87,
@@ -6983,7 +6969,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 53,
 				"name": " Gym",
 				"areaId": 87,
@@ -6996,7 +6982,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 54,
 				"name": " Gym",
 				"areaId": 87,
@@ -7009,7 +6995,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 55,
 				"name": " Gym",
 				"areaId": 87,
@@ -7022,7 +7008,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 56,
 				"name": " Gym",
 				"areaId": 87,
@@ -7035,7 +7021,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 57,
 				"name": " Gym",
 				"areaId": 87,
@@ -7048,7 +7034,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 58,
 				"name": " Gym",
 				"areaId": 87,
@@ -7061,7 +7047,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 59,
 				"name": " Gym",
 				"areaId": 87,
@@ -7074,21 +7060,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 26,
+				"bank": 25,
 				"id": 60,
-				"name": " Gym",
-				"areaId": 87,
-				"areaName": "",
-				"type": "gym",
-				"width": 8,
-				"height": 8,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 26,
-				"id": 61,
 				"name": "",
 				"areaId": 87,
 				"areaName": "",
@@ -7101,9 +7074,21 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 0,
+				"name": "Safari Zone",
+				"areaId": 57,
+				"areaName": "Safari Zone",
+				"type": "safari",
+				"width": 40,
+				"height": 40,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 1,
 				"name": "Safari Zone",
 				"areaId": 57,
@@ -7116,7 +7101,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 2,
 				"name": "Safari Zone",
 				"areaId": 57,
@@ -7129,7 +7114,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 3,
 				"name": "Safari Zone",
 				"areaId": 57,
@@ -7142,21 +7127,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 4,
-				"name": "Safari Zone",
-				"areaId": 57,
-				"areaName": "Safari Zone",
-				"type": "safari",
-				"width": 40,
-				"height": 40,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 5,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7168,8 +7140,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 6,
+				"bank": 26,
+				"id": 5,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7181,8 +7153,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 7,
+				"bank": 26,
+				"id": 6,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7194,8 +7166,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 8,
+				"bank": 26,
+				"id": 7,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7207,8 +7179,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 9,
+				"bank": 26,
+				"id": 8,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7220,8 +7192,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 10,
+				"bank": 26,
+				"id": 9,
 				"name": "Outcast Island",
 				"areaId": 163,
 				"areaName": "Outcast Island",
@@ -7233,8 +7205,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 11,
+				"bank": 26,
+				"id": 10,
 				"name": "Honey Village",
 				"areaId": 92,
 				"areaName": "Honey Village",
@@ -7246,8 +7218,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 12,
+				"bank": 26,
+				"id": 11,
 				"name": "Safari Zone",
 				"areaId": 57,
 				"areaName": "Safari Zone",
@@ -7259,7 +7231,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 12,
+				"name": "Safari Zone",
+				"areaId": 57,
+				"areaName": "Safari Zone",
+				"type": "route",
+				"width": 40,
+				"height": 40,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 13,
 				"name": "Safari Zone",
 				"areaId": 57,
@@ -7272,21 +7257,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 14,
-				"name": "Safari Zone",
-				"areaId": 57,
-				"areaName": "Safari Zone",
-				"type": "route",
-				"width": 40,
-				"height": 40,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 15,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7298,8 +7270,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 16,
+				"bank": 26,
+				"id": 15,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7311,8 +7283,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 17,
+				"bank": 26,
+				"id": 16,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7324,8 +7296,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 18,
+				"bank": 26,
+				"id": 17,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7337,8 +7309,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 19,
+				"bank": 26,
+				"id": 18,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7350,8 +7322,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 20,
+				"bank": 26,
+				"id": 19,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7363,8 +7335,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 21,
+				"bank": 26,
+				"id": 20,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7376,8 +7348,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 22,
+				"bank": 26,
+				"id": 21,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7389,8 +7361,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 23,
+				"bank": 26,
+				"id": 22,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7402,8 +7374,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 24,
+				"bank": 26,
+				"id": 23,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7415,8 +7387,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 25,
+				"bank": 26,
+				"id": 24,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7428,8 +7400,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 26,
+				"bank": 26,
+				"id": 25,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7441,8 +7413,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 27,
+				"bank": 26,
+				"id": 26,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7454,8 +7426,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 28,
+				"bank": 26,
+				"id": 27,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7467,8 +7439,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 29,
+				"bank": 26,
+				"id": 28,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7480,8 +7452,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 30,
+				"bank": 26,
+				"id": 29,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7493,8 +7465,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 31,
+				"bank": 26,
+				"id": 30,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7506,8 +7478,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 32,
+				"bank": 26,
+				"id": 31,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7519,8 +7491,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 33,
+				"bank": 26,
+				"id": 32,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7532,8 +7504,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 34,
+				"bank": 26,
+				"id": 33,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7545,8 +7517,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 35,
+				"bank": 26,
+				"id": 34,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7558,8 +7530,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 36,
+				"bank": 26,
+				"id": 35,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7571,8 +7543,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 37,
+				"bank": 26,
+				"id": 36,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7584,8 +7556,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 38,
+				"bank": 26,
+				"id": 37,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7597,8 +7569,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 39,
+				"bank": 26,
+				"id": 38,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7610,8 +7582,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 40,
+				"bank": 26,
+				"id": 39,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7623,8 +7595,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 41,
+				"bank": 26,
+				"id": 40,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7636,8 +7608,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 42,
+				"bank": 26,
+				"id": 41,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7649,8 +7621,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 43,
+				"bank": 26,
+				"id": 42,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7662,8 +7634,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 44,
+				"bank": 26,
+				"id": 43,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7675,7 +7647,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 44,
+				"name": "Battle Frontier",
+				"areaId": 58,
+				"areaName": "Battle Frontier",
+				"type": "indoor",
+				"width": 9,
+				"height": 10,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 45,
 				"name": "Battle Frontier",
 				"areaId": 58,
@@ -7688,21 +7673,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 46,
-				"name": "Battle Frontier",
-				"areaId": 58,
-				"areaName": "Battle Frontier",
-				"type": "indoor",
-				"width": 9,
-				"height": 10,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 47,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7714,8 +7686,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 48,
+				"bank": 26,
+				"id": 47,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7727,7 +7699,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 48,
+				"name": "Battle Frontier",
+				"areaId": 58,
+				"areaName": "Battle Frontier",
+				"type": "indoor",
+				"width": 9,
+				"height": 10,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 49,
 				"name": "Battle Frontier",
 				"areaId": 58,
@@ -7740,21 +7725,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 50,
-				"name": "Battle Frontier",
-				"areaId": 58,
-				"areaName": "Battle Frontier",
-				"type": "indoor",
-				"width": 9,
-				"height": 10,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 51,
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7766,7 +7738,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 51,
+				"name": "Battle Frontier",
+				"areaId": 58,
+				"areaName": "Battle Frontier",
+				"type": "indoor",
+				"width": 9,
+				"height": 10,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 52,
 				"name": "Battle Frontier",
 				"areaId": 58,
@@ -7779,21 +7764,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 53,
-				"name": "Battle Frontier",
-				"areaId": 58,
-				"areaName": "Battle Frontier",
-				"type": "indoor",
-				"width": 9,
-				"height": 10,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 54,
 				"name": "Battle Frontier Pokémon Center",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7805,8 +7777,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 55,
+				"bank": 26,
+				"id": 54,
 				"name": "Battle Frontier Trading Center",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7818,8 +7790,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 56,
+				"bank": 26,
+				"id": 55,
 				"name": "Battle Frontier PokéMart",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
@@ -7831,8 +7803,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 57,
+				"bank": 26,
+				"id": 56,
 				"name": "Abandoned Island",
 				"areaId": 160,
 				"areaName": "Abandoned Island",
@@ -7844,8 +7816,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 58,
+				"bank": 26,
+				"id": 57,
 				"name": "Honey Village",
 				"areaId": 92,
 				"areaName": "Honey Village",
@@ -7857,8 +7829,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 59,
+				"bank": 26,
+				"id": 58,
 				"name": "Birth Island",
 				"areaId": 200,
 				"areaName": "Birth Island",
@@ -7870,8 +7842,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 60,
+				"bank": 26,
+				"id": 59,
 				"name": "Birth Island",
 				"areaId": 200,
 				"areaName": "Birth Island",
@@ -7883,8 +7855,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 61,
+				"bank": 26,
+				"id": 60,
 				"name": "Trainer Hill",
 				"areaId": 212,
 				"areaName": "Trainer Hill",
@@ -7896,7 +7868,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 61,
+				"name": "Trainer Hill",
+				"areaId": 212,
+				"areaName": "Trainer Hill",
+				"type": "indoor",
+				"width": 16,
+				"height": 21,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 62,
 				"name": "Trainer Hill",
 				"areaId": 212,
@@ -7909,7 +7894,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 63,
 				"name": "Trainer Hill",
 				"areaId": 212,
@@ -7922,7 +7907,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 64,
 				"name": "Trainer Hill",
 				"areaId": 212,
@@ -7935,21 +7920,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
 				"id": 65,
-				"name": "Trainer Hill",
-				"areaId": 212,
-				"areaName": "Trainer Hill",
-				"type": "indoor",
-				"width": 16,
-				"height": 21,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 66,
 				"name": "Trainer Hill",
 				"areaId": 212,
 				"areaName": "Trainer Hill",
@@ -7961,8 +7933,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 67,
+				"bank": 26,
+				"id": 66,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
@@ -7974,8 +7946,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 68,
+				"bank": 26,
+				"id": 67,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
@@ -7987,8 +7959,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 69,
+				"bank": 26,
+				"id": 68,
 				"name": "Hole Woods",
 				"areaId": 180,
 				"areaName": "Hole Woods",
@@ -8000,8 +7972,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 70,
+				"bank": 26,
+				"id": 69,
 				"name": "Hidden Chamber",
 				"areaId": 189,
 				"areaName": "Hidden Chamber",
@@ -8013,8 +7985,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 71,
+				"bank": 26,
+				"id": 70,
 				"name": "Route Ae",
 				"areaId": 46,
 				"areaName": "Route Ae",
@@ -8026,8 +7998,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 72,
+				"bank": 26,
+				"id": 71,
 				"name": "Silver Town",
 				"areaId": 93,
 				"areaName": "Silver Town",
@@ -8039,8 +8011,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 73,
+				"bank": 26,
+				"id": 72,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
@@ -8052,8 +8024,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 74,
+				"bank": 26,
+				"id": 73,
 				"name": "Cryptic City",
 				"areaId": 151,
 				"areaName": "Cryptic City",
@@ -8065,8 +8037,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 75,
+				"bank": 26,
+				"id": 74,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
@@ -8078,8 +8050,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 76,
+				"bank": 26,
+				"id": 75,
 				"name": "Ancient Ruins",
 				"areaId": 184,
 				"areaName": "Ancient Ruins",
@@ -8091,25 +8063,25 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 76,
+				"name": "Navel Rock",
+				"areaId": 211,
+				"areaName": "Navel Rock",
+				"type": "dungeon",
+				"width": 14,
+				"height": 9,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 77,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
 				"type": "dungeon",
-				"width": 14,
-				"height": 9,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 78,
-				"name": "Navel Rock",
-				"areaId": 211,
-				"areaName": "Navel Rock",
-				"type": "dungeon",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -8117,25 +8089,25 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
+				"bank": 26,
+				"id": 78,
+				"name": "Aqua Town",
+				"areaId": 131,
+				"areaName": "Aqua Town",
+				"type": "indoor",
+				"width": 14,
+				"height": 9,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
 				"id": 79,
 				"name": "Aqua Town",
 				"areaId": 131,
 				"areaName": "Aqua Town",
 				"type": "indoor",
-				"width": 14,
-				"height": 9,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 27,
-				"id": 80,
-				"name": "Aqua Town",
-				"areaId": 131,
-				"areaName": "Aqua Town",
-				"type": "indoor",
 				"width": 11,
 				"height": 8,
 				"attrs": {},
@@ -8143,8 +8115,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 81,
+				"bank": 26,
+				"id": 80,
 				"name": "A Area",
 				"areaId": 100,
 				"areaName": "A Area",
@@ -8156,8 +8128,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 82,
+				"bank": 26,
+				"id": 81,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
@@ -8169,8 +8141,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 83,
+				"bank": 26,
+				"id": 82,
 				"name": "L Area",
 				"areaId": 95,
 				"areaName": "L Area",
@@ -8182,8 +8154,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 84,
+				"bank": 26,
+				"id": 83,
 				"name": "Cryptic City",
 				"areaId": 151,
 				"areaName": "Cryptic City",
@@ -8195,8 +8167,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 85,
+				"bank": 26,
+				"id": 84,
 				"name": "Memory Town",
 				"areaId": 162,
 				"areaName": "Memory Town",
@@ -8208,8 +8180,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 86,
+				"bank": 26,
+				"id": 85,
 				"name": "Memory Town",
 				"areaId": 162,
 				"areaName": "Memory Town",
@@ -8221,8 +8193,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 87,
+				"bank": 26,
+				"id": 86,
 				"name": "Navel Rock",
 				"areaId": 211,
 				"areaName": "Navel Rock",
@@ -8234,8 +8206,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 88,
+				"bank": 26,
+				"id": 87,
 				"name": "Stratos Lookout",
 				"areaId": 194,
 				"areaName": "Stratos Lookout",
@@ -8247,8 +8219,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 27,
-				"id": 89,
+				"bank": 26,
+				"id": 88,
 				"name": "Trainer Hill",
 				"areaId": 212,
 				"areaName": "Trainer Hill",
@@ -8261,10 +8233,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 28,
-				"id": 1,
+				"bank": 27,
+				"id": 0,
 				"name": "Route F",
 				"areaId": 19,
 				"areaName": "Route F",
@@ -8276,8 +8247,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 28,
-				"id": 2,
+				"bank": 27,
+				"id": 1,
 				"name": "Route F",
 				"areaId": 19,
 				"areaName": "Route F",
@@ -8290,10 +8261,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 29,
-				"id": 1,
+				"bank": 28,
+				"id": 0,
 				"name": "Honey Village",
 				"areaId": 92,
 				"areaName": "Honey Village",
@@ -8306,9 +8276,21 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 30,
+				"bank": 29,
+				"id": 0,
+				"name": "Festa Zone",
+				"areaId": 182,
+				"areaName": "Festa Zone",
+				"type": "indoor",
+				"width": 12,
+				"height": 8,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 29,
 				"id": 1,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8321,21 +8303,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 2,
-				"name": "Festa Zone",
-				"areaId": 182,
-				"areaName": "Festa Zone",
-				"type": "indoor",
-				"width": 12,
-				"height": 8,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 30,
-				"id": 3,
 				"name": "Festa Zone",
 				"areaId": 182,
 				"areaName": "Festa Zone",
@@ -8347,7 +8316,20 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
+				"id": 3,
+				"name": "Festa Zone",
+				"areaId": 182,
+				"areaName": "Festa Zone",
+				"type": "indoor",
+				"width": 15,
+				"height": 22,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 29,
 				"id": 4,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8360,7 +8342,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 5,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8373,7 +8355,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 6,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8386,7 +8368,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 7,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8399,7 +8381,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 8,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8412,7 +8394,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 9,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8425,7 +8407,7 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 10,
 				"name": "Festa Zone",
 				"areaId": 182,
@@ -8438,21 +8420,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
+				"bank": 29,
 				"id": 11,
-				"name": "Festa Zone",
-				"areaId": 182,
-				"areaName": "Festa Zone",
-				"type": "indoor",
-				"width": 15,
-				"height": 22,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 30,
-				"id": 12,
 				"name": "Route J",
 				"areaId": 25,
 				"areaName": "Route J",
@@ -8464,8 +8433,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 30,
-				"id": 13,
+				"bank": 29,
+				"id": 12,
 				"name": "Route J",
 				"areaId": 25,
 				"areaName": "Route J",
@@ -8478,10 +8447,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 31,
-				"id": 1,
+				"bank": 30,
+				"id": 0,
 				"name": "Route M",
 				"areaId": 28,
 				"areaName": "Route M",
@@ -8494,9 +8462,21 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 32,
+				"bank": 31,
+				"id": 0,
+				"name": "Route B",
+				"areaId": 37,
+				"areaName": "Route B",
+				"type": "indoor",
+				"width": 18,
+				"height": 13,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 31,
 				"id": 1,
 				"name": "Route B",
 				"areaId": 37,
@@ -8509,21 +8489,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 32,
+				"bank": 31,
 				"id": 2,
-				"name": "Route B",
-				"areaId": 37,
-				"areaName": "Route B",
-				"type": "indoor",
-				"width": 18,
-				"height": 13,
-				"attrs": {},
-				"areas": [],
-				"gamedata": {}
-			},
-			{
-				"bank": 32,
-				"id": 3,
 				"name": "Lost Cave",
 				"areaId": 181,
 				"areaName": "Lost Cave",
@@ -8535,8 +8502,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 32,
-				"id": 4,
+				"bank": 31,
+				"id": 3,
 				"name": "Lost Cave",
 				"areaId": 181,
 				"areaName": "Lost Cave",
@@ -8549,10 +8516,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 33,
-				"id": 1,
+				"bank": 32,
+				"id": 0,
 				"name": "Aragi‘S Lab",
 				"areaId": 62,
 				"areaName": "Aragi‘S Lab",
@@ -8564,8 +8530,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 33,
-				"id": 2,
+				"bank": 32,
+				"id": 1,
 				"name": "Aragi‘S Lab",
 				"areaId": 62,
 				"areaName": "Aragi‘S Lab",
@@ -8577,8 +8543,8 @@
 				"gamedata": {}
 			},
 			{
-				"bank": 33,
-				"id": 3,
+				"bank": 32,
+				"id": 2,
 				"name": "Route S",
 				"areaId": 34,
 				"areaName": "Route S",
@@ -8591,10 +8557,9 @@
 			}
 		],
 		[
-			null,
 			{
-				"bank": 34,
-				"id": 1,
+				"bank": 33,
+				"id": 0,
 				"name": "Route W",
 				"areaId": 39,
 				"areaName": "Route W",
@@ -8613,7 +8578,7 @@
 			"id": "595d5684",
 			"text": "We find <b>a wild Mewtwo</b> tucked away in these caverns! <b>We fight it!</b>",
 			"timeout": 6000000000,
-			"loc": "14.26:0"
+			"loc": "13.25:0"
 		}
 	]
 }

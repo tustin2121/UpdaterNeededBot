@@ -197,8 +197,29 @@ class MapRegion {
 		App.notifyChange('report-del', this);
 	}
 	
+	make0Based() {
+		if (this.nodes[0]) return false; //already 0-based
+		this.nodes.shift(); //remove first bank
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			this.nodes[bank].shift(); //remove first map
+		}
+		this.renumberMaps();
+		return true;
+	}
+	make1Based() {
+		if (!this.nodes[0]) return false; //already 1-based
+		this.nodes.unshift(null); //add first bank
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			this.nodes[bank].unshift(null); //add first map
+		}
+		this.renumberMaps();
+		return true;
+	}
+	
 	renumberMaps() {
-		for (let bank = 1; bank < this.nodes.length; bank++) {
+		for (let bank = 0; bank < this.nodes.length; bank++) {
 			if (!this.nodes[bank]) continue;
 			for (let map = 0; map < this.nodes[bank].length; map++) {
 				if (!this.nodes[bank][map]) continue;
@@ -208,7 +229,6 @@ class MapRegion {
 		}
 		App.notifyChange('map-renumber', this);
 	}
-	
 }
 
 /** Represents a map in the game. This represents data about a location id given by the API. */

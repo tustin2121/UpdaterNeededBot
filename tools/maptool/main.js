@@ -994,6 +994,33 @@ function makeMenubar() {
 			}
 		}));
 		menu.append(new nw.MenuItem({ label:'View', submenu }));
+	}{
+		let submenu = new nw.Menu();
+		{
+			let sm = new nw.Menu();
+			sm.append(new nw.MenuItem({ label:'Make 0-Based (Gen 3)',
+				click() {
+					if (!App.currData) window.alert('Load a region file first.');
+					if (App.currData.make0Based()) {
+						mapPanel.updateTree();
+					} else {
+						window.alert('Already 0-based.');
+					}
+				}
+			}));
+			sm.append(new nw.MenuItem({ label:'Make 1-Based (Gen 2)',
+				click() {
+					if (!App.currData) window.alert('Load a region file first.');
+					if (App.currData.make1Based()) {
+						mapPanel.updateTree();
+					} else {
+						window.alert('Already 1-based.');
+					}
+				}
+			}));
+			submenu.append(new nw.MenuItem({ label:'Convert Base', submenu:sm}));
+		}
+		menu.append(new nw.MenuItem({ label:'Edit', submenu }));
 	}
 	nw.Window.get().menu = menu;
 }

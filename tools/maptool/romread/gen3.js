@@ -161,8 +161,8 @@ class Gen3Reader extends GBReader {
 				// https://github.com/pret/pokeemerald/blob/24f6484643ed3d7115fd4ebd92f254f224f1ca97/data/maps/PetalburgCity/header.inc
 				// https://github.com/pret/pokeemerald/blob/efebc51972b23ddffa2700b1dd6895d4728646a3/data/layouts/PetalburgCity/layout.inc
 			} catch (e) {
-				console.error(`Error reading map, skipping! Bank ${b+1}, Map ${m+1}: `, e);
-				bankData[m+1] = { bank:b+1, map:m+1, error:'Invalid map data' };
+				console.error(`Error reading map, skipping! Bank ${b}, Map ${m}: `, e);
+				bankData[m] = { bank:b, map:m, error:'Invalid map data' };
 				continue;
 			}
 			
