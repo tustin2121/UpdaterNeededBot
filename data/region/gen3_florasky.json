@@ -169,6 +169,16 @@
 				"town": true
 			},
 			"areas": []
+		},
+		"unused": {
+			"type": "unused",
+			"attrs": {},
+			"areas": []
+		},
+		"underwater": {
+			"type": "underwater",
+			"attrs": {},
+			"areas": []
 		}
 	},
 	"nodes": [
@@ -4113,7 +4123,7 @@
 				"name": "[Error]",
 				"areaId": 13,
 				"areaName": "Charpos Island",
-				"type": "indoor",
+				"type": "unused",
 				"width": 4294967295,
 				"height": 4294967295,
 				"attrs": {},
@@ -4627,7 +4637,9 @@
 				"type": "indoor",
 				"width": 20,
 				"height": 28,
-				"attrs": {},
+				"attrs": {
+					"e4": "champ"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -4660,10 +4672,10 @@
 			{
 				"bank": 16,
 				"id": 7,
-				"name": "Pokemon League",
+				"name": "[Error]",
 				"areaId": 15,
 				"areaName": "Pokemon League",
-				"type": "indoor",
+				"type": "unused",
 				"width": 4294967295,
 				"height": 4294967295,
 				"attrs": {},
@@ -4689,7 +4701,7 @@
 				"name": "[Error]",
 				"areaId": 15,
 				"areaName": "Pokemon League",
-				"type": "indoor",
+				"type": "unused",
 				"width": 4294967295,
 				"height": 4294967295,
 				"attrs": {},
@@ -4808,7 +4820,7 @@
 			{
 				"bank": 17,
 				"id": 1,
-				"name": "Route F",
+				"name": "Pretty Petal Flower Shop",
 				"areaId": 19,
 				"areaName": "Route F",
 				"type": "indoor",
@@ -4855,7 +4867,9 @@
 				"type": "indoor",
 				"width": 14,
 				"height": 12,
-				"attrs": {},
+				"attrs": {
+					"healing": "house"
+				},
 				"areas": [],
 				"gamedata": {}
 			}
@@ -4892,7 +4906,7 @@
 			{
 				"bank": 20,
 				"id": 0,
-				"name": "Route N",
+				"name": "Route C",
 				"areaId": 29,
 				"areaName": "Route N",
 				"type": "indoor",
@@ -4918,7 +4932,7 @@
 			{
 				"bank": 20,
 				"id": 2,
-				"name": "Route N",
+				"name": "Malias City",
 				"areaId": 29,
 				"areaName": "Route N",
 				"type": "indoor",
@@ -4948,13 +4962,15 @@
 			{
 				"bank": 22,
 				"id": 0,
-				"name": "Route Q",
+				"name": "Daycare",
 				"areaId": 32,
 				"areaName": "Route Q",
 				"type": "indoor",
 				"width": 12,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			}
@@ -4963,13 +4979,15 @@
 			{
 				"bank": 23,
 				"id": 0,
-				"name": "Turzoro City",
+				"name": "Safari Zone Entrance",
 				"areaId": 10,
 				"areaName": "Turzoro City",
 				"type": "indoor",
 				"width": 18,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			}
@@ -5062,7 +5080,9 @@
 				"type": "dungeon",
 				"width": 17,
 				"height": 33,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -8579,6 +8599,54 @@
 			"text": "We find <b>a wild Mewtwo</b> tucked away in these caverns! <b>We fight it!</b>",
 			"timeout": 6000000000,
 			"loc": "13.25:0"
+		},
+		{
+			"type": "transit",
+			"id": "8a43e6f1",
+			"text": "!chairlift",
+			"timeout": 900000,
+			"from": "19.1",
+			"to": "19.0"
+		},
+		{
+			"type": "transit",
+			"id": "ac675429",
+			"text": "!chairlift_back",
+			"timeout": 300000,
+			"from": "19.1",
+			"to": "19.0"
+		},
+		{
+			"type": "transit",
+			"id": "988a8ad1",
+			"text": "!chairlift_nvm",
+			"timeout": 60000,
+			"from": "19.1",
+			"to": "19.0"
+		},
+		{
+			"type": "transit",
+			"id": "a731df82",
+			"text": "!chairlift",
+			"timeout": 900000,
+			"from": "19.0",
+			"to": "19.1"
+		},
+		{
+			"type": "transit",
+			"id": "10d9f009",
+			"text": "!chairlift_back",
+			"timeout": 300000,
+			"from": "19.0",
+			"to": "19.1"
+		},
+		{
+			"type": "transit",
+			"id": "9b475964",
+			"text": "!chairlift_nvm",
+			"timeout": 60000,
+			"from": "19.0",
+			"to": "19.1"
 		}
 	]
 }

@@ -282,6 +282,30 @@ MapChanged['magenttrain_nvm'] = [
 	`Again! Again! \PogChamp/ We ride the train back to {{the location|@curr}}!`,
 ];
 
+//We ride the chairlift (override with Transit Report)
+MapChanged['chairlift'] = [
+	`We {{rand|hop|jump}} on the {{rand|chair |}}lift! Weeeeeee! \PogChamp/ Now {{in the location|@curr}}!`,
+	`We {{rand|take|ride|board|grab}} the {{rand|chair |}}lift to {{the location|@curr}}!`,
+];
+//We ride the chairlift within 15 minutes of the last time
+MapChanged['chairlift_back'] = [
+	`Back for more {{rand|chair |}}lift fun! Weeee{{rand|eeee|ee|e}}e! \ PogChamp / {{The location|@curr}}!`,
+	`Back now for more chair lift riding! To {{the location|@curr}} we go!`,
+	`CHAIR LIFTS! Onward to {{the location|@curr}}!`,
+];
+//We ride the chairlift within 5 minutes of the last time
+MapChanged['chairlift_nvm'] = [
+	`Weeeeeeeee! \ PogChamp / Now back {{in the location|@curr}}!`,
+	`Weeeeeeeeeeee! \ PogChamp / {{The location|@curr}}!`,
+	`Weeeeeeeeee! \ PogChamp / {{The location|@curr}}!`,
+	`Weeeeeeee! \ PogChamp / Back {{in the location|@curr}}!`,
+	`Weeeeeeeeeeee! \ PogChamp / Back to {{the location|@curr}}!`,
+	`That chair lift ride was so much fun, we do it again! {{The location|@curr}}!`,
+	`This chair lift is fun! Back {{in the location|@curr}}!`,
+	`That ride was a blast! Again! \PogChamp/ {{The location|@curr}}!`,
+	`Again! Again! \PogChamp/ We ride the chair lift back to {{the location|@curr}}!`,
+];
+
 
 MapChanged.__meta__ = { sort:-110 }; //After "Blackout!"
 

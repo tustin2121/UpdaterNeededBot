@@ -28,7 +28,7 @@ module.exports = {
 				"Fear", //Gima's badge (dark) (8)
 			],
 			e4Names: [ "Bertha", "Adeku", "Ice", "Flash" ],
-			champName: "{{rival}}",
+			champName: "Cynthia",
 		},
 	},
 	
