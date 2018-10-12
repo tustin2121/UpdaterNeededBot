@@ -123,7 +123,7 @@ class Gen3Reader extends GBReader {
 				);
 				
 				let info = new MapNode(null, {
-					bank: b+1, map: m+1,
+					bank: b, map: m,
 					width: layout.width, height:layout.height,
 					areaId, areaName: areaNames[areaId],
 					mapType: MAP_TYPES[mapType],
@@ -156,7 +156,7 @@ class Gen3Reader extends GBReader {
 					case 'mart': info.name += ' PokéMart'; break;
 				}
 				
-				bankData[m+1] = info;
+				bankData[m] = info;
 				//TODO https://github.com/pret/pokeemerald/tree/24f6484643ed3d7115fd4ebd92f254f224f1ca97/data/maps/PetalburgCity
 				// https://github.com/pret/pokeemerald/blob/24f6484643ed3d7115fd4ebd92f254f224f1ca97/data/maps/PetalburgCity/header.inc
 				// https://github.com/pret/pokeemerald/blob/efebc51972b23ddffa2700b1dd6895d4728646a3/data/layouts/PetalburgCity/layout.inc
@@ -166,7 +166,7 @@ class Gen3Reader extends GBReader {
 				continue;
 			}
 			
-			mapData[b+1] = bankData;
+			mapData[b] = bankData;
 		}
 		
 		this.maps = mapData;

@@ -264,7 +264,7 @@ class MapNode {
 			areaName: this.areaName,
 			type: this.type,
 			width: this.width, height: this.height,
-			attrs: this.attrs,
+			attrs: Object.assign({}, this.attrs),
 			areas: [],
 			gamedata: this.gamedata,
 		};
@@ -343,7 +343,7 @@ class MapType {
 	serialize() {
 		let out = {
 			type: this.name,
-			attrs: this.attrs,
+			attrs: Object.assign({}, this.attrs),
 			areas: [],
 		};
 		out.areas = this.areas.map(x=>x.serialize());
@@ -402,7 +402,7 @@ class MapArea {
 			bx: this.bx, by: this.by,
 			rad: this.rad,
 			name: this.name,
-			attrs: this.attrs,
+			attrs: Object.assign({}, this.attrs),
 		};
 	}
 }

@@ -17,7 +17,18 @@ module.exports = {
 		// A list of game corrections and options
 		opts: {
 			// see /data/genopts
-			
+			badgeNames: [
+				"Kungfu", //Margin's badge (fighting) (1)
+				"Normal", //Caitlin's badge (normal) (2)
+				"Dynamo", //Wattson's badge (electric) (3)
+				"Icy", //Pryce's badge (ice) (4)
+				"Iron", //Leira's badge (steel?) (5)
+				"Feather", //Iris's badge (flying) (6)
+				"Rain", //Aragi's badge (water) (7)
+				"Fear", //Gima's badge (dark) (8)
+			],
+			e4Names: [ "Bertha", "Adeku", "Ice", "Flash" ],
+			champName: "{{rival}}",
 		},
 	},
 	
