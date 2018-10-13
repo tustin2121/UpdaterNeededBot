@@ -18,7 +18,6 @@ class LedgerItem {
 		 * translating this item into English.
 		 */
 		this.flavor = flavor;
-		
 		/** The sorting order of this item, before importance */
 		this._sort = sort;
 		/** If this item has been processed already by a given rule. */

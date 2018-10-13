@@ -107,6 +107,10 @@ class StreamAPI extends EventEmitter {
 		return this.prevInfo[game];
 	}
 	
+	get hasUpdate() {
+		return !this.memory.hasPoppedUpdate.reduce((a,b)=>a||b, false);
+	}
+	
 	popInfo(game=0) {
 		try {
 			if (!this.memory.hasPoppedUpdate[game]) {

@@ -4,6 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const { DemocracyContext, InputModeChanged } = require('../ledger');
 
+const LOGGER = getLogger('Politics');
+
 const RULES = [];
 
 /**   ** Politics Module **
@@ -20,8 +22,12 @@ class PoliticsModule extends ReportingModule {
 	set democracy(val) { Bot.memory.runFlags['in_democracy'] = val; }
 	
 	firstPass(ledger, { curr_chat:chat }) {
+		this.setDebug(LOGGER, ledger);
+		this.debug('chat:', chat);
 		if (!chat) return; //do nothing when no chat info
 		let { tpp:tppMsgs } = chat;
+		
+		this.debug('tppMsgs:', tppMsgs);
 		
 		let res;
 		for (let msg of tppMsgs) {
@@ -37,10 +43,12 @@ class PoliticsModule extends ReportingModule {
 			// Ignore other messages
 		}
 		
-		if (this.democracy && this.memory.lastDemoInput < Date.now() - (1000 * 60 * 5)) {
+		if (this.democracy && this.memory.lastDemoInput < Date.now() - (1000 * 60 * 1)) {
 			// If there hasn't been a demo input read from TPP bot for 5 minutes, chances are we're in anarchy.
 			this.democracy = false;
 		}
+		
+		this.debug('demo after:', this.democracy);
 		
 		if (Bot.runFlag('in_democracy', false)) {
 			ledger.add(new DemocracyContext());

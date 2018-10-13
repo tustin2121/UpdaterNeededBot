@@ -750,6 +750,14 @@ class TypeSetter {
 		let dict = {};
 		let order = [];
 		
+		let len = 0;
+		for (let item of list) {
+			let { contextOnly } = TypeSetter.getPhraseMeta(item);
+			if (contextOnly) continue;
+			len++;
+		}
+		if (len === 0) return []; //No items that are not marked as context-only, short-circut this
+		
 		// Collate
 		for (let item of list) {
 			let { merge } = TypeSetter.getPhraseMeta(item);

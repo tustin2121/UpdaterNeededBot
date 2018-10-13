@@ -215,6 +215,10 @@ class UpdaterBot extends EventEmitter {
 	 */
 	run() {
 		LOGGER.note(`============ Update Cycle ${this.getTimestamp()} ============`);
+		if (!this.streamApi.hasUpdate) {
+			LOGGER.note(`No updated stream info yet, skipping cycle.`);
+			return;
+		}
 		this.emit('pre-update-cycle');
 		LOGGER.trace(`Update cycle starting.`);
 		try {
