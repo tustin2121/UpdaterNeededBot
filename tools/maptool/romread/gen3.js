@@ -94,7 +94,7 @@ class Gen3Reader extends GBReader {
 			let bankData = [];
 			let mapHeaders = [];
 			this.offset = ptr;
-			for (let i = 0; i < 100 && this.offset !== bankTable[b+1]; i++) {
+			for (let i = 0; i < 1000 && this.offset !== bankTable[b+1]; i++) {
 				let mapPtr = this.readUint32();
 				if (mapPtr & 0xFF000000 !== 0x08000000) break;
 				let header = this.readBytes(MAP_HEADER_BYTES, mapPtr & 0x00FFFFFF);
