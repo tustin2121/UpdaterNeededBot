@@ -87,6 +87,14 @@ class PhonebookRemove extends LedgerItem {
 	}
 }
 
+///////////////////
+// Memes
+class MemeReport extends LedgerItem {
+	constructor(flavor) {
+		super(1, { flavor });
+	}
+}
+
 
 /////////////////// Advanced Items ///////////////////
 
@@ -96,4 +104,5 @@ module.exports = {
 	DemocracyContext, InputModeChanged,
 	TimeChanged,
 	PhonebookAdd, PhonebookRemove,
+	MemeReport,
 };

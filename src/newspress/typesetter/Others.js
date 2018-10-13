@@ -231,4 +231,15 @@ module.exports = {
 			`We decide that we're better without {{@contact}} in our lives. <b>We delete {{them|@contact}} from our contact list!</b>`,
 		],
 	},
+	
+	MemeReport: {
+		__meta__: { sort:-9000 }, //after everything else
+		default: `{{@report}}`,
+		fridge: [
+			`Let's raid the fridge!`,
+			`We {{rand|consider|contemplate|ponder about|think of|envisage|hesitate about|deliberate on|ruminate about|speculate about}} raiding the fridge.`,
+			`We {{rand|attempt|seek|strive|aim}} to raid the fridge, but fail.`,
+			`We {{rand|think|imagine|believe|deem that|suspect|expect}} this fridge needs a good raiding.`,
+		]
+	},
 };

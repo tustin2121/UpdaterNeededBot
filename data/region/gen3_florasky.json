@@ -565,7 +565,10 @@
 				"type": "route",
 				"width": 36,
 				"height": 20,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "at"
+				},
 				"areas": [
 					{
 						"ax": 9,
@@ -9238,6 +9241,13 @@
 			"text": "We surf our way onto Route V. There's that snow-covered island again.",
 			"timeout": 600000,
 			"to": "0.44"
+		},
+		{
+			"type": "transit",
+			"id": "6e35165e",
+			"text": "[Snark] Let's raid the fridge!",
+			"timeout": 7200000,
+			"to": "[fridgeHouse]:0"
 		}
 	]
 }
