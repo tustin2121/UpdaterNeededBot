@@ -161,7 +161,7 @@ module.exports = {
 	OptionsChanged,
 	
 	DemocracyContext: {
-		__meta__: { sort:9000 }, //In front of everything else
+		__meta__: { sort:9000, contextOnly:true, }, //In front of everything else
 		default: '[D]',
 	},
 	

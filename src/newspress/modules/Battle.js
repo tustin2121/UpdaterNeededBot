@@ -54,7 +54,7 @@ class BattleModule extends ReportingModule {
 			this.memory.lastBattleReported = null; //clear battle reporting
 		}
 		else if (cb.in_battle && cb.party) {
-			let healthy = cb.party.filter(p=>p.hp && p.species);
+			let healthy = cb.party.filter(p=>p.hp || !p.species);
 			this.debug(`displayName=`,cb.displayName,` isImportant=`,cb.isImportant);
 			this.debug(`party=`,cb.party);
 			LOGGER.debug(`moves=`, cb.party.map(x=>x.moveInfo));
