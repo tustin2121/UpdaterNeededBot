@@ -632,10 +632,13 @@ const ATTRS = {
 		values: [false,'lobby','e1','e2','e3','e4','champ','hallOfFame'],
 	},
 	safari: {
-		tooltip: `If this location is part of a Safari Zone (catches in safari ball)`,
+		tooltip: `If this location is part of a Safari Zone (catches in safari ball).`,
 	},
 	entralink: {
-		tooltip: `If this location is an entralink map (special reporting)`,
+		tooltip: `If this location is an entralink map (special reporting).`,
+	},
+	tempParty: {
+		tooltip: `If this location is a location where a temporary party is expected (for special reporting).`,
 	},
 	
 	// Amenities which can affect reporting

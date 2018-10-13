@@ -212,7 +212,7 @@
 						"ay": 21,
 						"bx": 14,
 						"by": 21,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -248,7 +248,7 @@
 						"ay": 54,
 						"bx": 23,
 						"by": 54,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -284,7 +284,7 @@
 						"ay": 40,
 						"bx": 29,
 						"by": 40,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -320,7 +320,7 @@
 						"ay": 29,
 						"bx": 21,
 						"by": 29,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -356,7 +356,7 @@
 						"ay": 25,
 						"bx": 71,
 						"by": 25,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -392,7 +392,7 @@
 						"ay": 8,
 						"bx": 36,
 						"by": 8,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -428,7 +428,7 @@
 						"ay": 18,
 						"bx": 26,
 						"by": 18,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -464,7 +464,7 @@
 						"ay": 38,
 						"bx": 34,
 						"by": 38,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -511,7 +511,7 @@
 						"ay": 8,
 						"bx": 20,
 						"by": 8,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -583,7 +583,7 @@
 						"ay": 8,
 						"bx": 15,
 						"by": 8,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -619,7 +619,7 @@
 						"ay": 8,
 						"bx": 7,
 						"by": 8,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -655,7 +655,7 @@
 						"ay": 12,
 						"bx": 22,
 						"by": 12,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -691,7 +691,7 @@
 						"ay": 31,
 						"bx": 38,
 						"by": 31,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -727,7 +727,7 @@
 						"ay": 11,
 						"bx": 11,
 						"by": 11,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -763,7 +763,7 @@
 						"ay": 16,
 						"bx": 23,
 						"by": 16,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1235,7 +1235,7 @@
 						"ay": 8,
 						"bx": 23,
 						"by": 8,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1431,7 +1431,7 @@
 						"ay": 22,
 						"bx": 27,
 						"by": 22,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1469,7 +1469,7 @@
 						"ay": 22,
 						"bx": 18,
 						"by": 22,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1518,7 +1518,7 @@
 						"ay": 20,
 						"bx": 23,
 						"by": 20,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"tepeort": true,
@@ -1544,7 +1544,7 @@
 						"ay": 18,
 						"bx": 16,
 						"by": 18,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1634,7 +1634,7 @@
 						"ay": 8,
 						"bx": 11,
 						"by": 8,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1672,7 +1672,7 @@
 						"ay": 30,
 						"bx": 16,
 						"by": 30,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -1697,7 +1697,7 @@
 						"ay": 23,
 						"bx": 8,
 						"by": 23,
-						"rad": 5,
+						"rad": 8,
 						"name": "teleport kiosk",
 						"attrs": {
 							"teleport": true
@@ -3916,7 +3916,7 @@
 				"name": "[Error]",
 				"areaId": 12,
 				"areaName": "Teaes City",
-				"type": "indoor",
+				"type": "unused",
 				"width": 4294967295,
 				"height": 4294967295,
 				"attrs": {},
@@ -5741,7 +5741,17 @@
 				"width": 30,
 				"height": 30,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 21,
+						"ay": 7,
+						"bx": 21,
+						"by": 7,
+						"rad": 8,
+						"name": "teleport kiosk",
+						"attrs": {}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -7212,62 +7222,87 @@
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
-				"type": "route",
+				"type": "town",
 				"width": 56,
 				"height": 72,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 5,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 25,
 				"height": 10,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 22,
+						"ay": 2,
+						"bx": 22,
+						"by": 2,
+						"rad": 5,
+						"name": "pc",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 6,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 5,
 				"height": 7,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 7,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 17,
 				"height": 5,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 8,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 10,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7342,348 +7377,441 @@
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
-				"type": "route",
+				"type": "town",
 				"width": 72,
 				"height": 72,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 4,
+						"ay": 53,
+						"bx": 4,
+						"by": 53,
+						"rad": 5,
+						"name": "flyspot",
+						"attrs": {
+							"flyspot": true
+						}
+					},
+					{
+						"ax": 7,
+						"ay": 52,
+						"bx": 7,
+						"by": 52,
+						"rad": 8,
+						"name": "teleport kiosk",
+						"attrs": {
+							"teleport": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 15,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 21,
 				"height": 15,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 16,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 17,
 				"height": 5,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 17,
-				"name": "Battle Frontier",
+				"name": "Battle Tower",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 10,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 18,
-				"name": "Battle Frontier",
+				"name": "Battle Dome",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 23,
 				"height": 17,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 19,
-				"name": "Battle Frontier",
+				"name": "Battle Dome",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 48,
 				"height": 7,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 20,
-				"name": "Battle Frontier",
+				"name": "Battle Dome",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 9,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 21,
-				"name": "Battle Frontier",
+				"name": "Battle Dome",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 20,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 22,
-				"name": "Battle Frontier",
+				"name": "Battle Palace",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 25,
 				"height": 12,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 23,
-				"name": "Battle Frontier",
+				"name": "Battle Palace",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 17,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 24,
-				"name": "Battle Frontier",
+				"name": "Battle Palace",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 15,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 25,
-				"name": "Battle Frontier",
+				"name": "Battle Pyramid",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 15,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 26,
-				"name": "Battle Frontier",
+				"name": "Battle Pyramid",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 8,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 27,
-				"name": "Battle Frontier",
+				"name": "Battle Pyramid",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 34,
 				"height": 23,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 28,
-				"name": "Battle Frontier",
+				"name": "Battle Arena",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 16,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 29,
-				"name": "Battle Frontier",
+				"name": "Battle Arena",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 18,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 30,
-				"name": "Battle Frontier",
+				"name": "Battle Arena",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 16,
 				"height": 11,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 31,
-				"name": "Battle Frontier",
+				"name": "Battle Factory",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 19,
 				"height": 12,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 32,
-				"name": "Battle Frontier",
+				"name": "Battle Factory",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 17,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 33,
-				"name": "Battle Frontier",
+				"name": "Battle Factory",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 13,
 				"height": 12,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 34,
-				"name": "Battle Frontier",
+				"name": "Battle Pike",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 11,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 35,
-				"name": "Battle Frontier",
+				"name": "Battle Pike",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 14,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 36,
-				"name": "Battle Frontier",
+				"name": "Battle Pike",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 13,
 				"height": 11,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 37,
-				"name": "Battle Frontier",
+				"name": "Battle Pike",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 9,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 38,
-				"name": "Battle Frontier",
+				"name": "Battle Pike",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 5,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 39,
-				"name": "Battle Frontier",
+				"name": "Battle Pike",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 9,
 				"height": 20,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true,
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 40,
-				"name": "Battle Frontier",
+				"name": "Battle Frontier Ranking Hall",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 53,
 				"height": 15,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7696,21 +7824,37 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 26,
 				"id": 42,
-				"name": "Battle Frontier",
+				"name": "Battle Frontier Exchange Service Corner",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
 				"type": "indoor",
 				"width": 15,
 				"height": 11,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 2,
+						"ay": 2,
+						"bx": 12,
+						"by": 7,
+						"rad": 0,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -7722,7 +7866,9 @@
 				"type": "indoor",
 				"width": 13,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7735,7 +7881,9 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7748,7 +7896,9 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7761,7 +7911,9 @@
 				"type": "indoor",
 				"width": 6,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7774,7 +7926,9 @@
 				"type": "indoor",
 				"width": 13,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7787,7 +7941,9 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7800,7 +7956,9 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7810,10 +7968,13 @@
 				"name": "Battle Frontier",
 				"areaId": 58,
 				"areaName": "Battle Frontier",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 9,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7826,7 +7987,9 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7839,7 +8002,9 @@
 				"type": "indoor",
 				"width": 9,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},

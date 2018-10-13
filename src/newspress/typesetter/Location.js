@@ -183,6 +183,44 @@ MapChanged['town_exit_south'] = [
 	`We head {{rand|southward|south}} out of town {{onto the location|@curr}}.`,
 	`We leave town heading south, out {{onto the location|@curr}}.`,
 ];
+//We teleport from one town to another
+MapChanged['town_teleport'] = [
+	`We {{rand|fiddle|diddle|play|screw around}} with the teleport kiosk next to the Pokémon Center and suddenly we're {{in the location|@curr}}.`,
+	`We dial up {{the location|@curr}} on the teleport kiosk and suddenly we're there.`,
+	`We pound on some buttons on the teleport kiosk and next thing we know we're {{in the location|@curr}}.`,
+	`After {{rand|fiddling with|pounding on|screwing with}} the teleport kiosk next to the Pokémon Center, we blink and are now {{in the location|@curr}}.`,
+];
+MapChanged['town_teleport_back'] = [
+	...MapChanged['town_teleport'],
+	`We decide {{the location|@prev}} is not our scene, and in a blink of an eye, the teleport kiosk leaves us {{in the location|@curr}}.`,
+	`Change of plans: we fuss with the teleport kiosk again and find ourselves again {{in the location|@curr}}.`,
+	`Back to the teleport kiosk, and back {{in the location|@curr}}.`,
+];
+MapChanged['town_teleport_nvm'] = [
+	`We change our mind and dial ourselves back to {{the location|@curr}}.`,
+	`We try again with the teleport kiosk and end up back {{in the location|@curr}}.`,
+	`We decide to try our luck with the teleport kiosk again and suddenly we're {{in the location|@curr}}.`,
+	`A spin of the teleport kiosk roulette lands us back {{in the location|@curr}}.`,
+];
+//We fly to a town
+MapChanged['fly'] = [
+	`We take flight and land {{in the location|@curr}}!`,
+	`Upon the wings of a Pokémon we sail {{into the location|@curr}}!`,
+	`{{$select fly mon}}We hop on {{Mon}}'s back and fly {{into the location|@curr}}!`,
+	`{{$select fly mon}}We climb aboard our {{Mon}} and fly {{into the location|@curr}}!`,
+	`{{$select fly mon}}{{Mon}} flies us {{into the location|@curr}}!`,
+	`{{$select fly mon}}We soar {{into the location|@curr}} on {{Mon}}'s back!`,
+];
+MapChanged['fly_back'] = [
+	...MapChanged['fly'],
+	`Longing for nostalgia for not even fifteen minutes ago, we fly back to {{the location|@curr}}.`,
+];
+MapChanged['fly_nvm'] = [
+	`Change of plans: we fly back to {{the location|@curr}}.`,
+	`We decide we liked {{the location|@curr}} better, and fly back there.`,
+	`{{$select fly mon}}{{Mon}} looks at us funny as we direct {{her}} to fly right back to {{the location|@curr}}.`,
+	`{{$select fly mon}}{{Mon}} wasn't even back in {{her}} ball yet, and {{she}}'s flying us back to {{the location|@curr}}.`,
+];
 
 ////////////////////////////
 // Entering/Exiting a Gym //

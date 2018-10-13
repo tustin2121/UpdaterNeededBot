@@ -35,8 +35,8 @@ class LocationModule extends ReportingModule {
 		
 		let prev = region.resolve(prev_api.location); //prev_api.location.node = prev;
 		let curr = region.resolve(curr_api.location); //curr_api.location.node = curr;
-		let prevMap = prev, prevArea = null;
-		let currMap = curr, currArea = null;
+		let prevMap = prev, prevArea = null, prevLoc = prev_api.location;
+		let currMap = curr, currArea = null, currLoc = curr_api.location;
 		
 		if (currMap instanceof MapArea) { currArea = currMap; currMap = currArea.parent; }
 		if (prevMap instanceof MapArea) { prevArea = prevMap; prevMap = prevArea.parent; }
@@ -49,7 +49,9 @@ class LocationModule extends ReportingModule {
 		
 		// Transit Reporting logic
 		if (currMap !== prevMap || currArea !== prevArea) {
-			let item = this.generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea });
+			let item = this.generateMapChangedItem({ 
+				region, prevMap, currMap, prevArea, currArea, prevLoc, currLoc,
+			});
 			if (item) ledger.add(item);
 		}
 		this.memory.visitTimestamps[currMap.locId] = Date.now();
@@ -86,7 +88,7 @@ class LocationModule extends ReportingModule {
 		// }
 	}
 	
-	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea }) {
+	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea, prevLoc, currLoc }) {
 		const currTime = Date.now();
 		let report = region.findTransitReport(prevArea || prevMap, currArea || currMap);
 		if (report) return new MapChanged({ prev:prevMap, curr:currMap, report });
@@ -128,6 +130,18 @@ class LocationModule extends ReportingModule {
 			const C = currMap.is('gym');
 			if (!P && C) { item.flavor = `gym_enter${back}`; return item; }
 			if (P && !C) { item.flavor = `gym_exit${back}`; return item; }
+		}{
+			const T = prevMap.is('town') && currMap.is('town');
+			const P = prevMap.within('teleport', prevLoc.x, prevLoc.y);
+			const C = currMap.within('teleport', currLoc.x, currLoc.y);
+			if (T) {
+				if (P && C) { item.flavor = `town_teleport${back}`; return item; }
+			}
+		}
+		if (Bot.runFlags('fly_logic', true)) {
+			//TODO Determine if we're currently in a town, near a flyspot, and weren't either before,
+			//and determine if where we were previously was not an adjacent map space
+			//{ item.flavor = `flt${back}`; return item; }
 		}{
 			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_enter${back}`; return item; }
 			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_exit${back}`; return item; }

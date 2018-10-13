@@ -38,6 +38,12 @@ const FLAGS = {
 		match: /trad(e|ing)( watch)?/i,
 	},
 	
+	fly_logic: { //default: true
+		name: 'Flight Calculations',
+		purpose: `I will try and determine when we're flying to a town instead of walking in. If I'm getting this wrong too often, feel free to turn it off.`,
+		match: /flying|flight|flycalc/i,
+	},
+	
 	in_democracy: { //default: false
 		name: 'In Democracy',
 		purpose: `I will report as if democracy is on. Usually I can detect this myself, but you can turn it on and off if I miss something.`,
