@@ -5,7 +5,9 @@ const { should, sinon } = require('../../common');
 
 const LEDGER_ITEMS = require('../../../src/newspress/ledger');
 const POKEDATA = require('../../../src/api/pokedata');
+const MAPNODE = require('../../../src/api/mapnode');
 const TYPESET = require('../../../src/newspress/typesetter');
+const { Rule } = require('../../../src/newspress/modules/_base');
 
 const { Ledger } = LEDGER_ITEMS;
 const { TypeSetter } = TYPESET;
@@ -227,6 +229,48 @@ describe('Real-World Tests', function(){
 			let res = typesetter.typesetLedger(ledger);
 			
 			res.replace(/\xA0/g,' ').should.equal(`<i><b>!!!!!qqquulk (Phantump) HAS HIT LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ <b>Drifloon!es8 (Drifloon) leveled up to 9!</b> <b>Silcoon1666 (Silcoon) has grown two levels to level 6!</b> <b>Kabuto (Kabuto) leveled up to 10!</b> <b>!!  777      (Claydol) leveled up to 8!</b>`);
+		});
+		
+		it('checkpoints', function(){
+			const { CheckpointContext, CheckpointUpdated } = LEDGER_ITEMS;
+			const { MapRegion } = MAPNODE;
+			
+			const rule = new Rule(`When fully healing at a center, set a checkpoint`)
+				.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+				.then(ledger=>{
+					let item = ledger.mark(0).get(0)[0];
+					item.isCurrent = true;
+					ledger.add(new CheckpointUpdated(item.loc));
+				});
+			
+			let region = new MapRegion({
+				name: "Test", types: {}, reports:[], nodes: [[{
+					"bank": 0,
+					"id": 0,
+					"name": "Petalburg City",
+					"areaId": 7,
+					"areaName": "Petalburg City",
+					"type": "city",
+					"width": 30,
+					"height": 30,
+					"attrs": {},
+					"areas": [],
+				}]]
+			});
+			let ledger = new Ledger();
+			ledger.addItem(new CheckpointContext(region.nodes[0][0], false));
+			
+			rule.apply(ledger, {});
+			
+			ledger.list.should.have.lengthOf(2);
+			ledger.list[1].should.be.an.instanceof(CheckpointUpdated);
+			ledger.list[1].should.have.property('areaName', 'Petalburg City');
+			
+			let typesetter = new TypeSetter({ curr_api:null, debugLog:ledger.log, });
+			typesetter.setRandom(0, 0, 0, 0, 0, 0, 0, 0, 0);
+			let res = typesetter.typesetLedger(ledger);
+			
+			res.should.equal('<b>Checkpoint Petalburg City!</b>')
 		});
 	});
 	
