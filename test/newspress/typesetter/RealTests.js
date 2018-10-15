@@ -229,6 +229,28 @@ describe('Real-World Tests', function(){
 			res.replace(/\xA0/g,' ').should.equal(`<i><b>!!!!!qqquulk (Phantump) HAS HIT LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ <b>Drifloon!es8 (Drifloon) leveled up to 9!</b> <b>Silcoon1666 (Silcoon) has grown two levels to level 6!</b> <b>Kabuto (Kabuto) leveled up to 10!</b> <b>!!  777      (Claydol) leveled up to 8!</b>`);
 		});
 	});
+	
+	describe('Cancellation', function(){
+		it('MonGiveItem and MonTakeItem', function(){
+			const { MonGiveItem, MonTakeItem } = LEDGER_ITEMS;
+			const { Pokemon, Item } = POKEDATA;
+			const mon1 = new Pokemon(), mon2 = new Pokemon();
+			mon1.name = 'Qualava'; mon2.name = 'Honedge';
+			
+			let prevItems = [
+				new MonTakeItem(mon1, new Item({ name:'Berry', id:22 })),
+				new MonGiveItem(mon2, new Item({ name:'Everstone', id:26 })),
+			];
+			
+			let ledger = new Ledger();
+			ledger.addItem(new MonGiveItem(mon1, new Item({ name:'Berry', id:22 })));
+			ledger.addItem(new MonTakeItem(mon2, new Item({ name:'Everstone', id:26 })));
+			
+			Ledger.mergeItems(prevItems, ledger.list, ledger.log);
+			
+			ledger.list.should.be.empty();
+		});
+	});
 });
 
 

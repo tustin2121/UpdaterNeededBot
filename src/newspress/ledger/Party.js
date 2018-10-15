@@ -219,7 +219,7 @@ class MonGiveItem extends PartyItem {
 	cancelsOut(other) {
 		if (other.__itemName__ !== 'MonTakeItem') return false;
 		if (this.mon.hash !== other.mon.hash) return false;
-		if (this.curr === other.prev) return true;
+		if (this.curr.id === other.prev.id) return true;
 		return false;
 	}
 }
@@ -235,7 +235,7 @@ class MonTakeItem extends PartyItem {
 	cancelsOut(other) {
 		if (other.__itemName__ !== 'MonGiveItem') return false;
 		if (this.mon.hash !== other.mon.hash) return false;
-		if (this.prev === other.curr) return true;
+		if (this.prev.id === other.curr.id) return true;
 		return false;
 	}
 }
