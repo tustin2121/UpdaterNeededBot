@@ -122,30 +122,6 @@ class BattleEnded extends BattleItem {
 	}
 }
 
-/**
- * Tells us when an enemy has fainted
- */
-class EnemyFainted extends BattleItem {
-	constructor(battle, enemy, myactive) {
-		super(battle);
-		this.enemy = enemy;
-		this.myactive = myactive;
-	}
-}
-
-/**
- * Tells us when an enemy mon has been sent out
- */
-class EnemySentOut extends BattleItem {
-	constructor(battle, enemy, myactive) {
-		super(battle);
-		this.enemy = enemy;
-		this.myactive = myactive;
-	}
-}
-
-
-
 /** Indicates we blacked out. */
 class Blackout extends LedgerItem {
 	constructor(type) {
@@ -196,6 +172,156 @@ class BadgeGet extends LedgerItem {
 	constructor(badgeName) {
 		super(2);
 		this.badge = badgeName;
+	}
+}
+
+/////////////////// Play-by-Play Items ///////////////////
+
+/**
+ * Tells us when we swap pokemon in a battle. ("We send out Staravia!")
+ */
+class BattleState_AllyBecameActive extends BattleItem {
+	constructor(battle, ally, prevAlly) {
+		super(battle, { flavor:(prevAlly)?'swap':null });
+		this.ally = ally;
+		this.prev = prevAlly;
+	}
+}
+
+/**
+ * Tells us when they swap pokemon in a battle. ("Trainer sends out Staravia!")
+ */
+class BattleState_EnemyBecameActive extends BattleItem {
+	constructor(battle, enemy, prevEnemy) {
+		super(battle, { flavor:(prevEnemy)?'swap':null });
+		this.enemy = enemy;
+		this.prev = prevEnemy;
+	}
+}
+
+/**
+ * Converts MonLostPP into a play-by-play message. ("Mon uses Quick Attack!")
+ */
+class BattleState_AllyUsedMove extends BattleItem {
+	constructor(battle, ally, move) {
+		super(battle);
+		this.ally = ally;
+		this.move = move;
+	}
+}
+
+/**
+ * When we have move pp info for the enemy, we can play-by-play enemy moves too. ("Mon uses Quick Attack!")
+ */
+class BattleState_EnemyUsedMove extends BattleItem {
+	constructor(battle, ally, move) {
+		super(battle);
+		this.ally = ally;
+		this.move = move;
+	}
+}
+
+/**
+ * Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!")
+ */
+class BattleState_AllyDamage extends BattleItem {
+	constructor(battle, flavor, { ally, delta }) {
+		super(battle, { flavor });
+		this.ally = ally;
+		this.delta = delta;
+	}
+	
+	/**
+	 * Creates an item based on the current mon state and the previous mon state. Determines the flavor
+	 * of the item from this information.
+	 */
+	static createItem(battle, currAlly, prevAlly) {
+		if (!currAlly || !prevAlly) return null; //invalid state, do nothing
+		if (currAlly._hp[1] !== prevAlly._hp[1]) return null; //invalid state, do nothing
+		
+		let [ currHP, maxHP ] = currAlly._hp;
+		let [ prevHP, ] = prevAlly._hp;
+		let delta = currHP - prevHP;
+		if (currAlly.hp === 0) { //The pokemon fainted from this damage
+			if (currAlly.dexid === 292) new BattleState_AllyDamage(battle, 'shedinja', { ally:currAlly, delta });
+			if (delta === -1) new BattleState_AllyDamage(battle, 'fatalTap', { ally:currAlly, delta });
+			if (delta === maxHP) new BattleState_AllyDamage(battle, 'fatalOHKO', { ally:currAlly, delta });
+			return new BattleState_AllyDamage(battle, 'fatal', { ally:currAlly, delta });
+		}
+		if (delta === 0) return null; //nothing to report
+		if (delta > 0) return null; //we don't report this
+		if (delta === -1) return new BattleState_AllyDamage(battle, 'chipDmg', { ally:currAlly, delta });
+		if (prevAlly.hp > 50 && currAlly.hp <= 50) {
+			return new BattleState_AllyDamage(battle, 'intoYellow', { ally:currAlly, delta });
+		}
+		if (prevAlly.hp > 25 && currAlly.hp <= 25) {
+			return new BattleState_AllyDamage(battle, 'intoRed', { ally:currAlly, delta });
+		}
+		let pDelta = Math.abs(delta) / maxHP;
+		if (pDelta < 0.25) {
+			return new BattleState_AllyDamage(battle, 'lightDmg', { ally:currAlly, delta });
+		} else if (pDelta < 0.50) {
+			return new BattleState_AllyDamage(battle, 'medDmg', { ally:currAlly, delta });
+		} else {
+			return new BattleState_AllyDamage(battle, 'heavyDmg', { ally:currAlly, delta });
+		}
+	}
+}
+
+/**
+ * Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!")
+ */
+class BattleState_EnemyDamage extends BattleItem {
+	constructor(battle, flavor, { enemy, delta }) {
+		super(battle, { flavor });
+		this.enemy = enemy;
+		this.delta = delta;
+	}
+	
+	/**
+	 * Creates an item based on the current mon state and the previous mon state. Determines the flavor
+	 * of the item from this information.
+	 */
+	static createItem(battle, currEnemy, prevEnemy) {
+		if (!currEnemy || !prevEnemy) return null; //invalid state, do nothing
+		if (currEnemy._hp[1] !== prevEnemy._hp[1]) return null; //invalid state, do nothing
+		
+		let [ currHP, maxHP ] = currEnemy._hp;
+		let [ prevHP, ] = prevEnemy._hp;
+		let delta = currHP - prevHP;
+		if (currEnemy.hp === 0) { //The pokemon fainted from this damage
+			if (currEnemy.dexid === 292) new BattleState_AllyDamage(battle, 'shedinja', { enemy:currEnemy, delta });
+			if (delta === -1) new BattleState_EnemyDamage(battle, 'fatalTap', { enemy:currEnemy, delta });
+			if (delta === maxHP) new BattleState_EnemyDamage(battle, 'fatalOHKO', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamage(battle, 'fatal', { enemy:currEnemy, delta });
+		}
+		if (delta === 0) return null; //nothing to report
+		if (delta > 0) return null; //we don't report this
+		if (delta === -1) return new BattleState_EnemyDamage(battle, 'chipDmg', { enemy:currEnemy, delta });
+		if (prevEnemy.hp > 50 && currEnemy.hp <= 50) {
+			return new BattleState_EnemyDamage(battle, 'intoYellow', { enemy:currEnemy, delta });
+		}
+		if (prevEnemy.hp > 25 && currEnemy.hp <= 25) {
+			return new BattleState_EnemyDamage(battle, 'intoRed', { enemy:currEnemy, delta });
+		}
+		let pDelta = Math.abs(delta) / maxHP;
+		if (pDelta < 0.25) {
+			return new BattleState_EnemyDamage(battle, 'lightDmg', { enemy:currEnemy, delta });
+		} else if (pDelta < 0.50) {
+			return new BattleState_EnemyDamage(battle, 'medDmg', { enemy:currEnemy, delta });
+		} else {
+			return new BattleState_EnemyDamage(battle, 'heavyDmg', { enemy:currEnemy, delta });
+		}
+	}
+}
+
+/**
+ * Tells us when an enemy has fainted
+ */
+class BattleState_EnemyFainted extends BattleItem {
+	constructor(battle, enemy) {
+		super(battle);
+		this.enemy = enemy;
 	}
 }
 

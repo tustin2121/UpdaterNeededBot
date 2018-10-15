@@ -45,6 +45,10 @@ module.exports = {
 	'3d': true,
 	// If this generation has a trainer id that is dependant on the class, or if the trainer id is unique to all trainers
 	dependentTrainerId: false,
+	// If this generation sets a checkpoint upon entering a pokemon center, rather than on healing.
+	checkpointOnEnter: true,
+	// If this generation revives the player after a black out in the center, rather than at the spawn point.
+	reviveInCenter: true,
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,

@@ -711,6 +711,7 @@ class SortedBattle {
 					poke = {
 						active: p.active,
 						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						_hp: [p.health[0], p.health[1]],
 						species: p.species.name,
 						dexid: read(p.species, 'national_dex', 'id'),
 					};

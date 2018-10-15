@@ -156,7 +156,7 @@ class LocationModule extends ReportingModule {
 	}
 }
 
-if (false) { //TODO: gen 1 only
+if (Bot.runOpts('checkpointOnEnter')) { // gen 1 only
 	RULES.push(new Rule(`When entering a center, set a checkpoint`)
 		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 		.when(ledger=>ledger.has('FullHealed'))
@@ -192,13 +192,15 @@ if (false) { //TODO: gen 1 only
 	);
 }
 
-// This may break in early generations
-RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
-	.when(ledger=>ledger.has('BlackoutContext'))
-	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
-	.then(ledger=>{
-		let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
-	})
-);
+// if (Bot.runOpts('reviveInCenter')) {
+	// This may break in early generations
+	RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
+		.when(ledger=>ledger.has('BlackoutContext'))
+		.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
+		.then(ledger=>{
+			let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
+		})
+	);
+// }
 
 module.exports = LocationModule;
