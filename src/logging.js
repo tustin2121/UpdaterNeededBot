@@ -91,7 +91,7 @@ log4js.configure({
 		},
 		'CHATLOG': {
 			appenders: ['out-chat'],
-			level:'all',
+			level:'off',
 		},
 	},
 });

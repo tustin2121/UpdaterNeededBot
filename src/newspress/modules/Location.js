@@ -56,9 +56,9 @@ class LocationModule extends ReportingModule {
 		}
 		this.memory.visitTimestamps[currMap.locId] = Date.now();
 		
-		// if (currMap.is('checkpoint')) {
-		// 	ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
-		// }
+		if (currMap.is('checkpoint')) {
+			ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
+		}
 		
 		if (!prev.has('water') && curr.has('water')) {
 			ledger.add(new MapMovement('surfStart', curr_api));
@@ -82,10 +82,10 @@ class LocationModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		// let items;
-		// if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
-		// 	this.memory.currCheckpoint = items[0].loc.locId;
-		// }
+		let items;
+		if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
+			this.memory.currCheckpoint = items[0].loc.locId;
+		}
 	}
 	
 	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea, prevLoc, currLoc }) {
@@ -138,7 +138,7 @@ class LocationModule extends ReportingModule {
 				if (P && C) { item.flavor = `town_teleport${back}`; return item; }
 			}
 		}
-		if (Bot.runFlags('fly_logic', true)) {
+		if (Bot.runFlag('fly_logic', true)) {
 			//TODO Determine if we're currently in a town, near a flyspot, and weren't either before,
 			//and determine if where we were previously was not an adjacent map space
 			//{ item.flavor = `flt${back}`; return item; }
@@ -156,16 +156,28 @@ class LocationModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
-	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
-	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.hasnt('BlackoutContext'))
-	.then(ledger=>{
-		let item = ledger.mark(0).get(0);
-		item.isCurrent = true;
-		ledger.add(new CheckpointUpdated(item.loc));
-	})
-);
+if (false) { //TODO: gen 1 only
+	RULES.push(new Rule(`When entering a center, set a checkpoint`)
+		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+		.when(ledger=>ledger.has('FullHealed'))
+		.when(ledger=>ledger.hasnt('BlackoutContext'))
+		.then(ledger=>{
+			let item = ledger.mark(0).get(0)[0];
+			item.isCurrent = true;
+			ledger.add(new CheckpointUpdated(item.loc));
+		})
+	);
+} else {
+	RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
+		.when(ledger=>ledger.has('MapChanged'))
+		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+		.then(ledger=>{
+			let item = ledger.mark(1).get(1)[0];
+			item.isCurrent = true;
+			ledger.add(new CheckpointUpdated(item.loc));
+		})
+	);
+}
 
 {
 	const itemIds = Bot.runOpts('itemIds_escapeRope');

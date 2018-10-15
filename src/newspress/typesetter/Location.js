@@ -370,7 +370,8 @@ module.exports = {
 	CheckpointUpdated: {
 		__meta__ : { sort:-120 }, //After MapChanged
 		default: [
-			`<b>Checkpoint {{@loc.areaName}}!</b>`
+			`<b>Checkpoint {{@areaName}}!</b>`,
+			`<b>Checkpoint!</b>`
 		],
 	},
 	

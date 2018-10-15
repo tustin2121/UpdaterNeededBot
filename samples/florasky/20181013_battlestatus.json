@@ -1,0 +1,1277 @@
+{
+    "area_id": 2,
+    "area_name": "Mystic Town",
+    "badges": 1,
+    "ball_count": 2,
+    "battle_kind": "Trainer",
+    "caught": 6,
+    "caught_list": [
+        7,
+        16,
+        19,
+        263,
+        270,
+        280
+    ],
+    "coins": 0,
+    "daycare": [],
+    "enemy_party": [
+        {
+            "active": true,
+            "gender": "Male",
+            "health": [
+                15,
+                24
+            ],
+            "name": "Pichu",
+            "personality_value": 498824,
+            "species": {
+                "abilities": [
+                    "Static",
+                    "-------"
+                ],
+                "base_stats": {
+                    "attack": 40,
+                    "defense": 15,
+                    "hp": 20,
+                    "special_attack": 35,
+                    "special_defense": 35,
+                    "speed": 60
+                },
+                "catch_rate": 190,
+                "egg_cycles": 10,
+                "egg_type1": "Undiscovered",
+                "egg_type2": "Undiscovered",
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 172,
+                "name": "Pichu",
+                "national_dex": 172,
+                "type1": "Electric",
+                "type2": "Electric"
+            }
+        },
+        {
+            "active": false,
+            "gender": "Male",
+            "health": [
+                30,
+                30
+            ],
+            "name": "???",
+            "personality_value": 1097096,
+            "species": {
+                "id": 0,
+                "name": "???",
+                "national_dex": 0
+            }
+        },
+        null,
+        null,
+        null,
+        null
+    ],
+    "enemy_trainers": [
+        {
+            "class_id": 36,
+            "class_name": "Pok\u00e9Fan",
+            "gender": "Male",
+            "id": 699,
+            "name": "Kaleb",
+            "pic_id": 51
+        }
+    ],
+    "evolution_is_happening": false,
+    "gender": "Female",
+    "id": 64341,
+    "in_battle": true,
+    "items": {
+        "ball": [
+            {
+                "count": 2,
+                "id": 4,
+                "name": "Pok\u00e9 Ball"
+            }
+        ],
+        "berry": [
+            {
+                "count": 2,
+                "id": 153,
+                "name": "Pomeg Berry"
+            },
+            {
+                "count": 9,
+                "id": 155,
+                "name": "Qualot Berry"
+            },
+            {
+                "count": 7,
+                "id": 157,
+                "name": "Grepa Berry"
+            }
+        ],
+        "items": [
+            {
+                "count": 2,
+                "id": 121,
+                "name": "Orange Mail"
+            },
+            {
+                "count": 1,
+                "id": 13,
+                "name": "Potion"
+            },
+            {
+                "count": 8,
+                "id": 14,
+                "name": "Antidote"
+            }
+        ],
+        "key": [],
+        "pc": [
+            {
+                "count": 1,
+                "id": 13,
+                "name": "Potion"
+            }
+        ],
+        "tm": [
+            {
+                "count": 1,
+                "id": 296,
+                "name": "TM08 Bulk Up"
+            },
+            {
+                "count": 1,
+                "id": 305,
+                "name": "TM17 Protect"
+            },
+            {
+                "count": 1,
+                "id": 344,
+                "name": "HM06 Rock Smash"
+            }
+        ]
+    },
+    "map_bank": 3,
+    "map_id": 4,
+    "map_name": "Mystic Town",
+    "money": 4642,
+    "name": "..hnv",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "button_mode": "LR",
+        "frame": "1",
+        "map_zoom": "Full",
+        "sound": "Stereo",
+        "text_speed": "Fast"
+    },
+    "party": [
+        {
+            "ability": "Keen Eye",
+            "buffs": {
+                "accuracy": 6,
+                "attack": 4,
+                "defense": 6,
+                "evasion": 6,
+                "hp": 6,
+                "special_attack": 6,
+                "special_defense": 6,
+                "speed": 6
+            },
+            "checksum": 24768,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encyption_key": 1557773317,
+            "evs": {
+                "attack": 11,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 7,
+                "speed": 10
+            },
+            "experience": {
+                "current": 1507,
+                "next_level": 1612,
+                "remaining": 105,
+                "this_level": 1261
+            },
+            "friendship": 130,
+            "gender": "Female",
+            "health": [
+                23,
+                36
+            ],
+            "held_item": null,
+            "is_egg": false,
+            "ivs": {
+                "attack": 22,
+                "defense": 10,
+                "hp": 22,
+                "special_attack": 19,
+                "special_defense": 15,
+                "speed": 25
+            },
+            "language": "English",
+            "level": 13,
+            "marking": "",
+            "met": {
+                "area_id": 41,
+                "area_name": "Route Y",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "3",
+                "level": 3,
+                "map_id": 37
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 60,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Cool"
+                    },
+                    "id": 17,
+                    "max_pp": 35,
+                    "name": "Wing Attack",
+                    "pp": 26,
+                    "pp_up": 0,
+                    "type": "Flying"
+                },
+                {
+                    "accuracy": 0,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Prevents the user from being startled.",
+                        "jamming": "",
+                        "type": "Cool"
+                    },
+                    "id": 104,
+                    "max_pp": 15,
+                    "name": "Double Team",
+                    "pp": 13,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "contest": {
+                        "appeal": "\u2661\u2661\u2661\u2661",
+                        "effect": "The appeal effect of this move is constant.",
+                        "jamming": "",
+                        "type": "Tough"
+                    },
+                    "id": 33,
+                    "max_pp": 35,
+                    "name": "Tackle",
+                    "pp": 34,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "contest": {
+                        "appeal": "\u2661\u2661\u2661",
+                        "effect": "The appeal order changes for the next round.",
+                        "jamming": "",
+                        "type": "Cool"
+                    },
+                    "id": 98,
+                    "max_pp": 30,
+                    "name": "Quick Attack",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "BBBBVVWWZA",
+            "next_move": {
+                "id": null,
+                "level": 21,
+                "name": null,
+                "type": "Normal"
+            },
+            "original_trainer": {
+                "id": 64341,
+                "name": "..hnv",
+                "secret": 27923
+            },
+            "personality_value": 835340112,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "sleep_turns": 0,
+            "species": {
+                "abilities": [
+                    "Keen Eye",
+                    "-------"
+                ],
+                "base_stats": {
+                    "attack": 55,
+                    "defense": 40,
+                    "hp": 40,
+                    "special_attack": 35,
+                    "special_defense": 35,
+                    "speed": 56
+                },
+                "catch_rate": 255,
+                "egg_cycles": 15,
+                "egg_type1": "Flying",
+                "egg_type2": "Flying",
+                "gender_ratio": 127,
+                "growth_rate": "Medium Slow",
+                "id": 16,
+                "name": "Starly",
+                "national_dex": 16,
+                "type1": "Normal",
+                "type2": "Flying"
+            },
+            "stats": {
+                "attack": 22,
+                "defense": 16,
+                "hp": 36,
+                "special_attack": 16,
+                "special_defense": 16,
+                "speed": 23
+            },
+            "status": "PAR",
+            "volatile_status": []
+        },
+        {
+            "ability": "Pickup",
+            "checksum": 44898,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encyption_key": 2085434645,
+            "evs": {
+                "attack": 1,
+                "defense": 2,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 7,
+                "speed": 10
+            },
+            "experience": {
+                "current": 1212,
+                "next_level": 1331,
+                "remaining": 119,
+                "this_level": 1000
+            },
+            "friendship": 122,
+            "gender": "Female",
+            "health": [
+                27,
+                27
+            ],
+            "held_item": {
+                "count": 0,
+                "id": 75,
+                "name": "X Attack"
+            },
+            "is_egg": false,
+            "ivs": {
+                "attack": 9,
+                "defense": 4,
+                "hp": 1,
+                "special_attack": 31,
+                "special_defense": 16,
+                "speed": 28
+            },
+            "language": "English",
+            "level": 10,
+            "marking": "",
+            "met": {
+                "area_id": 16,
+                "area_name": "Route A",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "3",
+                "level": 3,
+                "map_id": 16
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 70,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Startles the previous appealer.",
+                        "jamming": "\u2665\u2665\u2665",
+                        "type": "Tough"
+                    },
+                    "id": 29,
+                    "max_pp": 15,
+                    "name": "Headbutt",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Cute"
+                    },
+                    "id": 45,
+                    "max_pp": 40,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Cute"
+                    },
+                    "id": 39,
+                    "max_pp": 30,
+                    "name": "Tail Whip",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "contest": {
+                        "appeal": "\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Tough"
+                    },
+                    "id": 249,
+                    "max_pp": 15,
+                    "name": "Rock Smash",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Fighting"
+                }
+            ],
+            "name": "   T",
+            "next_move": {
+                "id": null,
+                "level": 13,
+                "name": null,
+                "type": "Ground"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 64341,
+                "name": "..hnv",
+                "secret": 27923
+            },
+            "personality_value": 291425856,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "sleep_turns": 0,
+            "species": {
+                "abilities": [
+                    "Pickup",
+                    "-------"
+                ],
+                "base_stats": {
+                    "attack": 30,
+                    "defense": 41,
+                    "hp": 38,
+                    "special_attack": 30,
+                    "special_defense": 41,
+                    "speed": 60
+                },
+                "catch_rate": 255,
+                "egg_cycles": 15,
+                "egg_type1": "Field",
+                "egg_type2": "Field",
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 288,
+                "name": "Zigzagoon",
+                "national_dex": 263,
+                "type1": "Normal",
+                "type2": "Normal"
+            },
+            "stats": {
+                "attack": 11,
+                "defense": 13,
+                "hp": 27,
+                "special_attack": 14,
+                "special_defense": 14,
+                "speed": 20
+            },
+            "status": null
+        },
+        {
+            "ability": "Keen Eye",
+            "checksum": 61499,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encyption_key": 1920883222,
+            "evs": {
+                "attack": 11,
+                "defense": 0,
+                "hp": 2,
+                "special_attack": 1,
+                "special_defense": 5,
+                "speed": 7
+            },
+            "experience": {
+                "current": 1241,
+                "next_level": 1331,
+                "remaining": 90,
+                "this_level": 1000
+            },
+            "friendship": 127,
+            "gender": "Female",
+            "health": [
+                31,
+                31
+            ],
+            "held_item": null,
+            "is_egg": false,
+            "ivs": {
+                "attack": -22,
+                "defense": -6,
+                "hp": 28,
+                "special_attack": -5,
+                "special_defense": -19,
+                "speed": -9
+            },
+            "language": "English",
+            "level": 10,
+            "marking": "",
+            "met": {
+                "area_id": 16,
+                "area_name": "Route A",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "3",
+                "level": 3,
+                "map_id": 16
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "contest": {
+                        "appeal": "\u2661\u2661\u2661\u2661",
+                        "effect": "The appeal effect of this move is constant.",
+                        "jamming": "",
+                        "type": "Tough"
+                    },
+                    "id": 33,
+                    "max_pp": 35,
+                    "name": "Tackle",
+                    "pp": 33,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661\u2661",
+                        "effect": "Affects appealers other than startling them.",
+                        "jamming": "",
+                        "type": "Cool"
+                    },
+                    "id": 43,
+                    "max_pp": 30,
+                    "name": "Leer",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 60,
+                    "contest": {
+                        "appeal": "\u2661",
+                        "effect": "Startles all previous appealers.",
+                        "jamming": "\u2665\u2665\u2665",
+                        "type": "Tough"
+                    },
+                    "id": 44,
+                    "max_pp": 25,
+                    "name": "Bite",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Dark"
+                }
+            ],
+            "name": "AAGBBBBBBC",
+            "next_move": {
+                "id": null,
+                "level": 13,
+                "name": null,
+                "type": "Ground"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 64341,
+                "name": "..hnv",
+                "secret": 27923
+            },
+            "personality_value": 527278403,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "sleep_turns": 0,
+            "species": {
+                "abilities": [
+                    "Run Away",
+                    "Keen Eye"
+                ],
+                "base_stats": {
+                    "attack": 55,
+                    "defense": 39,
+                    "hp": 45,
+                    "special_attack": 35,
+                    "special_defense": 39,
+                    "speed": 42
+                },
+                "catch_rate": 255,
+                "egg_cycles": 15,
+                "egg_type1": "Field",
+                "egg_type2": "Field",
+                "gender_ratio": 127,
+                "growth_rate": "Medium Fast",
+                "id": 19,
+                "name": "Patrat",
+                "national_dex": 19,
+                "type1": "Normal",
+                "type2": "Normal"
+            },
+            "stats": {
+                "attack": 18,
+                "defense": 15,
+                "hp": 31,
+                "special_attack": 12,
+                "special_defense": 14,
+                "speed": 15
+            },
+            "status": null
+        },
+        {
+            "ability": "Swift Swim",
+            "checksum": 26343,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encyption_key": 1966295429,
+            "evs": {
+                "attack": 0,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 1,
+                "speed": 1
+            },
+            "experience": {
+                "current": 148,
+                "next_level": 179,
+                "remaining": 31,
+                "this_level": 135
+            },
+            "friendship": 93,
+            "gender": "Male",
+            "health": [
+                19,
+                19
+            ],
+            "held_item": null,
+            "is_egg": false,
+            "ivs": {
+                "attack": 17,
+                "defense": 25,
+                "hp": 12,
+                "special_attack": 0,
+                "special_defense": 24,
+                "speed": 21
+            },
+            "language": "English",
+            "level": 5,
+            "marking": "",
+            "met": {
+                "area_id": 41,
+                "area_name": "Route Y",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "3",
+                "level": 4,
+                "map_id": 37
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 30,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Startles the previous appealer.",
+                        "jamming": "\u2665\u2665\u2665",
+                        "type": "Smart"
+                    },
+                    "id": 310,
+                    "max_pp": 15,
+                    "name": "Astonish",
+                    "pp": 15,
+                    "pp_up": 0,
+                    "type": "Ghost"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Cute"
+                    },
+                    "id": 45,
+                    "max_pp": 40,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "AAAAGGGGGG",
+            "next_move": {
+                "id": null,
+                "level": 7,
+                "name": null,
+                "type": "Grass"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 64341,
+                "name": "..hnv",
+                "secret": 27923
+            },
+            "personality_value": 404796112,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "sleep_turns": 0,
+            "species": {
+                "abilities": [
+                    "Swift Swim",
+                    "Rain Dish"
+                ],
+                "base_stats": {
+                    "attack": 30,
+                    "defense": 30,
+                    "hp": 40,
+                    "special_attack": 40,
+                    "special_defense": 50,
+                    "speed": 30
+                },
+                "catch_rate": 255,
+                "egg_cycles": 15,
+                "egg_type1": "Water 1",
+                "egg_type2": "Grass",
+                "gender_ratio": 127,
+                "growth_rate": "Medium Slow",
+                "id": 295,
+                "name": "Lotad",
+                "national_dex": 270,
+                "type1": "Water",
+                "type2": "Grass"
+            },
+            "stats": {
+                "attack": 8,
+                "defense": 9,
+                "hp": 19,
+                "special_attack": 9,
+                "special_defense": 11,
+                "speed": 9
+            },
+            "status": null
+        },
+        {
+            "ability": "Torrent",
+            "checksum": 47401,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encyption_key": -703325679,
+            "evs": {
+                "attack": 9,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 2,
+                "speed": 14
+            },
+            "experience": {
+                "current": 898,
+                "next_level": 973,
+                "remaining": 75,
+                "this_level": 742
+            },
+            "friendship": 122,
+            "gender": "Male",
+            "health": [
+                35,
+                35
+            ],
+            "held_item": null,
+            "is_egg": false,
+            "ivs": {
+                "attack": 14,
+                "defense": 19,
+                "hp": 22,
+                "special_attack": 1,
+                "special_defense": 26,
+                "speed": 7
+            },
+            "language": "English",
+            "level": 11,
+            "marking": "",
+            "met": {
+                "area_id": 207,
+                "area_name": "Underwater",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "3",
+                "level": 5,
+                "map_id": 56
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "contest": {
+                        "appeal": "\u2661\u2661\u2661\u2661",
+                        "effect": "The appeal effect of this move is constant.",
+                        "jamming": "",
+                        "type": "Cute"
+                    },
+                    "id": 55,
+                    "max_pp": 25,
+                    "name": "Water Gun",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Water"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Cute"
+                    },
+                    "id": 45,
+                    "max_pp": 40,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 40,
+                    "contest": {
+                        "appeal": "\u2661\u2661\u2661\u2661",
+                        "effect": "The appeal effect of this move is constant.",
+                        "jamming": "",
+                        "type": "Tough"
+                    },
+                    "id": 1,
+                    "max_pp": 35,
+                    "name": "Pound",
+                    "pp": 35,
+                    "pp_up": 0,
+                    "type": "Normal"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 20,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Startles all previous appealers.",
+                        "jamming": "\u2665\u2665",
+                        "type": "Cute"
+                    },
+                    "id": 145,
+                    "max_pp": 30,
+                    "name": "Bubble",
+                    "pp": 30,
+                    "pp_up": 0,
+                    "type": "Water"
+                }
+            ],
+            "name": "Piplup",
+            "next_move": {
+                "id": null,
+                "level": 15,
+                "name": null,
+                "type": "Flying"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 64341,
+                "name": "..hnv",
+                "secret": 27923
+            },
+            "personality_value": 3137855812,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "sleep_turns": 0,
+            "species": {
+                "abilities": [
+                    "Torrent",
+                    "-------"
+                ],
+                "base_stats": {
+                    "attack": 51,
+                    "defense": 53,
+                    "hp": 55,
+                    "special_attack": 61,
+                    "special_defense": 56,
+                    "speed": 40
+                },
+                "catch_rate": 45,
+                "egg_cycles": 20,
+                "egg_type1": "Water 1",
+                "egg_type2": "Field",
+                "gender_ratio": 31,
+                "growth_rate": "Medium Slow",
+                "id": 7,
+                "name": "Piplup",
+                "national_dex": 7,
+                "type1": "Water",
+                "type2": "Water"
+            },
+            "stats": {
+                "attack": 17,
+                "defense": 18,
+                "hp": 35,
+                "special_attack": 18,
+                "special_defense": 20,
+                "speed": 14
+            },
+            "status": null
+        },
+        {
+            "ability": "Synchronize",
+            "checksum": 7987,
+            "condition": {
+                "beauty": 0,
+                "coolness": 0,
+                "cuteness": 0,
+                "feel": 0,
+                "smartness": 0,
+                "toughness": 0
+            },
+            "encyption_key": -2091854569,
+            "evs": {
+                "attack": 3,
+                "defense": 0,
+                "hp": 0,
+                "special_attack": 0,
+                "special_defense": 2,
+                "speed": 6
+            },
+            "experience": {
+                "current": 471,
+                "next_level": 640,
+                "remaining": 169,
+                "this_level": 428
+            },
+            "friendship": 69,
+            "gender": "Female",
+            "health": [
+                22,
+                22
+            ],
+            "held_item": null,
+            "is_egg": false,
+            "ivs": {
+                "attack": 16,
+                "defense": 24,
+                "hp": 27,
+                "special_attack": 25,
+                "special_defense": 7,
+                "speed": 7
+            },
+            "language": "English",
+            "level": 7,
+            "marking": "",
+            "met": {
+                "area_id": 16,
+                "area_name": "Route A",
+                "caught_in": "Pok\u00e9 Ball",
+                "game": "3",
+                "level": 3,
+                "map_id": 16
+            },
+            "moves": [
+                {
+                    "accuracy": 100,
+                    "base_power": 50,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Startles the previous appealer.",
+                        "jamming": "\u2665\u2665\u2665",
+                        "type": "Smart"
+                    },
+                    "id": 93,
+                    "max_pp": 25,
+                    "name": "Confusion",
+                    "pp": 25,
+                    "pp_up": 0,
+                    "type": "Psychic"
+                },
+                {
+                    "accuracy": 100,
+                    "base_power": 0,
+                    "contest": {
+                        "appeal": "\u2661\u2661",
+                        "effect": "Appeal effect may change.",
+                        "jamming": "",
+                        "type": "Cute"
+                    },
+                    "id": 45,
+                    "max_pp": 40,
+                    "name": "Growl",
+                    "pp": 40,
+                    "pp_up": 0,
+                    "type": "Normal"
+                }
+            ],
+            "name": "AAAGGGAAAA",
+            "next_move": {
+                "id": null,
+                "level": 11,
+                "name": null,
+                "type": "Normal"
+            },
+            "original_trainer": {
+                "gender": "Female",
+                "id": 64341,
+                "name": "..hnv",
+                "secret": 27923
+            },
+            "personality_value": 3997380162,
+            "pokerus": {
+                "cured": false,
+                "days_left": 0,
+                "infected": false,
+                "strain": 0
+            },
+            "pokerus_remaining": 255,
+            "ribbons": [],
+            "sleep_turns": 0,
+            "species": {
+                "abilities": [
+                    "Synchronize",
+                    "Trace"
+                ],
+                "base_stats": {
+                    "attack": 25,
+                    "defense": 25,
+                    "hp": 28,
+                    "special_attack": 45,
+                    "special_defense": 35,
+                    "speed": 40
+                },
+                "catch_rate": 235,
+                "egg_cycles": 20,
+                "egg_type1": "Amorphous",
+                "egg_type2": "Amorphous",
+                "gender_ratio": 127,
+                "growth_rate": "Slow",
+                "id": 392,
+                "name": "Ralts",
+                "national_dex": 280,
+                "type1": "Psychic",
+                "type2": "Psychic"
+            },
+            "stats": {
+                "attack": 9,
+                "defense": 10,
+                "hp": 22,
+                "special_attack": 13,
+                "special_defense": 10,
+                "speed": 11
+            },
+            "status": null
+        }
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "BOX1",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX2",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX3",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX4",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX5",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX6",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX7",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX8",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX9",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX10",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX11",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX12",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX13",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "BOX14",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 0
+    },
+    "secret": 27923,
+    "security_key": 1254236540,
+    "seen": 23,
+    "seen_list": [
+        1,
+        7,
+        13,
+        16,
+        19,
+        52,
+        56,
+        63,
+        66,
+        88,
+        100,
+        107,
+        140,
+        172,
+        187,
+        236,
+        263,
+        265,
+        270,
+        280,
+        285,
+        290,
+        307
+    ],
+    "time": {
+        "h": 18,
+        "m": 3
+    },
+    "x": 14,
+    "y": 5
+}

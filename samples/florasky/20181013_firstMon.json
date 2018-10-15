@@ -1,0 +1,289 @@
+1539466385664
+{
+	"party": [
+		{
+			"personality_value": 3137855812,
+			"encyption_key": -703325679,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923,
+				"gender": "Female"
+			},
+			"name": "Piplup",
+			"language": "English",
+			"marking": "",
+			"checksum": 18659,
+			"species": {
+				"abilities": [
+					"Torrent",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 51,
+					"defense": 53,
+					"hp": 55,
+					"special_attack": 61,
+					"special_defense": 56,
+					"speed": 40
+				},
+				"catch_rate": 45,
+				"egg_cycles": 20,
+				"egg_type1": "Water 1",
+				"egg_type2": "Field",
+				"gender_ratio": 31,
+				"growth_rate": "Medium Slow",
+				"id": 7,
+				"name": "Piplup",
+				"national_dex": 7,
+				"type1": "Water",
+				"type2": "Water"
+			},
+			"held_item": {
+				"count": 0,
+				"id": 139,
+				"name": "Oran Berry"
+			},
+			"friendship": 71,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 40,
+					"id": 1,
+					"pp": 29,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Pound",
+					"type": "Normal",
+					"contest": {
+						"type": "Tough",
+						"effect": "The appeal effect of this move is constant.",
+						"appeal": "♡♡♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 45,
+					"pp": 36,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Growl",
+					"type": "Normal",
+					"contest": {
+						"type": "Cute",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				}
+			],
+			"evs": {
+				"hp": 0,
+				"attack": 0,
+				"defense": 0,
+				"speed": 1,
+				"special_attack": 0,
+				"special_defense": 0
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 56,
+				"area_id": 207,
+				"area_name": "Underwater",
+				"level": 5,
+				"game": "3",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 22,
+				"attack": 14,
+				"defense": 19,
+				"speed": 7,
+				"special_attack": 1,
+				"special_defense": 26
+			},
+			"is_egg": false,
+			"ability": "Torrent",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 5,
+			"pokerus_remaining": 255,
+			"health": [
+				11,
+				21
+			],
+			"stats": {
+				"hp": 21,
+				"attack": 10,
+				"defense": 11,
+				"speed": 9,
+				"special_attack": 11,
+				"special_defense": 11
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 152,
+				"next_level": 179,
+				"this_level": 135,
+				"remaining": 27
+			},
+			"next_move": {
+				"level": 8,
+				"name": null,
+				"id": null,
+				"type": "Water"
+			}
+		},
+		null,
+		null,
+		null,
+		null,
+		null
+	],
+	"pc": {
+		"current_box_number": 0,
+		"boxes": [
+			{
+				"box_number": 1,
+				"box_name": "BOX1",
+				"box_contents": []
+			},
+			{
+				"box_number": 2,
+				"box_name": "BOX2",
+				"box_contents": []
+			},
+			{
+				"box_number": 3,
+				"box_name": "BOX3",
+				"box_contents": []
+			},
+			{
+				"box_number": 4,
+				"box_name": "BOX4",
+				"box_contents": []
+			},
+			{
+				"box_number": 5,
+				"box_name": "BOX5",
+				"box_contents": []
+			},
+			{
+				"box_number": 6,
+				"box_name": "BOX6",
+				"box_contents": []
+			},
+			{
+				"box_number": 7,
+				"box_name": "BOX7",
+				"box_contents": []
+			},
+			{
+				"box_number": 8,
+				"box_name": "BOX8",
+				"box_contents": []
+			},
+			{
+				"box_number": 9,
+				"box_name": "BOX9",
+				"box_contents": []
+			},
+			{
+				"box_number": 10,
+				"box_name": "BOX10",
+				"box_contents": []
+			},
+			{
+				"box_number": 11,
+				"box_name": "BOX11",
+				"box_contents": []
+			},
+			{
+				"box_number": 12,
+				"box_name": "BOX12",
+				"box_contents": []
+			},
+			{
+				"box_number": 13,
+				"box_name": "BOX13",
+				"box_contents": []
+			},
+			{
+				"box_number": 14,
+				"box_name": "BOX14",
+				"box_contents": []
+			}
+		]
+	},
+	"in_battle": false,
+	"name": "..hnv",
+	"gender": "Female",
+	"id": 64341,
+	"secret": 27923,
+	"options": {
+		"sound": "Mono",
+		"battle_style": "Shift",
+		"battle_scene": "On",
+		"map_zoom": "Full",
+		"text_speed": "Fast",
+		"frame": "1",
+		"button_mode": "LR"
+	},
+	"caught": 1,
+	"caught_list": [
+		7
+	],
+	"seen": 2,
+	"seen_list": [
+		7,
+		263
+	],
+	"security_key": 3503349685,
+	"x": 41,
+	"y": 14,
+	"map_bank": 24,
+	"map_id": 108,
+	"area_id": 56,
+	"map_name": "Mt. Fullmoon",
+	"area_name": "Mt. Fullmoon",
+	"money": 3000,
+	"coins": 0,
+	"items": {
+		"pc": [
+			{
+				"count": 1,
+				"id": 13,
+				"name": "Potion"
+			}
+		],
+		"items": [],
+		"key": [],
+		"ball": [],
+		"tm": [],
+		"berry": []
+	},
+	"ball_count": 0,
+	"badges": 0,
+	"time": {
+		"h": 10,
+		"m": 29
+	},
+	"evolution_is_happening": false,
+	"daycare": []
+}

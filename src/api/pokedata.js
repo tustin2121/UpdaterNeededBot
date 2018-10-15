@@ -483,6 +483,7 @@ class SortedPokemon {
 		
 		if (data.party) {
 			for (let i = 0; i < data.party.length; i++) {
+				if (!data.party[i]) continue;
 				let p = new Pokemon(data.party[i], game);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
@@ -598,7 +599,7 @@ class SortedInventory {
 		if (Bot.runOpts('heldItem')) {
 			if (data.party) {
 				for (let p of data.party) {
-					if (p.held_item.id) {
+					if (p && p.held_item && p.held_item.id) {
 						this.add(p.held_item, 'held');
 					}
 				}
@@ -674,14 +675,16 @@ class SortedBattle {
 						'className': (t.class_name)?correctCase(sanatizeName(t.class_name||'trainer')):'', //Not used in gen 1
 						'name': correctCase(sanatizeName(t.name||'')),
 					};
-					if (Bot.runOpts('trainerClasses', game)) {
+					if (t.gender) {
+						data.gender = t.gender.toLowerCase();
+					} else if (Bot.runOpts('trainerClasses', game)) {
 						let cls = Bot.runOpts('trainerClasses', game);
 						if (cls.info) { //Check for individual info first
 							let info = cls.info[t.class_id];
 							data.gender = info.gender;
 							data.realClassName = info.name;
 							if (!data.className) data.className = info.name;
-						} else {
+						} else if (cls.m && cls.f && cls.p) {
 							if (cls.m[data.class]) data.gender = 'male';
 							else if (cls.f[data.class]) data.gender = 'female';
 							else if (cls.p[data.class]) data.gender = 'plural';
@@ -699,6 +702,7 @@ class SortedBattle {
 		if (data.enemy_party) {
 			this.party = [];
 			for (let p of data.enemy_party) {
+				if (!p) continue;
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
 					poke = new Pokemon(p, game);
@@ -721,6 +725,7 @@ class SortedBattle {
 			let wild_species = data.wild_species;
 			if (!Array.isArray(wild_species)) wild_species = [wild_species];
 			for (let p of wild_species) {
+				if (!p) continue;
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
 					poke = new Pokemon(p, game);
@@ -755,24 +760,6 @@ class SortedBattle {
 		}
 		else if (Array.isArray(this.trainer)) {
 			determineImportance(this, game);
-			// let cls = Bot.runOpts('trainerClasses', game);
-			// if (cls.info) {
-			// 	for (let trainer of this.trainer) {
-			// 		let info = cls.info[trainer.class];
-			// 		this.isImportant = !!info.important;
-			// 		if (typeof info.important === 'string') {
-			// 			this.classes[info.important] = true;
-			// 		}
-			// 	}
-			// } else {
-			// 	for (let type in cls) {
-			// 		if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
-			// 		for (let trainer of this.trainer) {
-			// 			this.classes[type] = !!cls[type][trainer.class];
-			// 			this.isImportant |= this.classes[type];
-			// 		}
-			// 	}
-			// }
 		}
 	}
 	get isRival() { return !!this.classes['rival']; }
@@ -925,6 +912,7 @@ class SortedData {
 				if (Bot.runOpts('pcBoxRollover', game)) {
 					// Determine the effective current box
 					for (let i = 0; i < this.pcBoxes.length; i++) {
+						if (!this.pcBoxes[i]) continue;
 						let bn = (i + data.pc.current_box_number) % this.pcBoxes.length;
 						if (this.pcBoxes[bn].isFull) continue;
 						this.pcBoxes[bn].isEffectiveCurrent = true;

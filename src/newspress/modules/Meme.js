@@ -4,7 +4,7 @@
 const { ReportingModule, Rule } = require('./_base');
 const { MemeReport } = require('../ledger');
 
-const LOGGER = getLogger('ItemModule');
+const LOGGER = getLogger('MemeModule');
 
 const RULES = [];
 

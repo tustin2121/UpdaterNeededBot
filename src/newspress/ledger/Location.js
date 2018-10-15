@@ -93,6 +93,10 @@ class CheckpointUpdated extends LedgerItem {
 		/** @type {MapNode|MapArea} The now current location the player is in. */
 		this.loc = loc;
 	}
+	get areaname() {
+		if (!this.loc) return false;
+		return this.loc.areaName || this.loc.name || false;
+	}
 }
 
 

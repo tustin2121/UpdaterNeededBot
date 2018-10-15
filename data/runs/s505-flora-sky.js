@@ -11,8 +11,8 @@ module.exports = {
 		regionMap: 'gen3_florasky', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: -1,
-			secret: -1,
+			id: 64341,
+			secret: 27923,
 		},
 		// A list of game corrections and options
 		opts: {
@@ -29,6 +29,13 @@ module.exports = {
 			],
 			e4Names: [ "Bertha", "Adeku", "Ice", "Flash" ],
 			champName: "Cynthia",
+			
+			trainerClasses: {
+				rival: [35],
+				leader: [32],
+				e4: [31],
+				champ: [38],
+			},
 		},
 	},
 	
@@ -61,12 +68,12 @@ module.exports = {
 		},
 		
 		// The Reddit Live Updater ID to report to
-		liveID: "11ecntc3z480f",
+		liveID: "11rfit10b8a5r",
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: "366698530343223306",
 		
 		// The Reddit Live Updater ID to report test information to
-		testLiveID: "11eruwjudziy8",
+		testLiveID: "11rylkoi4pulc",
 		// The Discord channel snowflake to report test information to
 		testDiscordID: "436589281033715712", //"367499647410765824",
 		

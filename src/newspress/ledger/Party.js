@@ -216,6 +216,12 @@ class MonGiveItem extends PartyItem {
 	}
 	get curr(){ return this.item; }
 	get given(){ return this.item; }
+	cancelsOut(other) {
+		if (other.__itemName__ !== 'MonTakeItem') return false;
+		if (this.mon.hash !== other.mon.hash) return false;
+		if (this.curr === other.prev) return true;
+		return false;
+	}
 }
 
 /** Indicates that a pokemon has had its item taken from it. */
@@ -226,6 +232,12 @@ class MonTakeItem extends PartyItem {
 	}
 	get prev(){ return this.item; }
 	get taken(){ return this.item; }
+	cancelsOut(other) {
+		if (other.__itemName__ !== 'MonGiveItem') return false;
+		if (this.mon.hash !== other.mon.hash) return false;
+		if (this.prev === other.curr) return true;
+		return false;
+	}
 }
 
 /** Indicates that a pokemon has had its item swapped for another item. */

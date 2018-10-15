@@ -358,6 +358,23 @@ RULES.push(new Rule(`Balls used in a wild battle are postponed until after battl
 	})
 );
 
+if (Bot.runOpts('heldItem')) {
+	RULES.push(new Rule(`Items not handled above taken from a mon in battle are postponed.`)
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('MonTakeItem'))
+		.then(ledger=>{
+			ledger.postpone(1);
+		})
+	);
+	RULES.push(new Rule(`Items not handled above taken from a mon in battle are postponed.`)
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('MonGiveItem'))
+		.then(ledger=>{
+			ledger.postpone(1);
+		})
+	);
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Shopping
 /*
