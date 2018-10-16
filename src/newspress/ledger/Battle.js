@@ -134,12 +134,14 @@ class BlackoutContext extends LedgerItem {
 	constructor() {
 		super(0);
 		this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+		this.revived = false;
 	}
 	canPostpone() {
 		if (this.ttl === 0) return false; //don't postpone
 		if (!this._next) {
 			this._next = new BlackoutContext();
 			this._next.ttl = this.ttl - 1;
+			this._next.revived = this.revived;
 		}
 		return this._next; //postpone this item instead
 	}
@@ -150,10 +152,12 @@ class BlackoutContext extends LedgerItem {
 	}
 	saveToMemory(m) {
 		m.ttl = this.ttl;
+		m.revived = this.revived;
 	}
 	static loadFromMemory(m) {
 		let i = new BlackoutContext();
 		i.ttl = m.ttl;
+		i.revived = m.revived;
 		return i;
 	}
 }
@@ -177,31 +181,37 @@ class BadgeGet extends LedgerItem {
 
 /////////////////// Play-by-Play Items ///////////////////
 
-/**
- * Tells us when we swap pokemon in a battle. ("We send out Staravia!")
- */
+/** Tells us when we swap pokemon in a battle. ("We send out Staravia!") */
 class BattleState_AllyBecameActive extends BattleItem {
-	constructor(battle, ally, prevAlly) {
-		super(battle, { flavor:(prevAlly)?'swap':null });
+	constructor(battle, ally) {
+		super(battle);
 		this.ally = ally;
-		this.prev = prevAlly;
+	}
+}
+/** Tells us when we swap pokemon in a battle. ("We send out Staravia!") */
+class BattleState_AllyBecameInactive extends BattleItem {
+	constructor(battle, ally) {
+		super(battle);
+		this.ally = ally;
 	}
 }
 
-/**
- * Tells us when they swap pokemon in a battle. ("Trainer sends out Staravia!")
- */
+/** Tells us when they swap pokemon in a battle. ("Trainer sends out Staravia!") */
 class BattleState_EnemyBecameActive extends BattleItem {
-	constructor(battle, enemy, prevEnemy) {
-		super(battle, { flavor:(prevEnemy)?'swap':null });
+	constructor(battle, enemy) {
+		super(battle);
 		this.enemy = enemy;
-		this.prev = prevEnemy;
+	}
+}
+/** Tells us when they swap pokemon in a battle. ("Trainer sends out Staravia!") */
+class BattleState_EnemyBecameInative extends BattleItem {
+	constructor(battle, enemy) {
+		super(battle);
+		this.enemy = enemy;
 	}
 }
 
-/**
- * Converts MonLostPP into a play-by-play message. ("Mon uses Quick Attack!")
- */
+/** Converts MonLostPP into a play-by-play message. ("Mon uses Quick Attack!") */
 class BattleState_AllyUsedMove extends BattleItem {
 	constructor(battle, ally, move) {
 		super(battle);
@@ -210,9 +220,7 @@ class BattleState_AllyUsedMove extends BattleItem {
 	}
 }
 
-/**
- * When we have move pp info for the enemy, we can play-by-play enemy moves too. ("Mon uses Quick Attack!")
- */
+/** When we have move pp info for the enemy, we can play-by-play enemy moves too. ("Mon uses Quick Attack!") */
 class BattleState_EnemyUsedMove extends BattleItem {
 	constructor(battle, ally, move) {
 		super(battle);
@@ -221,9 +229,7 @@ class BattleState_EnemyUsedMove extends BattleItem {
 	}
 }
 
-/**
- * Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!")
- */
+/** Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!") */
 class BattleState_AllyDamage extends BattleItem {
 	constructor(battle, flavor, { ally, delta }) {
 		super(battle, { flavor });
@@ -268,9 +274,7 @@ class BattleState_AllyDamage extends BattleItem {
 	}
 }
 
-/**
- * Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!")
- */
+/** Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!") */
 class BattleState_EnemyDamage extends BattleItem {
 	constructor(battle, flavor, { enemy, delta }) {
 		super(battle, { flavor });
@@ -315,9 +319,7 @@ class BattleState_EnemyDamage extends BattleItem {
 	}
 }
 
-/**
- * Tells us when an enemy has fainted
- */
+/** Tells us when an enemy has fainted */
 class BattleState_EnemyFainted extends BattleItem {
 	constructor(battle, enemy) {
 		super(battle);
@@ -328,10 +330,33 @@ class BattleState_EnemyFainted extends BattleItem {
 
 /////////////////// Advanced Items ///////////////////
 
+/** Tells us when we swap pokemon in a battle. ("We send out Staravia!") */
+class BattleState_AllySwappedActive extends BattleItem {
+	constructor(battle, prev, curr) {
+		super(battle);
+		this.prev = prev;
+		this.curr = curr;
+	}
+}
+/** Tells us when we swap pokemon in a battle. ("We send out Staravia!") */
+class BattleState_EnemySwappedActive extends BattleItem {
+	constructor(battle, prev, curr) {
+		super(battle);
+		this.prev = prev;
+		this.curr = curr;
+	}
+}
+
 
 module.exports = {
 	BattleContext, BattleStarted, BattleEnded, 
-	EnemyFainted, EnemySentOut,
 	Blackout, BlackoutContext, FullHealed,
 	BadgeGet,
+	
+	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
+	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
+	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
+	BattleState_AllyDamage, BattleState_EnemyDamage,
+	BattleState_EnemyFainted,
+	
 };

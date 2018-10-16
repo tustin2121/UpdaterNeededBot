@@ -184,7 +184,7 @@ RULES.push(new Rule('Pokemon found to be in a new storage location are deposited
 );
 
 RULES.push(new Rule('GainedPokemon in the same storage location as a MissingPokemon are traded')
-	.when(ledger=>Bot.runFlag('trading_enabled', false)) //only run this rule if trade watch is enabled
+	.when(ledger=>Bot.runFlag('trading_enabled')) //only run this rule if trade watch is enabled
 	.when(ledger=>ledger.has('PokemonIsMissing'))
 	.when(ledger=>ledger.has('PokemonGained'))
 	.when(ledger=>{// If there are PokemonIsMissing and PokemonGained entries that match, match them up
@@ -275,7 +275,7 @@ RULES.push(new Rule('Postpone recently missing Pokemon')
 );
 
 RULES.push(new Rule('Postpone reporting missing Pokemon when asking about MIA Pokemon is disabled')
-	.when(ledger=>!Bot.runFlag('query_missing', true))
+	.when(ledger=>!Bot.runFlag('query_missing'))
 	.when(ledger=>ledger.has('PokemonIsMissing').which(x=>x.ticksActive < 25)) //~6 minutes
 	.then(ledger=>{
 		//TODO: DON'T USE LASTRESULT!
@@ -285,7 +285,7 @@ RULES.push(new Rule('Postpone reporting missing Pokemon when asking about MIA Po
 );
 
 RULES.push(new Rule('Ask Updaters about Missing Pokemon')
-	.when(ledger=>Bot.runFlag('query_missing', true))
+	.when(ledger=>Bot.runFlag('query_missing'))
 	.when(ledger=>ledger.has('PokemonIsMissing'))
 	.then(ledger=>{
 		ledger.get(0).forEach(item=>{

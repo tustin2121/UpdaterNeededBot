@@ -256,6 +256,8 @@ class Pokemon {
 		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
 		
+		this.active = !!read(mon, 'volatile_status');
+		
 		// Validation check:
 		if (this.fitness < 0) throw new TypeError('Corrupt data!');
 	}

@@ -138,7 +138,7 @@ class LocationModule extends ReportingModule {
 				if (P && C) { item.flavor = `town_teleport${back}`; return item; }
 			}
 		}
-		if (Bot.runFlag('fly_logic', true)) {
+		if (Bot.runFlag('fly_logic')) {
 			//TODO Determine if we're currently in a town, near a flyspot, and weren't either before,
 			//and determine if where we were previously was not an adjacent map space
 			//{ item.flavor = `flt${back}`; return item; }
@@ -157,22 +157,22 @@ class LocationModule extends ReportingModule {
 }
 
 if (Bot.runOpts('checkpointOnEnter')) { // gen 1 only
+	RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
+		.when(ledger=>ledger.has('MapChanged'))
+		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+		.then(ledger=>{
+			let item = ledger.mark(1).get(1)[0];
+			item.isCurrent = true;
+			ledger.add(new CheckpointUpdated(item.loc));
+		})
+	);
+} else {
 	RULES.push(new Rule(`When entering a center, set a checkpoint`)
 		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
 		.when(ledger=>ledger.has('FullHealed'))
 		.when(ledger=>ledger.hasnt('BlackoutContext'))
 		.then(ledger=>{
 			let item = ledger.mark(0).get(0)[0];
-			item.isCurrent = true;
-			ledger.add(new CheckpointUpdated(item.loc));
-		})
-	);
-} else {
-	RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
-		.when(ledger=>ledger.has('MapChanged'))
-		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
-		.then(ledger=>{
-			let item = ledger.mark(1).get(1)[0];
 			item.isCurrent = true;
 			ledger.add(new CheckpointUpdated(item.loc));
 		})
@@ -192,15 +192,13 @@ if (Bot.runOpts('checkpointOnEnter')) { // gen 1 only
 	);
 }
 
-// if (Bot.runOpts('reviveInCenter')) {
-	// This may break in early generations
-	RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
-		.when(ledger=>ledger.has('BlackoutContext'))
-		.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
-		.then(ledger=>{
-			let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
-		})
-	);
-// }
+RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
+	.when(ledger=>ledger.has('BlackoutContext').with('revived', false))
+	.when(ledger=>ledger.has('MapChanged').unmarked())
+	.then(ledger=>{
+		ledger.get(0).forEach(x=>x.revived = true);
+		let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
+	})
+);
 
 module.exports = LocationModule;

@@ -24,6 +24,7 @@ class BattleModule extends ReportingModule {
 		this.memory.attempts = this.memory.attempts || {};
 		this.memory.badgeMax = this.memory.badgeMax || 0;
 		this.memory.lastBattleReported = this.memory.lastBattleReported || null;
+		this.memory.battleState = this.memory.battleState || null;
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -52,6 +53,7 @@ class BattleModule extends ReportingModule {
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
 			this.memory.lastBattleReported = null; //clear battle reporting
+			this.memory.battleState = null;
 		}
 		else if (cb.in_battle && cb.party) {
 			let healthy = cb.party.filter(p=>p.hp || !p.species);
@@ -62,18 +64,7 @@ class BattleModule extends ReportingModule {
 				ledger.addItem(new BattleEnded(pb, false));
 			}
 			if (pb.in_battle && pb.party && pb.attemptId === cb.attemptId) {
-				// We must assume that an enemy party never switches positions, because we have no way to match the pokemon otherwise
-				for (let i = 0; i < cb.party; i++) {
-					let penemy = pb.party[i];
-					let cenemy = cb.party[i];
-					
-					if (penemy.hp > 0 && cenemy.hp === 0) {
-						ledger.addItem(new EnemyFainted(cb, cenemy, prev.party[0]));
-					}
-					if (!penemy.active && cenemy.active) {
-						ledger.addItem(new EnemySentOut(cb, cenemy, curr.party[0]));
-					}
-				}
+				this.constructPlayByPlay(ledger, prev, curr)
 			}
 		}
 		
@@ -100,7 +91,7 @@ class BattleModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		if (Bot.runFlag('alert_battles', true)) {
+		if (Bot.runFlag('alert_battles')) {
 			let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
 			if (battleItems.length) {
 				let game = ' on stream';
@@ -122,11 +113,56 @@ class BattleModule extends ReportingModule {
 				Bot.alertUpdaters(txt, { ping:true });
 			}
 		}
-		if (Bot.runFlag('alert_badges', true)) {
+		if (Bot.runFlag('alert_badges')) {
 			let badgeItems = ledger.findAllItemsWithName('BadgeGet');
 			if (badgeItems.length) {
 				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
 			}
+		}
+	}
+	
+	constructPlayByPlay(ledger, prev, curr) {
+		if (!Bot.runFlag('play_by_play')) return;
+		const { battle:pb } = prev;
+		const { battle:cb } = curr;
+		
+		let enemies = [];
+		let allies = [];
+		// Find mon pairs from previous party to next party.
+		for (let p of pb.party) {
+			for (let c of cb.party) {
+				if (c.hash === p.hash) {
+					enemies.push({ prev:p, curr:c });
+				}
+			}
+		}
+		for (let p of prev.party) {
+			for (let c of curr.party) {
+				if (c.hash === p.hash) {
+					allies.push({ prev:p, curr:c });
+				}
+			}
+		}
+		
+		let state = this.memory.battleState;
+		if (!state) {
+			state = this.memory.battleState = {};
+		}
+		
+		
+		
+		
+		// We must assume that an enemy party never switches positions, because we have no way to match the pokemon otherwise
+		for (let i = 0; i < cb.party; i++) {
+			let penemy = pb.party[i];
+			let cenemy = cb.party[i];
+			
+			// if (penemy.hp > 0 && cenemy.hp === 0) {
+			// 	ledger.addItem(new EnemyFainted(cb, cenemy, prev.party[0]));
+			// }
+			// if (!penemy.active && cenemy.active) {
+			// 	ledger.addItem(new EnemySentOut(cb, cenemy, curr.party[0]));
+			// }
 		}
 	}
 }

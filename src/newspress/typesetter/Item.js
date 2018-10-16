@@ -76,6 +76,8 @@ module.exports = {
 		},
 	},
 	MoneyValueChanged: null,
+	HeldItemGained: null,
+	HeldItemLost: null,
 	
 	ShoppingContext: null,
 	ShoppingReport: { //TODO

@@ -50,7 +50,7 @@ class PoliticsModule extends ReportingModule {
 		
 		this.debug('demo after:', this.democracy);
 		
-		if (Bot.runFlag('in_democracy', false)) {
+		if (Bot.runFlag('in_democracy')) {
 			ledger.add(new DemocracyContext());
 		}
 		

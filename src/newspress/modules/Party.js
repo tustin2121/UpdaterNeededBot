@@ -91,7 +91,7 @@ class PartyModule extends ReportingModule {
 			this.debug('tempIndicators: ',tempIndicators, ' => ',tempIndicators > 3);
 			if (tempIndicators > 3) {
 				this.memory.tempPartyBefore = prev_api.party;
-				if (Bot.runFlags('alert_temp', true)) {
+				if (Bot.runFlags('alert_temp')) {
 					Bot.alertUpdaters(`Alert: The party has drastically changed. I am assuming this is a temporary team and will withold party updates until the usual party is restored.`)
 						.then(msg=> this.memory.tempPartyMeta=msg.id);
 				}
@@ -174,7 +174,7 @@ class PartyModule extends ReportingModule {
 						for (let b = 0; b < movePairs.length; b++) {
 							if (a === b) continue;
 							if (movePairs[a].p.id == 0) continue;
-							if (movePairs[a].p.id == 0) continue;
+							if (movePairs[b].p.id == 0) continue;
 							if (movePairs[a].p.id === movePairs[b].c.id &&
 								movePairs[a].c.id === movePairs[b].p.id)
 							{
@@ -296,6 +296,15 @@ RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 	.when(ledger=>ledger.has('MonRevived').ofImportance())
 	.then(ledger=>{
 		ledger.demote(1);
+	})
+);
+
+RULES.push(new Rule(`When fully healing, make reference to where we're healing.`)
+	.when(ledger=>ledger.has('FullHealed').ofNoFlavor())
+	.when(ledger=>ledger.hasMap(x=>x.has('healing')))
+	.then(ledger=>{
+		let healtype = ledger.get(1)[0].has('healing');
+		ledger.get(0).forEach(x=>x.flavor = healtype);
 	})
 );
 

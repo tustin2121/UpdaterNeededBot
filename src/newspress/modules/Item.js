@@ -3,7 +3,8 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, HeldItemGained, HeldItemLost,
+	MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
 	ShoppingContext, ShoppingReport, 
 	ApiDisturbance,
@@ -46,7 +47,7 @@ class ItemModule extends ReportingModule {
 			let item = curr.inv.getData(id) || prev.inv.getData(id);
 			let delta = invDelta[id] || 0;
 			
-			this.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			this.debug(`item delta => ${item}: delta=${delta} held=${heldDelta[id]}, pc=${pcDelta[id]}, bag=${bagDelta[id]}`);
 			
 			numItemsChanged += Math.abs(delta) + Math.abs(heldDelta[id]) + Math.abs(pcDelta[id]) + Math.abs(bagDelta[id]);
 			
@@ -55,6 +56,19 @@ class ItemModule extends ReportingModule {
 			
 			if (typeof heldDelta[id] === 'number' && heldDelta[id] !== 0) {
 				//held item LedgerItems are added by the Pokemon and Party modules
+				if (heldDelta[id] > 0) {
+					if (gained) {
+						ledger.addItem(new HeldItemGained(item, heldDelta[id]));
+					} else {
+						// expected results: item transferred from bag or pc
+					}
+				} else { // < 0
+					if (dropped) {
+						ledger.addItem(new HeldItemLost(item, heldDelta[id]));
+					} else {
+						// expected results: item transferred to bag or pc
+					}
+				}
 				delta += heldDelta[id];
 			}
 			
@@ -373,6 +387,17 @@ if (Bot.runOpts('heldItem')) {
 			ledger.postpone(1);
 		})
 	);
+}
+
+if (Bot.runOpts('heldItem') && Bot.runOpts('abilities')) {
+	RULES.push(new Rule(`Items gained inexplicably on a mon with Pickup were Picked Up.`)
+		.when(ledger=>ledger.has('HeldItemGained'))
+		.when(ledger=>ledger.has('MonGiveItem').withSame('item.id').which(x=>x.mon.ability.toLowerCase() === 'pickup').unmarked())
+		.then(ledger=>{
+			ledger.mark(1).get(1).forEach(x=>x.flavor='pickupAbility');
+		})
+	);
+	
 }
 
 //////////////////////////////////////////////////////////////////////////

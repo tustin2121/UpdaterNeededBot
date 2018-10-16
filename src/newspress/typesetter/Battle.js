@@ -101,8 +101,11 @@ module.exports = {
 			`<b>We heal!</b>`,
 		],
 		blackout: null, //should be covered by Blackout above
+		partner: [
+			`<b>We're healed</b> by our partner!`,
+			`Our partner <b>heals our party!</b>!`,
+		],
 		pokecenter: [
-			`<b>The nurse heals us!</b>`,
 			`<b>We heal</b> at the Poké Center!`,
 		],
 		house: [ // Override with location announcement?
@@ -113,11 +116,11 @@ module.exports = {
 			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b> {{rand|Thanks, doc!|}}`,
 		],
 		nurse: [
-			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b> {{rand|Thanks!|}}`,
-			`A {{rand|sweet|helpful}} nurse <b>heals our team!</b> Ta, love!`,
+			`A {{rand|nice|kind|helpful|}} nurse <b>heals our {{rand|team|party}}!</b> {{rand|Thanks!|}}`,
+			`A {{rand|sweet|helpful}} nurse <b>heals our {{rand|team|party}}!</b> Ta, love!`,
 		],
 		scientist: [
-			`A {{rand|nice|kind|helpful|random|}} scientist <b>heals our team!</b> {{rand|Thanks, doc!|Thanks, prof!|}}`,
+			`A {{rand|nice|kind|helpful|random|}} scientist <b>heals our {{rand|team|party}}!</b> {{rand|Thanks, doc!|Thanks, prof!|}}`,
 		],
 	},
 	

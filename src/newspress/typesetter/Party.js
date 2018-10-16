@@ -180,6 +180,11 @@ module.exports = {
 		default: [
 			`We give {{@target}} {{an item|@item}} to hold.`,
 		],
+		pickupAbility: [
+			`{{@target}} seems to have picked up a stray {{@item}}.`,
+			`{{@target}} now seems to be holding {{an item|@item}}.`,
+			`{{@target}} has found {{an item|@item}} lying around and is now holding it.`,
+		],
 	},
 	MonTakeItem: {
 		// target = the pokemon involved
