@@ -104,12 +104,19 @@ module.exports = {
 	MonFainted: {
 		default: {
 			single: [
-				`<b>{{@target}} fainted!</b>`,
-				`<b>{{@target}} has fainted!</b>`,
+				`<b>{{@target}} {{rand|fainted|has fainted|faints|goes down|is down}}!</b>`,
 			],
 			multi: [
-				`<b>{{a comma-separated list of|@target}} have fainted!</b>`,
-				`<b>{{a comma-separated list of|@target}} fainted!</b>`,
+				`<b>{{a comma-separated list of|@target}} {{rand|have fainted|have all fainted|fainted}}!</b>`,
+			],
+		},
+		poisonWalking: {
+			single: [
+				`<b>{{@target}} has fainted due to poison!</b>`,
+				`<b>{{@target}} faints from the poison!</b>`,
+			],
+			multi: [
+				`<b>{{a comma-separated list of|@target}} have all fainted from poison damage!</b>`,
 			],
 		},
 		kapow: {
@@ -122,7 +129,7 @@ module.exports = {
 				`<b>{{a comma-separated list of|@target}} all exploded!</b>`,
 				`<b>{{a comma-separated list of|@target}} exploded!</b>`,
 			],
-		}
+		},
 	},
 	MonRevived: {
 		__meta__: { merge:'MonChangedCondensed' },
@@ -224,6 +231,13 @@ module.exports = {
 		],
 	},
 	
+	MonStatusChanged: {
+		default: null,
+		poisonWalking: [
+			`{{$@target}} has survived {{his}} poisoning!`,
+			`{{$@target}} survives being poisoned with 1HP!`,
+		],
+	},
 	MonShinyChanged: {
 		default: null,
 		became: [

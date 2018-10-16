@@ -69,11 +69,26 @@ class BattleContext extends LedgerItem {
 		} else {
 			this.flavor = (battle.party && battle.party.length > 1)?'horde':'wild';
 		}
-		this.enemy = this.battle.active && this.battle.active[0];
 	}
 	get isSingleBattle() { return this.battle.trainer && this.battle.trainer.length === 1; }
 	get isMultiBattle() { return this.battle.trainer && this.battle.trainer.length > 1; }
-	get lastPokemon(){ return this.battle.party[this.battle.party.length-1]; }
+	get lastPokemon() { return this.battle.party[this.battle.party.length-1]; }
+	get enemy() {
+		return this.battle.active && this.battle.active[0];
+	}
+	get enemyMonList() {
+		if (!this.battle.active) {
+			LOGGER.error(`this.battle.active == false!`);
+			LOGGER.error(this.battle.active);
+			return false;
+		}
+		let active = this.battle.active.map(x=>x.species);
+		if (active.length > 1) {
+			active[active.length-1] = 'and ' + active[active.length-1];
+		}
+		if (active.length === 2) return active.join(' ');
+		return active.join(', ');
+	}
 	get trainer(){
 		try {
 			if (this.battle.trainer.length == 2) {

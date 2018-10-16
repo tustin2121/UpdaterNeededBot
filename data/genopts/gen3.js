@@ -18,6 +18,21 @@ module.exports = {
 	rivalName: "{{gender|May|Brendan}}",
 	correctCase: true,
 	
+	itemIds_pokeballs: [ 1,2,3,4,5,6,7,8,9,10,11,12, ],
+	itemIds_healHP: [ 
+		13,19,20,21,22, //potions
+		26,27,28,29, //drinks
+		30,31, //herbal
+		44,155-16,158-16,159-16,160-16,161-16,162-16,163-16, //berries
+	],
+	itemIds_healPP: [
+		34,35,36,37, //items
+		138, //berries
+	],
+	itemIds_healStatus: [
+		14,15,16,17,18,19,23,32,38, //items
+		149-16,150-16,151-16,152-16,153-16,157-16,//berries
+	],
 	itemIds_vending: [ 0x1A, 0x1B, 0x1C ],
 	itemIds_berries: [
 		// consumable

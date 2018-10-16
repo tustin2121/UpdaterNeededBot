@@ -128,7 +128,7 @@ class UpdaterPress extends EventEmitter {
 		let { curr } = this.apiProducer.popInfo(this.gameIndex);
 		
 		// Pass ledger to the TypeSetter
-		let ts = new TypeSetter({ curr_api:curr, debugLog:ledger.log, press:this });
+		let ts = new TypeSetter({ curr_api:curr, debugLog:ledger.log, press:this, helpOpts });
 		let update = ts.typesetLedger(ledger);
 		if (!update || !update.length) return null;
 		
@@ -146,10 +146,13 @@ class UpdaterPress extends EventEmitter {
 					// LOGGER.trace(`mon`,mon);
 					let exInfo = mon.getExtendedInfo();
 					let line = `* <info ext="${exInfo}">\`${mon.name}\` (${mon.species}) ${mon.gender} L${mon.level}</info>`;
+					let status = [];
+					if (mon.status) status.push(mon.status);
 					if (mon.hp < 100) {
-						if (mon.hp === 0) line += " (fainted)";
-						else line += ` (${mon.hp}% health)`;
+						if (mon.hp === 0) status.push('fainted');
+						else status.push(`${mon.hp}% health`);
 					}
+					if (status.length) line += ` (${status.join(', ')})`;
 					out.push(line);
 				}
 				let prefix = (Bot.gameInfo(this.gameIndex).prefix||'');

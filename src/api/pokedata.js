@@ -177,6 +177,7 @@ class Pokemon {
 		this.shadow = false;
 		this.pokerus = null; //true = infected, false = cured, null = never had
 		this.traded = false;
+		this.status = '';
 		
 		this.cp = 0;
 		this.fitness = 0;
@@ -229,12 +230,12 @@ class Pokemon {
 			};
 		});
 		
-		
 		if (mon.health) {
 			this._hp = [mon.health[0], mon.health[1]];
 			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
 			if (mon.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
 		}
+		this.status = (mon.status||'').toLowerCase();
 		
 		this.cp = mon.cp || 0;
 		this.fitness = mon.fitness || 0;

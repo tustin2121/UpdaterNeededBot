@@ -8,7 +8,7 @@ const {
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
 	MonGiveItem, MonTakeItem, MonSwapItem,
-	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
+	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged, MonStatusChanged,
 	Blackout, FullHealed,
 	ApiDisturbance,
 } = require('../ledger');
@@ -145,6 +145,9 @@ class PartyModule extends ReportingModule {
 				ledger.addItem(new MonHealedHP(curr, prev.hp));
 			} else if (curr.hp < prev.hp) {
 				ledger.addItem(new MonLostHP(curr, prev.hp));
+			}
+			if (curr.status !== prev.status) {
+				ledger.addItem(new MonStatusChanged(curr, prev.status));
 			}
 			//*
 			partyMaxHP += curr._hp[1];
@@ -291,9 +294,17 @@ class PartyModule extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule(`When leveling up, don't report full heals`)
+	.when(ledger=>ledger.has('MonLeveledUp'))
+	.when(ledger=>ledger.has('FullHealed').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
+
 RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.has('MonRevived').ofImportance())
+	.when(ledger=>ledger.has('MonRevived', 'MonStatusChanged').ofImportance())
 	.then(ledger=>{
 		ledger.demote(1);
 	})
@@ -322,21 +333,38 @@ RULES.push(new Rule(`When fully healing, make reference to where we're healing.`
 // 		ledger.add(new Blackout());
 // 	})
 // );
+
+RULES.push(new Rule(`Pokemon fainting due to poison outside of battle should be given a cause.`)
+	.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
+	.when(ledger=>ledger.has('MonStatusChanged').withSame('mon.hash').with('prev', 'psn'))
+	.when(ledger=>ledger.hasnt('BattleContext'))
+	.then(ledger=>{
+		ledger.get(0).forEach(x=>x.flavor = 'poisonWalking');
+	})
+);
+RULES.push(new Rule(`Pokemon suriving due to poison outside of battle should be given a cause.`)
+	.when(ledger=>ledger.has('MonStatusChanged').with('prev', 'psn'))
+	.when(ledger=>ledger.has('MonLostHP').withSame('mon.hash').with('curr', 1))
+	.when(ledger=>ledger.hasnt('BattleContext'))
+	.then(ledger=>{
+		ledger.get(0).forEach(x=>x.flavor = 'poisonWalking');
+	})
+);
+
 {
 	const KapowMoves = [153, 120, 515, 361, 461, 262]; //TODO move into default.js like the item ids
 	RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 		.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
-		.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move.id', KapowMoves))
+		.when(ledger=>ledger.has('MonLostPP').withSame('mon.hash').with('move.id', KapowMoves))
 		.then(ledger=>{
-			let items = ledger.get(0);
-			items.forEach(x=>x.flavor='kapow');
+			ledger.get(0).forEach(x=>x.flavor = 'kapow');
 		})
 	);
 }
 
 RULES.push(new Rule('Abilities are expected to change during evolution')
 	.when((ledger)=>ledger.has('MonEvolved'))
-	.when((ledger)=>ledger.has('MonAbilityChanged').withSame('mon'))
+	.when((ledger)=>ledger.has('MonAbilityChanged').withSame('mon.hash'))
 	.then((ledger)=>{
 		ledger.remove(1); //Remove MonAbilityChanged
 	})

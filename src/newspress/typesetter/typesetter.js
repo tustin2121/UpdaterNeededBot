@@ -428,7 +428,6 @@ function printObject(obj) {
 }{
 	function getPhraseGeneral(type) {
 		return function(name, flavor=null) {
-			// if (!name) name = this.thisItem.__itemName__;
 			let phraseEntry = this._getPhraseEntryForItem({ name, flavor });
 			switch(type) {
 				case 'item': return this._resolve(phraseEntry.item);
@@ -635,7 +634,7 @@ function printObject(obj) {
 // Format Functions: Lists
 {
 	function printList(sep, and, sliceIdx=0) {
-		return function() {
+		return function() { //arguments used below in the format call
 			if (!this._itemList) throw new ReferenceError('List of items not specified!');
 			const format = `{{${this._callMeta.top().args.join('|')}}}`;
 			
@@ -666,10 +665,11 @@ function printObject(obj) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor({ curr_api, debugLog, press }) {
+	constructor({ curr_api, debugLog, press, helpOpts=null }) {
 		this.log = debugLog;
 		this.curr_api = curr_api;
 		this.press = press;
+		this.helpOpts = helpOpts;
 		
 		// Phrase variables
 		this.subject = null;
@@ -677,7 +677,6 @@ class TypeSetter {
 		
 		// Working variables
 		this.item = null;
-		this.thisItem = null;
 		
 		this._setSubject = false;
 		this._setNoun = false;
@@ -760,7 +759,10 @@ class TypeSetter {
 		
 		// Collate
 		for (let item of list) {
-			let { merge } = TypeSetter.getPhraseMeta(item);
+			let { merge, helpingOnly } = TypeSetter.getPhraseMeta(item);
+			if (helpingOnly && !this.helpOpts) {
+				continue; //skip this item
+			}
 			if (merge) {
 				merges[merge] = (merges[merge] || []);
 				merges[merge].push(item);
@@ -931,7 +933,6 @@ class TypeSetter {
 	 * @param {LedgerItem} item - The ledger item to use as context
 	 */
 	fillText(text, item) {
-		this.thisItem = item;
 		let i = 20;
 		while (i > 0) try {
 			let phrase = text.replace(/{{([^{}\n]+)}}/gi, (match, key)=>{

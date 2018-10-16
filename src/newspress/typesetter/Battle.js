@@ -7,10 +7,10 @@ module.exports = {
 		default: null,
 		important: null,
 		trainer: [
-			`We {{rand|fight|battle|face off against}} a {{rand|cheeky|rogue|roving|wandering}} {{trainer class|$@trainer}}, named {{$}}{{if|@enemy|, and {{their}} {{mon|@enemy}}}}.`,
-			`We get spotted by a{{rand| wandering|n eager}} {{trainer class|$@trainer}} named {{$}}, and begin a battle{{if|@enemy| against {{their}} {{mon|@enemy}}}}.`,
+			`We {{rand|fight|battle|face off against}} a {{rand|cheeky|rogue|roving|wandering}} {{trainer class|$@trainer}}, named {{$}}{{if|@enemyMonList|, and {{their}} {{mon|@enemyMonList}}}}.`,
+			`We get spotted by a{{rand| wandering|n eager}} {{trainer class|$@trainer}} named {{$}}, and begin a battle{{if|@enemyMonList| against {{their}} {{mon|@enemyMonList}}}}.`,
 			`{{if|@isSingleBattle}}While {{rand|fighting|facing off against|battling}} one {{trainer class|$@trainer}} {{$}}, and {{their}} {{mon|@enemy}},`,
-			`{{trainer class|$@trainer}} {{$}} picks a fight with us{{if|@enemy|, using {{their}} {{mon|@enemy}}}}.`,
+			`{{trainer class|$@trainer}} {{$}} picks a fight with us{{if|@enemyMonList|, using {{their}} {{mon|@enemyMonList}}}}.`,
 		],
 		wild: [
 			`We {{rand|come across|run into|step on|stumble upon|encounter|bump into|run across}} a wild {{mon|@enemy}}.`,

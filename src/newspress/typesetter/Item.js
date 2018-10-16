@@ -81,7 +81,37 @@ module.exports = {
 	
 	ShoppingContext: null,
 	ShoppingReport: { //TODO
-		
+		__meta__: { helpingOnly:true },
+		default: function({ cart }) {
+			/* 
+			Cart is: {
+				buy: { itemId : { id:itemId, name:itemName, count:numBought }, }
+				sell: { itemId : { id:itemId, name:itemName, count:numSold }, }
+				money: currentMoneyAmount,
+				transactions: number of times this cart has been updated
+			}  */
+			if (!cart || cart.transactions === 0) return null;
+			const oldItemList = this._itemList;
+			
+			let res = [`{{rand|During our shopping trip|Results of our shopping trip:|In the mart}} we`];
+			
+			let items = Object.values(cart.sell);
+			if (items.length) {
+				this._itemList = items;
+				res.push(this.fillText(`<b>sold {{a comma-separated list of|an item|@name|@count}}</b>.`));
+			}
+			
+			items = Object.values(cart.buy);
+			if (items.length) {
+				if (res.length > 1) res.push('{{rand|Then we|We then|And we}}');
+				this._itemList = items;
+				res.push(this.fillText(`<b>bought {{a comma-separated list of|an item|@name|@count}}</b>.`));
+			}
+			
+			res.push(`We have ₽${cart.money} {{rand|left|left over|remaining}}.`);
+			this._itemList = oldItemList;
+			return res.join(' ');
+		},
 	},
 	
 	UsedBallInBattle: {

@@ -253,6 +253,16 @@ class MonSwapItem extends PartyItem {
 	get taken(){ return this.prevItem; }
 }
 
+/** Indicates that a pokemon's status has changed. */
+class MonStatusChanged extends PartyItem {
+	constructor(mon, prev) {
+		super(mon, 1);
+		this.prevStatus = prev;
+	}
+	get curr(){ return this.mon.status; }
+	get prev(){ return this.prevStatus; }
+}
+
 /** Indicates that a pokemon's shiny status has inexplicably changed. */
 class MonShinyChanged extends PartyItem {
 	constructor(mon) {
@@ -317,5 +327,5 @@ module.exports = {
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP, MonPPUp,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove,
 	MonGiveItem, MonTakeItem, MonSwapItem,
-	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
+	MonStatusChanged, MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
 };
