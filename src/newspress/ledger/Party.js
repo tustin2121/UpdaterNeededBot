@@ -55,6 +55,13 @@ class TemporaryPartyContext extends LedgerItem {
 	}
 }
 
+/** Indicates that an evolution is happening right now. */
+class EvolutionContext extends LedgerItem {
+	constructor() {
+		super(0);
+	}
+}
+
 /** Indicates that a pokemon in the party has leveled up. */
 class MonLeveledUp extends PartyItem {
 	constructor(mon, prevLevel) {
@@ -142,10 +149,10 @@ class MonHealedHP extends PartyItem {
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonHealedPP extends PartyItem {
-	constructor(mon, move, currPP, prevPP) {
+	constructor(mon, move, prevPP) {
 		super(mon, 0); //context item
 		this.move = move;
-		this.curr = currPP;
+		this.curr = move.pp;
 		this.prev = prevPP;
 	}
 }
@@ -161,20 +168,20 @@ class MonLostHP extends PartyItem {
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonLostPP extends PartyItem {
-	constructor(mon, move, currPP, prevPP) {
+	constructor(mon, move, prevPP) {
 		super(mon, 0); //context item
 		this.move = move;
-		this.curr = currPP;
+		this.curr = move.pp;
 		this.prev = prevPP;
 	}
 }
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonPPUp extends PartyItem {
-	constructor(mon, move, currMax, prevMax) {
+	constructor(mon, move, prevMax) {
 		super(mon, 0); //context item
 		this.move = move;
-		this.currMax = currMax;
+		this.currMax = move.pp;
 		this.prevMax = prevMax;
 	}
 }
@@ -320,7 +327,7 @@ class MonNicknameChanged extends PartyItem {
 
 
 module.exports = {
-	TemporaryPartyContext, MonChangedCondensed,
+	TemporaryPartyContext, MonChangedCondensed, EvolutionContext,
 	MonLeveledUp,
 	MonEvolved, MonHatched,
 	MonPokerusInfected, MonPokerusCured,

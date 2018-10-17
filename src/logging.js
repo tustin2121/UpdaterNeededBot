@@ -42,7 +42,7 @@ log4js.configure({
 		file: {
 			type: 'file',
 			filename: `logs/run/runlog.log`,
-			maxLogSize: 8 * 1024 * 1024, // 8Mb
+			maxLogSize: 7 * 1024 * 1024, // 8Mb
 			backups: 30,
 			compress: false,
 			keepFileExt: true,
@@ -55,7 +55,7 @@ log4js.configure({
 		errorlog: {
 			type: 'file',
 			filename: `logs/error/errorlog.log`,
-			maxLogSize: 8 * 1024 * 1024, // 8Mb
+			maxLogSize: 7 * 1024 * 1024, // 8Mb
 			backups: 20,
 			compress: true,
 			keepFileExt: true,
@@ -68,7 +68,7 @@ log4js.configure({
 		xmllog: {
 			type: 'file',
 			filename: `logs/xml/xml.log`,
-			maxLogSize: 8 * 1024 * 1024, // 8Mb
+			maxLogSize: 7 * 1024 * 1024, // 8Mb
 			backups: 50,
 			compress: false,
 			keepFileExt: true,

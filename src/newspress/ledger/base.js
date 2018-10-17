@@ -4,6 +4,7 @@
 const util = require('util');
 
 const LOGGER = getLogger('LedgerItem');
+const { Pokemon, Combatant, SortedBattle } = require('../../api/pokedata');
 
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
@@ -44,6 +45,9 @@ class LedgerItem {
 			if (val === undefined) continue;
 			if (typeof key === 'symbol') key = key.toString();
 			if (typeof val === 'symbol') val = val.toString();
+			if (val instanceof Pokemon) val = `[PkMn ${val.toString()}]`;
+			if (val instanceof Combatant) val = `[PkMn ${val.toString()}]`;
+			if (val instanceof SortedBattle) val = `[Battle ${val.attemptId}]`;
 			txt += ` | ${key}=${val}`;
 		}
 		return txt + ']';

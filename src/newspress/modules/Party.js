@@ -3,7 +3,7 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	TemporaryPartyContext,
+	TemporaryPartyContext, EvolutionContext,
 	MonLeveledUp, MonEvolved, MonHatched, MonPokerusInfected, MonPokerusCured,
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
@@ -107,6 +107,10 @@ class PartyModule extends ReportingModule {
 		
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
+		if (curr_api.evolution_is_happening) {
+			ledger.addItem(new EvolutionContext());
+		}
+		
 		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
 		let partyPP = 0, partyMaxPP = 0, partyDeltaPP = 0;
 		
@@ -201,19 +205,19 @@ class PartyModule extends ReportingModule {
 				
 				for (let pair of movePairs) {
 					if (!pair.p.id && pair.c.id) {
-						ledger.addItem(new MonLearnedMove(curr, pair.c.name));
+						ledger.addItem(new MonLearnedMove(curr, pair.c));
 					} else if (pair.p.id && !pair.c.id) {
-						ledger.addItem(new MonForgotMove(curr, pair.p.name));
+						ledger.addItem(new MonForgotMove(curr, pair.p));
 					} else if (pair.p.id !== pair.c.id) {
-						ledger.addItem(new MonLearnedMoveOverOldMove(curr, pair.c.name, pair.p.name));
+						ledger.addItem(new MonLearnedMoveOverOldMove(curr, pair.c, pair.p));
 					} else if (pair.c.id !== 0 && pair.p.id !== 0) {
 						if (pair.c.pp < pair.p.pp) {
-							ledger.addItem(new MonLostPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
+							ledger.addItem(new MonLostPP(curr, pair.c, pair.p.pp));
 						} else if (pair.c.pp > pair.p.pp) {
-							ledger.addItem(new MonHealedPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
+							ledger.addItem(new MonHealedPP(curr, pair.c, pair.p.pp));
 						}
 						if (pair.c.max_pp < pair.p.max_pp) {
-							ledger.addItem(new MonPPUp(curr, pair.c.name, pair.c.pp, pair.p.pp));
+							ledger.addItem(new MonPPUp(curr, pair.c, pair.p.pp));
 						}
 						partyMaxPP += pair.c.max_pp;
 						partyPP += pair.c.pp;
@@ -355,7 +359,7 @@ RULES.push(new Rule(`Pokemon suriving due to poison outside of battle should be 
 	const KapowMoves = [153, 120, 515, 361, 461, 262]; //TODO move into default.js like the item ids
 	RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 		.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
-		.when(ledger=>ledger.has('MonLostPP').withSame('mon.hash').with('move.id', KapowMoves))
+		.when(ledger=>ledger.has('MonLostPP').withSame('mon.hash').with('move', KapowMoves))
 		.then(ledger=>{
 			ledger.get(0).forEach(x=>x.flavor = 'kapow');
 		})

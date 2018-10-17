@@ -2783,7 +2783,9 @@
 				"type": "indoor",
 				"width": 5,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2796,7 +2798,9 @@
 				"type": "indoor",
 				"width": 10,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},

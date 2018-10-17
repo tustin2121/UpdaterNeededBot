@@ -330,6 +330,7 @@ module.exports = Object.assign({
 	require('./base'),
 	require('./ApiMonitoring'),
 	require('./Battle'),
+	require('./BattleState'),
 	require('./E4'),
 	require('./Item'),
 	require('./Location'),

@@ -102,34 +102,9 @@ class CheckpointUpdated extends LedgerItem {
 
 /** Indicates that we have executed a notable movement in the game */
 class MapMovement extends LedgerItem {
-	constructor(flavor, curr_api) {
+	constructor(flavor, loc) {
 		super(1, { flavor });
-		this.curr_api = curr_api;
-		this.loc = curr_api.location;
-	}
-	get randomMon(){
-		try {
-			if (this._rmon) return this._rmon; //sticky
-			let party = this.curr_api.party;
-			this._rmon = party[Math.floor(Math.random()*party.length)];
-			this._rmon.species.length; //test to be sure this won't break
-			return this._rmon;
-		} catch (e) {
-			getLogger('MapMovement').error(e);
-			return { species:`One of our pokemon`, gender:'it', };
-		}
-	}
-	get surfMon() {
-		try {
-			if (this._rmon) return this._rmon; //sticky
-			let party = this.curr_api.party.filter(x=>x.hms.surf);
-			this._rmon = party[0];
-			this._rmon.species.length; //test to be sure this won't break
-			return this._rmon;
-		} catch (e) {
-			getLogger('MapMovement').error(e);
-			return { species:`our surfer`, gender:'it', };
-		}
+		this.loc = loc;
 	}
 }
 

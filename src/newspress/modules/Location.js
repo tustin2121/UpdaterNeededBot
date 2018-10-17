@@ -61,18 +61,18 @@ class LocationModule extends ReportingModule {
 		}
 		
 		if (!prev.has('water') && curr.has('water')) {
-			ledger.add(new MapMovement('surfStart', curr_api));
+			ledger.add(new MapMovement('surfStart', curr));
 		}
 		if (prev.has('water') && !curr.has('water')) {
-			ledger.add(new MapMovement('surfEnd', curr_api));
+			ledger.add(new MapMovement('surfEnd', curr));
 		}
 		
 		if (prev.has('ledge') === 'ledge') {
 		 	if (curr.has('ledge') === 'jump') {
-				ledger.add(new MapMovement('jumpedLedge', curr_api));
+				ledger.add(new MapMovement('jumpedLedge', curr));
 			}
 			else if (curr.has('ledge') === 'clear') {
-				ledger.add(new MapMovement('clearedLedge', curr_api));
+				ledger.add(new MapMovement('clearedLedge', curr));
 			}
 		}
 	}

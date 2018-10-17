@@ -38,7 +38,6 @@ class BattleModule extends ReportingModule {
 		this.memory.attempts = this.memory.attempts || {};
 		this.memory.badgeMax = this.memory.badgeMax || 0;
 		this.memory.lastBattleReported = this.memory.lastBattleReported || null;
-		this.memory.battleState = this.memory.battleState || null;
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -67,7 +66,6 @@ class BattleModule extends ReportingModule {
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
 			this.memory.lastBattleReported = null; //clear battle reporting
-			this.memory.battleState = null;
 		}
 		else if (cb.in_battle && cb.party) {
 			let healthy = cb.party.filter(p=>p.hp || !p.species);
@@ -79,6 +77,8 @@ class BattleModule extends ReportingModule {
 			}
 			if (pb.in_battle && pb.party && pb.attemptId === cb.attemptId) {
 				this.constructPlayByPlay(ledger, prev, curr)
+			} else {
+				this.constructInitialPlay(ledger, prev, curr);
 			}
 		}
 		
@@ -135,6 +135,51 @@ class BattleModule extends ReportingModule {
 		}
 	}
 	
+	constructInitialPlay(ledger, prev_api, curr_api) {
+		if (!Bot.runFlag('play_by_play')) return;
+		const { battle:cb } = curr_api;
+		
+		let allies = [];
+		for (let p of prev_api.party) {
+			for (let c of curr_api.party) {
+				if (c.hash === p.hash) {
+					allies.push({ prev:p, curr:c });
+				}
+			}
+		}
+		for (let { prev, curr } of allies) {
+			if (prev.active !== curr.active) {
+				if (curr.active) {
+					ledger.addItem(new BattleState_AllyBecameActive(cb, curr));
+				} else {
+					ledger.addItem(new BattleState_AllyBecameInactive(cb, curr));
+				}
+			}
+			if (curr._hp[0] > prev._hp[0]) {
+				ledger.addItem(new BattleState_AllyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
+			} else {
+				let item = BattleState_AllyDamaged.createItem(cb, curr, prev);
+				if (item) ledger.addItem(item);
+			}
+			// Move use is covered by Rules and MonLostPP
+		}
+		
+		// Now we need to fill in assumed details for the enemy state
+		for (let curr of cb.party) {
+			if (curr.active) { //we can assume if an enemy is active now, they became active this update cycle
+				ledger.addItem(new BattleState_EnemyBecameActive(cb, curr));
+			}
+			if (curr._hp[0] < curr._hp[1]) { //we can assume all enemies start with max HP
+				let item = BattleState_EnemyDamaged.createItem(cb, curr, curr.cloneToAssumedPrev());
+				if (item) ledger.addItem(item);
+			}
+			if (curr.moves) { //We have move info
+				// We can assume all moves start with max PP
+				//TODO
+			}
+		}
+	}
+	
 	constructPlayByPlay(ledger, prev_api, curr_api) {
 		if (!Bot.runFlag('play_by_play')) return;
 		const { battle:pb } = prev_api;
@@ -156,11 +201,6 @@ class BattleModule extends ReportingModule {
 					allies.push({ prev:p, curr:c });
 				}
 			}
-		}
-		
-		let state = this.memory.battleState;
-		if (!state) {
-			state = this.memory.battleState = {};
 		}
 		
 		for (let { prev, curr } of allies) {
@@ -195,7 +235,7 @@ class BattleModule extends ReportingModule {
 				if (item) ledger.addItem(item);
 			}
 			if (curr.moves && prev.moves) { //We have move info
-				
+				//TODO
 			}
 		}
 		

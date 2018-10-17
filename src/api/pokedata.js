@@ -266,7 +266,7 @@ class Pokemon {
 	saveToMemory() {
 		let obj = {};
 		for (let key in this) {
-			if (key.startsWith('_')) continue;
+			if (key.startsWith('_') && key !== '_hp') continue;
 			if (typeof this[key] === 'function') continue;
 			obj[key] = this[key];
 		}
@@ -367,6 +367,83 @@ class Pokemon {
 		xml += this.saveToMemory();
 		xml += `</pokemon>`;
 		return xml;
+	}
+}
+
+/** A cut down version of Pokemon, made so that things are consistent */
+class Combatant {
+	constructor(data, game=0) {
+		this.name = null;
+		this.species = null;
+		this.dexid = 0;
+		this.active = false;
+		
+		this.hash = 0;
+		this.hp = 100;
+		this._hp = [100, 100];
+		this.shiny = false;
+		this.gender = '';
+		
+		this.game = game; //the game this pokemon belongs to
+		if (!data) return;
+		
+		this.active = data.active;
+		if (this.active === undefined) this.active = (data.species && data.species.id !== 0);
+		
+		this.hp = Math.max(1, Math.floor( (data.health[0] / data.health[1])*100 ));
+		if (data.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
+		this._hp = [data.health[0], data.health[1]];
+		
+		this.name = data.name;
+		this.species = read(data.species, 'name') || data.name;
+		this.dexid = read(data.species, 'national_dex', 'id');
+		this.hash = read(data, 'personality_value');
+		this.shiny = data.shiny || this.shiny;
+		this.gender = data.gender || this.gender;
+	}
+	
+	cloneToAssumedPrev() {
+		let clone = new Combatant();
+		clone.name = this.name;
+		clone.species = this.species;
+		clone.dexid = this.dexid;
+		clone.active = this.active;
+		clone.hash = this.hash;
+		clone.hp = 100;
+		clone._hp = [this._hp[1], this._hp[1]]; //max HP
+		clone.shiny = this.shiny;
+		clone.game = this.game;
+		clone.gender = this.gender;
+	}
+	
+	saveToMemory() {
+		let obj = {};
+		for (let key in this) {
+			if (key.startsWith('_') && key !== '_hp') continue;
+			if (typeof this[key] === 'function') continue;
+			obj[key] = this[key];
+		}
+		obj.stats = this._stats;
+		let buf = Buffer.from(JSON.stringify(obj), 'utf8');
+		return buf.toString('base64');
+	}
+	loadFromMemory(str) {
+		let buf = Buffer.from(str, 'base64');
+		let obj = JSON.parse(buf.toString('utf8'));
+		for (let key in obj) {
+			this[key] = obj[key];
+		}
+		return this;
+	}
+	
+	/** @param {int} num - Used to trick the TypeSetter to never pluralize a pokemon name. */
+	toString(num) {
+		if (this.species === this.name) {
+			if (this.form) return `${this.name} (${this.form})`;
+			return this.name;
+		}
+		if (this.form) return `${this.name} (${this.species} ${this.form})`;
+		return `${this.name} (${this.species})`;
 	}
 }
 
@@ -711,15 +788,7 @@ class SortedBattle {
 					poke = new Pokemon(p, game);
 					if (p.active !== undefined) poke.active = p.active;
 				} else {
-					poke = {
-						active: p.active,
-						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-						_hp: [p.health[0], p.health[1]],
-						species: p.species.name,
-						dexid: read(p.species, 'national_dex', 'id'),
-						hash: read(p, 'personality_value'),
-					};
-					if (poke.active === undefined) poke.active = (p.species.id !== 0);
+					poke = new Combatant(p);
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);
@@ -736,18 +805,7 @@ class SortedBattle {
 					poke = new Pokemon(p, game);
 					if (p.active !== undefined) poke.active = p.active;
 				} else {
-					poke = {
-						active: true,
-						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-						_hp: [p.health[0], p.health[1]],
-						species: p.name,
-						dexid: read(p, 'national_dex', 'id'),
-						hash: read(p, 'personality_value'),
-					};
-				}
-				if (p.health) { //hack
-					poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
-					if (p.health[0] === 0) poke.hp = 0;
+					poke = new Combatant(p);
 				}
 				this.party.push(poke);
 			}
@@ -929,8 +987,9 @@ class SortedData {
 					this.pcBoxes[data.pc.current_box_number-1].isEffectiveCurrent = true;
 				}
 			}
-			
 		}
+		
+		this.evolution_is_happening = data.evolution_is_happening || false;
 		
 		this.rawData = data;
 		this._rawGameIdx = game;
@@ -967,5 +1026,5 @@ class SortedData {
 
 module.exports = {
 	SortedData, SortedBattle, SortedPokemon, SortedInventory, SortedLocation,
-	Pokemon, Item,
+	Pokemon, Item, Combatant,
 };
