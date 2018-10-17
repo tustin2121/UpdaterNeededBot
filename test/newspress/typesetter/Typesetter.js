@@ -290,6 +290,30 @@ describe('TypeSetter', function(){
 			}
 		});
 		
+		it('MonLearnedMoveOverOldMove', function(){
+			const { MonLearnedMoveOverOldMove } = LEDGER_ITEMS;
+			const { Pokemon } = POKEDATA;
+			{
+				const mon = new Pokemon({ 
+					name:"Ethan", 
+					species: { id: 156, name: "Quilava", national_dex: 156, }, 
+					"moves": [
+						{ "id": 53, "pp": 15, "pp_up": 0, "name": "Flamethrower", "accuracy": 100, "base_power": 95, "type": "Fire" },
+						{ "id": 52, "pp": 25, "pp_up": 0, "name": "Ember", "accuracy": 100, "base_power": 40, "type": "Fire" },
+						{ "id": 38, "pp": 15, "pp_up": 0, "name": "Double-Edge", "accuracy": 100, "base_power": 120, "type": "Normal" },
+						{ "id": 205, "pp": 20, "pp_up": 0, "name": "Rollout", "accuracy": 90, "base_power": 30, "type": "Rock" }
+					],
+				});
+				const move1 = { "id": 53, "pp": 15, "pp_up": 0, "name": "Flamethrower", "accuracy": 100, "base_power": 95, "type": "Fire" };
+				const move2 = { "id": 52, "pp": 25, "pp_up": 0, "name": "Ember", "accuracy": 100, "base_power": 40, "type": "Fire" };
+				
+				const exp = `<b>Ethan (Quilava) learned Flamethrower over Ember!</b>`;
+				const item = new MonLearnedMoveOverOldMove(mon, move1, move2);
+				const str = typesetter.typesetItems([item]);
+				str.should.be.exactly(exp);
+			}
+		});
+		
 		it('GainItem', function(){
 			const { GainItem } = LEDGER_ITEMS;
 			const { Item } = POKEDATA;
