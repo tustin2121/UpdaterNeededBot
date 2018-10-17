@@ -717,6 +717,7 @@ class SortedBattle {
 						_hp: [p.health[0], p.health[1]],
 						species: p.species.name,
 						dexid: read(p.species, 'national_dex', 'id'),
+						hash: read(p, 'personality_value'),
 					};
 					if (poke.active === undefined) poke.active = (p.species.id !== 0);
 				}
@@ -737,9 +738,11 @@ class SortedBattle {
 				} else {
 					poke = {
 						active: true,
-						// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
+						_hp: [p.health[0], p.health[1]],
 						species: p.name,
 						dexid: read(p, 'national_dex', 'id'),
+						hash: read(p, 'personality_value'),
 					};
 				}
 				if (p.health) { //hack

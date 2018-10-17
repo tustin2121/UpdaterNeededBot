@@ -3,6 +3,8 @@
 
 const util = require('util');
 
+const LOGGER = getLogger('LedgerItem');
+
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
 		/** The importance level of this item. Ranges from 0 to 2. */
@@ -65,6 +67,15 @@ class LedgerItem {
 			
 			if (val && val.toXml) {
 				xml += val.toXml(key);
+			} else if (typeof val === 'object' && val && val.toString() === `[object Object]`) {
+				let str;
+				try {
+					str = JSON.stringify(val);
+				} catch (e) {
+					LOGGER.error(`Error while stringifying value!`, e);
+					str = val;
+				}
+				xml += `<${typeof val} key="${key}">${str}</${typeof val}>`;
 			} else {
 				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;
 			}

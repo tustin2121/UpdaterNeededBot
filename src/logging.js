@@ -41,7 +41,20 @@ log4js.configure({
 		},
 		file: {
 			type: 'file',
-			filename: `logs/output/runlog.log`,
+			filename: `logs/run/runlog.log`,
+			maxLogSize: 8 * 1024 * 1024, // 8Mb
+			backups: 30,
+			compress: false,
+			keepFileExt: true,
+			layout: {
+				type: 'pattern',
+				pattern: `%r %x{ts} %5.5p [%c] %m`,
+				tokens,
+			},
+		},
+		errorlog: {
+			type: 'file',
+			filename: `logs/error/errorlog.log`,
 			maxLogSize: 8 * 1024 * 1024, // 8Mb
 			backups: 20,
 			compress: true,
@@ -52,16 +65,16 @@ log4js.configure({
 				tokens,
 			},
 		},
-		errorlog: {
+		xmllog: {
 			type: 'file',
-			filename: `logs/output/errorlog.log`,
+			filename: `logs/xml/xml.log`,
 			maxLogSize: 8 * 1024 * 1024, // 8Mb
-			backups: 20,
-			compress: true,
+			backups: 50,
+			compress: false,
 			keepFileExt: true,
 			layout: {
 				type: 'pattern',
-				pattern: `%r %x{ts} %5.5p [%c] %m`,
+				pattern: `%r | %x{ts} :: %m`,
 				tokens,
 			},
 		},
@@ -92,6 +105,10 @@ log4js.configure({
 		'CHATLOG': {
 			appenders: ['out-chat'],
 			level:'off',
+		},
+		'XMLLOG': {
+			appenders: ['xmllog'],
+			level:'all',
 		},
 	},
 });

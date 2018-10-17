@@ -244,8 +244,17 @@ class BattleState_EnemyUsedMove extends BattleItem {
 	}
 }
 
+/** When we heal during a battle. */
+class BattleState_AllyHealed extends BattleItem {
+	constructor(battle, ally, delta) {
+		super(battle);
+		this.ally = ally;
+		this.delta = delta;
+	}
+}
+
 /** Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!") */
-class BattleState_AllyDamage extends BattleItem {
+class BattleState_AllyDamaged extends BattleItem {
 	constructor(battle, flavor, { ally, delta }) {
 		super(battle, { flavor });
 		this.ally = ally;
@@ -259,38 +268,48 @@ class BattleState_AllyDamage extends BattleItem {
 	static createItem(battle, currAlly, prevAlly) {
 		if (!currAlly || !prevAlly) return null; //invalid state, do nothing
 		if (currAlly._hp[1] !== prevAlly._hp[1]) return null; //invalid state, do nothing
+		if (currAlly._hp[0] === prevAlly._hp[0]) return null; //nothing changed
 		
 		let [ currHP, maxHP ] = currAlly._hp;
 		let [ prevHP, ] = prevAlly._hp;
 		let delta = currHP - prevHP;
-		if (currAlly.hp === 0) { //The pokemon fainted from this damage
-			if (currAlly.dexid === 292) new BattleState_AllyDamage(battle, 'shedinja', { ally:currAlly, delta });
-			if (delta === -1) new BattleState_AllyDamage(battle, 'fatalTap', { ally:currAlly, delta });
-			if (delta === maxHP) new BattleState_AllyDamage(battle, 'fatalOHKO', { ally:currAlly, delta });
-			return new BattleState_AllyDamage(battle, 'fatal', { ally:currAlly, delta });
+		if (currAlly.hp === 0 && prevAlly.hp > 0) { //The pokemon fainted from this damage
+			if (currAlly.dexid === 292) new BattleState_AllyDamaged(battle, 'shedinja', { ally:currAlly, delta });
+			if (delta === -1) new BattleState_AllyDamaged(battle, 'fatalTap', { ally:currAlly, delta });
+			if (delta === maxHP) new BattleState_AllyDamaged(battle, 'fatalOHKO', { ally:currAlly, delta });
+			return new BattleState_AllyDamaged(battle, 'fatal', { ally:currAlly, delta });
 		}
 		if (delta === 0) return null; //nothing to report
 		if (delta > 0) return null; //we don't report this
-		if (delta === -1) return new BattleState_AllyDamage(battle, 'chipDmg', { ally:currAlly, delta });
+		if (delta === -1) return new BattleState_AllyDamaged(battle, 'chipDmg', { ally:currAlly, delta });
 		if (prevAlly.hp > 50 && currAlly.hp <= 50) {
-			return new BattleState_AllyDamage(battle, 'intoYellow', { ally:currAlly, delta });
+			return new BattleState_AllyDamaged(battle, 'intoYellow', { ally:currAlly, delta });
 		}
 		if (prevAlly.hp > 25 && currAlly.hp <= 25) {
-			return new BattleState_AllyDamage(battle, 'intoRed', { ally:currAlly, delta });
+			return new BattleState_AllyDamaged(battle, 'intoRed', { ally:currAlly, delta });
 		}
 		let pDelta = Math.abs(delta) / maxHP;
 		if (pDelta < 0.25) {
-			return new BattleState_AllyDamage(battle, 'lightDmg', { ally:currAlly, delta });
+			return new BattleState_AllyDamaged(battle, 'lightDmg', { ally:currAlly, delta });
 		} else if (pDelta < 0.50) {
-			return new BattleState_AllyDamage(battle, 'medDmg', { ally:currAlly, delta });
+			return new BattleState_AllyDamaged(battle, 'medDmg', { ally:currAlly, delta });
 		} else {
-			return new BattleState_AllyDamage(battle, 'heavyDmg', { ally:currAlly, delta });
+			return new BattleState_AllyDamaged(battle, 'heavyDmg', { ally:currAlly, delta });
 		}
 	}
 }
 
+/** When we heal during a battle. */
+class BattleState_EnemyHealed extends BattleItem {
+	constructor(battle, enemy, delta) {
+		super(battle);
+		this.enemy = enemy;
+		this.delta = delta;
+	}
+}
+
 /** Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!") */
-class BattleState_EnemyDamage extends BattleItem {
+class BattleState_EnemyDamaged extends BattleItem {
 	constructor(battle, flavor, { enemy, delta }) {
 		super(battle, { flavor });
 		this.enemy = enemy;
@@ -304,32 +323,33 @@ class BattleState_EnemyDamage extends BattleItem {
 	static createItem(battle, currEnemy, prevEnemy) {
 		if (!currEnemy || !prevEnemy) return null; //invalid state, do nothing
 		if (currEnemy._hp[1] !== prevEnemy._hp[1]) return null; //invalid state, do nothing
+		if (currEnemy._hp[0] === prevEnemy._hp[0]) return null; //nothing changed
 		
 		let [ currHP, maxHP ] = currEnemy._hp;
 		let [ prevHP, ] = prevEnemy._hp;
 		let delta = currHP - prevHP;
-		if (currEnemy.hp === 0) { //The pokemon fainted from this damage
-			if (currEnemy.dexid === 292) new BattleState_AllyDamage(battle, 'shedinja', { enemy:currEnemy, delta });
-			if (delta === -1) new BattleState_EnemyDamage(battle, 'fatalTap', { enemy:currEnemy, delta });
-			if (delta === maxHP) new BattleState_EnemyDamage(battle, 'fatalOHKO', { enemy:currEnemy, delta });
-			return new BattleState_EnemyDamage(battle, 'fatal', { enemy:currEnemy, delta });
+		if (currEnemy.hp === 0 && prevEnemy.hp > 0) { //The pokemon fainted from this damage
+			if (currEnemy.dexid === 292) new BattleState_EnemyDamaged(battle, 'shedinja', { enemy:currEnemy, delta });
+			if (delta === -1) new BattleState_EnemyDamaged(battle, 'fatalTap', { enemy:currEnemy, delta });
+			if (delta === maxHP) new BattleState_EnemyDamaged(battle, 'fatalOHKO', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamaged(battle, 'fatal', { enemy:currEnemy, delta });
 		}
 		if (delta === 0) return null; //nothing to report
 		if (delta > 0) return null; //we don't report this
-		if (delta === -1) return new BattleState_EnemyDamage(battle, 'chipDmg', { enemy:currEnemy, delta });
+		if (delta === -1) return new BattleState_EnemyDamaged(battle, 'chipDmg', { enemy:currEnemy, delta });
 		if (prevEnemy.hp > 50 && currEnemy.hp <= 50) {
-			return new BattleState_EnemyDamage(battle, 'intoYellow', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamaged(battle, 'intoYellow', { enemy:currEnemy, delta });
 		}
 		if (prevEnemy.hp > 25 && currEnemy.hp <= 25) {
-			return new BattleState_EnemyDamage(battle, 'intoRed', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamaged(battle, 'intoRed', { enemy:currEnemy, delta });
 		}
 		let pDelta = Math.abs(delta) / maxHP;
 		if (pDelta < 0.25) {
-			return new BattleState_EnemyDamage(battle, 'lightDmg', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamaged(battle, 'lightDmg', { enemy:currEnemy, delta });
 		} else if (pDelta < 0.50) {
-			return new BattleState_EnemyDamage(battle, 'medDmg', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamaged(battle, 'medDmg', { enemy:currEnemy, delta });
 		} else {
-			return new BattleState_EnemyDamage(battle, 'heavyDmg', { enemy:currEnemy, delta });
+			return new BattleState_EnemyDamaged(battle, 'heavyDmg', { enemy:currEnemy, delta });
 		}
 	}
 }
@@ -371,7 +391,7 @@ module.exports = {
 	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
 	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
 	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
-	BattleState_AllyDamage, BattleState_EnemyDamage,
+	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
 	BattleState_EnemyFainted,
 	
 };

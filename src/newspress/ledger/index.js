@@ -219,6 +219,7 @@ class DebugLogs {
 		this.update = '';
 		
 		this._currTypesetter = null;
+		this._xml = null;
 	}
 	
 	static generateId() {
@@ -228,22 +229,25 @@ class DebugLogs {
 	}
 	
 	getXml() {
-		let xml = '';
-		xml += `<api>${this.apiNum}</api>`;
-		{
-			let mods = [];
-			for (let mod in this.modules) {
-				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
+		if (!this._xml) {
+			let xml = '';
+			xml += `<api>${this.apiNum}</api>`;
+			{
+				let mods = [];
+				for (let mod in this.modules) {
+					mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
+				}
+				xml += `<modules>${mods.join('')}</modules>`;
 			}
-			xml += `<modules>${mods.join('')}</modules>`;
+			xml += `<preledger>${this.preledger}</preledger>`;
+			xml += `<merges>${this.merges.join('')}</merges>`;
+			xml += `<rules>${this.rules.join('')}</rules>`;
+			xml += `<postledger>${this.postledger}</postledger>`;
+			xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
+			xml += `<update>${this.update}</update>`;
+			this._xml = `<state>${xml}</state>`;
 		}
-		xml += `<preledger>${this.preledger}</preledger>`;
-		xml += `<merges>${this.merges.join('')}</merges>`;
-		xml += `<rules>${this.rules.join('')}</rules>`;
-		xml += `<postledger>${this.postledger}</postledger>`;
-		xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
-		xml += `<update>${this.update}</update>`;
-		return `<state>${xml}</state>`;
+		return this._xml;
 	}
 	
 	apiIndex(num) {

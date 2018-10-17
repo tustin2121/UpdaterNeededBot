@@ -7,7 +7,21 @@ const {
 	BattleContext, BattleStarted, BattleEnded, 
 	EnemyFainted, EnemySentOut,
 	BlackoutContext,
+	
+	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
+	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
+	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
+	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
+	BattleState_EnemyFainted,
 } = require('../ledger');
+
+const BATTLE_STATE_ITEMS = [
+	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
+	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
+	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
+	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
+	BattleState_EnemyFainted,
+].map(x=>x.__itemName__);
 
 const LOGGER = getLogger('BattleModule');
 
@@ -121,10 +135,10 @@ class BattleModule extends ReportingModule {
 		}
 	}
 	
-	constructPlayByPlay(ledger, prev, curr) {
+	constructPlayByPlay(ledger, prev_api, curr_api) {
 		if (!Bot.runFlag('play_by_play')) return;
-		const { battle:pb } = prev;
-		const { battle:cb } = curr;
+		const { battle:pb } = prev_api;
+		const { battle:cb } = curr_api;
 		
 		let enemies = [];
 		let allies = [];
@@ -136,8 +150,8 @@ class BattleModule extends ReportingModule {
 				}
 			}
 		}
-		for (let p of prev.party) {
-			for (let c of curr.party) {
+		for (let p of prev_api.party) {
+			for (let c of curr_api.party) {
 				if (c.hash === p.hash) {
 					allies.push({ prev:p, curr:c });
 				}
@@ -149,6 +163,41 @@ class BattleModule extends ReportingModule {
 			state = this.memory.battleState = {};
 		}
 		
+		for (let { prev, curr } of allies) {
+			if (prev.active !== curr.active) {
+				if (curr.active) {
+					ledger.addItem(new BattleState_AllyBecameActive(cb, curr));
+				} else {
+					ledger.addItem(new BattleState_AllyBecameInactive(cb, curr));
+				}
+			}
+			if (curr._hp[0] > prev._hp[0]) {
+				ledger.addItem(new BattleState_AllyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
+			} else {
+				let item = BattleState_AllyDamaged.createItem(cb, curr, prev);
+				if (item) ledger.addItem(item);
+			}
+			// Move use is covered by Rules and MonLostPP
+		}
+		for (let { prev, curr } of enemies) {
+			if (prev.active !== curr.active) {
+				LOGGER.warn('prev.active', prev.species, '!== curr.active =>', curr.species);
+				if (curr.active) {
+					ledger.addItem(new BattleState_EnemyBecameActive(cb, curr));
+				} else {
+					ledger.addItem(new BattleState_EnemyBecameInative(cb, curr));
+				}
+			}
+			if (curr._hp[0] > prev._hp[0]) {
+				ledger.addItem(new BattleState_EnemyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
+			} else {
+				let item = BattleState_EnemyDamaged.createItem(cb, curr, prev);
+				if (item) ledger.addItem(item);
+			}
+			if (curr.moves && prev.moves) { //We have move info
+				
+			}
+		}
 		
 		
 		
@@ -303,5 +352,19 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 		ledger.demote(0);
 	})
 );
+
+{
+	RULES.push(new Rule(`Battle State: Convert MonLostPP to AllyUsedMove.`)
+		.when(ledger=>Bot.runFlag('play_by_play'))
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('MonLostPP').unmarked())
+		.then(ledger=>{
+			let ctx = ledger.get(0)[0];
+			ledger.mark(1).get(1).forEach(x=>{
+				ledger.add(new BattleState_AllyUsedMove(ctx.battle, x.mon, x.move));
+			});
+		})
+	);
+}
 
 module.exports = BattleModule;

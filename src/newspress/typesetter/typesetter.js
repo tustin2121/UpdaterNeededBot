@@ -8,6 +8,7 @@ const LOGGER = getLogger('TypeSetter');
 
 const PHRASEBOOK = Object.assign({}, ...[
 	require('./Battle'),
+	require('./BattleState'),
 	require('./E4'),
 	require('./Item'),
 	require('./Location'),

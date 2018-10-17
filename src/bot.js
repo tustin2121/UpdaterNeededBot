@@ -22,6 +22,7 @@ const MEMORY_APPEND = path.resolve(__dirname, '../memory', 'append');
 const AUTH_DIR = path.resolve(__dirname, '../.auth');
 
 const LOGGER = getLogger('UpdaterBot');
+const XMLLOG = getLogger('XMLLOG');
 
 let access = { token:"", timeout:0 };
 
@@ -242,6 +243,7 @@ class UpdaterBot extends EventEmitter {
 		} catch (e) {
 			LOGGER.fatal(`Unhandled error in update cycle!`, e);
 		}
+		this.press.pool.forEach((p, i)=>{ XMLLOG.log(p.lastLedger.log.getXml()); });
 		this.emit('post-update-cycle');
 		this.saveMemory();
 	}

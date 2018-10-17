@@ -32,7 +32,7 @@ module.exports = {
 			
 			trainerClasses: {
 				rival: [35],
-				leader: [32],
+				leader: [32, 0x0B,0x0D, 0x31,0x35,],
 				e4: [31],
 				champ: [38],
 			},
