@@ -8,19 +8,19 @@ const {
 	EnemyFainted, EnemySentOut,
 	BlackoutContext,
 	
+	BattleState_InitialActive,
 	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
 	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
 	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
 	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
-	BattleState_EnemyFainted,
 } = require('../ledger');
 
 const BATTLE_STATE_ITEMS = [
+	BattleState_InitialActive,
 	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
 	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
 	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
 	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
-	BattleState_EnemyFainted,
 ].map(x=>x.__itemName__);
 
 const LOGGER = getLogger('BattleModule');
@@ -62,6 +62,7 @@ class BattleModule extends ReportingModule {
 				this.memory.attempts[cb.attemptId] = attempt;
 			}
 			ledger.addItem(new BattleStarted(cb, attempt));
+			this.constructInitialPlay(ledger, prev, curr);
 		}
 		else if (!cb.in_battle && pb.in_battle) {
 			ledger.addItem(new BattleEnded(pb, true));
@@ -133,6 +134,7 @@ class BattleModule extends ReportingModule {
 				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
 			}
 		}
+		ledger.list.filter(x=> BATTLE_STATE_ITEMS.includes(x.__itemName__)).forEach(x=>x.importance -= 1);
 	}
 	
 	constructInitialPlay(ledger, prev_api, curr_api) {
@@ -148,12 +150,8 @@ class BattleModule extends ReportingModule {
 			}
 		}
 		for (let { prev, curr } of allies) {
-			if (prev.active !== curr.active) {
-				if (curr.active) {
-					ledger.addItem(new BattleState_AllyBecameActive(cb, curr));
-				} else {
-					ledger.addItem(new BattleState_AllyBecameInactive(cb, curr));
-				}
+			if (curr.active) { //we can assume that this pokemon was not "active" before
+				ledger.addItem(new BattleState_AllyBecameActive(cb, curr));
 			}
 			if (curr._hp[0] > prev._hp[0]) {
 				ledger.addItem(new BattleState_AllyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
@@ -405,6 +403,77 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 			});
 		})
 	);
+	RULES.push(new Rule(`Battle State: Fainting implies that we switched out, no need to be explicit.`)
+		.when(ledger=>ledger.has('MonFainted'))
+		.when(ledger=>ledger.has('BattleState_AllyBecameInactive').unmarked())//.ofImportance())
+		.then(ledger=>{
+			ledger.demote(1).mark(1);
+		})
+	);
+	RULES.push(new Rule(`Battle State: Combine inactive and active into swap (ally)`)
+		.when(ledger=>ledger.has('BattleStarted'))
+		.when(ledger=>ledger.has('BattleState_AllyBecameActive'))
+		.when(ledger=>ledger.has('BattleState_EnemyBecameActive'))
+		.then(ledger=>{
+			let a = ledger.remove(1).get(1)[0];
+			let b = ledger.remove(2).get(2)[0];
+			ledger.add(new BattleState_InitialActive(a.battle, a.ally, b.enemy));
+		})
+	);
+	RULES.push(new Rule(`Battle State: Combine inactive and active into swap (ally)`)
+		.when(ledger=>ledger.has('BattleState_AllyBecameActive'))
+		.when(ledger=>ledger.has('BattleState_AllyBecameInactive').ofImportance())
+		.then(ledger=>{
+			let a = ledger.remove(0).get(0)[0];
+			let b = ledger.remove(1).get(1)[0];
+			ledger.add(new BattleState_AllySwappedActive(a.battle, b.ally, a.ally));
+		})
+	);
+	RULES.push(new Rule(`Battle State: Combine inactive and active into swap (enemy)`)
+		.when(ledger=>ledger.has('BattleState_EnemyBecameActive'))
+		.when(ledger=>ledger.has('BattleState_EnemyBecameInactive').ofImportance())
+		.then(ledger=>{
+			let a = ledger.remove(0).get(0)[0];
+			let b = ledger.remove(1).get(1)[0];
+			ledger.add(new BattleState_EnemySwappedActive(a.battle, b.enemy, a.enemy));
+		})
+	);
+	RULES.push(new Rule(`Battle State: Ally expected to heal during level up.`)
+		.when(ledger=>ledger.has('MonLeveledUp'))
+		.when(ledger=>ledger.has('BattleState_AllyHealed').unmarked())//.ofImportance())
+		.then(ledger=>{
+			ledger.demote(1).mark(1);
+		})
+	);
 }
 
 module.exports = BattleModule;
+
+//DEBUG
+Bot.on('bot-ready', ()=>{
+	const { Ledger, BattleStateItem }  = require('../ledger');
+	const { TypeSetter } = require('../typesetter');
+	
+	Bot.press.pool[0].on('run-complete', (u, l, data)=>{
+		const TESTLOG = getLogger('BattleStateTest');
+		
+		if (!l || l.list.filter(x=>x instanceof BattleStateItem).length === 0) return; //do nothing
+		
+		let ledger = new Ledger(l);
+		ledger.list.forEach(x=>{ 
+			if (x instanceof BattleStateItem) x.importance += 1; 
+			if (x instanceof BattleStarted) x.importance += 1; 
+			if (x instanceof BattleEnded) x.importance += 1; 
+		});
+		let ts = new TypeSetter({ curr_api:data.curr_api, debugLog:ledger.log, press:this });
+		let update = ts.typesetLedger(ledger);
+		ledger.list.forEach(x=>{
+			if (x instanceof BattleStateItem) x.importance -= 1; 
+			if (x instanceof BattleStarted) x.importance -= 1; 
+			if (x instanceof BattleEnded) x.importance -= 1; 
+		});
+		
+		if (update && update.length)
+			TESTLOG.info(`Battle State Test:\n${update}`);
+	});
+});

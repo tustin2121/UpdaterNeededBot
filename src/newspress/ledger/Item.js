@@ -218,7 +218,7 @@ class UsedItemOnMon extends LedgerItem {
 		this.extra = extra;
 	}
 	get target(){ return this.mon; }
-	get move(){ return this.extra; } //string
+	get move(){ return this.extra; }
 	get moveLearn(){ return this.extra; } //MonLearnedMoveOverOldMove or MonLearned item
 }
 

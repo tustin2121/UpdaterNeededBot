@@ -2118,7 +2118,9 @@
 				"type": "indoor",
 				"width": 13,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2131,7 +2133,9 @@
 				"type": "indoor",
 				"width": 5,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2144,7 +2148,9 @@
 				"type": "indoor",
 				"width": 10,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2224,7 +2230,9 @@
 				"type": "indoor",
 				"width": 5,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2237,7 +2245,9 @@
 				"type": "indoor",
 				"width": 13,
 				"height": 9,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2250,7 +2260,9 @@
 				"type": "mart",
 				"width": 11,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2757,7 +2769,9 @@
 				"type": "indoor",
 				"width": 17,
 				"height": 15,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -2770,7 +2784,9 @@
 				"type": "indoor",
 				"width": 13,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -4909,7 +4925,9 @@
 				"type": "indoor",
 				"width": 14,
 				"height": 12,
-				"attrs": {},
+				"attrs": {
+					"healing": "house"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -7600,6 +7618,7 @@
 				"width": 25,
 				"height": 10,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [
@@ -7778,6 +7797,7 @@
 				"width": 21,
 				"height": 15,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7793,6 +7813,7 @@
 				"width": 17,
 				"height": 5,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7808,6 +7829,7 @@
 				"width": 10,
 				"height": 9,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7823,6 +7845,7 @@
 				"width": 23,
 				"height": 17,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7886,6 +7909,7 @@
 				"width": 25,
 				"height": 12,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7933,6 +7957,7 @@
 				"width": 15,
 				"height": 18,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -7980,6 +8005,7 @@
 				"width": 16,
 				"height": 13,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -8027,6 +8053,7 @@
 				"width": 19,
 				"height": 12,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],
@@ -8074,6 +8101,7 @@
 				"width": 11,
 				"height": 13,
 				"attrs": {
+					"tempParty": true,
 					"the": "the"
 				},
 				"areas": [],

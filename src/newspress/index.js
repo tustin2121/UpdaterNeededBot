@@ -114,7 +114,7 @@ class UpdaterPress extends EventEmitter {
 			let prefix = Bot.gameInfo(this.gameIndex).prefix || '';
 			this.lastUpdate = prefix + ' ' + update;
 		}
-		this.emitLater('run-complete', this.lastUpdate, this.lastLedger);
+		this.emitLater('run-complete', this.lastUpdate, this.lastLedger, data);
 		return this.lastUpdate;
 	}
 	

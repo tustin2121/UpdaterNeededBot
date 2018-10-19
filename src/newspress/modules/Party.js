@@ -85,8 +85,7 @@ class PartyModule extends ReportingModule {
 				if (prev.level !== 50 && curr.level === 50) tempIndicators++;
 				if (prev.level !== 100 && curr.level === 100) tempIndicators++;
 			}
-			if (!prev_api.location.is('tempParty') && curr_api.location.is('tempParty')) tempIndicators++;
-			if (curr_api.location.is('tempParty')) tempIndicators += 2;
+			if (curr_api.location.is('tempParty')) tempIndicators += 3;
 			
 			this.debug('tempIndicators: ',tempIndicators, ' => ',tempIndicators > 3);
 			if (tempIndicators > 3) {
@@ -359,7 +358,7 @@ RULES.push(new Rule(`Pokemon suriving due to poison outside of battle should be 
 	const KapowMoves = [153, 120, 515, 361, 461, 262]; //TODO move into default.js like the item ids
 	RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 		.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
-		.when(ledger=>ledger.has('MonLostPP').withSame('mon.hash').with('move', KapowMoves))
+		.when(ledger=>ledger.has('MonLostPP').withSame('mon.hash').with('move.id', KapowMoves))
 		.then(ledger=>{
 			ledger.get(0).forEach(x=>x.flavor = 'kapow');
 		})

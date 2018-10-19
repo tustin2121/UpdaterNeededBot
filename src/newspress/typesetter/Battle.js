@@ -3,7 +3,7 @@
 
 module.exports = {
 	BattleContext: {
-		__meta__: { sort:100 }, //Before any fainting or level ups
+		__meta__: { sort:300 }, //Before any fainting or level ups
 		default: null,
 		important: null,
 		trainer: [
@@ -25,7 +25,7 @@ module.exports = {
 	},
 	
 	BattleStarted: {
-		__meta__: { sort:60 }, //Before EnemySentOut
+		__meta__: { sort:280 }, //Before BattleState items
 		default: (item)=>{
 			let m = `<b>Vs ${item.battle.displayName}!</b>`;
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
@@ -38,7 +38,7 @@ module.exports = {
 			`<b>Facing off against {{@battle.displayName}} in a rematch!</b>`,
 		],
 		wild: (item)=>{
-			let m = `<b>Vs Wild ${item.battle.displayName}!</b>`;
+			let m = `<b>Vs Wild ${item.enemy}!</b>`;
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
 			return m;
 		},
@@ -52,7 +52,7 @@ module.exports = {
 	},
 	
 	BattleEnded: {
-		__meta__: { sort:0 }, //After EnemyFainted
+		__meta__: { sort:0 }, //After BattleState items
 		ending: null,
 		default: [
 			`<b>We defeat {{@battle.displayName}}!</b>`,
@@ -67,6 +67,7 @@ module.exports = {
 			`{{@battle.displayName}} {{rand|pouts|sighs|huffs irritably}} as we take out {{their|@trainer}} {{mon|@lastPokemon}} and win the battle.`,
 		],
 	},
+	/*
 	EnemyFainted: {
 		__meta__: { sort:50 }, //Before EnemySentOut
 		default: [
@@ -86,6 +87,7 @@ module.exports = {
 		],
 		unimportant: null, //don't report this for unimportant battles
 	},
+	*/
 	
 	Blackout: {
 		__meta__: { sort:-100 }, //After other updates on a battle

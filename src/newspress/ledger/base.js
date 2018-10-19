@@ -45,9 +45,11 @@ class LedgerItem {
 			if (val === undefined) continue;
 			if (typeof key === 'symbol') key = key.toString();
 			if (typeof val === 'symbol') val = val.toString();
+			if (val === null) val = 'null';
 			if (val instanceof Pokemon) val = `[PkMn ${val.toString()}]`;
 			if (val instanceof Combatant) val = `[PkMn ${val.toString()}]`;
 			if (val instanceof SortedBattle) val = `[Battle ${val.attemptId}]`;
+			if (typeof val === 'object' && val.name) val = val.name;
 			txt += ` | ${key}=${val}`;
 		}
 		return txt + ']';

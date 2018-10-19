@@ -82,6 +82,7 @@ class ItemModule extends ReportingModule {
 				} else { // < 0
 					if (dropped) {
 						//lost from PC without passing through bag
+						ledger.addItem(new LostItem(item, -pcDelta[id]));
 					} else {
 						ledger.addItem(new RetrievedItemFromPC(item, -pcDelta[id]));
 					}
@@ -363,7 +364,7 @@ RULES.push(new Rule(`Postpone the shopping context.`)
 
 RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
 	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())
-	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('BattleContext').with('isImportant', false))
 	.then(ledger=>{
 		// After so many turns, there's a chance we don't postpone these anymore.
 		let item = ledger.get(0)[0];

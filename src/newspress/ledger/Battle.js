@@ -15,8 +15,12 @@ class BattleItem extends LedgerItem {
 			throw new TypeError('Battle context must be a SortedBattle object!');
 		
 		let flavor = null;
-		if (!battle.isImportant) flavor = 'unimportant';
-		flavor = battle.checkSpecialTrainers() || flavor;
+		if (battle.trainer) {
+			if (!battle.isImportant) flavor = 'unimportant';
+			flavor = battle.checkSpecialTrainers() || flavor;
+		} else {
+			flavor = 'wild';
+		}
 		
 		super(battle.isImportant?2:0.9, Object.assign({ flavor }, obj));
 		this.battle = battle;
@@ -67,9 +71,13 @@ class BattleContext extends LedgerItem {
 		if (battle.trainer) {
 			this.flavor = (battle.isImportant)?'important':'trainer';
 		} else {
-			this.flavor = (battle.party && battle.party.length > 1)?'horde':'wild';
+			if (battle.party && battle.party.length > 1) this.flavor = 'horde';
+			else {
+				this.flavor = (battle.isLegendary)?'legendary':'wild';
+			}
 		}
 	}
+	get isImportant() { return this.battle.isImportant || this.battle.isLegendary; }
 	get isSingleBattle() { return this.battle.trainer && this.battle.trainer.length === 1; }
 	get isMultiBattle() { return this.battle.trainer && this.battle.trainer.length > 1; }
 	get lastPokemon() { return this.battle.party[this.battle.party.length-1]; }

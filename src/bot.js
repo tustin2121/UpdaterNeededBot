@@ -142,6 +142,7 @@ class UpdaterBot extends EventEmitter {
 				delete Bot.memory.global.rebootRequested;
 				this.staff.alertUpdaters(`Reboot successful.`, { bypassTagCheck:true });
 			}
+			this.emit('bot-ready');
 		}).catch(ex=>{
 			LOGGER.fatal(ex);
 		});
