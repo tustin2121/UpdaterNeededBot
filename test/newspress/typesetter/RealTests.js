@@ -176,6 +176,35 @@ describe('Real-World Tests', function(){
 			
 			str.should.be.exactly(exp);
 		});
+		
+		it('BattleContext', function(){
+			const { BattleStarted, BattleContext } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 5,
+					class_name: 'Youngster',
+					name: 'Joey',
+					gender: 'Male',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Weedle' },
+					}
+				],
+			});
+			
+			typesetter.setRandom(1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+			
+			const exp = `We get spotted by a wandering Youngster named Joey, and begin a battle against his Weedle.`;
+			const item = new BattleContext(battle);
+			item.importance = 1;
+			const str = typesetter.typesetItems([item]);
+			
+			str.should.be.exactly(exp);
+		});
 	});
 	
 	describe('Typesetting', function(){

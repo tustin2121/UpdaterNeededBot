@@ -254,14 +254,17 @@ class PartyModule extends ReportingModule {
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
-			this.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.86)} & ${!prev_api.location.equals(curr_api.location)}`);
-			let isBlackout = (partyPP >= partyMaxPP);
-			isBlackout &= (partyDeltaHP > partyMaxHP * 0.86);
-			isBlackout &= !prev_api.location.equals(curr_api.location);
+			this.debug(`isBlackout=> pp[${(partyPP >= partyMaxPP)}] & hp[${(partyDeltaHP > partyMaxHP * 0.86)}] & loc[${!prev_api.location.equals(curr_api.location)}] & battle[${prev_api.battle.in_battle && !curr_api.battle.in_battle}] >= 3`);
+			
+			let blackoutIndicators = 0;
+			if (partyPP >= partyMaxPP) blackoutIndicators++;
+			if (partyDeltaHP > partyMaxHP * 0.86) blackoutIndicators++;
+			if (!prev_api.location.equals(curr_api.location)) blackoutIndicators++;
+			if (prev_api.battle.in_battle && !curr_api.battle.in_battle) blackoutIndicators++;
 			
 			if (partyHP === partyMaxHP) {
 				ledger.addItem(new FullHealed(null));
-				if (isBlackout) {
+				if (blackoutIndicators >= 3) {
 					ledger.addItem(new Blackout());
 				}
 			}
@@ -273,27 +276,6 @@ class PartyModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let partyAlert = this.memory.partyAlert;
-		let items = ledger.findAllItemsWithName('TemporaryPartyContext');
-		/*
-		if (items.length) {
-			if (!partyAlert) {
-				partyAlert = this.memory.partyAlert = { nTimes:0, msgId:null, };
-			}
-			partyAlert.nTimes++;
-			let game = '';
-			if (Bot.runConfig.numGames > 1) {
-				game = Bot.gameInfo(this.gameIndex).name;
-				game = ` in ${game}`;
-			}
-			let txt = `I suspect that the current party${game} is a temporary party, and am suspending party updates.`;
-			Bot.alertUpdaters(`Alert: ${txt}`, {
-				reuseId:partyAlert.msgId,
-			}).then(msg=>{
-				partyAlert.msgId = msg.id;
-			});
-			// TODO queryUpdaters
-		}*/
 	}
 }
 

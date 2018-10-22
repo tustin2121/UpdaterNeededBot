@@ -381,10 +381,10 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
 	}
 	
-	if ((res = /^confirm ([0-9a-z]{5})/i.exec(cmd))) {
+	if ((res = /^confirm ([0-9a-z]{3,5})/i.exec(cmd))) {
 		return ['query-respond', res[1], true];
 	}
-	if ((res = /^deny ([0-9a-z]{5})/i.exec(cmd))) {
+	if ((res = /^deny ([0-9a-z]{3,5})/i.exec(cmd))) {
 		return ['query-respond', res[1], false];
 	}
 	

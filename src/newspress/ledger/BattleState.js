@@ -47,20 +47,38 @@ function determineDamageFlavor(curr, prev, out={}) {
 	}
 }
 
+function statToText(stat) {
+	switch (stat) {
+		case 'atk': return 'attack';
+		case 'def': return 'defense';
+		case 'spe': return 'speed';
+		case 'spa': return 'special attack';
+		case 'spd': return 'special defense';
+		case 'acc': return 'accuracy';
+		case 'eva': return 'evasion';
+	}
+}
+
 /////////////////// Superclass ///////////////////
 
 /** Common class for all ledger party-related ledger items. */
 class BattleStateItem extends LedgerItem {
-	constructor(battle, obj) {
+	constructor({ battle, allies, enemies }, obj) {
 		if (!(battle instanceof SortedBattle))
-			throw new TypeError('Battle context must be a SortedBattle object!');
+			throw new TypeError(`Battle context must be a SortedBattle object! (is a ${battle && battle.constructor} | typeof ${typeof battle})`);
 		
 		super(battle.isImportant?1.1:0.5, obj);
-		this.importance = 0.1; //HACK TODO REMOVE
+		// this.importance = 0.1; //HACK TODO REMOVE
 		this.battle = battle;
+		this.allies = allies;
+		this.enemies = enemies;
 	}
 	get isSingleBattle() { return this.battle.trainer && this.battle.trainer.length === 1; }
 	get isMultiBattle() { return this.battle.trainer && this.battle.trainer.length > 1; }
+	
+	get activeAlly() { return this.allies[0]; }
+	get activeEnemy() { return this.enemies[0]; }
+	
 	get trainer(){
 		if (!this.battle.trainer) return {
 			className: 'trainer', name: 'The wild', gender: 'f',
@@ -94,77 +112,91 @@ class BattleStateItem extends LedgerItem {
 
 /** Tells us when we swap pokemon in a battle. ("We send out Staravia!") */
 class BattleState_AllyBecameActive extends BattleStateItem {
-	constructor(battle, ally) {
+	constructor(battle, mon) {
 		super(battle);
-		this.ally = ally;
+		this.mon = mon;
 	}
-	get mon() { return this.ally; }
+	get ally() { return this.mon; }
+	cancelsOut(other) {
+		if (other.__itemName__ === 'BattleState_AllyBecameInactive') {
+			if (this.mon.hash !== other.mon.hash) return false;
+			return true;
+		}
+		return false;
+	}
 }
 /** Tells us when we swap pokemon in a battle. ("We send out Staravia!") */
 class BattleState_AllyBecameInactive extends BattleStateItem {
-	constructor(battle, ally) {
+	constructor(battle, mon) {
 		super(battle);
-		this.ally = ally;
+		this.mon = mon;
 	}
-	get mon() { return this.ally; }
+	get ally() { return this.mon; }
+	cancelsOut(other) {
+		if (other.__itemName__ === 'BattleState_AllyBecameActive') {
+			if (this.mon.hash !== other.mon.hash) return false;
+			return true;
+		}
+		return false;
+	}
 }
 
 /** Tells us when they swap pokemon in a battle. ("Trainer sends out Staravia!") */
 class BattleState_EnemyBecameActive extends BattleStateItem {
-	constructor(battle, enemy) {
+	constructor(battle, mon) {
 		super(battle);
-		this.enemy = enemy;
+		this.mon = mon;
 	}
-	get mon() { return this.enemy; }
+	get enemy() { return this.mon; }
 }
 /** Tells us when they swap pokemon in a battle. ("Trainer sends out Staravia!") */
 class BattleState_EnemyBecameInative extends BattleStateItem {
-	constructor(battle, enemy) {
+	constructor(battle, mon) {
 		super(battle);
-		this.enemy = enemy;
+		this.mon = mon;
 	}
-	get mon() { return this.enemy; }
+	get enemy() { return this.mon; }
 }
 
 /** Converts MonLostPP into a play-by-play message. ("Mon uses Quick Attack!") */
 class BattleState_AllyUsedMove extends BattleStateItem {
-	constructor(battle, ally, move) {
+	constructor(battle, mon, move) {
 		super(battle);
-		this.ally = ally;
+		this.mon = mon;
 		this.move = move;
 	}
-	get mon() { return this.ally; }
+	get ally() { return this.mon; }
 }
 
 /** When we have move pp info for the enemy, we can play-by-play enemy moves too. ("Mon uses Quick Attack!") */
 class BattleState_EnemyUsedMove extends BattleStateItem {
-	constructor(battle, enemy, move) {
+	constructor(battle, mon, move) {
 		super(battle);
-		this.enemy = enemy;
+		this.mon = mon;
 		this.move = move;
 	}
-	get mon() { return this.enemy; }
+	get enemy() { return this.mon; }
 }
 
 /** When we heal during a battle. */
 class BattleState_AllyHealed extends BattleStateItem {
-	constructor(battle, ally, delta) {
+	constructor(battle, mon, delta) {
 		super(battle);
-		this.ally = ally;
+		this.mon = mon;
 		this.delta = delta;
 	}
-	get mon() { return this.ally; }
+	get ally() { return this.mon; }
 }
 
 /** Converts MonLostHP into a play-by-play message. ("Mon takes a sizable chunk of damage!") */
 class BattleState_AllyDamaged extends BattleStateItem {
-	constructor(battle, flavor, { ally, delta }) {
+	constructor(battle, flavor, { mon, delta }) {
 		super(battle, { flavor });
-		this.ally = ally;
+		this.mon = mon;
 		this.delta = delta;
 		this.causedBy = null;
 	}
-	get mon() { return this.ally; }
+	get ally() { return this.mon; }
 	
 	/**
 	 * Creates an item based on the current mon state and the previous mon state. Determines the flavor
@@ -174,29 +206,29 @@ class BattleState_AllyDamaged extends BattleStateItem {
 		let out = {};
 		let flavor = determineDamageFlavor(currAlly, prevAlly, out);
 		if (!flavor) return null;
-		return new BattleState_AllyDamaged(battle, flavor, { ally:currAlly, delta:out.delta });
+		return new BattleState_AllyDamaged(battle, flavor, { mon:currAlly, delta:out.delta });
 	}
 }
 
 /** When we heal during a battle. */
 class BattleState_EnemyHealed extends BattleStateItem {
-	constructor(battle, enemy, delta) {
-		super(battle);
-		this.enemy = enemy;
+	constructor(battle, mon, delta, flavor) {
+		super(battle, { flavor });
+		this.mon = mon;
 		this.delta = delta;
 	}
-	get mon() { return this.enemy; }
+	get enemy() { return this.mon; }
 }
 
 /** Tells us when an enemy mon has been damaged or fainted. */
 class BattleState_EnemyDamaged extends BattleStateItem {
-	constructor(battle, flavor, { enemy, delta }) {
+	constructor(battle, flavor, { mon, delta }) {
 		super(battle, { flavor });
-		this.enemy = enemy;
+		this.mon = mon;
 		this.delta = delta;
 		this.causedBy = null;
 	}
-	get mon() { return this.enemy; }
+	get enemy() { return this.mon; }
 	
 	/**
 	 * Creates an item based on the current mon state and the previous mon state. Determines the flavor
@@ -206,8 +238,50 @@ class BattleState_EnemyDamaged extends BattleStateItem {
 		let out = {};
 		let flavor = determineDamageFlavor(currEnemy, prevEnemy, out);
 		if (!flavor) return null;
-		return new BattleState_EnemyDamaged(battle, flavor, { enemy:currEnemy, delta:out.delta });
+		return new BattleState_EnemyDamaged(battle, flavor, { mon:currEnemy, delta:out.delta });
 	}
+}
+
+/** Tells us when a mon has been buffed a stage of a stat. */
+class BattleState_AllyStageBoost extends BattleStateItem {
+	constructor(battle, mon, stat, delta) {
+		super(battle);
+		this.mon = mon;
+		this.stat = stat;
+		this.delta = delta;
+	}
+	get statText() { return statToText(this.stat); }
+}
+/** Tells us when a mon has been debuffed a stage of a stat. */
+class BattleState_AllyStageUnboost extends BattleStateItem {
+	constructor(battle, mon, stat, delta) {
+		super(battle);
+		this.mon = mon;
+		this.stat = stat;
+		this.delta = delta;
+	}
+	get statText() { return statToText(this.stat); }
+}
+
+/** Tells us when a mon has been buffed a stage of a stat. */
+class BattleState_EnemyStageBoost extends BattleStateItem {
+	constructor(battle, mon, stat, delta) {
+		super(battle);
+		this.mon = mon;
+		this.stat = stat;
+		this.delta = delta;
+	}
+	get statText() { return statToText(this.stat); }
+}
+/** Tells us when a mon has been debuffed a stage of a stat. */
+class BattleState_EnemyStageUnboost extends BattleStateItem {
+	constructor(battle, mon, stat, delta) {
+		super(battle);
+		this.mon = mon;
+		this.stat = stat;
+		this.delta = delta;
+	}
+	get statText() { return statToText(this.stat); }
 }
 
 /////////////////// Advanced Items ///////////////////
@@ -219,7 +293,6 @@ class BattleState_InitialActive extends BattleStateItem {
 		this.ally = ally;
 		this.enemy = enemy;
 	}
-	get mon() { return this.ally; }
 }
 
 /** Reports in a more concise way when we swap pokemon. */
@@ -248,5 +321,7 @@ module.exports = {
 	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
 	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
 	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
+	BattleState_AllyStageBoost, BattleState_AllyStageUnboost,
+	BattleState_EnemyStageBoost, BattleState_EnemyStageUnboost,
 	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
 };

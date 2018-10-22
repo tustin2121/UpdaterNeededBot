@@ -2217,7 +2217,9 @@
 				"type": "indoor",
 				"width": 13,
 				"height": 10,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -4400,7 +4402,17 @@
 				"width": 17,
 				"height": 26,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 0,
+						"bx": 16,
+						"by": 20,
+						"rad": 5,
+						"name": "puzzlefall",
+						"attrs": {}
+					}
+				],
 				"gamedata": {}
 			},
 			{
@@ -4782,7 +4794,7 @@
 			{
 				"bank": 16,
 				"id": 10,
-				"name": "Pokemon League Loby",
+				"name": "Pokemon League Lobby",
 				"areaId": 15,
 				"areaName": "Pokemon League",
 				"type": "center",
@@ -7204,7 +7216,7 @@
 			{
 				"bank": 25,
 				"id": 35,
-				"name": "",
+				"name": "Beautiful Contest",
 				"areaId": 87,
 				"areaName": "",
 				"type": "indoor",
@@ -7217,7 +7229,7 @@
 			{
 				"bank": 25,
 				"id": 36,
-				"name": "",
+				"name": "Tough Contest",
 				"areaId": 87,
 				"areaName": "",
 				"type": "indoor",
@@ -7230,7 +7242,7 @@
 			{
 				"bank": 25,
 				"id": 37,
-				"name": "",
+				"name": "Cool Contest",
 				"areaId": 87,
 				"areaName": "",
 				"type": "indoor",
@@ -7243,7 +7255,7 @@
 			{
 				"bank": 25,
 				"id": 38,
-				"name": "",
+				"name": "Clever Contest",
 				"areaId": 87,
 				"areaName": "",
 				"type": "indoor",
@@ -7256,7 +7268,7 @@
 			{
 				"bank": 25,
 				"id": 39,
-				"name": "",
+				"name": "Cute Contest",
 				"areaId": 87,
 				"areaName": "",
 				"type": "indoor",
@@ -9278,8 +9290,50 @@
 			"type": "transit",
 			"id": "6e35165e",
 			"text": "[Snark] Let's raid the fridge!",
-			"timeout": 7200000,
-			"to": "[fridgeHouse]:0"
+			"timeout": 7200000
+		},
+		{
+			"type": "transit",
+			"id": "86325296",
+			"text": "We enter a Cuteness Contest!",
+			"timeout": 300000,
+			"to": "25.39"
+		},
+		{
+			"type": "transit",
+			"id": "d12cf61f",
+			"text": "We enter a Cleverness Contest!",
+			"timeout": 300000,
+			"to": "25.38"
+		},
+		{
+			"type": "transit",
+			"id": "15d3f1ad",
+			"text": "We enter a Coolness Contest!",
+			"timeout": 300000,
+			"to": "25.37"
+		},
+		{
+			"type": "transit",
+			"id": "6c705069",
+			"text": "We enter a Toughness Contest!",
+			"timeout": 300000,
+			"to": "25.36"
+		},
+		{
+			"type": "transit",
+			"id": "b0484d2d",
+			"text": "We enter a Beauty Contest!",
+			"timeout": 300000,
+			"to": "25.35"
+		},
+		{
+			"type": "transit",
+			"id": "8a43e6f1",
+			"text": "!sootopolis_fall",
+			"timeout": 30000,
+			"from": "15.0",
+			"to": "15.1:0"
 		}
 	]
 }

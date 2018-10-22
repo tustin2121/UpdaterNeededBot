@@ -49,7 +49,7 @@ module.exports = {
 		// The Stream API URL to poll
 		apiSrc: "https://twitchplayspokemon.tv/api/run_status",
 		// The amount of wait time between polling the apiSrc for new information
-		apiPollPeriod: 1000 * 15, //15 seconds
+		apiPollPeriod: 1000 * 12, //15 seconds
 		
 		// The Chat URLs to connect to via irc. If one doesn't work, the next will be tried, looping.
 		// chatSrc: null,

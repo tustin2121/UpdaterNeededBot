@@ -134,12 +134,17 @@ class BattleModule extends ReportingModule {
 				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
 			}
 		}
-		ledger.list.filter(x=> BATTLE_STATE_ITEMS.includes(x.__itemName__)).forEach(x=>x.importance -= 1);
 	}
 	
 	constructInitialPlay(ledger, prev_api, curr_api) {
 		if (!Bot.runFlag('play_by_play')) return;
 		const { battle:cb } = curr_api;
+		
+		let battleState = {
+			battle: cb,
+			allies: curr_api.party.filter(x=>x.active),
+			enemies: cb.active.slice(),
+		};
 		
 		let allies = [];
 		for (let p of prev_api.party) {
@@ -151,12 +156,12 @@ class BattleModule extends ReportingModule {
 		}
 		for (let { prev, curr } of allies) {
 			if (curr.active) { //we can assume that this pokemon was not "active" before
-				ledger.addItem(new BattleState_AllyBecameActive(cb, curr));
+				ledger.addItem(new BattleState_AllyBecameActive(battleState, curr));
 			}
 			if (curr._hp[0] > prev._hp[0]) {
-				ledger.addItem(new BattleState_AllyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
+				ledger.addItem(new BattleState_AllyHealed(battleState, curr, curr._hp[0] - prev._hp[0]));
 			} else {
-				let item = BattleState_AllyDamaged.createItem(cb, curr, prev);
+				let item = BattleState_AllyDamaged.createItem(battleState, curr, prev);
 				if (item) ledger.addItem(item);
 			}
 			// Move use is covered by Rules and MonLostPP
@@ -165,15 +170,17 @@ class BattleModule extends ReportingModule {
 		// Now we need to fill in assumed details for the enemy state
 		for (let curr of cb.party) {
 			if (curr.active) { //we can assume if an enemy is active now, they became active this update cycle
-				ledger.addItem(new BattleState_EnemyBecameActive(cb, curr));
+				ledger.addItem(new BattleState_EnemyBecameActive(battleState, curr));
 			}
 			if (curr._hp[0] < curr._hp[1]) { //we can assume all enemies start with max HP
-				let item = BattleState_EnemyDamaged.createItem(cb, curr, curr.cloneToAssumedPrev());
+				let item = BattleState_EnemyDamaged.createItem(battleState, curr, curr.cloneToAssumedPrev());
 				if (item) ledger.addItem(item);
 			}
 			if (curr.moves) { //We have move info
-				// We can assume all moves start with max PP
-				//TODO
+				// Moves appear as they are first used, so any new ones at this stage have been used
+				curr.moves.forEach(x=>{
+					ledger.addItem(new BattleState_EnemyUsedMove(battleState, curr, x));
+				});
 			}
 		}
 	}
@@ -182,6 +189,12 @@ class BattleModule extends ReportingModule {
 		if (!Bot.runFlag('play_by_play')) return;
 		const { battle:pb } = prev_api;
 		const { battle:cb } = curr_api;
+		
+		let battleState = {
+			battle: cb,
+			allies: curr_api.party.filter(x=>x.active),
+			enemies: cb.active.slice(),
+		};
 		
 		let enemies = [];
 		let allies = [];
@@ -204,15 +217,15 @@ class BattleModule extends ReportingModule {
 		for (let { prev, curr } of allies) {
 			if (prev.active !== curr.active) {
 				if (curr.active) {
-					ledger.addItem(new BattleState_AllyBecameActive(cb, curr));
+					ledger.addItem(new BattleState_AllyBecameActive(battleState, curr));
 				} else {
-					ledger.addItem(new BattleState_AllyBecameInactive(cb, curr));
+					ledger.addItem(new BattleState_AllyBecameInactive(battleState, curr));
 				}
 			}
 			if (curr._hp[0] > prev._hp[0]) {
-				ledger.addItem(new BattleState_AllyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
+				ledger.addItem(new BattleState_AllyHealed(battleState, curr, curr._hp[0] - prev._hp[0]));
 			} else {
-				let item = BattleState_AllyDamaged.createItem(cb, curr, prev);
+				let item = BattleState_AllyDamaged.createItem(battleState, curr, prev);
 				if (item) ledger.addItem(item);
 			}
 			// Move use is covered by Rules and MonLostPP
@@ -221,19 +234,31 @@ class BattleModule extends ReportingModule {
 			if (prev.active !== curr.active) {
 				LOGGER.warn('prev.active', prev.species, '!== curr.active =>', curr.species);
 				if (curr.active) {
-					ledger.addItem(new BattleState_EnemyBecameActive(cb, curr));
+					ledger.addItem(new BattleState_EnemyBecameActive(battleState, curr));
 				} else {
-					ledger.addItem(new BattleState_EnemyBecameInative(cb, curr));
+					ledger.addItem(new BattleState_EnemyBecameInative(battleState, curr));
 				}
 			}
 			if (curr._hp[0] > prev._hp[0]) {
-				ledger.addItem(new BattleState_EnemyHealed(cb, curr, curr._hp[0] - prev._hp[0]));
+				let flavor = (curr._hp[0] === curr._hp[1])? 'full':null;
+				ledger.addItem(new BattleState_EnemyHealed(battleState, curr, curr._hp[0] - prev._hp[0], flavor));
 			} else {
-				let item = BattleState_EnemyDamaged.createItem(cb, curr, prev);
+				let item = BattleState_EnemyDamaged.createItem(battleState, curr, prev);
 				if (item) ledger.addItem(item);
 			}
 			if (curr.moves && prev.moves) { //We have move info
-				//TODO
+				// Moves appear as they are first used
+				let extm = curr.moves.filter(x=>prev.moves.some(y=>y.id === x.id));
+				let newm = curr.moves.filter(x=>!prev.moves.some(y=>y.id === x.id));
+				for (let c of extm) {
+					let p = prev.moves.filter(x=>x.id === c.id)[0];
+					if (p.pp < c.pp) {
+						ledger.addItem(new BattleState_EnemyUsedMove(battleState, curr, c));
+					}
+				}
+				newm.forEach(c=>{
+					ledger.addItem(new BattleState_EnemyUsedMove(battleState, curr, c));
+				});
 			}
 		}
 		
@@ -399,7 +424,7 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 		.then(ledger=>{
 			let ctx = ledger.get(0)[0];
 			ledger.mark(1).get(1).forEach(x=>{
-				ledger.add(new BattleState_AllyUsedMove(ctx.battle, x.mon, x.move));
+				ledger.add(new BattleState_AllyUsedMove({ battle:ctx.battle }, x.mon, x.move));
 			});
 		})
 	);
@@ -417,7 +442,7 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 		.then(ledger=>{
 			let a = ledger.remove(1).get(1)[0];
 			let b = ledger.remove(2).get(2)[0];
-			ledger.add(new BattleState_InitialActive(a.battle, a.ally, b.enemy));
+			ledger.add(new BattleState_InitialActive(a, a.ally, b.enemy));
 		})
 	);
 	RULES.push(new Rule(`Battle State: Combine inactive and active into swap (ally)`)
@@ -426,7 +451,7 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 		.then(ledger=>{
 			let a = ledger.remove(0).get(0)[0];
 			let b = ledger.remove(1).get(1)[0];
-			ledger.add(new BattleState_AllySwappedActive(a.battle, b.ally, a.ally));
+			ledger.add(new BattleState_AllySwappedActive(a, b.ally, a.ally));
 		})
 	);
 	RULES.push(new Rule(`Battle State: Combine inactive and active into swap (enemy)`)
@@ -435,7 +460,17 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 		.then(ledger=>{
 			let a = ledger.remove(0).get(0)[0];
 			let b = ledger.remove(1).get(1)[0];
-			ledger.add(new BattleState_EnemySwappedActive(a.battle, b.enemy, a.enemy));
+			ledger.add(new BattleState_EnemySwappedActive(a, b.enemy, a.enemy));
+		})
+	);
+	RULES.push(new Rule(`Battle State: Enemy using a move and healing implies the move healed the mon, not the trainer.`)
+		.when(ledger=>ledger.has('BattleState_EnemyUsedMove'))
+		.when(ledger=>ledger.has('BattleState_EnemyHealed').unmarked())//.ofImportance())
+		.then(ledger=>{
+			ledger.get(1).forEach(x=>{
+				if (x.flavor === 'full') x.flavor = 'full_move';
+				else if (!x.flavor) x.flavor = 'move';
+			});
 		})
 	);
 	RULES.push(new Rule(`Battle State: Ally expected to heal during level up.`)
@@ -445,11 +480,18 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 			ledger.demote(1).mark(1);
 		})
 	);
+	RULES.push(new Rule(`Battle State: Postpone switching out reporting, because it should have been merged with a switch in somewhere else.`)
+		.when(ledger=>ledger.has('BattleState_AllyBecameInactive').ofImportance())
+		.then(ledger=>{
+			ledger.postpone(0);
+		})
+	);
 }
 
 module.exports = BattleModule;
 
 //DEBUG
+/*
 Bot.on('bot-ready', ()=>{
 	const { Ledger, BattleStateItem }  = require('../ledger');
 	const { TypeSetter } = require('../typesetter');
@@ -477,3 +519,4 @@ Bot.on('bot-ready', ()=>{
 			TESTLOG.info(`Battle State Test:\n${update}`);
 	});
 });
+*/

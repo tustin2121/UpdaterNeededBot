@@ -133,9 +133,14 @@ module.exports = {
 	},
 	MonRevived: {
 		__meta__: { merge:'MonChangedCondensed' },
-		default: [
-			`<b>{{@target}} has been revived!</b>`,
-		],
+		default: {
+			single: [
+				`<b>{{@target}} has been revived!</b>`,
+			],
+			item: [
+				`has been revived`,
+			],
+		},
 	},
 	MonHealedHP: null,
 	MonHealedPP: null,

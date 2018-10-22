@@ -25,6 +25,7 @@ module.exports = {
 		30,31, //herbal
 		44,155-16,158-16,159-16,160-16,161-16,162-16,163-16, //berries
 	],
+	itemIds_rareCandy: [ 68 ],
 	itemIds_healPP: [
 		34,35,36,37, //items
 		138, //berries

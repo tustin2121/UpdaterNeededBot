@@ -232,6 +232,24 @@ module.exports = {
 		],
 	},
 	
+	GameSaved: {
+		default: [
+			`<b>We save!</b>`,
+		],
+		again: [
+			`We save.`,
+		],
+		immediate: [
+			`We save again for good measure.`,
+			`We save again for kicks.`,
+			`We like saving so much, we do it again for fun.`,
+			`We save again.`,
+			`We save again, just in case.`,
+			`Can never save too many times.`,
+			`Save early, save often, they say; we take their advice.`,
+		],
+	},
+	
 	MemeReport: {
 		__meta__: { sort:-9000 }, //after everything else
 		default: `{{@report}}`,

@@ -178,6 +178,8 @@ class Pokemon {
 		this.pokerus = null; //true = infected, false = cured, null = never had
 		this.traded = false;
 		this.status = '';
+		this.active = false;
+		this.battleBuffs = {};
 		
 		this.cp = 0;
 		this.fitness = 0;
@@ -258,6 +260,17 @@ class Pokemon {
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
 		
 		this.active = !!read(mon, 'volatile_status');
+		if (mon.buffs) {
+			this.battleBuffs = {
+				'atk': mon.buffs.attack+1,
+				'def': mon.buffs.defense+1,
+				'spe': mon.buffs.speed+1,
+				'spa': mon.buffs.special_attack+1,
+				'spd': mon.buffs.special_defense+1,
+				'acc': mon.buffs.accuracy+1,
+				'eva': mon.buffs.evasion+1,
+			}
+		}
 		
 		// Validation check:
 		if (this.fitness < 0) throw new TypeError('Corrupt data!');

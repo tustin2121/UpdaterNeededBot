@@ -6,6 +6,12 @@ const { LedgerItem } = require('../ledger');
 
 const LOGGER = getLogger('TypeSetter');
 
+try {
+	require('../../../data/extdat/bodyfeats')
+} catch (e) {
+	LOGGER.error(`Error loading require('bodyfeats')`, e);
+}
+
 const PHRASEBOOK = Object.assign({}, ...[
 	require('./Battle'),
 	require('./BattleState'),
@@ -559,10 +565,10 @@ function printObject(obj) {
 		}
 	}
 	function testBodyFeature(operation) {
-		let op;
+		let op, bool;
 		switch (operation) {
-			case 'and': op = (a, b)=> a && b; break;
-			case 'or':  op = (a, b)=> a || b; break;
+			case 'and': op = (a, b)=> a && b; bool = true; break;
+			case 'or':  op = (a, b)=> a || b; bool = false; break;
 		}
 		return function(mon, ...feats) {
 			mon = mon || this.noun || this.subject;
@@ -570,9 +576,8 @@ function printObject(obj) {
 				LOGGER.error(`Object is not a Pokemon! => `, this._callMeta.top());
 				return false;
 			}
-			let bodyfeats = require('../../../data/extdata/bodyfeats')[mon.dexid];
+			let bodyfeats = require('../../../data/extdat/bodyfeats')[mon.dexid];
 			
-			let bool = true;
 			for (let feat of feats) {
 				bool = op(bool, !!bodyfeats[feat]);
 			}
