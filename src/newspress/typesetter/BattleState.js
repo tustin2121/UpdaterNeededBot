@@ -143,12 +143,13 @@ module.exports = {
 			`{{@activeEnemy}}'s attack drops {{mon|@mon}}'s hp into the yellow!`,
 		],
 		intoRed: [
-			`But their attack sends us into the red!`,
-			`But the enemy {{@activeEnemy}}'s attack sends us into the red!`,
+			`Their attack sends us into the red!`,
+			`The enemy {{@activeEnemy}}'s attack sends us into the red!`,
 		],
 		clutch: [
 			`Their attack does massive damage to us, but we clutch at 1HP!`,
 			`The {{rand|enemy|opposing|}} {{@activeEnemy}} does massive damage to us, but we clutch at 1HP!`,
+			`We hang on by the skin of our teeth!`,
 		],
 		lightDmg: [
 			`Their attack does light damage to us.`,
@@ -175,6 +176,7 @@ module.exports = {
 		__meta__: { sort: 165 },
 		default: [
 			`We heal some HP!`,
+			`{{Mon|$@mon}} restores {{their}} health.`,
 		],
 	}, 
 	BattleState_EnemyDamaged: {
@@ -186,49 +188,69 @@ module.exports = {
 		],
 		fatalTap: [
 			`We could have poked it and it would have fainted. Down it goes!`,
-			`We poke the enemy {{@mon}}. Down it goes!`,
+			`We poke the {{rand|enemy|opposing|}} {{@mon}}. Down it goes!`,
 		],
 		fatalOHKO: [
 			`That takes 'em out in one.`,
 			`It's a one-hit KO!`,
 		],
 		fatal: [
-			`The enemy {{mon|$@mon}} goes down!`,
-			`That takes out {{their|@trainer}} {{mon|$@mon}}!`,
+			`The {{rand|enemy|opposing|}} {{mon|@mon}} goes down!`,
+			`That takes out {{their|@trainer}} {{mon|@mon}}!`,
 		],
 		chipDmg: [
 			`That does only chip damage.`,
+			`That merely chips away at the {{rand|enemy|opposing|}} {{mon|@mon}}'s health.`,
 		],
 		intoYellow: [
-			`That sends the enemy into the yellow!`,
+			`That sends the {{rand|enemy|opponent}} into the yellow!`,
+			`The {{rand|enemy|opposing|}} {{@mon}} is in the yellow!`,
 		],
 		intoRed: [
 			`The enemy {{@mon}} is in the red!`,
+			`That drops the enemy's health into the red!`,
+			`That drops the enemy {{@mon}}'s health into the red!`,
 		],
 		clutch: [
 			`That does major damage, but they clutch at 1HP!`,
+			`The {{rand|enemy|opposing|}} {{@mon}} clutches at 1HP!`,
+			`But the {{rand|enemy|opposing|}} {{@mon}} clutches!`,
+			`The opponent clutches at 1HP!`,
+			`The opponent hangs on by the skin of its teeth!`,
+			`The {{rand|enemy|opposing|}} {{@mon}} hangs on by the skin of its teeth!`,
 		],
 		lightDmg: [
 			`A light {{rand|knock|hit}}.`,
 			`That didn't do too much.`,
 		],
 		halfDmg: [
+			`That halved their health!`,
+			`That halved the {{rand|enemy|opponent}}'s health!`,
 			`That takes out half their HP!`,
+			`That's most of their health gone!`,
+			`That does sizable damage!`,
+			`That does sizable damage to the {{rand|enemy|opposing|}} {{@mon}}!`
 		],
 		medDmg: [
 			`That does good damage to the enemy {{mon|@mon}}!`,
+			`Decent amount of damage!`,
+			`Pretty good damage!`,
 		],
 		heavyDmg: [
 			`Crushing blow! It takes out most of their remaining health!`,
+			`Amazing amount of damage! Most of {{@mon}}'s health is gone!`,
+			`Amazing amount of damage! Most of the {{rand|enemy|opposing|}} {{@mon}}'s health is gone!`,
 		],
 	}, 
 	BattleState_EnemyHealed: {
 		__meta__: { sort: 181 },
 		default: [
 			`{{$@trainer}} heals {{their}} {{@mon}}.`,
+			`{{@mon}} restores their health.`,
 		],
 		full: [
 			`{{$@trainer}} heals {{their}} {{@mon}} to full health.`,
+			`{{@mon}} is restored to full health.`,
 		],
 		move: [
 			`That heals the enemy {{@mon}} some.`,

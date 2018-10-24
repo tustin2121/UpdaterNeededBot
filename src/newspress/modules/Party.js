@@ -77,6 +77,7 @@ class PartyModule extends ReportingModule {
 		}
 		else {
 			let tempIndicators = 0;
+			if (prev_api.party.length > 0 && curr_api.party.length === 0) tempIndicators += 3; //suddenly no mons means temp party
 			if (prev_api.party.length > 3 && curr_api.party.length === 3) tempIndicators++;
 			if (prev_api.party.length > 1 && curr_api.party.length === 1) tempIndicators++;
 			if (prev_api.party.length > 3 && curr_api.party.length === 1) tempIndicators++;

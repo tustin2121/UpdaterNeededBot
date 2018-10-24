@@ -12,6 +12,8 @@ const {
 	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
 	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
 	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
+	BattleState_AllyStageBoost, BattleState_AllyStageUnboost,
+	BattleState_EnemyStageBoost, BattleState_EnemyStageUnboost,
 	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
 } = require('../ledger');
 
@@ -20,6 +22,8 @@ const BATTLE_STATE_ITEMS = [
 	BattleState_AllyBecameActive, BattleState_AllyBecameInactive, BattleState_AllySwappedActive,
 	BattleState_EnemyBecameActive, BattleState_EnemyBecameInative, BattleState_EnemySwappedActive,
 	BattleState_AllyUsedMove, BattleState_EnemyUsedMove,
+	BattleState_AllyStageBoost, BattleState_AllyStageUnboost,
+	BattleState_EnemyStageBoost, BattleState_EnemyStageUnboost,
 	BattleState_AllyDamaged, BattleState_AllyHealed, BattleState_EnemyDamaged, BattleState_EnemyHealed,
 ].map(x=>x.__itemName__);
 
@@ -164,6 +168,18 @@ class BattleModule extends ReportingModule {
 				let item = BattleState_AllyDamaged.createItem(battleState, curr, prev);
 				if (item) ledger.addItem(item);
 			}
+			if (curr.battleBuffs && prev.battleBuffs) {
+				for (let b in curr.battleBuffs) {
+					if (!curr.battleBuffs[b] || !prev.battleBuffs[b]) continue; //avoid false reporting where possible
+					let p = prev.battleBuffs[b] || 7;
+					let c = curr.battleBuffs[b] || 7;
+					if (p < c) {
+						ledger.addItem(new BattleState_AllyStageBoost(battleState, curr, b, c - p));
+					} else if (p > c) {
+						ledger.addItem(new BattleState_AllyStageUnboost(battleState, curr, b, c - p));
+					}
+				}
+			}
 			// Move use is covered by Rules and MonLostPP
 		}
 		
@@ -175,6 +191,17 @@ class BattleModule extends ReportingModule {
 			if (curr._hp[0] < curr._hp[1]) { //we can assume all enemies start with max HP
 				let item = BattleState_EnemyDamaged.createItem(battleState, curr, curr.cloneToAssumedPrev());
 				if (item) ledger.addItem(item);
+			}
+			if (curr.battleBuffs) {
+				for (let b in curr.battleBuffs) {
+					let p = 7;
+					let c = curr.battleBuffs[b] || 7;
+					if (p < c) {
+						ledger.addItem(new BattleState_EnemyStageBoost(battleState, curr, b, c - p));
+					} else if (p > c) {
+						ledger.addItem(new BattleState_EnemyStageUnboost(battleState, curr, b, c - p));
+					}
+				}
 			}
 			if (curr.moves) { //We have move info
 				// Moves appear as they are first used, so any new ones at this stage have been used
@@ -228,6 +255,18 @@ class BattleModule extends ReportingModule {
 				let item = BattleState_AllyDamaged.createItem(battleState, curr, prev);
 				if (item) ledger.addItem(item);
 			}
+			if (curr.battleBuffs && prev.battleBuffs) {
+				for (let b in curr.battleBuffs) {
+					if (!curr.battleBuffs[b] || !prev.battleBuffs[b]) continue; //avoid false reporting where possible
+					let p = prev.battleBuffs[b] || 7;
+					let c = curr.battleBuffs[b] || 7;
+					if (p < c) {
+						ledger.addItem(new BattleState_AllyStageBoost(battleState, curr, b, c - p));
+					} else if (p > c) {
+						ledger.addItem(new BattleState_AllyStageUnboost(battleState, curr, b, c - p));
+					}
+				}
+			}
 			// Move use is covered by Rules and MonLostPP
 		}
 		for (let { prev, curr } of enemies) {
@@ -235,7 +274,7 @@ class BattleModule extends ReportingModule {
 				LOGGER.warn('prev.active', prev.species, '!== curr.active =>', curr.species);
 				if (curr.active) {
 					ledger.addItem(new BattleState_EnemyBecameActive(battleState, curr));
-				} else {
+				} else if (curr.hp > 0) {
 					ledger.addItem(new BattleState_EnemyBecameInative(battleState, curr));
 				}
 			}
@@ -246,13 +285,24 @@ class BattleModule extends ReportingModule {
 				let item = BattleState_EnemyDamaged.createItem(battleState, curr, prev);
 				if (item) ledger.addItem(item);
 			}
+			if (curr.battleBuffs && prev.battleBuffs) {
+				for (let b in curr.battleBuffs) {
+					let p = prev.battleBuffs[b] || 7;
+					let c = curr.battleBuffs[b] || 7;
+					if (p < c) {
+						ledger.addItem(new BattleState_EnemyStageBoost(battleState, curr, b, c - p));
+					} else if (p > c) {
+						ledger.addItem(new BattleState_EnemyStageUnboost(battleState, curr, b, c - p));
+					}
+				}
+			}
 			if (curr.moves && prev.moves) { //We have move info
 				// Moves appear as they are first used
 				let extm = curr.moves.filter(x=>prev.moves.some(y=>y.id === x.id));
 				let newm = curr.moves.filter(x=>!prev.moves.some(y=>y.id === x.id));
 				for (let c of extm) {
 					let p = prev.moves.filter(x=>x.id === c.id)[0];
-					if (p.pp < c.pp) {
+					if (p.pp > c.pp) {
 						ledger.addItem(new BattleState_EnemyUsedMove(battleState, curr, c));
 					}
 				}
@@ -435,7 +485,7 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 			ledger.demote(1).mark(1);
 		})
 	);
-	RULES.push(new Rule(`Battle State: Combine inactive and active into swap (ally)`)
+	RULES.push(new Rule(`Battle State: Combine ally and enemy active.`)
 		.when(ledger=>ledger.has('BattleStarted'))
 		.when(ledger=>ledger.has('BattleState_AllyBecameActive'))
 		.when(ledger=>ledger.has('BattleState_EnemyBecameActive'))

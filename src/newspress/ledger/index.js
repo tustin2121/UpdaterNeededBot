@@ -209,6 +209,7 @@ Ledger.prototype.remove = Ledger.prototype.removeItem;
 class DebugLogs {
 	constructor() {
 		this.uid = DebugLogs.generateId();
+		this.activityLevel = -1; //rule round 0 is gaurenteed, so that will get us to 0
 		this.apiNum = -1;
 		this.modules = {};
 		this.preledger = '';
@@ -244,8 +245,8 @@ class DebugLogs {
 			xml += `<rules>${this.rules.join('')}</rules>`;
 			xml += `<postledger>${this.postledger}</postledger>`;
 			xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
-			xml += `<update>${this.update}</update>`;
-			this._xml = `<state>${xml}</state>`;
+			xml += `<update>${this.update||''}</update>`;
+			this._xml = `<state lvl="${this.activityLevel}">${xml}</state>`;
 		}
 		return this._xml;
 	}
@@ -268,6 +269,7 @@ class DebugLogs {
 	
 	ruleRound(num) {
 		this.rules.push(`<marker>Round ${num}</marker>`);
+		this.activityLevel++;
 	}
 	
 	/**
@@ -282,6 +284,7 @@ class DebugLogs {
 			return `<match index="${i}">${itemXml}</match>`;
 		}).join('');
 		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
+		this.activityLevel++;
 	}
 	
 	premergeState(items, postItems) {
@@ -293,12 +296,14 @@ class DebugLogs {
 	 * @param{string} type - one of 'coalesced','replaced','removed'
 	 */
 	merged(type, ...items) {
-		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`).join('')}</merge>`);
+		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.__itemName__}</item>`).join('')}</merge>`);
+		this.activityLevel += items.length;
 	}
 	
 	ledgerState(ledger) {
 		this.postledger = `<items>${ledger.list.map(x=>x.toXml()).join('')}</items>`;
 		if (ledger.postponeList.length) this.postledger += `<post>${ledger.postponeList.map(x=>x.toXml()).join('')}</post>`;
+		this.activityLevel += ledger.list.length + ledger.postponeList.length;
 	}
 	
 	typesetterInput(itemArray) {
@@ -312,6 +317,7 @@ class DebugLogs {
 		this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
 		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
 		this._currTypesetter = null;
+		this.activityLevel += (out)?5:0;
 	}
 	
 	finalUpdate(update) {

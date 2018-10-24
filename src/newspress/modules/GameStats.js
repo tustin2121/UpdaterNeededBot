@@ -18,10 +18,12 @@ class GameStatsModule extends ReportingModule {
 	}
 	
 	firstPass(ledger, { prev_api, curr_api }) {
+		this.setDebug(LOGGER, ledger);
 		if (!prev_api.rawData || !curr_api.rawData) return; //can't do anything
-		if (!prev_api.rawData['game_stats'] || !curr_api.rawData['game_stats']) return; //can't do anything
-		let { prev } = prev_api.rawData['game_stats'];
-		let { curr } = curr_api.rawData['game_stats'];
+		let prev = prev_api.getFromRaw('game_stats');
+		let curr = curr_api.getFromRaw('game_stats');
+		this.debug(`prev=${!!prev}, curr=${!!curr}`);
+		if (!prev || !curr) return; //can't do anything
 		
 		if (prev['games_saved'] < curr['games_saved']) {
 			if (prev['games_saved'] < this.memory.lastSave.count) {

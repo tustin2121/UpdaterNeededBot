@@ -17,15 +17,15 @@ function determineDamageFlavor(curr, prev, out={}) {
 	out.delta = delta;
 	
 	if (curr.hp === 0 && prev.hp > 0) { //The pokemon fainted from this damage
-		if (curr.dexid === 292) 'shedinja';
-		if (delta === -1) 'fatalTap';
-		if (delta === -maxHP) 'fatalOHKO';
+		if (curr.dexid === 292) return 'shedinja';
+		if (delta === -1) return 'fatalTap';
+		if (prevHP === maxHP) return 'fatalOHKO';
 		return 'fatal';
 	}
 	if (delta === 0) return null; //nothing to report
 	if (delta > 0) return null; //we don't report this
 	if (delta === -1) return 'chipDmg';
-	if (prev.hp > 90 && prevHP > 1 && currHP === 1) {
+	if (prev.hp > 50 && prevHP > 2 && currHP <= 2) {
 		//TODO Sturdy check
 		return 'clutch';
 	}
@@ -38,10 +38,10 @@ function determineDamageFlavor(curr, prev, out={}) {
 	let pDelta = Math.abs(delta) / maxHP;
 	if (pDelta < 0.25) {
 		return 'lightDmg'; //TODO combine these damage amounts with "intoRed/Yellow/etc"
-	} else if (pDelta < 0.51) {
-		return 'halfDmg';
 	} else if (pDelta < 0.49) {
 		return 'medDmg';
+	} else if (pDelta < 0.51) {
+		return 'halfDmg';
 	} else {
 		return 'heavyDmg';
 	}

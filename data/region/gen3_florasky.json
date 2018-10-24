@@ -1572,9 +1572,9 @@
 			{
 				"bank": 0,
 				"id": 68,
-				"name": "Chall. Islands",
+				"name": "Challenge Islands",
 				"areaId": 159,
-				"areaName": "Chall. Islands",
+				"areaName": "Challenge Islands",
 				"type": "route",
 				"width": 45,
 				"height": 55,
@@ -2550,9 +2550,9 @@
 			{
 				"bank": 8,
 				"id": 1,
-				"name": "Chall. Islands",
+				"name": "Challenge Islands",
 				"areaId": 159,
-				"areaName": "Chall. Islands",
+				"areaName": "Challenge Islands",
 				"type": "indoor",
 				"width": 9,
 				"height": 112,
@@ -6511,7 +6511,7 @@
 			{
 				"bank": 24,
 				"id": 108,
-				"name": "Mt. Fullmoon",
+				"name": "Mt. JEWJEWJEW (Mt. Fullmoon)",
 				"areaId": 56,
 				"areaName": "Mt. Fullmoon",
 				"type": "dungeon",

@@ -96,6 +96,7 @@ module.exports = {
 		Timing: {},
 		Phonebook: {},
 		Options: {},
+		GameStats: {},
 		// RealTime: {},
 		// PC: {},
 	},

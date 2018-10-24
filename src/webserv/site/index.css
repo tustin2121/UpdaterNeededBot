@@ -16,9 +16,64 @@ body {
 	box-shadow: 0px 0px 10px 0px #00000080;
 }
 
+#pastBuffer {
+	position: relative;
+	width: 1024px; height: 100%;
+	vertical-align: top;
+	/* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+	display: inline-grid;
+	grid-template-columns: 1fr; /* Repplaced at runtime with 1fr for each available space */
+	grid-template-rows: auto;
+	place-items: stretch;
+}
+
+#pastBuffer buffer {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	border-left: 1px dashed #d2d2d2;
+	overflow-y: hidden;
+	
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	place-items: end stretch; /* Align to bottom of thing. */
+}
+#pastBuffer buffer:last-child {
+	border-right: 1px dashed #d2d2d2;
+}
+#pastBuffer buffer.output {
+	border: 1px solid #929292;
+	margin-right: -1px;
+	z-index: 1;
+}
+#pastBuffer buffer.inBattle {
+	background-color: #faebd7;
+}
+
+#pastBuffer buffer level {
+	display: block;
+	background-color: #6672aa;
+}
+#pastBuffer buffer level.overload {
+	background-color: #ff5757;
+}
+
+#pastBuffer buffer.selected::before {
+    content: ' ';
+    position: absolute;
+    width: 0; height: 0;
+    border: 6px solid transparent;
+    border-top-color: red;
+    border-left-color: red;
+    top:0; left:0;
+}
+
+
+
 @keyframes blink {
 	0% { font-weight: 900; }
-	50% { font-weight: 400; }
+	100% { font-weight: 400; }
 }
 #playpause {
 	font-family: 'Font Awesome 5 Free';
@@ -27,8 +82,7 @@ body {
     margin: 12px;
 }
 #playpause.paused {
-	animation-duration: 2s;
-	animation-name: blink;
+	animation: blink 4s infinite;
 }
 #playpause::before {
 	content: '\f144';
@@ -522,3 +576,4 @@ battle > combatant[active=true]::after {
 location[mapid]:after {
     content: ' ('attr(mapid)')';
 }
+

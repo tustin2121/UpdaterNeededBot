@@ -396,6 +396,8 @@ class Combatant {
 		this._hp = [100, 100];
 		this.shiny = false;
 		this.gender = '';
+		this.moves = [];
+		this.battleBuffs = {};
 		
 		this.game = game; //the game this pokemon belongs to
 		if (!data) return;
@@ -413,6 +415,18 @@ class Combatant {
 		this.hash = read(data, 'personality_value');
 		this.shiny = data.shiny || this.shiny;
 		this.gender = data.gender || this.gender;
+		this.moves = (data.moves && data.moves.slice()) || this.moves;
+		if (data.buffs) {
+			this.battleBuffs = {
+				'atk': data.buffs.attack+1,
+				'def': data.buffs.defense+1,
+				'spe': data.buffs.speed+1,
+				'spa': data.buffs.special_attack+1,
+				'spd': data.buffs.special_defense+1,
+				'acc': data.buffs.accuracy+1,
+				'eva': data.buffs.evasion+1,
+			}
+		}
 	}
 	
 	cloneToAssumedPrev() {
