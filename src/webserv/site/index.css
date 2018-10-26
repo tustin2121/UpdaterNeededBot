@@ -307,20 +307,17 @@ dirarrow.update {
 	background-color: white;
 }
 .view.update::before {
-	content: '\f1a1  \f392'; /* reddit, discord */
-	top: -70px; left: -8px;
-	background-color: initial; /* Reset the top corner label thing */
-	color: initial;
-	border-bottom-right-radius: initial;
-	padding: 0;
-	position: absolute;
-	font-family: 'Font Awesome 5 Brands';
-	font-size: 30pt;
-	z-index: 10;
-}
-.view.update::after {
-	content: '\f106'; /* angle-up */
-	left: 4%; top: -34px;
+    content: '\f1a1 \f392';  /* reddit, discord */
+    top: unset; bottom: 2px; left: 2px;
+    background-color: initial;  /* Reset the top corner label thing */
+    color: initial;
+    border-bottom-right-radius: initial;
+    padding: 0;
+    position: absolute;
+    font-family: 'Font Awesome 5 Brands';
+    font-size: 16pt;
+    z-index: 10;
+    
 }
 .view.update > update {
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -577,3 +574,40 @@ location[mapid]:after {
     content: ' ('attr(mapid)')';
 }
 
+ledgeritem[name=PokemonIsMissing] > [key=raw] {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+typesetter > item > in::after {
+	content: ' | 'attr(flavor)' ] x'attr(num);
+}
+
+typesetter > item > in::before {
+	content: '[ ';
+}
+typesetter > item {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+typesetter > item > in {
+	margin-left: -2em;
+	display: block;
+	color: #888888;
+}
+
+typesetter > item > out::after {
+    content: '"';
+}
+typesetter > item > out::before {
+    content: '"';
+}
+typesetter > item > out {
+    display: block;
+    padding: 2px 0px;
+}

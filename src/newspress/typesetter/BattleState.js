@@ -252,12 +252,18 @@ module.exports = {
 			`{{$@trainer}} heals {{their}} {{@mon}} to full health.`,
 			`{{@mon}} is restored to full health.`,
 		],
-		move: [
-			`That heals the enemy {{@mon}} some.`,
-		],
-		full_move: [
-			`That heals the enemy {{@mon}} to full health.`,
-		],
+		move: {
+			__meta__: { sort: 120 },
+			single: [
+				`That heals the enemy {{@mon}} some.`,
+			],
+		},
+		full_move: {
+			__meta__: { sort: 120 },
+			single: [
+				`That heals the enemy {{@mon}} to full health.`,
+			],
+		},
 		minor: {
 			__meta__: { sort: 120 },
 			single: [

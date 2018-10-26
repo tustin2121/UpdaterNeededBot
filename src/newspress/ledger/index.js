@@ -308,13 +308,13 @@ class DebugLogs {
 	
 	typesetterInput(itemArray) {
 		this._currTypesetter = [];
-		this._currTypesetter.push(`<in num="${itemArray.length}" flavor="${itemArray[0].flavor||'default'}">${itemArray[0].name}</in>`);
+		this._currTypesetter.push(`<in num="${itemArray.length}" flavor="${itemArray[0].flavor||'default'}">${itemArray[0].__itemName__}</in>`);
 	}
 	typesetterFormat(format) {
 		this._currTypesetter.push(`<format>${escapeHtml(format)}</format>`);
 	}
 	typesetterOutput(out) {
-		this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
+		if (out) this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
 		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
 		this._currTypesetter = null;
 		this.activityLevel += (out)?5:0;

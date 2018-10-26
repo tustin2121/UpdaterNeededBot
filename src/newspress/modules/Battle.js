@@ -517,7 +517,7 @@ RULES.push(new Rule(`If the battle is already being reported on by BattleStarted
 		.when(ledger=>ledger.has('BattleState_EnemyUsedMove'))
 		.when(ledger=>ledger.has('BattleState_EnemyHealed').unmarked())//.ofImportance())
 		.then(ledger=>{
-			ledger.get(1).forEach(x=>{
+			ledger.mark(1).get(1).forEach(x=>{
 				if (x.flavor === 'full') x.flavor = 'full_move';
 				else if (!x.flavor) x.flavor = 'move';
 			});

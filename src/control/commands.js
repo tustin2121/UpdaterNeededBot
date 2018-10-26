@@ -444,7 +444,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 	}
 	
 	if ((res = /^(?:turn on|enable|set on) (.*)/i.exec(cmd))) {
-		let flag = res[2];
+		let flag = res[1];
 		const runflags = require('./runflags');
 		flag = runflags.parse(flag);
 		if (flag) {
@@ -453,7 +453,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['shutup', `I don't have an option for that.`];
 	}
 	if ((res = /^(?:turn off|disable|set off) (.*)/i.exec(cmd))) {
-		let flag = res[2];
+		let flag = res[1];
 		const runflags = require('./runflags');
 		flag = runflags.parse(flag);
 		if (flag) {

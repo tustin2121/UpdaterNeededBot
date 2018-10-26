@@ -71,6 +71,9 @@ class LedgerItem {
 			if (val === undefined) continue;
 			if (typeof val === 'symbol') continue;
 			
+			let type = typeof val;
+			if (type === 'object') type = 'objectjs'; //avoid the <object> html tag
+			
 			if (val && val.toXml) {
 				xml += val.toXml(key);
 			} else if (typeof val === 'object' && val && val.toString() === `[object Object]`) {
@@ -81,9 +84,9 @@ class LedgerItem {
 					LOGGER.error(`Error while stringifying value!`, e);
 					str = val;
 				}
-				xml += `<${typeof val} key="${key}">${str}</${typeof val}>`;
+				xml += `<${type} key="${key}">${str}</${type}>`;
 			} else {
-				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;
+				xml += `<${type} key="${key}">${val}</${type}>`;
 			}
 		}
 		xml += `</LedgerItem>`;
