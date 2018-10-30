@@ -65,11 +65,11 @@ module.exports = {
 		// level = the level grown to
 		default: {
 			single: [
-				`<b>{{@target.name}} ({{@prev}}) has evolved into a {{@curr}}!</b>`,
-				`<b>{{@target.name}} ({{@prev}}) evolves into a {{@curr}}!</b>`,
+				`<b>{{@target.name}} ({{@prev}}) has evolved into a {{extended info|@target|{{@curr}}}}!</b>`,
+				`<b>{{@target.name}} ({{@prev}}) evolves into a {{extended info|@target|{{@curr}}}}!</b>`,
 			],
 			item: [ //used for MonChangedCondensed
-				`evolved into {{@curr}}`,
+				`evolved into {{extended info|@target|{{@curr}}}}`,
 			],
 		},
 	},

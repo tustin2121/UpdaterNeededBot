@@ -166,7 +166,9 @@ function disk_get(index, info) {
 function http_get(url) {
 	const H = url.startsWith('https')? HTTPS : HTTP;
 	return new Promise((resolve, reject)=>{
-		let loc = URL.parse(url);
+		let unique = '?t='+Date.now().toString(36);
+		LOGGER.trace(`Requesting Stream API from ${url+unique}.`);
+		let loc = URL.parse(url+unique);
 		loc.headers = {
 			'Accept': 'application/json',
 		};

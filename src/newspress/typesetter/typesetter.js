@@ -269,11 +269,24 @@ function printObject(obj) {
 			return txt;
 		}
 	}
+	function printExtendedInfo() {
+		return function(mon, text) {
+			mon = mon || this.subject || this.noun;
+			text = text || mon.species || this.noun || this.subject;
+			if (!mon.getExtendedInfo) return false;
+			if (this._setNoun) this.noun = mon;
+			if (this._setSubject) this.subject = mon;
+			let ext = mon.getExtendedInfo().replace(/"/g, `''`);
+			return `<info ext="${ext}">${text}</info>`;
+		}
+	}
 	Object.assign(FORMAT_FNS, {
 		'Species': printSpecies(),
 		'species': printSpecies(),
 		'Mon': printSpecies(),
 		'mon': printSpecies(),
+		
+		'extended info': printExtendedInfo(),
 	});
 }{
 	function printClass(){
@@ -757,8 +770,9 @@ class TypeSetter {
 		
 		let len = 0;
 		for (let item of list) {
-			let { contextOnly } = TypeSetter.getPhraseMeta(item);
+			let { contextOnly, helpingOnly } = TypeSetter.getPhraseMeta(item);
 			if (contextOnly) continue;
+			if (helpingOnly && !this.helpOpts) continue;
 			len++;
 		}
 		if (len === 0) return []; //No items that are not marked as context-only, short-circut this

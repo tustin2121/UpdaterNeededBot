@@ -117,7 +117,7 @@ class ShoppingContext extends LedgerItem {
 	}
 	canPostpone() {
 		if (this.ttl === 0) {
-			if (this.cart.transactions > 1) return new ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
+			if (this.cart.transactions > 0) return new ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
 			return false; //Don't postpone or send out a report
 		}
 		if (!this._next) {

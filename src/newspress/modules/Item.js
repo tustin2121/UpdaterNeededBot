@@ -237,10 +237,22 @@ if (!!Bot.gameInfo().regionMap) {
 	const itemIds = Bot.runOpts('itemIds_evoStones'); //TODO
 	RULES.push(new Rule(`Stones lost during evoltuion have been used.`)
 		.when(ledger=>ledger.has('MonEvolved'))
-		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
+		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds).unmarked())
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('evostone', x.item, item.mon)));
+			ledger.mark(1).remove(1).get(1).forEach(x=>{
+				ledger.add(new UsedItemOnMon('evostone', x.item, item.mon));
+				x.amount--;
+				if (x.amount) ledger.add(x); //add it back in
+			});
+		})
+	);
+	
+	RULES.push(new Rule(`Postpone lost stones during an evolution if we don't have a pokemon to pin them on yet.`)
+		.when(ledger=>ledger.has('EvolutionContext'))
+		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
+		.then(ledger=>{
+			ledger.postpone(1);
 		})
 	);
 }{
@@ -336,6 +348,13 @@ RULES.push(new Rule(`Update the money count on the shopping context.`)
 	.then(ledger=>{
 		let ctx = ledger.get(0)[0];
 		ledger.mark(1).get(1).forEach(x=>ctx.cart.money = x.curr);
+	})
+);
+RULES.push(new Rule(`Give the Shopping Context more time to live during Democracy.`)
+	.when(ledger=>ledger.has('ShoppingContext').unmarked())
+	.when(ledger=>ledger.has('DemocracyContext'))
+	.then(ledger=>{
+		ledger.mark(0).forEach(x=>x.ttl+=0.5);
 	})
 );
 RULES.push(new Rule(`Postpone the shopping context.`)
