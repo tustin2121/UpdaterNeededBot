@@ -87,6 +87,35 @@ class PhonebookRemove extends LedgerItem {
 	}
 }
 
+///////////////////
+// Game Stats
+
+/** A generic "game stat has changed" item for testing purposes. */
+class GameStatChanged extends LedgerItem {
+	constructor(stat, prev, curr) {
+		super(0);
+		this.stat = stat;
+		this.prev = prev;
+		this.curr = curr;
+		this.delta = curr - prev;
+	}
+}
+
+class GameSaved extends LedgerItem {
+	constructor(flavor) {
+		super(1, { flavor });
+	}
+}
+
+
+///////////////////
+// Memes
+class MemeReport extends LedgerItem {
+	constructor(flavor) {
+		super(1, { flavor });
+	}
+}
+
 
 /////////////////// Advanced Items ///////////////////
 
@@ -96,4 +125,6 @@ module.exports = {
 	DemocracyContext, InputModeChanged,
 	TimeChanged,
 	PhonebookAdd, PhonebookRemove,
+	GameStatChanged, GameSaved,
+	MemeReport,
 };

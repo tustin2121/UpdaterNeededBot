@@ -55,6 +55,13 @@ class TemporaryPartyContext extends LedgerItem {
 	}
 }
 
+/** Indicates that an evolution is happening right now. */
+class EvolutionContext extends LedgerItem {
+	constructor() {
+		super(0);
+	}
+}
+
 /** Indicates that a pokemon in the party has leveled up. */
 class MonLeveledUp extends PartyItem {
 	constructor(mon, prevLevel) {
@@ -142,10 +149,10 @@ class MonHealedHP extends PartyItem {
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonHealedPP extends PartyItem {
-	constructor(mon, move, currPP, prevPP) {
+	constructor(mon, move, prevPP) {
 		super(mon, 0); //context item
 		this.move = move;
-		this.curr = currPP;
+		this.curr = move.pp;
 		this.prev = prevPP;
 	}
 }
@@ -161,20 +168,20 @@ class MonLostHP extends PartyItem {
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonLostPP extends PartyItem {
-	constructor(mon, move, currPP, prevPP) {
+	constructor(mon, move, prevPP) {
 		super(mon, 0); //context item
 		this.move = move;
-		this.curr = currPP;
+		this.curr = move.pp;
 		this.prev = prevPP;
 	}
 }
 
 /** Indicates that a pokemon has had their move PP healed. */
 class MonPPUp extends PartyItem {
-	constructor(mon, move, currMax, prevMax) {
+	constructor(mon, move, prevMax) {
 		super(mon, 0); //context item
 		this.move = move;
-		this.currMax = currMax;
+		this.currMax = move.pp;
 		this.prevMax = prevMax;
 	}
 }
@@ -216,6 +223,12 @@ class MonGiveItem extends PartyItem {
 	}
 	get curr(){ return this.item; }
 	get given(){ return this.item; }
+	cancelsOut(other) {
+		if (other.__itemName__ !== 'MonTakeItem') return false;
+		if (this.mon.hash !== other.mon.hash) return false;
+		if (this.curr.id === other.prev.id) return true;
+		return false;
+	}
 }
 
 /** Indicates that a pokemon has had its item taken from it. */
@@ -226,6 +239,12 @@ class MonTakeItem extends PartyItem {
 	}
 	get prev(){ return this.item; }
 	get taken(){ return this.item; }
+	cancelsOut(other) {
+		if (other.__itemName__ !== 'MonGiveItem') return false;
+		if (this.mon.hash !== other.mon.hash) return false;
+		if (this.prev.id === other.curr.id) return true;
+		return false;
+	}
 }
 
 /** Indicates that a pokemon has had its item swapped for another item. */
@@ -239,6 +258,16 @@ class MonSwapItem extends PartyItem {
 	get prev(){ return this.prevItem; }
 	get given(){ return this.item; }
 	get taken(){ return this.prevItem; }
+}
+
+/** Indicates that a pokemon's status has changed. */
+class MonStatusChanged extends PartyItem {
+	constructor(mon, prev) {
+		super(mon, 1);
+		this.prevStatus = prev;
+	}
+	get curr(){ return this.mon.status; }
+	get prev(){ return this.prevStatus; }
 }
 
 /** Indicates that a pokemon's shiny status has inexplicably changed. */
@@ -298,12 +327,12 @@ class MonNicknameChanged extends PartyItem {
 
 
 module.exports = {
-	TemporaryPartyContext, MonChangedCondensed,
+	TemporaryPartyContext, MonChangedCondensed, EvolutionContext,
 	MonLeveledUp,
 	MonEvolved, MonHatched,
 	MonPokerusInfected, MonPokerusCured,
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP, MonPPUp,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove,
 	MonGiveItem, MonTakeItem, MonSwapItem,
-	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
+	MonStatusChanged, MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
 };

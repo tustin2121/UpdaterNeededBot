@@ -12,6 +12,7 @@ const ChatAPI = require("./api/chat");
 const WebServer = require("./webserv");
 const { UpdaterPressPool } = require('./newspress');
 const { formatFor } = require('./newspress/typesetter');
+const { FLAGS:RUN_FLAGS } = require('./control/runflags');
 
 const REDDIT_LIMIT = 4096;
 const DISCORD_LIMIT = 2000;
@@ -21,6 +22,7 @@ const MEMORY_APPEND = path.resolve(__dirname, '../memory', 'append');
 const AUTH_DIR = path.resolve(__dirname, '../.auth');
 
 const LOGGER = getLogger('UpdaterBot');
+const XMLLOG = getLogger('XMLLOG');
 
 let access = { token:"", timeout:0 };
 
@@ -140,6 +142,7 @@ class UpdaterBot extends EventEmitter {
 				delete Bot.memory.global.rebootRequested;
 				this.staff.alertUpdaters(`Reboot successful.`, { bypassTagCheck:true });
 			}
+			this.emit('bot-ready');
 		}).catch(ex=>{
 			LOGGER.fatal(ex);
 		});
@@ -165,7 +168,7 @@ class UpdaterBot extends EventEmitter {
 	}
 	
 	/** Queries whether a given generation, game, or run option is set. */
-	runOpts(opt, game=0) {
+	runOpt(opt, game=0) {
 		let config = this.runConfig['game'+game];
 		if (!config) throw new Error(`Could not get run option '${opt}': Invalid game index '${game}'!`);
 		let val = config.opts[opt];
@@ -175,9 +178,10 @@ class UpdaterBot extends EventEmitter {
 	
 	/** Queries whether a given run flag is enabled. Run flags are different from run options because
 	 *  they are kept in memory and can be turned on and off without restarting the bot. */
-	runFlag(flag, def) {
+	runFlag(flag) {
+		let info = RUN_FLAGS[flag];
 		let val = this.memory.runFlags[flag];
-		if (val === undefined) val = def;
+		if (val === undefined) val = info.default;
 		return !!val;
 	}
 	
@@ -215,6 +219,10 @@ class UpdaterBot extends EventEmitter {
 	 */
 	run() {
 		LOGGER.note(`============ Update Cycle ${this.getTimestamp()} ============`);
+		if (!this.streamApi.hasUpdate) {
+			LOGGER.note(`No updated stream info yet, skipping cycle.`);
+			return;
+		}
 		this.emit('pre-update-cycle');
 		LOGGER.trace(`Update cycle starting.`);
 		try {
@@ -236,6 +244,7 @@ class UpdaterBot extends EventEmitter {
 		} catch (e) {
 			LOGGER.fatal(`Unhandled error in update cycle!`, e);
 		}
+		this.press.pool.forEach((p, i)=>{ XMLLOG.log(p.lastLedger.log.getXml()); });
 		this.emit('post-update-cycle');
 		this.saveMemory();
 	}
@@ -470,4 +479,6 @@ class UpdaterBot extends EventEmitter {
 	}
 	
 }
+UpdaterBot.prototype.runFlags = UpdaterBot.prototype.runFlag; //alias
+UpdaterBot.prototype.runOpts = UpdaterBot.prototype.runOpt; //alias
 module.exports = UpdaterBot;

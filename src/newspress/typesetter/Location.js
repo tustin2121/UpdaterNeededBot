@@ -183,6 +183,44 @@ MapChanged['town_exit_south'] = [
 	`We head {{rand|southward|south}} out of town {{onto the location|@curr}}.`,
 	`We leave town heading south, out {{onto the location|@curr}}.`,
 ];
+//We teleport from one town to another
+MapChanged['town_teleport'] = [
+	`We {{rand|fiddle|diddle|play|screw around}} with the teleport kiosk next to the Pokémon Center and suddenly we're {{in the location|@curr}}.`,
+	`We dial up {{the location|@curr}} on the teleport kiosk and suddenly we're there.`,
+	`We pound on some buttons on the teleport kiosk and next thing we know we're {{in the location|@curr}}.`,
+	`After {{rand|fiddling with|pounding on|screwing with}} the teleport kiosk next to the Pokémon Center, we blink and are now {{in the location|@curr}}.`,
+];
+MapChanged['town_teleport_back'] = [
+	...MapChanged['town_teleport'],
+	`We decide {{the location|@prev}} is not our scene, and in a blink of an eye, the teleport kiosk leaves us {{in the location|@curr}}.`,
+	`Change of plans: we fuss with the teleport kiosk again and find ourselves again {{in the location|@curr}}.`,
+	`Back to the teleport kiosk, and back {{in the location|@curr}}.`,
+];
+MapChanged['town_teleport_nvm'] = [
+	`We change our mind and dial ourselves back to {{the location|@curr}}.`,
+	`We try again with the teleport kiosk and end up back {{in the location|@curr}}.`,
+	`We decide to try our luck with the teleport kiosk again and suddenly we're {{in the location|@curr}}.`,
+	`A spin of the teleport kiosk roulette lands us back {{in the location|@curr}}.`,
+];
+//We fly to a town
+MapChanged['fly'] = [
+	`We take flight and land {{in the location|@curr}}!`,
+	`Upon the wings of a Pokémon we sail {{into the location|@curr}}!`,
+	`{{$select fly mon}}We hop on {{Mon}}'s back and fly {{into the location|@curr}}!`,
+	`{{$select fly mon}}We climb aboard our {{Mon}} and fly {{into the location|@curr}}!`,
+	`{{$select fly mon}}{{Mon}} flies us {{into the location|@curr}}!`,
+	`{{$select fly mon}}We soar {{into the location|@curr}} on {{Mon}}'s back!`,
+];
+MapChanged['fly_back'] = [
+	...MapChanged['fly'],
+	`Longing for nostalgia for not even fifteen minutes ago, we fly back to {{the location|@curr}}.`,
+];
+MapChanged['fly_nvm'] = [
+	`Change of plans: we fly back to {{the location|@curr}}.`,
+	`We decide we liked {{the location|@curr}} better, and fly back there.`,
+	`{{$select fly mon}}{{Mon}} looks at us funny as we direct {{her}} to fly right back to {{the location|@curr}}.`,
+	`{{$select fly mon}}{{Mon}} wasn't even back in {{her}} ball yet, and {{she}}'s flying us back to {{the location|@curr}}.`,
+];
 
 ////////////////////////////
 // Entering/Exiting a Gym //
@@ -282,6 +320,80 @@ MapChanged['magenttrain_nvm'] = [
 	`Again! Again! \PogChamp/ We ride the train back to {{the location|@curr}}!`,
 ];
 
+//We ride the chairlift (override with Transit Report)
+MapChanged['chairlift'] = [
+	`We {{rand|hop|jump}} on the {{rand|chair |}}lift! Weeeeeee! \PogChamp/ Now {{in the location|@curr}}!`,
+	`We {{rand|take|ride|board|grab}} the {{rand|chair |}}lift to {{the location|@curr}}!`,
+];
+//We ride the chairlift within 15 minutes of the last time
+MapChanged['chairlift_back'] = [
+	`Back for more {{rand|chair |}}lift fun! Weeee{{rand|eeee|ee|e}}e! \ PogChamp / {{The location|@curr}}!`,
+	`Back now for more chair lift riding! To {{the location|@curr}} we go!`,
+	`CHAIR LIFTS! Onward to {{the location|@curr}}!`,
+];
+//We ride the chairlift within 5 minutes of the last time
+MapChanged['chairlift_nvm'] = [
+	`Weeeeeeeee! \ PogChamp / Now back {{in the location|@curr}}!`,
+	`Weeeeeeeeeeee! \ PogChamp / {{The location|@curr}}!`,
+	`Weeeeeeeeee! \ PogChamp / {{The location|@curr}}!`,
+	`Weeeeeeee! \ PogChamp / Back {{in the location|@curr}}!`,
+	`Weeeeeeeeeeee! \ PogChamp / Back to {{the location|@curr}}!`,
+	`That chair lift ride was so much fun, we do it again! {{The location|@curr}}!`,
+	`This chair lift is fun! Back {{in the location|@curr}}!`,
+	`That ride was a blast! Again! \PogChamp/ {{The location|@curr}}!`,
+	`Again! Again! \PogChamp/ We ride the chair lift back to {{the location|@curr}}!`,
+];
+
+MapChanged['sootopolis_fall'] = [
+	`We fall through the ice.`,
+	`We careen through a hole in the ice.`,
+	`We plummit through the ice.`,
+	`We misstep and take a dive through the ice.`,
+	`We step on a crack and hurdle through the ice.`,
+	`We take a step on cracked ice. And down we go.`,
+	`We plummit to the room below.`,
+	`Falling through the ice like this must hurt.`,
+	`We slip and fall through the ice.`,
+	`We step on a cracked ice tile and fall through to the room below.`,
+	`We visit the trainers under the ice again.`,
+	`We plummit through the ice again.`,
+	`We drop through the hole in the ice.`,
+	`We plunge through the cracked ice.`,
+	`We land hard in the room below, and somehow our legs aren't broken yet.`,
+	`We tumble through a hole in the ice.`,
+	`The ice shatters and we plummit through to the room below.`,
+	`The ice gives way and we fall to our failure.`,
+	`The ice bursts and we fall down.`,
+	`The fractured ice shatters and we take a plunge.`,
+	`We unwillingly dip down to visit the room below.`,
+	`Time for another visit to the trainers below.`,
+	`The ice splits and we fall.`,
+	`The ice collapses under our feet again.`,
+	`The structural integrety of the ice under our feet has been comprimised and our downward velocity increases rapidly and suddenly.`,
+	`Rip, we fell.`,
+	`The ice is falling from the ceiling once again, and us with it.`,
+	`The ice smashes to bits while we were standing on it. And down we go.`,
+	`Alas, the ice under us has given way once again. Lo, our attempt has been sabataged by frozen liquid.`,
+	`Today's forecast: hail with a chance of {{player}}.`,
+	`And with a crack, the ice floor gives way again.`,
+	`We lament, as we fall to our failure again, that there doesn't seem to be an OSHA in the Pokemon World.`,
+	`We imprint our face in the snow below the ice floor yet again.`,
+	`The ice floor gives way to the snowy depths of the gym's bottommost floor.`,
+	`We prove Newton's theory on gravity by falling through a hole in the ice.`, //--Ciphrius Kane
+	`{{$select random party mon}}{{Mon}} distracts us and we take a wrong step on the puzzle. Down we fall.`,
+	`{{$select random party mon}}{{Mon}} tries to lead us right, but we take a wrong step. The ice breaks.`,
+	`{{$select random party mon}}{{Mon}} leads us the wrong way and we fall through the ice.`,
+	`{{$select random party mon}}{{Mon}} takes a wrong step and falls through the ice. We follow after {{them}}.`,
+	`{{$select random party mon}}{{if mon body has|$|claw}}{{Mon}} taps on the ice out of curiosity, and {{their}} claw shatters it as we're about to step there.`,
+	`{{$select random party mon}}{{if mon body has|$|heavy}}The whole ice floor gives way instantly the moment {{Mon}} puts {{their}} weight on the ice.`,
+	`{{$select random party mon}}{{if mon body has|$|leg|worm}}{{Mon}} shows us the way through the puzzle, but in doing so cracked the ice tiles prematurely, and so we fall through instantly.`,
+	`{{$select random party mon}}{{if mon body has|$|tail}}We accidentally get hit by {{Mon}}'s tail and tumble onto a cracked ice tile, and fall through.`,
+	`{{$select random party mon}}{{if mon body has|$|tail}}{{Mon}}'s tail breaks the ice tile we were about to step into and we fall through the hole.`,
+	`{{$select random party mon}}{{if mon body has|$|wing}}{{Mon}} flies over the ice puzzle. We try and follow {{them}} and fall through.`,
+	`{{$select random party mon}}{{if mon body has|$|explode}}{{Mon}} explodes and takes out nine tiles of ice. We fall through to the room below.`,
+	`{{$select random party mon}}{{if mon body has|$|firetail}}{{Mon}} melts the ice accidentally, and we fall through.`,
+];
+
 
 MapChanged.__meta__ = { sort:-110 }; //After "Blackout!"
 
@@ -308,7 +420,8 @@ module.exports = {
 	CheckpointUpdated: {
 		__meta__ : { sort:-120 }, //After MapChanged
 		default: [
-			`<b>Checkpoint {{@loc.areaName}}!</b>`
+			`<b>Checkpoint {{@areaName}}!</b>`,
+			`<b>Checkpoint!</b>`
 		],
 	},
 	
@@ -348,16 +461,16 @@ module.exports = {
 			`We walk precariously across the ledge... and down.`,
 			`And over the ledge we go!`,
 			`The ledge is a tight rope... and we just fell.`,
-			`{{if|$@randomMon}}{{Mon}} sneezes and startles us off the ledge.`,
-			`{{if|$@randomMon}}{{Mon}} spots something below and bumps us off the ledge.`,
-			`{{if|$@randomMon}}{{Mon}} gets startled and knocks us off the ledge.`,
-			`{{if mon body has any|$@randomMon|arm|claw}}{{Mon}} scratches {{themselves}} and accidentally hits us off the ledge.`,
-			`{{if mon body has|$@randomMon|electricbody}}We accidentally brush against {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
-			`{{if mon body has|$@randomMon|wing}}{{Mon}} flaps {{their}} wings a little too hard and send us careening off the ledge.`,
-			`{{if mon body has|$@randomMon|tail}}{{Mon}} accidentally smacks us with {{their}} tail, and we topple over the ledge.`,
-			`{{if mon body has|$@randomMon|levitate}}We lie sprawled at the bottom of the ledge again. {{Mon}} hovers above us, looking down at us with mild amusement.`,
-			`{{if mon body has|$@randomMon|explode}}{{Mon}} unfortunately chose this moment to explode randomly, which sends us flying over the ledge.`,
-			`{{if mon body has|$@randomMon|firetail}}We spot our party below the ledge, roasting marshmellows over {{Mon}}'s tail, and decide to join them.'`
+			`{{$select random party mon}}{{Mon}} sneezes and startles us off the ledge.`,
+			`{{$select random party mon}}{{Mon}} spots something below and bumps us off the ledge.`,
+			`{{$select random party mon}}{{Mon}} gets startled and knocks us off the ledge.`,
+			`{{$select random party mon}}{{if mon body has any|$|arm|claw}}{{Mon}} scratches {{themselves}} and accidentally hits us off the ledge.`,
+			`{{$select random party mon}}{{if mon body has|$|electricbody}}We accidentally brush against {{Mon}} and the resulting electric shock sends us reeling over the ledge.`,
+			`{{$select random party mon}}{{if mon body has|$|wing}}{{Mon}} flaps {{their}} wings a little too hard and send us careening off the ledge.`,
+			`{{$select random party mon}}{{if mon body has|$|tail}}{{Mon}} accidentally smacks us with {{their}} tail, and we topple over the ledge.`,
+			`{{$select random party mon}}{{if mon body has|$|levitate}}We lie sprawled at the bottom of the ledge again. {{Mon}} hovers above us, looking down at us with mild amusement.`,
+			`{{$select random party mon}}{{if mon body has|$|explode}}{{Mon}} unfortunately chose this moment to explode randomly, which sends us flying over the ledge.`,
+			`{{$select random party mon}}{{if mon body has|$|firetail}}We spot our party below the ledge, roasting marshmellows over {{Mon}}'s tail, and decide to join them.'`
 		],
 		clearedLedge: [
 			`<b><i>We've made it past the ledge!</i></b>`,
@@ -366,15 +479,15 @@ module.exports = {
 			`<b><i>We're on the other side of the {{@loc}} ledge!</i></b>`,
 		],
 		surfStart: [
-			`We hop onto {{Mon|@surfMon}}'s back and head into the surf.`,
-			`{{Mon|@surfMon}} slips into the water and we climb aboard.`,
-			`{{Mon|@surfMon}} dives into the waves and we climb up onto {{their}} back.`,
-			`We call {{Mon|@surfMon}} forth to ferry us across the waters.`,
+			`{{$select surf mon}}We hop onto {{Mon}}'s back and head into the surf.`,
+			`{{$select surf mon}}{{Mon}} slips into the water and we climb aboard.`,
+			`{{$select surf mon}}{{Mon}} dives into the waves and we climb up onto {{their}} back.`,
+			`{{$select surf mon}}We call {{Mon}} forth to ferry us across the waters.`,
 		],
 		surfEnd: [
-			`We hop off {{Mon|@surfMon}}'s back and go ashore.`,
-			`{{Mon|@surfMon}} beaches on the shores of {{the location|@loc}} and we disembark.`,
-			`We run aground and clamber off {{Mon|@surfMon}}.`,
+			`{{$select surf mon}}We hop off {{Mon}}'s back and go ashore.`,
+			`{{$select surf mon}}{{Mon}} beaches on the shores of {{the location|@loc}} and we disembark.`,
+			`{{$select surf mon}}We run aground and clamber off {{Mon}}.`,
 		],
 	},
 	

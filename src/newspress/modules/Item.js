@@ -3,7 +3,8 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, HeldItemGained, HeldItemLost,
+	MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
 	ShoppingContext, ShoppingReport, 
 	ApiDisturbance,
@@ -46,7 +47,7 @@ class ItemModule extends ReportingModule {
 			let item = curr.inv.getData(id) || prev.inv.getData(id);
 			let delta = invDelta[id] || 0;
 			
-			this.debug('item delta', item, delta, heldDelta[id], pcDelta[id], bagDelta[id]);
+			this.debug(`item delta => ${item}: delta=${delta} held=${heldDelta[id]}, pc=${pcDelta[id]}, bag=${bagDelta[id]}`);
 			
 			numItemsChanged += Math.abs(delta) + Math.abs(heldDelta[id]) + Math.abs(pcDelta[id]) + Math.abs(bagDelta[id]);
 			
@@ -55,6 +56,19 @@ class ItemModule extends ReportingModule {
 			
 			if (typeof heldDelta[id] === 'number' && heldDelta[id] !== 0) {
 				//held item LedgerItems are added by the Pokemon and Party modules
+				if (heldDelta[id] > 0) {
+					if (gained) {
+						ledger.addItem(new HeldItemGained(item, heldDelta[id]));
+					} else {
+						// expected results: item transferred from bag or pc
+					}
+				} else { // < 0
+					if (dropped) {
+						ledger.addItem(new HeldItemLost(item, heldDelta[id]));
+					} else {
+						// expected results: item transferred to bag or pc
+					}
+				}
 				delta += heldDelta[id];
 			}
 			
@@ -68,6 +82,7 @@ class ItemModule extends ReportingModule {
 				} else { // < 0
 					if (dropped) {
 						//lost from PC without passing through bag
+						ledger.addItem(new LostItem(item, -pcDelta[id]));
 					} else {
 						ledger.addItem(new RetrievedItemFromPC(item, -pcDelta[id]));
 					}
@@ -222,10 +237,22 @@ if (!!Bot.gameInfo().regionMap) {
 	const itemIds = Bot.runOpts('itemIds_evoStones'); //TODO
 	RULES.push(new Rule(`Stones lost during evoltuion have been used.`)
 		.when(ledger=>ledger.has('MonEvolved'))
-		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
+		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds).unmarked())
 		.then(ledger=>{
 			let item = ledger.get(0)[0];
-			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedItemOnMon('evostone', x.item, item.mon)));
+			ledger.mark(1).remove(1).get(1).forEach(x=>{
+				ledger.add(new UsedItemOnMon('evostone', x.item, item.mon));
+				x.amount--;
+				if (x.amount) ledger.add(x); //add it back in
+			});
+		})
+	);
+	
+	RULES.push(new Rule(`Postpone lost stones during an evolution if we don't have a pokemon to pin them on yet.`)
+		.when(ledger=>ledger.has('EvolutionContext'))
+		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
+		.then(ledger=>{
+			ledger.postpone(1);
 		})
 	);
 }{
@@ -323,6 +350,13 @@ RULES.push(new Rule(`Update the money count on the shopping context.`)
 		ledger.mark(1).get(1).forEach(x=>ctx.cart.money = x.curr);
 	})
 );
+RULES.push(new Rule(`Give the Shopping Context more time to live during Democracy.`)
+	.when(ledger=>ledger.has('ShoppingContext').unmarked())
+	.when(ledger=>ledger.has('DemocracyContext'))
+	.then(ledger=>{
+		ledger.mark(0).forEach(x=>x.ttl+=0.5);
+	})
+);
 RULES.push(new Rule(`Postpone the shopping context.`)
 	.when(ledger=>ledger.has('ShoppingContext').unmarked())
 	.then(ledger=>{
@@ -349,7 +383,7 @@ RULES.push(new Rule(`Postpone the shopping context.`)
 
 RULES.push(new Rule(`Balls used in a wild battle are postponed until after battle`)
 	.when(ledger=>ledger.has('UsedBallInBattle').ofNoFlavor())
-	.when(ledger=>ledger.has('BattleContext'))
+	.when(ledger=>ledger.has('BattleContext').with('isImportant', false))
 	.then(ledger=>{
 		// After so many turns, there's a chance we don't postpone these anymore.
 		let item = ledger.get(0)[0];
@@ -357,6 +391,34 @@ RULES.push(new Rule(`Balls used in a wild battle are postponed until after battl
 		ledger.postpone(0);
 	})
 );
+
+if (Bot.runOpts('heldItem')) {
+	RULES.push(new Rule(`Items not handled above taken from a mon in battle are postponed.`)
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('MonTakeItem'))
+		.then(ledger=>{
+			ledger.postpone(1);
+		})
+	);
+	RULES.push(new Rule(`Items not handled above taken from a mon in battle are postponed.`)
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('MonGiveItem'))
+		.then(ledger=>{
+			ledger.postpone(1);
+		})
+	);
+}
+
+if (Bot.runOpts('heldItem') && Bot.runOpts('abilities')) {
+	RULES.push(new Rule(`Items gained inexplicably on a mon with Pickup were Picked Up.`)
+		.when(ledger=>ledger.has('HeldItemGained'))
+		.when(ledger=>ledger.has('MonGiveItem').withSame('item.id').which(x=>x.mon.ability.toLowerCase() === 'pickup').unmarked())
+		.then(ledger=>{
+			ledger.mark(1).get(1).forEach(x=>x.flavor='pickupAbility');
+		})
+	);
+	
+}
 
 //////////////////////////////////////////////////////////////////////////
 // Shopping

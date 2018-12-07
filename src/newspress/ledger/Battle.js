@@ -1,5 +1,5 @@
 // newspress/ledger/Battle.js
-// Various ledger items related to pokemon themselves
+// Various ledger items related to pokemon battles
 
 const LOGGER = getLogger('BattleLedgerItems');
 
@@ -15,8 +15,12 @@ class BattleItem extends LedgerItem {
 			throw new TypeError('Battle context must be a SortedBattle object!');
 		
 		let flavor = null;
-		if (!battle.isImportant) flavor = 'unimportant';
-		flavor = battle.checkSpecialTrainers() || flavor;
+		if (battle.trainer) {
+			if (!battle.isImportant) flavor = 'unimportant';
+			flavor = battle.checkSpecialTrainers() || flavor;
+		} else {
+			flavor = 'wild';
+		}
 		
 		super(battle.isImportant?2:0.9, Object.assign({ flavor }, obj));
 		this.battle = battle;
@@ -67,13 +71,32 @@ class BattleContext extends LedgerItem {
 		if (battle.trainer) {
 			this.flavor = (battle.isImportant)?'important':'trainer';
 		} else {
-			this.flavor = (battle.party && battle.party.length > 1)?'horde':'wild';
+			if (battle.party && battle.party.length > 1) this.flavor = 'horde';
+			else {
+				this.flavor = (battle.isLegendary)?'legendary':'wild';
+			}
 		}
-		this.enemy = this.battle.active && this.battle.active[0];
 	}
+	get isImportant() { return this.battle.isImportant || this.battle.isLegendary; }
 	get isSingleBattle() { return this.battle.trainer && this.battle.trainer.length === 1; }
 	get isMultiBattle() { return this.battle.trainer && this.battle.trainer.length > 1; }
-	get lastPokemon(){ return this.battle.party[this.battle.party.length-1]; }
+	get lastPokemon() { return this.battle.party[this.battle.party.length-1]; }
+	get enemy() {
+		return this.battle.active && this.battle.active[0];
+	}
+	get enemyMonList() {
+		if (!this.battle.active) {
+			LOGGER.error(`this.battle.active == false!`);
+			LOGGER.error(this.battle.active);
+			return false;
+		}
+		let active = this.battle.active.map(x=>x.species);
+		if (active.length > 1) {
+			active[active.length-1] = 'and ' + active[active.length-1];
+		}
+		if (active.length === 2) return active.join(' ');
+		return active.join(', ');
+	}
 	get trainer(){
 		try {
 			if (this.battle.trainer.length == 2) {
@@ -122,30 +145,6 @@ class BattleEnded extends BattleItem {
 	}
 }
 
-/**
- * Tells us when an enemy has fainted
- */
-class EnemyFainted extends BattleItem {
-	constructor(battle, enemy, myactive) {
-		super(battle);
-		this.enemy = enemy;
-		this.myactive = myactive;
-	}
-}
-
-/**
- * Tells us when an enemy mon has been sent out
- */
-class EnemySentOut extends BattleItem {
-	constructor(battle, enemy, myactive) {
-		super(battle);
-		this.enemy = enemy;
-		this.myactive = myactive;
-	}
-}
-
-
-
 /** Indicates we blacked out. */
 class Blackout extends LedgerItem {
 	constructor(type) {
@@ -158,12 +157,14 @@ class BlackoutContext extends LedgerItem {
 	constructor() {
 		super(0);
 		this.ttl = BlackoutContext.STARTING_TTL; //TimeToLive = postpone for x update cycles after
+		this.revived = false;
 	}
 	canPostpone() {
 		if (this.ttl === 0) return false; //don't postpone
 		if (!this._next) {
 			this._next = new BlackoutContext();
 			this._next.ttl = this.ttl - 1;
+			this._next.revived = this.revived;
 		}
 		return this._next; //postpone this item instead
 	}
@@ -174,10 +175,12 @@ class BlackoutContext extends LedgerItem {
 	}
 	saveToMemory(m) {
 		m.ttl = this.ttl;
+		m.revived = this.revived;
 	}
 	static loadFromMemory(m) {
 		let i = new BlackoutContext();
 		i.ttl = m.ttl;
+		i.revived = m.revived;
 		return i;
 	}
 }
@@ -199,13 +202,11 @@ class BadgeGet extends LedgerItem {
 	}
 }
 
-
 /////////////////// Advanced Items ///////////////////
 
 
 module.exports = {
 	BattleContext, BattleStarted, BattleEnded, 
-	EnemyFainted, EnemySentOut,
 	Blackout, BlackoutContext, FullHealed,
 	BadgeGet,
 };

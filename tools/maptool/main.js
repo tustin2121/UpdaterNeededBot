@@ -838,28 +838,31 @@ class NewRegionDialog {
 		let file = this.$dialog.find('[name=savePath]').val();
 		let name = this.$dialog.find('[name=name]').val();
 		let romFile = this.$dialog.find('[name=romPath]').val();
+		let romReader;
 		if (!file) { window.alert('Please provide a file path!'); return; }
 		if (!name) { window.alert('Please name the region!'); return; }
-		let romReader = ((gen)=>{
-			switch (gen) {
-				case 'rom1': return require('./romread').Gen1Reader;
-				case 'rom2': return require('./romread').Gen2Reader;
-				// case 'rom3': return require('./romread').Gen3Reader;
-				// case 'rom4': return require('./romread').Gen4Reader;
-				// case 'rom5': return require('./romread').Gen5Reader;
-				// case 'rom6': return require('./romread').Gen6Reader;
-				// case 'rom7': return require('./romread').Gen7Reader;
-				// case 'tab1': return require('./romread').Gen1TableReader;
-				// case 'tab2': return require('./romread').Gen2TableReader;
-				// case 'tab3': return require('./romread').Gen3TableReader;
-				case 'tab4': return require('./romread').Gen4TableReader;
-				// case 'tab5': return require('./romread').Gen5TableReader;
-				case 'tab6': return require('./romread').Gen6TableReader;
-				// case 'tab7': return require('./romread').Gen7TableReader;
-				default: throw new Error('Unsupported generation!');
-			}
-		})(this.$dialog.find('[name=gen]:checked').val());
-		romReader = new romReader(romFile);
+		if (romFile) {
+			romReader = ((gen)=>{
+				switch (gen) {
+					case 'rom1': return require('./romread').Gen1Reader;
+					case 'rom2': return require('./romread').Gen2Reader;
+					case 'rom3': return require('./romread').Gen3Reader;
+					// case 'rom4': return require('./romread').Gen4Reader;
+					// case 'rom5': return require('./romread').Gen5Reader;
+					// case 'rom6': return require('./romread').Gen6Reader;
+					// case 'rom7': return require('./romread').Gen7Reader;
+					// case 'tab1': return require('./romread').Gen1TableReader;
+					// case 'tab2': return require('./romread').Gen2TableReader;
+					// case 'tab3': return require('./romread').Gen3TableReader;
+					case 'tab4': return require('./romread').Gen4TableReader;
+					// case 'tab5': return require('./romread').Gen5TableReader;
+					case 'tab6': return require('./romread').Gen6TableReader;
+					// case 'tab7': return require('./romread').Gen7TableReader;
+					default: throw new Error('Unsupported generation!');
+				}
+			})(this.$dialog.find('[name=gen]:checked').val());
+			romReader = new romReader(romFile);
+		}
 		App.newRegion({ file, name, romReader });
 		this.$dialog.hide();
 	}
@@ -991,6 +994,33 @@ function makeMenubar() {
 			}
 		}));
 		menu.append(new nw.MenuItem({ label:'View', submenu }));
+	}{
+		let submenu = new nw.Menu();
+		{
+			let sm = new nw.Menu();
+			sm.append(new nw.MenuItem({ label:'Make 0-Based (Gen 3)',
+				click() {
+					if (!App.currData) window.alert('Load a region file first.');
+					if (App.currData.make0Based()) {
+						mapPanel.updateTree();
+					} else {
+						window.alert('Already 0-based.');
+					}
+				}
+			}));
+			sm.append(new nw.MenuItem({ label:'Make 1-Based (Gen 2)',
+				click() {
+					if (!App.currData) window.alert('Load a region file first.');
+					if (App.currData.make1Based()) {
+						mapPanel.updateTree();
+					} else {
+						window.alert('Already 1-based.');
+					}
+				}
+			}));
+			submenu.append(new nw.MenuItem({ label:'Convert Base', submenu:sm}));
+		}
+		menu.append(new nw.MenuItem({ label:'Edit', submenu }));
 	}
 	nw.Window.get().menu = menu;
 }

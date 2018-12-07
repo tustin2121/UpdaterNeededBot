@@ -2,8 +2,9 @@
 // The Meme reporting module
 
 const { ReportingModule, Rule } = require('./_base');
+const { MemeReport } = require('../ledger');
 
-const LOGGER = getLogger('ItemModule');
+const LOGGER = getLogger('MemeModule');
 
 const RULES = [];
 
@@ -29,7 +30,7 @@ class MemeModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
+RULES.push(new Rule(`Memes: splash count`)
 	.when(ledger=>ledger.has('BattleContext'))
 	.when(ledger=>ledger.has('MonLostPP').with('move', "Splash"))
 	.then(ledger=>{
@@ -37,5 +38,17 @@ RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
 	})
 );
 
+{
+	const TIMEOUT = 1000*60*110; //110 minutes
+	RULES.push(new Rule(`Memes: raiding the fridge`)
+		.when(ledger=>ledger.hasMap(x=>x.type === 'indoor' && x.width === 18 && x.height === 13))
+		.when(ledger=>ledger.has('LocationContext').which(x=>x.x < 6 && x.y < 8))
+		.when(ledger=>ledger.memory.lastFridgeMeme < Date.now() + TIMEOUT)
+		.then(ledger=>{
+			ledger.memory.lastFridgeMeme = Date.now();
+			ledger.add(new MemeReport('fridge'));
+		})
+	);
+}
 
 module.exports = MemeModule;

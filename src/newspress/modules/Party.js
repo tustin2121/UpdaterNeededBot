@@ -3,12 +3,12 @@
 
 const { ReportingModule, Rule } = require('./_base');
 const {
-	TemporaryPartyContext,
+	TemporaryPartyContext, EvolutionContext,
 	MonLeveledUp, MonEvolved, MonHatched, MonPokerusInfected, MonPokerusCured,
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
 	MonGiveItem, MonTakeItem, MonSwapItem,
-	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
+	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged, MonStatusChanged,
 	Blackout, FullHealed,
 	ApiDisturbance,
 } = require('../ledger');
@@ -77,6 +77,7 @@ class PartyModule extends ReportingModule {
 		}
 		else {
 			let tempIndicators = 0;
+			if (prev_api.party.length > 0 && curr_api.party.length === 0) tempIndicators += 3; //suddenly no mons means temp party
 			if (prev_api.party.length > 3 && curr_api.party.length === 3) tempIndicators++;
 			if (prev_api.party.length > 1 && curr_api.party.length === 1) tempIndicators++;
 			if (prev_api.party.length > 3 && curr_api.party.length === 1) tempIndicators++;
@@ -85,13 +86,12 @@ class PartyModule extends ReportingModule {
 				if (prev.level !== 50 && curr.level === 50) tempIndicators++;
 				if (prev.level !== 100 && curr.level === 100) tempIndicators++;
 			}
-			if (!prev_api.location.is('tempParty') && curr_api.location.is('tempParty')) tempIndicators++;
-			if (curr_api.location.is('tempParty')) tempIndicators += 2;
+			if (curr_api.location.is('tempParty')) tempIndicators += 3;
 			
 			this.debug('tempIndicators: ',tempIndicators, ' => ',tempIndicators > 3);
 			if (tempIndicators > 3) {
 				this.memory.tempPartyBefore = prev_api.party;
-				if (Bot.runFlags('alert_temp', true)) {
+				if (Bot.runFlags('alert_temp')) {
 					Bot.alertUpdaters(`Alert: The party has drastically changed. I am assuming this is a temporary team and will withold party updates until the usual party is restored.`)
 						.then(msg=> this.memory.tempPartyMeta=msg.id);
 				}
@@ -106,6 +106,10 @@ class PartyModule extends ReportingModule {
 		this.forceTempPartyOff = false;
 		
 		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		if (curr_api.evolution_is_happening) {
+			ledger.addItem(new EvolutionContext());
+		}
 		
 		let partyHP = 0, partyMaxHP = 0, partyDeltaHP = 0;
 		let partyPP = 0, partyMaxPP = 0, partyDeltaPP = 0;
@@ -146,6 +150,9 @@ class PartyModule extends ReportingModule {
 			} else if (curr.hp < prev.hp) {
 				ledger.addItem(new MonLostHP(curr, prev.hp));
 			}
+			if (curr.status !== prev.status) {
+				ledger.addItem(new MonStatusChanged(curr, prev.status));
+			}
 			//*
 			partyMaxHP += curr._hp[1];
 			partyHP += curr._hp[0];
@@ -174,7 +181,7 @@ class PartyModule extends ReportingModule {
 						for (let b = 0; b < movePairs.length; b++) {
 							if (a === b) continue;
 							if (movePairs[a].p.id == 0) continue;
-							if (movePairs[a].p.id == 0) continue;
+							if (movePairs[b].p.id == 0) continue;
 							if (movePairs[a].p.id === movePairs[b].c.id &&
 								movePairs[a].c.id === movePairs[b].p.id)
 							{
@@ -198,19 +205,19 @@ class PartyModule extends ReportingModule {
 				
 				for (let pair of movePairs) {
 					if (!pair.p.id && pair.c.id) {
-						ledger.addItem(new MonLearnedMove(curr, pair.c.name));
+						ledger.addItem(new MonLearnedMove(curr, pair.c));
 					} else if (pair.p.id && !pair.c.id) {
-						ledger.addItem(new MonForgotMove(curr, pair.p.name));
+						ledger.addItem(new MonForgotMove(curr, pair.p));
 					} else if (pair.p.id !== pair.c.id) {
-						ledger.addItem(new MonLearnedMoveOverOldMove(curr, pair.c.name, pair.p.name));
+						ledger.addItem(new MonLearnedMoveOverOldMove(curr, pair.c, pair.p));
 					} else if (pair.c.id !== 0 && pair.p.id !== 0) {
 						if (pair.c.pp < pair.p.pp) {
-							ledger.addItem(new MonLostPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
+							ledger.addItem(new MonLostPP(curr, pair.c, pair.p.pp));
 						} else if (pair.c.pp > pair.p.pp) {
-							ledger.addItem(new MonHealedPP(curr, pair.c.name, pair.c.pp, pair.p.pp));
+							ledger.addItem(new MonHealedPP(curr, pair.c, pair.p.pp));
 						}
 						if (pair.c.max_pp < pair.p.max_pp) {
-							ledger.addItem(new MonPPUp(curr, pair.c.name, pair.c.pp, pair.p.pp));
+							ledger.addItem(new MonPPUp(curr, pair.c, pair.p.pp));
 						}
 						partyMaxPP += pair.c.max_pp;
 						partyPP += pair.c.pp;
@@ -248,14 +255,17 @@ class PartyModule extends ReportingModule {
 				ledger.addItem(new Blackout());
 			}
 		} else if (partyDeltaHP > 0) { // if HP has been gained
-			this.debug(`isBlackout=> ${(partyPP >= partyMaxPP)} & ${(partyDeltaHP > partyMaxHP * 0.86)} & ${!prev_api.location.equals(curr_api.location)}`);
-			let isBlackout = (partyPP >= partyMaxPP);
-			isBlackout &= (partyDeltaHP > partyMaxHP * 0.86);
-			isBlackout &= !prev_api.location.equals(curr_api.location);
+			this.debug(`isBlackout=> pp[${(partyPP >= partyMaxPP)}] & hp[${(partyDeltaHP > partyMaxHP * 0.86)}] & loc[${!prev_api.location.equals(curr_api.location)}] & battle[${prev_api.battle.in_battle && !curr_api.battle.in_battle}] >= 3`);
+			
+			let blackoutIndicators = 0;
+			if (partyPP >= partyMaxPP) blackoutIndicators++;
+			if (partyDeltaHP > partyMaxHP * 0.86) blackoutIndicators++;
+			if (!prev_api.location.equals(curr_api.location)) blackoutIndicators++;
+			if (prev_api.battle.in_battle && !curr_api.battle.in_battle) blackoutIndicators++;
 			
 			if (partyHP === partyMaxHP) {
 				ledger.addItem(new FullHealed(null));
-				if (isBlackout) {
+				if (blackoutIndicators >= 3) {
 					ledger.addItem(new Blackout());
 				}
 			}
@@ -267,35 +277,31 @@ class PartyModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		let partyAlert = this.memory.partyAlert;
-		let items = ledger.findAllItemsWithName('TemporaryPartyContext');
-		/*
-		if (items.length) {
-			if (!partyAlert) {
-				partyAlert = this.memory.partyAlert = { nTimes:0, msgId:null, };
-			}
-			partyAlert.nTimes++;
-			let game = '';
-			if (Bot.runConfig.numGames > 1) {
-				game = Bot.gameInfo(this.gameIndex).name;
-				game = ` in ${game}`;
-			}
-			let txt = `I suspect that the current party${game} is a temporary party, and am suspending party updates.`;
-			Bot.alertUpdaters(`Alert: ${txt}`, {
-				reuseId:partyAlert.msgId,
-			}).then(msg=>{
-				partyAlert.msgId = msg.id;
-			});
-			// TODO queryUpdaters
-		}*/
 	}
 }
 
-RULES.push(new Rule(`When fully healing, don't report individual revivals`)
-	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.has('MonRevived').ofImportance())
+RULES.push(new Rule(`When leveling up, don't report full heals`)
+	.when(ledger=>ledger.has('MonLeveledUp'))
+	.when(ledger=>ledger.has('FullHealed').ofImportance())
 	.then(ledger=>{
 		ledger.demote(1);
+	})
+);
+
+RULES.push(new Rule(`When fully healing, don't report individual revivals`)
+	.when(ledger=>ledger.has('FullHealed'))
+	.when(ledger=>ledger.has('MonRevived', 'MonStatusChanged').ofImportance())
+	.then(ledger=>{
+		ledger.demote(1);
+	})
+);
+
+RULES.push(new Rule(`When fully healing, make reference to where we're healing.`)
+	.when(ledger=>ledger.has('FullHealed').ofNoFlavor())
+	.when(ledger=>ledger.hasMap(x=>x.has('healing')))
+	.then(ledger=>{
+		let healtype = ledger.get(1)[0].has('healing');
+		ledger.get(0).forEach(x=>x.flavor = healtype);
 	})
 );
 
@@ -313,21 +319,38 @@ RULES.push(new Rule(`When fully healing, don't report individual revivals`)
 // 		ledger.add(new Blackout());
 // 	})
 // );
+
+RULES.push(new Rule(`Pokemon fainting due to poison outside of battle should be given a cause.`)
+	.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
+	.when(ledger=>ledger.has('MonStatusChanged').withSame('mon.hash').with('prev', 'psn'))
+	.when(ledger=>ledger.hasnt('BattleContext'))
+	.then(ledger=>{
+		ledger.get(0).forEach(x=>x.flavor = 'poisonWalking');
+	})
+);
+RULES.push(new Rule(`Pokemon suriving due to poison outside of battle should be given a cause.`)
+	.when(ledger=>ledger.has('MonStatusChanged').with('prev', 'psn'))
+	.when(ledger=>ledger.has('MonLostHP').withSame('mon.hash').with('curr', 1))
+	.when(ledger=>ledger.hasnt('BattleContext'))
+	.then(ledger=>{
+		ledger.get(0).forEach(x=>x.flavor = 'poisonWalking');
+	})
+);
+
 {
 	const KapowMoves = [153, 120, 515, 361, 461, 262]; //TODO move into default.js like the item ids
 	RULES.push(new Rule(`Fainting when using a KAPOW move means the 'mon KAPOW'd`)
 		.when(ledger=>ledger.has('MonFainted').ofNoFlavor())
-		.when(ledger=>ledger.has('MonLostPP').withSame('mon').with('move.id', KapowMoves))
+		.when(ledger=>ledger.has('MonLostPP').withSame('mon.hash').with('move.id', KapowMoves))
 		.then(ledger=>{
-			let items = ledger.get(0);
-			items.forEach(x=>x.flavor='kapow');
+			ledger.get(0).forEach(x=>x.flavor = 'kapow');
 		})
 	);
 }
 
 RULES.push(new Rule('Abilities are expected to change during evolution')
 	.when((ledger)=>ledger.has('MonEvolved'))
-	.when((ledger)=>ledger.has('MonAbilityChanged').withSame('mon'))
+	.when((ledger)=>ledger.has('MonAbilityChanged').withSame('mon.hash'))
 	.then((ledger)=>{
 		ledger.remove(1); //Remove MonAbilityChanged
 	})

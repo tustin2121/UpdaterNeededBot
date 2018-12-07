@@ -16,9 +16,64 @@ body {
 	box-shadow: 0px 0px 10px 0px #00000080;
 }
 
+#pastBuffer {
+	position: relative;
+	width: 1024px; height: 100%;
+	vertical-align: top;
+	/* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+	display: inline-grid;
+	grid-template-columns: 1fr; /* Repplaced at runtime with 1fr for each available space */
+	grid-template-rows: auto;
+	place-items: stretch;
+}
+
+#pastBuffer buffer {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	border-left: 1px dashed #d2d2d2;
+	overflow-y: hidden;
+	
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	place-items: end stretch; /* Align to bottom of thing. */
+}
+#pastBuffer buffer:last-child {
+	border-right: 1px dashed #d2d2d2;
+}
+#pastBuffer buffer.output {
+	border: 1px solid #929292;
+	margin-right: -1px;
+	z-index: 1;
+}
+#pastBuffer buffer.inBattle {
+	background-color: #faebd7;
+}
+
+#pastBuffer buffer level {
+	display: block;
+	background-color: #6672aa;
+}
+#pastBuffer buffer level.overload {
+	background-color: #ff5757;
+}
+
+#pastBuffer buffer.selected::before {
+    content: ' ';
+    position: absolute;
+    width: 0; height: 0;
+    border: 6px solid transparent;
+    border-top-color: red;
+    border-left-color: red;
+    top:0; left:0;
+}
+
+
+
 @keyframes blink {
 	0% { font-weight: 900; }
-	50% { font-weight: 400; }
+	100% { font-weight: 400; }
 }
 #playpause {
 	font-family: 'Font Awesome 5 Free';
@@ -27,8 +82,7 @@ body {
     margin: 12px;
 }
 #playpause.paused {
-	animation-duration: 2s;
-	animation-name: blink;
+	animation: blink 4s infinite;
 }
 #playpause::before {
 	content: '\f144';
@@ -253,20 +307,17 @@ dirarrow.update {
 	background-color: white;
 }
 .view.update::before {
-	content: '\f1a1  \f392'; /* reddit, discord */
-	top: -70px; left: -8px;
-	background-color: initial; /* Reset the top corner label thing */
-	color: initial;
-	border-bottom-right-radius: initial;
-	padding: 0;
-	position: absolute;
-	font-family: 'Font Awesome 5 Brands';
-	font-size: 30pt;
-	z-index: 10;
-}
-.view.update::after {
-	content: '\f106'; /* angle-up */
-	left: 4%; top: -34px;
+    content: '\f1a1 \f392';  /* reddit, discord */
+    top: unset; bottom: 2px; left: 2px;
+    background-color: initial;  /* Reset the top corner label thing */
+    color: initial;
+    border-bottom-right-radius: initial;
+    padding: 0;
+    position: absolute;
+    font-family: 'Font Awesome 5 Brands';
+    font-size: 16pt;
+    z-index: 10;
+    
 }
 .view.update > update {
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -521,4 +572,42 @@ battle > combatant[active=true]::after {
 
 location[mapid]:after {
     content: ' ('attr(mapid)')';
+}
+
+ledgeritem[name=PokemonIsMissing] > [key=raw] {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+typesetter > item > in::after {
+	content: ' | 'attr(flavor)' ] x'attr(num);
+}
+
+typesetter > item > in::before {
+	content: '[ ';
+}
+typesetter > item {
+	display: block;
+	border-top: 1px #505050 solid;
+	border-bottom: 1px #505050 solid;
+	padding: 1px 0 3px 2em;
+	margin-top: -1px;
+}
+typesetter > item > in {
+	margin-left: -2em;
+	display: block;
+	color: #888888;
+}
+
+typesetter > item > out::after {
+    content: '"';
+}
+typesetter > item > out::before {
+    content: '"';
+}
+typesetter > item > out {
+    display: block;
+    padding: 2px 0px;
 }

@@ -1,0 +1,129 @@
+{
+    "area_id": 0,
+    "area_name": "Small Town",
+    "badges": 0,
+    "ball_count": 0,
+    "caught": 0,
+    "caught_list": [],
+    "coins": 0,
+    "daycare": [],
+    "evolution_is_happening": false,
+    "gender": "Male",
+    "id": 0,
+    "in_battle": false,
+    "items": {
+        "ball": [],
+        "berry": [],
+        "items": [],
+        "key": [],
+        "pc": [],
+        "tm": []
+    },
+    "map_bank": 0,
+    "map_id": 0,
+    "map_name": "Puel City",
+    "money": 0,
+    "name": "        ",
+    "options": {
+        "battle_scene": "On",
+        "battle_style": "Shift",
+        "button_mode": "Normal",
+        "frame": "1",
+        "map_zoom": "Full",
+        "sound": "Mono",
+        "text_speed": "Fast"
+    },
+    "party": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+    ],
+    "pc": {
+        "boxes": [
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 1
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 2
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 3
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 4
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 5
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 6
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 7
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 8
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 9
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 10
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 11
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 12
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 13
+            },
+            {
+                "box_contents": [],
+                "box_name": "         ",
+                "box_number": 14
+            }
+        ],
+        "current_box_number": 0
+    },
+    "secret": 0,
+    "security_key": 0,
+    "seen": 0,
+    "seen_list": [],
+    "time": {
+        "h": 0,
+        "m": 0
+    },
+    "x": 0,
+    "y": 0
+}

@@ -3,6 +3,9 @@
 
 const util = require('util');
 
+const LOGGER = getLogger('LedgerItem');
+const { Pokemon, Combatant, SortedBattle } = require('../../api/pokedata');
+
 class LedgerItem {
 	constructor(imp=1, { helps=null, flavor=null, sort=0 }={}) {
 		/** The importance level of this item. Ranges from 0 to 2. */
@@ -18,7 +21,6 @@ class LedgerItem {
 		 * translating this item into English.
 		 */
 		this.flavor = flavor;
-		
 		/** The sorting order of this item, before importance */
 		this._sort = sort;
 		/** If this item has been processed already by a given rule. */
@@ -43,6 +45,11 @@ class LedgerItem {
 			if (val === undefined) continue;
 			if (typeof key === 'symbol') key = key.toString();
 			if (typeof val === 'symbol') val = val.toString();
+			if (val === null) val = 'null';
+			if (val instanceof Pokemon) val = `[PkMn ${val.toString()}]`;
+			if (val instanceof Combatant) val = `[PkMn ${val.toString()}]`;
+			if (val instanceof SortedBattle) val = `[Battle ${val.attemptId}]`;
+			if (typeof val === 'object' && val.name) val = val.name;
 			txt += ` | ${key}=${val}`;
 		}
 		return txt + ']';
@@ -64,10 +71,22 @@ class LedgerItem {
 			if (val === undefined) continue;
 			if (typeof val === 'symbol') continue;
 			
+			let type = typeof val;
+			if (type === 'object') type = 'objectjs'; //avoid the <object> html tag
+			
 			if (val && val.toXml) {
 				xml += val.toXml(key);
+			} else if (typeof val === 'object' && val && val.toString() === `[object Object]`) {
+				let str;
+				try {
+					str = JSON.stringify(val);
+				} catch (e) {
+					LOGGER.error(`Error while stringifying value!`, e);
+					str = val;
+				}
+				xml += `<${type} key="${key}">${str}</${type}>`;
 			} else {
-				xml += `<${typeof val} key="${key}">${val}</${typeof val}>`;
+				xml += `<${type} key="${key}">${val}</${type}>`;
 			}
 		}
 		xml += `</LedgerItem>`;

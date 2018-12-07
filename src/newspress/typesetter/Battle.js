@@ -1,16 +1,16 @@
-// newspress/typesetter/Pokemon.js
-// The phrasebook for Pokemon-related LedgerItems
+// newspress/typesetter/Battle.js
+// The phrasebook for Battle-related LedgerItems
 
 module.exports = {
 	BattleContext: {
-		__meta__: { sort:100 }, //Before any fainting or level ups
+		__meta__: { sort:300 }, //Before any fainting or level ups
 		default: null,
 		important: null,
 		trainer: [
-			`We {{rand|fight|battle|face off against}} a {{rand|cheeky|rogue|roving|wandering}} {{trainer class|$@trainer}}, named {{$}}{{if|@enemy|, and {{their}} {{mon|@enemy}}}}.`,
-			`We get spotted by a{{rand| wandering|n eager}} {{trainer class|$@trainer}} named {{$}}, and begin a battle{{if|@enemy| against {{their}} {{mon|@enemy}}}}.`,
+			`We {{rand|fight|battle|face off against}} a {{rand|cheeky|rogue|roving|wandering}} {{trainer class|$@trainer}}, named {{$}}{{if|@enemyMonList|, and {{their}} {{@enemyMonList}}}}.`,
+			`We get spotted by a{{rand| wandering|n eager}} {{trainer class|$@trainer}} named {{$}}, and begin a battle{{if|@enemyMonList| against {{their}} {{@enemyMonList}}}}.`,
 			`{{if|@isSingleBattle}}While {{rand|fighting|facing off against|battling}} one {{trainer class|$@trainer}} {{$}}, and {{their}} {{mon|@enemy}},`,
-			`{{trainer class|$@trainer}} {{$}} picks a fight with us{{if|@enemy|, using {{their}} {{mon|@enemy}}}}.`,
+			`{{trainer class|$@trainer}} {{$}} picks a fight with us{{if|@enemyMonList|, using {{their}} {{@enemyMonList}}}}.`,
 		],
 		wild: [
 			`We {{rand|come across|run into|step on|stumble upon|encounter|bump into|run across}} a wild {{mon|@enemy}}.`,
@@ -25,7 +25,7 @@ module.exports = {
 	},
 	
 	BattleStarted: {
-		__meta__: { sort:60 }, //Before EnemySentOut
+		__meta__: { sort:280 }, //Before BattleState items
 		default: (item)=>{
 			let m = `<b>Vs ${item.battle.displayName}!</b>`;
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
@@ -38,7 +38,7 @@ module.exports = {
 			`<b>Facing off against {{@battle.displayName}} in a rematch!</b>`,
 		],
 		wild: (item)=>{
-			let m = `<b>Vs Wild ${item.battle.displayName}!</b>`;
+			let m = `<b>Vs Wild ${item.enemy}!</b>`;
 			if (item.attempt > 1) m += ` Attempt #${item.attempt}!`;
 			return m;
 		},
@@ -52,7 +52,7 @@ module.exports = {
 	},
 	
 	BattleEnded: {
-		__meta__: { sort:0 }, //After EnemyFainted
+		__meta__: { sort:0 }, //After BattleState items
 		ending: null,
 		default: [
 			`<b>We defeat {{@battle.displayName}}!</b>`,
@@ -67,6 +67,7 @@ module.exports = {
 			`{{@battle.displayName}} {{rand|pouts|sighs|huffs irritably}} as we take out {{their|@trainer}} {{mon|@lastPokemon}} and win the battle.`,
 		],
 	},
+	/*
 	EnemyFainted: {
 		__meta__: { sort:50 }, //Before EnemySentOut
 		default: [
@@ -86,6 +87,7 @@ module.exports = {
 		],
 		unimportant: null, //don't report this for unimportant battles
 	},
+	*/
 	
 	Blackout: {
 		__meta__: { sort:-100 }, //After other updates on a battle
@@ -101,8 +103,11 @@ module.exports = {
 			`<b>We heal!</b>`,
 		],
 		blackout: null, //should be covered by Blackout above
+		partner: [
+			`<b>We're healed</b> by our partner!`,
+			`Our partner <b>heals our party!</b>!`,
+		],
 		pokecenter: [
-			`<b>The nurse heals us!</b>`,
 			`<b>We heal</b> at the Poké Center!`,
 		],
 		house: [ // Override with location announcement?
@@ -113,11 +118,11 @@ module.exports = {
 			`A {{rand|nice|kind|helpful|}} doctor <b>heals our team!</b> {{rand|Thanks, doc!|}}`,
 		],
 		nurse: [
-			`A {{rand|nice|kind|helpful|}} nurse <b>heals our team!</b> {{rand|Thanks!|}}`,
-			`A {{rand|sweet|helpful}} nurse <b>heals our team!</b> Ta, love!`,
+			`A {{rand|nice|kind|helpful|}} nurse <b>heals our {{rand|team|party}}!</b> {{rand|Thanks!|}}`,
+			`A {{rand|sweet|helpful}} nurse <b>heals our {{rand|team|party}}!</b> Ta, love!`,
 		],
 		scientist: [
-			`A {{rand|nice|kind|helpful|random|}} scientist <b>heals our team!</b> {{rand|Thanks, doc!|Thanks, prof!|}}`,
+			`A {{rand|nice|kind|helpful|random|}} scientist <b>heals our {{rand|team|party}}!</b> {{rand|Thanks, doc!|Thanks, prof!|}}`,
 		],
 	},
 	

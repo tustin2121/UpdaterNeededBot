@@ -16,6 +16,7 @@ module.exports = {
 	hubE4: false,
 	'3d': false,
 	dependentTrainerId: true,
+	checkpointOnEnter: false,
 	
 	namingMatch: /-_/i,
 	moveInfo: 'gen2/movetable.js',

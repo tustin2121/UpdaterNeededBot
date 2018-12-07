@@ -74,17 +74,18 @@ class Ledger {
 			for (let b = 0; b < newItems.length; b++) {
 				let res = oldItems[a].cancelsOut(newItems[b]);
 				if (res) {
+					let y = newItems.splice(b, 1); b--; //remove
 					if (res === oldItems[a]) {
 						// do nothing, coalesced
-						debugLog.merged('coalesced', oldItems[a], newItems[b]);
+						debugLog.merged('coalesced', oldItems[a], y[0]);
 					} else if (res instanceof LedgerItem) {
 						let x = oldItems.splice(a, 1, res); //replace
-						debugLog.merged('replaced', x[0], newItems[b], res);
+						debugLog.merged('replaced', x[0], y[0], res);
 					} else {
 						let x = oldItems.splice(a, 1); a--; //remove
-						debugLog.merged('removed', x[0], newItems[b]);
+						debugLog.merged('removed', x[0], y[0]);
+						break; //break the b loop and continue the a loop
 					}
-					newItems.splice(b, 1); b--; //remove
 				}
 			}
 		}
@@ -208,6 +209,7 @@ Ledger.prototype.remove = Ledger.prototype.removeItem;
 class DebugLogs {
 	constructor() {
 		this.uid = DebugLogs.generateId();
+		this.activityLevel = -1; //rule round 0 is gaurenteed, so that will get us to 0
 		this.apiNum = -1;
 		this.modules = {};
 		this.preledger = '';
@@ -218,6 +220,7 @@ class DebugLogs {
 		this.update = '';
 		
 		this._currTypesetter = null;
+		this._xml = null;
 	}
 	
 	static generateId() {
@@ -227,22 +230,25 @@ class DebugLogs {
 	}
 	
 	getXml() {
-		let xml = '';
-		xml += `<api>${this.apiNum}</api>`;
-		{
-			let mods = [];
-			for (let mod in this.modules) {
-				mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
+		if (!this._xml) {
+			let xml = '';
+			xml += `<api>${this.apiNum}</api>`;
+			{
+				let mods = [];
+				for (let mod in this.modules) {
+					mods.push(`<mod name="${mod}">${this.modules[mod].map(x=>`<p>${x}</p>`).join('')}</mod>`);
+				}
+				xml += `<modules>${mods.join('')}</modules>`;
 			}
-			xml += `<modules>${mods.join('')}</modules>`;
+			xml += `<preledger>${this.preledger}</preledger>`;
+			xml += `<merges>${this.merges.join('')}</merges>`;
+			xml += `<rules>${this.rules.join('')}</rules>`;
+			xml += `<postledger>${this.postledger}</postledger>`;
+			xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
+			xml += `<update>${this.update||''}</update>`;
+			this._xml = `<state lvl="${this.activityLevel}">${xml}</state>`;
 		}
-		xml += `<preledger>${this.preledger}</preledger>`;
-		xml += `<merges>${this.merges.join('')}</merges>`;
-		xml += `<rules>${this.rules.join('')}</rules>`;
-		xml += `<postledger>${this.postledger}</postledger>`;
-		xml += `<typesetter>${this.typesetter.join('')}</typesetter>`;
-		xml += `<update>${this.update}</update>`;
-		return `<state>${xml}</state>`;
+		return this._xml;
 	}
 	
 	apiIndex(num) {
@@ -263,6 +269,7 @@ class DebugLogs {
 	
 	ruleRound(num) {
 		this.rules.push(`<marker>Round ${num}</marker>`);
+		this.activityLevel++;
 	}
 	
 	/**
@@ -277,6 +284,7 @@ class DebugLogs {
 			return `<match index="${i}">${itemXml}</match>`;
 		}).join('');
 		this.rules.push(`<rule name="${ruleInst.rule.name}">${matched}</rule>`);
+		this.activityLevel++;
 	}
 	
 	premergeState(items, postItems) {
@@ -288,25 +296,28 @@ class DebugLogs {
 	 * @param{string} type - one of 'coalesced','replaced','removed'
 	 */
 	merged(type, ...items) {
-		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.name}</item>`).join('')}</merge>`);
+		this.merges.push(`<merge type="${type}">${items.map(x=>`<item>${x.__itemName__}</item>`).join('')}</merge>`);
+		this.activityLevel += items.length;
 	}
 	
 	ledgerState(ledger) {
 		this.postledger = `<items>${ledger.list.map(x=>x.toXml()).join('')}</items>`;
 		if (ledger.postponeList.length) this.postledger += `<post>${ledger.postponeList.map(x=>x.toXml()).join('')}</post>`;
+		this.activityLevel += ledger.list.length + ledger.postponeList.length;
 	}
 	
 	typesetterInput(itemArray) {
 		this._currTypesetter = [];
-		this._currTypesetter.push(`<in num="${itemArray.length}" flavor="${itemArray[0].flavor||'default'}">${itemArray[0].name}</in>`);
+		this._currTypesetter.push(`<in num="${itemArray.length}" flavor="${itemArray[0].flavor||'default'}">${itemArray[0].__itemName__}</in>`);
 	}
 	typesetterFormat(format) {
 		this._currTypesetter.push(`<format>${escapeHtml(format)}</format>`);
 	}
 	typesetterOutput(out) {
-		this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
+		if (out) this._currTypesetter.push(`<out>${escapeHtml(out)}</out>`);
 		this.typesetter.push(`<item>${this._currTypesetter.join('')}</item>`);
 		this._currTypesetter = null;
+		this.activityLevel += (out)?5:0;
 	}
 	
 	finalUpdate(update) {
@@ -325,6 +336,7 @@ module.exports = Object.assign({
 	require('./base'),
 	require('./ApiMonitoring'),
 	require('./Battle'),
+	require('./BattleState'),
 	require('./E4'),
 	require('./Item'),
 	require('./Location'),

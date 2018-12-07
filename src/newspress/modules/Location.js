@@ -35,8 +35,8 @@ class LocationModule extends ReportingModule {
 		
 		let prev = region.resolve(prev_api.location); //prev_api.location.node = prev;
 		let curr = region.resolve(curr_api.location); //curr_api.location.node = curr;
-		let prevMap = prev, prevArea = null;
-		let currMap = curr, currArea = null;
+		let prevMap = prev, prevArea = null, prevLoc = prev_api.location;
+		let currMap = curr, currArea = null, currLoc = curr_api.location;
 		
 		if (currMap instanceof MapArea) { currArea = currMap; currMap = currArea.parent; }
 		if (prevMap instanceof MapArea) { prevArea = prevMap; prevMap = prevArea.parent; }
@@ -49,28 +49,30 @@ class LocationModule extends ReportingModule {
 		
 		// Transit Reporting logic
 		if (currMap !== prevMap || currArea !== prevArea) {
-			let item = this.generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea });
+			let item = this.generateMapChangedItem({ 
+				region, prevMap, currMap, prevArea, currArea, prevLoc, currLoc,
+			});
 			if (item) ledger.add(item);
 		}
 		this.memory.visitTimestamps[currMap.locId] = Date.now();
 		
-		// if (currMap.is('checkpoint')) {
-		// 	ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
-		// }
+		if (currMap.is('checkpoint')) {
+			ledger.add(new CheckpointContext(currMap, this.memory.currCheckpoint === currMap.locId));
+		}
 		
 		if (!prev.has('water') && curr.has('water')) {
-			ledger.add(new MapMovement('surfStart', curr_api));
+			ledger.add(new MapMovement('surfStart', curr));
 		}
 		if (prev.has('water') && !curr.has('water')) {
-			ledger.add(new MapMovement('surfEnd', curr_api));
+			ledger.add(new MapMovement('surfEnd', curr));
 		}
 		
 		if (prev.has('ledge') === 'ledge') {
 		 	if (curr.has('ledge') === 'jump') {
-				ledger.add(new MapMovement('jumpedLedge', curr_api));
+				ledger.add(new MapMovement('jumpedLedge', curr));
 			}
 			else if (curr.has('ledge') === 'clear') {
-				ledger.add(new MapMovement('clearedLedge', curr_api));
+				ledger.add(new MapMovement('clearedLedge', curr));
 			}
 		}
 	}
@@ -80,13 +82,13 @@ class LocationModule extends ReportingModule {
 	}
 	
 	finalPass(ledger) {
-		// let items;
-		// if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
-		// 	this.memory.currCheckpoint = items[0].loc.locId;
-		// }
+		let items;
+		if ((items = ledger.findAllItemsWithName('CheckpointUpdated')).length) {
+			this.memory.currCheckpoint = items[0].loc.locId;
+		}
 	}
 	
-	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea }) {
+	generateMapChangedItem({ region, prevMap, currMap, prevArea, currArea, prevLoc, currLoc }) {
 		const currTime = Date.now();
 		let report = region.findTransitReport(prevArea || prevMap, currArea || currMap);
 		if (report) return new MapChanged({ prev:prevMap, curr:currMap, report });
@@ -129,6 +131,18 @@ class LocationModule extends ReportingModule {
 			if (!P && C) { item.flavor = `gym_enter${back}`; return item; }
 			if (P && !C) { item.flavor = `gym_exit${back}`; return item; }
 		}{
+			const T = prevMap.is('town') && currMap.is('town');
+			const P = prevMap.within('teleport', prevLoc.x, prevLoc.y);
+			const C = currMap.within('teleport', currLoc.x, currLoc.y);
+			if (T) {
+				if (P && C) { item.flavor = `town_teleport${back}`; return item; }
+			}
+		}
+		if (Bot.runFlag('fly_logic')) {
+			//TODO Determine if we're currently in a town, near a flyspot, and weren't either before,
+			//and determine if where we were previously was not an adjacent map space
+			//{ item.flavor = `flt${back}`; return item; }
+		}{
 			if (prevMap.is('route') && currMap.is('town')) { item.flavor = `town_enter${back}`; return item; }
 			if (prevMap.is('town') && currMap.is('route')) { item.flavor = `town_exit${back}`; return item; }
 		}{
@@ -142,16 +156,28 @@ class LocationModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
-	.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
-	.when(ledger=>ledger.has('FullHealed'))
-	.when(ledger=>ledger.hasnt('BlackoutContext'))
-	.then(ledger=>{
-		let item = ledger.mark(0).get(0);
-		item.isCurrent = true;
-		ledger.add(new CheckpointUpdated(item.loc));
-	})
-);
+if (Bot.runOpts('checkpointOnEnter')) { // gen 1 only
+	RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
+		.when(ledger=>ledger.has('MapChanged'))
+		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+		.then(ledger=>{
+			let item = ledger.mark(1).get(1)[0];
+			item.isCurrent = true;
+			ledger.add(new CheckpointUpdated(item.loc));
+		})
+	);
+} else {
+	RULES.push(new Rule(`When entering a center, set a checkpoint`)
+		.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+		.when(ledger=>ledger.has('FullHealed'))
+		.when(ledger=>ledger.hasnt('BlackoutContext'))
+		.then(ledger=>{
+			let item = ledger.mark(0).get(0)[0];
+			item.isCurrent = true;
+			ledger.add(new CheckpointUpdated(item.loc));
+		})
+	);
+}
 
 {
 	const itemIds = Bot.runOpts('itemIds_escapeRope');
@@ -166,11 +192,11 @@ RULES.push(new Rule(`When fully healing at a center, set a checkpoint`)
 	);
 }
 
-// This may break in early generations
 RULES.push(new Rule(`When blacking out to a center, use a special set of phrases`)
-	.when(ledger=>ledger.has('BlackoutContext'))
-	.when(ledger=>ledger.has('MapChanged').which(x=>x.curr.has('healing') === 'pokecenter').unmarked())
+	.when(ledger=>ledger.has('BlackoutContext').with('revived', false))
+	.when(ledger=>ledger.has('MapChanged').unmarked())
 	.then(ledger=>{
+		ledger.get(0).forEach(x=>x.revived = true);
 		let item = ledger.mark(1).get(1).forEach(x=>x.flavor = 'blackout');
 	})
 );

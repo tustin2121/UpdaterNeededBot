@@ -177,6 +177,9 @@ class Pokemon {
 		this.shadow = false;
 		this.pokerus = null; //true = infected, false = cured, null = never had
 		this.traded = false;
+		this.status = '';
+		this.active = false;
+		this.battleBuffs = {};
 		
 		this.cp = 0;
 		this.fitness = 0;
@@ -229,12 +232,12 @@ class Pokemon {
 			};
 		});
 		
-		
 		if (mon.health) {
 			this._hp = [mon.health[0], mon.health[1]];
 			this.hp = Math.floor((mon.health[0] / mon.health[1])*100);
 			if (mon.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
 		}
+		this.status = (mon.status||'').toLowerCase();
 		
 		this.cp = mon.cp || 0;
 		this.fitness = mon.fitness || 0;
@@ -256,6 +259,19 @@ class Pokemon {
 		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
 		if (Bot.runOpts('characteristics')) this.nature += `, ${mon.characteristic}`;
 		
+		this.active = !!read(mon, 'volatile_status');
+		if (mon.buffs) {
+			this.battleBuffs = {
+				'atk': mon.buffs.attack+1,
+				'def': mon.buffs.defense+1,
+				'spe': mon.buffs.speed+1,
+				'spa': mon.buffs.special_attack+1,
+				'spd': mon.buffs.special_defense+1,
+				'acc': mon.buffs.accuracy+1,
+				'eva': mon.buffs.evasion+1,
+			}
+		}
+		
 		// Validation check:
 		if (this.fitness < 0) throw new TypeError('Corrupt data!');
 	}
@@ -263,7 +279,7 @@ class Pokemon {
 	saveToMemory() {
 		let obj = {};
 		for (let key in this) {
-			if (key.startsWith('_')) continue;
+			if (key.startsWith('_') && key !== '_hp') continue;
 			if (typeof this[key] === 'function') continue;
 			obj[key] = this[key];
 		}
@@ -364,6 +380,97 @@ class Pokemon {
 		xml += this.saveToMemory();
 		xml += `</pokemon>`;
 		return xml;
+	}
+}
+
+/** A cut down version of Pokemon, made so that things are consistent */
+class Combatant {
+	constructor(data, game=0) {
+		this.name = null;
+		this.species = null;
+		this.dexid = 0;
+		this.active = false;
+		
+		this.hash = 0;
+		this.hp = 100;
+		this._hp = [100, 100];
+		this.shiny = false;
+		this.gender = '';
+		this.moves = [];
+		this.battleBuffs = {};
+		
+		this.game = game; //the game this pokemon belongs to
+		if (!data) return;
+		
+		this.active = data.active;
+		if (this.active === undefined) this.active = (data.species && data.species.id !== 0);
+		
+		this.hp = Math.max(1, Math.floor( (data.health[0] / data.health[1])*100 ));
+		if (data.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
+		this._hp = [data.health[0], data.health[1]];
+		
+		this.name = data.name;
+		this.species = read(data.species, 'name') || data.name;
+		this.dexid = read(data.species, 'national_dex', 'id');
+		this.hash = read(data, 'personality_value');
+		this.shiny = data.shiny || this.shiny;
+		this.gender = data.gender || this.gender;
+		this.moves = (data.moves && data.moves.slice()) || this.moves;
+		if (data.buffs) {
+			this.battleBuffs = {
+				'atk': data.buffs.attack+1,
+				'def': data.buffs.defense+1,
+				'spe': data.buffs.speed+1,
+				'spa': data.buffs.special_attack+1,
+				'spd': data.buffs.special_defense+1,
+				'acc': data.buffs.accuracy+1,
+				'eva': data.buffs.evasion+1,
+			}
+		}
+	}
+	
+	cloneToAssumedPrev() {
+		let clone = new Combatant();
+		clone.name = this.name;
+		clone.species = this.species;
+		clone.dexid = this.dexid;
+		clone.active = this.active;
+		clone.hash = this.hash;
+		clone.hp = 100;
+		clone._hp = [this._hp[1], this._hp[1]]; //max HP
+		clone.shiny = this.shiny;
+		clone.game = this.game;
+		clone.gender = this.gender;
+	}
+	
+	saveToMemory() {
+		let obj = {};
+		for (let key in this) {
+			if (key.startsWith('_') && key !== '_hp') continue;
+			if (typeof this[key] === 'function') continue;
+			obj[key] = this[key];
+		}
+		obj.stats = this._stats;
+		let buf = Buffer.from(JSON.stringify(obj), 'utf8');
+		return buf.toString('base64');
+	}
+	loadFromMemory(str) {
+		let buf = Buffer.from(str, 'base64');
+		let obj = JSON.parse(buf.toString('utf8'));
+		for (let key in obj) {
+			this[key] = obj[key];
+		}
+		return this;
+	}
+	
+	/** @param {int} num - Used to trick the TypeSetter to never pluralize a pokemon name. */
+	toString(num) {
+		if (this.species === this.name) {
+			if (this.form) return `${this.name} (${this.form})`;
+			return this.name;
+		}
+		if (this.form) return `${this.name} (${this.species} ${this.form})`;
+		return `${this.name} (${this.species})`;
 	}
 }
 
@@ -483,6 +590,7 @@ class SortedPokemon {
 		
 		if (data.party) {
 			for (let i = 0; i < data.party.length; i++) {
+				if (!data.party[i]) continue;
 				let p = new Pokemon(data.party[i], game);
 				p.storedIn = 'party:'+i;
 				this._map[p.hash] = p;
@@ -598,7 +706,7 @@ class SortedInventory {
 		if (Bot.runOpts('heldItem')) {
 			if (data.party) {
 				for (let p of data.party) {
-					if (p.held_item.id) {
+					if (p && p.held_item && p.held_item.id) {
 						this.add(p.held_item, 'held');
 					}
 				}
@@ -674,14 +782,16 @@ class SortedBattle {
 						'className': (t.class_name)?correctCase(sanatizeName(t.class_name||'trainer')):'', //Not used in gen 1
 						'name': correctCase(sanatizeName(t.name||'')),
 					};
-					if (Bot.runOpts('trainerClasses', game)) {
+					if (t.gender) {
+						data.gender = t.gender.toLowerCase();
+					} else if (Bot.runOpts('trainerClasses', game)) {
 						let cls = Bot.runOpts('trainerClasses', game);
 						if (cls.info) { //Check for individual info first
 							let info = cls.info[t.class_id];
 							data.gender = info.gender;
 							data.realClassName = info.name;
 							if (!data.className) data.className = info.name;
-						} else {
+						} else if (cls.m && cls.f && cls.p) {
 							if (cls.m[data.class]) data.gender = 'male';
 							else if (cls.f[data.class]) data.gender = 'female';
 							else if (cls.p[data.class]) data.gender = 'plural';
@@ -699,18 +809,13 @@ class SortedBattle {
 		if (data.enemy_party) {
 			this.party = [];
 			for (let p of data.enemy_party) {
+				if (!p) continue;
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
 					poke = new Pokemon(p, game);
 					if (p.active !== undefined) poke.active = p.active;
 				} else {
-					poke = {
-						active: p.active,
-						hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-						species: p.species.name,
-						dexid: read(p.species, 'national_dex', 'id'),
-					};
-					if (poke.active === undefined) poke.active = (p.species.id !== 0);
+					poke = new Combatant(p);
 				}
 				if (p.health[0] === 0) poke.hp = 0;
 				this.party.push(poke);
@@ -721,21 +826,13 @@ class SortedBattle {
 			let wild_species = data.wild_species;
 			if (!Array.isArray(wild_species)) wild_species = [wild_species];
 			for (let p of wild_species) {
+				if (!p) continue;
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
 					poke = new Pokemon(p, game);
 					if (p.active !== undefined) poke.active = p.active;
 				} else {
-					poke = {
-						active: true,
-						// hp: Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 )),
-						species: p.name,
-						dexid: read(p, 'national_dex', 'id'),
-					};
-				}
-				if (p.health) { //hack
-					poke.hp = Math.max(1, Math.floor( (p.health[0] / p.health[1])*100 ));
-					if (p.health[0] === 0) poke.hp = 0;
+					poke = new Combatant(p);
 				}
 				this.party.push(poke);
 			}
@@ -755,24 +852,6 @@ class SortedBattle {
 		}
 		else if (Array.isArray(this.trainer)) {
 			determineImportance(this, game);
-			// let cls = Bot.runOpts('trainerClasses', game);
-			// if (cls.info) {
-			// 	for (let trainer of this.trainer) {
-			// 		let info = cls.info[trainer.class];
-			// 		this.isImportant = !!info.important;
-			// 		if (typeof info.important === 'string') {
-			// 			this.classes[info.important] = true;
-			// 		}
-			// 	}
-			// } else {
-			// 	for (let type in cls) {
-			// 		if (type in {m:1, f:1, p:1, info:1}) continue; //ignore these
-			// 		for (let trainer of this.trainer) {
-			// 			this.classes[type] = !!cls[type][trainer.class];
-			// 			this.isImportant |= this.classes[type];
-			// 		}
-			// 	}
-			// }
 		}
 	}
 	get isRival() { return !!this.classes['rival']; }
@@ -925,6 +1004,7 @@ class SortedData {
 				if (Bot.runOpts('pcBoxRollover', game)) {
 					// Determine the effective current box
 					for (let i = 0; i < this.pcBoxes.length; i++) {
+						if (!this.pcBoxes[i]) continue;
 						let bn = (i + data.pc.current_box_number) % this.pcBoxes.length;
 						if (this.pcBoxes[bn].isFull) continue;
 						this.pcBoxes[bn].isEffectiveCurrent = true;
@@ -934,8 +1014,9 @@ class SortedData {
 					this.pcBoxes[data.pc.current_box_number-1].isEffectiveCurrent = true;
 				}
 			}
-			
 		}
+		
+		this.evolution_is_happening = data.evolution_is_happening || false;
 		
 		this.rawData = data;
 		this._rawGameIdx = game;
@@ -972,5 +1053,5 @@ class SortedData {
 
 module.exports = {
 	SortedData, SortedBattle, SortedPokemon, SortedInventory, SortedLocation,
-	Pokemon, Item,
+	Pokemon, Item, Combatant,
 };

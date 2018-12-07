@@ -86,6 +86,24 @@ class MoneyValueChanged extends LedgerItem {
 	}
 }
 
+/** Indicates that the held item was gained without a compensating delta from elsewhere, probably resulting from Pickup ability or recycling. */
+class HeldItemGained extends LedgerItem {
+	constructor(item, amount=1) {
+		super(0);
+		this.item = item;
+		this.amount = amount;
+	}
+}
+
+/** Indicates that the held item was lost without a compensating delta from elsewhere, probably from in-battle use. */
+class HeldItemLost extends LedgerItem {
+	constructor(item, amount=1) {
+		super(0);
+		this.item = item;
+		this.amount = amount;
+	}
+}
+
 /////////////////// Advanced Items ///////////////////
 
 /**
@@ -99,7 +117,7 @@ class ShoppingContext extends LedgerItem {
 	}
 	canPostpone() {
 		if (this.ttl === 0) {
-			if (this.cart.transactions > 1) return ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
+			if (this.cart.transactions > 0) return new ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
 			return false; //Don't postpone or send out a report
 		}
 		if (!this._next) {
@@ -200,12 +218,13 @@ class UsedItemOnMon extends LedgerItem {
 		this.extra = extra;
 	}
 	get target(){ return this.mon; }
-	get move(){ return this.extra; } //string
+	get move(){ return this.extra; }
 	get moveLearn(){ return this.extra; } //MonLearnedMoveOverOldMove or MonLearned item
 }
 
 module.exports = {
-	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, MoneyValueChanged,
+	GainItem, LostItem, StoredItemInPC, RetrievedItemFromPC, HeldItemGained, HeldItemLost,
+	MoneyValueChanged,
 	UsedBallInBattle, UsedBerryInBattle, UsedItemOnMon,
 	ShoppingContext, ShoppingReport,
 };

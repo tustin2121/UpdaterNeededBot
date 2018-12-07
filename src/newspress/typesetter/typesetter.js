@@ -6,8 +6,15 @@ const { LedgerItem } = require('../ledger');
 
 const LOGGER = getLogger('TypeSetter');
 
+try {
+	require('../../../data/extdat/bodyfeats')
+} catch (e) {
+	LOGGER.error(`Error loading require('bodyfeats')`, e);
+}
+
 const PHRASEBOOK = Object.assign({}, ...[
 	require('./Battle'),
+	require('./BattleState'),
 	require('./E4'),
 	require('./Item'),
 	require('./Location'),
@@ -262,11 +269,24 @@ function printObject(obj) {
 			return txt;
 		}
 	}
+	function printExtendedInfo() {
+		return function(mon, text) {
+			mon = mon || this.subject || this.noun;
+			text = text || mon.species || this.noun || this.subject;
+			if (!mon.getExtendedInfo) return false;
+			if (this._setNoun) this.noun = mon;
+			if (this._setSubject) this.subject = mon;
+			let ext = mon.getExtendedInfo().replace(/"/g, `''`);
+			return `<info ext="${ext}">${text}</info>`;
+		}
+	}
 	Object.assign(FORMAT_FNS, {
 		'Species': printSpecies(),
 		'species': printSpecies(),
 		'Mon': printSpecies(),
 		'mon': printSpecies(),
+		
+		'extended info': printExtendedInfo(),
 	});
 }{
 	function printClass(){
@@ -428,7 +448,6 @@ function printObject(obj) {
 }{
 	function getPhraseGeneral(type) {
 		return function(name, flavor=null) {
-			// if (!name) name = this.thisItem.__itemName__;
 			let phraseEntry = this._getPhraseEntryForItem({ name, flavor });
 			switch(type) {
 				case 'item': return this._resolve(phraseEntry.item);
@@ -559,10 +578,10 @@ function printObject(obj) {
 		}
 	}
 	function testBodyFeature(operation) {
-		let op;
+		let op, bool;
 		switch (operation) {
-			case 'and': op = (a, b)=> a && b; break;
-			case 'or':  op = (a, b)=> a || b; break;
+			case 'and': op = (a, b)=> a && b; bool = true; break;
+			case 'or':  op = (a, b)=> a || b; bool = false; break;
 		}
 		return function(mon, ...feats) {
 			mon = mon || this.noun || this.subject;
@@ -570,9 +589,8 @@ function printObject(obj) {
 				LOGGER.error(`Object is not a Pokemon! => `, this._callMeta.top());
 				return false;
 			}
-			let bodyfeats = require('../../../data/extdata/bodyfeats')[mon.dexid];
+			let bodyfeats = require('../../../data/extdat/bodyfeats')[mon.dexid];
 			
-			let bool = true;
 			for (let feat of feats) {
 				bool = op(bool, !!bodyfeats[feat]);
 			}
@@ -635,7 +653,7 @@ function printObject(obj) {
 // Format Functions: Lists
 {
 	function printList(sep, and, sliceIdx=0) {
-		return function() {
+		return function() { //arguments used below in the format call
 			if (!this._itemList) throw new ReferenceError('List of items not specified!');
 			const format = `{{${this._callMeta.top().args.join('|')}}}`;
 			
@@ -666,10 +684,11 @@ function printObject(obj) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class TypeSetter {
-	constructor({ curr_api, debugLog, press }) {
+	constructor({ curr_api, debugLog, press, helpOpts=null }) {
 		this.log = debugLog;
 		this.curr_api = curr_api;
 		this.press = press;
+		this.helpOpts = helpOpts;
 		
 		// Phrase variables
 		this.subject = null;
@@ -677,7 +696,6 @@ class TypeSetter {
 		
 		// Working variables
 		this.item = null;
-		this.thisItem = null;
 		
 		this._setSubject = false;
 		this._setNoun = false;
@@ -750,9 +768,21 @@ class TypeSetter {
 		let dict = {};
 		let order = [];
 		
+		let len = 0;
+		for (let item of list) {
+			let { contextOnly, helpingOnly } = TypeSetter.getPhraseMeta(item);
+			if (contextOnly) continue;
+			if (helpingOnly && !this.helpOpts) continue;
+			len++;
+		}
+		if (len === 0) return []; //No items that are not marked as context-only, short-circut this
+		
 		// Collate
 		for (let item of list) {
-			let { merge } = TypeSetter.getPhraseMeta(item);
+			let { merge, helpingOnly } = TypeSetter.getPhraseMeta(item);
+			if (helpingOnly && !this.helpOpts) {
+				continue; //skip this item
+			}
 			if (merge) {
 				merges[merge] = (merges[merge] || []);
 				merges[merge].push(item);
@@ -923,7 +953,6 @@ class TypeSetter {
 	 * @param {LedgerItem} item - The ledger item to use as context
 	 */
 	fillText(text, item) {
-		this.thisItem = item;
 		let i = 20;
 		while (i > 0) try {
 			let phrase = text.replace(/{{([^{}\n]+)}}/gi, (match, key)=>{

@@ -5,7 +5,9 @@ const { should, sinon } = require('../../common');
 
 const LEDGER_ITEMS = require('../../../src/newspress/ledger');
 const POKEDATA = require('../../../src/api/pokedata');
+const MAPNODE = require('../../../src/api/mapnode');
 const TYPESET = require('../../../src/newspress/typesetter');
+const { Rule } = require('../../../src/newspress/modules/_base');
 
 const { Ledger } = LEDGER_ITEMS;
 const { TypeSetter } = TYPESET;
@@ -174,6 +176,35 @@ describe('Real-World Tests', function(){
 			
 			str.should.be.exactly(exp);
 		});
+		
+		it('BattleContext', function(){
+			const { BattleStarted, BattleContext } = LEDGER_ITEMS;
+			const { SortedBattle } = POKEDATA;
+			const battle = new SortedBattle({
+				enemy_trainer: {
+					class_id: 5,
+					class_name: 'Youngster',
+					name: 'Joey',
+					gender: 'Male',
+				},
+				enemy_party: [
+					{
+						active: true,
+						health: [10,10],
+						species: { id:5, name:'Weedle' },
+					}
+				],
+			});
+			
+			typesetter.setRandom(1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+			
+			const exp = `We get spotted by a wandering Youngster named Joey, and begin a battle against his Weedle.`;
+			const item = new BattleContext(battle);
+			item.importance = 1;
+			const str = typesetter.typesetItems([item]);
+			
+			str.should.be.exactly(exp);
+		});
 	});
 	
 	describe('Typesetting', function(){
@@ -227,6 +258,70 @@ describe('Real-World Tests', function(){
 			let res = typesetter.typesetLedger(ledger);
 			
 			res.replace(/\xA0/g,' ').should.equal(`<i><b>!!!!!qqquulk (Phantump) HAS HIT LEVEL 100!!!</b></i> ヽ༼ຈل͜ຈ༽ﾉ LEVEL 100 RIOT ヽ༼ຈل͜ຈ༽ﾉ <b>Drifloon!es8 (Drifloon) leveled up to 9!</b> <b>Silcoon1666 (Silcoon) has grown two levels to level 6!</b> <b>Kabuto (Kabuto) leveled up to 10!</b> <b>!!  777      (Claydol) leveled up to 8!</b>`);
+		});
+		
+		it('checkpoints', function(){
+			const { CheckpointContext, CheckpointUpdated } = LEDGER_ITEMS;
+			const { MapRegion } = MAPNODE;
+			
+			const rule = new Rule(`When fully healing at a center, set a checkpoint`)
+				.when(ledger=>ledger.has('CheckpointContext').with('isCurrent', false).unmarked())
+				.then(ledger=>{
+					let item = ledger.mark(0).get(0)[0];
+					item.isCurrent = true;
+					ledger.add(new CheckpointUpdated(item.loc));
+				});
+			
+			let region = new MapRegion({
+				name: "Test", types: {}, reports:[], nodes: [[{
+					"bank": 0,
+					"id": 0,
+					"name": "Petalburg City",
+					"areaId": 7,
+					"areaName": "Petalburg City",
+					"type": "city",
+					"width": 30,
+					"height": 30,
+					"attrs": {},
+					"areas": [],
+				}]]
+			});
+			let ledger = new Ledger();
+			ledger.addItem(new CheckpointContext(region.nodes[0][0], false));
+			
+			rule.apply(ledger, {});
+			
+			ledger.list.should.have.lengthOf(2);
+			ledger.list[1].should.be.an.instanceof(CheckpointUpdated);
+			ledger.list[1].should.have.property('areaName', 'Petalburg City');
+			
+			let typesetter = new TypeSetter({ curr_api:null, debugLog:ledger.log, });
+			typesetter.setRandom(0, 0, 0, 0, 0, 0, 0, 0, 0);
+			let res = typesetter.typesetLedger(ledger);
+			
+			res.should.equal('<b>Checkpoint Petalburg City!</b>')
+		});
+	});
+	
+	describe('Cancellation', function(){
+		it('MonGiveItem and MonTakeItem', function(){
+			const { MonGiveItem, MonTakeItem } = LEDGER_ITEMS;
+			const { Pokemon, Item } = POKEDATA;
+			const mon1 = new Pokemon(), mon2 = new Pokemon();
+			mon1.name = 'Qualava'; mon2.name = 'Honedge';
+			
+			let prevItems = [
+				new MonTakeItem(mon1, new Item({ name:'Berry', id:22 })),
+				new MonGiveItem(mon2, new Item({ name:'Everstone', id:26 })),
+			];
+			
+			let ledger = new Ledger();
+			ledger.addItem(new MonGiveItem(mon1, new Item({ name:'Berry', id:22 })));
+			ledger.addItem(new MonTakeItem(mon2, new Item({ name:'Everstone', id:26 })));
+			
+			Ledger.mergeItems(prevItems, ledger.list, ledger.log);
+			
+			ledger.list.should.be.empty();
 		});
 	});
 });

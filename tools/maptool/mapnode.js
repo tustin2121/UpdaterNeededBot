@@ -63,7 +63,7 @@ class MapRegion {
 			if (!this.nodes[bank]) continue;
 			data.nodes[bank] = [];
 			for (let map = 0; map < this.nodes[bank].length; map++) {
-				if (!this.nodes[bank][map]) continue;
+				if (!this.nodes[bank][map] || !this.nodes[bank][map].serialize) continue;
 				data.nodes[bank][map] = this.nodes[bank][map].serialize();
 			}
 		}
@@ -197,8 +197,29 @@ class MapRegion {
 		App.notifyChange('report-del', this);
 	}
 	
+	make0Based() {
+		if (this.nodes[0]) return false; //already 0-based
+		this.nodes.shift(); //remove first bank
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			this.nodes[bank].shift(); //remove first map
+		}
+		this.renumberMaps();
+		return true;
+	}
+	make1Based() {
+		if (!this.nodes[0]) return false; //already 1-based
+		this.nodes.unshift(null); //add first bank
+		for (let bank = 0; bank < this.nodes.length; bank++) {
+			if (!this.nodes[bank]) continue;
+			this.nodes[bank].unshift(null); //add first map
+		}
+		this.renumberMaps();
+		return true;
+	}
+	
 	renumberMaps() {
-		for (let bank = 1; bank < this.nodes.length; bank++) {
+		for (let bank = 0; bank < this.nodes.length; bank++) {
 			if (!this.nodes[bank]) continue;
 			for (let map = 0; map < this.nodes[bank].length; map++) {
 				if (!this.nodes[bank][map]) continue;
@@ -208,7 +229,6 @@ class MapRegion {
 		}
 		App.notifyChange('map-renumber', this);
 	}
-	
 }
 
 /** Represents a map in the game. This represents data about a location id given by the API. */
@@ -264,7 +284,7 @@ class MapNode {
 			areaName: this.areaName,
 			type: this.type,
 			width: this.width, height: this.height,
-			attrs: this.attrs,
+			attrs: Object.assign({}, this.attrs),
 			areas: [],
 			gamedata: this.gamedata,
 		};
@@ -343,7 +363,7 @@ class MapType {
 	serialize() {
 		let out = {
 			type: this.name,
-			attrs: this.attrs,
+			attrs: Object.assign({}, this.attrs),
 			areas: [],
 		};
 		out.areas = this.areas.map(x=>x.serialize());
@@ -402,7 +422,7 @@ class MapArea {
 			bx: this.bx, by: this.by,
 			rad: this.rad,
 			name: this.name,
-			attrs: this.attrs,
+			attrs: Object.assign({}, this.attrs),
 		};
 	}
 }
@@ -551,6 +571,11 @@ function generateDefaultMapTypes(region) {
 			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
+	add(new MapType(region, { type:'center2',	attrs:{ indoors:true, the:"the", preposition:"in" },
+		areas: [
+			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
+		],
+	}));
 	add(new MapType(region, { type:'mart',		attrs:{ indoors:true, shopping:true, the:"the", preposition:"in" },
 		areas: [
 			{ name: "shopping", x:2, y:2, attrs:{ shopping:true } },
@@ -596,6 +621,9 @@ const ATTRS = {
 	water: {
 		tooltip: `If the location is surf-required water.`,
 	},
+	underwater: {
+		tooltip: `If the location is underwater.`,
+	},
 	gym: {
 		tooltip: `If the location is a gym (badge/TM getting, attempt counting).`,
 	},
@@ -604,10 +632,13 @@ const ATTRS = {
 		values: [false,'lobby','e1','e2','e3','e4','champ','hallOfFame'],
 	},
 	safari: {
-		tooltip: `If this location is part of a Safari Zone (catches in safari ball)`,
+		tooltip: `If this location is part of a Safari Zone (catches in safari ball).`,
 	},
 	entralink: {
-		tooltip: `If this location is an entralink map (special reporting)`,
+		tooltip: `If this location is an entralink map (special reporting).`,
+	},
+	tempParty: {
+		tooltip: `If this location is a location where a temporary party is expected (for special reporting).`,
 	},
 	
 	// Amenities which can affect reporting
@@ -633,9 +664,13 @@ const ATTRS = {
 		tooltip: `If the location is a fly location or spawn point. (Use only for Areas marking the spot)`,
 		areasOnly: true,
 	},
+	teleport: {
+		tooltip: `If the location is a teleport kiosk location (used often in ROM Hacks in place of increasing the number of fly spots). (Use only for Areas marking the spot)`,
+		areasOnly: true,
+	},
 	healing: {
 		tooltip: `If the location offers a type of healing.`,
-		values: [false,'pokecenter','doctor','nurse','house','partner'],
+		values: [false,'pokecenter','doctor','nurse','house','partner','scientist'],
 	},
 	shopping: {
 		tooltip: `If the location offers vendors. (Use only for Areas marking the spot)`,

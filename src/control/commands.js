@@ -381,10 +381,10 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['reqUpdate', 'team', res[1]]; //extra word is to specify which game during dual runs, default both
 	}
 	
-	if ((res = /^confirm ([0-9a-z]{5})/i.exec(cmd))) {
+	if ((res = /^confirm ([0-9a-z]{3,5})/i.exec(cmd))) {
 		return ['query-respond', res[1], true];
 	}
-	if ((res = /^deny ([0-9a-z]{5})/i.exec(cmd))) {
+	if ((res = /^deny ([0-9a-z]{3,5})/i.exec(cmd))) {
 		return ['query-respond', res[1], false];
 	}
 	
@@ -444,7 +444,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 	}
 	
 	if ((res = /^(?:turn on|enable|set on) (.*)/i.exec(cmd))) {
-		let flag = res[2];
+		let flag = res[1];
 		const runflags = require('./runflags');
 		flag = runflags.parse(flag);
 		if (flag) {
@@ -453,7 +453,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['shutup', `I don't have an option for that.`];
 	}
 	if ((res = /^(?:turn off|disable|set off) (.*)/i.exec(cmd))) {
-		let flag = res[2];
+		let flag = res[1];
 		const runflags = require('./runflags');
 		flag = runflags.parse(flag);
 		if (flag) {

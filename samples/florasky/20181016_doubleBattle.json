@@ -1,0 +1,7721 @@
+1539669739321
+{
+	"party": [
+		{
+			"personality_value": 3893751313,
+			"encyption_key": -2063198908,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923
+			},
+			"name": "Shedinja",
+			"language": "English",
+			"marking": "",
+			"checksum": 29915,
+			"species": {
+				"abilities": [
+					"Wonder Guard",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 90,
+					"defense": 45,
+					"hp": 1,
+					"special_attack": 30,
+					"special_defense": 30,
+					"speed": 40
+				},
+				"catch_rate": 45,
+				"egg_cycles": 15,
+				"egg_type1": "Mineral",
+				"egg_type2": "Mineral",
+				"gender_ratio": 255,
+				"growth_rate": "Erratic",
+				"id": 303,
+				"name": "Shedinja",
+				"national_dex": 292,
+				"type1": "Bug",
+				"type2": "Ghost"
+			},
+			"held_item": {
+				"count": 0,
+				"id": 121,
+				"name": "Orange Mail"
+			},
+			"friendship": 163,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 170,
+					"pp": 5,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Mind Reader",
+					"type": "Normal",
+					"contest": {
+						"type": "Smart",
+						"effect": "Affects appealers other than startling them.",
+						"appeal": "♡♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 80,
+					"base_power": 18,
+					"id": 154,
+					"pp": 12,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Fury Swipes",
+					"type": "Normal",
+					"contest": {
+						"type": "Tough",
+						"effect": "Startles all previous appealers.",
+						"appeal": "♡♡",
+						"jamming": "♥"
+					}
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 104,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Double Team",
+					"type": "Normal",
+					"contest": {
+						"type": "Cool",
+						"effect": "Prevents the user from being startled.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 28,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Sand-Attack",
+					"type": "Ground",
+					"contest": {
+						"type": "Cute",
+						"effect": "Startles all previous appealers.",
+						"appeal": "♡♡",
+						"jamming": "♥"
+					}
+				}
+			],
+			"evs": {
+				"hp": 15,
+				"attack": 61,
+				"defense": 24,
+				"speed": 49,
+				"special_attack": 2,
+				"special_defense": 1
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 59,
+				"area_id": 43,
+				"area_name": "Route Aa",
+				"level": 8,
+				"game": "3",
+				"caught_in": "Great Ball"
+			},
+			"ivs": {
+				"hp": 23,
+				"attack": 9,
+				"defense": 31,
+				"speed": 31,
+				"special_attack": 1,
+				"special_defense": 28
+			},
+			"is_egg": false,
+			"ability": "Wonder Guard",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 21,
+			"pokerus_remaining": 1,
+			"health": [
+				1,
+				1
+			],
+			"stats": {
+				"hp": 1,
+				"attack": 47,
+				"defense": 31,
+				"speed": 33,
+				"special_attack": 15,
+				"special_defense": 23
+			},
+			"gender": null,
+			"experience": {
+				"current": 14928,
+				"next_level": 16610,
+				"this_level": 14632,
+				"remaining": 1682
+			},
+			"next_move": {
+				"level": 25,
+				"name": null,
+				"id": null,
+				"type": "Ghost"
+			},
+			"buffs": {
+				"hp": 6,
+				"attack": 6,
+				"defense": 6,
+				"speed": 6,
+				"special_attack": 6,
+				"special_defense": 6,
+				"accuracy": 6,
+				"evasion": 6
+			},
+			"volatile_status": []
+		},
+		{
+			"personality_value": 291425856,
+			"encyption_key": 2085434645,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923,
+				"gender": "Female"
+			},
+			"name": "   T",
+			"language": "English",
+			"marking": "",
+			"checksum": 20561,
+			"species": {
+				"abilities": [
+					"Pickup",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 30,
+					"defense": 41,
+					"hp": 38,
+					"special_attack": 30,
+					"special_defense": 41,
+					"speed": 60
+				},
+				"catch_rate": 255,
+				"egg_cycles": 15,
+				"egg_type1": "Field",
+				"egg_type2": "Field",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 288,
+				"name": "Zigzagoon",
+				"national_dex": 263,
+				"type1": "Normal",
+				"type2": "Normal"
+			},
+			"held_item": null,
+			"friendship": 255,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 45,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Growl",
+					"type": "Normal",
+					"contest": {
+						"type": "Cute",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 40,
+					"id": 249,
+					"pp": 14,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Rock Smash",
+					"type": "Fighting",
+					"contest": {
+						"type": "Tough",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 39,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal",
+					"contest": {
+						"type": "Cute",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 28,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Sand-Attack",
+					"type": "Ground",
+					"contest": {
+						"type": "Cute",
+						"effect": "Startles all previous appealers.",
+						"appeal": "♡♡",
+						"jamming": "♥"
+					}
+				}
+			],
+			"evs": {
+				"hp": 5,
+				"attack": 11,
+				"defense": 9,
+				"speed": 25,
+				"special_attack": 5,
+				"special_defense": 7
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 16,
+				"area_id": 16,
+				"area_name": "Route A",
+				"level": 3,
+				"game": "3",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 1,
+				"attack": 9,
+				"defense": 4,
+				"speed": 28,
+				"special_attack": 31,
+				"special_defense": 16
+			},
+			"is_egg": false,
+			"ability": "Pickup",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 20,
+			"pokerus_remaining": 255,
+			"health": [
+				0,
+				45
+			],
+			"stats": {
+				"hp": 45,
+				"attack": 19,
+				"defense": 22,
+				"speed": 35,
+				"special_attack": 23,
+				"special_defense": 24
+			},
+			"gender": "Female",
+			"experience": {
+				"current": 8653,
+				"next_level": 9261,
+				"this_level": 8000,
+				"remaining": 608
+			},
+			"next_move": {
+				"level": 21,
+				"name": null,
+				"id": null,
+				"type": "Ground"
+			}
+		},
+		{
+			"personality_value": 3997380162,
+			"encyption_key": -2091854569,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923
+			},
+			"name": "AAAGGGAAAA",
+			"language": "English",
+			"marking": "",
+			"checksum": 62780,
+			"species": {
+				"abilities": [
+					"Synchronize",
+					"Trace"
+				],
+				"base_stats": {
+					"attack": 35,
+					"defense": 35,
+					"hp": 38,
+					"special_attack": 65,
+					"special_defense": 55,
+					"speed": 50
+				},
+				"catch_rate": 120,
+				"egg_cycles": 20,
+				"egg_type1": "Amorphous",
+				"egg_type2": "Amorphous",
+				"gender_ratio": 127,
+				"growth_rate": "Slow",
+				"id": 393,
+				"name": "Kirlia",
+				"national_dex": 281,
+				"type1": "Psychic",
+				"type2": "Psychic"
+			},
+			"held_item": {
+				"count": 0,
+				"id": 121,
+				"name": "Orange Mail"
+			},
+			"friendship": 216,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 50,
+					"id": 93,
+					"pp": 23,
+					"pp_up": 0,
+					"max_pp": 25,
+					"name": "Confusion",
+					"type": "Psychic",
+					"contest": {
+						"type": "Smart",
+						"effect": "Startles the previous appealer.",
+						"appeal": "♡♡",
+						"jamming": "♥♥♥"
+					}
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 104,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Double Team",
+					"type": "Normal",
+					"contest": {
+						"type": "Cool",
+						"effect": "Prevents the user from being startled.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 45,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Growl",
+					"type": "Normal",
+					"contest": {
+						"type": "Cute",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 241,
+					"pp": 5,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Sunny Day",
+					"type": "Fire",
+					"contest": {
+						"type": "Beauty",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡",
+						"jamming": ""
+					}
+				}
+			],
+			"evs": {
+				"hp": 17,
+				"attack": 21,
+				"defense": 17,
+				"speed": 30,
+				"special_attack": 13,
+				"special_defense": 5
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 16,
+				"area_id": 16,
+				"area_name": "Route A",
+				"level": 3,
+				"game": "3",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 27,
+				"attack": 16,
+				"defense": 24,
+				"speed": 7,
+				"special_attack": 25,
+				"special_defense": 7
+			},
+			"is_egg": false,
+			"ability": "Synchronize",
+			"ribbons": [],
+			"status": "PAR",
+			"sleep_turns": 0,
+			"level": 20,
+			"pokerus_remaining": 2,
+			"health": [
+				43,
+				51
+			],
+			"stats": {
+				"hp": 51,
+				"attack": 23,
+				"defense": 24,
+				"speed": 27,
+				"special_attack": 36,
+				"special_defense": 28
+			},
+			"gender": "Female",
+			"experience": {
+				"current": 10680,
+				"next_level": 11576,
+				"this_level": 10000,
+				"remaining": 896
+			},
+			"next_move": {
+				"level": 21,
+				"name": null,
+				"id": null,
+				"type": "Psychic"
+			},
+			"buffs": {
+				"hp": 6,
+				"attack": 6,
+				"defense": 6,
+				"speed": 6,
+				"special_attack": 6,
+				"special_defense": 6,
+				"accuracy": 6,
+				"evasion": 6
+			},
+			"volatile_status": []
+		},
+		{
+			"personality_value": 2535331463,
+			"encyption_key": -99750446,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923,
+				"gender": "Female"
+			},
+			"name": "AAAAAAAAAT",
+			"language": "English",
+			"marking": "",
+			"checksum": 26193,
+			"species": {
+				"abilities": [
+					"Sand Veil",
+					"Rough Skin"
+				],
+				"base_stats": {
+					"attack": 70,
+					"defense": 45,
+					"hp": 58,
+					"special_attack": 40,
+					"special_defense": 45,
+					"speed": 42
+				},
+				"catch_rate": 45,
+				"egg_cycles": 15,
+				"egg_type1": "Monster",
+				"egg_type2": "Dragon",
+				"gender_ratio": 127,
+				"growth_rate": "Slow",
+				"id": 298,
+				"name": "Gible",
+				"national_dex": 273,
+				"type1": "Dragon",
+				"type2": "Ground"
+			},
+			"held_item": null,
+			"friendship": 103,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 1,
+					"id": 82,
+					"pp": 7,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Dragon Rage",
+					"type": "Dragon",
+					"contest": {
+						"type": "Cool",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 28,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Sand-Attack",
+					"type": "Ground",
+					"contest": {
+						"type": "Cute",
+						"effect": "Startles all previous appealers.",
+						"appeal": "♡♡",
+						"jamming": "♥"
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 50,
+					"id": 33,
+					"pp": 35,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Tackle",
+					"type": "Normal",
+					"contest": {
+						"type": "Tough",
+						"effect": "The appeal effect of this move is constant.",
+						"appeal": "♡♡♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 85,
+					"base_power": 90,
+					"id": 36,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Take Down",
+					"type": "Normal",
+					"contest": {
+						"type": "Tough",
+						"effect": "The appeal effect of this move is constant.",
+						"appeal": "♡♡♡♡♡♡",
+						"jamming": ""
+					}
+				}
+			],
+			"evs": {
+				"hp": 0,
+				"attack": 9,
+				"defense": 2,
+				"speed": 2,
+				"special_attack": 0,
+				"special_defense": 0
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 25,
+				"area_id": 24,
+				"area_name": "Route H",
+				"level": 15,
+				"game": "3",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 11,
+				"attack": -6,
+				"defense": -7,
+				"speed": -6,
+				"special_attack": -5,
+				"special_defense": -23
+			},
+			"is_egg": false,
+			"ability": "Rough Skin",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 17,
+			"pokerus_remaining": 255,
+			"health": [
+				18,
+				48
+			],
+			"stats": {
+				"hp": 48,
+				"attack": 33,
+				"defense": 24,
+				"speed": 25,
+				"special_attack": 20,
+				"special_defense": 21
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 6577,
+				"next_level": 7290,
+				"this_level": 6141,
+				"remaining": 713
+			},
+			"next_move": {
+				"level": 19,
+				"name": null,
+				"id": null,
+				"type": "Ground"
+			}
+		},
+		{
+			"personality_value": 3137855812,
+			"encyption_key": -703325679,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923,
+				"gender": "Female"
+			},
+			"name": "Prinplup",
+			"language": "English",
+			"marking": "",
+			"checksum": 57937,
+			"species": {
+				"abilities": [
+					"Torrent",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 66,
+					"defense": 68,
+					"hp": 64,
+					"special_attack": 81,
+					"special_defense": 76,
+					"speed": 50
+				},
+				"catch_rate": 45,
+				"egg_cycles": 20,
+				"egg_type1": "Monster",
+				"egg_type2": "Field",
+				"gender_ratio": 31,
+				"growth_rate": "Medium Slow",
+				"id": 8,
+				"name": "Prinplup",
+				"national_dex": 8,
+				"type1": "Water",
+				"type2": "Water"
+			},
+			"held_item": {
+				"count": 0,
+				"id": 121,
+				"name": "Orange Mail"
+			},
+			"friendship": 255,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 40,
+					"id": 55,
+					"pp": 25,
+					"pp_up": 0,
+					"max_pp": 25,
+					"name": "Water Gun",
+					"type": "Water",
+					"contest": {
+						"type": "Cute",
+						"effect": "The appeal effect of this move is constant.",
+						"appeal": "♡♡♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 65,
+					"id": 61,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Bubblebeam",
+					"type": "Water",
+					"contest": {
+						"type": "Beauty",
+						"effect": "Startles all previous appealers.",
+						"appeal": "♡",
+						"jamming": "♥♥♥"
+					}
+				},
+				{
+					"accuracy": 95,
+					"base_power": 50,
+					"id": 232,
+					"pp": 35,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Metal Claw",
+					"type": "Steel",
+					"contest": {
+						"type": "Cool",
+						"effect": "The appeal effect of this move is constant.",
+						"appeal": "♡♡♡♡",
+						"jamming": ""
+					}
+				},
+				{
+					"accuracy": 90,
+					"base_power": 0,
+					"id": 207,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Swagger",
+					"type": "Normal",
+					"contest": {
+						"type": "Cute",
+						"effect": "Appeal effect may change.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				}
+			],
+			"evs": {
+				"hp": 8,
+				"attack": 84,
+				"defense": 21,
+				"speed": 41,
+				"special_attack": 13,
+				"special_defense": 4
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 56,
+				"area_id": 207,
+				"area_name": "Underwater",
+				"level": 5,
+				"game": "3",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 22,
+				"attack": 14,
+				"defense": 19,
+				"speed": 7,
+				"special_attack": 1,
+				"special_defense": 26
+			},
+			"is_egg": false,
+			"ability": "Torrent",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 31,
+			"pokerus_remaining": 0,
+			"health": [
+				88,
+				88
+			],
+			"stats": {
+				"hp": 88,
+				"attack": 56,
+				"defense": 54,
+				"speed": 41,
+				"special_attack": 56,
+				"special_defense": 60
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 24785,
+				"next_level": 27021,
+				"this_level": 24294,
+				"remaining": 2236
+			},
+			"next_move": {
+				"level": 35,
+				"name": null,
+				"id": null,
+				"type": "Ice"
+			}
+		},
+		{
+			"personality_value": 2748701318,
+			"encyption_key": -825876013,
+			"original_trainer": {
+				"name": "..hnv",
+				"id": 64341,
+				"secret": 27923,
+				"gender": "Female"
+			},
+			"name": "AAAAABBNNB",
+			"language": "English",
+			"marking": "",
+			"checksum": 21022,
+			"species": {
+				"abilities": [
+					"Hyper Cutter",
+					"Sand Veil"
+				],
+				"base_stats": {
+					"attack": 75,
+					"defense": 105,
+					"hp": 65,
+					"special_attack": 35,
+					"special_defense": 65,
+					"speed": 85
+				},
+				"catch_rate": 60,
+				"egg_cycles": 20,
+				"egg_type1": "Bug",
+				"egg_type2": "Bug",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Slow",
+				"id": 207,
+				"name": "Gligar",
+				"national_dex": 207,
+				"type1": "Ground",
+				"type2": "Flying"
+			},
+			"held_item": null,
+			"friendship": 90,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 15,
+					"id": 40,
+					"pp": 35,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Poison Sting",
+					"type": "Poison",
+					"contest": {
+						"type": "Smart",
+						"effect": "Startles the previous appealer.",
+						"appeal": "♡♡",
+						"jamming": "♥♥♥"
+					}
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 28,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Sand-Attack",
+					"type": "Ground",
+					"contest": {
+						"type": "Cute",
+						"effect": "Startles all previous appealers.",
+						"appeal": "♡♡",
+						"jamming": "♥"
+					}
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 106,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Harden",
+					"type": "Normal",
+					"contest": {
+						"type": "Tough",
+						"effect": "Prevents the user from being startled.",
+						"appeal": "♡♡",
+						"jamming": ""
+					}
+				}
+			],
+			"evs": {
+				"hp": 0,
+				"attack": 2,
+				"defense": 0,
+				"speed": 1,
+				"special_attack": 0,
+				"special_defense": 0
+			},
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 22,
+				"area_id": 21,
+				"area_name": "Route L",
+				"level": 14,
+				"game": "3",
+				"caught_in": "Ultra Ball"
+			},
+			"ivs": {
+				"hp": 23,
+				"attack": 5,
+				"defense": 29,
+				"speed": 31,
+				"special_attack": 11,
+				"special_defense": 31
+			},
+			"is_egg": false,
+			"ability": "Hyper Cutter",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 15,
+			"pokerus_remaining": 255,
+			"health": [
+				47,
+				47
+			],
+			"stats": {
+				"hp": 47,
+				"attack": 28,
+				"defense": 40,
+				"speed": 35,
+				"special_attack": 17,
+				"special_defense": 29
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 2396,
+				"next_level": 2535,
+				"this_level": 2035,
+				"remaining": 139
+			},
+			"next_move": {
+				"level": 20,
+				"name": null,
+				"id": null,
+				"type": "Normal"
+			}
+		}
+	],
+	"pc": {
+		"current_box_number": 1,
+		"boxes": [
+			{
+				"box_number": 1,
+				"box_name": "BOX1",
+				"box_contents": [
+					{
+						"personality_value": 314192138,
+						"encyption_key": 2141833823,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "IJ",
+						"language": "English",
+						"marking": "",
+						"checksum": 11338,
+						"species": {
+							"abilities": [
+								"Shield Dust",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 30,
+								"defense": 35,
+								"hp": 45,
+								"special_attack": 20,
+								"special_defense": 20,
+								"speed": 45
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 10,
+							"name": "Caterpie",
+							"national_dex": 10,
+							"type1": "Bug",
+							"type2": "Bug"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 95,
+								"base_power": 0,
+								"id": 81,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "String Shot",
+								"type": "Bug",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 59,
+							"area_id": 43,
+							"area_name": "Route Aa",
+							"level": 9,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 15,
+							"attack": 16,
+							"defense": 12,
+							"speed": 21,
+							"special_attack": 3,
+							"special_defense": 22
+						},
+						"is_egg": false,
+						"ability": "Shield Dust",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 9,
+						"experience": {
+							"current": 729,
+							"next_level": 1000,
+							"this_level": 729,
+							"remaining": 271
+						},
+						"box_slot": 1
+					},
+					{
+						"personality_value": 835340112,
+						"encyption_key": 1557773317,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "BBBBVVWWZA",
+						"language": "English",
+						"marking": "",
+						"checksum": 43474,
+						"species": {
+							"abilities": [
+								"Intimidate",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 75,
+								"defense": 50,
+								"hp": 55,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 80
+							},
+							"catch_rate": 120,
+							"egg_cycles": 15,
+							"egg_type1": "Flying",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 17,
+							"name": "Staravia",
+							"national_dex": 17,
+							"type1": "Normal",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 245,
+						"moves": [
+							{
+								"accuracy": 85,
+								"base_power": 90,
+								"id": 36,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Take Down",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 1,
+								"id": 283,
+								"pp": 5,
+								"pp_up": 0,
+								"max_pp": 5,
+								"name": "Endeavor",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 104,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Double Team",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 42,
+							"attack": 77,
+							"defense": 36,
+							"speed": 61,
+							"special_attack": 13,
+							"special_defense": 12
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 37,
+							"area_id": 41,
+							"area_name": "Route Y",
+							"level": 3,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 22,
+							"attack": 22,
+							"defense": 10,
+							"speed": 25,
+							"special_attack": 19,
+							"special_defense": 15
+						},
+						"is_egg": false,
+						"ability": "Intimidate",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 33,
+						"experience": {
+							"current": 30674,
+							"next_level": 33084,
+							"this_level": 29949,
+							"remaining": 2410
+						},
+						"next_move": {
+							"level": 38,
+							"name": null,
+							"id": null,
+							"type": "Psychic"
+						},
+						"box_slot": 2
+					},
+					{
+						"personality_value": 2345726409,
+						"encyption_key": -423425380,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAgp ",
+						"language": "English",
+						"marking": "",
+						"checksum": 46396,
+						"species": {
+							"abilities": [
+								"Inner Focus",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 35,
+								"hp": 40,
+								"special_attack": 30,
+								"special_defense": 40,
+								"speed": 55
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Flying",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 41,
+							"name": "Zubat",
+							"national_dex": 41,
+							"type1": "Poison",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 141,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Leech Life",
+								"type": "Bug",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 55,
+								"base_power": 0,
+								"id": 48,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Supersonic",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 30,
+								"id": 310,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Astonish",
+								"type": "Ghost",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 55,
+							"area_id": 206,
+							"area_name": "Underwater",
+							"level": 11,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 6,
+							"attack": 17,
+							"defense": 29,
+							"speed": 28,
+							"special_attack": 17,
+							"special_defense": 2
+						},
+						"is_egg": false,
+						"ability": "Inner Focus",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 11,
+						"experience": {
+							"current": 1331,
+							"next_level": 1728,
+							"this_level": 1331,
+							"remaining": 397
+						},
+						"next_move": {
+							"level": 16,
+							"name": null,
+							"id": null,
+							"type": "Dark"
+						},
+						"box_slot": 3
+					},
+					{
+						"personality_value": 1862378195,
+						"encyption_key": 34756998,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AGBNHH",
+						"language": "English",
+						"marking": "",
+						"checksum": 9932,
+						"species": {
+							"abilities": [
+								"Shield Dust",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 35,
+								"hp": 45,
+								"special_attack": 20,
+								"special_defense": 30,
+								"speed": 20
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 290,
+							"name": "Wurmple",
+							"national_dex": 265,
+							"type1": "Bug",
+							"type2": "Bug"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 95,
+								"base_power": 0,
+								"id": 81,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "String Shot",
+								"type": "Bug",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 15,
+								"id": 40,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poison Sting",
+								"type": "Poison",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 59,
+							"area_id": 43,
+							"area_name": "Route Aa",
+							"level": 9,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 15,
+							"attack": 27,
+							"defense": 15,
+							"speed": 19,
+							"special_attack": 31,
+							"special_defense": 11
+						},
+						"is_egg": false,
+						"ability": "Shield Dust",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 9,
+						"experience": {
+							"current": 729,
+							"next_level": 1000,
+							"this_level": 729,
+							"remaining": 271
+						},
+						"box_slot": 4
+					},
+					{
+						"personality_value": 679027483,
+						"encyption_key": 1164630094,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Metapod",
+						"language": "English",
+						"marking": "",
+						"checksum": 44097,
+						"species": {
+							"abilities": [
+								"Shed Skin",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 20,
+								"defense": 55,
+								"hp": 50,
+								"special_attack": 25,
+								"special_defense": 25,
+								"speed": 30
+							},
+							"catch_rate": 120,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 11,
+							"name": "Metapod",
+							"national_dex": 11,
+							"type1": "Bug",
+							"type2": "Bug"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 106,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Harden",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 59,
+							"area_id": 43,
+							"area_name": "Route Aa",
+							"level": 9,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 15,
+							"attack": 6,
+							"defense": 30,
+							"speed": 26,
+							"special_attack": 23,
+							"special_defense": 6
+						},
+						"is_egg": false,
+						"ability": "Shed Skin",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 9,
+						"experience": {
+							"current": 729,
+							"next_level": 1000,
+							"this_level": 729,
+							"remaining": 271
+						},
+						"box_slot": 5
+					},
+					{
+						"personality_value": 3477319635,
+						"encyption_key": -1571793786,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAHHNIILLA",
+						"language": "English",
+						"marking": "",
+						"checksum": 49915,
+						"species": {
+							"abilities": [
+								"Compoundeyes",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 90,
+								"hp": 31,
+								"special_attack": 30,
+								"special_defense": 30,
+								"speed": 40
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Erratic",
+							"id": 301,
+							"name": "Nincada",
+							"national_dex": 290,
+							"type1": "Bug",
+							"type2": "Ground"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 10,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Scratch",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 106,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Harden",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 141,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Leech Life",
+								"type": "Bug",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 59,
+							"area_id": 43,
+							"area_name": "Route Aa",
+							"level": 7,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 16,
+							"attack": 3,
+							"defense": 19,
+							"speed": 14,
+							"special_attack": 18,
+							"special_defense": 24
+						},
+						"is_egg": false,
+						"ability": "Compoundeyes",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 7,
+						"experience": {
+							"current": 637,
+							"next_level": 942,
+							"this_level": 637,
+							"remaining": 305
+						},
+						"next_move": {
+							"level": 9,
+							"name": null,
+							"id": null,
+							"type": "Ground"
+						},
+						"box_slot": 6
+					},
+					{
+						"personality_value": 612903887,
+						"encyption_key": 1234948250,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Abra",
+						"language": "English",
+						"marking": "",
+						"checksum": 33426,
+						"species": {
+							"abilities": [
+								"Synchronize",
+								"Inner Focus"
+							],
+							"base_stats": {
+								"attack": 20,
+								"defense": 15,
+								"hp": 25,
+								"special_attack": 105,
+								"special_defense": 55,
+								"speed": 90
+							},
+							"catch_rate": 200,
+							"egg_cycles": 20,
+							"egg_type1": "Human-Like",
+							"egg_type2": "Human-Like",
+							"gender_ratio": 63,
+							"growth_rate": "Medium Slow",
+							"id": 63,
+							"name": "Abra",
+							"national_dex": 63,
+							"type1": "Psychic",
+							"type2": "Psychic"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 100,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Teleport",
+								"type": "Psychic",
+								"contest": {
+									"type": "Cool",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 20,
+							"area_id": 19,
+							"area_name": "Route F",
+							"level": 9,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 25,
+							"attack": -26,
+							"defense": -8,
+							"speed": -19,
+							"special_attack": -3,
+							"special_defense": -15
+						},
+						"is_egg": false,
+						"ability": "Inner Focus",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 9,
+						"experience": {
+							"current": 419,
+							"next_level": 560,
+							"this_level": 419,
+							"remaining": 141
+						},
+						"box_slot": 7
+					},
+					{
+						"personality_value": 84326020,
+						"encyption_key": 1746226641,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Trapinch",
+						"language": "English",
+						"marking": "",
+						"checksum": 57687,
+						"species": {
+							"abilities": [
+								"Hyper Cutter",
+								"Arena Trap"
+							],
+							"base_stats": {
+								"attack": 100,
+								"defense": 45,
+								"hp": 45,
+								"special_attack": 45,
+								"special_defense": 45,
+								"speed": 10
+							},
+							"catch_rate": 255,
+							"egg_cycles": 20,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 332,
+							"name": "Trapinch",
+							"national_dex": 328,
+							"type1": "Ground",
+							"type2": "Ground"
+						},
+						"held_item": null,
+						"friendship": 78,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 25,
+							"area_id": 24,
+							"area_name": "Route H",
+							"level": 13,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 18,
+							"attack": 8,
+							"defense": 4,
+							"speed": 29,
+							"special_attack": 1,
+							"special_defense": 25
+						},
+						"is_egg": false,
+						"ability": "Hyper Cutter",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 13,
+						"experience": {
+							"current": 1261,
+							"next_level": 1612,
+							"this_level": 1261,
+							"remaining": 351
+						},
+						"next_move": {
+							"level": 17,
+							"name": null,
+							"id": null,
+							"type": "Dark"
+						},
+						"box_slot": 8
+					},
+					{
+						"personality_value": 450848437,
+						"encyption_key": 2009898464,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAABBBBUu",
+						"language": "English",
+						"marking": "",
+						"checksum": 11227,
+						"species": {
+							"abilities": [
+								"Sturdy",
+								"Rock Head"
+							],
+							"base_stats": {
+								"attack": 70,
+								"defense": 100,
+								"hp": 50,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 30
+							},
+							"catch_rate": 180,
+							"egg_cycles": 35,
+							"egg_type1": "Monster",
+							"egg_type2": "Monster",
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"id": 382,
+							"name": "Aron",
+							"national_dex": 304,
+							"type1": "Steel",
+							"type2": "Rock"
+						},
+						"held_item": null,
+						"friendship": 35,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 106,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Harden",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 60,
+							"area_id": 182,
+							"area_name": "Festa Zone",
+							"level": 6,
+							"game": "3",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 30,
+							"attack": -28,
+							"defense": -6,
+							"speed": -6,
+							"special_attack": -9,
+							"special_defense": -12
+						},
+						"is_egg": false,
+						"ability": "Rock Head",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 6,
+						"experience": {
+							"current": 270,
+							"next_level": 428,
+							"this_level": 270,
+							"remaining": 158
+						},
+						"next_move": {
+							"level": 7,
+							"name": null,
+							"id": null,
+							"type": "Ground"
+						},
+						"box_slot": 9
+					},
+					{
+						"personality_value": 3464014743,
+						"encyption_key": -1553248062,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Gastly",
+						"language": "English",
+						"marking": "",
+						"checksum": 49889,
+						"species": {
+							"abilities": [
+								"Levitate",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 35,
+								"defense": 30,
+								"hp": 30,
+								"special_attack": 100,
+								"special_defense": 35,
+								"speed": 80
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Amorphous",
+							"egg_type2": "Amorphous",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 92,
+							"name": "Gastly",
+							"national_dex": 92,
+							"type1": "Ghost",
+							"type2": "Poison"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 60,
+								"base_power": 0,
+								"id": 95,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Hypnosis",
+								"type": "Psychic",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 122,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Lick",
+								"type": "Ghost",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡",
+									"jamming": "♥♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 180,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Spite",
+								"type": "Ghost",
+								"contest": {
+									"type": "Tough",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 212,
+								"pp": 5,
+								"pp_up": 0,
+								"max_pp": 5,
+								"name": "Mean Look",
+								"type": "Normal",
+								"contest": {
+									"type": "Beauty",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 8,
+							"area_id": 15,
+							"area_name": "Pokemon League",
+							"level": 13,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 4,
+							"attack": 22,
+							"defense": 0,
+							"speed": 17,
+							"special_attack": 28,
+							"special_defense": 18
+						},
+						"is_egg": false,
+						"ability": "Levitate",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 13,
+						"experience": {
+							"current": 1261,
+							"next_level": 1612,
+							"this_level": 1261,
+							"remaining": 351
+						},
+						"next_move": {
+							"level": 16,
+							"name": null,
+							"id": null,
+							"type": "???"
+						},
+						"box_slot": 10
+					},
+					{
+						"personality_value": 2373165991,
+						"encyption_key": -530556686,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Meditite",
+						"language": "English",
+						"marking": "",
+						"checksum": 13083,
+						"species": {
+							"abilities": [
+								"Pure Power",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 40,
+								"defense": 55,
+								"hp": 30,
+								"special_attack": 40,
+								"special_defense": 55,
+								"speed": 60
+							},
+							"catch_rate": 180,
+							"egg_cycles": 20,
+							"egg_type1": "Human-Like",
+							"egg_type2": "Human-Like",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 356,
+							"name": "Meditite",
+							"national_dex": 307,
+							"type1": "Fighting",
+							"type2": "Psychic"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 1,
+								"id": 117,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Bide",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 96,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Meditate",
+								"type": "Psychic",
+								"contest": {
+									"type": "Beauty",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 19,
+							"area_id": 18,
+							"area_name": "Route G",
+							"level": 8,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 5,
+							"attack": 5,
+							"defense": 22,
+							"speed": 23,
+							"special_attack": 26,
+							"special_defense": 25
+						},
+						"is_egg": false,
+						"ability": "Pure Power",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 8,
+						"experience": {
+							"current": 512,
+							"next_level": 729,
+							"this_level": 512,
+							"remaining": 217
+						},
+						"next_move": {
+							"level": 9,
+							"name": null,
+							"id": null,
+							"type": "Psychic"
+						},
+						"box_slot": 11
+					},
+					{
+						"personality_value": 721085187,
+						"encyption_key": 1206458454,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAAOO22♂?",
+						"language": "English",
+						"marking": "",
+						"checksum": 15770,
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"Insomnia"
+							],
+							"base_stats": {
+								"attack": 55,
+								"defense": 50,
+								"hp": 50,
+								"special_attack": 36,
+								"special_defense": 30,
+								"speed": 43
+							},
+							"catch_rate": 235,
+							"egg_cycles": 20,
+							"egg_type1": "Flying",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 29,
+							"name": "Pidove",
+							"national_dex": 29,
+							"type1": "Normal",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Flying",
+								"contest": {
+									"type": "Smart",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 19,
+							"area_id": 18,
+							"area_name": "Route G",
+							"level": 9,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 9,
+							"attack": 0,
+							"defense": -1,
+							"speed": -16,
+							"special_attack": -26,
+							"special_defense": -18
+						},
+						"is_egg": false,
+						"ability": "Insomnia",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 9,
+						"experience": {
+							"current": 419,
+							"next_level": 560,
+							"this_level": 419,
+							"remaining": 141
+						},
+						"next_move": {
+							"level": 12,
+							"name": null,
+							"id": null,
+							"type": "Fighting"
+						},
+						"box_slot": 12
+					},
+					{
+						"personality_value": 816308759,
+						"encyption_key": 1572084034,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Blitzle",
+						"language": "English",
+						"marking": "",
+						"checksum": 63627,
+						"species": {
+							"abilities": [
+								"Lightningrod",
+								"Static"
+							],
+							"base_stats": {
+								"attack": 60,
+								"defense": 32,
+								"hp": 45,
+								"special_attack": 50,
+								"special_defense": 32,
+								"speed": 76
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 111,
+							"name": "Blitzle",
+							"national_dex": 111,
+							"type1": "Electric",
+							"type2": "Electric"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 39,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Tail Whip",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 19,
+							"area_id": 18,
+							"area_name": "Route G",
+							"level": 8,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 30,
+							"attack": -15,
+							"defense": -25,
+							"speed": -2,
+							"special_attack": -22,
+							"special_defense": -1
+						},
+						"is_egg": false,
+						"ability": "Static",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 8,
+						"experience": {
+							"current": 512,
+							"next_level": 729,
+							"this_level": 512,
+							"remaining": 217
+						},
+						"next_move": {
+							"level": 10,
+							"name": null,
+							"id": null,
+							"type": "Electric"
+						},
+						"box_slot": 13
+					},
+					{
+						"personality_value": 164758845,
+						"encyption_key": 1690435176,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Blitzle",
+						"language": "English",
+						"marking": "",
+						"checksum": 51550,
+						"species": {
+							"abilities": [
+								"Lightningrod",
+								"Static"
+							],
+							"base_stats": {
+								"attack": 60,
+								"defense": 32,
+								"hp": 45,
+								"special_attack": 50,
+								"special_defense": 32,
+								"speed": 76
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 111,
+							"name": "Blitzle",
+							"national_dex": 111,
+							"type1": "Electric",
+							"type2": "Electric"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 39,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Tail Whip",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 268,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Charge",
+								"type": "Electric",
+								"contest": {
+									"type": "Smart",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 19,
+							"area_id": 18,
+							"area_name": "Route G",
+							"level": 11,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 11,
+							"attack": -23,
+							"defense": -3,
+							"speed": -1,
+							"special_attack": -29,
+							"special_defense": -6
+						},
+						"is_egg": false,
+						"ability": "Static",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 11,
+						"experience": {
+							"current": 1331,
+							"next_level": 1728,
+							"this_level": 1331,
+							"remaining": 397
+						},
+						"next_move": {
+							"level": 15,
+							"name": null,
+							"id": null,
+							"type": "Electric"
+						},
+						"box_slot": 14
+					},
+					{
+						"personality_value": 817936085,
+						"encyption_key": 1574129024,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "A",
+						"language": "English",
+						"marking": "",
+						"checksum": 13361,
+						"species": {
+							"abilities": [
+								"Sturdy",
+								"Rock Head"
+							],
+							"base_stats": {
+								"attack": 70,
+								"defense": 100,
+								"hp": 50,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 30
+							},
+							"catch_rate": 180,
+							"egg_cycles": 35,
+							"egg_type1": "Monster",
+							"egg_type2": "Monster",
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"id": 382,
+							"name": "Aron",
+							"national_dex": 304,
+							"type1": "Steel",
+							"type2": "Rock"
+						},
+						"held_item": null,
+						"friendship": 35,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 106,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Harden",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 189,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Mud-Slap",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 70,
+								"id": 29,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Headbutt",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 55,
+							"area_id": 206,
+							"area_name": "Underwater",
+							"level": 11,
+							"game": "3",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 9,
+							"attack": -21,
+							"defense": -9,
+							"speed": -4,
+							"special_attack": -22,
+							"special_defense": -10
+						},
+						"is_egg": false,
+						"ability": "Rock Head",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 11,
+						"experience": {
+							"current": 1663,
+							"next_level": 2160,
+							"this_level": 1663,
+							"remaining": 497
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Steel"
+						},
+						"box_slot": 15
+					},
+					{
+						"personality_value": 2092904937,
+						"encyption_key": 296536764,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAMMTTTT",
+						"language": "English",
+						"marking": "",
+						"checksum": 49337,
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 30,
+								"defense": 30,
+								"hp": 40,
+								"special_attack": 55,
+								"special_defense": 30,
+								"speed": 85
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Water 1",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 309,
+							"name": "Wingull",
+							"national_dex": 278,
+							"type1": "Water",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 55,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Water Gun",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 55,
+								"base_power": 0,
+								"id": 48,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Supersonic",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 3,
+							"attack": 13,
+							"defense": 7,
+							"speed": 11,
+							"special_attack": 28,
+							"special_defense": 0
+						},
+						"is_egg": false,
+						"ability": "Keen Eye",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 12,
+						"experience": {
+							"current": 1728,
+							"next_level": 2197,
+							"this_level": 1728,
+							"remaining": 469
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Flying"
+						},
+						"box_slot": 16
+					},
+					{
+						"personality_value": 404796112,
+						"encyption_key": 1966295429,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAAGGGGGG",
+						"language": "English",
+						"marking": "",
+						"checksum": 28159,
+						"species": {
+							"abilities": [
+								"Swift Swim",
+								"Rain Dish"
+							],
+							"base_stats": {
+								"attack": 30,
+								"defense": 30,
+								"hp": 40,
+								"special_attack": 40,
+								"special_defense": 50,
+								"speed": 30
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Water 1",
+							"egg_type2": "Grass",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 295,
+							"name": "Lotad",
+							"national_dex": 270,
+							"type1": "Water",
+							"type2": "Grass"
+						},
+						"held_item": null,
+						"friendship": 120,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 30,
+								"id": 310,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Astonish",
+								"type": "Ghost",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 71,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Absorb",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 1,
+							"defense": 0,
+							"speed": 2,
+							"special_attack": 0,
+							"special_defense": 2
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 37,
+							"area_id": 41,
+							"area_name": "Route Y",
+							"level": 4,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 12,
+							"attack": 17,
+							"defense": 25,
+							"speed": 21,
+							"special_attack": 0,
+							"special_defense": 24
+						},
+						"is_egg": false,
+						"ability": "Swift Swim",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 9,
+						"experience": {
+							"current": 558,
+							"next_level": 560,
+							"this_level": 419,
+							"remaining": 2
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Normal"
+						},
+						"box_slot": 17
+					},
+					{
+						"personality_value": 2129075537,
+						"encyption_key": 334816772,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAAAAAAA",
+						"language": "English",
+						"marking": "",
+						"checksum": 43385,
+						"species": {
+							"abilities": [
+								"Static",
+								"Lightningrod"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 65,
+								"special_defense": 40,
+								"speed": 65
+							},
+							"catch_rate": 120,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"id": 337,
+							"name": "Electrike",
+							"national_dex": 309,
+							"type1": "Electric",
+							"type2": "Electric"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 86,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Thunder Wave",
+								"type": "Electric",
+								"contest": {
+									"type": "Cool",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 336,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Howl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": -17,
+							"speed": -13,
+							"special_attack": -1,
+							"special_defense": -14
+						},
+						"is_egg": false,
+						"ability": "Lightningrod",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 12,
+						"experience": {
+							"current": 2160,
+							"next_level": 2746,
+							"this_level": 2160,
+							"remaining": 586
+						},
+						"next_move": {
+							"level": 17,
+							"name": null,
+							"id": null,
+							"type": "Normal"
+						},
+						"box_slot": 18
+					},
+					{
+						"personality_value": 763753010,
+						"encyption_key": 1083574631,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAaagmmlr",
+						"language": "English",
+						"marking": "",
+						"checksum": 57736,
+						"species": {
+							"abilities": [
+								"Liquid Ooze",
+								"Sticky Hold"
+							],
+							"base_stats": {
+								"attack": 43,
+								"defense": 53,
+								"hp": 70,
+								"special_attack": 43,
+								"special_defense": 53,
+								"speed": 40
+							},
+							"catch_rate": 225,
+							"egg_cycles": 20,
+							"egg_type1": "Amorphous",
+							"egg_type2": "Amorphous",
+							"gender_ratio": 127,
+							"growth_rate": "Fluctuating",
+							"id": 367,
+							"name": "Gulpin",
+							"national_dex": 316,
+							"type1": "Poison",
+							"type2": "Poison"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 1,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Pound",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 281,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Yawn",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 90,
+								"base_power": 0,
+								"id": 139,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Poison Gas",
+								"type": "Poison",
+								"contest": {
+									"type": "Smart",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 31,
+							"attack": 4,
+							"defense": 10,
+							"speed": 15,
+							"special_attack": 3,
+							"special_defense": 20
+						},
+						"is_egg": false,
+						"ability": "Liquid Ooze",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 12,
+						"experience": {
+							"current": 967,
+							"next_level": 1230,
+							"this_level": 967,
+							"remaining": 263
+						},
+						"next_move": {
+							"level": 14,
+							"name": null,
+							"id": null,
+							"type": "Poison"
+						},
+						"box_slot": 19
+					},
+					{
+						"personality_value": 4116558646,
+						"encyption_key": -1739700125,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AA, lrr",
+						"language": "English",
+						"marking": "",
+						"checksum": 29474,
+						"species": {
+							"abilities": [
+								"Shed Skin",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 35,
+								"defense": 55,
+								"hp": 50,
+								"special_attack": 25,
+								"special_defense": 25,
+								"speed": 15
+							},
+							"catch_rate": 120,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 293,
+							"name": "Cascoon",
+							"national_dex": 268,
+							"type1": "Bug",
+							"type2": "Bug"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 106,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Harden",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 59,
+							"area_id": 43,
+							"area_name": "Route Aa",
+							"level": 10,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 13,
+							"attack": 16,
+							"defense": 6,
+							"speed": 12,
+							"special_attack": 15,
+							"special_defense": 24
+						},
+						"is_egg": false,
+						"ability": "Shed Skin",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 10,
+						"experience": {
+							"current": 1000,
+							"next_level": 1331,
+							"this_level": 1000,
+							"remaining": 331
+						},
+						"box_slot": 20
+					},
+					{
+						"personality_value": 1862388858,
+						"encyption_key": 34748207,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Geodude",
+						"language": "English",
+						"marking": "",
+						"checksum": 35275,
+						"species": {
+							"abilities": [
+								"Rock Head",
+								"Sturdy"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 100,
+								"hp": 40,
+								"special_attack": 30,
+								"special_defense": 30,
+								"speed": 20
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Mineral",
+							"egg_type2": "Mineral",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 74,
+							"name": "Geodude",
+							"national_dex": 74,
+							"type1": "Rock",
+							"type2": "Ground"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 111,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Defense Curl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 300,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Mud Sport",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 90,
+								"base_power": 50,
+								"id": 88,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Rock Throw",
+								"type": "Rock",
+								"contest": {
+									"type": "Tough",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 55,
+							"area_id": 206,
+							"area_name": "Underwater",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Premier Ball"
+						},
+						"ivs": {
+							"hp": 29,
+							"attack": 14,
+							"defense": 13,
+							"speed": 11,
+							"special_attack": 0,
+							"special_defense": 28
+						},
+						"is_egg": false,
+						"ability": "Rock Head",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 12,
+						"experience": {
+							"current": 973,
+							"next_level": 1261,
+							"this_level": 973,
+							"remaining": 288
+						},
+						"next_move": {
+							"level": 16,
+							"name": null,
+							"id": null,
+							"type": "Ground"
+						},
+						"box_slot": 21
+					},
+					{
+						"personality_value": 3296991482,
+						"encyption_key": -1449663569,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": ".YRLRR",
+						"language": "English",
+						"marking": "",
+						"checksum": 6965,
+						"species": {
+							"abilities": [
+								"Oblivious",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 60,
+								"defense": 40,
+								"hp": 60,
+								"special_attack": 65,
+								"special_defense": 45,
+								"speed": 35
+							},
+							"catch_rate": 255,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 339,
+							"name": "Numel",
+							"national_dex": 322,
+							"type1": "Fire",
+							"type2": "Ground"
+						},
+						"held_item": {
+							"count": 0,
+							"id": 136,
+							"name": "Rawst Berry"
+						},
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 52,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Ember",
+								"type": "Fire",
+								"contest": {
+									"type": "Beauty",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 74,
+							"area_id": 151,
+							"area_name": "Cryptic City",
+							"level": 13,
+							"game": "3",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 28,
+							"attack": 6,
+							"defense": 10,
+							"speed": 29,
+							"special_attack": 25,
+							"special_defense": 10
+						},
+						"is_egg": false,
+						"ability": "Oblivious",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 13,
+						"experience": {
+							"current": 2197,
+							"next_level": 2744,
+							"this_level": 2197,
+							"remaining": 547
+						},
+						"next_move": {
+							"level": 19,
+							"name": null,
+							"id": null,
+							"type": "Ground"
+						},
+						"box_slot": 22
+					},
+					{
+						"personality_value": 3819752834,
+						"encyption_key": -1900071209,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Sandile",
+						"language": "English",
+						"marking": "",
+						"checksum": 19518,
+						"species": {
+							"abilities": [
+								"Intimidate",
+								"Sand Stream"
+							],
+							"base_stats": {
+								"attack": 72,
+								"defense": 35,
+								"hp": 50,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 65
+							},
+							"catch_rate": 180,
+							"egg_cycles": 20,
+							"egg_type1": "Monster",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 32,
+							"name": "Sandile",
+							"national_dex": 32,
+							"type1": "Ground",
+							"type2": "Dark"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 99,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Rage",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 25,
+							"area_id": 24,
+							"area_name": "Route H",
+							"level": 14,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 20,
+							"attack": 12,
+							"defense": 4,
+							"speed": 6,
+							"special_attack": 26,
+							"special_defense": 7
+						},
+						"is_egg": false,
+						"ability": "Intimidate",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 14,
+						"experience": {
+							"current": 1612,
+							"next_level": 2035,
+							"this_level": 1612,
+							"remaining": 423
+						},
+						"next_move": {
+							"level": 17,
+							"name": null,
+							"id": null,
+							"type": "Ground"
+						},
+						"box_slot": 23
+					},
+					{
+						"personality_value": 3900796460,
+						"encyption_key": -2053991047,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAGGMGGGG",
+						"language": "English",
+						"marking": "",
+						"checksum": 22160,
+						"species": {
+							"abilities": [
+								"Guts",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 50,
+								"hp": 70,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 35
+							},
+							"catch_rate": 180,
+							"egg_cycles": 20,
+							"egg_type1": "Human-Like",
+							"egg_type2": "Human-Like",
+							"gender_ratio": 63,
+							"growth_rate": "Medium Slow",
+							"id": 66,
+							"name": "Machop",
+							"national_dex": 66,
+							"type1": "Fighting",
+							"type2": "Fighting"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 1,
+								"id": 67,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Low Kick",
+								"type": "Fighting",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡",
+									"jamming": "♥♥♥♥"
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 116,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Focus Energy",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 2,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Karate Chop",
+								"type": "Fighting",
+								"contest": {
+									"type": "Tough",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 74,
+							"area_id": 151,
+							"area_name": "Cryptic City",
+							"level": 13,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 21,
+							"attack": 31,
+							"defense": 27,
+							"speed": 31,
+							"special_attack": 27,
+							"special_defense": 0
+						},
+						"is_egg": false,
+						"ability": "Guts",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 13,
+						"experience": {
+							"current": 1261,
+							"next_level": 1612,
+							"this_level": 1261,
+							"remaining": 351
+						},
+						"next_move": {
+							"level": 19,
+							"name": null,
+							"id": null,
+							"type": "Fighting"
+						},
+						"box_slot": 24
+					},
+					{
+						"personality_value": 234327164,
+						"encyption_key": 1625585449,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "BCCCDDKFWD",
+						"language": "English",
+						"marking": "",
+						"checksum": 9591,
+						"species": {
+							"abilities": [
+								"Levitate",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 65,
+								"defense": 95,
+								"hp": 40,
+								"special_attack": 60,
+								"special_defense": 45,
+								"speed": 35
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Amorphous",
+							"egg_type2": "Amorphous",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 109,
+							"name": "Koffing",
+							"national_dex": 109,
+							"type1": "Poison",
+							"type2": "Poison"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 90,
+								"base_power": 0,
+								"id": 139,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Poison Gas",
+								"type": "Poison",
+								"contest": {
+									"type": "Smart",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 70,
+								"base_power": 20,
+								"id": 123,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Smog",
+								"type": "Poison",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 74,
+							"area_id": 151,
+							"area_name": "Cryptic City",
+							"level": 13,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 15,
+							"attack": 25,
+							"defense": 6,
+							"speed": 23,
+							"special_attack": 5,
+							"special_defense": 19
+						},
+						"is_egg": false,
+						"ability": "Levitate",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 13,
+						"experience": {
+							"current": 2197,
+							"next_level": 2744,
+							"this_level": 2197,
+							"remaining": 547
+						},
+						"next_move": {
+							"level": 17,
+							"name": null,
+							"id": null,
+							"type": "Normal"
+						},
+						"box_slot": 25
+					},
+					{
+						"personality_value": 224484850,
+						"encyption_key": 1618126503,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AA.fed  z ",
+						"language": "English",
+						"marking": "",
+						"checksum": 33525,
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 30,
+								"defense": 30,
+								"hp": 40,
+								"special_attack": 55,
+								"special_defense": 30,
+								"speed": 85
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Water 1",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 309,
+							"name": "Wingull",
+							"national_dex": 278,
+							"type1": "Water",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 55,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Water Gun",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 55,
+								"base_power": 0,
+								"id": 48,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Supersonic",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 0,
+							"attack": 19,
+							"defense": 9,
+							"speed": 8,
+							"special_attack": 20,
+							"special_defense": 29
+						},
+						"is_egg": false,
+						"ability": "Keen Eye",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 12,
+						"experience": {
+							"current": 1728,
+							"next_level": 2197,
+							"this_level": 1728,
+							"remaining": 469
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Flying"
+						},
+						"box_slot": 26
+					},
+					{
+						"personality_value": 3950797248,
+						"encyption_key": -2039506283,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "A TTT",
+						"language": "English",
+						"marking": "",
+						"checksum": 50350,
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 30,
+								"defense": 30,
+								"hp": 40,
+								"special_attack": 55,
+								"special_defense": 30,
+								"speed": 85
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Water 1",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 309,
+							"name": "Wingull",
+							"national_dex": 278,
+							"type1": "Water",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 55,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Water Gun",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 55,
+								"base_power": 0,
+								"id": 48,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Supersonic",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 31,
+							"attack": 20,
+							"defense": 5,
+							"speed": 29,
+							"special_attack": 11,
+							"special_defense": 6
+						},
+						"is_egg": false,
+						"ability": "Keen Eye",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 12,
+						"experience": {
+							"current": 1728,
+							"next_level": 2197,
+							"this_level": 1728,
+							"remaining": 469
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Flying"
+						},
+						"box_slot": 27
+					},
+					{
+						"personality_value": 2830739432,
+						"encyption_key": -978690883,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAA",
+						"language": "English",
+						"marking": "",
+						"checksum": 54967,
+						"species": {
+							"abilities": [
+								"Chlorophyll",
+								"Overgrow"
+							],
+							"base_stats": {
+								"attack": 27,
+								"defense": 60,
+								"hp": 40,
+								"special_attack": 37,
+								"special_defense": 50,
+								"speed": 66
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Fairy",
+							"egg_type2": "Grass",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 88,
+							"name": "Cottonee",
+							"national_dex": 88,
+							"type1": "Grass",
+							"type2": "Grass"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 74,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growth",
+								"type": "Normal",
+								"contest": {
+									"type": "Beauty",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 90,
+								"base_power": 0,
+								"id": 73,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Leech Seed",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥♥"
+								}
+							},
+							{
+								"accuracy": 75,
+								"base_power": 0,
+								"id": 78,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Stun Spore",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 72,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Mega Drain",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡",
+									"jamming": "♥♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 13,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 11,
+							"attack": 30,
+							"defense": 9,
+							"speed": 7,
+							"special_attack": 0,
+							"special_defense": 1
+						},
+						"is_egg": false,
+						"ability": "Chlorophyll",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 13,
+						"experience": {
+							"current": 2197,
+							"next_level": 2744,
+							"this_level": 2197,
+							"remaining": 547
+						},
+						"next_move": {
+							"level": 19,
+							"name": null,
+							"id": null,
+							"type": "Grass"
+						},
+						"box_slot": 28
+					},
+					{
+						"personality_value": 3711793943,
+						"encyption_key": -1339129790,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Trapinch",
+						"language": "English",
+						"marking": "",
+						"checksum": 29026,
+						"species": {
+							"abilities": [
+								"Hyper Cutter",
+								"Arena Trap"
+							],
+							"base_stats": {
+								"attack": 100,
+								"defense": 45,
+								"hp": 45,
+								"special_attack": 45,
+								"special_defense": 45,
+								"speed": 10
+							},
+							"catch_rate": 255,
+							"egg_cycles": 20,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 332,
+							"name": "Trapinch",
+							"national_dex": 328,
+							"type1": "Ground",
+							"type2": "Ground"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 25,
+							"area_id": 24,
+							"area_name": "Route H",
+							"level": 14,
+							"game": "3",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 10,
+							"attack": -27,
+							"defense": -14,
+							"speed": -29,
+							"special_attack": -13,
+							"special_defense": -20
+						},
+						"is_egg": false,
+						"ability": "Arena Trap",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 14,
+						"experience": {
+							"current": 1612,
+							"next_level": 2035,
+							"this_level": 1612,
+							"remaining": 423
+						},
+						"next_move": {
+							"level": 17,
+							"name": null,
+							"id": null,
+							"type": "Dark"
+						},
+						"box_slot": 29
+					},
+					{
+						"personality_value": 3170105189,
+						"encyption_key": -773845968,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Cacnea",
+						"language": "English",
+						"marking": "",
+						"checksum": 8166,
+						"species": {
+							"abilities": [
+								"Sand Veil",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 85,
+								"defense": 40,
+								"hp": 50,
+								"special_attack": 85,
+								"special_defense": 40,
+								"speed": 35
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Grass",
+							"egg_type2": "Human-Like",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 344,
+							"name": "Cacnea",
+							"national_dex": 331,
+							"type1": "Grass",
+							"type2": "Grass"
+						},
+						"held_item": null,
+						"friendship": 35,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 74,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growth",
+								"type": "Normal",
+								"contest": {
+									"type": "Beauty",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 90,
+								"base_power": 0,
+								"id": 73,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Leech Seed",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 85,
+								"base_power": 14,
+								"id": 42,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Pin Missile",
+								"type": "Bug",
+								"contest": {
+									"type": "Cool",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 25,
+							"area_id": 24,
+							"area_name": "Route H",
+							"level": 21,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 6,
+							"attack": 0,
+							"defense": 28,
+							"speed": 19,
+							"special_attack": 26,
+							"special_defense": 9
+						},
+						"is_egg": false,
+						"ability": "Sand Veil",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 21,
+						"experience": {
+							"current": 6458,
+							"next_level": 7577,
+							"this_level": 6458,
+							"remaining": 1119
+						},
+						"next_move": {
+							"level": 25,
+							"name": null,
+							"id": null,
+							"type": "Grass"
+						},
+						"box_slot": 30
+					}
+				]
+			},
+			{
+				"box_number": 2,
+				"box_name": "ss ",
+				"box_contents": [
+					{
+						"personality_value": 3893751313,
+						"encyption_key": -2063198908,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAABTTTt ,",
+						"language": "English",
+						"marking": "",
+						"checksum": 14324,
+						"species": {
+							"abilities": [
+								"Speed Boost",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 90,
+								"defense": 45,
+								"hp": 61,
+								"special_attack": 50,
+								"special_defense": 50,
+								"speed": 160
+							},
+							"catch_rate": 120,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Erratic",
+							"id": 302,
+							"name": "Ninjask",
+							"national_dex": 291,
+							"type1": "Bug",
+							"type2": "Flying"
+						},
+						"held_item": null,
+						"friendship": 129,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 104,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Double Team",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 170,
+								"pp": 5,
+								"pp_up": 0,
+								"max_pp": 5,
+								"name": "Mind Reader",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 80,
+								"base_power": 18,
+								"id": 154,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Fury Swipes",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 15,
+							"attack": 61,
+							"defense": 23,
+							"speed": 38,
+							"special_attack": 2,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 59,
+							"area_id": 43,
+							"area_name": "Route Aa",
+							"level": 8,
+							"game": "3",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 23,
+							"attack": 9,
+							"defense": 31,
+							"speed": 31,
+							"special_attack": 1,
+							"special_defense": 28
+						},
+						"is_egg": false,
+						"ability": "Speed Boost",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 20,
+						"experience": {
+							"current": 13018,
+							"next_level": 14632,
+							"this_level": 12800,
+							"remaining": 1614
+						},
+						"next_move": {
+							"level": 25,
+							"name": null,
+							"id": null,
+							"type": "Normal"
+						},
+						"box_slot": 1
+					},
+					{
+						"personality_value": 2699310266,
+						"encyption_key": -839397393,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAAA",
+						"language": "English",
+						"marking": "",
+						"checksum": 50515,
+						"species": {
+							"abilities": [
+								"Chlorophyll",
+								"Overgrow"
+							],
+							"base_stats": {
+								"attack": 27,
+								"defense": 60,
+								"hp": 40,
+								"special_attack": 37,
+								"special_defense": 50,
+								"speed": 66
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Fairy",
+							"egg_type2": "Grass",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 88,
+							"name": "Cottonee",
+							"national_dex": 88,
+							"type1": "Grass",
+							"type2": "Grass"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 71,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Absorb",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 74,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growth",
+								"type": "Normal",
+								"contest": {
+									"type": "Beauty",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 90,
+								"base_power": 0,
+								"id": 73,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Leech Seed",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥♥"
+								}
+							},
+							{
+								"accuracy": 75,
+								"base_power": 0,
+								"id": 78,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Stun Spore",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 24,
+							"area_id": 23,
+							"area_name": "Route D",
+							"level": 12,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 24,
+							"attack": 2,
+							"defense": 17,
+							"speed": 4,
+							"special_attack": 16,
+							"special_defense": 25
+						},
+						"is_egg": false,
+						"ability": "Chlorophyll",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 12,
+						"experience": {
+							"current": 1728,
+							"next_level": 2197,
+							"this_level": 1728,
+							"remaining": 469
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Grass"
+						},
+						"box_slot": 2
+					},
+					{
+						"personality_value": 3018043968,
+						"encyption_key": -554677995,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAAAAAAA0",
+						"language": "English",
+						"marking": "",
+						"checksum": 45152,
+						"species": {
+							"abilities": [
+								"Swift Swim",
+								"Swift Swim"
+							],
+							"base_stats": {
+								"attack": 65,
+								"defense": 35,
+								"hp": 55,
+								"special_attack": 60,
+								"special_defense": 30,
+								"speed": 85
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Water 1",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 231,
+							"name": "Buizel",
+							"national_dex": 231,
+							"type1": "Water",
+							"type2": "Water"
+						},
+						"held_item": {
+							"count": 0,
+							"id": 167,
+							"name": "Belue Berry"
+						},
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 346,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Water Sport",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "The appeal order changes for the next round.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 55,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Water Gun",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 228,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Pursuit",
+								"type": "Dark",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 47,
+							"area_id": 131,
+							"area_name": "Aqua Town",
+							"level": 14,
+							"game": "3",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 27,
+							"attack": 11,
+							"defense": 12,
+							"speed": 4,
+							"special_attack": 17,
+							"special_defense": 23
+						},
+						"is_egg": false,
+						"ability": "Swift Swim",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 14,
+						"experience": {
+							"current": 2744,
+							"next_level": 3375,
+							"this_level": 2744,
+							"remaining": 631
+						},
+						"next_move": {
+							"level": 15,
+							"name": null,
+							"id": null,
+							"type": "Water"
+						},
+						"box_slot": 3
+					},
+					{
+						"personality_value": 3051208725,
+						"encyption_key": -657573056,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAa11GG",
+						"language": "English",
+						"marking": "",
+						"checksum": 20195,
+						"species": {
+							"abilities": [
+								"Thick Fat",
+								"Huge Power"
+							],
+							"base_stats": {
+								"attack": 20,
+								"defense": 50,
+								"hp": 70,
+								"special_attack": 20,
+								"special_defense": 50,
+								"speed": 40
+							},
+							"catch_rate": 190,
+							"egg_cycles": 10,
+							"egg_type1": "Water 1",
+							"egg_type2": "Fairy",
+							"gender_ratio": 127,
+							"growth_rate": "Fast",
+							"id": 183,
+							"name": "Marill",
+							"national_dex": 183,
+							"type1": "Water",
+							"type2": "Water"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 111,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Defense Curl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 39,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Tail Whip",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 55,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Water Gun",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 47,
+							"area_id": 131,
+							"area_name": "Aqua Town",
+							"level": 14,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 10,
+							"attack": -2,
+							"defense": -19,
+							"speed": -28,
+							"special_attack": -15,
+							"special_defense": -6
+						},
+						"is_egg": false,
+						"ability": "Huge Power",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 14,
+						"experience": {
+							"current": 2195,
+							"next_level": 2700,
+							"this_level": 2195,
+							"remaining": 505
+						},
+						"next_move": {
+							"level": 15,
+							"name": null,
+							"id": null,
+							"type": "Rock"
+						},
+						"box_slot": 4
+					},
+					{
+						"personality_value": 1034049215,
+						"encyption_key": 1353821674,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "NNNNNN,6T",
+						"language": "English",
+						"marking": "",
+						"checksum": 8160,
+						"species": {
+							"abilities": [
+								"Damp",
+								"Cloud Nine"
+							],
+							"base_stats": {
+								"attack": 52,
+								"defense": 48,
+								"hp": 50,
+								"special_attack": 65,
+								"special_defense": 50,
+								"speed": 55
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Water 1",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 54,
+							"name": "Psyduck",
+							"national_dex": 54,
+							"type1": "Water",
+							"type2": "Water"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 10,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Scratch",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 346,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Water Sport",
+								"type": "Water",
+								"contest": {
+									"type": "Cute",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 39,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Tail Whip",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 50,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Disable",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 47,
+							"area_id": 131,
+							"area_name": "Aqua Town",
+							"level": 14,
+							"game": "3",
+							"caught_in": "Premier Ball"
+						},
+						"ivs": {
+							"hp": 6,
+							"attack": -7,
+							"defense": -7,
+							"speed": -31,
+							"special_attack": -28,
+							"special_defense": -7
+						},
+						"is_egg": false,
+						"ability": "Cloud Nine",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 14,
+						"experience": {
+							"current": 2744,
+							"next_level": 3375,
+							"this_level": 2744,
+							"remaining": 631
+						},
+						"next_move": {
+							"level": 16,
+							"name": null,
+							"id": null,
+							"type": "Psychic"
+						},
+						"box_slot": 5
+					},
+					{
+						"personality_value": 1206137061,
+						"encyption_key": 720882608,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAAAAAAAAT",
+						"language": "English",
+						"marking": "",
+						"checksum": 26915,
+						"species": {
+							"abilities": [
+								"Effect Spore",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 70,
+								"defense": 55,
+								"hp": 35,
+								"special_attack": 45,
+								"special_defense": 55,
+								"speed": 25
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Bug",
+							"egg_type2": "Grass",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 46,
+							"name": "Paras",
+							"national_dex": 46,
+							"type1": "Bug",
+							"type2": "Grass"
+						},
+						"held_item": {
+							"count": 0,
+							"id": 103,
+							"name": "Hugemushroom"
+						},
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 10,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Scratch",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 75,
+								"base_power": 0,
+								"id": 78,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Stun Spore",
+								"type": "Grass",
+								"contest": {
+									"type": "Smart",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 22,
+							"area_id": 21,
+							"area_name": "Route L",
+							"level": 11,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 26,
+							"attack": 31,
+							"defense": 13,
+							"speed": 22,
+							"special_attack": 21,
+							"special_defense": 7
+						},
+						"is_egg": false,
+						"ability": "Effect Spore",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 11,
+						"experience": {
+							"current": 1331,
+							"next_level": 1728,
+							"this_level": 1331,
+							"remaining": 397
+						},
+						"next_move": {
+							"level": 13,
+							"name": null,
+							"id": null,
+							"type": "Poison"
+						},
+						"box_slot": 6
+					},
+					{
+						"personality_value": 2144670908,
+						"encyption_key": 315027433,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AA",
+						"language": "English",
+						"marking": "",
+						"checksum": 58411,
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"Intimidate"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 65,
+								"hp": 65,
+								"special_attack": 35,
+								"special_defense": 65,
+								"speed": 60
+							},
+							"catch_rate": 120,
+							"egg_cycles": 10,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 39,
+							"name": "Herdier",
+							"national_dex": 39,
+							"type1": "Normal",
+							"type2": "Normal"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 316,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Odor Sleuth",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 21,
+							"area_id": 20,
+							"area_name": "Route E",
+							"level": 18,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 7,
+							"attack": 12,
+							"defense": 22,
+							"speed": 10,
+							"special_attack": 18,
+							"special_defense": 27
+						},
+						"is_egg": false,
+						"ability": "Cute Charm",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 18,
+						"experience": {
+							"current": 3798,
+							"next_level": 4575,
+							"this_level": 3798,
+							"remaining": 777
+						},
+						"next_move": {
+							"level": 19,
+							"name": null,
+							"id": null,
+							"type": "Normal"
+						},
+						"box_slot": 7
+					},
+					{
+						"personality_value": 3125037535,
+						"encyption_key": -682118518,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "Hippopotas",
+						"language": "English",
+						"marking": "",
+						"checksum": 28777,
+						"species": {
+							"abilities": [
+								"Sand Stream",
+								"Sand Stream"
+							],
+							"base_stats": {
+								"attack": 72,
+								"defense": 78,
+								"hp": 68,
+								"special_attack": 38,
+								"special_defense": 42,
+								"speed": 32
+							},
+							"catch_rate": 140,
+							"egg_cycles": 30,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Slow",
+							"id": 140,
+							"name": "Hippopotas",
+							"national_dex": 140,
+							"type1": "Ground",
+							"type2": "Ground"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 281,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Yawn",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 16,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 22,
+							"attack": -26,
+							"defense": -2,
+							"speed": -5,
+							"special_attack": -4,
+							"special_defense": -11
+						},
+						"is_egg": false,
+						"ability": "Sand Stream",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 16,
+						"experience": {
+							"current": 5120,
+							"next_level": 6141,
+							"this_level": 5120,
+							"remaining": 1021
+						},
+						"next_move": {
+							"level": 19,
+							"name": null,
+							"id": null,
+							"type": "Normal"
+						},
+						"box_slot": 8
+					}
+				]
+			},
+			{
+				"box_number": 3,
+				"box_name": "BOX3",
+				"box_contents": []
+			},
+			{
+				"box_number": 4,
+				"box_name": "BOX4",
+				"box_contents": []
+			},
+			{
+				"box_number": 5,
+				"box_name": "BOX5",
+				"box_contents": [
+					{
+						"personality_value": 902164962,
+						"encyption_key": 1490422455,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": ",  ",
+						"language": "English",
+						"marking": "",
+						"checksum": 64636,
+						"species": {
+							"abilities": [
+								"Static",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 55,
+								"defense": 55,
+								"hp": 70,
+								"special_attack": 80,
+								"special_defense": 60,
+								"speed": 45
+							},
+							"catch_rate": 120,
+							"egg_cycles": 20,
+							"egg_type1": "Monster",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 180,
+							"name": "Flaaffy",
+							"national_dex": 180,
+							"type1": "Electric",
+							"type2": "Electric"
+						},
+						"held_item": null,
+						"friendship": 173,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": {
+									"type": "Cute",
+									"effect": "Appeal effect may change.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 84,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Thundershock",
+								"type": "Electric",
+								"contest": {
+									"type": "Cool",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 164,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Substitute",
+								"type": "Normal",
+								"contest": {
+									"type": "Smart",
+									"effect": "Prevents the user from being startled.",
+									"appeal": "♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 148,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Flash",
+								"type": "Normal",
+								"contest": {
+									"type": "Beauty",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 1,
+							"attack": 3,
+							"defense": 2,
+							"speed": 7,
+							"special_attack": 6,
+							"special_defense": 2
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 23,
+							"area_id": 22,
+							"area_name": "Route K",
+							"level": 8,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 22,
+							"attack": 28,
+							"defense": 1,
+							"speed": 2,
+							"special_attack": 22,
+							"special_defense": 31
+						},
+						"is_egg": false,
+						"ability": "Static",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 18,
+						"experience": {
+							"current": 3925,
+							"next_level": 4575,
+							"this_level": 3798,
+							"remaining": 650
+						},
+						"next_move": {
+							"level": 27,
+							"name": null,
+							"id": null,
+							"type": "Grass"
+						},
+						"box_slot": 1
+					}
+				]
+			},
+			{
+				"box_number": 6,
+				"box_name": "BOX6",
+				"box_contents": [
+					{
+						"personality_value": 527278403,
+						"encyption_key": 1920883222,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "AAGBBBBBBC",
+						"language": "English",
+						"marking": "",
+						"checksum": 6919,
+						"species": {
+							"abilities": [
+								"Illuminate",
+								"Keen Eye"
+							],
+							"base_stats": {
+								"attack": 85,
+								"defense": 69,
+								"hp": 60,
+								"special_attack": 60,
+								"special_defense": 69,
+								"speed": 77
+							},
+							"catch_rate": 127,
+							"egg_cycles": 15,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 20,
+							"name": "Watchog",
+							"national_dex": 20,
+							"type1": "Normal",
+							"type2": "Normal"
+						},
+						"held_item": null,
+						"friendship": 251,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "The appeal effect of this move is constant.",
+									"appeal": "♡♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": {
+									"type": "Cute",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡♡",
+									"jamming": "♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 80,
+								"id": 242,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Crunch",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles the previous appealer.",
+									"appeal": "♡",
+									"jamming": "♥♥♥♥"
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": {
+									"type": "Tough",
+									"effect": "Startles all previous appealers.",
+									"appeal": "♡",
+									"jamming": "♥♥♥"
+								}
+							}
+						],
+						"evs": {
+							"hp": 28,
+							"attack": 41,
+							"defense": 29,
+							"speed": 37,
+							"special_attack": 31,
+							"special_defense": 15
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 16,
+							"area_id": 16,
+							"area_name": "Route A",
+							"level": 3,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 28,
+							"attack": -22,
+							"defense": -6,
+							"speed": -9,
+							"special_attack": -5,
+							"special_defense": -19
+						},
+						"is_egg": false,
+						"ability": "Keen Eye",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 29,
+						"experience": {
+							"current": 25204,
+							"next_level": 27000,
+							"this_level": 24389,
+							"remaining": 1796
+						},
+						"next_move": {
+							"level": 30,
+							"name": null,
+							"id": null,
+							"type": "Psychic"
+						},
+						"box_slot": 1
+					}
+				]
+			},
+			{
+				"box_number": 7,
+				"box_name": "BOX7",
+				"box_contents": []
+			},
+			{
+				"box_number": 8,
+				"box_name": "BOX8",
+				"box_contents": []
+			},
+			{
+				"box_number": 9,
+				"box_name": "BOX9",
+				"box_contents": []
+			},
+			{
+				"box_number": 10,
+				"box_name": "BOX10",
+				"box_contents": []
+			},
+			{
+				"box_number": 11,
+				"box_name": "BOX11",
+				"box_contents": []
+			},
+			{
+				"box_number": 12,
+				"box_name": "BOX12",
+				"box_contents": []
+			},
+			{
+				"box_number": 13,
+				"box_name": "BOX13",
+				"box_contents": []
+			},
+			{
+				"box_number": 14,
+				"box_name": "BOX14",
+				"box_contents": [
+					{
+						"personality_value": 361295031,
+						"encyption_key": 2023430114,
+						"original_trainer": {
+							"name": "..hnv",
+							"id": 64341,
+							"secret": 27923,
+							"gender": "Female"
+						},
+						"name": "BBAAA1166 ",
+						"language": "English",
+						"marking": "",
+						"checksum": 14399,
+						"species": {
+							"abilities": [
+								"Intimidate",
+								"Shed Skin"
+							],
+							"base_stats": {
+								"attack": 60,
+								"defense": 44,
+								"hp": 35,
+								"special_attack": 40,
+								"special_defense": 54,
+								"speed": 55
+							},
+							"catch_rate": 255,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Dragon",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 23,
+							"name": "Ekans",
+							"national_dex": 23,
+							"type1": "Poison",
+							"type2": "Poison"
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 90,
+								"base_power": 15,
+								"id": 35,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Wrap",
+								"type": "Normal",
+								"contest": {
+									"type": "Tough",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": {
+									"type": "Cool",
+									"effect": "Affects appealers other than startling them.",
+									"appeal": "♡♡♡",
+									"jamming": ""
+								}
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 23,
+							"area_id": 22,
+							"area_name": "Route K",
+							"level": 7,
+							"game": "3",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 27,
+							"attack": -1,
+							"defense": -29,
+							"speed": -5,
+							"special_attack": -2,
+							"special_defense": -28
+						},
+						"is_egg": false,
+						"ability": "Shed Skin",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 7,
+						"experience": {
+							"current": 343,
+							"next_level": 512,
+							"this_level": 343,
+							"remaining": 169
+						},
+						"next_move": {
+							"level": 8,
+							"name": null,
+							"id": null,
+							"type": "Poison"
+						},
+						"box_slot": 1
+					}
+				]
+			}
+		]
+	},
+	"in_battle": true,
+	"name": "..hnv",
+	"gender": "Female",
+	"id": 64341,
+	"secret": 27923,
+	"options": {
+		"sound": "Mono",
+		"battle_style": "Set",
+		"battle_scene": "On",
+		"map_zoom": "Full",
+		"text_speed": "Fast",
+		"frame": "1",
+		"button_mode": "L=A"
+	},
+	"caught": 47,
+	"caught_list": [
+		7,
+		8,
+		10,
+		11,
+		16,
+		17,
+		19,
+		20,
+		23,
+		29,
+		32,
+		39,
+		41,
+		46,
+		54,
+		63,
+		66,
+		74,
+		88,
+		92,
+		109,
+		111,
+		140,
+		179,
+		180,
+		183,
+		207,
+		231,
+		263,
+		265,
+		268,
+		270,
+		273,
+		278,
+		280,
+		281,
+		290,
+		291,
+		292,
+		304,
+		307,
+		309,
+		316,
+		322,
+		328,
+		331,
+		343
+	],
+	"seen": 120,
+	"seen_list": [
+		1,
+		2,
+		4,
+		7,
+		8,
+		10,
+		11,
+		13,
+		14,
+		16,
+		17,
+		19,
+		20,
+		21,
+		23,
+		25,
+		27,
+		29,
+		30,
+		32,
+		33,
+		37,
+		39,
+		41,
+		43,
+		46,
+		50,
+		52,
+		54,
+		56,
+		61,
+		63,
+		64,
+		66,
+		67,
+		71,
+		74,
+		77,
+		81,
+		85,
+		88,
+		92,
+		93,
+		100,
+		102,
+		107,
+		108,
+		109,
+		111,
+		113,
+		114,
+		118,
+		120,
+		122,
+		129,
+		138,
+		140,
+		163,
+		170,
+		171,
+		172,
+		174,
+		175,
+		177,
+		179,
+		180,
+		183,
+		187,
+		190,
+		198,
+		204,
+		207,
+		215,
+		217,
+		218,
+		223,
+		228,
+		231,
+		236,
+		239,
+		240,
+		258,
+		261,
+		263,
+		265,
+		266,
+		267,
+		268,
+		270,
+		271,
+		273,
+		278,
+		280,
+		281,
+		285,
+		286,
+		287,
+		290,
+		291,
+		292,
+		296,
+		299,
+		301,
+		302,
+		304,
+		307,
+		309,
+		311,
+		315,
+		316,
+		318,
+		322,
+		324,
+		327,
+		328,
+		331,
+		333,
+		343,
+		345,
+		349
+	],
+	"security_key": 1788094848,
+	"x": 37,
+	"y": 116,
+	"map_bank": 0,
+	"map_id": 26,
+	"area_id": 25,
+	"map_name": "Route J",
+	"area_name": "Route J",
+	"money": 922,
+	"coins": 0,
+	"items": {
+		"pc": [],
+		"items": [
+			{
+				"count": 9,
+				"id": 14,
+				"name": "Antidote"
+			},
+			{
+				"count": 2,
+				"id": 30,
+				"name": "Energypowder"
+			},
+			{
+				"count": 6,
+				"id": 21,
+				"name": "Hyper Potion"
+			},
+			{
+				"count": 5,
+				"id": 85,
+				"name": "Escape Rope"
+			},
+			{
+				"count": 1,
+				"id": 76,
+				"name": "X Defend"
+			},
+			{
+				"count": 1,
+				"id": 106,
+				"name": "Pearl"
+			},
+			{
+				"count": 1,
+				"id": 34,
+				"name": "Ether"
+			},
+			{
+				"count": 1,
+				"id": 22,
+				"name": "Super Potion"
+			},
+			{
+				"count": 1,
+				"id": 31,
+				"name": "Energy Root"
+			},
+			{
+				"count": 1,
+				"id": 83,
+				"name": "Super Repel"
+			},
+			{
+				"count": 3,
+				"id": 26,
+				"name": "Fresh Water"
+			},
+			{
+				"count": 1,
+				"id": 108,
+				"name": "Stardust"
+			},
+			{
+				"count": 3,
+				"id": 13,
+				"name": "Potion"
+			},
+			{
+				"count": 2,
+				"id": 24,
+				"name": "Revive"
+			},
+			{
+				"count": 1,
+				"id": 18,
+				"name": "Parlyz Heal"
+			},
+			{
+				"count": 3,
+				"id": 23,
+				"name": "Full Heal"
+			},
+			{
+				"count": 1,
+				"id": 86,
+				"name": "Repel"
+			},
+			{
+				"count": 1,
+				"id": 75,
+				"name": "X Attack"
+			}
+		],
+		"key": [
+			{
+				"count": 1,
+				"id": 259,
+				"name": "Mach Bike"
+			},
+			{
+				"count": 1,
+				"id": 268,
+				"name": "Wailmer Pail"
+			},
+			{
+				"count": 1,
+				"id": 279,
+				"name": "Go-Goggles"
+			},
+			{
+				"count": 1,
+				"id": 273,
+				"name": "PokéBlock Case"
+			},
+			{
+				"count": 1,
+				"id": 261,
+				"name": "Itemfinder"
+			},
+			{
+				"count": 1,
+				"id": 359,
+				"name": "Red Shard  "
+			}
+		],
+		"ball": [
+			{
+				"count": 3,
+				"id": 4,
+				"name": "Poké Ball"
+			},
+			{
+				"count": 1,
+				"id": 3,
+				"name": "Great Ball"
+			}
+		],
+		"tm": [
+			{
+				"count": 1,
+				"id": 296,
+				"name": "TM08 Bulk Up"
+			},
+			{
+				"count": 1,
+				"id": 327,
+				"name": "TM39 Rock Tomb"
+			},
+			{
+				"count": 1,
+				"id": 344,
+				"name": "HM06 Rock Smash"
+			}
+		],
+		"berry": [
+			{
+				"count": 1,
+				"id": 134,
+				"name": "Chesto Berry"
+			},
+			{
+				"count": 4,
+				"id": 142,
+				"name": "Sitrus Berry"
+			},
+			{
+				"count": 8,
+				"id": 151,
+				"name": "Wepear Berry"
+			},
+			{
+				"count": 5,
+				"id": 153,
+				"name": "Pomeg Berry"
+			},
+			{
+				"count": 8,
+				"id": 155,
+				"name": "Qualot Berry"
+			},
+			{
+				"count": 7,
+				"id": 157,
+				"name": "Grepa Berry"
+			}
+		]
+	},
+	"ball_count": 4,
+	"badges": 3,
+	"time": {
+		"h": 18,
+		"m": 52
+	},
+	"evolution_is_happening": false,
+	"daycare": [],
+	"battle_kind": "Trainer",
+	"enemy_party": [
+		{
+			"species": {
+				"abilities": [
+					"Magnet Pull",
+					"Sturdy"
+				],
+				"base_stats": {
+					"attack": 35,
+					"defense": 70,
+					"hp": 25,
+					"special_attack": 95,
+					"special_defense": 55,
+					"speed": 45
+				},
+				"catch_rate": 190,
+				"egg_cycles": 20,
+				"egg_type1": "Mineral",
+				"egg_type2": "Mineral",
+				"gender_ratio": 255,
+				"growth_rate": "Medium Fast",
+				"id": 81,
+				"name": "Magnemite",
+				"national_dex": 81,
+				"type1": "Electric",
+				"type2": "Steel"
+			},
+			"health": [
+				16,
+				44
+			],
+			"active": true,
+			"gender": null,
+			"personality_value": 816768,
+			"name": "Magnemite"
+		},
+		{
+			"species": {
+				"abilities": [
+					"Synchronize",
+					"Trace"
+				],
+				"base_stats": {
+					"attack": 25,
+					"defense": 25,
+					"hp": 28,
+					"special_attack": 45,
+					"special_defense": 35,
+					"speed": 40
+				},
+				"catch_rate": 235,
+				"egg_cycles": 20,
+				"egg_type1": "Amorphous",
+				"egg_type2": "Amorphous",
+				"gender_ratio": 127,
+				"growth_rate": "Slow",
+				"id": 392,
+				"name": "Ralts",
+				"national_dex": 280,
+				"type1": "Psychic",
+				"type2": "Psychic"
+			},
+			"health": [
+				45,
+				45
+			],
+			"active": true,
+			"gender": "Male",
+			"personality_value": 1438592,
+			"name": "Ralts"
+		},
+		null,
+		null,
+		null,
+		null
+	],
+	"enemy_trainers": [
+		{
+			"id": 51,
+			"class_id": 17,
+			"class_name": "Interviewer",
+			"name": "Gabby & Ty",
+			"gender": "Male",
+			"pic_id": 17
+		},
+		{
+			"id": 0,
+			"class_id": 0,
+			"class_name": "Maid",
+			"name": "",
+			"gender": "Male",
+			"pic_id": 0
+		}
+	]
+}

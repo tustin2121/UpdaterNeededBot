@@ -53,6 +53,6 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-global.Bot = new UpdaterBot(require('../data/runs/s504-random-y.js'));
+global.Bot = new UpdaterBot(require('../data/runs/s505-flora-sky.js'));
 // global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));
 Bot.start();

@@ -6,6 +6,7 @@ const irc = require('irc');
 const EventEmitter = require('./events');
 
 const LOGGER = getLogger('ChatAPI');
+const CHATLOG = getLogger('CHATLOG');
 
 class ChatAPI extends EventEmitter {
 	constructor({ url, channels, memory }) {
@@ -30,6 +31,7 @@ class ChatAPI extends EventEmitter {
 		ibot.on('registered', ()=>LOGGER.debug(`IRC bot Registered.`));
 		ibot.on('motd', (msg)=>LOGGER.debug(`IRC: MOTD: ${msg}`));
 		ibot.on('message#', this.handleMessage.bind(this));
+		ibot.on('action', this.handleMessage.bind(this));
 		ibot.on('pm', (nick, text, msg)=>LOGGER.debug(`IRC PM:`, msg));
 		
 		ibot.on('error', (msg)=>{
@@ -98,7 +100,7 @@ class ChatAPI extends EventEmitter {
 	}
 	
 	handleMessage(nick, to, text, msg) {
-		// LOGGER.debug(`${nick}: ${text}`);
+		CHATLOG.trace(`${nick}: ${text}`);
 		const INPUT_MATCH = Bot.runConfig.run.inputMatch;
 		let res;
 		if (nick === 'tpp') {
