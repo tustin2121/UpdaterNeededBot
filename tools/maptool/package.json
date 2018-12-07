@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "bytebuffer": "^5.0.1",
-    "nw": "^0.29.2-sdk"
+    "nw": "^0.35.0-sdk"
   }
 }
