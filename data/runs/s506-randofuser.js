@@ -11,12 +11,14 @@ module.exports = {
 		regionMap: 'gen2_johto', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
-			secret: 0,
+			id: 50959,
+			secret: 54460,
 		},
 		// A list of game corrections and options
 		opts: {
 			// see /data/genopts
+			caughtInfo: false,
+			secretId: false,
 		},
 	},
 	run: {
@@ -47,7 +49,7 @@ module.exports = {
 		},
 		
 		// The Reddit Live Updater ID to report to
-		liveID: "11rfit10b8a5r",
+		liveID: "122kcpep8udww",
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: "366698530343223306",
 		
@@ -62,7 +64,7 @@ module.exports = {
 	
 	// The list of active modules and their configurations
 	modules: {
-		Meme: {},
+		// Meme: {},
 		Location: {},
 		ApiMonitoring: {},
 		Pokemon: {},
@@ -75,7 +77,8 @@ module.exports = {
 		Timing: {},
 		Phonebook: {},
 		Options: {},
-		GameStats: {},
+		// GameStats: {},
+		RunStats: {},
 		RealTime: {},
 		// PC: {},
 	},

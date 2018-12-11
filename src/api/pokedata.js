@@ -242,6 +242,11 @@ class Pokemon {
 		this.cp = mon.cp || 0;
 		this.fitness = mon.fitness || 0;
 		
+		if (!Bot.runOpts('personalityValues') && Bot.runFlag('pv_patch')) {
+			// Gens 1 and 2 don't have personality values, so we may have to do some hacks to make them more unique.
+			this.hash ^= this.dexid * this.dexid;
+		}
+		
 		if (Bot.runOpts('gender')) this._gender = mon.gender || this._gender;
 		if (Bot.runOpts('heldItem')) {
 			let item = read(mon, `held_item`) || mon.item || {};
@@ -409,7 +414,7 @@ class Combatant {
 		if (data.health[0] !== 0) this.hp = Math.max(this.hp, 1); //At least 1% HP if not fainted
 		this._hp = [data.health[0], data.health[1]];
 		
-		this.name = data.name;
+		this.name = data.name || read(data.species, 'name');
 		this.species = read(data.species, 'name') || data.name;
 		this.dexid = read(data.species, 'national_dex', 'id');
 		this.hash = read(data, 'personality_value');
@@ -978,7 +983,7 @@ class SortedData {
 			this.timeOfDay = (()=>{
 				if (data.time.h >= 20) return 'night';
 				if (data.time.h >= 12) return 'day';
-				if (data.time.h >= 6) return 'morning';
+				if (data.time.h >= 4) return 'morning';
 				return 'night';
 			})();
 		}

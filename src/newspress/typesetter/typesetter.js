@@ -636,9 +636,10 @@ function printObject(obj) {
 		return function(day, night, morn) {
 			if (!Bot.runOpts('rtc')) return false;
 			switch (this.curr_api.timeOfDay) {
-				case 'night': return night || day;
-				case 'morning': return morn || day;
-				default: return day;
+				case 'night': return night || false;
+				case 'morning': return morn || day || false;
+				case 'day': return day || false;
+				default: return false;
 			}
 		}
 	}
@@ -952,7 +953,7 @@ class TypeSetter {
 	 * @param {string} text - The string to format.
 	 * @param {LedgerItem} item - The ledger item to use as context
 	 */
-	fillText(text, item) {
+	fillText(text, item={}) {
 		let i = 20;
 		while (i > 0) try {
 			let phrase = text.replace(/{{([^{}\n]+)}}/gi, (match, key)=>{

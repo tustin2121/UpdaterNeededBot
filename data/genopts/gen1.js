@@ -8,6 +8,7 @@ module.exports = {
 	shiny: false,
 	secretId: false,
 	caughtInfo: false,
+	personalityValues: false,
 	specialSplit: false,
 	abilities: false,
 	natures: false,

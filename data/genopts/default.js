@@ -23,6 +23,8 @@ module.exports = {
 	phonebook: false,
 	// If this generation records a pokemon's met information (caught in what pokemon mainly)
 	caughtInfo: true,
+	// If this generation records a separate "personality value" for a caught pokemon.
+	personalityValues: true,
 	// If this generation supports a split special stat (spD and spA, instead of just special)
 	specialSplit: true,
 	// If this generation supports abilities

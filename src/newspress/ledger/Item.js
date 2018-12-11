@@ -163,7 +163,7 @@ ShoppingContext.STARTING_TTL = 4;
 
 class ShoppingReport extends LedgerItem {
 	constructor(cart) {
-		super(1.5);
+		super(1.5, {helps:'shopping'});
 		this.cart = cart;
 	}
 }

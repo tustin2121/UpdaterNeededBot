@@ -173,7 +173,7 @@ if (!!Bot.gameInfo().regionMap) {
 }{
 	const itemIds = Bot.runOpts('itemIds_pokeballs');
 	RULES.push(new Rule(`Pokeballs lost in battle have been thrown`)
-		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('BattleContext', 'BattleEnded'))
 		.when(ledger=>ledger.has('LostItem').with('item.id', itemIds))
 		.then(ledger=>{
 			let context = ledger.get(0)[0];

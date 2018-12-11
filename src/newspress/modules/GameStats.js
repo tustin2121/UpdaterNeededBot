@@ -1,5 +1,5 @@
-// newspress/modules/ApiMonitoring.js
-// The API Monitoring module
+// newspress/modules/GameStats.js
+// The Game-Provided Statistics Monitoring module
 
 const { ReportingModule, Rule } = require('./_base');
 const { GameStatChanged, GameSaved, ApiDisturbance } = require('../ledger');
@@ -8,9 +8,6 @@ const LOGGER = getLogger('GameStats');
 
 const RULES = [];
 
-/**   ** Api Monitoring Module **
- * Monitors the API for certain descrepencies in reporting.
- */
 class GameStatsModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory);

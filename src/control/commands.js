@@ -99,6 +99,16 @@ const HANDLER = {
 			.catch(ERR);
 	},
 	
+	runstats: ({ msg, args })=>{
+		let stats = Bot.memory['mod0_RunStats'];
+		let out = 'Current Run Stats:\n';
+		for (let stat in stats) {
+			out += `${stat}: ${stats[stat]}\n`;
+		}
+		
+		msg.channel.send(out).catch(ERR);
+	},
+	
 	tagin: ({ msg, args })=>{
 		if (args && args[0]) {
 			let ids = Bot.gameWordMatch(args[0]);
@@ -392,11 +402,11 @@ function parseCmd(cmd, authed=false, msg=null) {
 		let opts = res[1].split(/, /);
 		let things = {};
 		opts.forEach((x)=>{
-			if (/caught|catch|pokemon/.test(x)) things['catches'] = true;
-			if (/shopping|shop|vending/.test(x)) things['shopping'] = true;
-			if (/items?|pickup/.test(x)) things['items'] = true;
-			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['level'] = true;
-			if (/level ?ups?|levels?|moves?|learn/.test(x)) things['moves'] = true;
+			if (/caught|catch|pokemon|everything/.test(x)) things['catches'] = true;
+			if (/shopping|shop|vending|everything/.test(x)) things['shopping'] = true;
+			if (/items?|pickup|everything/.test(x)) things['items'] = true;
+			if (/level ?ups?|levels?|moves?|learn|everything/.test(x)) things['level'] = true;
+			if (/level ?ups?|levels?|moves?|learn|everything/.test(x)) things['moves'] = true;
 		});
 		if (!Object.keys(things).length) return ['helpout-help'];
 		return ['helpout', things];
@@ -404,6 +414,8 @@ function parseCmd(cmd, authed=false, msg=null) {
 	
 	if (/^h[ea]lp(?: me| us)?(?: out)?/i.test(cmd)) return ['helpout-help'];
 	if (/^(h[ea]lp|commands)/i.test(cmd)) return ['shutup', `I have a list of commands now available here: <${HELP_URL}>`];
+	
+	if (/^(run ?)?stats/i.test(cmd)) return ['runstats'];
 	
 	if ((res = /^chill(?: out)?(?: for (.*))?/i.exec(cmd))) {
 		let timeout = 1*60*60*1000; //1 hour by default

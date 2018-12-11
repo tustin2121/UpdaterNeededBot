@@ -81,7 +81,7 @@ module.exports = {
 	
 	ShoppingContext: null,
 	ShoppingReport: { //TODO
-		__meta__: { helpingOnly:true },
+		// __meta__: { helpingOnly:true },
 		default: function({ cart }) {
 			/* 
 			Cart is: {

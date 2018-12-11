@@ -4,6 +4,7 @@
 module.exports = {
 	rtc: true,
 	phonebook: 'Pokégear',
+	personalityValues: false,
 	specialSplit: false,
 	abilities: false,
 	natures: false,
@@ -15,6 +16,14 @@ module.exports = {
 	
 	namingMatch: /-_/i,
 	moveInfo: 'gen2/movetable.js',
+	
+	trainerClasses: {
+		// The following have special handling available
+		rival: [9,],
+		leader: [1,2,3,4,5,6,7,8,17,18,19,21,26,35,42,46,64,],
+		e4: [11,13,14,15],
+		champ: [16,63,],
+	},
 	
 	badgeNames: [
 		"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
@@ -38,6 +47,7 @@ module.exports = {
 		230,231,232,233,234,235,236,237,238,239,
 		240,241,242,243,244,245,246,247,248,249,
 	],
+	itemIds_revive: [ 39,40, ],
 	
 	pcBoxCapacity: 20,
 	pcBoxRollover: false,

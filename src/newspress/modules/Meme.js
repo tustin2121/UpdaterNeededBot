@@ -30,13 +30,6 @@ class MemeModule extends ReportingModule {
 	}
 }
 
-RULES.push(new Rule(`Memes: splash count`)
-	.when(ledger=>ledger.has('BattleContext'))
-	.when(ledger=>ledger.has('MonLostPP').with('move', "Splash"))
-	.then(ledger=>{
-		ledger.memory.splashCount++;
-	})
-);
 
 {
 	const TIMEOUT = 1000*60*110; //110 minutes

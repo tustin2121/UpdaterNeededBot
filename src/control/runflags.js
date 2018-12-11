@@ -64,6 +64,13 @@ const FLAGS = {
 		purpose: `I will report as if democracy is on. Usually I can detect this myself, but you can turn it on and off if I miss something.`,
 		match: /demo(cracy)?/i,
 	},
+	
+	pv_patch: {
+		name: 'Personality Value Patch',
+		default: false,
+		purpose: `In Gen 1 and 2 games, the API fakes the Personality Value, and so there's a higher chance of it clashing. Enable this to "patch" that.`,
+		match: /(pv ?)?patch/i,
+	},
 };
 
 module.exports = {

@@ -132,23 +132,42 @@ class RuleInstance {
 			this.lastResult = false;
 			return this;
 		}
-		if (val.length === 1 && Array.isArray(val[0])) val = val[0];
-		let props = prop.split('.');
-		let vals = new Set(val);
-		let list = this.workingList;
-		this.workingList = [];
-		outerLoop:
-		for (let item of list) {
-			let p = item;
-			for (let pp of props) {
-				if (p[pp] === undefined) continue outerLoop;
-				p = p[pp];
+		if (val.length === 0) { //existance test
+			let props = prop.split('.');
+			let list = this.workingList;
+			this.workingList = [];
+			outerLoop:
+			for (let item of list) {
+				let p = item;
+				for (let pp of props) {
+					if (p[pp] === undefined) continue outerLoop;
+					p = p[pp];
+				}
+				if (!p) continue outerLoop;
+				this.workingList.push(item);
 			}
-			if (!vals.has(p)) continue outerLoop;
-			this.workingList.push(item);
+			this.lastResult = (this.workingList.length > 0);
+			return this;
+		} 
+		else { //matching
+			if (val.length === 1 && Array.isArray(val[0])) val = val[0];
+			let props = prop.split('.');
+			let vals = new Set(val);
+			let list = this.workingList;
+			this.workingList = [];
+			outerLoop:
+			for (let item of list) {
+				let p = item;
+				for (let pp of props) {
+					if (p[pp] === undefined) continue outerLoop;
+					p = p[pp];
+				}
+				if (!vals.has(p)) continue outerLoop;
+				this.workingList.push(item);
+			}
+			this.lastResult = (this.workingList.length > 0);
+			return this;
 		}
-		this.lastResult = (this.workingList.length > 0);
-		return this;
 	}
 	/**
 	 * Filters a previously found list of items to ones without the given property set to

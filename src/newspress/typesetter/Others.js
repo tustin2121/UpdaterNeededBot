@@ -260,4 +260,7 @@ module.exports = {
 			`We {{rand|think|imagine|believe|deem that|suspect|expect}} this fridge needs a good raiding.`,
 		]
 	},
+	
+	RunStatChanged: null,
+	GameStatChanged: null,
 };
