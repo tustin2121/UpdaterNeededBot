@@ -176,10 +176,10 @@
 			{
 				"bank": 1,
 				"id": 2,
-				"name": "Olivine City",
+				"name": "Olivine City Gym",
 				"areaId": 27,
 				"areaName": "Olivine City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 16,
 				"attrs": {},
@@ -813,10 +813,10 @@
 			{
 				"bank": 2,
 				"id": 2,
-				"name": "Mahogany Town",
+				"name": "Mahogany Gym",
 				"areaId": 36,
 				"areaName": "Mahogany Town",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 20,
 				"attrs": {},
@@ -2055,7 +2055,9 @@
 				"type": "route",
 				"width": 40,
 				"height": 54,
-				"attrs": {},
+				"attrs": {
+					"tempParty": true
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -7283,10 +7285,10 @@
 			{
 				"bank": 4,
 				"id": 7,
-				"name": "Ecruteak City",
+				"name": "Ecruteak City Gym",
 				"areaId": 22,
 				"areaName": "Ecruteak City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -7722,10 +7724,10 @@
 			{
 				"bank": 5,
 				"id": 1,
-				"name": "Blackthorn City",
+				"name": "Blackthorn City Gym",
 				"areaId": 41,
 				"areaName": "Blackthorn City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -7790,10 +7792,10 @@
 			{
 				"bank": 5,
 				"id": 2,
-				"name": "Blackthorn City",
+				"name": "Blackthorn City Gym",
 				"areaId": 41,
 				"areaName": "Blackthorn City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -8337,13 +8339,15 @@
 			{
 				"bank": 6,
 				"id": 4,
-				"name": "Seafoam Islands",
+				"name": "Seafoam Islands (Relocated Cinnabar Gym)",
 				"areaId": 85,
 				"areaName": "Seafoam Islands",
-				"type": "cave",
+				"type": "gym",
 				"width": 64,
 				"height": 60,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -8947,10 +8951,10 @@
 			{
 				"bank": 7,
 				"id": 6,
-				"name": "Cerulean City",
+				"name": "Cerulean City Gym",
 				"areaId": 56,
 				"areaName": "Cerulean City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 16,
 				"attrs": {},
@@ -9830,10 +9834,10 @@
 			{
 				"bank": 8,
 				"id": 5,
-				"name": "Azalea Town",
+				"name": "Azalea Town Gym",
 				"areaId": 12,
 				"areaName": "Azalea Town",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 16,
 				"attrs": {},
@@ -10800,10 +10804,10 @@
 			{
 				"bank": 10,
 				"id": 7,
-				"name": "Violet City",
+				"name": "Violet City Gym",
 				"areaId": 6,
 				"areaName": "Violet City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 16,
 				"attrs": {},
@@ -11482,10 +11486,10 @@
 			{
 				"bank": 11,
 				"id": 3,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Gym",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 20,
 				"height": 18,
 				"attrs": {},
@@ -11539,7 +11543,7 @@
 			{
 				"bank": 11,
 				"id": 4,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Bike Shop",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
@@ -11650,7 +11654,7 @@
 			{
 				"bank": 11,
 				"id": 7,
-				"name": "Goldenrod City",
+				"name": "Goldenrod City Station",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
@@ -11820,7 +11824,7 @@
 			{
 				"bank": 11,
 				"id": 11,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -11867,7 +11871,7 @@
 			{
 				"bank": 11,
 				"id": 12,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -11907,7 +11911,7 @@
 			{
 				"bank": 11,
 				"id": 13,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -11947,7 +11951,7 @@
 			{
 				"bank": 11,
 				"id": 14,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -11987,7 +11991,7 @@
 			{
 				"bank": 11,
 				"id": 15,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -12027,7 +12031,7 @@
 			{
 				"bank": 11,
 				"id": 16,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -12067,7 +12071,7 @@
 			{
 				"bank": 11,
 				"id": 17,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -12100,7 +12104,7 @@
 			{
 				"bank": 11,
 				"id": 18,
-				"name": "Goldenrod City PokéMart",
+				"name": "Goldenrod City Department Store",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "mart",
@@ -12126,7 +12130,7 @@
 			{
 				"bank": 11,
 				"id": 19,
-				"name": "Goldenrod City",
+				"name": "Goldenrod Game Corner",
 				"areaId": 16,
 				"areaName": "Goldenrod City",
 				"type": "indoor",
@@ -12887,10 +12891,10 @@
 			{
 				"bank": 12,
 				"id": 11,
-				"name": "Vermilion City",
+				"name": "Vermilion City Gym",
 				"areaId": 62,
 				"areaName": "Vermilion City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -13443,10 +13447,10 @@
 			{
 				"bank": 14,
 				"id": 4,
-				"name": "Pewter City",
+				"name": "Pewter City Gym",
 				"areaId": 52,
 				"areaName": "Pewter City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 14,
 				"attrs": {},
@@ -15193,10 +15197,10 @@
 			{
 				"bank": 17,
 				"id": 8,
-				"name": "Fuchsia City",
+				"name": "Fuchsia City Gym",
 				"areaId": 82,
 				"areaName": "Fuchsia City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 18,
 				"height": 18,
 				"attrs": {},
@@ -16152,13 +16156,15 @@
 			{
 				"bank": 20,
 				"id": 1,
-				"name": "Special Pokémon Center",
+				"name": "Pokémon Trading Center",
 				"areaId": 0,
 				"areaName": "Special",
 				"type": "center",
 				"width": 16,
 				"height": 8,
-				"attrs": {},
+				"attrs": {
+					"checkpoint": false
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -16655,7 +16661,7 @@
 			{
 				"bank": 21,
 				"id": 5,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -16702,7 +16708,7 @@
 			{
 				"bank": 21,
 				"id": 6,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -16742,7 +16748,7 @@
 			{
 				"bank": 21,
 				"id": 7,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -16782,7 +16788,7 @@
 			{
 				"bank": 21,
 				"id": 8,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -16822,7 +16828,7 @@
 			{
 				"bank": 21,
 				"id": 9,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -16862,7 +16868,7 @@
 			{
 				"bank": 21,
 				"id": 10,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -16895,7 +16901,7 @@
 			{
 				"bank": 21,
 				"id": 11,
-				"name": "Celadon City PokéMart",
+				"name": "Celadon City Department Store",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "mart",
@@ -17215,7 +17221,7 @@
 			{
 				"bank": 21,
 				"id": 19,
-				"name": "Celadon City",
+				"name": "Celadon City Game Corner",
 				"areaId": 72,
 				"areaName": "Celadon City",
 				"type": "indoor",
@@ -17281,10 +17287,10 @@
 			{
 				"bank": 21,
 				"id": 21,
-				"name": "Celadon City",
+				"name": "Celadon City Gym",
 				"areaId": 72,
 				"areaName": "Celadon City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -17856,10 +17862,10 @@
 			{
 				"bank": 22,
 				"id": 5,
-				"name": "Cianwood City",
+				"name": "Cianwood City Gym",
 				"areaId": 33,
 				"areaName": "Cianwood City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -18516,10 +18522,10 @@
 			{
 				"bank": 23,
 				"id": 4,
-				"name": "Viridian City",
+				"name": "Viridian City Gym",
 				"areaId": 49,
 				"areaName": "Viridian City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 10,
 				"height": 18,
 				"attrs": {},
@@ -20122,7 +20128,7 @@
 			{
 				"bank": 25,
 				"id": 3,
-				"name": "Saffron City",
+				"name": "Saffron City Fighting Dojo",
 				"areaId": 73,
 				"areaName": "Saffron City",
 				"type": "indoor",
@@ -20155,10 +20161,10 @@
 			{
 				"bank": 25,
 				"id": 4,
-				"name": "Saffron City",
+				"name": "Saffron City Gym",
 				"areaId": 73,
 				"areaName": "Saffron City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 20,
 				"height": 18,
 				"attrs": {},
@@ -20561,7 +20567,7 @@
 			{
 				"bank": 25,
 				"id": 9,
-				"name": "Saffron City",
+				"name": "Saffron City Station",
 				"areaId": 73,
 				"areaName": "Saffron City",
 				"type": "indoor",
@@ -21170,10 +21176,10 @@
 			{
 				"bank": 26,
 				"id": 6,
-				"name": "Cherrygrove City",
+				"name": "Cherrygrove City Gym",
 				"areaId": 3,
 				"areaName": "Cherrygrove City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 8,
 				"height": 8,
 				"attrs": {},
@@ -21406,6 +21412,68 @@
 			"text": "We get a berry thing!!",
 			"timeout": 600000,
 			"loc": "26.9:0"
+		},
+		{
+			"type": "transit",
+			"id": "6e7f86d6",
+			"text": "We enter the Bug Catching Contest!",
+			"timeout": 600000,
+			"to": "3.16"
+		},
+		{
+			"type": "transit",
+			"id": "13a2fadb",
+			"text": "We finish the bug catching contest. Time for the results!",
+			"timeout": 600000,
+			"from": "3.16"
+		},
+		{
+			"type": "transit",
+			"id": "f0de78d3",
+			"text": "!magenttrain",
+			"timeout": 900000,
+			"from": "25.9",
+			"to": "11.7"
+		},
+		{
+			"type": "transit",
+			"id": "ed7db7d2",
+			"text": "!magenttrain",
+			"timeout": 900000,
+			"from": "11.7",
+			"to": "25.9"
+		},
+		{
+			"type": "transit",
+			"id": "f00e8c0d",
+			"text": "!magenttrain_back",
+			"timeout": 300000,
+			"from": "25.9",
+			"to": "11.7"
+		},
+		{
+			"type": "transit",
+			"id": "bbdb9080",
+			"text": "!magenttrain_back",
+			"timeout": 300000,
+			"from": "11.7",
+			"to": "25.9"
+		},
+		{
+			"type": "transit",
+			"id": "68a8c1d1",
+			"text": "!magenttrain_nvm",
+			"timeout": 60000,
+			"from": "11.7",
+			"to": "25.9"
+		},
+		{
+			"type": "transit",
+			"id": "d49fef99",
+			"text": "!magenttrain_nvm",
+			"timeout": 60000,
+			"from": "25.9",
+			"to": "11.7"
 		}
 	]
 }
