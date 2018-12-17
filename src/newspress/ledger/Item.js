@@ -116,7 +116,7 @@ class ShoppingContext extends LedgerItem {
 		this.cart = cart;
 	}
 	canPostpone() {
-		if (this.ttl === 0) {
+		if (this.ttl <= 0) {
 			if (this.cart.transactions > 0) return new ShoppingReport(this.cart); //send out the report (to be reported next update cycle)
 			return false; //Don't postpone or send out a report
 		}
@@ -158,7 +158,7 @@ class ShoppingContext extends LedgerItem {
 		this.cart.transactions++;
 	}
 }
-ShoppingContext.STARTING_TTL = 4;
+ShoppingContext.STARTING_TTL = 6;
 
 
 class ShoppingReport extends LedgerItem {
@@ -177,13 +177,14 @@ class UsedBallInBattle extends LedgerItem {
 		this.amount = amount;
 		if (x instanceof SortedBattle) {
 			this.battle = x;
+			this.mon = this.battle.active[0];
 			this.flavor = x.trainer?'trainer':null; //TODO
 		} else if (x instanceof Pokemon) {
 			this.mon = x;
 		}
 	}
-	get target(){ return this.mon || this.battle.active[0]; }
-	get enemy(){ return this.mon || this.battle.active[0]; }
+	get target(){ return this.mon; }
+	get enemy(){ return this.mon; }
 	get trainer(){ //shouldn't be called unless it's a trainer flavor
 		if (!this.battle) return null;
 		return this.battle.trainer && this.battle.trainer[0];

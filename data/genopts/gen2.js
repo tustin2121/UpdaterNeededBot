@@ -27,7 +27,7 @@ module.exports = {
 	
 	badgeNames: [
 		"Zephyr", "Hive", "Plain", "Fog", "Mineral", "Storm", "Glacier", "Rising",
-		"Boulder", "Cascade", "Thunder", "Rainbow", "Marsh", "Soul", "Volcano", "Earth",
+		"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth",
 	],
 	e4Names: [ "Will", "Koga", "Bruno", "Karen" ],
 	champName: "Lance",

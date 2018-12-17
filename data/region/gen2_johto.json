@@ -14433,7 +14433,9 @@
 				"type": "center",
 				"width": 18,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"e4": "lobby"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -14512,13 +14514,15 @@
 			{
 				"bank": 16,
 				"id": 3,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Will's Room)",
 				"areaId": 91,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"e4": "e1"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -14552,13 +14556,15 @@
 			{
 				"bank": 16,
 				"id": 4,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Koga's Room)",
 				"areaId": 91,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"e4": "e2"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -14599,13 +14605,15 @@
 			{
 				"bank": 16,
 				"id": 5,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Bruno's Room)",
 				"areaId": 91,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"e4": "e3"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -14646,13 +14654,15 @@
 			{
 				"bank": 16,
 				"id": 6,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Karen's Room)",
 				"areaId": 91,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 18,
-				"attrs": {},
+				"attrs": {
+					"e4": "e4"
+				},
 				"areas": [
 					{
 						"ax": 2,
@@ -14705,13 +14715,15 @@
 			{
 				"bank": 16,
 				"id": 7,
-				"name": "Indigo Plateau",
+				"name": "Indigo Plateau (Champion's Room)",
 				"areaId": 91,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 24,
-				"attrs": {},
+				"attrs": {
+					"e4": "champ"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -14801,13 +14813,15 @@
 			{
 				"bank": 16,
 				"id": 8,
-				"name": "Indigo Plateau",
+				"name": "Hall of Fame",
 				"areaId": 91,
 				"areaName": "Indigo Plateau",
 				"type": "indoor",
 				"width": 10,
 				"height": 14,
-				"attrs": {},
+				"attrs": {
+					"e4": "hallOfFame"
+				},
 				"areas": [],
 				"gamedata": {
 					"warps": [
@@ -21463,7 +21477,7 @@
 			"type": "transit",
 			"id": "68a8c1d1",
 			"text": "!magenttrain_nvm",
-			"timeout": 60000,
+			"timeout": 0,
 			"from": "11.7",
 			"to": "25.9"
 		},
@@ -21471,7 +21485,7 @@
 			"type": "transit",
 			"id": "d49fef99",
 			"text": "!magenttrain_nvm",
-			"timeout": 60000,
+			"timeout": 0,
 			"from": "25.9",
 			"to": "11.7"
 		}

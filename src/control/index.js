@@ -91,7 +91,7 @@ const offActivities = [
 	['tiddilywinks with sewer lids', { type:'PLAYING' }],
 	['the PC beep', { type:'LISTENING' }],
 	['Netflix', { type:'WATCHING' }],
-	['Super Mario Odyssey', { type:'PLAYING' }],
+	['Super Smash Bros Ultimate', { type:'PLAYING' }],
 	[`the sounds of a summer's night`, { type:'LISTENING' }],
 	[`Twitter explode over something menial`, { type:'WATCHING' }],
 ];
@@ -124,7 +124,12 @@ function listenForQueryUpdate(query) {
 				if (res === true) msg.edit(`~~${query.text}~~\n[Query confirmed by ${user}]`);
 				else if (res === false) msg.edit(`~~${query.text}~~\n[Query denied by ${user}]`);
 				else if (res === null) msg.edit(`~~${query.text}~~\n[Query timed out]`);
-				else if (typeof res === 'string') msg.edit(`~~${query.text}~~\n[Query canceled: ${res}]`);
+				else if (typeof res === 'string') {
+					if (user)
+						msg.edit(`~~${query.text}~~\n[Query marked '${res}' by ${user}]`);
+					else
+						msg.edit(`~~${query.text}~~\n[Query canceled: ${res}]`);
+				}
 			}).catch(ERR);
 		}
 		if (typeof query.evtid === 'string' && query.evtid) {
@@ -183,8 +188,11 @@ module.exports = {
 		if (!staffChannel) return false;
 		let id = generateId();
 		
+		//TODO have a list of other responses besides confirm/deny, so when one of them is given, we can
+		// check against the query as to whether that's a valid response.
 		text = text.replace(/\{\{confirm\}\}/gi, '`updater, confirm '+id+'`');
 		text = text.replace(/\{\{deny\}\}/gi, '`updater, deny '+id+'`');
+		text = text.replace(/\{\{invalid\}\}/gi, '`updater, invalid '+id+'`');
 		let query = Bot.memory.queries[id] = {
 			id, text, msgId:null, evtid:null,
 			expiresAt: Date.now() + timeout,

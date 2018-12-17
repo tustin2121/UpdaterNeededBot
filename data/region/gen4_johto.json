@@ -14423,21 +14423,21 @@
 			"from": "0.520",
 			"to": "0.198",
 			"text": "!magenttrain",
-			"timeout": "900000"
+			"timeout": 900000
 		},
 		{
 			"id": "6aca9185",
 			"from": "0.520",
 			"to": "0.198",
 			"text": "!magenttrain_back",
-			"timeout": "300000"
+			"timeout": 300000
 		},
 		{
 			"id": "b31d6e5e",
 			"from": "0.520",
 			"to": "0.198",
 			"text": "!magenttrain_nvm",
-			"timeout": 600000
+			"timeout": 0
 		},
 		{
 			"id": "ec649e33",
@@ -14458,7 +14458,7 @@
 			"from": "0.520",
 			"to": "0.197",
 			"text": "!magenttrain_nvm",
-			"timeout": 600000
+			"timeout": 0
 		},
 		{
 			"id": "f83e6722",

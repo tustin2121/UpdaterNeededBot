@@ -17,7 +17,7 @@ class OptionsChanged extends LedgerItem {
 			// For debugging purposes
 			Object.defineProperties(changes, {
 				toString: {
-					value: function(){ return `{${Object.keys(this).join(',')}}`; },
+					value: function(){ return JSON.stringify(this); },
 				},
 			});
 		}

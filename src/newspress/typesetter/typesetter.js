@@ -925,7 +925,7 @@ class TypeSetter {
 		}
 		if (entry.single) return this._resolve(entry.single, item);
 		if (entry.item) return this._resolve(entry.item, item);
-		LOGGER.error(`Resolve failed!`, entry);
+		LOGGER.error(`Resolve failed!`, entry, item);
 		return null;
 	}
 	

@@ -293,7 +293,7 @@ RULES.push(new Rule('Ask Updaters about Missing Pokemon')
 			if (!item.query) { //Make a query for this pokemon
 				item.query = Bot.queryUpdaters(
 					`Query: A Lv${item.mon.level} ${item.mon.gender} ${item.mon} is missing from the API, and is suspected released.\n`+
-					`If anyone can confirm this release, reply {{confirm}}. If it certainly hasn't been released, reply {{deny}}. I will assume it has been released when this query expires.`, 
+					`* {{confirm}} if you can confirm this release.\n* {{deny}} if you can certify it hasn't been released.\n* {{invalid}} if the entity isn't a pokemon or this query was made in error.\n* I will assume it has been released when this query expires.`,
 					{ timeout:1000*60*10, bypassTagCheck:true });
 				item.ticksActive++;
 				ledger.postpone(item);
@@ -308,6 +308,9 @@ RULES.push(new Rule('Ask Updaters about Missing Pokemon')
 				} else if (res === null) { //timed out, assume released
 					item.markAsFallen('Assumed released.');
 					ledger.remove(item).add(new PokemonLost(item.mon, item.timestamp, 'timeout'));
+				} else if (res === 'invalid') { //marked as invalid, quietly remove
+					item.markAsFallen('Marked as an invalid entity.');
+					ledger.remove(item)
 				} else { //waiting for query to resolve
 					item.ticksActive++;
 					ledger.postpone(item);

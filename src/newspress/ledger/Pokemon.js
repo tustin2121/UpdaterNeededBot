@@ -82,7 +82,7 @@ class PokemonIsMissing extends PokemonItem {
 	/** Calls to Bot.appendToTheFallen() with the appropriate information to
 	 *  memorialize this pokemon as among the fallen. */
 	markAsFallen(notes='') {
-		Bot.appendToTheFallen(this.raw, this.timestamp, notes+` (Searched for ${this.ticksActive} ticks, query ${this.query}.)`);
+		Bot.appendToTheFallen(this.raw, this.timestamp, this.mon.toString(), notes+` (Searched for ${this.ticksActive} ticks, query ${this.query}.)`);
 	}
 }
 

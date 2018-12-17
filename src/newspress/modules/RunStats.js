@@ -28,10 +28,14 @@ class RunStatsModule extends ReportingModule {
 	incrementStat(stat, delta=1) {
 		this.memory[stat] = (this.memory[stat]||0);
 		let item = new RunStatChanged(stat, this.memory[stat], this.memory[stat]+delta);
-		this.memory[stat] += 1;
+		this.memory[stat] += delta;
 		return item;
 	}
 }
+RunStatsModule.inaccurateStats = [
+	// CLEAR WHEN RUN BEGINS! ADD WHEN YOU FIND A BUG IN ONE OF THE STAT COUNTS!!
+	'evolutionCount', 'metronomeCount', 'hpLost', 'movePPUsed', 'trainerBattleCount',
+];
 
 RULES.push(new Rule(`RunStat: Blackout Count`)
 	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl == BlackoutContext.STARTING_TTL).unmarked())
@@ -61,7 +65,7 @@ RULES.push(new Rule(`RunStat: Faint Count`)
 		ledger.add(ledger.module.incrementStat('faintCount'));
 	})
 );
-RULES.push(new Rule(`RunStat: Faint Count on Blackout`)
+RULES.push(new Rule(`RunStat: Faint Count`)
 	.when(ledger=>ledger.hasnt('MonFainted'))
 	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl == BlackoutContext.STARTING_TTL).unmarked())
 	.then(ledger=>{
@@ -82,7 +86,7 @@ RULES.push(new Rule(`RunStat: Hatch Count`)
 	.when(ledger=>ledger.has('MonHatched').unmarked())
 	.then(ledger=>{
 		ledger.mark(0);
-		ledger.add(ledger.module.incrementStat('eggsHatched'));
+		ledger.add(ledger.module.incrementStat('eggHatchCount'));
 	})
 );
 
@@ -110,27 +114,20 @@ RULES.push(new Rule(`RunStat: Move Learn Count`)
 );
 
 
-RULES.push(new Rule(`RunStat: Ball Toss Count`)
-	.when(ledger=>ledger.has('UsedBallInBattle').unmarked())
-	.then(ledger=>{
-		let count = ledger.mark(0).get(0).reduce((acc, x)=>acc + x.amount, 0);
-		ledger.add(ledger.module.incrementStat('ballsTossed', count));
-	})
-);
 RULES.push(new Rule(`RunStat: HP Lost`)
 	.when(ledger=>ledger.has('BattleContext'))
 	.when(ledger=>ledger.has('MonLostHP').unmarked())
 	.then(ledger=>{
-		let count = ledger.mark(1).get(1).reduce((acc, x)=>acc + (x.prev - x.curr), 0);
-		ledger.add(ledger.module.incrementStat('hpLost', count));
+		let pp = ledger.mark(1).get(1).reduce((acc, x)=>acc + (x.prev - x.curr), 0);
+		ledger.add(ledger.module.incrementStat('hpLost', pp));
 	})
 );
 RULES.push(new Rule(`RunStat: Move PP Used`)
 	.when(ledger=>ledger.has('BattleContext'))
 	.when(ledger=>ledger.has('MonLostPP').unmarked())
 	.then(ledger=>{
-		let count = ledger.mark(1).get(1).reduce((acc, x)=>acc + (x.prev - x.curr), 0);
-		ledger.add(ledger.module.incrementStat('movePPUsed', count));
+		let pp = ledger.mark(1).get(1).reduce((acc, x)=>acc + (x.prev - x.curr), 0);
+		ledger.add(ledger.module.incrementStat('movePPUsed', pp));
 	})
 );
 RULES.push(new Rule(`RunStat: Splash Count`)
@@ -158,6 +155,20 @@ RULES.push(new Rule(`RunStat: API Disturbances`)
 	})
 );
 
+RULES.push(new Rule(`RunStat: Magnet Train Count`)
+	.when(ledger=>ledger.has('MapChanged').which(x=>x.flavor && x.flavor.startsWith('magenttrain')).unmarked())
+	.then(ledger=>{
+		ledger.mark(0);
+		ledger.add(ledger.module.incrementStat('trainRides'));
+	})
+);
+RULES.push(new Rule(`RunStat: Chairlift Count`)
+	.when(ledger=>ledger.has('MapChanged').which(x=>x.flavor && x.flavor.startsWith('chairlift')).unmarked())
+	.then(ledger=>{
+		ledger.mark(0);
+		ledger.add(ledger.module.incrementStat('chairliftRides'));
+	})
+);
 
 
 module.exports = RunStatsModule;

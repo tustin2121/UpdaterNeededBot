@@ -100,11 +100,14 @@ const HANDLER = {
 	},
 	
 	runstats: ({ msg, args })=>{
+		const inaccurateStats = require('../newspress/modules/RunStats').inaccurateStats;
 		let stats = Bot.memory['mod0_RunStats'];
 		let out = 'Current Run Stats:\n';
 		for (let stat in stats) {
-			out += `${stat}: ${stats[stat]}\n`;
+			let s = (inaccurateStats.indexOf(stat)>-1)? '\\*':'';
+			out += `${stat}${s}: ${stats[stat]}\n`;
 		}
+		out += `\n(\\* innacurate due to discovered bugs)`;
 		
 		msg.channel.send(out).catch(ERR);
 	},
@@ -396,6 +399,9 @@ function parseCmd(cmd, authed=false, msg=null) {
 	}
 	if ((res = /^deny ([0-9a-z]{3,5})/i.exec(cmd))) {
 		return ['query-respond', res[1], false];
+	}
+	if ((res = /^invalid ([0-9a-z]{3,5})/i.exec(cmd))) {
+		return ['query-respond', res[1], 'invalid'];
 	}
 	
 	if ((res = /^h[ea]lp (?:me |us )?(?:out )?with (.*)/i.exec(cmd))) {

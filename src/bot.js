@@ -461,13 +461,13 @@ class UpdaterBot extends EventEmitter {
 	 * @param {any} data - Raw pokemon JSON object to write to memorial.
 	 * @param {number?} ts - Timestamp of when this pokemon was fallen
 	 */
-	appendToTheFallen(data, ts=0, notes='') {
+	appendToTheFallen(data, ts=0, name, notes='') {
 		LOGGER.mark('Writing to theFallen:', data);
 		if (ts === 0) ts = Date.now();
 		if (typeof data !== 'string') {
 			data = JSON.stringify(data);
 		}
-		let info = `# ${ts} | ${this.getTimestamp(ts)}\n# Notes: ${notes}\n${data}\n\n`;
+		let info = `# ${name}\n# ${ts} | ${this.getTimestamp(ts)}\n# Notes: ${notes}\n${data}\n\n`;
 		process.nextTick(()=>{ //Do this syncronous write after the update tick
 			try {
 				fs.writeFileSync(path.join(MEMORY_DIR, 'theFallen.txt'), info, { encoding:'utf8', flag:'a' });

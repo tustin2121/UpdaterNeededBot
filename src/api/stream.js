@@ -185,6 +185,8 @@ function http_get(url) {
 			}
 			if (error) {
 				LOGGER.error(error.message);
+				LOGGER.debug(`STATUS: ${res.statusCode}`);
+				LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
 				res.resume(); // consume response data to free up memory
 				return reject(error);
 			}

@@ -354,7 +354,14 @@ RULES.push(new Rule(`Give the Shopping Context more time to live during Democrac
 	.when(ledger=>ledger.has('ShoppingContext').unmarked())
 	.when(ledger=>ledger.has('DemocracyContext'))
 	.then(ledger=>{
-		ledger.mark(0).forEach(x=>x.ttl+=0.5);
+		ledger.mark(0).forEach(x=>x.ttl+=0.75);
+	})
+);
+RULES.push(new Rule(`Set the TTL to 0 on the Shopping Context when we change maps.`)
+	.when(ledger=>ledger.has('ShoppingContext').unmarked())
+	.when(ledger=>ledger.has('MapChanged'))
+	.then(ledger=>{
+		ledger.mark(0).forEach(x=>x.ttl=0);
 	})
 );
 RULES.push(new Rule(`Postpone the shopping context.`)
