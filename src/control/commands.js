@@ -14,10 +14,6 @@ const fs = require("fs");
 const path = require('path');
 const REBOOT_FILE = path.resolve(__dirname, '../../memory', 'reboot.log');
 
-function printElapsedTime(date) {
-	return `${Math.floor(date/(1000*60*60*24))}d ${Math.floor(date/(1000*60*60))%24}h ${Math.floor(date/(1000*60))%60}m ${(date*1000)%60}s`;
-}
-
 const HANDLER = {
 	reboot: ({ msg })=>{
 		Bot.memory.global.rebootRequested = true;
@@ -48,58 +44,11 @@ const HANDLER = {
 	},
 	
 	status: ({ msg })=>{
-		let uptime = Math.floor(require("process").uptime());
-		uptime = `${Math.floor(uptime/(60*60*24))}d ${Math.floor(uptime/(60*60))%24}h ${Math.floor(uptime/60)%60}m ${uptime%60}s`;
-		
-		let tg = 'No';
-		if (Bot.taggedIn !== false) {
-			if (typeof Bot.taggedIn === 'number') {
-				tg = 'Only ' + Bot.gameInfo(Bot.taggedIn).name;
-			}
-			else if (typeof Bot.taggedIn === 'object') {
-				tg = `Helping [${Object.keys(Bot.taggedIn).join(',')}]`;
-			}
-			else if (Bot.taggedIn === true) {
-				tg = 'Yes';
-			} else tg = 'Unknown';
-		}
-		
-		let lastTg = Date.now() - Bot.memory.global.lastTagChange;
-		if (Number.isNaN(lastTg)) {
-			lastTg = '';
-		} else {
-			lastTg = ` (for ${printElapsedTime(lastTg)})`;
-		}
-		
-		let apid = Bot.memory.global.lastApiDisturbance;
-		if (apid && apid.timestamp) {
-			let apiTS = Date.now() - apid.timestamp;
-			if (Number.isNaN(apiTS)) {
-				apiTS = 'NaN';
-			} else {
-				apiTS = `${printElapsedTime(apiTS)} ago`;
-			}
-			let apiErrList = '';
-			if (apid.items) {
-				for (let i = 0; i < 3 && i < apid.items.length; i++) {
-					apiErrList += `\n\t${apid.items[i]}`;
-				}
-				if (apid.items.length > 3) {
-					apiErrList += `\n...and ${apid.items.length-3} more.`
-				}
-			}
-			apid = `${apiTS}${apiErrList}`;
-		} else {
-			apid = 'None';
-		}
-		let version = require('../../package.json').version;
-		
-		msg.channel
-			.send(`Run-time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`)
-			.catch(ERR);
+		msg.channel.send(Bot.getStatusString()).catch(ERR);
 	},
 	
 	runstats: ({ msg, args })=>{
+		if (!Bot.runConfig) return;
 		const inaccurateStats = require('../newspress/modules/RunStats').inaccurateStats;
 		let stats = Bot.memory['mod0_RunStats'];
 		let out = 'Current Run Stats:\n';
@@ -113,6 +62,7 @@ const HANDLER = {
 	},
 	
 	tagin: ({ msg, args })=>{
+		if (!Bot.runConfig) return;
 		if (args && args[0]) {
 			let ids = Bot.gameWordMatch(args[0]);
 			if (ids.length === 1) {
@@ -129,6 +79,7 @@ const HANDLER = {
 	},
 	
 	tagout: ({ msg })=>{
+		if (!Bot.runConfig) return;
 		if (Bot.taggedIn !== false) {
 			msg.channel.send(`Stopping.`).catch(ERR);
 			getLogger('TAG').info(`Bot has been tagged out.`);
@@ -137,6 +88,7 @@ const HANDLER = {
 	},
 	
 	reqUpdate: ({ msg, args })=>{
+		if (!Bot.runConfig) return;
 		if (lastReq + REQ_COOLDOWN > Date.now()) {
 			msg.channel
 				.send(`You requested another update too quickly. Cooldown is 30 seconds due to API rate limits.`)
@@ -180,6 +132,7 @@ const HANDLER = {
 	},
 	
 	'location-report': ({ msg })=>{
+		if (!Bot.runConfig) return;
 		let presses = Bot.press.pool.filter(x=>x.lastLedger);
 		if (!presses.length) return msg.channel.send(`I don't know where we are at this time.`).catch(ERR);
 		let infos = [];
@@ -218,6 +171,7 @@ const HANDLER = {
 	},
 	
 	'clear-ledger': ({ msg })=>{
+		if (!Bot.runConfig) return;
 		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
 		Bot.press.pool.forEach(press=>{
 			if (!press.lastLedger) return;
@@ -232,6 +186,7 @@ const HANDLER = {
 		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
 	},
 	'clear-tempparty': ({ msg })=>{
+		if (!Bot.runConfig) return;
 		Bot.emit('cmd_forceTempPartyOff');
 		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
 	},
@@ -263,6 +218,7 @@ const HANDLER = {
 	},
 	
 	helpout: ({ msg, args })=>{
+		if (!Bot.runConfig) return;
 		let taggedIn = args[0];
 		let help = [];
 		if (taggedIn['catches']) help.push('give info about our catches');
@@ -373,15 +329,29 @@ function parseCmd(cmd, authed=false, msg=null) {
 	cmd = cmd.toLowerCase().replace(/[,:]/i,'').trim();
 	if (!cmd) return [''];
 	let res;
-	// if ((res = /^reload (.*)$/.exec(cmd))) {
-	// 	if (authed) return ['reload', res[1]];
-	// 	else return [''];
-	// }
+
+	if (/^(hello|hi$|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
+	if (Bot.runConfig) {
+		res = parseCmd_RunCommands(cmd, authed, msg);
+	} else {
+		res = parseCmd_IntermissionCommands(cmd, authed, msg);
+	}
+	if (res) return res;
+	
+	if (/^reboot please$/.test(cmd) && authed) return ['reboot'];
+	
+	res = parseCmd_MemeCommands(cmd, authed, msg);
+	if (res) return res;
+	
+	return [''];
+}
+
+function parseCmd_RunCommands(cmd, authed, msg) {
+	let res;
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
 	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
 	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
 	
-	if (/^(hello|hi$|status|are you here|how are you|report)/i.test(cmd)) return ['status'];
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];
 	}
@@ -483,10 +453,15 @@ function parseCmd(cmd, authed=false, msg=null) {
 	if (/^where are we\??/i.test(cmd)) {
 		return ['location-report'];
 	}
+}
+
+function parseCmd_IntermissionCommands(cmd, authed, msg) {
+	let res;
 	
-	if (/^reboot please$/.test(cmd) && authed) return ['reboot'];
-	
-	// Jokes
+}
+
+function parseCmd_MemeCommands(cmd, authed, msg) {
+	let res;
 	if (/^thank(s| you)/i.test(cmd)) 
 		return ['shutup', `Oh, um... y-you're welcome?`];
 	if (/^I love you$/i.test(cmd)) 
@@ -545,6 +520,8 @@ function parseCmd(cmd, authed=false, msg=null) {
 		return ['shutup', `S-Sorry...`];
 	if (/^where am I\??/i.test(cmd)) 
 		return ['shutup', `Behind a screen of some sort, staring at this chat.`];
+	if (/^where are you\??/i.test(cmd)) 
+		return ['shutup', `On some unix machine in "The Cloud™".`];
 	if (/^do you (want to|wanna) build a (.*)?/i.test(cmd))
 		return ['shutup', `Lacking hands, I am incapable of building such a thing.`];
 	
@@ -561,8 +538,7 @@ function parseCmd(cmd, authed=false, msg=null) {
 			return ['shutup', `Here's a fun fact: your face. <:LUL:238438891579768832>`];
 		}
 	}
-	
-	return [''];
+	return undefined;
 }
 
 /**

@@ -44,7 +44,11 @@ dbot.on('error', (err)=> LOGGER.error('BOT: ', err));
 dbot.on('warn', (err)=> LOGGER.warn('BOT: ', err));
 dbot.on('ready', ()=>{
 	LOGGER.log('Discord bot has connected and is ready.');
-	staffChannel = dbot.channels.get(Bot.runConfig.run.controlChannel);
+	if (Bot.runConfig) {
+		staffChannel = dbot.channels.get(Bot.runConfig.run.controlChannel);
+	} else {
+		staffChannel = dbot.channels.get(Bot.memory.config.controlChannel);
+	}
 	// staffChannel = dbot.channels.get(STAFF_CHANNEL_SNOWFLAKE);
 });
 dbot.on('disconnect', (evt)=>{
