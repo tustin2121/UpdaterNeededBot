@@ -95,6 +95,12 @@ class ChatAPI extends EventEmitter {
 		});
 	}
 	
+	disconnect() {
+		if (this.ibot) {
+			this.ibot.disconnect();
+		}
+	}
+	
 	get isConnected() {
 		return (this.ibot && this.ibot.conn && this.ibot.conn.connected);
 	}

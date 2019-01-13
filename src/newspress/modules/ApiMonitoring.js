@@ -77,7 +77,7 @@ class ApiMonitoringModule extends ReportingModule {
 		let fApi = this.memory.failedApi;
 		if (curr.httpCode !== 200) {
 			if (!fApi) {
-				fApi = this.memory.failedApi = { attempts:0, msgId:null, lastCode:0 };
+				fApi = this.memory.failedApi = { attempts:0, msgId:null, lastCode:0, query:null };
 			}
 			fApi.attempts++;
 			fApi.lastCode = curr.httpCode;
@@ -91,6 +91,26 @@ class ApiMonitoringModule extends ReportingModule {
 					if (msg) fApi.msgId = msg.id;
 				});
 			}
+			// End of run check:
+			if (!fApi.query) { //Make a query to check if I should end the run
+				if (fApi.attempts > 80 && curr.httpCode !== 418) {
+					fApi.query = Bot.queryUpdaters(
+						`Query: I have been unable to connect to the Stream API for a while now. Is the run over now?\n`+
+						`* {{confirm}} if the run is now over. I will stop attempting to update.\n*{{deny}} if I should keep waiting for the API to return new information.`,
+						{ timeout:false, bypassTagCheck:true }
+					);
+				}
+			} else if (fApi.query !== true) { //Check an existing query
+				let res = Bot.checkQuery(fApi.query);
+				if (res === true) { //confirmed, end run
+					Bot.alertUpdaters(`I am now stopping my update checking. I'll just sit here and twiddle my thumbs waiting for Tustin now. <:SeemsGood:230354304337313793>`, { bypassTagCheck:true });
+					Bot.stopUpdates();
+				} else if (res === false || res === 'invalid' || res === null) { //wait for run to continue
+					fApi.query = true;
+				}
+				//else waiting for query to resolve.
+			}
+			
 			return false;
 		} 
 		else if (fApi) {

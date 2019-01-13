@@ -77,13 +77,13 @@ class Ledger {
 					let y = newItems.splice(b, 1); b--; //remove
 					if (res === oldItems[a]) {
 						// do nothing, coalesced
-						debugLog.merged('coalesced', oldItems[a], y[0]);
+						if (debugLog) debugLog.merged('coalesced', oldItems[a], y[0]);
 					} else if (res instanceof LedgerItem) {
 						let x = oldItems.splice(a, 1, res); //replace
-						debugLog.merged('replaced', x[0], y[0], res);
+						if (debugLog) debugLog.merged('replaced', x[0], y[0], res);
 					} else {
 						let x = oldItems.splice(a, 1); a--; //remove
-						debugLog.merged('removed', x[0], y[0]);
+						if (debugLog) debugLog.merged('removed', x[0], y[0]);
 						break; //break the b loop and continue the a loop
 					}
 				}

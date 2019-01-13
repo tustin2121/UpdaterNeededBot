@@ -146,6 +146,17 @@ class RunUpdaterBot extends BaseBot {
 		this.cancelQuery = this.staff.cancelQuery;
 	}
 	
+	stopUpdates() {
+		LOGGER.fatal('Now stopping update checking by request!');
+		if (this._updateInterval) {
+			clearInterval(this._updateInterval);
+			this._updateInterval = null;
+		}
+		this.streamApi.disconnect();
+		this.chatApi.disconnect();
+		this.postDebug('[Meta] UpdaterNeeded halting updates.')
+	}
+	
 	getStatusString() {
 		let uptime = printElapsedTime(Math.floor(require("process").uptime()), false);
 		let version = require('../package.json').version;

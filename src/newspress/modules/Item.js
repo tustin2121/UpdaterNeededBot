@@ -188,6 +188,10 @@ if (!!Bot.gameInfo().regionMap) {
 			ledger.remove(1).get(1).forEach(x=> ledger.add(new UsedBallInBattle(x.item, gained.mon, x.amount)));
 		})
 	);
+	RULES.push(new Rule(`Merge UsedBallInBattle items together.`)
+		.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
+		.then(ledger=>ledger.mergeTogether(0))
+	);
 }{
 	const itemIds = Bot.runOpts('itemIds_berries');
 	if (Bot.runOpts('heldItem')) {

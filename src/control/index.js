@@ -199,13 +199,17 @@ module.exports = {
 		text = text.replace(/\{\{invalid\}\}/gi, '`updater, invalid '+id+'`');
 		let query = Bot.memory.queries[id] = {
 			id, text, msgId:null, evtid:null,
-			expiresAt: Date.now() + timeout,
+			expiresAt: (timeout)? Date.now() + timeout : Infinity,
 			result: undefined,
 		};
-		let minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
+		let minLeft = '';
+		if (timeout) {
+			minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
+			minLeft = `\n[Query expires in ${minLeft} minutes]`;
+		}
 		
 		staffChannel
-			.send(`${text}\n[Query expires in ${minLeft} minutes]`)
+			.send(`${text}${minLeft}`)
 			.then(msg=> query.msgId=msg.id )
 			.catch(ERR);
 		
@@ -253,17 +257,21 @@ module.exports = {
 			delete Bot.memory.queries[id];
 			return null;
 		}
-		let minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
+		let minLeft = '';
+		if (Number.isFinite(query.expiresAt)) {
+			minLeft = Math.ceil((query.expiresAt - Date.now()) / (60 * 1000));
+			minLeft = `\n[Query expires in ${minLeft} minutes]`;
+		}
 		
 		if (query.text !== null) {
 			if (!query.msgId) { //the message didn't send? attempt to send the query again
 				staffChannel
-					.send(`${query.text}\n[Query expires in ${minLeft} minutes]`)
+					.send(`${query.text}${minLeft}`)
 					.then(msg=> query.msgId=msg.id )
 					.catch(ERR);
 			} else {
 				staffChannel.fetchMessage(query.msgId).then(msg=>{
-					msg.edit(`${query.text}\n[Query expires in ${minLeft} minutes]`);
+					msg.edit(`${query.text}${minLeft}`);
 				});
 			}
 		}

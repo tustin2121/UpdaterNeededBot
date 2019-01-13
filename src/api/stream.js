@@ -30,6 +30,8 @@ class StreamAPI extends EventEmitter {
 		this.prevInfo = [];
 		this.memory.lastIndex = (this.memory.lastIndex || 0);
 		
+		
+		
 		// Cannot complete in this constructor, as global "Bot" has yet to be defined
 		this._startup = new Promise((resolve, reject)=>{
 			process.nextTick(()=>{
@@ -62,6 +64,13 @@ class StreamAPI extends EventEmitter {
 	
 	isReady() {
 		return this._startup;
+	}
+	
+	disconnect() {
+		if (this._updateInterval) {
+			clearInterval(this._updateInterval);
+			this._updateInterval = null;
+		}
 	}
 	
 	async refresh() {

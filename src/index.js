@@ -27,7 +27,7 @@ global.exeFlags = {
 
 global.printElapsedTime = function printElapsedTime(date, milis=true) {
 	if (milis) date /= 1000;
-	return `${Math.floor(date/(60*60*24))}d ${Math.floor(date/(60*60))%24}h ${Math.floor(date/(60))%60}m ${(date)%60}s`;
+	return `${Math.floor(date/(60*60*24))}d ${Math.floor(date/(60*60))%24}h ${Math.floor(date/(60))%60}m ${Math.floor(date)%60}s`;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -40,7 +40,7 @@ class ReportingModule {
 ////////////////////////////////////////////////////////////////////////////////
 
 const LOGGER = getLogger('Rule');
-const { LedgerItem } = require('../ledger');
+const { LedgerItem, Ledger } = require('../ledger');
 
 /** The static rule that will be applied on the second passes. */
 class Rule {
@@ -389,6 +389,26 @@ class RuleInstance {
 		}
 		else throw new TypeError('Invalid argument!');
 		return this; //for chaining
+	}
+	/** Merges together a previous set of match elements. */
+	mergeTogether(idx) {
+		this.remove(idx);
+		let arr;
+		if (typeof idx === 'number') {
+			arr = this.matchedItems[idx];
+		}
+		else if (Array.isArray(idx)) {
+			arr = idx.filter(x=>x instanceof LedgerItem);
+		}
+		else throw new TypeError('Invalid argument!');
+		if (!arr) return this;
+		
+		let out = [];
+		while (arr.length) {
+			out = Ledger.mergeItems([arr.pop()], out);
+		}
+		out.forEach(x=>this.add(x));
+		return this;
 	}
 	
 	
