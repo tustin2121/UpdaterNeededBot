@@ -12,6 +12,7 @@ try {
 const tokens = {
 	ts() {
 		if (typeof Bot === 'undefined') return '??d??h??m??s';
+		if (typeof Bot.getTimestamp === 'undefined') return '??d??h??m??s';
 		return Bot.getTimestamp({ padded:true, compact:true });
 	}
 }

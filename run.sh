@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-RUN_START=1544302800
-RUN_CONFIG="s506-randofuser"
+RUN_START=1550020920
+RUN_CONFIG="s601-annirun"
 
 echo Starting UpdaterNeededBot Loop.
 while [ true ]; do

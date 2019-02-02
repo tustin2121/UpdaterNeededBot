@@ -52,10 +52,9 @@ class UpdaterBot extends EventEmitter {
 		this.emit('shutdown');
 		
 		this.saveMemory();
-		this.postDebug('[Meta] UpdaterNeeded shutting down.')
-			.then(()=>getLogger.shutdown)
+		getLogger.shutdown()
 			.then(()=>process.exit());
-			//TODO Figure out why the postDebug() promise is resolving before it should!
+		//TODO Figure out why the postDebug() promise is resolving before it should!
 	}
 	
 	getStatusString() {

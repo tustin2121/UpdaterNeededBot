@@ -47,6 +47,23 @@ const HANDLER = {
 		msg.channel.send(Bot.getStatusString()).catch(ERR);
 	},
 	
+	time2run: ({ msg })=>{
+		if (!Bot.nextRun) return; //intermission only
+		let time = (Bot.nextRun - Date.now()) / 1000;
+		let text = time/(60*60*24);
+		if (text > 3) { //more than 3 days
+			msg.channel.send(`The next run starts in ${text.toFixed(1)} days.`).catch(ERR);
+			return;
+		}
+		text = Math.floor(time/(60*60));
+		if (text > 2) { //more than 2 hours
+			msg.channel.send(`The next run starts in ${text.toFixed(1)} hours.`).catch(ERR);
+			return;
+		}
+		text = Math.floor(time/(60));
+		msg.channel.send(`The next run starts in ${text.toFixed(1)} minutes!`).catch(ERR);
+	},
+	
 	runstats: ({ msg, args })=>{
 		if (!Bot.runConfig) return;
 		const inaccurateStats = require('../newspress/modules/RunStats').inaccurateStats;
@@ -457,7 +474,9 @@ function parseCmd_RunCommands(cmd, authed, msg) {
 
 function parseCmd_IntermissionCommands(cmd, authed, msg) {
 	let res;
-	
+	if (res = /^(?:how long|how much time)(?: until|to)?/i.exec(cmd)) {
+		return ['time2run'];
+	}
 }
 
 function parseCmd_MemeCommands(cmd, authed, msg) {

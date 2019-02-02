@@ -146,6 +146,21 @@ class RunUpdaterBot extends BaseBot {
 		this.cancelQuery = this.staff.cancelQuery;
 	}
 	
+	/** Saves and shuts down the updater bot. */
+	shutdown() {
+		if (this._updateInterval) {
+			clearInterval(this._updateInterval);
+			this._updateInterval = null;
+		}
+		this.emit('shutdown');
+		
+		this.saveMemory();
+		this.postDebug('[Meta] UpdaterNeeded shutting down.')
+			.then(()=>getLogger.shutdown)
+			.then(()=>process.exit());
+			//TODO Figure out why the postDebug() promise is resolving before it should!
+	}
+	
 	stopUpdates() {
 		LOGGER.fatal('Now stopping update checking by request!');
 		if (this._updateInterval) {

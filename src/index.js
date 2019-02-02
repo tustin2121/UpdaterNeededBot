@@ -39,8 +39,6 @@ const mkdirp = require('mkdirp');
 
 const LOGGER = getLogger('MAIN');
 
-const MEMORY_FILE = path.resolve(__dirname, '../memory', 'memory.json');
-
 ////////////////////////////////////////////////////////////////////////////////
 
 if (!process.stdout.isTTY) {
@@ -77,8 +75,10 @@ if (TIME_TO_RUN < 1000*60) {
 		const MEM_PATH = path.resolve(__dirname, '../memory-inter');
 		mkdirp.sync(MEM_PATH);
 		let mem = { config: require(`../data/intermission.js`) };
-		fs.writeFileSync(MEMORY_FILE, JSON.stringify(mem), { flag:'wx'});
-	} catch (e) {}
+		fs.writeFileSync(path.join(MEM_PATH, 'memory.json'), JSON.stringify(mem), { flag:'wx'});
+	} catch (e) {
+		// LOGGER.error('Error writing initial MEMORY FILE! ', e);
+	}
 	
 	global.Bot = new UpdaterBot(RUN_START*1000);
 } 
@@ -91,8 +91,10 @@ else {
 		const MEM_PATH = path.resolve(__dirname, '../memory');
 		mkdirp.sync(MEM_PATH);
 		mkdirp.sync(path.join(MEM_PATH, 'api'));
-		fs.writeFileSync(MEMORY_FILE, '{}', { flag:'wx'});
-	} catch (e) {}
+		fs.writeFileSync(path.join(MEM_PATH, 'memory.json'), '{}', { flag:'wx'});
+	} catch (e) {
+		// LOGGER.error('Error writing initial MEMORY FILE! ', e);
+	}
 	
 	global.Bot = new UpdaterBot(require(`../data/runs/${RUN_CONFIG}.js`));
 	// global.Bot = new UpdaterBot(require('../data/runs/testing-pyrite'));

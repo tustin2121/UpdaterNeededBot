@@ -80,7 +80,13 @@ dbot.on('disconnect', (evt)=>{
 });
 dbot.on('message', (msg)=>{
 	if (msg.author.id === dbot.user.id) return; //Don't rspond to own message
-	if (msg.channel.id != Bot.runConfig.run.controlChannel) return; //Ignore non-staff channel (note, not triple equals since id is not a 'number', but a 'snowflake')
+	//Ignore non-staff channel (note, not triple equals since id is not a 'number', but a 'snowflake')
+	if (Bot.runConfig) {
+		if (msg.channel.id != Bot.runConfig.run.controlChannel) return; 
+	} else {
+		if (msg.channel.id != Bot.memory.config.controlChannel) return; 
+	}
+	
 	LOGGER.debug(`Discord Message: ${msg.content}`);
 	
 	try {
@@ -93,14 +99,29 @@ dbot.on('message', (msg)=>{
 
 const offActivities = [
 	['tiddilywinks with sewer lids', { type:'PLAYING' }],
-	['the PC beep', { type:'LISTENING' }],
-	['Netflix', { type:'WATCHING' }],
+	['Breath of the Wild', { type:'PLAYING' }],
+	['Wind Waker', { type:'PLAYING' }],
 	['Super Smash Bros Ultimate', { type:'PLAYING' }],
+	
+	['the PC beep', { type:'LISTENING' }],
 	[`the sounds of a summer's night`, { type:'LISTENING' }],
+	
+	['Netflix', { type:'WATCHING' }],
 	[`Twitter explode over something menial`, { type:'WATCHING' }],
+	[`YouTube videos`, { type:'WATCHING' }],
+	[`the Pokemon Anime`, { type:'WATCHING' }],
 ];
 
-Bot.on('tagged', ()=>{
+function setDiscordStatus({ status, activity }) {
+	if (status in {'online':1, 'idle':1, 'dnd':1}) {
+		dbot.user.setStatus(status).catch(ERR);
+	}
+	if (activity) {
+		dbot.user.setActivity(...activity).catch(ERR);
+	}
+}
+
+function updateDiscordStatus() {
 	let status = (!!Bot.taggedIn)?'online':'idle';
 	dbot.user.setStatus(status).catch(ERR);
 	if (Bot.taggedIn) {
@@ -109,7 +130,11 @@ Bot.on('tagged', ()=>{
 		let activity = offActivities[Math.floor(Math.random()*offActivities.length)];
 		dbot.user.setActivity(...activity).catch(ERR);
 	}
-});
+}
+
+Bot.on('tagged', updateDiscordStatus);
+Bot.on('bot-ready', updateDiscordStatus);
+
 Bot.on('pre-update-cycle', ()=>{
 	let status = (!!Bot.taggedIn)?'online':'idle';
 	dbot.user.setStatus(status).catch(ERR);
@@ -151,7 +176,7 @@ if (!global.exeFlags.dontConnect)
 	loggedIn = dbot.login(auth.discord.token);
 
 module.exports = {
-	dbot,
+	dbot, setDiscordStatus,
 	isReady() { return loggedIn; },
 	
 	alertUpdaters(text, { ping=false, bypassTagCheck=false, reuseId }={}) {

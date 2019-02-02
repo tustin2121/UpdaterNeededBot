@@ -5,7 +5,7 @@
 const path = require('path');
 const BaseBot = require('./bot');
 
-const MEMORY_DIR = path.resolve(__dirname, '../memory');
+const MEMORY_DIR = path.resolve(__dirname, '../memory-inter');
 
 const LOGGER = getLogger('UpdaterBot');
 
@@ -60,7 +60,8 @@ class IntermissionUpdaterBot extends BaseBot {
 	getStatusString() {
 		let uptime = printElapsedTime(Math.floor(require("process").uptime()), false);
 		let version = require('../package.json').version;
-		return `Intermission-Time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}`;
+		let ttnr = printElapsedTime(this.nextRun - Date.now());
+		return `Intermission-Time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}\nTime until next run: ${ttnr}`;
 	}
 	
 	checkReminders(now, until) {
@@ -95,6 +96,7 @@ class IntermissionUpdaterBot extends BaseBot {
 			mem.tenMin = true;
 			return true;
 		}
+		return false;
 	}
 }
 module.exports = IntermissionUpdaterBot;
