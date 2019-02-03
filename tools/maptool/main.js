@@ -269,7 +269,7 @@ class MapPanel {
 	
 	/** Scrolls the currently select map into view. */
 	scrollSelectToView() {
-		$('#maptree').find('.selected')[0].scrollIntoView({ behavior:"smooth", block:"start" });
+		$('#maptree').find('.selected')[0].scrollIntoView({ behavior:"smooth", block:"center" });
 	}
 	
 	/** Refreshes the tree view. */
@@ -391,6 +391,8 @@ class MapPanel {
 				}
 				$mlbl.text(`Map ${map}: "${d.name}"`).attr('mtype',d.mapType).prepend(ARROW($mli));
 				if (d === selected) $mlbl.addClass('selected');
+				if (d.attrs['floor'] > 0) $mlbl.append(`<attr>F${d.attrs['floor']}</attr>`);
+				if (d.attrs['floor'] < 0) $mlbl.append(`<attr>BF${-d.attrs['floor']}</attr>`);
 				if (!clickCallback) {
 					$mlbl.on('click', ()=>this.select(d, $mlbl));
 					$mlbl.on('contextmenu', (e)=>this.showMapMenu({ e, map:d, bankId:bank, mapId:map }));
@@ -404,6 +406,8 @@ class MapPanel {
 						const $ali = $(`<li cid='a:${bank}.${map}:${area}'>`).appendTo($msub);
 						const $albl = $(`<span class='area'>Area ${area}: "${a.name}"</span>`).prepend(ARROW($ali, 'leaf')).appendTo($ali);
 						if (a === selected) $albl.addClass('selected');
+						if (a.attrs['floor'] > 0) $albl.append(`<attr>F${d.attrs['floor']}</attr>`);
+						if (a.attrs['floor'] < 0) $albl.append(`<attr>BF${-d.attrs['floor']}</attr>`);
 						if (!clickCallback) {
 							$albl.on('click', ()=>this.select(a, $albl));
 							$albl.on('contextmenu', (e)=>this.showAreaMenu({ e, area:a, bankId:bank, mapId:map, areaId:area }));
@@ -594,6 +598,24 @@ class MapPanel {
 				}
 				fnDel = ()=>{
 					$str.val('');
+					delete obj[key];
+					$lbl.removeClass('overridden');
+					App.notifyChange('prop-change', data);
+				};
+			} else if (info.intValue) {
+				let $num = $(`<input type='number'/>`).appendTo($val)
+					.on('change', function(){
+						obj[key] = Number.parseInt($(this).val(),10);
+						$lbl.addClass('overridden');
+						App.notifyChange('prop-change', data);
+					});
+				if (obj[key]) {
+					$num.val(obj[key]);
+				} else {
+					$num.val(0);
+				}
+				fnDel = ()=>{
+					$num.val(0);
 					delete obj[key];
 					$lbl.removeClass('overridden');
 					App.notifyChange('prop-change', data);

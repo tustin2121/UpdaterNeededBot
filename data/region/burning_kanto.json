@@ -42,7 +42,8 @@
 				"indoors": true,
 				"dungeon": true,
 				"the": "",
-				"preposition": "in"
+				"preposition": "in",
+				"floor": -1
 			},
 			"areas": []
 		},
@@ -50,7 +51,6 @@
 			"type": "gatehouse",
 			"attrs": {
 				"indoors": true,
-				"town": true,
 				"the": "",
 				"preposition": "on"
 			},
@@ -62,7 +62,8 @@
 				"indoors": true,
 				"dungeon": true,
 				"the": "",
-				"preposition": "in"
+				"preposition": "in",
+				"floor": 1
 			},
 			"areas": []
 		},
@@ -73,7 +74,8 @@
 				"healing": "pokecenter",
 				"checkpoint": true,
 				"the": "the",
-				"preposition": "in"
+				"preposition": "in",
+				"floor": 1
 			},
 			"areas": [
 				{
@@ -94,7 +96,8 @@
 			"attrs": {
 				"indoors": true,
 				"the": "the",
-				"preposition": "in"
+				"preposition": "in",
+				"floor": 2
 			},
 			"areas": [
 				{
@@ -180,7 +183,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": -1
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -193,7 +198,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": -2
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -206,7 +213,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": -3
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -236,12 +245,98 @@
 			null,
 			null,
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 30,
+				"name": "Underground Path (N-S)",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 31,
+				"name": "Underground Path (N-S)",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 32,
+				"name": "Underground Path (N-S)",
+				"areaId": 0,
+				"areaName": "Route 6",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 33,
+				"name": "Underground Path (W-E)",
+				"areaId": 0,
+				"areaName": "Route 7",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 34,
+				"name": "Underground Path (W-E)",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 35,
+				"name": "Underground Path (W-E)",
+				"areaId": 0,
+				"areaName": "Route 7",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 36,
@@ -321,6 +416,397 @@
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 1,
+				"id": 47,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 48,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 49,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 50,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 51,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 52,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 53,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 54,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 8
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 55,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 9
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 56,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 10
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 57,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 11
+				},
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 8,
+						"bx": 12,
+						"by": 17,
+						"rad": 0,
+						"name": "president's office",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 58,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 1,
+				"id": 81,
+				"name": "Rock Tunnel",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 82,
+				"name": "Rock Tunnel",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 1,
+				"id": 88,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 89,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 90,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 91,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 92,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5,
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 8,
+						"bx": 12,
+						"by": 10,
+						"rad": 0,
+						"name": "heal area",
+						"attrs": {
+							"healing": "mystical"
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 93,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 94,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 7,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 95,
+				"name": "Power Plant",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
 			}
 		],
 		null,
@@ -377,9 +863,33 @@
 				"areas": [],
 				"gamedata": {}
 			},
+			{
+				"bank": 3,
+				"id": 4,
+				"name": "Lavender Town",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
-			null,
-			null,
+			{
+				"bank": 3,
+				"id": 6,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			{
@@ -397,7 +907,19 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 3,
+				"id": 10,
+				"name": "Saffron City",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -460,12 +982,84 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 3,
+				"id": 23,
+				"name": "Route 5",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 24,
+				"name": "Route 6",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 25,
+				"name": "Route 7",
+				"areaId": 0,
+				"areaName": "Route 7",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 26,
+				"name": "Route 8",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 27,
+				"name": "Route 9",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 28,
+				"name": "Route 10",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -497,6 +1091,32 @@
 				"name": "Route 23",
 				"areaId": 0,
 				"areaName": "Route 23",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 43,
+				"name": "Route 24",
+				"areaId": 0,
+				"areaName": "Route 24",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 44,
+				"name": "Route 25",
+				"areaId": 0,
+				"areaName": "Route 25",
 				"type": "route",
 				"width": 0,
 				"height": 0,
@@ -737,10 +1357,321 @@
 				"gamedata": {}
 			}
 		],
+		[
+			{
+				"bank": 7,
+				"id": 0,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 1,
+				"name": "robbed house",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 2,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 3,
+				"name": "Cerulean City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 4,
+				"name": "Cerulean City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 5,
+				"name": "Cerulean City Gym",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 6,
+				"name": "Cerulean City Bike Shop",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 7,
+				"name": "Cerulean City Mart",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 8,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 7,
+				"id": 9,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 8,
+				"id": 0,
+				"name": "Lavender Town Pokémon Center",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 8,
+				"id": 1,
+				"name": "Lavender Town Pokémon Center",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 8,
+				"id": 2,
+				"name": "Lavender Volunteer Pokémon House",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 8,
+				"id": 3,
+				"name": "Lavender Town",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 8,
+				"id": 4,
+				"name": "Name Rater's House",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 8,
+				"id": 5,
+				"name": "Lavender Town Mart",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
-		null,
-		null,
-		null,
+		[
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 10,
+				"id": 12,
+				"name": "Celadon City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 13,
+				"name": "Celadon City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			{
+				"bank": 10,
+				"id": 17,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 18,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 19,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		null,
 		[
@@ -785,7 +1716,152 @@
 				"gamedata": {}
 			}
 		],
-		null,
+		[
+			{
+				"bank": 14,
+				"id": 0,
+				"name": "Copycat's House",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 1,
+				"name": "Copycat's House",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 2,
+				"name": "Fighting Dojo",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 3,
+				"name": "Saffron City Gym",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 10,
+						"bx": 18,
+						"by": 15,
+						"rad": 0,
+						"name": "leader area",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 4,
+				"name": "Saffron City",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 5,
+				"name": "Saffron City Mart",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 6,
+				"name": "Saffron City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 7,
+				"name": "Saffron City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 8,
+				"name": "Mr. Psychic's House",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 14,
+				"id": 9,
+				"name": "Pokémon Trainer Fan Club",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 15,
@@ -881,11 +1957,107 @@
 				"gamedata": {}
 			}
 		],
-		null,
-		null,
-		null,
-		null,
-		null,
+		[
+			{
+				"bank": 17,
+				"id": 0,
+				"name": "Route 5 Daycare",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 17,
+				"id": 1,
+				"name": "Route 5",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 18,
+				"id": 0,
+				"name": "Route 6",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 19,
+				"id": 0,
+				"name": "Route 7",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 20,
+				"id": 0,
+				"name": "Route 8",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 21,
+				"id": 0,
+				"name": "Route 10 Pokémon Center",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 21,
+				"id": 1,
+				"name": "Route 10 Pokémon Center",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		null,
 		null,
@@ -908,7 +2080,21 @@
 			}
 		],
 		null,
-		null,
+		[
+			{
+				"bank": 30,
+				"id": 0,
+				"name": "Bill's House",
+				"areaId": 0,
+				"areaName": "Route 25",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		null,
 		null,
@@ -1173,10 +2359,46 @@
 				"areas": [],
 				"gamedata": {}
 			},
+			{
+				"bank": 255,
+				"id": 3,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 4,
+				"name": "Lavender Town",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 6,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			{
@@ -1194,7 +2416,19 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 255,
+				"id": 10,
+				"name": "Saffron City",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			{
 				"bank": 255,
@@ -1248,12 +2482,84 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 16,
+				"name": "Route 5",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 17,
+				"name": "Route 6",
+				"areaId": 0,
+				"areaName": "Route 6",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 18,
+				"name": "Route 7",
+				"areaId": 0,
+				"areaName": "Route 7",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 19,
+				"name": "Route 8",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 20,
+				"name": "Route 9",
+				"areaId": 0,
+				"areaName": "Route 9",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 21,
+				"name": "Route 10",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -1291,8 +2597,32 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 35,
+				"name": "Route 24",
+				"areaId": 0,
+				"areaName": "Route 24",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 36,
+				"name": "Route 25",
+				"areaId": 0,
+				"areaName": "Route 25",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 37,
@@ -1579,7 +2909,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": -1
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1592,7 +2924,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": -2
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -1605,16 +2939,94 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
+				"attrs": {
+					"floor": -3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 62,
+				"name": "robbed house",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 63,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 64,
+				"name": "Cerulean City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 65,
+				"name": "Cerulean City Gym",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 66,
+				"name": "Cerulean City Bike Shop",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 67,
+				"name": "Cerulean City Mart",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 68,
@@ -1629,20 +3041,180 @@
 				"gamedata": {}
 			},
 			null,
+			{
+				"bank": 255,
+				"id": 70,
+				"name": "Route 5",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 71,
+				"name": "Underground Path (N-S)",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 72,
+				"name": "Route 5 Daycare",
+				"areaId": 0,
+				"areaName": "Route 5",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 73,
+				"name": "Route 6",
+				"areaId": 0,
+				"areaName": "Route 6",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 74,
+				"name": "Underground Path (N-S)",
+				"areaId": 0,
+				"areaName": "Route 6",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
+			{
+				"bank": 255,
+				"id": 76,
+				"name": "Route 7",
+				"areaId": 0,
+				"areaName": "Route 7",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 77,
+				"name": "Underground Path (W-E)",
+				"areaId": 0,
+				"areaName": "Route 7",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 79,
+				"name": "Route 8",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 80,
+				"name": "Underground Path (W-E)",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 81,
+				"name": "Route 10 Pokémon Center",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 82,
+				"name": "Rock Tunnel",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 83,
+				"name": "Power Plant",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			{
 				"bank": 255,
@@ -1659,7 +3231,19 @@
 			},
 			null,
 			null,
-			null,
+			{
+				"bank": 255,
+				"id": 88,
+				"name": "Bill's House",
+				"areaId": 0,
+				"areaName": "Route 25",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -1702,6 +3286,22 @@
 			null,
 			null,
 			null,
+			{
+				"bank": 255,
+				"id": 119,
+				"name": "Underground Path (N-S)",
+				"areaId": 0,
+				"areaName": "Route 6",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -1715,26 +3315,260 @@
 			null,
 			null,
 			null,
+			{
+				"bank": 255,
+				"id": 133,
+				"name": "Celadon City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 138,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 139,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 140,
+				"name": "Celadon City",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [
+					{
+						"ax": 13,
+						"ay": 4,
+						"bx": 13,
+						"by": 4,
+						"rad": 5,
+						"name": "pc",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 141,
+				"name": "Lavender Town Pokémon Center",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 142,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 143,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 144,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 145,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 146,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5,
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 8,
+						"bx": 10,
+						"by": 9,
+						"rad": 0,
+						"name": "heal area",
+						"attrs": {
+							"healing": "mystical"
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 147,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 148,
+				"name": "Pokémon Tower",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 7,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 149,
+				"name": "Lavender Volunteer Pokémon House",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 150,
+				"name": "Lavender Town Mart",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 151,
+				"name": "Lavender Town",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -1797,15 +3631,137 @@
 				],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 175,
+				"name": "Copycat's House",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 176,
+				"name": "Copycat's House",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 177,
+				"name": "Fighting Dojo",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 178,
+				"name": "Saffron City Gym",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 7,
+						"bx": 12,
+						"by": 11,
+						"rad": 0,
+						"name": "leader area",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 179,
+				"name": "Saffron City",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 180,
+				"name": "Saffron City Mart",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 181,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 182,
+				"name": "Saffron City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 183,
+				"name": "Mr. Psychic's House",
+				"areaId": 0,
+				"areaName": "Saffron City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -1852,6 +3808,249 @@
 				"areaId": 0,
 				"areaName": "Digglet's Cave",
 				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 255,
+				"id": 207,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 208,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 209,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 210,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 211,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 212,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 213,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 8
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 255,
+				"id": 229,
+				"name": "Name Rater's House",
+				"areaId": 0,
+				"areaName": "Lavender Town",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 230,
+				"name": "Cerulean City",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			{
+				"bank": 255,
+				"id": 232,
+				"name": "Rock Tunnel",
+				"areaId": 0,
+				"areaName": "Route 10",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 233,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 9
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 234,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 10
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 235,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 11
+				},
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 5,
+						"bx": 12,
+						"by": 13,
+						"rad": 0,
+						"name": "president's office",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 236,
+				"name": "Silph Co.",
+				"areaId": 0,
+				"areaName": "Silph Co.",
+				"type": "dungeon",
 				"width": 0,
 				"height": 0,
 				"attrs": {},

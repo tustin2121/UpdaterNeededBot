@@ -245,6 +245,7 @@ class MapNode {
 		this.areaName = opts.areaName || '';
 		this.width = Number.parseInt(opts.width || opts.w || 0, 10);
 		this.height = Number.parseInt(opts.height || opts.h || 0, 10);
+		this.notes = '';
 		
 		// Bot information
 		this.attrs = opts.attrs || {};
@@ -255,7 +256,7 @@ class MapNode {
 		this.gamedata = opts.gamedata || opts.gameInfo || {};
 	}
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
-	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height']; }
+	static get PROPS() { return ['locId', 'name', 'areaId', 'areaName', 'type', 'width/height', 'notes']; }
 	
 	get locId() { return `${this.bank}.${this.id}`; }
 	// alias mapType => type
@@ -332,12 +333,13 @@ class MapType {
 	constructor(region, opts={}) {
 		this.__region__ = region;
 		this.name = opts.type || opts.name;
+		this.notes = '';
 		this.attrs = opts.attrs || {};
 		this.areas = [];
 		if (Array.isArray(opts.areas)) opts.areas.forEach(a=>this.addArea(a));
 	}
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
-	static get PROPS() { return ['locId', 'name']; }
+	static get PROPS() { return ['locId', 'name', 'notes']; }
 	
 	get locId() { return `[${this.name}]`; }
 	
@@ -395,10 +397,11 @@ class MapArea {
 			this.rad = (this.ax==this.bx && this.ay==this.by)?5:0;
 		
 		this.name = opts.name || '';
+		this.notes = '';
 		this.attrs = opts.attrs || {};
 	}
 	/** @prop{array} - Properties to enumerate when listing properties in the maptool. */
-	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad']; }
+	static get PROPS() { return ['name', 'ax/ay', 'bx/by', 'rad', 'notes']; }
 	
 	get locId() {
 		// get from parent, and get the index as the area id
@@ -562,16 +565,16 @@ function generateDefaultMapTypes(region) {
 	add(new MapType(region, { type:'default', 	attrs:{ the:"", preposition:"in" } }));
 	add(new MapType(region, { type:'town',   	attrs:{ town:true, the:"", preposition:"in" } }));
 	add(new MapType(region, { type:'route',  	attrs:{ route:true, the:"", preposition:"on" } }));
-	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, the:"", preposition:"in" } }));
-	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true, the:"", preposition:"in" } }));
+	add(new MapType(region, { type:'indoor',	attrs:{ indoors:true, the:"", preposition:"in", floor:1 } }));
+	add(new MapType(region, { type:'cave',		attrs:{ indoors:true, dungeon:true, the:"", preposition:"in", floor:-1 } }));
 	add(new MapType(region, { type:'gatehouse',	attrs:{ indoors:true, town:true, the:"", preposition:"on" } }));
-	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true, the:"", preposition:"in" } }));
-	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true, the:"the", preposition:"in" },
+	add(new MapType(region, { type:'dungeon',	attrs:{ indoors:true, dungeon:true, the:"", preposition:"in", floor:1 } }));
+	add(new MapType(region, { type:'center',	attrs:{ indoors:true, healing:'pokecenter', checkpoint:true, the:"the", preposition:"in", floor:1 },
 		areas: [
 			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
 		],
 	}));
-	add(new MapType(region, { type:'center2',	attrs:{ indoors:true, the:"the", preposition:"in" },
+	add(new MapType(region, { type:'center2',	attrs:{ indoors:true, the:"the", preposition:"in", floor:2 },
 		areas: [
 			{ name: "pc", x:2, y:2, attrs:{ pc:true } },
 		],
@@ -641,6 +644,10 @@ const ATTRS = {
 		tooltip: `If this location is a location where a temporary party is expected (for special reporting).`,
 	},
 	
+	floor: {
+		tooltip: `The level of this map in relation to others in the building/dungeon. Floor 1, Floor B2, etc.`,
+		intValue: true,
+	},
 	// Amenities which can affect reporting
 	ledge: {
 		tooltip: `If this area marks a ledge state. The bot will test if the player moved from 'ledge' to 'jump'.`,
@@ -670,7 +677,7 @@ const ATTRS = {
 	},
 	healing: {
 		tooltip: `If the location offers a type of healing.`,
-		values: [false,'pokecenter','doctor','nurse','house','partner','scientist'],
+		values: [false,'pokecenter','doctor','nurse','house','partner','scientist','mystical'],
 	},
 	shopping: {
 		tooltip: `If the location offers vendors. (Use only for Areas marking the spot)`,

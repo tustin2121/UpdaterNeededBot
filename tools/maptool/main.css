@@ -69,6 +69,13 @@ body {
 .treepane span[mtype=unused]::after {
 	color: #960000;
 }
+.treepane attr {
+	display: inline;
+	font-size: 65%;
+	color: #056600;
+}
+.treepane attr::before { content: ' ['; }
+.treepane attr::after  { content: ']'; }
 .treepane ul {
 	padding-left: 12px;
 	list-style-type: none;
