@@ -33,6 +33,8 @@ let p1, p2;
 let currPos = {};
 let currNode = null;
 let otherNode = new MapNode({ name:'[Outside]' });
+let lastMapName = "";
+let lastAreaName = "";
 
 // App.on('map-selected', (node)=> mapChange(node));
 // App.on('map-changed', (args)=>{
@@ -125,7 +127,55 @@ $(()=>{
 	
 	$('.summary [name=createbtn]').on('click', ()=>{
 		if (currNode) return;
-		App.currData.ensureMap(currPos.bank, currPos.id);
+		lastMapName = window.prompt("Name of the map?", lastMapName);
+		App.currData.ensureMap(currPos.bank, currPos.id, { 
+			name:lastMapName, areaName:lastAreaName, type:'default',
+		});
+		App.emit('update-maptree');
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	
+	$(`.summary .icons [name=indoors]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'indoor';
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	$(`.summary .icons [name=town]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'town';
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	$(`.summary .icons [name=route]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'route';
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	$(`.summary .icons [name=healing]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'center';
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	$(`.summary .icons [name=shopping]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'mart';
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	$(`.summary .icons [name=flyspot]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'gatehouse';
+		App.emit('map-changed', currPos);
+		posChanged(currPos);
+	});
+	$(`.summary .icons [name=vending]`).on('click', ()=>{
+		if (!currNode) return;
+		currNode.type = 'gym';
+		App.emit('map-changed', currPos);
 		posChanged(currPos);
 	});
 });
@@ -136,6 +186,8 @@ function posChanged(args) {
 	
 	$('.summary [name=mapid]').text(`${args.bank}.${args.id}`);
 	if (currNode) {
+		lastMapName = currNode.name;
+		lastAreaName = currNode.areaName;
 		$('.summary [name=createbtn]').hide();
 		{
 			$('.summary [name=areaname]').text('');

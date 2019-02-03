@@ -1,33 +1,69 @@
 // maptool emu-connect/index.js
-// The server that emulators connect to when we can't read the rom involved
+// The class that connects to the emulator when we can't read the rom involved
 
 const http = require('http');
 const EventEmitter = require('events');
+
+const SERVER = `http://localhost:5337`;
+
+function get(url) {
+	return new Promise((resolve, reject)=>{
+		http.get(`${SERVER}${url}`, (res)=>{
+			let rawData = '';
+			res.on('data', chunk=>rawData+=chunk);
+			res.on('end', ()=>{
+				if (res.statusCode !== 200) {
+					reject(new Error(`Emulator server error: ${res.statusCode} - ${rawData}`));
+				} else {
+					resolve(rawData);
+				}
+			});
+		});
+	});
+}
+
+
+const READ_GAME = {
+	'red': function (){
+		get('/ReadByteRange/D35E/5').then((text)=>{
+			this.setState({
+				map_bank: 0xFF,
+				map_id: Number.parseInt(text.substr(0, 2), 16),
+				x: Number.parseInt(text.substr(8, 2), 16),
+				y: Number.parseInt(text.substr(6, 2), 16),
+			});
+		});
+	},
+	'firered': function (){
+		get('/ReadByteRange/*3005008/6').then((text)=>{
+			this.setState({
+				map_bank: Number.parseInt(text.substr(8, 2), 16),
+				map_id: Number.parseInt(text.substr(10, 2), 16),
+				x: Number.parseInt(text.substr(2, 2)+text.substr(0, 2), 16),
+				y: Number.parseInt(text.substr(6, 2)+text.substr(4, 2), 16),
+			});
+		});
+	},
+};
+READ_GAME['Pokemon - Red Version (USA, Europe)'] = READ_GAME['red']; //alias
 
 class EmuConnect extends EventEmitter {
 	constructor() {
 		super();
 		this.last = {};
-		
-		this.server = http.createServer((req, res)=>{
-			if (req.method === 'POST') {
-				let data = '';
-				req.setEncoding('utf8');
-				req.on('data', (chunk)=> data += chunk );
-				req.on('end', ()=>{
-					res.end();
-					this.setState(JSON.parse(data));
-				});
-				return;
-			}
-			res.statusCode = 418; //I am a teapot
-			res.end();
-		});
 	}
 	
 	listen() {
-		this.server.listen(21345);
-		console.log("LISTENING 21345");
+		this._timer = setInterval(()=>{
+			this.getState();
+		}, 500);
+	}
+	
+	pause() {
+		get('/Pause');
+	}
+	play() {
+		get('/Play');
 	}
 	
 	setState(data) {
@@ -52,6 +88,16 @@ class EmuConnect extends EventEmitter {
 		this.last = data;
 		if (mapChanged) this.emit('map-changed', data);
 		if (posChanged) this.emit('pos-changed', data);
+	}
+	
+	getState() {
+		get('/GetRomName').then(text=>{
+			let r = READ_GAME[text];
+			if (r) r.call(this);
+			else {
+				console.error(`Unknown rom name: ${text}`);
+			}
+		});
 	}
 }
 
