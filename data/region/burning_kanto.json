@@ -1587,18 +1587,234 @@
 		],
 		null,
 		[
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 10,
+				"id": 0,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 1,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 5,
+						"bx": 3,
+						"by": 10,
+						"rad": 0,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 2,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 3,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 11,
+						"bx": 3,
+						"by": 11,
+						"rad": 3,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 4,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5
+				},
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 5,
+						"bx": 3,
+						"by": 9,
+						"rad": 0,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 5,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6,
+					"indoors": false
+				},
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 3,
+						"bx": 12,
+						"by": 4,
+						"rad": 0,
+						"name": "vending",
+						"attrs": {
+							"vending": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 6,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 7,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 8,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 9,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 10,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4,
+					"indoors": false
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 11,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 10,
 				"id": 12,
@@ -1627,7 +1843,19 @@
 			},
 			null,
 			null,
-			null,
+			{
+				"bank": 10,
+				"id": 16,
+				"name": "Celadon City Gym",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 10,
 				"id": 17,
@@ -3304,17 +3532,102 @@
 			},
 			null,
 			null,
+			{
+				"bank": 255,
+				"id": 122,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
 			null,
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 128,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 129,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 130,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 131,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4,
+					"indoors": false
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 132,
+				"name": "Celadon Mansion",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 133,
@@ -3328,7 +3641,19 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 255,
+				"id": 134,
+				"name": "Celadon City Gym",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
