@@ -163,6 +163,16 @@ class MapNode {
 	get mapType() { return this.type; }
 	set mapType(t) { this.type = t; }
 	
+	get floor() {
+		if (typeof this.attrs['floor'] !== 'number') return 0;
+		return this.attrs['floor'];
+	}
+	get floorStr() {
+		if (typeof this.attrs['floor'] !== 'number') return false;
+		let f = this.attrs['floor'];
+		return (f < 0) ? 'BF'+(-f) : 'F'+f;
+	}
+	
 	toString() { return this.name; }
 	is(attr) {
 		if (/^(prep|in|on)$/i.test(attr)) attr = 'preposition';

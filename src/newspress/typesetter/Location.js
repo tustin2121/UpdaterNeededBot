@@ -289,6 +289,49 @@ MapChanged['entralink_exit_nvm'] = [
 ];
 
 ////////////
+// Floors //
+
+// We go up some stairs in a building or dungeon
+MapChanged['floor_stairs_up'] = [
+	`We {{rand|head|go}} upstairs to {{@curr.floorStr}}.`,
+	`We {{rand|climb|go up|mount|scale|move up|ascend}} the {{rand|stairs|steps}} to {{@curr.floorStr}}.`,
+	`We {{rand|climb|ascend}} to {{@curr.floorStr}}.`,
+	`Up to {{@curr.floorStr}}.`,
+	`Now on {{@curr.floorStr}}.`,
+	`Now {{on the location}}, {{@curr.floorStr}}.`,
+];
+
+// We go down some stairs in a building or dungeon
+MapChanged['floor_stairs_down'] = [
+	`We {{rand|head|go}} downstairs to {{@curr.floorStr}}.`,
+	`We {{rand|stumble|go down|move down|descend}} the {{rand|stairs|steps}} to {{@curr.floorStr}}.`,
+	`We {{rand|go down|descend}} to {{@curr.floorStr}}.`,
+	`Down to {{@curr.floorStr}}.`,
+	`Now on {{@curr.floorStr}}.`,
+	`Now {{on the location}}, {{@curr.floorStr}}.`,
+];
+
+// We go up a ladder in a cave
+MapChanged['floor_ladder_up'] = [
+	`We {{rand|head|go}} up a ladder to {{@curr.floorStr}}.`,
+	`We {{rand|climb|go up|mount|scale|move up|ascend}} a {{rand|ladder}} to {{@curr.floorStr}}.`,
+	`We {{rand|climb|ascend}} to {{@curr.floorStr}}.`,
+	`Up to {{@curr.floorStr}}.`,
+	`Now on {{@curr.floorStr}}.`,
+	`Now {{on the location}}, {{@curr.floorStr}}.`,
+];
+
+// We go down a ladder in a cave
+MapChanged['floor_ladder_down'] = [
+	`We {{rand|head|go}} down a ladder to {{@curr.floorStr}}.`,
+	`We {{rand|stumble|go down|move down|descend}} a {{rand|ladder}} to {{@curr.floorStr}}.`,
+	`We {{rand|go down|descend}} to {{@curr.floorStr}}.`,
+	`Down to {{@curr.floorStr}}.`,
+	`Now on {{@curr.floorStr}}.`,
+	`Now {{on the location}}, {{@curr.floorStr}}.`,
+];
+
+////////////
 // Others //
 
 MapChanged['stairs_up'] = [

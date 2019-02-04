@@ -116,6 +116,14 @@ class LocationModule extends ReportingModule {
 		if (lastVisit + (15*60*1000) > currTime) back = '_back'; //visited in the last 15 minutes
 		
 		{
+			const P = prevMap.floor;
+			const C = currMap.floor;
+			if (P !== 0 && C !== 0) {
+				const stairs = (currMap.type === 'cave')? 'ladder':'stairs';
+				if (C > P) { item.flavor = `floor_${stairs}_up`; return item; }
+				if (C < P) { item.flavor = `floor_${stairs}_down`; return item; }
+			}
+		}{
 			const P = prevMap.is('entralink');
 			const C = currMap.is('entralink');
 			if (!P && C) { item.flavor = `entralink_enter${back}`; return item; }
