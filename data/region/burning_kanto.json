@@ -63,7 +63,7 @@
 				"dungeon": true,
 				"the": "",
 				"preposition": "in",
-				"floor": 1
+				"floor": 0
 			},
 			"areas": []
 		},
@@ -219,32 +219,462 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 4,
+				"name": "Vermilion Harbor",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 5,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 6,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 7,
+				"name": "Upper Promenade",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 8,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 9,
+				"name": "Bow of the S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"indoors": false,
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 10,
+				"name": "S.S. Anne's Kitchen",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 11,
+				"name": "Captain's Quarters",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 12,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 13,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "Pallet Town",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 14,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 15,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 16,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 17,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 18,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 19,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 20,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 21,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 22,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 23,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "on",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 24,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 25,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 26,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 27,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 28,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 29,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 30,
@@ -302,7 +732,11 @@
 				"type": "gatehouse",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -316,7 +750,8 @@
 				"width": 0,
 				"height": 0,
 				"attrs": {
-					"the": "the"
+					"the": "the",
+					"floor": -1
 				},
 				"areas": [],
 				"gamedata": {}
@@ -386,7 +821,8 @@
 				"width": 0,
 				"height": 0,
 				"attrs": {
-					"route": true
+					"route": true,
+					"floor": 1
 				},
 				"areas": [],
 				"gamedata": {}
@@ -400,7 +836,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": 2
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -413,15 +851,91 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": 3
+				},
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 42,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 43,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": -2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 44,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -3,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 45,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -4,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 46,
+				"name": "Rocket Hideout (Elevator)",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 47,
@@ -612,28 +1126,298 @@
 				"areas": [],
 				"gamedata": {}
 			},
+			{
+				"bank": 1,
+				"id": 59,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 60,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 61,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 62,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 63,
+				"name": "Safari Zone (Center)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 64,
+				"name": "Safari Zone (East)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 65,
+				"name": "Safari Zone (North)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 66,
+				"name": "Safari Zone (West)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 67,
+				"name": "Safari Zone (Center)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 68,
+				"name": "Safari Zone (East)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 69,
+				"name": "Safari Zone (North)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 70,
+				"name": "Safari Zone (West)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 71,
+				"name": "Surf House",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 75,
+				"name": "Lorelei's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e1"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 76,
+				"name": "Burno's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e2"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 77,
+				"name": "Agitha's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e3"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 78,
+				"name": "Lance's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": null,
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e4"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 79,
+				"name": "Champion's Chamber",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"e4": "champ"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 80,
+				"name": "Hall of Fame",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "hallOfFame",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 81,
@@ -664,11 +1448,86 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 83,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 84,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 85,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 86,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -3,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 87,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -4,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 88,
@@ -807,9 +1666,311 @@
 				},
 				"areas": [],
 				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 96,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 97,
+				"name": "Mt. Ember Mountainside",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"indoors": false
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 98,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 99,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 100,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 101,
+				"name": "Mt. Ember Summit",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 102,
+				"name": "Ruby Chamber",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -6,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 103,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 104,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 105,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 106,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 107,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 108,
+				"name": "Mt. Ember",
+				"areaId": 0,
+				"areaName": "Mt. Ember",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 109,
+				"name": "Berry Forest",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
 			}
 		],
-		null,
+		[
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 2,
+				"id": 34,
+				"name": "Three Isle Path",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 2,
+				"id": 57,
+				"name": "Ember Spa",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 11,
+						"ay": 11,
+						"bx": 15,
+						"by": 14,
+						"rad": 0,
+						"name": "hot spring",
+						"attrs": {
+							"healing": "hotspring"
+						}
+					}
+				],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 3,
@@ -876,7 +2037,19 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 3,
+				"id": 5,
+				"name": "Vermilion City",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 3,
 				"id": 6,
@@ -890,8 +2063,34 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 3,
+				"id": 7,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 8,
+				"name": "Cinnabar Island",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 3,
 				"id": 9,
@@ -921,10 +2120,66 @@
 				"gamedata": {}
 			},
 			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 3,
+				"id": 12,
+				"name": "One Island",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 13,
+				"name": "Two Island",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 14,
+				"name": "Three Island",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 15,
+				"name": "Four Island",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -1060,25 +2315,203 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 3,
+				"id": 29,
+				"name": "Route 11",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 30,
+				"name": "Route 12",
+				"areaId": 0,
+				"areaName": "Route 12",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 31,
+				"name": "Route 13",
+				"areaId": 0,
+				"areaName": "Route 13",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 32,
+				"name": "Route 14",
+				"areaId": 0,
+				"areaName": "Route 14",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 33,
+				"name": "Route 15",
+				"areaId": 0,
+				"areaName": "Route 15",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 34,
+				"name": "Route 16",
+				"areaId": 0,
+				"areaName": "Route 16",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 15,
+						"ay": 11,
+						"bx": 20,
+						"by": 14,
+						"rad": 0,
+						"name": "bike entrance",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 35,
+				"name": "Route 17 (Cycling Road)",
+				"areaId": 0,
+				"areaName": "Route 17",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 36,
+				"name": "Route 18",
+				"areaId": 0,
+				"areaName": "Route 18",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 32,
+						"ay": 8,
+						"bx": 41,
+						"by": 10,
+						"rad": 0,
+						"name": "bike entrance",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 37,
+				"name": "Route 19",
+				"areaId": 0,
+				"areaName": "Route 19",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 38,
+				"name": "Route 20",
+				"areaId": 0,
+				"areaName": "Route 20",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"water": true
+				},
+				"areas": [
+					{
+						"ax": 55,
+						"ay": 3,
+						"bx": 77,
+						"by": 16,
+						"rad": 0,
+						"name": "Seafoam Islands",
+						"attrs": {
+							"water": false
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 39,
+				"name": "Route 21",
+				"areaId": 0,
+				"areaName": "Pallet Town",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 40,
+				"name": "Route 21",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 3,
 				"id": 41,
 				"name": "Route 22",
 				"areaId": 0,
 				"areaName": "Route 22",
-				"type": "default",
+				"type": "route",
 				"width": 0,
 				"height": 0,
 				"attrs": {},
@@ -1121,6 +2554,65 @@
 				"width": 0,
 				"height": 0,
 				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 45,
+				"name": "Kindle Road",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			{
+				"bank": 3,
+				"id": 47,
+				"name": "Cape Brink",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 48,
+				"name": "Bond Bridge",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "near"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 49,
+				"name": "Three Isle Port",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "near"
+				},
 				"areas": [],
 				"gamedata": {}
 			}
@@ -1314,7 +2806,21 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 6,
+				"id": 4,
+				"name": "Pewter City",
+				"areaId": 0,
+				"areaName": "Pewter City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 6,
 				"id": 5,
@@ -1585,7 +3091,133 @@
 				"gamedata": {}
 			}
 		],
-		null,
+		[
+			{
+				"bank": 9,
+				"id": 0,
+				"name": "Fishing Guru's House",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 1,
+				"name": "Vermilion City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 2,
+				"name": "Vermilion City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 3,
+				"name": "Pokémon Fan Club",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 4,
+				"name": "Vermilion City",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 5,
+				"name": "Vermilion City Mart",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 6,
+				"name": "Vermilion City Gym",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 1,
+						"ay": 2,
+						"bx": 9,
+						"by": 5,
+						"rad": 0,
+						"name": "leader area",
+						"attrs": {
+							"trainertype": "leader",
+							"leader": "Surge"
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 9,
+				"id": 7,
+				"name": "Vermilion City",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 10,
@@ -1841,8 +3473,36 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 10,
+				"id": 14,
+				"name": "Celadon Game Corner",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 10,
+				"id": 15,
+				"name": "Prize Exchange",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 10,
 				"id": 16,
@@ -1900,8 +3560,265 @@
 				"gamedata": {}
 			}
 		],
-		null,
-		null,
+		[
+			{
+				"bank": 11,
+				"id": 0,
+				"name": "Safari Zone",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 1,
+				"name": "Fuchsia City Mart",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 2,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 3,
+				"name": "Fuchsia City Gym",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 4,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 5,
+				"name": "Fuchsia City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 6,
+				"name": "Fuchsia City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 7,
+				"name": "Safari Warden's House",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 8,
+				"name": "Fishing Guru's Brother's House",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 11,
+				"id": 9,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 12,
+				"id": 0,
+				"name": "Cinnabar Gym",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 1,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 2,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 3,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 4,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 5,
+				"name": "Cinnabar Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 6,
+				"name": "Cinnabar Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 12,
+				"id": 7,
+				"name": "Cinnabar Island Mart",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 13,
@@ -2286,11 +4203,203 @@
 				"gamedata": {}
 			}
 		],
-		null,
-		null,
-		null,
-		null,
-		null,
+		[
+			{
+				"bank": 22,
+				"id": 0,
+				"name": "Route 11 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 22,
+				"id": 1,
+				"name": "Route 11 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 23,
+				"id": 0,
+				"name": "Route 12 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 12",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "in",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 23,
+				"id": 1,
+				"name": "Route 12 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 12",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 23,
+				"id": 2,
+				"name": "Fishing Guru's Hut",
+				"areaId": 0,
+				"areaName": "Route 12",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 24,
+				"id": 0,
+				"name": "Route 15 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 15",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "in",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 24,
+				"id": 1,
+				"name": "Route 15 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			null,
+			{
+				"bank": 25,
+				"id": 1,
+				"name": "Route 16 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 16",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 25,
+				"id": 2,
+				"name": "Route 16 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 16",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 26,
+				"id": 0,
+				"name": "Route 18 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 18",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1,
+					"preposition": "in",
+					"the": "the",
+					"water": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 26,
+				"id": 1,
+				"name": "Route 18 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 18",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2,
+					"the": "the",
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		[
 			{
@@ -2324,15 +4433,325 @@
 			}
 		],
 		null,
+		[
+			{
+				"bank": 32,
+				"id": 0,
+				"name": "Pokémon Net Center",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 32,
+				"id": 1,
+				"name": "Pokémon Net Center",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 32,
+				"id": 2,
+				"name": "One Island",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 32,
+				"id": 3,
+				"name": "One Island",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 32,
+				"id": 4,
+				"name": "One Island Harbor",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 33,
+				"id": 0,
+				"name": "Two Island Game Corner",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 33,
+				"id": 1,
+				"name": "Two Island",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 33,
+				"id": 2,
+				"name": "Two Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 33,
+				"id": 3,
+				"name": "Two Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 33,
+				"id": 4,
+				"name": "Two Island Harbor",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 34,
+				"id": 0,
+				"name": "Three Island",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 1,
+				"name": "Three Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 2,
+				"name": "Three Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 3,
+				"name": "Three Island Mart",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 4,
+				"name": "Three Island",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 5,
+				"name": "Three Island",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 6,
+				"name": "Three Island",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 34,
+				"id": 7,
+				"name": "Three Island",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 35,
+				"id": 5,
+				"name": "Four Island Harbor",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		null,
+		[
+			{
+				"bank": 38,
+				"id": 0,
+				"name": "Three Island Harbor",
+				"areaId": 0,
+				"areaName": "Three Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
-		null,
-		null,
-		null,
-		null,
-		null,
-		null,
+		[
+			{
+				"bank": 40,
+				"id": 0,
+				"name": "Cape Brink House",
+				"areaId": 0,
+				"areaName": "Two Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		null,
 		null,
@@ -2613,7 +5032,19 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 255,
+				"id": 5,
+				"name": "Vermilion City",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 6,
@@ -2627,8 +5058,34 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 7,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 8,
+				"name": "Cinnabar Island",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 9,
@@ -2788,17 +5245,185 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 22,
+				"name": "Route 11",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 23,
+				"name": "Route 12",
+				"areaId": 0,
+				"areaName": "Route 12",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 24,
+				"name": "Route 13",
+				"areaId": 0,
+				"areaName": "Route 13",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 25,
+				"name": "Route 14",
+				"areaId": 0,
+				"areaName": "Route 14",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 26,
+				"name": "Route 15",
+				"areaId": 0,
+				"areaName": "Route 15",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 27,
+				"name": "Route 16",
+				"areaId": 0,
+				"areaName": "Route 17",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 12,
+						"ay": 10,
+						"bx": 17,
+						"by": 13,
+						"rad": 0,
+						"name": "bike entrance",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 28,
+				"name": "Route 17 (Cycling Road)",
+				"areaId": 0,
+				"areaName": "Route 17",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 29,
+				"name": "Route 18",
+				"areaId": 0,
+				"areaName": "Route 18",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 24,
+						"ay": 6,
+						"bx": 33,
+						"by": 9,
+						"rad": 0,
+						"name": "bike entrance",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 30,
+				"name": "Route 19",
+				"areaId": 0,
+				"areaName": "Route 19",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"water": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 31,
+				"name": "Route 20",
+				"areaId": 0,
+				"areaName": "Route 20",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"water": true
+				},
+				"areas": [
+					{
+						"ax": 46,
+						"ay": 2,
+						"bx": 61,
+						"by": 11,
+						"rad": 0,
+						"name": "Seafoam Islands",
+						"attrs": {
+							"water": false
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 32,
+				"name": "Route 21",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 33,
@@ -2976,14 +5601,29 @@
 				"name": "Digglet's Cave",
 				"areaId": 0,
 				"areaName": "Digglet's Cave",
-				"type": "default",
+				"type": "cave",
 				"width": 0,
 				"height": 0,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 255,
+				"id": 47,
+				"name": "North Viridian Forest Gate",
+				"areaId": 0,
+				"areaName": "Viridian Forest",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 48,
@@ -3086,7 +5726,21 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 255,
+				"id": 55,
+				"name": "Pewter City",
+				"areaId": 0,
+				"areaName": "Pewter City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 56,
@@ -3395,7 +6049,8 @@
 				"height": 0,
 				"attrs": {
 					"preposition": "in",
-					"the": "the"
+					"the": "the",
+					"floor": 1
 				},
 				"areas": [],
 				"gamedata": {}
@@ -3443,7 +6098,23 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 255,
+				"id": 84,
+				"name": "Route 11 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 85,
@@ -3457,8 +6128,40 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 86,
+				"name": "Route 11 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 87,
+				"name": "Route 12 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"preposition": "in",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 88,
@@ -3472,22 +6175,276 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 89,
+				"name": "Vermilion City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 90,
+				"name": "Pokémon Fan Club",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 91,
+				"name": "Vermilion City Mart",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 92,
+				"name": "Vermilion City Gym",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 2,
+						"ay": 1,
+						"bx": 7,
+						"by": 3,
+						"rad": 0,
+						"name": "leader area",
+						"attrs": {
+							"trainertype": "leader",
+							"leader": "Surge"
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 93,
+				"name": "Vermilion City",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 94,
+				"name": "Vermilion Harbor",
+				"areaId": 0,
+				"areaName": "Vermilion Harbor",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 95,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 96,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 97,
+				"name": "Upper Promenade",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 98,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 99,
+				"name": "Bow of the S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"indoors": false,
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 100,
+				"name": "S.S. Anne's Kitchen",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 101,
+				"name": "Captain's Quarters",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 102,
+				"name": "S.S. Anne",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 103,
+				"name": "Upper Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 104,
+				"name": "Lower Deck",
+				"areaId": 0,
+				"areaName": "S.S. Anne",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"inconsequential": true,
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -3500,7 +6457,9 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": 1
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -3508,12 +6467,41 @@
 			null,
 			null,
 			null,
+			{
+				"bank": 255,
+				"id": 113,
+				"name": "Lance's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e4"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
 			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 118,
+				"name": "Hall of Fame",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "hallOfFame",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 119,
@@ -3530,8 +6518,37 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 120,
+				"name": "Champion's Chamber",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "champ",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 121,
+				"name": "Underground Path (W-E)",
+				"areaId": 0,
+				"areaName": "Route 8",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 122,
@@ -3547,11 +6564,115 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 123,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 2,
+						"bx": 8,
+						"by": 5,
+						"rad": 5,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 124,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 125,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 5,
+						"bx": 5,
+						"by": 5,
+						"rad": 5,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 126,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6
+				},
+				"areas": [
+					{
+						"ax": 9,
+						"ay": 1,
+						"bx": 13,
+						"by": 3,
+						"rad": 0,
+						"name": "vending",
+						"attrs": {
+							"vending": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 127,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 128,
@@ -3654,9 +6775,61 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 135,
+				"name": "Celadon Game Corner",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 136,
+				"name": "Celadon Department Store",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5
+				},
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 2,
+						"bx": 8,
+						"by": 5,
+						"rad": 5,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 137,
+				"name": "Prize Exchange",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 138,
@@ -3894,27 +7067,316 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 152,
+				"name": "Fuchsia City Mart",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 153,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 154,
+				"name": "Fuchsia City Pokémon Center",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 155,
+				"name": "Safari Warden's House",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 156,
+				"name": "Safari Zone",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 157,
+				"name": "Fuchsia City Gym",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 158,
+				"name": "Fuchsia City",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 159,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 160,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 161,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": -3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 162,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 163,
+				"name": "Fishing Guru's House",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 164,
+				"name": "Fishing Guru's Brother's House",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 165,
+				"name": "Cinnabar Pokémon Mansion",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 166,
+				"name": "Cinnabar Gym",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "gym",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 167,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 168,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 169,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 170,
+				"name": "Cinnabar Pokémon Lab",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 171,
+				"name": "Cinnabar Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 172,
+				"name": "Cinnabar Island Mart",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			{
 				"bank": 255,
@@ -4087,15 +7549,141 @@
 				"areas": [],
 				"gamedata": {}
 			},
+			{
+				"bank": 255,
+				"id": 184,
+				"name": "Route 15 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 15",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 185,
+				"name": "Route 15 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 15",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 186,
+				"name": "Route 16 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 16",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 187,
+				"name": "Route 16 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 16",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 189,
+				"name": "Fishing Guru's Hut",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 190,
+				"name": "Route 18 Gatehouse",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 191,
+				"name": "Route 18 Gatehouse",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 192,
+				"name": "Seafoam Islands",
+				"areaId": 0,
+				"areaName": "Seafoam Islands",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 193,
@@ -4120,12 +7708,44 @@
 				"type": "cave",
 				"width": 0,
 				"height": 0,
-				"attrs": {},
+				"attrs": {
+					"floor": 2
+				},
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 195,
+				"name": "Route 12 Gatehouse",
+				"areaId": 0,
+				"areaName": "Route 11",
+				"type": "gatehouse",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 196,
+				"name": "Vermilion City",
+				"areaId": 0,
+				"areaName": "Vermilion City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 255,
 				"id": 197,
@@ -4139,12 +7759,100 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 198,
+				"name": "Victory Road",
+				"areaId": 0,
+				"areaName": "Victory Road",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 199,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 200,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 201,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -3,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 202,
+				"name": "Rocket Hideout",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": -4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 203,
+				"name": "Rocket Hideout (Elevator)",
+				"areaId": 0,
+				"areaName": "Celadon City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -4253,18 +7961,193 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 255,
+				"id": 214,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 215,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"floor": 3
+				},
+				"areas": [
+					{
+						"ax": 8,
+						"ay": 12,
+						"bx": 8,
+						"by": 13,
+						"rad": 0,
+						"name": "trapped behind the burglar",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 216,
+				"name": "Cinnabar Pokémon Mansion ",
+				"areaId": 0,
+				"areaName": "Cinnabar Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1,
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 217,
+				"name": "Safari Zone (East)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 218,
+				"name": "Safari Zone (North)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 219,
+				"name": "Safari Zone (West)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 220,
+				"name": "Safari Zone (Center)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "safari",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 221,
+				"name": "Safari Zone (Center)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 222,
+				"name": "Surf House",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 223,
+				"name": "Safari Zone (West)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 224,
+				"name": "Safari Zone (East)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 225,
+				"name": "Safari Zone (North)",
+				"areaId": 0,
+				"areaName": "Fuchsia City",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -4381,8 +8264,190 @@
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 255,
+				"id": 245,
+				"name": "Lorelei's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e1"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 246,
+				"name": "Bruno's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e2"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 255,
+				"id": 247,
+				"name": "Agitha's Room",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"e4": "e3"
+				},
+				"areas": [],
+				"gamedata": {}
 			}
 		]
 	],
-	"reports": []
+	"reports": [
+		{
+			"type": "transit",
+			"id": "717689e9",
+			"text": "After an odd switch behind a poster in the Game Corner opens a staircase, we decend into a strange hideout...",
+			"timeout": 60000000000,
+			"from": "10.14",
+			"to": "1.42"
+		},
+		{
+			"type": "transit",
+			"id": "a5969979",
+			"text": "After an odd switch behind a poster in the Game Corner opens a staircase, we decend into a strange hideout...",
+			"timeout": 60000000000,
+			"from": "255.135",
+			"to": "255.199"
+		},
+		{
+			"type": "transit",
+			"id": "c8726635",
+			"text": "After an odd switch behind a poster in the Game Corner opens a staircase, we decend into a strange hideout...",
+			"timeout": 60000000000,
+			"from": "255.135",
+			"to": "1.42"
+		},
+		{
+			"type": "transit",
+			"id": "1ec6e604",
+			"text": "After an odd switch behind a poster in the Game Corner opens a staircase, we decend into a strange hideout...",
+			"timeout": 60000000000,
+			"from": "10.14",
+			"to": "255.199"
+		},
+		{
+			"type": "transit",
+			"id": "3accdb5f",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "26.0",
+			"to": "3.36:0"
+		},
+		{
+			"type": "transit",
+			"id": "e2d40f92",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "255.190",
+			"to": "255.29:0"
+		},
+		{
+			"type": "transit",
+			"id": "c08a9235",
+			"text": "!cycling_exit",
+			"timeout": 600000,
+			"from": "255.29:0",
+			"to": "255.190"
+		},
+		{
+			"type": "transit",
+			"id": "f6dda1ed",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "255.190",
+			"to": "3.36:0"
+		},
+		{
+			"type": "transit",
+			"id": "561613c6",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "26.0",
+			"to": "255.29:0"
+		},
+		{
+			"type": "transit",
+			"id": "e4f1e2e8",
+			"text": "!cycling_exit",
+			"timeout": 600000,
+			"from": "255.29:0",
+			"to": "26.0"
+		},
+		{
+			"type": "transit",
+			"id": "3fbc6596",
+			"text": "!cycling_exit",
+			"timeout": 600000,
+			"from": "3.36:0",
+			"to": "26.0"
+		},
+		{
+			"type": "transit",
+			"id": "a64c3472",
+			"text": "!cycling_exit",
+			"timeout": 600000,
+			"from": "3.36:0",
+			"to": "255.190"
+		},
+		{
+			"type": "transit",
+			"id": "81a24435",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "25.1",
+			"to": "3.34:0"
+		},
+		{
+			"type": "transit",
+			"id": "b8a1b83a",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "255.186",
+			"to": "3.34:0"
+		},
+		{
+			"type": "transit",
+			"id": "f61feb7f",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "255.186",
+			"to": "255.27:0"
+		},
+		{
+			"type": "transit",
+			"id": "1ea2c7c3",
+			"text": "!cycling_enter",
+			"timeout": 600000,
+			"from": "25.1",
+			"to": "255.27:0"
+		}
+	]
 }

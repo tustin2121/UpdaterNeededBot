@@ -339,6 +339,13 @@ MapChanged['stairs_up'] = [
 	`We {{rand|climb|head up|ascend}} the stairs to {{the location|@curr}}.`,
 ];
 
+MapChanged['cycling_enter'] = [
+	`We hop on our bike! Cycling Road!`,
+];
+MapChanged['cycling_exit'] = [
+	`We hop on our bike! Cycling Road!`,
+];
+
 //We ride the magnet train (override with Transit Report)
 MapChanged['magenttrain'] = [
 	`We {{rand|hop|jump}} on the {{rand|magnet |}}train! Weeeeeee! \PogChamp/ Now {{in the location|@curr}}!`,

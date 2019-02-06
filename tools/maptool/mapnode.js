@@ -677,7 +677,7 @@ const ATTRS = {
 	},
 	healing: {
 		tooltip: `If the location offers a type of healing.`,
-		values: [false,'pokecenter','doctor','nurse','house','partner','scientist','mystical'],
+		values: [false,'pokecenter','doctor','nurse','house','partner','scientist','mystical','hotspring'],
 	},
 	shopping: {
 		tooltip: `If the location offers vendors. (Use only for Areas marking the spot)`,
