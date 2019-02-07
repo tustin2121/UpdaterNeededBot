@@ -1873,6 +1873,120 @@
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 110,
+				"name": "Icefall Cave",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 111,
+				"name": "Icefall Cave",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [
+					{
+						"ax": 6,
+						"ay": 2,
+						"bx": 10,
+						"by": 15,
+						"rad": 0,
+						"name": "icefall1",
+						"attrs": {}
+					},
+					{
+						"ax": 14,
+						"ay": 5,
+						"bx": 17,
+						"by": 9,
+						"rad": 0,
+						"name": "icefall2",
+						"attrs": {}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 112,
+				"name": "Icefall Cave",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 113,
+				"name": "Icefall Cave",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 1,
+				"id": 121,
+				"name": "Pattern Bush",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "dungeon",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 122,
+				"name": "Altering Cave",
+				"areaId": 0,
+				"areaName": "",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
 			}
 		],
 		[
@@ -1886,44 +2000,401 @@
 			null,
 			null,
 			null,
+			{
+				"bank": 2,
+				"id": 10,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"healing": "pokecenter"
+				},
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 11,
+						"bx": 0,
+						"by": 11,
+						"rad": 5,
+						"name": "pc",
+						"attrs": {
+							"pc": true
+						}
+					},
+					{
+						"ax": 14,
+						"ay": 11,
+						"bx": 14,
+						"by": 11,
+						"rad": 5,
+						"name": "shopping",
+						"attrs": {
+							"shopping": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
 			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 2,
+				"id": 12,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 13,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 14,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 15,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 16,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 17,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 18,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 19,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 20,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 21,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 22,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 23,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 24,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 25,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 26,
+				"name": "Lost Cave",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 27,
+				"name": "Tanoby Ruins (Monean Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 28,
+				"name": "Tanoby Ruins (Liptoo Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 29,
+				"name": "Tanoby Ruins (Weepth Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 30,
+				"name": "Tanoby Ruins (Dilford Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 31,
+				"name": "Tanoby Ruins (Scufib Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 32,
+				"name": "Tanoby Ruins (Rixy Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 33,
+				"name": "Tanoby Ruins (Viapois Chamber)",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 2,
 				"id": 34,
 				"name": "Three Isle Path",
 				"areaId": 0,
 				"areaName": "Three Island",
-				"type": "default",
+				"type": "cave",
 				"width": 0,
 				"height": 0,
 				"attrs": {},
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 2,
+				"id": 35,
+				"name": "Tanoby Key",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			null,
 			null,
@@ -2170,7 +2641,7 @@
 				"id": 15,
 				"name": "Four Island",
 				"areaId": 0,
-				"areaName": "One Island",
+				"areaName": "Four Island",
 				"type": "town",
 				"width": 0,
 				"height": 0,
@@ -2180,9 +2651,51 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
+			{
+				"bank": 3,
+				"id": 16,
+				"name": "Five Island",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 17,
+				"name": "Seven Island",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 18,
+				"name": "Six Island",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 3,
 				"id": 19,
@@ -2615,6 +3128,213 @@
 				},
 				"areas": [],
 				"gamedata": {}
+			},
+			null,
+			null,
+			null,
+			null,
+			{
+				"bank": 3,
+				"id": 54,
+				"name": "\"Resort Gorgeous\"",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 55,
+				"name": "Water Labyrinth",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"water": true
+				},
+				"areas": [
+					{
+						"ax": 7,
+						"ay": 6,
+						"bx": 17,
+						"by": 13,
+						"rad": 0,
+						"name": "island",
+						"attrs": {
+							"water": false
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 56,
+				"name": "Five Isle Meadow",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 57,
+				"name": "Memorial Pillar",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"water": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 58,
+				"name": "Outcast Island",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "near",
+					"water": true
+				},
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 15,
+						"bx": 17,
+						"by": 25,
+						"rad": 0,
+						"name": "island",
+						"attrs": {
+							"water": false
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 59,
+				"name": "Green Path",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 60,
+				"name": "Water Path",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 61,
+				"name": "Ruin Valley",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 62,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "default",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "outside"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 63,
+				"name": "Canyon Entrance",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "near",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 64,
+				"name": "Sevault Canyon",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 3,
+				"id": 65,
+				"name": "Tanoby Ruins",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "between",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
 			}
 		],
 		[
@@ -2882,7 +3602,7 @@
 			{
 				"bank": 7,
 				"id": 1,
-				"name": "robbed house",
+				"name": "Cerulean City",
 				"areaId": 0,
 				"areaName": "Cerulean City",
 				"type": "indoor",
@@ -4432,7 +5152,78 @@
 				"gamedata": {}
 			}
 		],
-		null,
+		[
+			{
+				"bank": 31,
+				"id": 0,
+				"name": "Seven Island",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on",
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			{
+				"bank": 31,
+				"id": 2,
+				"name": "Seven Island Mart",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 31,
+				"id": 3,
+				"name": "Seven Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 31,
+				"id": 4,
+				"name": "Seven Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			null,
+			{
+				"bank": 31,
+				"id": 6,
+				"name": "Seven Island Harbor",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 32,
@@ -4696,18 +5487,123 @@
 			}
 		],
 		[
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 35,
+				"id": 0,
+				"name": "Four Island Daycare",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 10,
+						"ay": 2,
+						"bx": 10,
+						"by": 2,
+						"rad": 5,
+						"name": "pc",
+						"attrs": {
+							"pc": true
+						}
+					}
+				],
+				"gamedata": {}
+			},
+			{
+				"bank": 35,
+				"id": 1,
+				"name": "Four Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 35,
+				"id": 2,
+				"name": "Four Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 35,
+				"id": 3,
+				"name": "Four Island",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 35,
+				"id": 4,
+				"name": "Lorelei's House",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 35,
 				"id": 5,
 				"name": "Four Island Harbor",
 				"areaId": 0,
-				"areaName": "One Island",
+				"areaName": "Four Island",
 				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 35,
+				"id": 6,
+				"name": "Four Island",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 35,
+				"id": 7,
+				"name": "Four Island Mart",
+				"areaId": 0,
+				"areaName": "Four Island",
+				"type": "mart",
 				"width": 0,
 				"height": 0,
 				"attrs": {},
@@ -4715,8 +5611,147 @@
 				"gamedata": {}
 			}
 		],
-		null,
-		null,
+		[
+			{
+				"bank": 36,
+				"id": 0,
+				"name": "Five Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 36,
+				"id": 1,
+				"name": "Five Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 36,
+				"id": 2,
+				"name": "Five Island Harbor",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 36,
+				"id": 3,
+				"name": "Five Island",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 36,
+				"id": 4,
+				"name": "Five Island",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 37,
+				"id": 0,
+				"name": "Six Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "center",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 37,
+				"id": 1,
+				"name": "Six Island Pokémon Center",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 37,
+				"id": 2,
+				"name": "Six Island Harbor",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 37,
+				"id": 3,
+				"name": "Six Island",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true,
+					"preposition": "on"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 37,
+				"id": 4,
+				"name": "Six Island Mart",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "mart",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 38,
@@ -4734,7 +5769,21 @@
 				"gamedata": {}
 			}
 		],
-		null,
+		[
+			{
+				"bank": 39,
+				"id": 0,
+				"name": "Selphy's House",
+				"areaId": 0,
+				"areaName": "Five Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		[
 			{
 				"bank": 40,
@@ -4752,8 +5801,57 @@
 				"gamedata": {}
 			}
 		],
-		null,
-		null,
+		[
+			{
+				"bank": 41,
+				"id": 0,
+				"name": "Water Path",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 41,
+				"id": 1,
+				"name": "Water Path",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
+		[
+			{
+				"bank": 42,
+				"id": 0,
+				"name": "Sevault Canyon",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"inconsequential": true,
+					"healing": "house"
+				},
+				"areas": [],
+				"gamedata": {}
+			}
+		],
 		null,
 		null,
 		null,
