@@ -1323,9 +1323,52 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 72,
+				"name": "Cerulean Cave",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 73,
+				"name": "Cerulean Cave",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 74,
+				"name": "Cerulean Cave",
+				"areaId": 0,
+				"areaName": "Cerulean City",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"town": true,
+					"floor": -1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 75,
@@ -1953,13 +1996,125 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 1,
+				"id": 114,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 115,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -1,
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 116,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -2,
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 117,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -3,
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 118,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -4,
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 119,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -5,
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 1,
+				"id": 120,
+				"name": "Dotted Hole",
+				"areaId": 0,
+				"areaName": "Six Island",
+				"type": "cave",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": -6,
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 1,
 				"id": 121,
@@ -1981,7 +2136,7 @@
 				"name": "Altering Cave",
 				"areaId": 0,
 				"areaName": "",
-				"type": "default",
+				"type": "cave",
 				"width": 0,
 				"height": 0,
 				"attrs": {},
@@ -1990,16 +2145,155 @@
 			}
 		],
 		[
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
+			{
+				"bank": 2,
+				"id": 0,
+				"name": "Navel Rock",
+				"areaId": 0,
+				"areaName": "Navel Rock",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 1,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 2,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 3,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 3
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 4,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 5,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 5
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 6,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 6
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 7,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 7
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 8,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 8
+				},
+				"areas": [],
+				"gamedata": {}
+			},
+			{
+				"bank": 2,
+				"id": 9,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"floor": 9,
+					"indoors": false
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 2,
 				"id": 10,
@@ -2038,7 +2332,19 @@
 				],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 2,
+				"id": 11,
+				"name": "Trainer Tower",
+				"areaId": 0,
+				"areaName": "Seven Island",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 2,
 				"id": 12,
@@ -3083,7 +3389,19 @@
 				"areas": [],
 				"gamedata": {}
 			},
-			null,
+			{
+				"bank": 3,
+				"id": 46,
+				"name": "Treasure Beach",
+				"areaId": 0,
+				"areaName": "One Island",
+				"type": "route",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 3,
 				"id": 47,
@@ -3131,7 +3449,19 @@
 			},
 			null,
 			null,
-			null,
+			{
+				"bank": 3,
+				"id": 52,
+				"name": "....I don't even know...",
+				"areaId": 0,
+				"areaName": "WutFace",
+				"type": "town",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
+			},
 			null,
 			{
 				"bank": 3,
@@ -4579,6 +4909,19 @@
 					}
 				],
 				"gamedata": {}
+			},
+			{
+				"bank": 13,
+				"id": 1,
+				"name": "Indigo Plateau",
+				"areaId": 0,
+				"areaName": "Indigo Plateau",
+				"type": "center2",
+				"width": 0,
+				"height": 0,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {}
 			}
 		],
 		[
@@ -4872,7 +5215,7 @@
 				"name": "Route 7",
 				"areaId": 0,
 				"areaName": "Saffron City",
-				"type": "default",
+				"type": "gatehouse",
 				"width": 0,
 				"height": 0,
 				"attrs": {},
@@ -5047,7 +5390,21 @@
 			}
 		],
 		[
-			null,
+			{
+				"bank": 25,
+				"id": 0,
+				"name": "Route 16",
+				"areaId": 0,
+				"areaName": "Route 16",
+				"type": "indoor",
+				"width": 0,
+				"height": 0,
+				"attrs": {
+					"inconsequential": true
+				},
+				"areas": [],
+				"gamedata": {}
+			},
 			{
 				"bank": 25,
 				"id": 1,
@@ -9546,6 +9903,29 @@
 			"timeout": 600000,
 			"from": "25.1",
 			"to": "255.27:0"
+		},
+		{
+			"type": "transit",
+			"id": "2fa974b9",
+			"text": "!glitch_city_swap_red [Switch this to Glitch City from Red]",
+			"timeout": 0,
+			"to": "3.52"
+		},
+		{
+			"type": "transit",
+			"id": "3e0fc2b",
+			"text": "!glitch_city_enter",
+			"timeout": 0,
+			"from": "3.6",
+			"to": "3.52"
+		},
+		{
+			"type": "transit",
+			"id": "4414f718",
+			"text": "!glitch_city_exit",
+			"timeout": 0,
+			"from": "3.52",
+			"to": "3.6"
 		}
 	]
 }
