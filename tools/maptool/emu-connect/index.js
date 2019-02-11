@@ -46,6 +46,7 @@ const READ_GAME = {
 	},
 };
 READ_GAME['Pokemon - Red Version (USA, Europe)'] = READ_GAME['red']; //alias
+READ_GAME['pokefirered-processed-glitch-city-phancero-cry-icon-dex-warps-connections-encounter-musicfixed-e4-respawn-signs'] = READ_GAME['firered']; //alias
 
 class EmuConnect extends EventEmitter {
 	constructor() {
