@@ -22,6 +22,7 @@ const PHRASEBOOK = Object.assign({}, ...[
 	require('./Party'),
 	require('./PC'),
 	require('./Pokemon'),
+	require('./BurningRed'),
 ]);
 const FORMAT_FNS = {};
 /***************************************************************************************************

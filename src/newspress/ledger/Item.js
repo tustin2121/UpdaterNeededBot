@@ -93,6 +93,23 @@ class HeldItemGained extends LedgerItem {
 		this.item = item;
 		this.amount = amount;
 	}
+	cancelsOut(other) {
+		if (other.__itemName__ === 'HeldItemGained') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount += other.amount; //add together the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new HeldItemLost(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		if (other.__itemName__ === 'HeldItemLost') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount -= other.amount; //subtract the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new HeldItemLost(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		return false;
+	}
 }
 
 /** Indicates that the held item was lost without a compensating delta from elsewhere, probably from in-battle use. */
@@ -101,6 +118,23 @@ class HeldItemLost extends LedgerItem {
 		super(0);
 		this.item = item;
 		this.amount = amount;
+	}
+	cancelsOut(other) {
+		if (other.__itemName__ === 'HeldItemLost') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount += other.amount;  //add together the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new HeldItemGained(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		if (other.__itemName__ === 'HeldItemGained') {
+			if (this.item.id !== other.item.id) return false;
+			this.amount -= other.amount;  //subtract the amounts
+			if (this.amount == 0) return true; //cancels out
+			if (this.amount < 0) return new HeldItemGained(this.item, -this.amount); //replace
+			return this; //coalesce
+		}
+		return false;
 	}
 }
 

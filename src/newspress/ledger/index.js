@@ -344,4 +344,5 @@ module.exports = Object.assign({
 	require('./Party'),
 	require('./PC'),
 	require('./Pokemon'),
+	require('./BurningRed'),
 ]);

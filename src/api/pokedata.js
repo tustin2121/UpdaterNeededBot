@@ -193,7 +193,7 @@ class Pokemon {
 		}
 		if (typeof mon !== 'object') return this;
 		
-		this.hash = read(mon, `personality_value`);
+		this.hash = read(mon, `aiss_id`); //BURNING RED HACK
 		this.name = mon.name || mon.nickname || '';
 		this.species = (mon.species && mon.species.name) || '';
 		this.nicknamed = !!(mon.nicknamed || checkNicknamed(this.name, this.species) || false);
@@ -242,10 +242,10 @@ class Pokemon {
 		this.cp = mon.cp || 0;
 		this.fitness = mon.fitness || 0;
 		
-		if (!Bot.runOpts('personalityValues') && Bot.runFlag('pv_patch')) {
-			// Gens 1 and 2 don't have personality values, so we may have to do some hacks to make them more unique.
-			this.hash ^= this.dexid * this.dexid;
-		}
+		// if (!Bot.runOpts('personalityValues') && Bot.runFlag('pv_patch')) {
+		// 	// Gens 1 and 2 don't have personality values, so we may have to do some hacks to make them more unique.
+		// 	this.hash ^= this.dexid * this.dexid;
+		// }
 		
 		if (Bot.runOpts('gender')) this._gender = mon.gender || this._gender;
 		if (Bot.runOpts('heldItem')) {
@@ -951,6 +951,16 @@ class SortedData {
 			typeof data['pc'] !== 'object')
 		{
 			throw new TypeError('Passed invalid data object to SortedData!');
+		}
+		
+		{ // BURNING RED HACKS
+			if (data.map_bank === null || /^red.gbc?$/i.test(data.game)) {
+				data.map_bank = 0xFF;
+				this.currentGen = 1;
+			} else {
+				this.currentGen = 3;
+			}
+			this.currentlyWarping = data.transitioning || data.updates_paused;
 		}
 		
 		this._name = data.name || '';

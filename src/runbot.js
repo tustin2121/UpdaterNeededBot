@@ -216,7 +216,7 @@ class RunUpdaterBot extends BaseBot {
 			apid = 'None';
 		}
 		
-		return `Run-time UpdaterNeeded Bot ${version} present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`;
+		return `Run-time UpdaterNeeded Bot ${version}[burningbranch] present.\nUptime: ${uptime}\nTagged In: ${tg}${lastTg}\nLast API Disturbance: ${apid}`;
 	}
 	
 	/** Queries whether a given generation, game, or run option is set. */

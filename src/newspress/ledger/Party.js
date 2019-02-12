@@ -115,12 +115,24 @@ class MonPokerusInfected extends PartyItem {
 	constructor(mon) {
 		super(mon);
 	}
+	cancelsOut(other) {
+		if (other.__itemName__ === 'MonPokerusCured') {
+			if (this.mon.hash !== other.mon.hash) return false;
+			return true; //cancels out
+		}
+	}
 }
 
 /** Indicates that a pokemon has been cured of Pokerus. */
 class MonPokerusCured extends PartyItem {
 	constructor(mon) {
 		super(mon);
+	}
+	cancelsOut(other) {
+		if (other.__itemName__ === 'MonPokerusInfected') {
+			if (this.mon.hash !== other.mon.hash) return false;
+			return true; //cancels out
+		}
 	}
 }
 
