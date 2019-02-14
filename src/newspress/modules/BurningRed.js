@@ -105,7 +105,7 @@ function _convertItems({ ledger, lost, gain, ITEM_CONVERSION_TABLE }) {
 	for (let lid in lost) {
 		let gid = ITEM_CONVERSION_TABLE[lid];
 		if (gid === 0) continue;
-		if (gain[gid] !== null) continue;
+		if (gain[gid] === null) continue;
 		let amount = Math.min(lost[lid].amount, gain[gid].amount);
 		lost[lid].amount -= amount;
 		gain[gid].amount -= amount;
