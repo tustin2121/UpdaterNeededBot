@@ -73,7 +73,39 @@ function calcStats({ species, ivs, evs, }) {
 	
 }
 
+function makeset(arr) {
+	let set = {};
+	for (let id of arr) {
+		set[id] = true;
+	}
+	return set;
+}
+const RED_CLASSES = {
+	rival: makeset([0x19,0x2A]),
+	leader: makeset([0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x1D]),
+	e4: makeset([0x21,0x2F,0x2E,0x2C]),
+	champ: makeset([0x1A,0x2B]),
+};
+const FR_CLASSES = {
+	rival: makeset([0x59]),
+	leader: makeset([0x54, 0x53]),
+	e4: makeset([0x57]),
+	champ: makeset([0x5A]),
+};;
+
 function determineImportance(battle, game) {
+	// BURNING RED HACK!!
+	let cls = (game === 1)? RED_CLASSES : FR_CLASSES;
+	for (let type in cls) {
+		for (let trainer of battle.trainer) {
+			battle.classes[type] = !!cls[type][trainer.class];
+			battle.isImportant |= battle.classes[type];
+		}
+	}
+	return;
+	
+	
+	/*
 	let method = Bot.runOpts('determineImportanceMethod', game);
 	
 	switch (method) {
@@ -114,7 +146,7 @@ function determineImportance(battle, game) {
 				}
 			}
 		}
-	}
+	}*/
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -604,12 +636,14 @@ class SortedPokemon {
 			}
 		}
 		if (data.pc && Array.isArray(data.pc.boxes)) {
-			for (let bn = 0; bn < data.pc.boxes.length; bn++) {
-				let box = data.pc.boxes[bn];
+			for (let box of data.pc.boxes) {
+			// for (let bn = 0; bn < data.pc.boxes.length; bn++) {
+				// let box = data.pc.boxes[bn];
 				if (!box) { // handle null boxes
 					this._nullBoxes++;
 					continue; //skip box
 				}
+				let bn = box.box_number;
 				let b = [];
 				for (let i = 0; i < box.box_contents.length; i++) {
 					let p = new Pokemon(box.box_contents[i], game);
@@ -636,7 +670,7 @@ class SortedPokemon {
 	get all() { return Object.values(this._map); }
 	
 	get numNullBoxes() {
-		return this._nullBoxes;
+		return 0; //this._nullBoxes; //BURNING RED HACK
 	}
 	
 	find(predicate) {
@@ -789,8 +823,8 @@ class SortedBattle {
 					};
 					if (t.gender) {
 						data.gender = t.gender.toLowerCase();
-					} else if (Bot.runOpts('trainerClasses', game)) {
-						let cls = Bot.runOpts('trainerClasses', game);
+					} else if (Bot.runOpts('trainerClasses')) { //BURNING RED HACK: removing game
+						let cls = Bot.runOpts('trainerClasses'); //BURNING RED HACK: removing game
 						if (cls.info) { //Check for individual info first
 							let info = cls.info[t.class_id];
 							data.gender = info.gender;
@@ -814,10 +848,10 @@ class SortedBattle {
 		if (data.enemy_party) {
 			this.party = [];
 			for (let p of data.enemy_party) {
-				if (!p) continue;
+				if (!p || !p.health) continue;
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
-					poke = new Pokemon(p, game);
+					poke = new Pokemon(p, 0); //BURNING RED HACKS: removing game
 					if (p.active !== undefined) poke.active = p.active;
 				} else {
 					poke = new Combatant(p);
@@ -834,7 +868,7 @@ class SortedBattle {
 				if (!p) continue;
 				let poke;
 				if (Bot.runOpts('fullEnemyInfo')) {
-					poke = new Pokemon(p, game);
+					poke = new Pokemon(p, 0); //BURNING RED HACKS: removing game
 					if (p.active !== undefined) poke.active = p.active;
 				} else {
 					poke = new Combatant(p);
@@ -975,7 +1009,7 @@ class SortedData {
 		this._pokemon = new SortedPokemon(data, game);
 		this._inventory = new SortedInventory(data, game);
 		
-		this._battle = new SortedBattle(data, game, this._location);
+		this._battle = new SortedBattle(data, this.currentGen, this._location);
 		
 		// badges
 		this.badges = {};

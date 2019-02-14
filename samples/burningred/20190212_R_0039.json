@@ -1,0 +1,947 @@
+1550027945375
+{
+	"party": [
+		{
+			"species": {
+				"catch_rate": 0,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 0,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 0,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"base_stats": {
+					"attack": 80,
+					"defense": 35,
+					"hp": 40,
+					"special_attack": 35,
+					"special_defense": 35,
+					"speed": 70
+				},
+				"catch_rate": 190,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 57,
+				"name": "Mankey",
+				"national_dex": 56,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 100,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609,
+				"next_level": 0,
+				"this_level": 1000000,
+				"remaining": -3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 14336,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"catch_rate": 0,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 0,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 0,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"base_stats": {
+					"attack": 80,
+					"defense": 35,
+					"hp": 40,
+					"special_attack": 35,
+					"special_defense": 35,
+					"speed": 70
+				},
+				"catch_rate": 190,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 57,
+				"name": "Mankey",
+				"national_dex": 56,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 100,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609,
+				"next_level": 0,
+				"this_level": 1000000,
+				"remaining": -3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 14336,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"catch_rate": 0,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 0,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 0,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"base_stats": {
+					"attack": 80,
+					"defense": 35,
+					"hp": 40,
+					"special_attack": 35,
+					"special_defense": 35,
+					"speed": 70
+				},
+				"catch_rate": 190,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 57,
+				"name": "Mankey",
+				"national_dex": 56,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 100,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609,
+				"next_level": 0,
+				"this_level": 1000000,
+				"remaining": -3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 14336,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"catch_rate": 0,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 0,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 0,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"base_stats": {
+					"attack": 80,
+					"defense": 35,
+					"hp": 40,
+					"special_attack": 35,
+					"special_defense": 35,
+					"speed": 70
+				},
+				"catch_rate": 190,
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 57,
+				"name": "Mankey",
+				"national_dex": 56,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 100,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609,
+				"next_level": 0,
+				"this_level": 1000000,
+				"remaining": -3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 14336,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		},
+		{
+			"species": {
+				"catch_rate": 0,
+				"type1": "Normal",
+				"type2": "57",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"health": [
+				57,
+				14592
+			],
+			"level": 0,
+			"status": "SLP",
+			"sleep_turns": 1,
+			"moves": [
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				},
+				{
+					"accuracy": 255,
+					"base_power": 95,
+					"id": 57,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Surf",
+					"type": "Water"
+				}
+			],
+			"original_trainer": {
+				"id": 14592,
+				"name": "           "
+			},
+			"experience": {
+				"current": 3735609
+			},
+			"evs": {
+				"hp": 57,
+				"attack": 57,
+				"defense": 57,
+				"speed": 57,
+				"special_attack": 57,
+				"special_defense": 57
+			},
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"speed": 3,
+				"special_attack": 9,
+				"special_defense": 9,
+				"hp": 3
+			},
+			"personality_value": 3750144,
+			"aiss_id": 0,
+			"gender": "",
+			"stats": {
+				"hp": 14592,
+				"attack": 14592,
+				"defense": 14592,
+				"speed": 14592,
+				"special_attack": 14592,
+				"special_defense": 14592
+			},
+			"name": "           ",
+			"shiny": false
+		}
+	],
+	"pc": {
+		"current_box_number": 20,
+		"boxes": [
+			{
+				"box_contents": [],
+				"box_name": "Red Box 1",
+				"box_number": 21
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 2",
+				"box_number": 22
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 3",
+				"box_number": 23
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 4",
+				"box_number": 24
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 5",
+				"box_number": 25
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 6",
+				"box_number": 26
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 7",
+				"box_number": 27
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 8",
+				"box_number": 28
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 9",
+				"box_number": 29
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 10",
+				"box_number": 30
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 11",
+				"box_number": 31
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 12",
+				"box_number": 32
+			},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			{
+				"box_contents": [],
+				"box_name": "Red Box 20",
+				"box_number": 40
+			}
+		]
+	},
+	"transitioning": false,
+	"game": "red.gb",
+	"caught_list": [
+		1,
+		4,
+		5,
+		6,
+		17,
+		20,
+		21,
+		22,
+		33,
+		36,
+		37,
+		38,
+		49,
+		52,
+		53,
+		54,
+		65,
+		68,
+		69,
+		70,
+		81,
+		84,
+		85,
+		86,
+		97,
+		100,
+		101,
+		102,
+		113,
+		116,
+		117,
+		118,
+		129,
+		132,
+		133,
+		134,
+		145,
+		148,
+		149,
+		150
+	],
+	"seen_list": [
+		9,
+		12,
+		13,
+		14,
+		25,
+		28,
+		29,
+		30,
+		41,
+		44,
+		45,
+		46,
+		57,
+		60,
+		61,
+		62,
+		73,
+		76,
+		77,
+		78,
+		89,
+		92,
+		93,
+		94,
+		105,
+		108,
+		109,
+		110,
+		121,
+		124,
+		125,
+		126,
+		137,
+		140,
+		141,
+		142
+	],
+	"caught": 40,
+	"seen": 36,
+	"name": "           ",
+	"ball_count": 0,
+	"level_cap": 100,
+	"in_battle": true,
+	"gender": "Male",
+	"id": 14592,
+	"secret": 5672,
+	"options": {
+		"text_speed": "Fast",
+		"battle_style": "Shift",
+		"battle_scene": "On"
+	},
+	"security_key": 2316537829,
+	"x": 0,
+	"y": 57,
+	"map_bank": null,
+	"map_id": 0,
+	"area_id": null,
+	"map_name": "Pallet Town",
+	"area_name": null,
+	"money": 390039,
+	"coins": 39,
+	"rival_name": "           ",
+	"evolution_is_happening": false,
+	"daycare": [],
+	"badges": 0,
+	"items": {
+		"items": [],
+		"key_red": [],
+		"key_firered": [],
+		"balls": [],
+		"berries": [],
+		"tms": [],
+		"pc_red": [],
+		"pc_firered": [
+			{
+				"id": 13,
+				"count": 36836,
+				"name": "Ice Heal"
+			}
+		]
+	},
+	"updates_paused": false,
+	"battle_kind": "Trainer",
+	"enemy_party": [],
+	"enemy_trainers": [
+		{
+			"id": 57,
+			"class_id": 57
+		}
+	]
+}

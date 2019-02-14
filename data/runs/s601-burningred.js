@@ -11,12 +11,17 @@ module.exports = {
 		regionMap: 'burning_kanto', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
-			secret: 0,
+			id: 2156,
+			secret: 5672,
 		},
 		// A list of game corrections and options
 		opts: {
 			// see /data/genopts
+			
+			badgeNames: [
+				"FireRed Boulder", "FireRed Cascade", "FireRed Thunder", "FireRed Rainbow", "FireRed Soul", "FireRed Marsh", "FireRed Volcano", "FireRed Earth",
+				"Red Boulder", "Red Cascade", "Red Thunder", "Red Rainbow", "Red Soul", "Red Marsh", "Red Volcano", "Red Earth",
+			],
 			
 			//just ignore these. It's more trouble than it's worth
 			shiny: false, 

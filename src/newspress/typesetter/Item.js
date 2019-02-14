@@ -21,6 +21,14 @@ module.exports = {
 				`<b>{{rand|Bought|Purchased|Paid for}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
+		burned: {
+			single: [
+				`<b>{{An item|@item|@amount}} rematerializes through the burning barrier!</b>`,
+			],
+			multi: [
+				`<b>The burning barrier {{rand|creates|rematerializes|unburns|forms}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
+			],
+		},
 		freepromo: {
 			__meta__: { sort:-10 }, //after other GainItems
 			single: [
@@ -51,6 +59,14 @@ module.exports = {
 			],
 			multi: [
 				`<b>Sold {{a comma-separated list of|an item|@item|@amount}}!</b>`,
+			],
+		},
+		burned: {
+			single: [
+				`<b>{{An item|@item|@amount}} burns up in the burning barrier!</b>`,
+			],
+			multi: [
+				`<b>The burning barrier {{rand|destroys|burns up|enflames|consumes|melts|incinerates|ignites|scorches|torches}} {{a comma-separated list of|an item|@item|@amount}}!</b>`,
 			],
 		},
 	},

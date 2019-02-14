@@ -19,6 +19,8 @@ class IntermissionUpdaterBot extends BaseBot {
 		this.nextRun = nextRunTS;
 		
 		this.memory.reminders; //ensure this is created
+		
+		this.on('bot-ready', ()=>this.run());
 	}
 	
 	run() {

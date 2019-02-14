@@ -128,8 +128,8 @@ module.exports = {
 	
 	BadgeGet: {
 		default: [
-			`<b>Received the {{@badge}} Badge!</b>`,
-			`<b>Got the {{@badge}} Badge!</b>`,
+			`<b>Received the {{@badge}} Half-Badge!</b>`, //BURNING RED HACK: Half-Badges
+			`<b>Got the {{@badge}} Half-Badge!</b>`,
 		],
 	},
 };

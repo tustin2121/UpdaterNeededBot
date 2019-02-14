@@ -21,18 +21,24 @@ class Gen3Context extends LedgerItem {
 /** Indicates that we're currently in the process of warping to Gen 1 */
 class BurningDownContext extends LedgerItem {
 	constructor() {
-		super(0, { helps:true });
+		super(0);
 	}
 }
 
 /** Indicates that we're currently in the process of warping to Gen 3 */
 class BurningUpContext extends LedgerItem {
 	constructor() {
-		super(0, { helps:true });
+		super(0);
+	}
+}
+
+class BurningReport extends LedgerItem {
+	constructor(flavor) {
+		super(1, { flavor });
 	}
 }
 
 module.exports = {
 	Gen1Context, Gen3Context, 
-	BurningDownContext, BurningUpContext,
+	BurningDownContext, BurningUpContext, BurningReport,
 };

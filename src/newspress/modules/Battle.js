@@ -135,7 +135,7 @@ class BattleModule extends ReportingModule {
 		if (Bot.runFlag('alert_badges')) {
 			let badgeItems = ledger.findAllItemsWithName('BadgeGet');
 			if (badgeItems.length) {
-				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
+				Bot.alertUpdaters(`We just got the ${badgeItems.map(x=>x.badge).join(', ')} half-badge! This is a reminder to ping StreamEvents about it.`, { bypassTagCheck:true });
 			}
 		}
 	}
