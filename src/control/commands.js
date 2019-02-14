@@ -187,7 +187,7 @@ const HANDLER = {
 		msg.channel.send(infos.join('\n')).catch(ERR);
 	},
 	
-	'clear-ledger': ({ msg })=>{
+	'cmd-clear-ledger': ({ msg })=>{ //CHANGES TO KEEP!!
 		if (!Bot.runConfig) return;
 		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
 		Bot.press.pool.forEach(press=>{
@@ -202,10 +202,20 @@ const HANDLER = {
 		});
 		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
 	},
-	'clear-tempparty': ({ msg })=>{
+	'cmd-clear-tempparty': ({ msg })=>{
 		if (!Bot.runConfig) return;
 		Bot.emit('cmd_forceTempPartyOff');
 		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
+	},
+	'cmd-resetbadge': ({ msg })=>{ //CHANGES TO KEEP!!
+		if (!Bot.runConfig) return;
+		Bot.emit('cmd_forceBadgesZero');
+		msg.channel.send(`Max badge count reset. The API Disturbance should clear next update cycle.`).catch(ERR);
+	},
+	'cmd-assumetrainer': ({ msg })=>{ //CHANGES TO KEEP!!
+		if (!Bot.runConfig) return;
+		Bot.emit('cmd_forceAssumeTrainerId');
+		msg.channel.send(`Trainer ID will be assumed next update cycle.`).catch(ERR);
 	},
 	
 	'save-mem': ({ msg })=>{
@@ -366,8 +376,10 @@ function parseCmd(cmd, authed=false, msg=null) {
 function parseCmd_RunCommands(cmd, authed, msg) {
 	let res;
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
-	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
-	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
+	if (/^clear ledger$/.test(cmd) && authed) return ['cmd-clear-ledger'];
+	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['cmd-clear-tempparty'];
+	if (/^reset (max )?(badge count|badges)$/.test(cmd) && authed) return ['cmd-resetbadge']; //CHANGES TO KEEP!!
+	if (/^assume trainer ?id$/.test(cmd) && authed) return ['cmd-assumetrainer']; //CHANGES TO KEEP!!
 	
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];

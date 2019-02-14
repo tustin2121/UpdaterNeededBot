@@ -42,6 +42,8 @@ class BattleModule extends ReportingModule {
 		this.memory.attempts = this.memory.attempts || {};
 		this.memory.badgeMax = this.memory.badgeMax || 0;
 		this.memory.lastBattleReported = this.memory.lastBattleReported || null;
+		
+		Bot.on('cmd_forceBadgesZero', ()=> this.memory.badgeMax = 0);
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -102,7 +104,15 @@ class BattleModule extends ReportingModule {
 				ledger.addItem(new BadgeGet(badge));
 			}
 		}
-		this.memory.badgeMax = Math.max(curr.numBadges, this.memory.badgeMax);
+		if (curr.numBadges - prev.numBadges > 1) {
+			ledger.addItem(new ApiDisturbance({
+				code: ApiDisturbance.LOGIC_ERROR,
+				reason: 'Number of badges has increased dramatically in one update cycle!',
+				score: 8,
+			}));
+		} else {
+			this.memory.badgeMax = Math.max(curr.numBadges, this.memory.badgeMax);
+		}
 	}
 	
 	secondPass(ledger) {

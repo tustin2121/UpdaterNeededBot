@@ -15,6 +15,9 @@ class ApiMonitoringModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory);
 		this.memory.lastApiThresholdBreach = (this.memory.lastApiThresholdBreach||0);
+		
+		this.assumeTrainerId = false;
+		Bot.on('cmd_forceAssumeTrainerId', ()=> this.assumeTrainerId = true);
 	}
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
@@ -26,7 +29,9 @@ class ApiMonitoringModule extends ReportingModule {
 			}));
 		}
 		
-		if (prev.trainerId[0] !== curr.trainerId[0] || prev.trainerId[1] !== curr.trainerId[1]) {
+		const USE_SECRET = Bot.runOpt('secretId', this.gameIndex);
+		
+		if (prev.trainerId[0] !== curr.trainerId[0] || (USE_SECRET && prev.trainerId[1] !== curr.trainerId[1])) {
 			ledger.addItem(new ApiDisturbance({ 
 				reason: 'Our trainer ID has changed between update cycles!',
 				code: ApiDisturbance.LOGIC_ERROR,
@@ -34,11 +39,19 @@ class ApiMonitoringModule extends ReportingModule {
 			}));
 		}
 		if (curr.trainerId[0] !== Bot.gameInfo(this.gameIndex).trainer.id 
-			|| prev.trainerId[1] !== Bot.gameInfo(this.gameIndex).trainer.secret) {
+			|| (USE_SECRET && curr.trainerId[1] !== Bot.gameInfo(this.gameIndex).trainer.secret)) {
 			ledger.addItem(new ApiDisturbance({ 
 				reason: 'Our trainer ID does not match the expected trainer ID!',
 				code: ApiDisturbance.INVALID_DATA,
 			}));
+		}
+		
+		if (this.assumeTrainerId) {
+			const trainer = Bot.gameInfo(this.gameIndex).trainer;
+			trainer.id = curr.trainerId[0];
+			trainer.secret = curr.trainerId[1];
+			Bot.alertUpdaters(`Trainer ID for game ${this.gameIndex} (${trainer.id} / ${trainer.secret}) assumed. Remember to update the run status, Tustin.`);
+			this.assumeTrainerId = false;
 		}
 	}
 	
