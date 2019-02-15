@@ -66,15 +66,15 @@ const HANDLER = {
 	
 	runstats: ({ msg, args })=>{
 		if (!Bot.runConfig) return;
-		const inaccurateStats = require('../newspress/modules/RunStats').inaccurateStats;
-		let stats = Bot.memory['mod0_RunStats'];
-		let out = 'Current Run Stats:\n';
-		for (let stat in stats) {
-			let s = (inaccurateStats.indexOf(stat)>-1)? '\\*':'';
-			out += `${stat}${s}: ${stats[stat]}\n`;
-		}
-		out += `\n(\\* innacurate due to discovered bugs)`;
-		
+		// const inaccurateStats = require('../newspress/modules/RunStats').inaccurateStats;
+		// let stats = Bot.memory['mod0_RunStats'];
+		// let out = 'Current Run Stats:\n';
+		// for (let stat in stats) {
+		// 	let s = (inaccurateStats.indexOf(stat)>-1)? '\\*':'';
+		// 	out += `${stat}${s}: ${stats[stat]}\n`;
+		// }
+		// out += `\n(\\* innacurate due to discovered bugs)`;
+		let out = Bot.press.pool.map(x=>x.getRunStats()).join('\n\n');
 		msg.channel.send(out).catch(ERR);
 	},
 	
@@ -305,7 +305,7 @@ function __reloadFile(modulename) {
 		require(modulename);
 	} catch (e) {
 		LOGGER.error(e);
-		LOGGER.log("Failed to reload module! Attempting to revert!");
+		LOGGER.error("Failed to reload module! Attempting to revert!");
 		require.cache[path] = _oldmodule;
 		return false;
 	}

@@ -43,7 +43,7 @@ let dbot = new discord.Client({
 dbot.on('error', (err)=> LOGGER.error('BOT: ', err));
 dbot.on('warn', (err)=> LOGGER.warn('BOT: ', err));
 dbot.on('ready', ()=>{
-	LOGGER.log('Discord bot has connected and is ready.');
+	LOGGER.info('Discord bot has connected and is ready.');
 	if (Bot.runConfig) {
 		staffChannel = dbot.channels.get(Bot.runConfig.run.controlChannel);
 	} else {
@@ -52,7 +52,7 @@ dbot.on('ready', ()=>{
 	// staffChannel = dbot.channels.get(STAFF_CHANNEL_SNOWFLAKE);
 });
 dbot.on('disconnect', (evt)=>{
-	LOGGER.log(`Discord bot has disconnected with code ${evt.code}: ${evt.reason}. Reconnecting...`);
+	LOGGER.info(`Discord bot has disconnected with code ${evt.code}: ${evt.reason}. Reconnecting...`);
 	try {
 		let inspect = require('util').inspect;
 		let info = '======= Disconnection Event =========\n';

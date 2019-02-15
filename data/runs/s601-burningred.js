@@ -92,7 +92,10 @@ module.exports = {
 		// Phonebook: {},
 		// Options: {},
 		// GameStats: {},
-		// RunStats: {},
+		RunStats: { // Note: Stats we keep, not game stats
+			innacurate: ['blackoutCount'], //list of innacurate stats
+			reportNote: "*All stats are innacurate because this module was started 2 days late.",
+		}, 
 		// RealTime: {},
 		// PC: {},
 		BurningRed: {},

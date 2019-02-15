@@ -3,7 +3,7 @@
 
 class ReportingModule {
 	constructor(config, memory, priority=5) {
-		this.initConfig = config;
+		this.config = config;
 		this.memory = memory;
 		this.priority = priority;
 		this.gameIndex = 0;

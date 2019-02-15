@@ -31,10 +31,32 @@ class RunStatsModule extends ReportingModule {
 		this.memory[stat] += delta;
 		return item;
 	}
+	
+	produceStatsReport(prefix = 'Current Run Stats') {
+		let innacurate = this.config.innacurate || [];
+		let out = `${prefix}:\n`;
+		let inCount = 0;
+		for (let stat in this.memory) {
+			if (innacurate.indexOf(stat)>-1) {
+				inCount ++;
+				out += `${stat}*: ${this.memory[stat]}\n`;
+			} else {
+				out += `${stat}: ${this.memory[stat]}\n`;
+			}
+		}
+		if (inCount > 0) {
+			// out += `\n(\\* innacurate due to discovered bugs)`; //BURNING RED HACK
+			out += `\n(\\* accurate)`;
+		}
+		if (this.config.reportNote) {
+			out += this.config.reportNote;
+		}
+		return out;
+	}
 }
 RunStatsModule.inaccurateStats = [
 	// CLEAR WHEN RUN BEGINS! ADD WHEN YOU FIND A BUG IN ONE OF THE STAT COUNTS!!
-	'evolutionCount', 'metronomeCount', 'hpLost', 'movePPUsed', 'trainerBattleCount',
+	
 ];
 
 RULES.push(new Rule(`RunStat: Blackout Count`)

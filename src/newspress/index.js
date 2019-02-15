@@ -168,6 +168,12 @@ class UpdaterPress extends EventEmitter {
 		}
 		return null;
 	}
+	
+	getRunStats(prefix) {
+		let mod = this.modules.find(x=>x.constructor.name === 'RunStatsModule');
+		if (!mod || !mod.produceStatsReport) return `Run stats module not loaded.`;
+		return mod.produceStatsReport(prefix);
+	}
 }
 
 /** A newspress system which uses multiple sub-presses to update a mutli-game run. */
