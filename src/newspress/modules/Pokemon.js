@@ -4,7 +4,7 @@
 const { ReportingModule, Rule } = require('./_base');
 const {
 	PokemonGained, PokemonIsMissing, PokemonLost, PokemonTraded, PokemonDeposited, PokemonRetrieved,
-	MonGiveItem, MonTakeItem, MonSwapItem,
+	MonGiveItem, MonTakeItem, MonSwapItem, PokemonMaybeGained,
 	MonNicknameChanged,
 	ApiDisturbance,
 } = require('../ledger');
@@ -73,8 +73,9 @@ class PokemonModule extends ReportingModule {
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {
-			LOGGER.warn(`ledger.add(new PokemonGained(`,mon,`));`);
-			ledger.add(new PokemonGained(mon));
+			// LOGGER.warn(`ledger.add(new PokemonMaybeGained(`,mon,`));`);
+			// ledger.add(new PokemonGained(mon));
+			ledger.add(new PokemonMaybeGained(mon));
 		}
 		// Note all Pokemon missings
 		for (let mon of removed) {
@@ -352,6 +353,19 @@ RULES.push(new Rule('Do not report any name changes when a pokemon is caught')
 	.when(ledger=>ledger.has('MonNicknameChanged'))
 	.then(ledger=>{
 		ledger.remove(1); //Remove MonNicknameChanged, if there are any left after postpone cancellation
+	})
+);
+
+RULES.push(new Rule(`Postpone maybe gained pokemon`)
+	.when(ledger=>ledger.has('PokemonMaybeGained').unmarked())
+	.then(ledger=>{
+		ledger.mark(0).postpone(0);
+	})
+);
+RULES.push(new Rule(`Move Maybe Gained pokemon to Gained Pokemon`)
+	.when(ledger=>ledger.has('PokemonGained'))
+	.then(ledger=>{
+		ledger.add(ledger.getAndRemove(0).map(x=>new PokemonGained(x.mon)));
 	})
 );
 

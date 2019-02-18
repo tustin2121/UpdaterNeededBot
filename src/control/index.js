@@ -111,6 +111,7 @@ const offActivities = [
 	[`YouTube videos`, { type:'WATCHING' }],
 	[`the Pokemon Anime`, { type:'WATCHING' }],
 ];
+let lastActivity = null;
 
 function setDiscordStatus({ status, activity }) {
 	if (status in {'online':1, 'idle':1, 'dnd':1}) {
@@ -129,6 +130,7 @@ function updateDiscordStatus() {
 	} else {
 		let activity = offActivities[Math.floor(Math.random()*offActivities.length)];
 		dbot.user.setActivity(...activity).catch(ERR);
+		lastActivity = activity;
 	}
 }
 
@@ -138,9 +140,13 @@ Bot.on('bot-ready', updateDiscordStatus);
 Bot.on('pre-update-cycle', ()=>{
 	let status = (!!Bot.taggedIn)?'online':'idle';
 	dbot.user.setStatus(status).catch(ERR);
+	dbot.user.setActivity(...lastActivity).catch(ERR);
 });
-Bot.on('updateError', ()=>{
+Bot.on('updateError', (tag)=>{
 	dbot.user.setStatus('dnd').catch(ERR);
+	if (tag) {
+		dbot.user.setActivity(tag, { type:'PLAYING' });
+	}
 });
 
 

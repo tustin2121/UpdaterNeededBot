@@ -138,10 +138,9 @@ function getDelta(curr, prev) {
 
 RULES.push(new Rule(`Discard insane item updates`)
 	.when(ledger=>ledger.has('ApiDisturbance'))
-	.when(ledger=>ledger.has('LostItem').moreThan(20))
-	.when(ledger=>ledger.has('GainItem').moreThan(20))
+	.when(ledger=>ledger.has('LostItem', 'GainItem').moreThan(20))
 	.then(ledger=>{
-		ledger.demote(1, 10).demote(2, 10); //drop everything
+		ledger.demote(1, 10); //drop everything
 	})
 );
 

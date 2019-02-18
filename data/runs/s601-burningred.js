@@ -81,7 +81,7 @@ module.exports = {
 		// Meme: {},
 		Location: {},
 		ApiMonitoring: {},
-		Pokemon: {},
+		Pokemon: false,
 		Party: {},
 		Item: {},
 		E4: {},

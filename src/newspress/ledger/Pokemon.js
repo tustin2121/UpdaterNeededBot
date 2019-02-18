@@ -28,6 +28,30 @@ class PokemonItem extends LedgerItem {
 
 /////////////////// Basic Items ///////////////////
 
+/** Indicates that a new pokemon has appeared in the API THAT WE CAN'T TRUST NOW */
+class PokemonMaybeGained extends PokemonItem {
+	constructor(mon) {
+		super(mon, 0);
+	}
+	cancelsOut(other) {
+		if (other.__itemName__ === 'PokemonIsMissing') {
+			if (other.mon.hash !== this.mon.hash) return false;
+			return true; //cancels out
+		}
+		if (other.__itemName__ === 'MonNicknameChanged') {
+			if (other.mon.hash !== this.mon.hash) return false;
+			this.mon = other.mon; //update the new pokemon with the most recent data
+			return this; //replace
+		}
+		return false;
+	}
+	canPostpone() { return true; }
+	static loadFromMemory(m) {
+		let mon = new Pokemon(m.mon);
+		return new PokemonMaybeGained(mon);
+	}
+}
+
 /** Indicates that a new pokemon has appeared in the API */
 class PokemonGained extends PokemonItem {
 	constructor(mon) {
@@ -144,6 +168,6 @@ class PokemonTraded extends PokemonItem {
 
 
 module.exports = {
-	PokemonGained, PokemonIsMissing, PokemonLost, PokemonFound, 
+	PokemonGained, PokemonIsMissing, PokemonLost, PokemonFound, PokemonMaybeGained,
 	PokemonDeposited, PokemonRetrieved, PokemonTraded,
 };

@@ -92,9 +92,10 @@ class ApiMonitoringModule extends ReportingModule {
 			if (!fApi) {
 				fApi = this.memory.failedApi = { attempts:0, msgId:null, lastCode:0, query:null };
 			}
+			Bot.emit('updateError', `Error ${curr.httpCode}`);
 			fApi.attempts++;
 			fApi.lastCode = curr.httpCode;
-			if (fApi.attempts > 3) {
+			if (fApi.attempts > 6) { //BURNING RED HACK
 				let ping = '';
 				if (curr.httpCode === 418) ping = ` <@148100682535272448>`;
 				Bot.alertUpdaters(`Alert: Unable to retrieve or parse API (Code: ${curr.httpCode}, Failed retrievals: ${fApi.attempts})${ping}\n\nI am unable to update until this is resolved. Someone else please keep an eye on the stream until then.`, {

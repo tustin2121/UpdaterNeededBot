@@ -1,0 +1,5097 @@
+1550328967107
+{
+	"party": [
+		{
+			"personality_value": 1574733216,
+			"encryption_key": 1274318284,
+			"original_trainer": {
+				"name": "KAY",
+				"id": 2156,
+				"secret": 5672,
+				"gender": "Male"
+			},
+			"name": "vrs",
+			"language": "English",
+			"marking": "",
+			"checksum": 28217,
+			"shiny_value": 50744,
+			"shiny": false,
+			"species": {
+				"abilities": [
+					"Sand Veil",
+					"Arena Trap"
+				],
+				"base_stats": {
+					"attack": 80,
+					"defense": 50,
+					"hp": 35,
+					"special_attack": 50,
+					"special_defense": 70,
+					"speed": 120
+				},
+				"catch_rate": 50,
+				"egg_cycles": 20,
+				"egg_type1": "Field",
+				"egg_type2": "Field",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 51,
+				"name": "Dugtrio",
+				"national_dex": 51,
+				"type1": "Ground",
+				"type2": "Ground",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"held_item": {
+				"count": 0,
+				"id": 26,
+				"name": "Fresh Water"
+			},
+			"friendship": 52,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 60,
+					"id": 91,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Dig",
+					"type": "Ground",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 45,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Growl",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 40,
+					"id": 10,
+					"pp": 35,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Scratch",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 28,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Sand-Attack",
+					"type": "Ground",
+					"contest": null
+				}
+			],
+			"evs": {
+				"hp": 0,
+				"attack": 8,
+				"defense": 0,
+				"speed": 10,
+				"special_attack": 0,
+				"special_defense": 1
+			},
+			"condition": {
+				"coolness": 1,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"level": 0,
+				"game": "4",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 18,
+				"attack": 18,
+				"defense": 28,
+				"speed": 20,
+				"special_attack": 30,
+				"special_defense": 30
+			},
+			"is_egg": false,
+			"ability": "Sand Veil",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 29,
+			"pokerus_remaining": 255,
+			"health": [
+				64,
+				64
+			],
+			"stats": {
+				"hp": 64,
+				"attack": 56,
+				"defense": 37,
+				"speed": 80,
+				"special_attack": 46,
+				"special_defense": 54
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 26068,
+				"next_level": 27000,
+				"this_level": 24389,
+				"remaining": 932
+			},
+			"next_move": {
+				"level": 35,
+				"type": "Normal"
+			},
+			"aiss_id": 12801,
+			"nature": "Mild"
+		},
+		{
+			"personality_value": 4192970035,
+			"encryption_key": -272388769,
+			"original_trainer": {
+				"name": "KAY",
+				"id": 2156,
+				"secret": 5672,
+				"gender": "Male"
+			},
+			"name": "Dkklll",
+			"language": "English",
+			"marking": "",
+			"checksum": 33545,
+			"shiny_value": 17052,
+			"shiny": false,
+			"species": {
+				"abilities": [
+					"Intimidate",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 125,
+					"defense": 79,
+					"hp": 95,
+					"special_attack": 60,
+					"special_defense": 100,
+					"speed": 81
+				},
+				"catch_rate": 45,
+				"egg_cycles": 5,
+				"egg_type1": "Water 2",
+				"egg_type2": "Dragon",
+				"gender_ratio": 127,
+				"growth_rate": "Slow",
+				"id": 130,
+				"name": "Gyarados",
+				"national_dex": 130,
+				"type1": "Water",
+				"type2": "Flying",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"held_item": {
+				"count": 0,
+				"id": 68,
+				"name": "Rare Candy"
+			},
+			"friendship": 61,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 60,
+					"id": 44,
+					"pp": 25,
+					"pp_up": 0,
+					"max_pp": 25,
+					"name": "Bite",
+					"type": "Dark",
+					"contest": null
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 150,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Splash",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 1,
+					"id": 82,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Dragon Rage",
+					"type": "Dragon",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 95,
+					"id": 85,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Thunderbolt",
+					"type": "Electric",
+					"contest": null
+				}
+			],
+			"evs": {
+				"hp": 4,
+				"attack": 4,
+				"defense": 5,
+				"speed": 9,
+				"special_attack": 14,
+				"special_defense": 1
+			},
+			"condition": {
+				"coolness": 1,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"level": 0,
+				"game": "4",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 30,
+				"attack": 6,
+				"defense": 26,
+				"speed": 22,
+				"special_attack": 18,
+				"special_defense": 18
+			},
+			"is_egg": false,
+			"ability": "Intimidate",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 31,
+			"pokerus_remaining": 255,
+			"health": [
+				109,
+				109
+			],
+			"stats": {
+				"hp": 109,
+				"attack": 75,
+				"defense": 62,
+				"speed": 68,
+				"special_attack": 47,
+				"special_defense": 72
+			},
+			"gender": "Female",
+			"experience": {
+				"current": 38806,
+				"next_level": 40960,
+				"this_level": 37238,
+				"remaining": 2154
+			},
+			"next_move": {
+				"level": 32,
+				"type": "Normal"
+			},
+			"aiss_id": 33281,
+			"nature": "Timid"
+		},
+		{
+			"personality_value": 3873079708,
+			"encryption_key": -252540432,
+			"original_trainer": {
+				"name": "KAY",
+				"id": 2156,
+				"secret": 5672,
+				"gender": "Male"
+			},
+			"name": "DD)",
+			"language": "English",
+			"marking": "",
+			"checksum": 4825,
+			"shiny_value": 30978,
+			"shiny": false,
+			"species": {
+				"abilities": [
+					"Limber",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 120,
+					"defense": 53,
+					"hp": 50,
+					"special_attack": 35,
+					"special_defense": 110,
+					"speed": 87
+				},
+				"catch_rate": 45,
+				"egg_cycles": 25,
+				"egg_type1": "Human-Like",
+				"egg_type2": "Human-Like",
+				"gender_ratio": 0,
+				"growth_rate": "Medium Fast",
+				"id": 106,
+				"name": "Hitmonlee",
+				"national_dex": 106,
+				"type1": "Fighting",
+				"type2": "Fighting",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"held_item": null,
+			"friendship": 41,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 30,
+					"id": 24,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Double Kick",
+					"type": "Fighting",
+					"contest": null
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 96,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Meditate",
+					"type": "Psychic",
+					"contest": null
+				},
+				{
+					"accuracy": 85,
+					"base_power": 60,
+					"id": 27,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Rolling Kick",
+					"type": "Fighting",
+					"contest": null
+				}
+			],
+			"evs": {
+				"hp": 4,
+				"attack": 5,
+				"defense": 4,
+				"speed": 3,
+				"special_attack": 2,
+				"special_defense": 2
+			},
+			"condition": {
+				"coolness": 1,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"level": 0,
+				"game": "4",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 18,
+				"attack": 10,
+				"defense": 8,
+				"speed": 8,
+				"special_attack": 18,
+				"special_defense": 18
+			},
+			"is_egg": false,
+			"ability": "Limber",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 33,
+			"pokerus_remaining": 255,
+			"health": [
+				81,
+				81
+			],
+			"stats": {
+				"hp": 81,
+				"attack": 87,
+				"defense": 46,
+				"speed": 65,
+				"special_attack": 30,
+				"special_defense": 83
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 38702,
+				"next_level": 39304,
+				"this_level": 35937,
+				"remaining": 602
+			},
+			"next_move": {
+				"level": 38,
+				"type": "Fighting"
+			},
+			"aiss_id": 27137,
+			"nature": "Impish"
+		},
+		{
+			"personality_value": 1433536474,
+			"encryption_key": 1129975734,
+			"original_trainer": {
+				"name": "KAY",
+				"id": 2156,
+				"secret": 5672,
+				"gender": "Male"
+			},
+			"name": "GHQQNee.,",
+			"language": "English",
+			"marking": "",
+			"checksum": 34881,
+			"shiny_value": 19692,
+			"shiny": false,
+			"species": {
+				"abilities": [
+					"Blaze",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 64,
+					"defense": 58,
+					"hp": 58,
+					"special_attack": 80,
+					"special_defense": 65,
+					"speed": 80
+				},
+				"catch_rate": 45,
+				"egg_cycles": 20,
+				"egg_type1": "Monster",
+				"egg_type2": "Dragon",
+				"gender_ratio": 31,
+				"growth_rate": "Medium Slow",
+				"id": 5,
+				"name": "Charmeleon",
+				"national_dex": 5,
+				"type1": "Fire",
+				"type2": "Fire",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"held_item": {
+				"count": 0,
+				"id": 322,
+				"name": "TM34 Bide"
+			},
+			"friendship": 255,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 1,
+					"id": 69,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Seismic Toss",
+					"type": "Fighting",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 45,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Growl",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 40,
+					"id": 10,
+					"pp": 35,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Scratch",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 20,
+					"id": 99,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Rage",
+					"type": "Normal",
+					"contest": null
+				}
+			],
+			"evs": {
+				"hp": 14,
+				"attack": 5,
+				"defense": 16,
+				"speed": 36,
+				"special_attack": 7,
+				"special_defense": 1
+			},
+			"condition": {
+				"coolness": 1,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"map_id": 88,
+				"area_id": 52,
+				"area_name": "Pokémon Tower",
+				"level": 5,
+				"game": "4",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 23,
+				"attack": 7,
+				"defense": 7,
+				"speed": 6,
+				"special_attack": 10,
+				"special_defense": 26
+			},
+			"is_egg": false,
+			"ability": "Blaze",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 30,
+			"pokerus_remaining": 255,
+			"health": [
+				82,
+				82
+			],
+			"stats": {
+				"hp": 82,
+				"attack": 45,
+				"defense": 43,
+				"speed": 57,
+				"special_attack": 56,
+				"special_defense": 51
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 21791,
+				"next_level": 24294,
+				"this_level": 21760,
+				"remaining": 2503
+			},
+			"next_move": {
+				"level": 33,
+				"type": "Normal"
+			},
+			"aiss_id": 1025,
+			"nature": "Quirky"
+		},
+		{
+			"personality_value": 2077271499,
+			"encryption_key": 1845013927,
+			"original_trainer": {
+				"name": "KAY",
+				"id": 2156,
+				"secret": 5672,
+				"gender": "Male"
+			},
+			"name": "JJKSS",
+			"language": "English",
+			"marking": "",
+			"checksum": 49241,
+			"shiny_value": 49247,
+			"shiny": false,
+			"species": {
+				"abilities": [
+					"Run Away",
+					"Guts"
+				],
+				"base_stats": {
+					"attack": 81,
+					"defense": 60,
+					"hp": 55,
+					"special_attack": 50,
+					"special_defense": 70,
+					"speed": 97
+				},
+				"catch_rate": 127,
+				"egg_cycles": 15,
+				"egg_type1": "Field",
+				"egg_type2": "Field",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 20,
+				"name": "Raticate",
+				"national_dex": 20,
+				"type1": "Normal",
+				"type2": "Normal",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"held_item": null,
+			"friendship": 240,
+			"moves": [
+				{
+					"accuracy": 90,
+					"base_power": 80,
+					"id": 158,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Hyper Fang",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 39,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 116,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Focus Energy",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 95,
+					"base_power": 35,
+					"id": 33,
+					"pp": 35,
+					"pp_up": 0,
+					"max_pp": 35,
+					"name": "Tackle",
+					"type": "Normal",
+					"contest": null
+				}
+			],
+			"evs": {
+				"hp": 10,
+				"attack": 23,
+				"defense": 19,
+				"speed": 46,
+				"special_attack": 9,
+				"special_defense": 0
+			},
+			"condition": {
+				"coolness": 3,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"level": 0,
+				"game": "4",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 24,
+				"attack": 22,
+				"defense": 30,
+				"speed": 24,
+				"special_attack": 16,
+				"special_defense": 16
+			},
+			"is_egg": false,
+			"ability": "Run Away",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 37,
+			"pokerus_remaining": 255,
+			"health": [
+				96,
+				96
+			],
+			"stats": {
+				"hp": 96,
+				"attack": 73,
+				"defense": 60,
+				"speed": 85,
+				"special_attack": 47,
+				"special_defense": 62
+			},
+			"gender": "Male",
+			"experience": {
+				"current": 54193,
+				"next_level": 54872,
+				"this_level": 50653,
+				"remaining": 679
+			},
+			"next_move": {
+				"level": 41,
+				"type": "Normal"
+			},
+			"aiss_id": 4867,
+			"nature": "Quirky"
+		},
+		{
+			"personality_value": 1816848134,
+			"encryption_key": 2053304170,
+			"original_trainer": {
+				"name": "KAY",
+				"id": 2156,
+				"secret": 5672,
+				"gender": "Male"
+			},
+			"name": "AA",
+			"language": "English",
+			"marking": "",
+			"checksum": 7491,
+			"shiny_value": 38152,
+			"shiny": false,
+			"species": {
+				"abilities": [
+					"Chlorophyll",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 80,
+					"defense": 85,
+					"hp": 75,
+					"special_attack": 100,
+					"special_defense": 90,
+					"speed": 50
+				},
+				"catch_rate": 45,
+				"egg_cycles": 20,
+				"egg_type1": "Grass",
+				"egg_type2": "Grass",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Slow",
+				"id": 45,
+				"name": "Vileplume",
+				"national_dex": 45,
+				"type1": "Grass",
+				"type2": "Poison",
+				"held_items": [],
+				"tm_moves": []
+			},
+			"held_item": null,
+			"friendship": 79,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 20,
+					"id": 71,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Absorb",
+					"type": "Grass",
+					"contest": null
+				},
+				{
+					"accuracy": 95,
+					"base_power": 50,
+					"id": 15,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Cut",
+					"type": "Normal",
+					"contest": null
+				},
+				{
+					"accuracy": 100,
+					"base_power": 40,
+					"id": 72,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Mega Drain",
+					"type": "Grass",
+					"contest": null
+				},
+				{
+					"accuracy": 75,
+					"base_power": 0,
+					"id": 78,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Stun Spore",
+					"type": "Grass",
+					"contest": null
+				}
+			],
+			"evs": {
+				"hp": 4,
+				"attack": 6,
+				"defense": 3,
+				"speed": 8,
+				"special_attack": 2,
+				"special_defense": 1
+			},
+			"condition": {
+				"coolness": 1,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"met": {
+				"level": 0,
+				"game": "4",
+				"caught_in": "Poké Ball"
+			},
+			"ivs": {
+				"hp": 22,
+				"attack": 10,
+				"defense": 8,
+				"speed": 26,
+				"special_attack": 18,
+				"special_defense": 18
+			},
+			"is_egg": false,
+			"ability": "Chlorophyll",
+			"ribbons": [],
+			"status": null,
+			"sleep_turns": 0,
+			"level": 31,
+			"pokerus_remaining": 255,
+			"health": [
+				94,
+				94
+			],
+			"stats": {
+				"hp": 94,
+				"attack": 57,
+				"defense": 66,
+				"speed": 44,
+				"special_attack": 72,
+				"special_defense": 59
+			},
+			"gender": "Female",
+			"experience": {
+				"current": 25215,
+				"next_level": 27021,
+				"this_level": 24294,
+				"remaining": 1806
+			},
+			"aiss_id": 11009,
+			"nature": "Lax"
+		}
+	],
+	"pc": {
+		"boxes": [
+			{
+				"box_number": 1,
+				"box_name": "AW",
+				"box_contents": [
+					{
+						"personality_value": 1979124280,
+						"encryption_key": 1675559508,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "Pidgeot",
+						"language": "English",
+						"marking": "",
+						"checksum": 61633,
+						"shiny_value": 24971,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 75,
+								"hp": 83,
+								"special_attack": 70,
+								"special_defense": 70,
+								"speed": 91
+							},
+							"catch_rate": 45,
+							"egg_cycles": 15,
+							"egg_type1": "Flying",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 18,
+							"name": "Pidgeot",
+							"national_dex": 18,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 200,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 17,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Wing Attack",
+								"type": "Flying",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 18,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Whirlwind",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Flying",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 9,
+							"attack": 40,
+							"defense": 11,
+							"speed": 36,
+							"special_attack": 19,
+							"special_defense": 2
+						},
+						"condition": {
+							"coolness": 2,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 103,
+							"area_id": 87,
+							"area_name": "Mt. Ember",
+							"level": 6,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 19,
+							"attack": 0,
+							"defense": 19,
+							"speed": 0,
+							"special_attack": 3,
+							"special_defense": 6
+						},
+						"is_egg": false,
+						"ability": "Keen Eye",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 38,
+						"experience": {
+							"current": 50871,
+							"next_level": 52127,
+							"this_level": 47846,
+							"remaining": 1256
+						},
+						"next_move": {
+							"level": 44,
+							"type": "Psychic"
+						},
+						"box_slot": 1,
+						"aiss_id": 4098,
+						"nature": "Bold"
+					},
+					{
+						"personality_value": 2883484673,
+						"encryption_key": -1107921811,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "A---",
+						"language": "English",
+						"marking": "■♥",
+						"checksum": 20580,
+						"shiny_value": 51611,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 56
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Flying",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 16,
+							"name": "Pidgey",
+							"national_dex": 16,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": {
+							"count": 0,
+							"id": 37,
+							"name": "Max Elixir"
+						},
+						"friendship": 57,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Flying",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Ground",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 2,
+							"defense": 0,
+							"speed": 1,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 3,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 0,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 24,
+							"attack": 6,
+							"defense": 2,
+							"speed": 12,
+							"special_attack": 12,
+							"special_defense": 12
+						},
+						"is_egg": false,
+						"ability": "Keen Eye",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 15,
+						"experience": {
+							"current": 2495,
+							"next_level": 2535,
+							"this_level": 2035,
+							"remaining": 40
+						},
+						"next_move": {
+							"level": 19,
+							"type": "Normal"
+						},
+						"box_slot": 2,
+						"aiss_id": 4099,
+						"nature": "Careful"
+					},
+					{
+						"personality_value": 3313645168,
+						"encryption_key": -743817700,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "Zubat",
+						"language": "English",
+						"marking": "",
+						"checksum": 31430,
+						"shiny_value": 60854,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Inner Focus",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 35,
+								"hp": 40,
+								"special_attack": 30,
+								"special_defense": 40,
+								"speed": 55
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Flying",
+							"egg_type2": "Flying",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 41,
+							"name": "Zubat",
+							"national_dex": 41,
+							"type1": "Poison",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 141,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Leech Life",
+								"type": "Bug",
+								"contest": null
+							},
+							{
+								"accuracy": 55,
+								"base_power": 0,
+								"id": 48,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Supersonic",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 16,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 8,
+							"attack": 13,
+							"defense": 16,
+							"speed": 8,
+							"special_attack": 29,
+							"special_defense": 16
+						},
+						"is_egg": false,
+						"ability": "Inner Focus",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 16,
+						"experience": {
+							"current": 4096,
+							"next_level": 4913,
+							"this_level": 4096,
+							"remaining": 817
+						},
+						"next_move": {
+							"level": 21,
+							"type": "Ghost"
+						},
+						"box_slot": 3,
+						"aiss_id": 10496,
+						"nature": "Bashful"
+					},
+					{
+						"personality_value": 1746332793,
+						"encryption_key": 2118050837,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "UUZZ",
+						"language": "English",
+						"marking": "",
+						"checksum": 22340,
+						"shiny_value": 39467,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Shed Skin",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 25,
+								"defense": 50,
+								"hp": 45,
+								"special_attack": 25,
+								"special_defense": 25,
+								"speed": 35
+							},
+							"catch_rate": 120,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 14,
+							"name": "Kakuna",
+							"national_dex": 14,
+							"type1": "Bug",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 106,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Harden",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 5,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 2,
+							"attack": 14,
+							"defense": 16,
+							"speed": 20,
+							"special_attack": 6,
+							"special_defense": 23
+						},
+						"is_egg": false,
+						"ability": "Shed Skin",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 5,
+						"experience": {
+							"current": 125,
+							"next_level": 216,
+							"this_level": 125,
+							"remaining": 91
+						},
+						"box_slot": 4,
+						"aiss_id": 3328,
+						"nature": "Bashful"
+					},
+					{
+						"personality_value": 3512986239,
+						"encryption_key": -951328237,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "BAA,SSSs",
+						"language": "English",
+						"marking": "",
+						"checksum": 14685,
+						"shiny_value": 9560,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Static",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 55,
+								"defense": 30,
+								"hp": 35,
+								"special_attack": 50,
+								"special_defense": 40,
+								"speed": 90
+							},
+							"catch_rate": 190,
+							"egg_cycles": 10,
+							"egg_type1": "Field",
+							"egg_type2": "Fairy",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 25,
+							"name": "Pikachu",
+							"national_dex": 25,
+							"type1": "Electric",
+							"type2": "Electric",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 84,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Thundershock",
+								"type": "Electric",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 3,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 16,
+							"attack": 31,
+							"defense": 29,
+							"speed": 27,
+							"special_attack": 8,
+							"special_defense": 30
+						},
+						"is_egg": false,
+						"ability": "Static",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 3,
+						"experience": {
+							"current": 27,
+							"next_level": 64,
+							"this_level": 27,
+							"remaining": 37
+						},
+						"next_move": {
+							"level": 9,
+							"type": "Electric"
+						},
+						"box_slot": 5,
+						"aiss_id": 6400,
+						"nature": "Naive"
+					},
+					{
+						"personality_value": 1559744563,
+						"encryption_key": 1256183903,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "TUU",
+						"language": "English",
+						"marking": "",
+						"checksum": 51320,
+						"shiny_value": 37504,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Run Away",
+								"Guts"
+							],
+							"base_stats": {
+								"attack": 56,
+								"defense": 35,
+								"hp": 30,
+								"special_attack": 25,
+								"special_defense": 35,
+								"speed": 72
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 19,
+							"name": "Rattata",
+							"national_dex": 19,
+							"type1": "Normal",
+							"type2": "Normal",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 159,
+						"moves": [
+							{
+								"accuracy": 95,
+								"base_power": 35,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 39,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Tail Whip",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 2,
+							"attack": 0,
+							"defense": 0,
+							"speed": 13,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 1,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 101,
+							"area_id": 87,
+							"area_name": "Mt. Ember",
+							"level": 3,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 7,
+							"attack": 18,
+							"defense": 21,
+							"speed": 21,
+							"special_attack": 8,
+							"special_defense": 15
+						},
+						"is_egg": false,
+						"ability": "Guts",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 7,
+						"experience": {
+							"current": 419,
+							"next_level": 512,
+							"this_level": 343,
+							"remaining": 93
+						},
+						"next_move": {
+							"level": 14,
+							"type": "Normal"
+						},
+						"box_slot": 6,
+						"aiss_id": 4865,
+						"nature": "Jolly"
+					},
+					{
+						"personality_value": 4119800844,
+						"encryption_key": -475585440,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "UUTucc1vvP",
+						"language": "English",
+						"marking": "",
+						"checksum": 8294,
+						"shiny_value": 51143,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 20,
+								"hp": 115,
+								"special_attack": 45,
+								"special_defense": 25,
+								"speed": 20
+							},
+							"catch_rate": 170,
+							"egg_cycles": 10,
+							"egg_type1": "Fairy",
+							"egg_type2": "Fairy",
+							"gender_ratio": 191,
+							"growth_rate": "Fast",
+							"id": 39,
+							"name": "Jigglypuff",
+							"national_dex": 39,
+							"type1": "Normal",
+							"type2": "Normal",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 115,
+						"moves": [
+							{
+								"accuracy": 55,
+								"base_power": 0,
+								"id": 47,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sing",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 1,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Pound",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 1,
+							"defense": 0,
+							"speed": 1,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 1,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 103,
+							"area_id": 87,
+							"area_name": "Mt. Ember",
+							"level": 5,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 11,
+							"attack": 26,
+							"defense": 17,
+							"speed": 25,
+							"special_attack": 19,
+							"special_defense": 26
+						},
+						"is_egg": false,
+						"ability": "Cute Charm",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 9,
+						"experience": {
+							"current": 627,
+							"next_level": 800,
+							"this_level": 583,
+							"remaining": 173
+						},
+						"next_move": {
+							"level": 14,
+							"type": "Normal"
+						},
+						"box_slot": 7,
+						"aiss_id": 9985,
+						"nature": "Rash"
+					},
+					{
+						"personality_value": 2715502733,
+						"encryption_key": -1208794911,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "ddsa",
+						"language": "English",
+						"marking": "",
+						"checksum": 57785,
+						"shiny_value": 63250,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Rock Head",
+								"Sturdy"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 100,
+								"hp": 40,
+								"special_attack": 30,
+								"special_defense": 30,
+								"speed": 20
+							},
+							"catch_rate": 255,
+							"egg_cycles": 15,
+							"egg_type1": "Mineral",
+							"egg_type2": "Mineral",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 74,
+							"name": "Geodude",
+							"national_dex": 74,
+							"type1": "Rock",
+							"type2": "Ground",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 95,
+								"base_power": 35,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 111,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Defense Curl",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 90,
+								"base_power": 50,
+								"id": 88,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Rock Throw",
+								"type": "Rock",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 17,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 20,
+							"attack": 8,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 16,
+							"special_defense": 28
+						},
+						"is_egg": false,
+						"ability": "Sturdy",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 17,
+						"experience": {
+							"current": 3120,
+							"next_level": 3798,
+							"this_level": 3120,
+							"remaining": 678
+						},
+						"next_move": {
+							"level": 21,
+							"type": "Normal"
+						},
+						"box_slot": 8,
+						"aiss_id": 18944,
+						"nature": "Impish"
+					},
+					{
+						"personality_value": 2954091693,
+						"encryption_key": -1506028351,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "Mankey",
+						"language": "English",
+						"marking": "",
+						"checksum": 60380,
+						"shiny_value": 29434,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Vital Spirit",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 35,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 45,
+								"speed": 70
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 56,
+							"name": "Mankey",
+							"national_dex": 56,
+							"type1": "Fighting",
+							"type2": "Fighting",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 10,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Scratch",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 50,
+								"id": 2,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Karate Chop",
+								"type": "Fighting",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 16,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 0,
+							"attack": 6,
+							"defense": 4,
+							"speed": 3,
+							"special_attack": 6,
+							"special_defense": 29
+						},
+						"is_egg": false,
+						"ability": "Vital Spirit",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 16,
+						"experience": {
+							"current": 4096,
+							"next_level": 4913,
+							"this_level": 4096,
+							"remaining": 817
+						},
+						"next_move": {
+							"level": 21,
+							"type": "Normal"
+						},
+						"box_slot": 9,
+						"aiss_id": 14336,
+						"nature": "Bashful"
+					},
+					{
+						"personality_value": 1929258683,
+						"encryption_key": 1691758295,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "At",
+						"language": "English",
+						"marking": "",
+						"checksum": 61783,
+						"shiny_value": 18945,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Pickup",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 35,
+								"hp": 40,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 90
+							},
+							"catch_rate": 255,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 52,
+							"name": "Meowth",
+							"national_dex": 52,
+							"type1": "Normal",
+							"type2": "Normal",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 10,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Scratch",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 6,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Pay Day",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 107,
+							"area_id": 87,
+							"area_name": "Mt. Ember",
+							"level": 17,
+							"game": "4",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 22,
+							"attack": 30,
+							"defense": 18,
+							"speed": 13,
+							"special_attack": 6,
+							"special_defense": 5
+						},
+						"is_egg": false,
+						"ability": "Pickup",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 17,
+						"experience": {
+							"current": 4913,
+							"next_level": 5832,
+							"this_level": 4913,
+							"remaining": 919
+						},
+						"next_move": {
+							"level": 24,
+							"type": "Normal"
+						},
+						"box_slot": 10,
+						"aiss_id": 13312,
+						"nature": "Impish"
+					},
+					{
+						"personality_value": 1006562423,
+						"encryption_key": 769057819,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "Fjdccv",
+						"language": "English",
+						"marking": "",
+						"checksum": 33660,
+						"shiny_value": 51661,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Intimidate",
+								"Flash Fire"
+							],
+							"base_stats": {
+								"attack": 70,
+								"defense": 45,
+								"hp": 55,
+								"special_attack": 70,
+								"special_defense": 50,
+								"speed": 60
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Field",
+							"egg_type2": "Field",
+							"gender_ratio": 63,
+							"growth_rate": "Slow",
+							"id": 58,
+							"name": "Growlithe",
+							"national_dex": 58,
+							"type1": "Fire",
+							"type2": "Fire",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": {
+							"count": 0,
+							"id": 136,
+							"name": "Rawst Berry"
+						},
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 60,
+								"id": 44,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Bite",
+								"type": "Dark",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 46,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Roar",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 40,
+								"id": 52,
+								"pp": 25,
+								"pp_up": 0,
+								"max_pp": 25,
+								"name": "Ember",
+								"type": "Fire",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 107,
+							"area_id": 87,
+							"area_name": "Mt. Ember",
+							"level": 20,
+							"game": "4",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 30,
+							"attack": 26,
+							"defense": 24,
+							"speed": 17,
+							"special_attack": 7,
+							"special_defense": 12
+						},
+						"is_egg": false,
+						"ability": "Flash Fire",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 20,
+						"experience": {
+							"current": 10000,
+							"next_level": 11576,
+							"this_level": 10000,
+							"remaining": 1576
+						},
+						"next_move": {
+							"level": 23,
+							"type": "Normal"
+						},
+						"box_slot": 11,
+						"aiss_id": 14848,
+						"nature": "Careful"
+					},
+					{
+						"personality_value": 1300228509,
+						"encryption_key": 1532486129,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "AMMNBEEE",
+						"language": "English",
+						"marking": "",
+						"checksum": 8278,
+						"shiny_value": 47782,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Swarm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 80,
+								"defense": 40,
+								"hp": 65,
+								"special_attack": 45,
+								"special_defense": 80,
+								"speed": 75
+							},
+							"catch_rate": 45,
+							"egg_cycles": 15,
+							"egg_type1": "Bug",
+							"egg_type2": "Bug",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 15,
+							"name": "Beedrill",
+							"national_dex": 15,
+							"type1": "Bug",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": {
+							"count": 0,
+							"id": 109,
+							"name": "Star Piece"
+						},
+						"friendship": 157,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 15,
+								"id": 40,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poison Sting",
+								"type": "Poison",
+								"contest": null
+							},
+							{
+								"accuracy": 95,
+								"base_power": 0,
+								"id": 81,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "String Shot",
+								"type": "Bug",
+								"contest": null
+							},
+							{
+								"accuracy": 85,
+								"base_power": 15,
+								"id": 31,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Fury Attack",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 0,
+								"base_power": 0,
+								"id": 116,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Focus Energy",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 6,
+							"attack": 5,
+							"defense": 0,
+							"speed": 10,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 1,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 4,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 23,
+							"attack": 5,
+							"defense": 29,
+							"speed": 2,
+							"special_attack": 4,
+							"special_defense": 3
+						},
+						"is_egg": false,
+						"ability": "Swarm",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 16,
+						"experience": {
+							"current": 4500,
+							"next_level": 4913,
+							"this_level": 4096,
+							"remaining": 413
+						},
+						"next_move": {
+							"level": 20,
+							"type": "Bug"
+						},
+						"box_slot": 12,
+						"aiss_id": 3329,
+						"nature": "Lax"
+					},
+					{
+						"personality_value": 1173691203,
+						"encryption_key": 1406997295,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "AAAAAA",
+						"language": "English",
+						"marking": "",
+						"checksum": 31658,
+						"shiny_value": 16626,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Rock Head",
+								"Lightningrod"
+							],
+							"base_stats": {
+								"attack": 50,
+								"defense": 95,
+								"hp": 50,
+								"special_attack": 40,
+								"special_defense": 50,
+								"speed": 35
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Monster",
+							"egg_type2": "Monster",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 104,
+							"name": "Cubone",
+							"national_dex": 104,
+							"type1": "Ground",
+							"type2": "Ground",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 85,
+								"base_power": 65,
+								"id": 125,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Bone Club",
+								"type": "Ground",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 17,
+							"game": "4",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 30,
+							"attack": 2,
+							"defense": 22,
+							"speed": 1,
+							"special_attack": 13,
+							"special_defense": 7
+						},
+						"is_egg": false,
+						"ability": "Lightningrod",
+						"ribbons": [],
+						"gender": "Female",
+						"level": 17,
+						"experience": {
+							"current": 4913,
+							"next_level": 5832,
+							"this_level": 4913,
+							"remaining": 919
+						},
+						"next_move": {
+							"level": 25,
+							"type": "Normal"
+						},
+						"box_slot": 13,
+						"aiss_id": 26624,
+						"nature": "Adamant"
+					},
+					{
+						"personality_value": 4144021149,
+						"encryption_key": -517425423,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "AAAAAH",
+						"language": "English",
+						"marking": "",
+						"checksum": 30944,
+						"shiny_value": 22489,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Levitate",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 35,
+								"defense": 30,
+								"hp": 30,
+								"special_attack": 100,
+								"special_defense": 35,
+								"speed": 80
+							},
+							"catch_rate": 190,
+							"egg_cycles": 20,
+							"egg_type1": "Amorphous",
+							"egg_type2": "Amorphous",
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 92,
+							"name": "Gastly",
+							"national_dex": 92,
+							"type1": "Ghost",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 70,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 1,
+								"id": 101,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Night Shade",
+								"type": "Ghost",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 109,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Confuse Ray",
+								"type": "Ghost",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 20,
+								"id": 122,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Lick",
+								"type": "Ghost",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 0,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"level": 18,
+							"game": "4",
+							"caught_in": "Great Ball"
+						},
+						"ivs": {
+							"hp": 12,
+							"attack": 13,
+							"defense": 28,
+							"speed": 14,
+							"special_attack": 7,
+							"special_defense": 0
+						},
+						"is_egg": false,
+						"ability": "Levitate",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 18,
+						"experience": {
+							"current": 3798,
+							"next_level": 4575,
+							"this_level": 3798,
+							"remaining": 777
+						},
+						"next_move": {
+							"level": 27,
+							"type": "Psychic"
+						},
+						"box_slot": 14,
+						"aiss_id": 23552,
+						"nature": "Quirky"
+					},
+					{
+						"personality_value": 1242983953,
+						"encryption_key": 1547593341,
+						"original_trainer": {
+							"name": "KAY",
+							"id": 2156,
+							"secret": 5672,
+							"gender": "Male"
+						},
+						"name": "HNHICPDPEE",
+						"language": "English",
+						"marking": "",
+						"checksum": 1460,
+						"shiny_value": 14915,
+						"shiny": false,
+						"species": {
+							"abilities": [
+								"Poison Point",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 57,
+								"defense": 40,
+								"hp": 46,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 50
+							},
+							"catch_rate": 235,
+							"egg_cycles": 20,
+							"egg_type1": "Monster",
+							"egg_type2": "Field",
+							"gender_ratio": 0,
+							"growth_rate": "Medium Slow",
+							"id": 32,
+							"name": "Nidoran♂",
+							"national_dex": 32,
+							"type1": "Poison",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"held_item": null,
+						"friendship": 121,
+						"moves": [
+							{
+								"accuracy": 100,
+								"base_power": 15,
+								"id": 40,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poison Sting",
+								"type": "Poison",
+								"contest": null
+							},
+							{
+								"accuracy": 100,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal",
+								"contest": null
+							},
+							{
+								"accuracy": 95,
+								"base_power": 35,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal",
+								"contest": null
+							}
+						],
+						"evs": {
+							"hp": 0,
+							"attack": 3,
+							"defense": 1,
+							"speed": 7,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"condition": {
+							"coolness": 1,
+							"beauty": 0,
+							"cuteness": 0,
+							"smartness": 0,
+							"toughness": 0,
+							"feel": 0
+						},
+						"pokerus": {
+							"infected": false,
+							"days_left": 0,
+							"strain": 0,
+							"cured": false
+						},
+						"met": {
+							"map_id": 103,
+							"area_id": 87,
+							"area_name": "Mt. Ember",
+							"level": 7,
+							"game": "4",
+							"caught_in": "Poké Ball"
+						},
+						"ivs": {
+							"hp": 25,
+							"attack": 12,
+							"defense": 7,
+							"speed": 29,
+							"special_attack": 8,
+							"special_defense": 26
+						},
+						"is_egg": false,
+						"ability": "Poison Point",
+						"ribbons": [],
+						"gender": "Male",
+						"level": 15,
+						"experience": {
+							"current": 2218,
+							"next_level": 2535,
+							"this_level": 2035,
+							"remaining": 317
+						},
+						"next_move": {
+							"level": 21,
+							"type": "Normal"
+						},
+						"box_slot": 19,
+						"aiss_id": 8193,
+						"nature": "Adamant"
+					}
+				]
+			},
+			{
+				"box_number": 2,
+				"box_name": "ARSKK ",
+				"box_contents": []
+			},
+			{
+				"box_number": 3,
+				"box_name": "BOX3",
+				"box_contents": []
+			},
+			{
+				"box_number": 4,
+				"box_name": "BOX4",
+				"box_contents": []
+			},
+			{
+				"box_number": 5,
+				"box_name": "BOX5",
+				"box_contents": []
+			},
+			{
+				"box_number": 6,
+				"box_name": "BOX6",
+				"box_contents": []
+			},
+			{
+				"box_number": 7,
+				"box_name": "BOX7",
+				"box_contents": []
+			},
+			{
+				"box_number": 8,
+				"box_name": "BOX8",
+				"box_contents": []
+			},
+			{
+				"box_number": 9,
+				"box_name": "BOX9",
+				"box_contents": []
+			},
+			{
+				"box_number": 10,
+				"box_name": "BOX10",
+				"box_contents": []
+			},
+			{
+				"box_number": 11,
+				"box_name": "BOX11",
+				"box_contents": []
+			},
+			{
+				"box_number": 12,
+				"box_name": "BOX12",
+				"box_contents": []
+			},
+			{
+				"box_number": 13,
+				"box_name": "BOX13",
+				"box_contents": []
+			},
+			{
+				"box_number": 14,
+				"box_name": "BOX14",
+				"box_contents": []
+			},
+			{
+				"box_contents": [
+					{
+						"species": {
+							"abilities": [
+								"Limber",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 110,
+								"defense": 65,
+								"hp": 160,
+								"special_attack": 65,
+								"special_defense": 65,
+								"speed": 30
+							},
+							"catch_rate": 1,
+							"egg_cycles": 20,
+							"gender_ratio": 31,
+							"growth_rate": "Slow",
+							"id": 132,
+							"name": "Snorlax",
+							"national_dex": 143,
+							"type1": "Normal",
+							"type2": "Normal",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							143
+						],
+						"level": 30,
+						"status": "SLP",
+						"sleep_turns": 2,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 70,
+								"id": 29,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Headbutt",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 133,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Amnesia",
+								"type": "Psychic"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 156,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Rest",
+								"type": "Psychic"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 33750,
+							"next_level": 37238,
+							"this_level": 33750,
+							"remaining": 3488
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 9,
+							"defense": 13,
+							"speed": 0,
+							"special_attack": 5,
+							"special_defense": 5,
+							"hp": 13
+						},
+						"personality_value": 2634352749,
+						"aiss_id": 36609,
+						"gender": "",
+						"name": "ADMV:",
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Quirky"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Static",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 35,
+								"defense": 30,
+								"hp": 30,
+								"special_attack": 100,
+								"special_defense": 100,
+								"speed": 80
+							},
+							"catch_rate": 2,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 25,
+							"name": "Gastly",
+							"national_dex": 92,
+							"type1": "Ghost",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							12
+						],
+						"level": 23,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 20,
+								"id": 122,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Lick",
+								"type": "Ghost"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 109,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Confuse Ray",
+								"type": "Ghost"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 1,
+								"id": 101,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Night Shade",
+								"type": "Ghost"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 8825,
+							"next_level": 10208,
+							"this_level": 8825,
+							"remaining": 1383
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 9,
+							"defense": 11,
+							"speed": 14,
+							"special_attack": 13,
+							"special_defense": 13,
+							"hp": 13
+						},
+						"personality_value": 2616002670,
+						"aiss_id": 23554,
+						"gender": "",
+						"name": "Gastly",
+						"next_move": {
+							"type": "Normal",
+							"level": 24
+						},
+						"shiny": false,
+						"ability": "-------",
+						"nature": "Calm"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Keen Eye",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 50,
+								"defense": 95,
+								"hp": 50,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 35
+							},
+							"catch_rate": 1,
+							"egg_cycles": 15,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 17,
+							"name": "Cubone",
+							"national_dex": 104,
+							"type1": "Ground",
+							"type2": "Ground",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							51
+						],
+						"level": 20,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 216,
+								"base_power": 65,
+								"id": 125,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Bone Club",
+								"type": "Ground"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 45,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "Growl",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 8000,
+							"next_level": 9261,
+							"this_level": 8000,
+							"remaining": 1261
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 8,
+							"defense": 11,
+							"speed": 8,
+							"special_attack": 12,
+							"special_defense": 12,
+							"hp": 4
+						},
+						"personality_value": 2341210221,
+						"aiss_id": 26625,
+						"gender": "",
+						"name": "AAKX]]C[/I",
+						"next_move": {
+							"type": "Normal",
+							"level": 30
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Gentle"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Sturdy",
+								"Rock Head"
+							],
+							"base_stats": {
+								"attack": 50,
+								"defense": 55,
+								"hp": 45,
+								"special_attack": 75,
+								"special_defense": 75,
+								"speed": 30
+							},
+							"catch_rate": 3,
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 185,
+							"name": "Oddish",
+							"national_dex": 43,
+							"type1": "Grass",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							40
+						],
+						"level": 16,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 20,
+								"id": 71,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Absorb",
+								"type": "Grass"
+							},
+							{
+								"accuracy": 191,
+								"base_power": 0,
+								"id": 77,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poisonpowder",
+								"type": "Poison"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 2535,
+							"next_level": 3120,
+							"this_level": 2535,
+							"remaining": 585
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 2,
+							"defense": 12,
+							"speed": 6,
+							"special_attack": 5,
+							"special_defense": 5,
+							"hp": 1
+						},
+						"personality_value": 744818799,
+						"aiss_id": 11011,
+						"gender": "",
+						"name": "Oddish",
+						"next_move": {
+							"type": "Grass",
+							"level": 17
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Quirky"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 56
+							},
+							"catch_rate": 7,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 36,
+							"name": "Pidgey",
+							"national_dex": 16,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							34
+						],
+						"level": 13,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 1261,
+							"next_level": 1612,
+							"this_level": 1261,
+							"remaining": 351
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 8,
+							"defense": 7,
+							"speed": 4,
+							"special_attack": 11,
+							"special_defense": 11,
+							"hp": 5
+						},
+						"personality_value": 2269841519,
+						"aiss_id": 4103,
+						"gender": "",
+						"name": "Pidgey",
+						"next_move": {
+							"type": "Normal",
+							"level": 18
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Rash"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 56
+							},
+							"catch_rate": 6,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 36,
+							"name": "Pidgey",
+							"national_dex": 16,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							40
+						],
+						"level": 16,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 2535,
+							"next_level": 3120,
+							"this_level": 2535,
+							"remaining": 585
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 10,
+							"defense": 13,
+							"speed": 1,
+							"special_attack": 0,
+							"special_defense": 0,
+							"hp": 6
+						},
+						"personality_value": 2903509102,
+						"aiss_id": 4102,
+						"gender": "",
+						"name": "ACDDM",
+						"next_move": {
+							"type": "Normal",
+							"level": 18
+						},
+						"shiny": false,
+						"ability": "-------",
+						"nature": "Brave"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Static",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 35,
+								"defense": 30,
+								"hp": 30,
+								"special_attack": 100,
+								"special_defense": 100,
+								"speed": 80
+							},
+							"catch_rate": 1,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 25,
+							"name": "Gastly",
+							"national_dex": 92,
+							"type1": "Ghost",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							34
+						],
+						"level": 18,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 20,
+								"id": 122,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Lick",
+								"type": "Ghost"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 109,
+								"pp": 10,
+								"pp_up": 0,
+								"max_pp": 10,
+								"name": "Confuse Ray",
+								"type": "Ghost"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 1,
+								"id": 101,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Night Shade",
+								"type": "Ghost"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 3798,
+							"next_level": 4575,
+							"this_level": 3798,
+							"remaining": 777
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 2,
+							"defense": 7,
+							"speed": 6,
+							"special_attack": 13,
+							"special_defense": 13,
+							"hp": 5
+						},
+						"personality_value": 661457005,
+						"aiss_id": 23553,
+						"gender": "",
+						"name": "Gastly",
+						"next_move": {
+							"type": "Normal",
+							"level": 20
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Bold"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Own Tempo",
+								"Oblivious"
+							],
+							"base_stats": {
+								"attack": 60,
+								"defense": 44,
+								"hp": 35,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 55
+							},
+							"catch_rate": 2,
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 108,
+							"name": "Ekans",
+							"national_dex": 23,
+							"type1": "Poison",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							38
+						],
+						"level": 14,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 216,
+								"base_power": 15,
+								"id": 35,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Wrap",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 15,
+								"id": 40,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poison Sting",
+								"type": "Poison"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 2744,
+							"next_level": 3375,
+							"this_level": 2744,
+							"remaining": 631
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 1,
+							"defense": 7,
+							"speed": 5,
+							"special_attack": 7,
+							"special_defense": 7,
+							"hp": 15
+						},
+						"personality_value": 391579758,
+						"aiss_id": 5890,
+						"gender": "",
+						"name": "Ekans",
+						"next_move": {
+							"type": "Bug",
+							"level": 20
+						},
+						"shiny": false,
+						"ability": "-------",
+						"nature": "Impish"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Compoundeyes",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 136,
+								"defense": 32,
+								"hp": 13,
+								"special_attack": 224,
+								"special_defense": 224,
+								"speed": 18
+							},
+							"catch_rate": 1,
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 48,
+							"name": "Drowzee",
+							"national_dex": 96,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							40
+						],
+						"level": 13,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 1,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Pound",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 153,
+								"base_power": 0,
+								"id": 95,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Hypnosis",
+								"type": "Psychic"
+							},
+							{
+								"accuracy": 140,
+								"base_power": 0,
+								"id": 50,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Disable",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 2197,
+							"next_level": 2744,
+							"this_level": 2197,
+							"remaining": 547
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 0,
+							"defense": 15,
+							"speed": 15,
+							"special_attack": 7,
+							"special_defense": 7,
+							"hp": 7
+						},
+						"personality_value": 267847789,
+						"aiss_id": 24577,
+						"gender": "",
+						"name": "Bhh♂♂♂:::;",
+						"next_move": {
+							"type": "Rock",
+							"level": 16
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Naive"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Own Tempo",
+								"Oblivious"
+							],
+							"base_stats": {
+								"attack": 60,
+								"defense": 44,
+								"hp": 35,
+								"special_attack": 40,
+								"special_defense": 40,
+								"speed": 55
+							},
+							"catch_rate": 1,
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 108,
+							"name": "Ekans",
+							"national_dex": 23,
+							"type1": "Poison",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							36
+						],
+						"level": 14,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 216,
+								"base_power": 15,
+								"id": 35,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Wrap",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 43,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Leer",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 15,
+								"id": 40,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poison Sting",
+								"type": "Poison"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 2744,
+							"next_level": 3375,
+							"this_level": 2744,
+							"remaining": 631
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 15,
+							"defense": 2,
+							"speed": 3,
+							"special_attack": 14,
+							"special_defense": 14,
+							"hp": 10
+						},
+						"personality_value": 4064151661,
+						"aiss_id": 5889,
+						"gender": "",
+						"name": "-----AA",
+						"next_move": {
+							"type": "Bug",
+							"level": 20
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Hasty"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 56
+							},
+							"catch_rate": 5,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 36,
+							"name": "Pidgey",
+							"national_dex": 16,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							5
+						],
+						"level": 13,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 1261,
+							"next_level": 1612,
+							"this_level": 1261,
+							"remaining": 351
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 1,
+							"defense": 15,
+							"speed": 0,
+							"special_attack": 8,
+							"special_defense": 8,
+							"hp": 12
+						},
+						"personality_value": 520620141,
+						"aiss_id": 4101,
+						"gender": "",
+						"name": "AAAAJ",
+						"next_move": {
+							"type": "Normal",
+							"level": 18
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Mild"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Sturdy",
+								"Rock Head"
+							],
+							"base_stats": {
+								"attack": 50,
+								"defense": 55,
+								"hp": 45,
+								"special_attack": 75,
+								"special_defense": 75,
+								"speed": 30
+							},
+							"catch_rate": 2,
+							"egg_cycles": 20,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 185,
+							"name": "Oddish",
+							"national_dex": 43,
+							"type1": "Grass",
+							"type2": "Poison",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							23
+						],
+						"level": 16,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 20,
+								"id": 71,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Absorb",
+								"type": "Grass"
+							},
+							{
+								"accuracy": 191,
+								"base_power": 0,
+								"id": 77,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Poisonpowder",
+								"type": "Poison"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 2535,
+							"next_level": 3120,
+							"this_level": 2535,
+							"remaining": 585
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 5,
+							"defense": 11,
+							"speed": 8,
+							"special_attack": 5,
+							"special_defense": 5,
+							"hp": 13
+						},
+						"personality_value": 1535445102,
+						"aiss_id": 11010,
+						"gender": "",
+						"name": "Oddish",
+						"next_move": {
+							"type": "Grass",
+							"level": 17
+						},
+						"shiny": false,
+						"ability": "-------",
+						"nature": "Brave"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Shed Skin",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 20,
+								"defense": 15,
+								"hp": 25,
+								"special_attack": 105,
+								"special_defense": 105,
+								"speed": 90
+							},
+							"catch_rate": 1,
+							"egg_cycles": 40,
+							"gender_ratio": 63,
+							"growth_rate": "Medium Slow",
+							"id": 148,
+							"name": "Abra",
+							"national_dex": 63,
+							"type1": "Psychic",
+							"type2": "Psychic",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							27
+						],
+						"level": 10,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 100,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Teleport",
+								"type": "Psychic"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 560,
+							"next_level": 742,
+							"this_level": 560,
+							"remaining": 182
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 9,
+							"defense": 13,
+							"speed": 0,
+							"special_attack": 4,
+							"special_defense": 4,
+							"hp": 12
+						},
+						"personality_value": 2634287213,
+						"aiss_id": 16129,
+						"gender": "",
+						"name": "BbbbAAR-",
+						"next_move": {
+							"type": "Psychic",
+							"level": 16
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Jolly"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 56
+							},
+							"catch_rate": 1,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 36,
+							"name": "Pidgey",
+							"national_dex": 16,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							53
+						],
+						"level": 19,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 98,
+								"pp": 30,
+								"pp_up": 0,
+								"max_pp": 30,
+								"name": "Quick Attack",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 216,
+								"base_power": 0,
+								"id": 18,
+								"pp": 20,
+								"pp_up": 0,
+								"max_pp": 20,
+								"name": "Whirlwind",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 4575,
+							"next_level": 5460,
+							"this_level": 4575,
+							"remaining": 885
+						},
+						"evs": {
+							"hp": 35,
+							"attack": 92,
+							"defense": 67,
+							"speed": 115,
+							"special_attack": 60,
+							"special_defense": 60
+						},
+						"ivs": {
+							"attack": 0,
+							"defense": 7,
+							"speed": 2,
+							"special_attack": 2,
+							"special_defense": 2,
+							"hp": 4
+						},
+						"personality_value": 119670893,
+						"aiss_id": 4097,
+						"gender": "",
+						"name": "Pidgey",
+						"next_move": {
+							"type": "Normal",
+							"level": 22
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Bashful"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Cute Charm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 45,
+								"defense": 40,
+								"hp": 40,
+								"special_attack": 35,
+								"special_defense": 35,
+								"speed": 56
+							},
+							"catch_rate": 4,
+							"egg_cycles": 10,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Slow",
+							"id": 36,
+							"name": "Pidgey",
+							"national_dex": 16,
+							"type1": "Normal",
+							"type2": "Flying",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							24
+						],
+						"level": 7,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 255,
+								"base_power": 40,
+								"id": 16,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Gust",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 255,
+								"base_power": 0,
+								"id": 28,
+								"pp": 15,
+								"pp_up": 0,
+								"max_pp": 15,
+								"name": "Sand-Attack",
+								"type": "Normal"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 292,
+							"next_level": 314,
+							"this_level": 236,
+							"remaining": 22
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 11,
+							"defense": 15,
+							"speed": 2,
+							"special_attack": 2,
+							"special_defense": 2,
+							"hp": 12
+						},
+						"personality_value": 3206678636,
+						"aiss_id": 4100,
+						"gender": "",
+						"name": "BCHH",
+						"next_move": {
+							"type": "Normal",
+							"level": 18
+						},
+						"shiny": false,
+						"ability": "-------",
+						"nature": "Hasty"
+					},
+					{
+						"species": {
+							"abilities": [
+								"Swarm",
+								"-------"
+							],
+							"base_stats": {
+								"attack": 96,
+								"defense": 12,
+								"hp": 221,
+								"special_attack": 192,
+								"special_defense": 192,
+								"speed": 136
+							},
+							"catch_rate": 1,
+							"egg_cycles": 25,
+							"gender_ratio": 127,
+							"growth_rate": "Medium Fast",
+							"id": 123,
+							"name": "Caterpie",
+							"national_dex": 10,
+							"type1": "Bug",
+							"type2": "Bug",
+							"held_items": [],
+							"tm_moves": []
+						},
+						"health": [
+							25
+						],
+						"level": 6,
+						"status": null,
+						"sleep_turns": 0,
+						"moves": [
+							{
+								"accuracy": 242,
+								"base_power": 35,
+								"id": 33,
+								"pp": 35,
+								"pp_up": 0,
+								"max_pp": 35,
+								"name": "Tackle",
+								"type": "Normal"
+							},
+							{
+								"accuracy": 242,
+								"base_power": 0,
+								"id": 81,
+								"pp": 40,
+								"pp_up": 0,
+								"max_pp": 40,
+								"name": "String Shot",
+								"type": "Bug"
+							}
+						],
+						"original_trainer": {
+							"id": 2156,
+							"name": "KAY"
+						},
+						"experience": {
+							"current": 305,
+							"next_level": 343,
+							"this_level": 216,
+							"remaining": 38
+						},
+						"evs": {
+							"hp": 0,
+							"attack": 0,
+							"defense": 0,
+							"speed": 0,
+							"special_attack": 0,
+							"special_defense": 0
+						},
+						"ivs": {
+							"attack": 12,
+							"defense": 12,
+							"speed": 7,
+							"special_attack": 7,
+							"special_defense": 7,
+							"hp": 3
+						},
+						"personality_value": 3430353005,
+						"aiss_id": 2561,
+						"gender": "",
+						"name": "AATT1338",
+						"next_move": {
+							"type": "Normal",
+							"level": 17
+						},
+						"shiny": false,
+						"ability": "Stench",
+						"nature": "Bold"
+					}
+				],
+				"box_name": "Red Box 1",
+				"box_number": 15
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 2",
+				"box_number": 16
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 3",
+				"box_number": 17
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 4",
+				"box_number": 18
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 5",
+				"box_number": 19
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 6",
+				"box_number": 20
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 7",
+				"box_number": 21
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 8",
+				"box_number": 22
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 9",
+				"box_number": 23
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 10",
+				"box_number": 24
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 11",
+				"box_number": 25
+			},
+			{
+				"box_contents": [],
+				"box_name": "Red Box 12",
+				"box_number": 26
+			}
+		],
+		"current_box_number": 15
+	},
+	"transitioning": false,
+	"game": "firered.gba",
+	"caught_list": [
+		4,
+		5,
+		10,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		23,
+		25,
+		32,
+		39,
+		41,
+		43,
+		44,
+		45,
+		50,
+		51,
+		52,
+		56,
+		58,
+		63,
+		74,
+		92,
+		96,
+		104,
+		106,
+		129,
+		130,
+		143
+	],
+	"seen_list": [
+		1,
+		2,
+		4,
+		5,
+		7,
+		8,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		32,
+		33,
+		35,
+		37,
+		39,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		48,
+		50,
+		51,
+		52,
+		56,
+		57,
+		58,
+		60,
+		61,
+		63,
+		64,
+		66,
+		67,
+		69,
+		70,
+		71,
+		72,
+		74,
+		75,
+		79,
+		81,
+		82,
+		88,
+		89,
+		90,
+		92,
+		93,
+		95,
+		96,
+		100,
+		101,
+		102,
+		104,
+		105,
+		106,
+		107,
+		109,
+		111,
+		114,
+		115,
+		116,
+		118,
+		120,
+		121,
+		129,
+		130,
+		143
+	],
+	"caught": 33,
+	"seen": 84,
+	"name": "KAY",
+	"ball_count": 31,
+	"level_cap": 51,
+	"in_battle": false,
+	"id": 2156,
+	"options": {
+		"sound": "Stereo",
+		"battle_style": "Shift",
+		"battle_scene": "Off",
+		"map_zoom": "Full",
+		"text_speed": "Med",
+		"frame": "10",
+		"button_mode": "Normal"
+	},
+	"x": 3,
+	"y": 11,
+	"map_id": 0,
+	"map_bank": 23,
+	"area_id": 112,
+	"area_name": "",
+	"money": 5140,
+	"coins": 438,
+	"rival_name": "ABHIWG",
+	"evolution_is_happening": false,
+	"map_name": "Route 12",
+	"badges": 3855,
+	"items": {
+		"items": [
+			{
+				"id": 94,
+				"count": 4,
+				"name": "Moon Stone"
+			},
+			{
+				"id": 68,
+				"count": 3,
+				"name": "Rare Candy"
+			},
+			{
+				"id": 34,
+				"count": 2,
+				"name": "Ether"
+			},
+			{
+				"id": 103,
+				"count": 1,
+				"name": "Tinymushroom"
+			},
+			{
+				"id": 36,
+				"count": 2,
+				"name": "Elixir"
+			},
+			{
+				"id": 110,
+				"count": 3,
+				"name": "Nugget"
+			},
+			{
+				"id": 22,
+				"count": 2,
+				"name": "Super Potion"
+			},
+			{
+				"id": 35,
+				"count": 2,
+				"name": "Max Ether"
+			},
+			{
+				"id": 37,
+				"count": 2,
+				"name": "Max Elixir"
+			},
+			{
+				"id": 38,
+				"count": 2,
+				"name": "Lava Cookie"
+			},
+			{
+				"id": 13,
+				"count": 1,
+				"name": "Potion"
+			},
+			{
+				"id": 206,
+				"count": 1,
+				"name": "Blackglasses"
+			},
+			{
+				"id": 77,
+				"count": 1,
+				"name": "X Speed"
+			},
+			{
+				"id": 67,
+				"count": 1,
+				"name": "Calcium"
+			},
+			{
+				"id": 85,
+				"count": 2,
+				"name": "Escape Rope"
+			},
+			{
+				"id": 190,
+				"count": 1,
+				"name": "Cleanse Tag"
+			},
+			{
+				"id": 17,
+				"count": 2,
+				"name": "Awakening"
+			},
+			{
+				"id": 76,
+				"count": 1,
+				"name": "X Defend"
+			}
+		],
+		"key_red": [
+			{
+				"id": 76,
+				"count": 1,
+				"name": "Old Rod"
+			},
+			{
+				"id": 42,
+				"name": "Helix Fossil"
+			},
+			{
+				"id": 63,
+				"count": 1,
+				"name": "S.S.Ticket"
+			},
+			{
+				"id": 69,
+				"count": 1,
+				"name": "Coin Case"
+			},
+			{
+				"id": 74,
+				"name": "Lift Key"
+			},
+			{
+				"id": 72,
+				"count": 1,
+				"name": "Silph Scope"
+			},
+			{
+				"id": 45,
+				"name": "Bike Voucher"
+			},
+			{
+				"id": 73,
+				"name": "Poké Flute"
+			},
+			{
+				"id": 31,
+				"name": "Old Amber"
+			}
+		],
+		"balls": [
+			{
+				"id": 3,
+				"count": 31,
+				"name": "Great Ball"
+			}
+		],
+		"tms": [
+			{
+				"id": 339,
+				"name": "HM01 Cut"
+			},
+			{
+				"id": 290,
+				"count": 1,
+				"name": "TM02 Razor Wind"
+			},
+			{
+				"id": 295,
+				"count": 1,
+				"name": "TM07 Horn Drill"
+			},
+			{
+				"id": 300,
+				"count": 1,
+				"name": "TM12 Water Gun"
+			},
+			{
+				"id": 301,
+				"count": 1,
+				"name": "TM13 Ice Beam"
+			},
+			{
+				"id": 306,
+				"count": 1,
+				"name": "TM18 Counter"
+			},
+			{
+				"id": 309,
+				"count": 1,
+				"name": "TM21 Mega Drain"
+			},
+			{
+				"id": 319,
+				"count": 1,
+				"name": "TM31 Mimic"
+			},
+			{
+				"id": 328,
+				"count": 1,
+				"name": "TM40 Skull Bash"
+			},
+			{
+				"id": 337,
+				"count": 1,
+				"name": "TM49 Tri Attack"
+			}
+		],
+		"pc_red": [
+			{
+				"id": 15,
+				"count": 3,
+				"name": "Parlyz Heal"
+			}
+		],
+		"key_firered": [
+			{
+				"id": 361,
+				"name": "Town Map"
+			},
+			{
+				"id": 364,
+				"name": "TM Case"
+			},
+			{
+				"id": 357,
+				"name": "Helix Fossil"
+			},
+			{
+				"id": 366,
+				"name": "Teachy TV"
+			},
+			{
+				"id": 363,
+				"name": "Fame Checker"
+			},
+			{
+				"id": 265,
+				"name": "S.S. Ticket"
+			},
+			{
+				"id": 365,
+				"name": "Berry Pouch"
+			},
+			{
+				"id": 260,
+				"name": "Coin Case"
+			},
+			{
+				"id": 356,
+				"name": "Lift Key"
+			},
+			{
+				"id": 359,
+				"name": "Silph Scope"
+			},
+			{
+				"id": 350,
+				"name": "Poké Flute"
+			},
+			{
+				"id": 354,
+				"name": "Old Amber"
+			}
+		],
+		"berries": [],
+		"pc_firered": [
+			{
+				"id": 85,
+				"count": 1,
+				"name": "Escape Rope"
+			},
+			{
+				"id": 22,
+				"count": 1,
+				"name": "Super Potion"
+			},
+			{
+				"id": 13,
+				"count": 2,
+				"name": "Potion"
+			},
+			{
+				"id": 14,
+				"count": 1,
+				"name": "Antidote"
+			},
+			{
+				"id": 35,
+				"count": 1,
+				"name": "Max Ether"
+			},
+			{
+				"id": 38,
+				"count": 1,
+				"name": "Lava Cookie"
+			}
+		]
+	},
+	"updates_paused": false,
+	"gender": "Male",
+	"secret": 5672,
+	"security_key": 1773281300,
+	"daycare": []
+}
