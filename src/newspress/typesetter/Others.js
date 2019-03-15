@@ -263,4 +263,5 @@ module.exports = {
 	
 	RunStatChanged: null,
 	GameStatChanged: null,
+	TimingBoostActive: null,
 };

@@ -127,6 +127,14 @@ class MemeReport extends LedgerItem {
 	}
 }
 
+///////////////////
+// Timing
+class TimingBoostActive extends LedgerItem {
+	constructor() {
+		super(0, {});
+	}
+}
+
 
 /////////////////// Advanced Items ///////////////////
 
@@ -138,4 +146,5 @@ module.exports = {
 	PhonebookAdd, PhonebookRemove,
 	RunStatChanged, GameStatChanged, GameSaved,
 	MemeReport,
+	TimingBoostActive,
 };

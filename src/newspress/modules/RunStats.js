@@ -32,9 +32,9 @@ class RunStatsModule extends ReportingModule {
 		return item;
 	}
 	
-	produceStatsReport(prefix = 'Current Run Stats') {
+	produceStatsReport(prefix = '') {
 		let innacurate = this.config.innacurate || [];
-		let out = `${prefix}:\n`;
+		let out = `${prefix}Current Run Stats:\n`;
 		let inCount = 0;
 		for (let stat in this.memory) {
 			if (innacurate.indexOf(stat)>-1) {
@@ -45,8 +45,7 @@ class RunStatsModule extends ReportingModule {
 			}
 		}
 		if (inCount > 0) {
-			// out += `\n(\\* innacurate due to discovered bugs)`; //BURNING RED HACK
-			out += `\n(\\* accurate)`;
+			out += `\n(\\* innacurate due to discovered bugs)`;
 		}
 		if (this.config.reportNote) {
 			out += this.config.reportNote;
@@ -54,10 +53,6 @@ class RunStatsModule extends ReportingModule {
 		return out;
 	}
 }
-RunStatsModule.inaccurateStats = [
-	// CLEAR WHEN RUN BEGINS! ADD WHEN YOU FIND A BUG IN ONE OF THE STAT COUNTS!!
-	
-];
 
 RULES.push(new Rule(`RunStat: Blackout Count`)
 	.when(ledger=>ledger.has('BlackoutContext').which(x=>x.ttl == BlackoutContext.STARTING_TTL).unmarked())

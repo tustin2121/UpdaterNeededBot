@@ -450,7 +450,7 @@ MapChanged.__meta__ = { sort:-110 }; //After "Blackout!"
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = {
-	LocationContext: null,
+	LocationContext: null, //TODO: Update for Timing Module
 	LocationChanged: {
 		// prev = the previous location
 		// curr = the current location
@@ -463,7 +463,7 @@ module.exports = {
 		],
 	},
 	
-	MapContext: null,
+	MapContext: null, //TODO: Update for Timing Module
 	MapChanged,
 	
 	CheckpointContext: null,

@@ -75,7 +75,7 @@ class UpdaterPress extends EventEmitter {
 			ledger.log.ruleRound(i);
 			LOGGER.trace(`Second Pass [${i}]`);
 			for (let mod of this.modules) try {
-				mod.secondPass(ledger);
+				mod.secondPass(ledger, i);
 			} catch (e) {
 				LOGGER.error(`Error in ${mod.constructor.name} second pass [${i}]!`, e);
 				Bot.emit('updateError', e);
@@ -170,9 +170,11 @@ class UpdaterPress extends EventEmitter {
 	}
 	
 	getRunStats(prefix) {
-		let mod = this.modules.find(x=>x.constructor.name === 'RunStatsModule');
-		if (!mod || !mod.produceStatsReport) return `Run stats module not loaded.`;
-		return mod.produceStatsReport(prefix);
+		let reports = this.modules
+			.filter(x=>x.produceStatsReport)
+			.map(x=>x.produceStatsReport(prefix));
+		if (!reports.length) return `No stats modules loaded.`;
+		return reports.join('\n\n');
 	}
 }
 
