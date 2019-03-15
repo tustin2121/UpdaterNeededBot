@@ -9908,14 +9908,14 @@
 			"type": "transit",
 			"id": "2fa974b9",
 			"text": "!glitch_city_swap_red [Switch this to Glitch City from Red]",
-			"timeout": 0,
+			"timeout": 600000,
 			"to": "3.52"
 		},
 		{
 			"type": "transit",
 			"id": "3e0fc2b",
 			"text": "!glitch_city_enter",
-			"timeout": 0,
+			"timeout": 600000,
 			"from": "3.6",
 			"to": "3.52"
 		},
@@ -9923,7 +9923,7 @@
 			"type": "transit",
 			"id": "4414f718",
 			"text": "!glitch_city_exit",
-			"timeout": 0,
+			"timeout": 600000,
 			"from": "3.52",
 			"to": "3.6"
 		}

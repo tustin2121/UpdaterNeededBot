@@ -117,7 +117,7 @@ log4js.configure({
 function getLogger(category) {
 	const l4logger = log4js.getLogger(category);
 	l4logger.logRaw = l4logger.log;
-	l4logger.log = l4logger.info;
+	// l4logger.log = l4logger.info;
 	return l4logger;
 }
 

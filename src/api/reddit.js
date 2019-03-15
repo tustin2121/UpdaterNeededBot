@@ -13,35 +13,35 @@ const AUTH_DIR = path.resolve(__dirname, '../../.auth');
 module.exports = {
 	getOAuth : function(refresh, { client_id, client_secret, username, password, oAuth_token, redirect_uri }) {
 		return new Promise(function(resolve, reject){
-			LOGGER.log('Updating OAuth token...');
+			LOGGER.info('Updating OAuth token...');
 			let loc = url.parse(`https://www.reddit.com/api/v1/access_token`);
 			loc.method = 'POST';
 			loc.headers = {
 				"Authorization": `Basic ${new Buffer(`${client_id}:${client_secret}`).toString('base64')}`,
 			};
 			let req = http.request(loc, (res)=>{
-				// LOGGER.log(`STATUS: ${res.statusCode}`);
-				// LOGGER.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+				// LOGGER.info(`STATUS: ${res.statusCode}`);
+				// LOGGER.info(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
 				res.setEncoding('utf8');
 				res.on('data', (chunk) => {
-					// LOGGER.log(`BODY: ${chunk}`);
+					// LOGGER.info(`BODY: ${chunk}`);
 					json += chunk;
 				});
 				res.on('end', () => {
-					// LOGGER.log('No more data in response.');
+					// LOGGER.info('No more data in response.');
 					try {
 						let j = JSON.parse(json);
 						if (!j.access_token) {
-							LOGGER.log('Unsuccessful response!');
+							LOGGER.info('Unsuccessful response!');
 							LOGGER.debug(`STATUS: ${res.statusCode}`);
 							LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
 							LOGGER.debug(`BODY: ${json}`);
 						}
 						resolve(j);
 					} catch (e) {
-						LOGGER.log('Unsuccessful response!');
+						LOGGER.info('Unsuccessful response!');
 						LOGGER.debug(`STATUS: ${res.statusCode}`);
 						LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
 						LOGGER.debug(`BODY: ${json}`);
@@ -80,20 +80,20 @@ module.exports = {
 			};
 			let req = http.request(loc, (res)=>{
 				LOGGER.trace(`STATUS: ${res.statusCode}`);
-				// LOGGER.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+				// LOGGER.info(`HEADERS: ${JSON.stringify(res.headers)}`);
 				
 				let json = "";
 				res.setEncoding('utf8');
 				res.on('data', (chunk) => {
-					// LOGGER.log(`BODY: ${chunk}`);
+					// LOGGER.info(`BODY: ${chunk}`);
 					json += chunk;
 				});
 				res.on('end', () => {
-					// LOGGER.log('No more data in response.');
+					// LOGGER.info('No more data in response.');
 					try {
 						let j = JSON.parse(json);
 						if (!j.success) {
-							LOGGER.log('Unsuccessful response!');
+							LOGGER.info('Unsuccessful response!');
 							LOGGER.debug('REQUEST: ', req.output);
 							LOGGER.debug('====================================');
 							LOGGER.debug(`STATUS: ${res.statusCode}`);
@@ -103,7 +103,7 @@ module.exports = {
 						LOGGER.trace(`Posted successfully!`);
 						resolve(j);
 					} catch (e) {
-						LOGGER.log('Unsuccessful response!');
+						LOGGER.info('Unsuccessful response!');
 						LOGGER.debug(`STATUS: ${res.statusCode}`);
 						LOGGER.debug(`HEADERS: ${JSON.stringify(res.headers)}`);
 						LOGGER.debug(`BODY: ${json}`);

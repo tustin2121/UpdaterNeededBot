@@ -23,7 +23,7 @@ class WebServer {
 		const io = require('socket.io')(serv);
 		
 		serv.on('listening', ()=>{
-			LOGGER.log(`Listening on ${serv.address().address}:${serv.address().port}`);
+			LOGGER.info(`Listening on ${serv.address().address}:${serv.address().port}`);
 		});
 		io.on('connection', _remoteConnected);
 		
@@ -62,7 +62,7 @@ class WebServer {
 		return;
 		
 		function _remoteConnected(sock) {
-			LOGGER.log(`Remote connected.`);
+			LOGGER.info(`Remote connected.`);
 			const evts = {};
 			
 			Bot.on('post-update-cycle', evts['post-update']=()=>{
@@ -79,7 +79,7 @@ class WebServer {
 			sock.on('disconnect', ()=>{
 				Bot.removeListener('post-update-cycle', evts['post-update']);
 				Bot.streamApi.removeListener('api-written', evts['api-written']);
-				LOGGER.log('Remote disconnected.')
+				LOGGER.info('Remote disconnected.')
 			});
 		}
 	}

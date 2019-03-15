@@ -18,6 +18,8 @@ class ChatAPI extends EventEmitter {
 			this.channelList = [this.channelList];
 		}
 		
+		if (!auth.irc) return;
+		
 		let ibot = this.ibot = new irc.Client(url, auth.irc.username, {
 			password: auth.irc.password,
 			channels: this.channelList,

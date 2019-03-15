@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 RUN_START=1550020920
-RUN_CONFIG="s601-annirun"
+RUN_CONFIG="s601-burningred"
 
 echo Starting UpdaterNeededBot Loop.
 while [ true ]; do

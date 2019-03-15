@@ -73,7 +73,6 @@ class PokemonModule extends ReportingModule {
 		
 		// Note all Pokemon aquisitions
 		for (let mon of added) {
-			LOGGER.warn(`ledger.add(new PokemonGained(`,mon,`));`);
 			ledger.add(new PokemonGained(mon));
 		}
 		// Note all Pokemon missings

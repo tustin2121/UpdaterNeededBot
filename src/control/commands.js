@@ -66,15 +66,7 @@ const HANDLER = {
 	
 	runstats: ({ msg, args })=>{
 		if (!Bot.runConfig) return;
-		const inaccurateStats = require('../newspress/modules/RunStats').inaccurateStats;
-		let stats = Bot.memory['mod0_RunStats'];
-		let out = 'Current Run Stats:\n';
-		for (let stat in stats) {
-			let s = (inaccurateStats.indexOf(stat)>-1)? '\\*':'';
-			out += `${stat}${s}: ${stats[stat]}\n`;
-		}
-		out += `\n(\\* innacurate due to discovered bugs)`;
-		
+		let out = Bot.press.pool.map(x=>x.getRunStats()).join('\n\n');
 		msg.channel.send(out).catch(ERR);
 	},
 	
@@ -187,7 +179,7 @@ const HANDLER = {
 		msg.channel.send(infos.join('\n')).catch(ERR);
 	},
 	
-	'clear-ledger': ({ msg })=>{
+	'cmd-clear-ledger': ({ msg })=>{
 		if (!Bot.runConfig) return;
 		// This is a dirty hack basically, because outside forces shouldn't even be able to touch the ledgers like this
 		Bot.press.pool.forEach(press=>{
@@ -202,10 +194,20 @@ const HANDLER = {
 		});
 		msg.channel.send(`Postponed ledger items have been cleared.`).catch(ERR);
 	},
-	'clear-tempparty': ({ msg })=>{
+	'cmd-clear-tempparty': ({ msg })=>{
 		if (!Bot.runConfig) return;
 		Bot.emit('cmd_forceTempPartyOff');
 		msg.channel.send(`Temporary Party status will be forced off on the next update cycle.`).catch(ERR);
+	},
+	'cmd-resetbadge': ({ msg })=>{
+		if (!Bot.runConfig) return;
+		Bot.emit('cmd_forceBadgesZero');
+		msg.channel.send(`Max badge count reset. The API Disturbance should clear next update cycle.`).catch(ERR);
+	},
+	'cmd-assumetrainer': ({ msg })=>{
+		if (!Bot.runConfig) return;
+		Bot.emit('cmd_forceAssumeTrainerId');
+		msg.channel.send(`Trainer ID will be assumed next update cycle.`).catch(ERR);
 	},
 	
 	'save-mem': ({ msg })=>{
@@ -295,7 +297,7 @@ function __reloadFile(modulename) {
 		require(modulename);
 	} catch (e) {
 		LOGGER.error(e);
-		LOGGER.log("Failed to reload module! Attempting to revert!");
+		LOGGER.error("Failed to reload module! Attempting to revert!");
 		require.cache[path] = _oldmodule;
 		return false;
 	}
@@ -313,9 +315,8 @@ module.exports = function handleMessage(msg, memory) {
 
 const AUTHED_USERS = [
 	"148100682535272448", //Tustin2121
-//	"120002774653075457", //Deadinsky
-//	"86236068814274560",  //Ty
-//	"201624767130763264", //Kip
+	"120002774653075457", //Deadinsky
+	"201624767130763264", //Kip
 ];
 
 function parse(msg, memory) {
@@ -366,8 +367,10 @@ function parseCmd(cmd, authed=false, msg=null) {
 function parseCmd_RunCommands(cmd, authed, msg) {
 	let res;
 	if (/^save( memory)?/i.test(cmd)) return ['save-mem'];
-	if (/^clear ledger$/.test(cmd) && authed) return ['clear-ledger'];
-	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['clear-tempparty'];
+	if (/^clear ledger$/.test(cmd) && authed) return ['cmd-clear-ledger'];
+	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['cmd-clear-tempparty'];
+	if (/^reset (max )?(badge count|badges)$/.test(cmd) && authed) return ['cmd-resetbadge'];
+	if (/^assume trainer ?id$/.test(cmd) && authed) return ['cmd-assumetrainer'];
 	
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];

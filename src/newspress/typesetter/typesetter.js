@@ -848,6 +848,7 @@ class TypeSetter {
 			Bot.emit('updateError', e);
 		}
 		if (!update.length) return null;
+		if (update.join(' ').trim().endsWith(']')) return null; //try and weed out empty updates
 		return update.join(' ');
 	}
 	

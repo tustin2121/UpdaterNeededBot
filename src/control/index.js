@@ -43,7 +43,7 @@ let dbot = new discord.Client({
 dbot.on('error', (err)=> LOGGER.error('BOT: ', err));
 dbot.on('warn', (err)=> LOGGER.warn('BOT: ', err));
 dbot.on('ready', ()=>{
-	LOGGER.log('Discord bot has connected and is ready.');
+	LOGGER.info('Discord bot has connected and is ready.');
 	if (Bot.runConfig) {
 		staffChannel = dbot.channels.get(Bot.runConfig.run.controlChannel);
 	} else {
@@ -52,7 +52,7 @@ dbot.on('ready', ()=>{
 	// staffChannel = dbot.channels.get(STAFF_CHANNEL_SNOWFLAKE);
 });
 dbot.on('disconnect', (evt)=>{
-	LOGGER.log(`Discord bot has disconnected with code ${evt.code}: ${evt.reason}. Reconnecting...`);
+	LOGGER.info(`Discord bot has disconnected with code ${evt.code}: ${evt.reason}. Reconnecting...`);
 	try {
 		let inspect = require('util').inspect;
 		let info = '======= Disconnection Event =========\n';
@@ -111,6 +111,7 @@ const offActivities = [
 	[`YouTube videos`, { type:'WATCHING' }],
 	[`the Pokemon Anime`, { type:'WATCHING' }],
 ];
+let lastActivity = null;
 
 function setDiscordStatus({ status, activity }) {
 	if (status in {'online':1, 'idle':1, 'dnd':1}) {
@@ -129,6 +130,7 @@ function updateDiscordStatus() {
 	} else {
 		let activity = offActivities[Math.floor(Math.random()*offActivities.length)];
 		dbot.user.setActivity(...activity).catch(ERR);
+		lastActivity = activity;
 	}
 }
 
@@ -138,9 +140,13 @@ Bot.on('bot-ready', updateDiscordStatus);
 Bot.on('pre-update-cycle', ()=>{
 	let status = (!!Bot.taggedIn)?'online':'idle';
 	dbot.user.setStatus(status).catch(ERR);
+	dbot.user.setActivity(...lastActivity).catch(ERR);
 });
-Bot.on('updateError', ()=>{
+Bot.on('updateError', (tag)=>{
 	dbot.user.setStatus('dnd').catch(ERR);
+	if (tag) {
+		dbot.user.setActivity(tag, { type:'PLAYING' });
+	}
 });
 
 
