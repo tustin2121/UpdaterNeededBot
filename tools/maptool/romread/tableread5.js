@@ -89,7 +89,7 @@ class Gen5TableReader {
 				Number.parseInt(line[COL_flyZ], 10),
 				Number.parseInt(line[COL_flyY], 10),
 			];
-			if (flySpot[0] != 5 && flySpot[1] != 4) { //dunno why these are the defaults...
+			if ((flySpot[0] != 5 && flySpot[1] != 4) && (flySpot[0] != 0 && flySpot[1] != 0)) { //dunno why these are the defaults...
 				info.addArea({
 					name: "flySpot",
 					x: flySpot[0], y: flySpot[1], z: flySpot[2],

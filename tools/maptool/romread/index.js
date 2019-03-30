@@ -4,5 +4,6 @@ module.exports = Object.assign({},...[
 	require('./gen2'),
 	require('./gen3'),
 	require('./tableread4'),
+	require('./tableread5'),
 	require('./tableread6'),
 ]);

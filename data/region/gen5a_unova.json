@@ -1,0 +1,9490 @@
+{
+	"name": "Unova",
+	"types": {
+		"default": {
+			"type": "default",
+			"attrs": {
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"town": {
+			"type": "town",
+			"attrs": {
+				"town": true,
+				"the": "",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"route": {
+			"type": "route",
+			"attrs": {
+				"route": true,
+				"the": "",
+				"preposition": "on"
+			},
+			"areas": []
+		},
+		"indoor": {
+			"type": "indoor",
+			"attrs": {
+				"indoors": true,
+				"the": "",
+				"preposition": "in",
+				"floor": 1
+			},
+			"areas": []
+		},
+		"cave": {
+			"type": "cave",
+			"attrs": {
+				"indoors": true,
+				"dungeon": true,
+				"the": "",
+				"preposition": "in",
+				"floor": -1
+			},
+			"areas": []
+		},
+		"gatehouse": {
+			"type": "gatehouse",
+			"attrs": {
+				"indoors": true,
+				"town": true,
+				"the": "",
+				"preposition": "on"
+			},
+			"areas": []
+		},
+		"dungeon": {
+			"type": "dungeon",
+			"attrs": {
+				"indoors": true,
+				"dungeon": true,
+				"the": "",
+				"preposition": "in",
+				"floor": 1
+			},
+			"areas": []
+		},
+		"center": {
+			"type": "center",
+			"attrs": {
+				"indoors": true,
+				"healing": "pokecenter",
+				"checkpoint": true,
+				"the": "the",
+				"preposition": "in",
+				"floor": 1
+			},
+			"areas": [
+				{
+					"ax": 2,
+					"ay": 2,
+					"bx": 2,
+					"by": 2,
+					"rad": 5,
+					"name": "pc",
+					"attrs": {
+						"pc": true
+					}
+				}
+			]
+		},
+		"center2": {
+			"type": "center2",
+			"attrs": {
+				"indoors": true,
+				"the": "the",
+				"preposition": "in",
+				"floor": 2
+			},
+			"areas": [
+				{
+					"ax": 2,
+					"ay": 2,
+					"bx": 2,
+					"by": 2,
+					"rad": 5,
+					"name": "pc",
+					"attrs": {
+						"pc": true
+					}
+				}
+			]
+		},
+		"mart": {
+			"type": "mart",
+			"attrs": {
+				"indoors": true,
+				"shopping": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": [
+				{
+					"ax": 2,
+					"ay": 2,
+					"bx": 2,
+					"by": 2,
+					"rad": 5,
+					"name": "shopping",
+					"attrs": {
+						"shopping": true
+					}
+				}
+			]
+		},
+		"gym": {
+			"type": "gym",
+			"attrs": {
+				"indoors": true,
+				"gym": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": []
+		},
+		"safari": {
+			"type": "safari",
+			"attrs": {
+				"safari": true,
+				"the": "the",
+				"preposition": "in"
+			},
+			"areas": []
+		}
+	},
+	"nodes": [
+		[
+			{
+				"bank": 0,
+				"id": 0,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 43,
+						"ay": 38,
+						"bx": 43,
+						"by": 38,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 0,
+					"parentId": 0,
+					"mapType": 4,
+					"tex": 74,
+					"matrix": 226
+				}
+			},
+			{
+				"bank": 0,
+				"id": 1,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 1,
+					"parentId": 0,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 2,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 2,
+					"parentId": 0,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 209
+				}
+			},
+			{
+				"bank": 0,
+				"id": 3,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 3,
+					"parentId": 0,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 209
+				}
+			},
+			{
+				"bank": 0,
+				"id": 4,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 4,
+					"parentId": 0,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 209
+				}
+			},
+			{
+				"bank": 0,
+				"id": 5,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 5,
+					"parentId": 0,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 213
+				}
+			},
+			{
+				"bank": 0,
+				"id": 6,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 96,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 781,
+						"ay": 589,
+						"bx": 781,
+						"by": 589,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 6,
+					"parentId": 6,
+					"mapType": 0,
+					"tex": 6,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 7,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 7,
+					"parentId": 6,
+					"mapType": 0,
+					"tex": 214,
+					"matrix": 51
+				}
+			},
+			{
+				"bank": 0,
+				"id": 8,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 8,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 9,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 9,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 10,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 10,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 213,
+					"matrix": 134
+				}
+			},
+			{
+				"bank": 0,
+				"id": 11,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 11,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 12,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 12,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 27
+				}
+			},
+			{
+				"bank": 0,
+				"id": 13,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 13,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 14,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 14,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 32
+				}
+			},
+			{
+				"bank": 0,
+				"id": 15,
+				"name": "Striaton City",
+				"areaId": 1,
+				"areaName": "Striaton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 15,
+					"parentId": 6,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 29
+				}
+			},
+			{
+				"bank": 0,
+				"id": 16,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 637,
+						"ay": 599,
+						"bx": 637,
+						"by": 599,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 16,
+					"parentId": 16,
+					"mapType": 0,
+					"tex": 10,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 17,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 17,
+					"parentId": 16,
+					"mapType": 0,
+					"tex": 215,
+					"matrix": 52
+				}
+			},
+			{
+				"bank": 0,
+				"id": 18,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 18,
+					"parentId": 16,
+					"mapType": 0,
+					"tex": 229,
+					"matrix": 55
+				}
+			},
+			{
+				"bank": 0,
+				"id": 19,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 19,
+					"parentId": 16,
+					"mapType": 0,
+					"tex": 229,
+					"matrix": 120
+				}
+			},
+			{
+				"bank": 0,
+				"id": 20,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 20,
+					"parentId": 16,
+					"mapType": 0,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 21,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 21,
+					"parentId": 16,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 169
+				}
+			},
+			{
+				"bank": 0,
+				"id": 22,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 22,
+					"parentId": 16,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 31
+				}
+			},
+			{
+				"bank": 0,
+				"id": 23,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 23,
+					"parentId": 16,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 31
+				}
+			},
+			{
+				"bank": 0,
+				"id": 24,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 24,
+					"parentId": 16,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 31
+				}
+			},
+			{
+				"bank": 0,
+				"id": 25,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 25,
+					"parentId": 16,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 49
+				}
+			},
+			{
+				"bank": 0,
+				"id": 26,
+				"name": "Nacrene City",
+				"areaId": 2,
+				"areaName": "Nacrene City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 26,
+					"parentId": 16,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 30
+				}
+			},
+			{
+				"bank": 0,
+				"id": 27,
+				"name": "Nacrene Gate",
+				"areaId": 3,
+				"areaName": "Nacrene Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 27,
+					"parentId": 321,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 28,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 3,
+						"ay": 1,
+						"bx": 3,
+						"by": 1,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 28,
+					"parentId": 28,
+					"mapType": 2,
+					"tex": 18,
+					"matrix": 132
+				}
+			},
+			{
+				"bank": 0,
+				"id": 29,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 29,
+					"parentId": 28,
+					"mapType": 0,
+					"tex": 230,
+					"matrix": 56
+				}
+			},
+			{
+				"bank": 0,
+				"id": 30,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 30,
+					"parentId": 28,
+					"mapType": 14,
+					"tex": 186,
+					"matrix": 1
+				}
+			},
+			{
+				"bank": 0,
+				"id": 31,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 31,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 186,
+					"matrix": 2
+				}
+			},
+			{
+				"bank": 0,
+				"id": 32,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 32,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 186,
+					"matrix": 3
+				}
+			},
+			{
+				"bank": 0,
+				"id": 33,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 33,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 186,
+					"matrix": 4
+				}
+			},
+			{
+				"bank": 0,
+				"id": 34,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 34,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 186,
+					"matrix": 5
+				}
+			},
+			{
+				"bank": 0,
+				"id": 35,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 35,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 186,
+					"matrix": 6
+				}
+			},
+			{
+				"bank": 0,
+				"id": 36,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 36,
+					"parentId": 28,
+					"mapType": 7,
+					"tex": 186,
+					"matrix": 7
+				}
+			},
+			{
+				"bank": 0,
+				"id": 37,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 37,
+					"parentId": 28,
+					"mapType": 0,
+					"tex": 186,
+					"matrix": 8
+				}
+			},
+			{
+				"bank": 0,
+				"id": 38,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 38,
+					"parentId": 28,
+					"mapType": 0,
+					"tex": 186,
+					"matrix": 9
+				}
+			},
+			{
+				"bank": 0,
+				"id": 39,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 39,
+					"parentId": 28,
+					"mapType": 0,
+					"tex": 186,
+					"matrix": 10
+				}
+			},
+			{
+				"bank": 0,
+				"id": 40,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 40,
+					"parentId": 28,
+					"mapType": 0,
+					"tex": 186,
+					"matrix": 11
+				}
+			},
+			{
+				"bank": 0,
+				"id": 41,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 41,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 42,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 42,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 266,
+					"matrix": 177
+				}
+			},
+			{
+				"bank": 0,
+				"id": 43,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 43,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 216,
+					"matrix": 48
+				}
+			},
+			{
+				"bank": 0,
+				"id": 44,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 44,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 33
+				}
+			},
+			{
+				"bank": 0,
+				"id": 45,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 45,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 34
+				}
+			},
+			{
+				"bank": 0,
+				"id": 46,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 46,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 43
+				}
+			},
+			{
+				"bank": 0,
+				"id": 47,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 47,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 269,
+					"matrix": 243
+				}
+			},
+			{
+				"bank": 0,
+				"id": 48,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 48,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 43
+				}
+			},
+			{
+				"bank": 0,
+				"id": 49,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 49,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 33
+				}
+			},
+			{
+				"bank": 0,
+				"id": 50,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 50,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 43
+				}
+			},
+			{
+				"bank": 0,
+				"id": 51,
+				"name": "Castelia Gate",
+				"areaId": 5,
+				"areaName": "Castelia Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 51,
+					"parentId": 326,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 139
+				}
+			},
+			{
+				"bank": 0,
+				"id": 52,
+				"name": "Royal Unova",
+				"areaId": 6,
+				"areaName": "Royal Unova",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 52,
+					"parentId": 28,
+					"mapType": 17,
+					"tex": 265,
+					"matrix": 179
+				}
+			},
+			{
+				"bank": 0,
+				"id": 53,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 53,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 270,
+					"matrix": 192
+				}
+			},
+			{
+				"bank": 0,
+				"id": 54,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 54,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 33
+				}
+			},
+			{
+				"bank": 0,
+				"id": 55,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 55,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 43
+				}
+			},
+			{
+				"bank": 0,
+				"id": 56,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 56,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 33
+				}
+			},
+			{
+				"bank": 0,
+				"id": 57,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 57,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 43
+				}
+			},
+			{
+				"bank": 0,
+				"id": 58,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 58,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 33
+				}
+			},
+			{
+				"bank": 0,
+				"id": 59,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 59,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 34
+				}
+			},
+			{
+				"bank": 0,
+				"id": 60,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 60,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 33
+				}
+			},
+			{
+				"bank": 0,
+				"id": 61,
+				"name": "Castelia City",
+				"areaId": 4,
+				"areaName": "Castelia City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 61,
+					"parentId": 28,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 34
+				}
+			},
+			{
+				"bank": 0,
+				"id": 62,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 406,
+						"ay": 469,
+						"bx": 406,
+						"by": 469,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 62,
+					"parentId": 62,
+					"mapType": 0,
+					"tex": 26,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 63,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 63,
+					"parentId": 62,
+					"mapType": 10,
+					"tex": 232,
+					"matrix": 57
+				}
+			},
+			{
+				"bank": 0,
+				"id": 64,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 64,
+					"parentId": 62,
+					"mapType": 0,
+					"tex": 142,
+					"matrix": 107
+				}
+			},
+			{
+				"bank": 0,
+				"id": 65,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 65,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 66,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 66,
+					"parentId": 62,
+					"mapType": 7,
+					"tex": 258,
+					"matrix": 101
+				}
+			},
+			{
+				"bank": 0,
+				"id": 67,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 67,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 68,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 68,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 69,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 69,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 70,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 70,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 71,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 71,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 72,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 72,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 73,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 73,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 74,
+				"name": "Gear Station",
+				"areaId": 8,
+				"areaName": "Gear Station",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 74,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 165
+				}
+			},
+			{
+				"bank": 0,
+				"id": 75,
+				"name": "Battle Subway",
+				"areaId": 9,
+				"areaName": "Battle Subway",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 75,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 167
+				}
+			},
+			{
+				"bank": 0,
+				"id": 76,
+				"name": "Battle Subway",
+				"areaId": 9,
+				"areaName": "Battle Subway",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 76,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 258,
+					"matrix": 166
+				}
+			},
+			{
+				"bank": 0,
+				"id": 77,
+				"name": "Musical Theater",
+				"areaId": 10,
+				"areaName": "Musical Theater",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 77,
+					"parentId": 62,
+					"mapType": 9,
+					"tex": 233,
+					"matrix": 58
+				}
+			},
+			{
+				"bank": 0,
+				"id": 78,
+				"name": "Musical Theater",
+				"areaId": 10,
+				"areaName": "Musical Theater",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 78,
+					"parentId": 62,
+					"mapType": 9,
+					"tex": 233,
+					"matrix": 116
+				}
+			},
+			{
+				"bank": 0,
+				"id": 79,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 79,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 98
+				}
+			},
+			{
+				"bank": 0,
+				"id": 80,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 80,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 221
+				}
+			},
+			{
+				"bank": 0,
+				"id": 81,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 81,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 105
+				}
+			},
+			{
+				"bank": 0,
+				"id": 82,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 82,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 222
+				}
+			},
+			{
+				"bank": 0,
+				"id": 83,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 83,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 176
+				}
+			},
+			{
+				"bank": 0,
+				"id": 84,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 84,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 99
+				}
+			},
+			{
+				"bank": 0,
+				"id": 85,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 85,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 223
+				}
+			},
+			{
+				"bank": 0,
+				"id": 86,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 86,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 100
+				}
+			},
+			{
+				"bank": 0,
+				"id": 87,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 87,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 259,
+					"matrix": 220
+				}
+			},
+			{
+				"bank": 0,
+				"id": 88,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 88,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 89,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 89,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 27
+				}
+			},
+			{
+				"bank": 0,
+				"id": 90,
+				"name": "Nimbasa Gate",
+				"areaId": 11,
+				"areaName": "Nimbasa Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 90,
+					"parentId": 326,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 12
+				}
+			},
+			{
+				"bank": 0,
+				"id": 91,
+				"name": "Nimbasa Gate",
+				"areaId": 11,
+				"areaName": "Nimbasa Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 91,
+					"parentId": 329,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 92,
+				"name": "Nimbasa Gate",
+				"areaId": 11,
+				"areaName": "Nimbasa Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 92,
+					"parentId": 383,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 93,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 93,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 234,
+					"matrix": 241
+				}
+			},
+			{
+				"bank": 0,
+				"id": 94,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 94,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 95,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 95,
+					"parentId": 62,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 27
+				}
+			},
+			{
+				"bank": 0,
+				"id": 96,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 187,
+						"ay": 414,
+						"bx": 187,
+						"by": 414,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 96,
+					"parentId": 96,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 97,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 97,
+					"parentId": 96,
+					"mapType": 0,
+					"tex": 236,
+					"matrix": 61
+				}
+			},
+			{
+				"bank": 0,
+				"id": 98,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 98,
+					"parentId": 96,
+					"mapType": 0,
+					"tex": 236,
+					"matrix": 180
+				}
+			},
+			{
+				"bank": 0,
+				"id": 99,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 99,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 100,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 100,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 101,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 101,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 102,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 102,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 103,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 103,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 104,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 104,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 249,
+					"matrix": 59
+				}
+			},
+			{
+				"bank": 0,
+				"id": 105,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 105,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 250,
+					"matrix": 60
+				}
+			},
+			{
+				"bank": 0,
+				"id": 106,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 106,
+					"parentId": 96,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 107,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 96,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 108,
+						"ay": 306,
+						"bx": 108,
+						"by": 306,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 107,
+					"parentId": 107,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 108,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 108,
+					"parentId": 107,
+					"mapType": 0,
+					"tex": 237,
+					"matrix": 62
+				}
+			},
+			{
+				"bank": 0,
+				"id": 109,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 109,
+					"parentId": 107,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 110,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 110,
+					"parentId": 107,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 111,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 111,
+					"parentId": 107,
+					"mapType": 0,
+					"tex": 245,
+					"matrix": 63
+				}
+			},
+			{
+				"bank": 0,
+				"id": 112,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 112,
+					"parentId": 107,
+					"mapType": 0,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 113,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 184,
+						"ay": 197,
+						"bx": 184,
+						"by": 197,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 113,
+					"parentId": 113,
+					"mapType": 0,
+					"tex": 42,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 114,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 114,
+					"parentId": 113,
+					"mapType": 14,
+					"tex": 239,
+					"matrix": 64
+				}
+			},
+			{
+				"bank": 0,
+				"id": 115,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 115,
+					"parentId": 113,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 116,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 116,
+					"parentId": 113,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 117,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 117,
+					"parentId": 113,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 118,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 118,
+					"parentId": 113,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 119,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 119,
+					"parentId": 113,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 120,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 425,
+						"ay": 174,
+						"bx": 425,
+						"by": 174,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 120,
+					"parentId": 120,
+					"mapType": 0,
+					"tex": 50,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 121,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 121,
+					"parentId": 120,
+					"mapType": 14,
+					"tex": 240,
+					"matrix": 66
+				}
+			},
+			{
+				"bank": 0,
+				"id": 122,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 122,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 123,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 123,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 68
+				}
+			},
+			{
+				"bank": 0,
+				"id": 124,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 124,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 161
+				}
+			},
+			{
+				"bank": 0,
+				"id": 125,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 125,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 68
+				}
+			},
+			{
+				"bank": 0,
+				"id": 126,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 126,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 161
+				}
+			},
+			{
+				"bank": 0,
+				"id": 127,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 127,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 68
+				}
+			},
+			{
+				"bank": 0,
+				"id": 128,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 128,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 161
+				}
+			},
+			{
+				"bank": 0,
+				"id": 129,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 129,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 68
+				}
+			},
+			{
+				"bank": 0,
+				"id": 130,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 130,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 161
+				}
+			},
+			{
+				"bank": 0,
+				"id": 131,
+				"name": "Opelucid Gate",
+				"areaId": 16,
+				"areaName": "Opelucid Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 131,
+					"parentId": 348,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 132,
+				"name": "Opelucid Gate",
+				"areaId": 16,
+				"areaName": "Opelucid Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 132,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 12
+				}
+			},
+			{
+				"bank": 0,
+				"id": 133,
+				"name": "Opelucid Gate",
+				"areaId": 16,
+				"areaName": "Opelucid Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 133,
+					"parentId": 365,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 134,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 134,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 68
+				}
+			},
+			{
+				"bank": 0,
+				"id": 135,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 135,
+					"parentId": 120,
+					"mapType": 16,
+					"tex": 242,
+					"matrix": 161
+				}
+			},
+			{
+				"bank": 0,
+				"id": 136,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 19,
+						"ay": 49,
+						"bx": 19,
+						"by": 49,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 136,
+					"parentId": 136,
+					"mapType": 5,
+					"tex": 126,
+					"matrix": 87
+				}
+			},
+			{
+				"bank": 0,
+				"id": 137,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 32,
+						"ay": 46,
+						"bx": 32,
+						"by": 46,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 137,
+					"parentId": 136,
+					"mapType": 14,
+					"tex": 126,
+					"matrix": 210
+				}
+			},
+			{
+				"bank": 0,
+				"id": 138,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 30,
+						"ay": 83,
+						"bx": 30,
+						"by": 83,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 138,
+					"parentId": 136,
+					"mapType": 20,
+					"tex": 126,
+					"matrix": 211
+				}
+			},
+			{
+				"bank": 0,
+				"id": 139,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 30,
+						"ay": 32,
+						"bx": 30,
+						"by": 32,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 139,
+					"parentId": 136,
+					"mapType": 0,
+					"tex": 126,
+					"matrix": 219
+				}
+			},
+			{
+				"bank": 0,
+				"id": 140,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 140,
+					"parentId": 136,
+					"mapType": 15,
+					"tex": 243,
+					"matrix": 121
+				}
+			},
+			{
+				"bank": 0,
+				"id": 141,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 141,
+					"parentId": 136,
+					"mapType": 15,
+					"tex": 261,
+					"matrix": 122
+				}
+			},
+			{
+				"bank": 0,
+				"id": 142,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 142,
+					"parentId": 136,
+					"mapType": 15,
+					"tex": 262,
+					"matrix": 123
+				}
+			},
+			{
+				"bank": 0,
+				"id": 143,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 143,
+					"parentId": 136,
+					"mapType": 15,
+					"tex": 263,
+					"matrix": 124
+				}
+			},
+			{
+				"bank": 0,
+				"id": 144,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 144,
+					"parentId": 136,
+					"mapType": 16,
+					"tex": 247,
+					"matrix": 125
+				}
+			},
+			{
+				"bank": 0,
+				"id": 145,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 145,
+					"parentId": 136,
+					"mapType": 16,
+					"tex": 247,
+					"matrix": 126
+				}
+			},
+			{
+				"bank": 0,
+				"id": 146,
+				"name": "Pokémon League",
+				"areaId": 17,
+				"areaName": "Pokémon League",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 146,
+					"parentId": 136,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 54
+				}
+			},
+			{
+				"bank": 0,
+				"id": 147,
+				"name": "Unity Tower",
+				"areaId": 18,
+				"areaName": "Unity Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 395,
+						"ay": 748,
+						"bx": 395,
+						"by": 748,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 147,
+					"parentId": 147,
+					"mapType": 0,
+					"tex": 86,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 148,
+				"name": "Unity Tower",
+				"areaId": 18,
+				"areaName": "Unity Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 148,
+					"parentId": 147,
+					"mapType": 16,
+					"tex": 264,
+					"matrix": 168
+				}
+			},
+			{
+				"bank": 0,
+				"id": 149,
+				"name": "Unity Tower",
+				"areaId": 18,
+				"areaName": "Unity Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 149,
+					"parentId": 147,
+					"mapType": 16,
+					"tex": 264,
+					"matrix": 227
+				}
+			},
+			{
+				"bank": 0,
+				"id": 150,
+				"name": "－－－－－－－－－－",
+				"areaId": 19,
+				"areaName": "－－－－－－－－－－",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 150,
+					"parentId": 422,
+					"mapType": 6,
+					"tex": 253,
+					"matrix": 89
+				}
+			},
+			{
+				"bank": 0,
+				"id": 151,
+				"name": "－－－－－－－－－－",
+				"areaId": 19,
+				"areaName": "－－－－－－－－－－",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 151,
+					"parentId": 422,
+					"mapType": 6,
+					"tex": 253,
+					"matrix": 102
+				}
+			},
+			{
+				"bank": 0,
+				"id": 152,
+				"name": "Dreamyard",
+				"areaId": 20,
+				"areaName": "Dreamyard",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 152,
+					"parentId": 152,
+					"mapType": 16,
+					"tex": 102,
+					"matrix": 14
+				}
+			},
+			{
+				"bank": 0,
+				"id": 153,
+				"name": "Dreamyard",
+				"areaId": 20,
+				"areaName": "Dreamyard",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 153,
+					"parentId": 152,
+					"mapType": 16,
+					"tex": 218,
+					"matrix": 15
+				}
+			},
+			{
+				"bank": 0,
+				"id": 154,
+				"name": "Pinwheel Forest",
+				"areaId": 21,
+				"areaName": "Pinwheel Forest",
+				"type": null,
+				"width": 32,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 592,
+						"ay": 599,
+						"bx": 592,
+						"by": 599,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 154,
+					"parentId": 154,
+					"mapType": 0,
+					"tex": 10,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 155,
+				"name": "Pinwheel Forest",
+				"areaId": 21,
+				"areaName": "Pinwheel Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 155,
+					"parentId": 154,
+					"mapType": 0,
+					"tex": 106,
+					"matrix": 16
+				}
+			},
+			{
+				"bank": 0,
+				"id": 156,
+				"name": "Rumination Field",
+				"areaId": 22,
+				"areaName": "Rumination Field",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 156,
+					"parentId": 154,
+					"mapType": 16,
+					"tex": 106,
+					"matrix": 224
+				}
+			},
+			{
+				"bank": 0,
+				"id": 157,
+				"name": "Desert Resort",
+				"areaId": 23,
+				"areaName": "Desert Resort",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 371,
+						"ay": 499,
+						"bx": 371,
+						"by": 499,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 157,
+					"parentId": 157,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 158,
+				"name": "Desert Resort",
+				"areaId": 23,
+				"areaName": "Desert Resort",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 158,
+					"parentId": 157,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 103
+				}
+			},
+			{
+				"bank": 0,
+				"id": 159,
+				"name": "Route Gate",
+				"areaId": 24,
+				"areaName": "Route Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 159,
+					"parentId": 157,
+					"mapType": 0,
+					"tex": 244,
+					"matrix": 12
+				}
+			},
+			{
+				"bank": 0,
+				"id": 160,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 160,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 17
+				}
+			},
+			{
+				"bank": 0,
+				"id": 161,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 161,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 18
+				}
+			},
+			{
+				"bank": 0,
+				"id": 162,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 162,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 19
+				}
+			},
+			{
+				"bank": 0,
+				"id": 163,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 163,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 20
+				}
+			},
+			{
+				"bank": 0,
+				"id": 164,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 164,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 21
+				}
+			},
+			{
+				"bank": 0,
+				"id": 165,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 165,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 22
+				}
+			},
+			{
+				"bank": 0,
+				"id": 166,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 166,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 70
+				}
+			},
+			{
+				"bank": 0,
+				"id": 167,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 167,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 71
+				}
+			},
+			{
+				"bank": 0,
+				"id": 168,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 168,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 71
+				}
+			},
+			{
+				"bank": 0,
+				"id": 169,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 169,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 71
+				}
+			},
+			{
+				"bank": 0,
+				"id": 170,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 170,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 71
+				}
+			},
+			{
+				"bank": 0,
+				"id": 171,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 171,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 72
+				}
+			},
+			{
+				"bank": 0,
+				"id": 172,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 172,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 72
+				}
+			},
+			{
+				"bank": 0,
+				"id": 173,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 173,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 72
+				}
+			},
+			{
+				"bank": 0,
+				"id": 174,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 174,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 72
+				}
+			},
+			{
+				"bank": 0,
+				"id": 175,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 175,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 72
+				}
+			},
+			{
+				"bank": 0,
+				"id": 176,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 176,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 72
+				}
+			},
+			{
+				"bank": 0,
+				"id": 177,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 177,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 73
+				}
+			},
+			{
+				"bank": 0,
+				"id": 178,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 178,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 73
+				}
+			},
+			{
+				"bank": 0,
+				"id": 179,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 179,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 74
+				}
+			},
+			{
+				"bank": 0,
+				"id": 180,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 180,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 74
+				}
+			},
+			{
+				"bank": 0,
+				"id": 181,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 181,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 75
+				}
+			},
+			{
+				"bank": 0,
+				"id": 182,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 182,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 76
+				}
+			},
+			{
+				"bank": 0,
+				"id": 183,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 183,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 78
+				}
+			},
+			{
+				"bank": 0,
+				"id": 184,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 184,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 79
+				}
+			},
+			{
+				"bank": 0,
+				"id": 185,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 185,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 80
+				}
+			},
+			{
+				"bank": 0,
+				"id": 186,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 186,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 81
+				}
+			},
+			{
+				"bank": 0,
+				"id": 187,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 187,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 82
+				}
+			},
+			{
+				"bank": 0,
+				"id": 188,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 188,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 83
+				}
+			},
+			{
+				"bank": 0,
+				"id": 189,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 189,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 84
+				}
+			},
+			{
+				"bank": 0,
+				"id": 190,
+				"name": "Relic Castle",
+				"areaId": 25,
+				"areaName": "Relic Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 190,
+					"parentId": 160,
+					"mapType": 16,
+					"tex": 219,
+					"matrix": 85
+				}
+			},
+			{
+				"bank": 0,
+				"id": 191,
+				"name": "Cold Storage",
+				"areaId": 26,
+				"areaName": "Cold Storage",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 178,
+						"ay": 454,
+						"bx": 178,
+						"by": 454,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 191,
+					"parentId": 191,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 192,
+				"name": "Cold Storage",
+				"areaId": 26,
+				"areaName": "Cold Storage",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 192,
+					"parentId": 191,
+					"mapType": 16,
+					"tex": 220,
+					"matrix": 86
+				}
+			},
+			{
+				"bank": 0,
+				"id": 193,
+				"name": "Cold Storage",
+				"areaId": 26,
+				"areaName": "Cold Storage",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 193,
+					"parentId": 191,
+					"mapType": 16,
+					"tex": 220,
+					"matrix": 69
+				}
+			},
+			{
+				"bank": 0,
+				"id": 194,
+				"name": "Chargestone Cave",
+				"areaId": 27,
+				"areaName": "Chargestone Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 106,
+						"ay": 345,
+						"bx": 106,
+						"by": 345,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 194,
+					"parentId": 194,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 195,
+				"name": "Chargestone Cave",
+				"areaId": 27,
+				"areaName": "Chargestone Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 195,
+					"parentId": 194,
+					"mapType": 0,
+					"tex": 221,
+					"matrix": 23
+				}
+			},
+			{
+				"bank": 0,
+				"id": 196,
+				"name": "Chargestone Cave",
+				"areaId": 27,
+				"areaName": "Chargestone Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 196,
+					"parentId": 194,
+					"mapType": 16,
+					"tex": 221,
+					"matrix": 24
+				}
+			},
+			{
+				"bank": 0,
+				"id": 197,
+				"name": "Chargestone Cave",
+				"areaId": 27,
+				"areaName": "Chargestone Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 197,
+					"parentId": 194,
+					"mapType": 16,
+					"tex": 221,
+					"matrix": 25
+				}
+			},
+			{
+				"bank": 0,
+				"id": 198,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 145,
+						"ay": 210,
+						"bx": 145,
+						"by": 210,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 198,
+					"parentId": 198,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 199,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 199,
+					"parentId": 198,
+					"mapType": 16,
+					"tex": 110,
+					"matrix": 93
+				}
+			},
+			{
+				"bank": 0,
+				"id": 200,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 200,
+					"parentId": 198,
+					"mapType": 16,
+					"tex": 222,
+					"matrix": 94
+				}
+			},
+			{
+				"bank": 0,
+				"id": 201,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 201,
+					"parentId": 198,
+					"mapType": 16,
+					"tex": 222,
+					"matrix": 95
+				}
+			},
+			{
+				"bank": 0,
+				"id": 202,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 202,
+					"parentId": 198,
+					"mapType": 16,
+					"tex": 222,
+					"matrix": 96
+				}
+			},
+			{
+				"bank": 0,
+				"id": 203,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 203,
+					"parentId": 198,
+					"mapType": 16,
+					"tex": 222,
+					"matrix": 97
+				}
+			},
+			{
+				"bank": 0,
+				"id": 204,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 204,
+					"parentId": 198,
+					"mapType": 16,
+					"tex": 255,
+					"matrix": 91
+				}
+			},
+			{
+				"bank": 0,
+				"id": 205,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 175,
+						"ay": 151,
+						"bx": 175,
+						"by": 151,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 205,
+					"parentId": 205,
+					"mapType": 0,
+					"tex": 42,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 206,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 206,
+					"parentId": 205,
+					"mapType": 16,
+					"tex": 114,
+					"matrix": 207
+				}
+			},
+			{
+				"bank": 0,
+				"id": 207,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 207,
+					"parentId": 205,
+					"mapType": 16,
+					"tex": 223,
+					"matrix": 200
+				}
+			},
+			{
+				"bank": 0,
+				"id": 208,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 208,
+					"parentId": 205,
+					"mapType": 16,
+					"tex": 223,
+					"matrix": 201
+				}
+			},
+			{
+				"bank": 0,
+				"id": 209,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 209,
+					"parentId": 205,
+					"mapType": 7,
+					"tex": 223,
+					"matrix": 202
+				}
+			},
+			{
+				"bank": 0,
+				"id": 210,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 210,
+					"parentId": 205,
+					"mapType": 16,
+					"tex": 223,
+					"matrix": 203
+				}
+			},
+			{
+				"bank": 0,
+				"id": 211,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 211,
+					"parentId": 205,
+					"mapType": 7,
+					"tex": 223,
+					"matrix": 204
+				}
+			},
+			{
+				"bank": 0,
+				"id": 212,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 212,
+					"parentId": 205,
+					"mapType": 16,
+					"tex": 223,
+					"matrix": 205
+				}
+			},
+			{
+				"bank": 0,
+				"id": 213,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 213,
+					"parentId": 205,
+					"mapType": 16,
+					"tex": 223,
+					"matrix": 206
+				}
+			},
+			{
+				"bank": 0,
+				"id": 214,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 214,
+					"parentId": 214,
+					"mapType": 12,
+					"tex": 58,
+					"matrix": 162
+				}
+			},
+			{
+				"bank": 0,
+				"id": 215,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 215,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 151
+				}
+			},
+			{
+				"bank": 0,
+				"id": 216,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 216,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 152
+				}
+			},
+			{
+				"bank": 0,
+				"id": 217,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 217,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 153
+				}
+			},
+			{
+				"bank": 0,
+				"id": 218,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 218,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 154
+				}
+			},
+			{
+				"bank": 0,
+				"id": 219,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 219,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 155
+				}
+			},
+			{
+				"bank": 0,
+				"id": 220,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 220,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 156
+				}
+			},
+			{
+				"bank": 0,
+				"id": 221,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 221,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 157
+				}
+			},
+			{
+				"bank": 0,
+				"id": 222,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 222,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 158
+				}
+			},
+			{
+				"bank": 0,
+				"id": 223,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 223,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 159
+				}
+			},
+			{
+				"bank": 0,
+				"id": 224,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 224,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 194
+				}
+			},
+			{
+				"bank": 0,
+				"id": 225,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 225,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 195
+				}
+			},
+			{
+				"bank": 0,
+				"id": 226,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 226,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 196
+				}
+			},
+			{
+				"bank": 0,
+				"id": 227,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 227,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 197
+				}
+			},
+			{
+				"bank": 0,
+				"id": 228,
+				"name": "Victory Road",
+				"areaId": 30,
+				"areaName": "Victory Road",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 228,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 198
+				}
+			},
+			{
+				"bank": 0,
+				"id": 229,
+				"name": "Trial Chamber",
+				"areaId": 31,
+				"areaName": "Trial Chamber",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 229,
+					"parentId": 214,
+					"mapType": 16,
+					"tex": 224,
+					"matrix": 199
+				}
+			},
+			{
+				"bank": 0,
+				"id": 230,
+				"name": "Giant Chasm",
+				"areaId": 32,
+				"areaName": "Giant Chasm",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 687,
+						"ay": 153,
+						"bx": 687,
+						"by": 153,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 230,
+					"parentId": 230,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 231,
+				"name": "Giant Chasm",
+				"areaId": 32,
+				"areaName": "Giant Chasm",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 231,
+					"parentId": 230,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 184
+				}
+			},
+			{
+				"bank": 0,
+				"id": 232,
+				"name": "Giant Chasm",
+				"areaId": 32,
+				"areaName": "Giant Chasm",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 232,
+					"parentId": 230,
+					"mapType": 0,
+					"tex": 206,
+					"matrix": 250
+				}
+			},
+			{
+				"bank": 0,
+				"id": 233,
+				"name": "Giant Chasm",
+				"areaId": 32,
+				"areaName": "Giant Chasm",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 233,
+					"parentId": 230,
+					"mapType": 0,
+					"tex": 206,
+					"matrix": 251
+				}
+			},
+			{
+				"bank": 0,
+				"id": 234,
+				"name": "Giant Chasm",
+				"areaId": 32,
+				"areaName": "Giant Chasm",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 234,
+					"parentId": 230,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 252
+				}
+			},
+			{
+				"bank": 0,
+				"id": 235,
+				"name": "Liberty Garden",
+				"areaId": 33,
+				"areaName": "Liberty Garden",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 302,
+						"ay": 756,
+						"bx": 302,
+						"by": 756,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 235,
+					"parentId": 235,
+					"mapType": 19,
+					"tex": 86,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 236,
+				"name": "Liberty Garden",
+				"areaId": 33,
+				"areaName": "Liberty Garden",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 236,
+					"parentId": 235,
+					"mapType": 16,
+					"tex": 267,
+					"matrix": 239
+				}
+			},
+			{
+				"bank": 0,
+				"id": 237,
+				"name": "Liberty Garden",
+				"areaId": 33,
+				"areaName": "Liberty Garden",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 237,
+					"parentId": 235,
+					"mapType": 16,
+					"tex": 267,
+					"matrix": 240
+				}
+			},
+			{
+				"bank": 0,
+				"id": 238,
+				"name": "P2 Laboratory",
+				"areaId": 34,
+				"areaName": "P2 Laboratory",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 725,
+						"ay": 719,
+						"bx": 725,
+						"by": 719,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 238,
+					"parentId": 238,
+					"mapType": 0,
+					"tex": 122,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 239,
+				"name": "P2 Laboratory",
+				"areaId": 34,
+				"areaName": "P2 Laboratory",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 239,
+					"parentId": 238,
+					"mapType": 16,
+					"tex": 273,
+					"matrix": 191
+				}
+			},
+			{
+				"bank": 0,
+				"id": 240,
+				"name": "Undella Bay",
+				"areaId": 35,
+				"areaName": "Undella Bay",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 801,
+						"ay": 289,
+						"bx": 801,
+						"by": 289,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 240,
+					"parentId": 240,
+					"mapType": 0,
+					"tex": 70,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 241,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 241,
+					"parentId": 241,
+					"mapType": 7,
+					"tex": 268,
+					"matrix": 236
+				}
+			},
+			{
+				"bank": 0,
+				"id": 242,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 242,
+					"parentId": 241,
+					"mapType": 7,
+					"tex": 268,
+					"matrix": 244
+				}
+			},
+			{
+				"bank": 0,
+				"id": 243,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 243,
+					"parentId": 241,
+					"mapType": 7,
+					"tex": 268,
+					"matrix": 245
+				}
+			},
+			{
+				"bank": 0,
+				"id": 244,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 244,
+					"parentId": 241,
+					"mapType": 7,
+					"tex": 268,
+					"matrix": 246
+				}
+			},
+			{
+				"bank": 0,
+				"id": 245,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 245,
+					"parentId": 241,
+					"mapType": 0,
+					"tex": 268,
+					"matrix": 247
+				}
+			},
+			{
+				"bank": 0,
+				"id": 246,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 246,
+					"parentId": 241,
+					"mapType": 0,
+					"tex": 268,
+					"matrix": 248
+				}
+			},
+			{
+				"bank": 0,
+				"id": 247,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 247,
+					"parentId": 241,
+					"mapType": 0,
+					"tex": 268,
+					"matrix": 249
+				}
+			},
+			{
+				"bank": 0,
+				"id": 248,
+				"name": "Abyssal Ruins",
+				"areaId": 36,
+				"areaName": "Abyssal Ruins",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 248,
+					"parentId": 241,
+					"mapType": 0,
+					"tex": 268,
+					"matrix": 254
+				}
+			},
+			{
+				"bank": 0,
+				"id": 249,
+				"name": "Skyarrow Bridge",
+				"areaId": 37,
+				"areaName": "Skyarrow Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 249,
+					"parentId": 249,
+					"mapType": 1,
+					"tex": 14,
+					"matrix": 133
+				}
+			},
+			{
+				"bank": 0,
+				"id": 250,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 15,
+						"ay": 24,
+						"bx": 15,
+						"by": 24,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 250,
+					"parentId": 249,
+					"mapType": 16,
+					"tex": 118,
+					"matrix": 41
+				}
+			},
+			{
+				"bank": 0,
+				"id": 251,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 251,
+					"parentId": 249,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 137
+				}
+			},
+			{
+				"bank": 0,
+				"id": 252,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 252,
+					"parentId": 249,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 138
+				}
+			},
+			{
+				"bank": 0,
+				"id": 253,
+				"name": "Driftveil Drawbridge",
+				"areaId": 39,
+				"areaName": "Driftveil Drawbridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 20,
+						"ay": 48,
+						"bx": 20,
+						"by": 48,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 253,
+					"parentId": 253,
+					"mapType": 11,
+					"tex": 30,
+					"matrix": 106
+				}
+			},
+			{
+				"bank": 0,
+				"id": 254,
+				"name": "Tubeline Bridge",
+				"areaId": 40,
+				"areaName": "Tubeline Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 254,
+					"parentId": 254,
+					"mapType": 13,
+					"tex": 46,
+					"matrix": 136
+				}
+			},
+			{
+				"bank": 0,
+				"id": 255,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 255,
+					"parentId": 255,
+					"mapType": 18,
+					"tex": 62,
+					"matrix": 182
+				}
+			},
+			{
+				"bank": 0,
+				"id": 256,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 256,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 257,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 257,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 258,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 258,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 259,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 259,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 260,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 260,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 261,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 261,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 262,
+				"name": "Village Bridge",
+				"areaId": 41,
+				"areaName": "Village Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 262,
+					"parentId": 255,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 65
+				}
+			},
+			{
+				"bank": 0,
+				"id": 263,
+				"name": "Marvelous Bridge",
+				"areaId": 42,
+				"areaName": "Marvelous Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 263,
+					"parentId": 263,
+					"mapType": 11,
+					"tex": 82,
+					"matrix": 135
+				}
+			},
+			{
+				"bank": 0,
+				"id": 264,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 264,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 127
+				}
+			},
+			{
+				"bank": 0,
+				"id": 265,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 265,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 171
+				}
+			},
+			{
+				"bank": 0,
+				"id": 266,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 266,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 267,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 267,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 268,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 268,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 269,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 269,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 173
+				}
+			},
+			{
+				"bank": 0,
+				"id": 270,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 270,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 170
+				}
+			},
+			{
+				"bank": 0,
+				"id": 271,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 271,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 272,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 272,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 273,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 273,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 171
+				}
+			},
+			{
+				"bank": 0,
+				"id": 274,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 274,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 163
+				}
+			},
+			{
+				"bank": 0,
+				"id": 275,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 275,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 276,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 276,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 164
+				}
+			},
+			{
+				"bank": 0,
+				"id": 277,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 277,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 174
+				}
+			},
+			{
+				"bank": 0,
+				"id": 278,
+				"name": "N's Castle",
+				"areaId": 43,
+				"areaName": "N's Castle",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 278,
+					"parentId": 264,
+					"mapType": 16,
+					"tex": 248,
+					"matrix": 172
+				}
+			},
+			{
+				"bank": 0,
+				"id": 279,
+				"name": "Entralink",
+				"areaId": 44,
+				"areaName": "Entralink",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 279,
+					"parentId": 279,
+					"mapType": 3,
+					"tex": 98,
+					"matrix": 117
+				}
+			},
+			{
+				"bank": 0,
+				"id": 280,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 280,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 119
+				}
+			},
+			{
+				"bank": 0,
+				"id": 281,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 281,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 228
+				}
+			},
+			{
+				"bank": 0,
+				"id": 282,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 282,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 229
+				}
+			},
+			{
+				"bank": 0,
+				"id": 283,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 283,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 230
+				}
+			},
+			{
+				"bank": 0,
+				"id": 284,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 284,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 231
+				}
+			},
+			{
+				"bank": 0,
+				"id": 285,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 285,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 232
+				}
+			},
+			{
+				"bank": 0,
+				"id": 286,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 286,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 233
+				}
+			},
+			{
+				"bank": 0,
+				"id": 287,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 287,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 234
+				}
+			},
+			{
+				"bank": 0,
+				"id": 288,
+				"name": "Entree Forest",
+				"areaId": 45,
+				"areaName": "Entree Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 288,
+					"parentId": 279,
+					"mapType": 16,
+					"tex": 146,
+					"matrix": 235
+				}
+			},
+			{
+				"bank": 0,
+				"id": 289,
+				"name": "Nimbasa City",
+				"areaId": 7,
+				"areaName": "Nimbasa City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 434,
+						"ay": 468,
+						"bx": 434,
+						"by": 468,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 289,
+					"parentId": 289,
+					"mapType": 0,
+					"tex": 26,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 290,
+				"name": "Driftveil City",
+				"areaId": 12,
+				"areaName": "Driftveil City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 231,
+						"ay": 431,
+						"bx": 231,
+						"by": 431,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 290,
+					"parentId": 290,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 291,
+				"name": "Mistralton City",
+				"areaId": 13,
+				"areaName": "Mistralton City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 103,
+						"ay": 306,
+						"bx": 103,
+						"by": 306,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 291,
+					"parentId": 291,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 292,
+				"name": "Icirrus City",
+				"areaId": 14,
+				"areaName": "Icirrus City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 174,
+						"ay": 202,
+						"bx": 174,
+						"by": 202,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 292,
+					"parentId": 292,
+					"mapType": 0,
+					"tex": 42,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 293,
+				"name": "Opelucid City",
+				"areaId": 15,
+				"areaName": "Opelucid City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 401,
+						"ay": 182,
+						"bx": 401,
+						"by": 182,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 293,
+					"parentId": 293,
+					"mapType": 0,
+					"tex": 50,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 294,
+				"name": "Black City",
+				"areaId": 0,
+				"areaName": "Black City",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 294,
+					"parentId": 294,
+					"mapType": 4,
+					"tex": 74,
+					"matrix": 226
+				}
+			},
+			{
+				"bank": 0,
+				"id": 295,
+				"name": "White Forest",
+				"areaId": 46,
+				"areaName": "White Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 295,
+					"parentId": 295,
+					"mapType": 4,
+					"tex": 190,
+					"matrix": 225
+				}
+			},
+			{
+				"bank": 0,
+				"id": 296,
+				"name": "Cold Storage",
+				"areaId": 26,
+				"areaName": "Cold Storage",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 178,
+						"ay": 454,
+						"bx": 178,
+						"by": 454,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 296,
+					"parentId": 296,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 297,
+				"name": "Chargestone Cave",
+				"areaId": 27,
+				"areaName": "Chargestone Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 106,
+						"ay": 345,
+						"bx": 106,
+						"by": 345,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 297,
+					"parentId": 297,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 298,
+				"name": "Twist Mountain",
+				"areaId": 28,
+				"areaName": "Twist Mountain",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 145,
+						"ay": 210,
+						"bx": 145,
+						"by": 210,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 298,
+					"parentId": 298,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 299,
+				"name": "Dragonspiral Tower",
+				"areaId": 29,
+				"areaName": "Dragonspiral Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 175,
+						"ay": 151,
+						"bx": 175,
+						"by": 151,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 299,
+					"parentId": 299,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 300,
+				"name": "Giant Chasm",
+				"areaId": 32,
+				"areaName": "Giant Chasm",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 687,
+						"ay": 153,
+						"bx": 687,
+						"by": 153,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 300,
+					"parentId": 300,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 301,
+				"name": "Driftveil Drawbridge",
+				"areaId": 39,
+				"areaName": "Driftveil Drawbridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 20,
+						"ay": 48,
+						"bx": 20,
+						"by": 48,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 301,
+					"parentId": 301,
+					"mapType": 11,
+					"tex": 30,
+					"matrix": 106
+				}
+			},
+			{
+				"bank": 0,
+				"id": 302,
+				"name": "Tubeline Bridge",
+				"areaId": 40,
+				"areaName": "Tubeline Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 302,
+					"parentId": 302,
+					"mapType": 13,
+					"tex": 46,
+					"matrix": 136
+				}
+			},
+			{
+				"bank": 0,
+				"id": 303,
+				"name": "Marvelous Bridge",
+				"areaId": 42,
+				"areaName": "Marvelous Bridge",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 303,
+					"parentId": 303,
+					"mapType": 11,
+					"tex": 82,
+					"matrix": 135
+				}
+			},
+			{
+				"bank": 0,
+				"id": 304,
+				"name": "Route 5",
+				"areaId": 47,
+				"areaName": "Route 5",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 371,
+						"ay": 431,
+						"bx": 371,
+						"by": 431,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 304,
+					"parentId": 304,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 305,
+				"name": "Route 6",
+				"areaId": 48,
+				"areaName": "Route 6",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 152,
+						"ay": 404,
+						"bx": 152,
+						"by": 404,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 305,
+					"parentId": 305,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 306,
+				"name": "Route 7",
+				"areaId": 49,
+				"areaName": "Route 7",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 111,
+						"ay": 266,
+						"bx": 111,
+						"by": 266,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 306,
+					"parentId": 306,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 307,
+				"name": "Route 8",
+				"areaId": 50,
+				"areaName": "Route 8",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 213,
+						"ay": 185,
+						"bx": 213,
+						"by": 185,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 307,
+					"parentId": 307,
+					"mapType": 0,
+					"tex": 42,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 308,
+				"name": "Route 9",
+				"areaId": 51,
+				"areaName": "Route 9",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 326,
+						"ay": 173,
+						"bx": 326,
+						"by": 173,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 308,
+					"parentId": 308,
+					"mapType": 0,
+					"tex": 54,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 309,
+				"name": "Route 11",
+				"areaId": 52,
+				"areaName": "Route 11",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 456,
+						"ay": 184,
+						"bx": 456,
+						"by": 184,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 309,
+					"parentId": 309,
+					"mapType": 0,
+					"tex": 54,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 310,
+				"name": "Route 12",
+				"areaId": 53,
+				"areaName": "Route 12",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 588,
+						"ay": 184,
+						"bx": 588,
+						"by": 184,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 310,
+					"parentId": 310,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 311,
+				"name": "Route 13",
+				"areaId": 54,
+				"areaName": "Route 13",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 661,
+						"ay": 200,
+						"bx": 661,
+						"by": 200,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 311,
+					"parentId": 311,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 312,
+				"name": "Route 14",
+				"areaId": 55,
+				"areaName": "Route 14",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 718,
+						"ay": 333,
+						"bx": 718,
+						"by": 333,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 312,
+					"parentId": 312,
+					"mapType": 0,
+					"tex": 70,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 313,
+				"name": "Route 15",
+				"areaId": 56,
+				"areaName": "Route 15",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 628,
+						"ay": 434,
+						"bx": 628,
+						"by": 434,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 313,
+					"parentId": 313,
+					"mapType": 0,
+					"tex": 78,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 314,
+				"name": "Route 16",
+				"areaId": 57,
+				"areaName": "Route 16",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 458,
+						"ay": 431,
+						"bx": 458,
+						"by": 431,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 314,
+					"parentId": 314,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 315,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 645,
+						"ay": 179,
+						"bx": 645,
+						"by": 179,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 315,
+					"parentId": 315,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 316,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 724,
+						"ay": 307,
+						"bx": 724,
+						"by": 307,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 316,
+					"parentId": 316,
+					"mapType": 0,
+					"tex": 70,
+					"matrix": 175
+				}
+			},
+			{
+				"bank": 0,
+				"id": 317,
+				"name": "Route 1",
+				"areaId": 60,
+				"areaName": "Route 1",
+				"type": null,
+				"width": 32,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 787,
+						"ay": 731,
+						"bx": 787,
+						"by": 731,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 317,
+					"parentId": 317,
+					"mapType": 0,
+					"tex": 2,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 318,
+				"name": "Route Gate",
+				"areaId": 24,
+				"areaName": "Route Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 318,
+					"parentId": 317,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 319,
+				"name": "Route 2",
+				"areaId": 61,
+				"areaName": "Route 2",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 762,
+						"ay": 657,
+						"bx": 762,
+						"by": 657,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 319,
+					"parentId": 319,
+					"mapType": 0,
+					"tex": 6,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 320,
+				"name": "Accumula Gate",
+				"areaId": 62,
+				"areaName": "Accumula Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 320,
+					"parentId": 319,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 321,
+				"name": "Route 3",
+				"areaId": 63,
+				"areaName": "Route 3",
+				"type": null,
+				"width": 96,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 750,
+						"ay": 566,
+						"bx": 750,
+						"by": 566,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 321,
+					"parentId": 321,
+					"mapType": 0,
+					"tex": 6,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 322,
+				"name": "Route 3",
+				"areaId": 63,
+				"areaName": "Route 3",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 322,
+					"parentId": 321,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 53
+				}
+			},
+			{
+				"bank": 0,
+				"id": 323,
+				"name": "Route 3",
+				"areaId": 63,
+				"areaName": "Route 3",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 323,
+					"parentId": 321,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 28
+				}
+			},
+			{
+				"bank": 0,
+				"id": 324,
+				"name": "Wellspring Cave",
+				"areaId": 64,
+				"areaName": "Wellspring Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 324,
+					"parentId": 324,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 108
+				}
+			},
+			{
+				"bank": 0,
+				"id": 325,
+				"name": "Wellspring Cave",
+				"areaId": 64,
+				"areaName": "Wellspring Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 325,
+					"parentId": 324,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 109
+				}
+			},
+			{
+				"bank": 0,
+				"id": 326,
+				"name": "Route 4",
+				"areaId": 65,
+				"areaName": "Route 4",
+				"type": null,
+				"width": 32,
+				"height": 128,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 430,
+						"ay": 595,
+						"bx": 430,
+						"by": 595,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 326,
+					"parentId": 326,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 327,
+				"name": "Route 4",
+				"areaId": 65,
+				"areaName": "Route 4",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 327,
+					"parentId": 326,
+					"mapType": 16,
+					"tex": 255,
+					"matrix": 91
+				}
+			},
+			{
+				"bank": 0,
+				"id": 328,
+				"name": "Route 4",
+				"areaId": 65,
+				"areaName": "Route 4",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 328,
+					"parentId": 326,
+					"mapType": 16,
+					"tex": 255,
+					"matrix": 91
+				}
+			},
+			{
+				"bank": 0,
+				"id": 329,
+				"name": "Route 5",
+				"areaId": 47,
+				"areaName": "Route 5",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 371,
+						"ay": 431,
+						"bx": 371,
+						"by": 431,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 329,
+					"parentId": 329,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 330,
+				"name": "Route 5",
+				"areaId": 47,
+				"areaName": "Route 5",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 330,
+					"parentId": 329,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 65
+				}
+			},
+			{
+				"bank": 0,
+				"id": 331,
+				"name": "Route 6",
+				"areaId": 48,
+				"areaName": "Route 6",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 152,
+						"ay": 404,
+						"bx": 152,
+						"by": 404,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 331,
+					"parentId": 331,
+					"mapType": 0,
+					"tex": 34,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 332,
+				"name": "Route 6",
+				"areaId": 48,
+				"areaName": "Route 6",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 332,
+					"parentId": 331,
+					"mapType": 16,
+					"tex": 213,
+					"matrix": 92
+				}
+			},
+			{
+				"bank": 0,
+				"id": 333,
+				"name": "Mistralton Cave",
+				"areaId": 66,
+				"areaName": "Mistralton Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 333,
+					"parentId": 333,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 110
+				}
+			},
+			{
+				"bank": 0,
+				"id": 334,
+				"name": "Mistralton Cave",
+				"areaId": 66,
+				"areaName": "Mistralton Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 334,
+					"parentId": 333,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 111
+				}
+			},
+			{
+				"bank": 0,
+				"id": 335,
+				"name": "Guidance Chamber",
+				"areaId": 67,
+				"areaName": "Guidance Chamber",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 335,
+					"parentId": 333,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 112
+				}
+			},
+			{
+				"bank": 0,
+				"id": 336,
+				"name": "Route 6",
+				"areaId": 48,
+				"areaName": "Route 6",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 336,
+					"parentId": 331,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 337,
+				"name": "Route 7",
+				"areaId": 49,
+				"areaName": "Route 7",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 111,
+						"ay": 266,
+						"bx": 111,
+						"by": 266,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 337,
+					"parentId": 337,
+					"mapType": 0,
+					"tex": 38,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 338,
+				"name": "Celestial Tower",
+				"areaId": 68,
+				"areaName": "Celestial Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 338,
+					"parentId": 338,
+					"mapType": 14,
+					"tex": 251,
+					"matrix": 185
+				}
+			},
+			{
+				"bank": 0,
+				"id": 339,
+				"name": "Celestial Tower",
+				"areaId": 68,
+				"areaName": "Celestial Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 339,
+					"parentId": 338,
+					"mapType": 14,
+					"tex": 251,
+					"matrix": 186
+				}
+			},
+			{
+				"bank": 0,
+				"id": 340,
+				"name": "Celestial Tower",
+				"areaId": 68,
+				"areaName": "Celestial Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 340,
+					"parentId": 338,
+					"mapType": 14,
+					"tex": 251,
+					"matrix": 187
+				}
+			},
+			{
+				"bank": 0,
+				"id": 341,
+				"name": "Celestial Tower",
+				"areaId": 68,
+				"areaName": "Celestial Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 341,
+					"parentId": 338,
+					"mapType": 14,
+					"tex": 251,
+					"matrix": 188
+				}
+			},
+			{
+				"bank": 0,
+				"id": 342,
+				"name": "Celestial Tower",
+				"areaId": 68,
+				"areaName": "Celestial Tower",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 342,
+					"parentId": 338,
+					"mapType": 16,
+					"tex": 90,
+					"matrix": 189
+				}
+			},
+			{
+				"bank": 0,
+				"id": 343,
+				"name": "Route 7",
+				"areaId": 49,
+				"areaName": "Route 7",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 343,
+					"parentId": 337,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 344,
+				"name": "Route 7",
+				"areaId": 49,
+				"areaName": "Route 7",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 344,
+					"parentId": 337,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 345,
+				"name": "Route 8",
+				"areaId": 50,
+				"areaName": "Route 8",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 213,
+						"ay": 185,
+						"bx": 213,
+						"by": 185,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 345,
+					"parentId": 345,
+					"mapType": 0,
+					"tex": 42,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 346,
+				"name": "Moor of Icirrus",
+				"areaId": 69,
+				"areaName": "Moor of Icirrus",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 346,
+					"parentId": 346,
+					"mapType": 16,
+					"tex": 198,
+					"matrix": 183
+				}
+			},
+			{
+				"bank": 0,
+				"id": 347,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 347,
+					"parentId": 345,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 129
+				}
+			},
+			{
+				"bank": 0,
+				"id": 348,
+				"name": "Route 9",
+				"areaId": 51,
+				"areaName": "Route 9",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 326,
+						"ay": 173,
+						"bx": 326,
+						"by": 173,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 348,
+					"parentId": 348,
+					"mapType": 0,
+					"tex": 54,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 349,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 349,
+					"parentId": 348,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 129
+				}
+			},
+			{
+				"bank": 0,
+				"id": 350,
+				"name": "Shopping Mall",
+				"areaId": 70,
+				"areaName": "Shopping Mall",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 350,
+					"parentId": 348,
+					"mapType": 16,
+					"tex": 254,
+					"matrix": 90
+				}
+			},
+			{
+				"bank": 0,
+				"id": 351,
+				"name": "Shopping Mall",
+				"areaId": 70,
+				"areaName": "Shopping Mall",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 351,
+					"parentId": 348,
+					"mapType": 16,
+					"tex": 254,
+					"matrix": 141
+				}
+			},
+			{
+				"bank": 0,
+				"id": 352,
+				"name": "Challenger's Cave",
+				"areaId": 71,
+				"areaName": "Challenger's Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 352,
+					"parentId": 352,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 113
+				}
+			},
+			{
+				"bank": 0,
+				"id": 353,
+				"name": "Challenger's Cave",
+				"areaId": 71,
+				"areaName": "Challenger's Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 353,
+					"parentId": 352,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 114
+				}
+			},
+			{
+				"bank": 0,
+				"id": 354,
+				"name": "Challenger's Cave",
+				"areaId": 71,
+				"areaName": "Challenger's Cave",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 354,
+					"parentId": 352,
+					"mapType": 16,
+					"tex": 260,
+					"matrix": 115
+				}
+			},
+			{
+				"bank": 0,
+				"id": 355,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 96,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 424,
+						"ay": 119,
+						"bx": 424,
+						"by": 119,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 355,
+					"parentId": 355,
+					"mapType": 0,
+					"tex": 54,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 356,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 356,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 150,
+					"matrix": 142
+				}
+			},
+			{
+				"bank": 0,
+				"id": 357,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 357,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 154,
+					"matrix": 143
+				}
+			},
+			{
+				"bank": 0,
+				"id": 358,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 358,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 158,
+					"matrix": 144
+				}
+			},
+			{
+				"bank": 0,
+				"id": 359,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 359,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 162,
+					"matrix": 145
+				}
+			},
+			{
+				"bank": 0,
+				"id": 360,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 360,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 166,
+					"matrix": 146
+				}
+			},
+			{
+				"bank": 0,
+				"id": 361,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 361,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 170,
+					"matrix": 147
+				}
+			},
+			{
+				"bank": 0,
+				"id": 362,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 362,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 174,
+					"matrix": 148
+				}
+			},
+			{
+				"bank": 0,
+				"id": 363,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 363,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 178,
+					"matrix": 149
+				}
+			},
+			{
+				"bank": 0,
+				"id": 364,
+				"name": "Route 10",
+				"areaId": 72,
+				"areaName": "Route 10",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 16,
+						"bx": 16,
+						"by": 16,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 364,
+					"parentId": 355,
+					"mapType": 16,
+					"tex": 182,
+					"matrix": 150
+				}
+			},
+			{
+				"bank": 0,
+				"id": 365,
+				"name": "Route 11",
+				"areaId": 52,
+				"areaName": "Route 11",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 456,
+						"ay": 184,
+						"bx": 456,
+						"by": 184,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 365,
+					"parentId": 365,
+					"mapType": 0,
+					"tex": 54,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 366,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 366,
+					"parentId": 365,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 367,
+				"name": "Route 11",
+				"areaId": 52,
+				"areaName": "Route 11",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 367,
+					"parentId": 365,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 65
+				}
+			},
+			{
+				"bank": 0,
+				"id": 368,
+				"name": "Route 12",
+				"areaId": 53,
+				"areaName": "Route 12",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 588,
+						"ay": 184,
+						"bx": 588,
+						"by": 184,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 368,
+					"parentId": 368,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 369,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 369,
+					"parentId": 368,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 370,
+				"name": "Route 13",
+				"areaId": 54,
+				"areaName": "Route 13",
+				"type": null,
+				"width": 32,
+				"height": 128,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 661,
+						"ay": 200,
+						"bx": 661,
+						"by": 200,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 370,
+					"parentId": 370,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 371,
+				"name": "Route 13",
+				"areaId": 54,
+				"areaName": "Route 13",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 371,
+					"parentId": 370,
+					"mapType": 16,
+					"tex": 256,
+					"matrix": 47
+				}
+			},
+			{
+				"bank": 0,
+				"id": 372,
+				"name": "Undella Gate",
+				"areaId": 73,
+				"areaName": "Undella Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 372,
+					"parentId": 370,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 12
+				}
+			},
+			{
+				"bank": 0,
+				"id": 373,
+				"name": "Route 13",
+				"areaId": 54,
+				"areaName": "Route 13",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 373,
+					"parentId": 370,
+					"mapType": 16,
+					"tex": 256,
+					"matrix": 47
+				}
+			},
+			{
+				"bank": 0,
+				"id": 374,
+				"name": "Route 14",
+				"areaId": 55,
+				"areaName": "Route 14",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 718,
+						"ay": 333,
+						"bx": 718,
+						"by": 333,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 374,
+					"parentId": 374,
+					"mapType": 0,
+					"tex": 70,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 375,
+				"name": "Black Gate",
+				"areaId": 74,
+				"areaName": "Black Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 375,
+					"parentId": 374,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 12
+				}
+			},
+			{
+				"bank": 0,
+				"id": 376,
+				"name": "Abundant Shrine",
+				"areaId": 75,
+				"areaName": "Abundant Shrine",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 376,
+					"parentId": 376,
+					"mapType": 16,
+					"tex": 194,
+					"matrix": 190
+				}
+			},
+			{
+				"bank": 0,
+				"id": 377,
+				"name": "Abundant Shrine",
+				"areaId": 75,
+				"areaName": "Abundant Shrine",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 377,
+					"parentId": 376,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 378,
+				"name": "Route 15",
+				"areaId": 56,
+				"areaName": "Route 15",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 608,
+						"ay": 427,
+						"bx": 608,
+						"by": 427,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 378,
+					"parentId": 378,
+					"mapType": 0,
+					"tex": 78,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 379,
+				"name": "Black Gate",
+				"areaId": 74,
+				"areaName": "Black Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 379,
+					"parentId": 378,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 50
+				}
+			},
+			{
+				"bank": 0,
+				"id": 380,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 380,
+					"parentId": 378,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 131
+				}
+			},
+			{
+				"bank": 0,
+				"id": 381,
+				"name": "Poké Transfer Lab",
+				"areaId": 76,
+				"areaName": "Poké Transfer Lab",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 381,
+					"parentId": 381,
+					"mapType": 16,
+					"tex": 231,
+					"matrix": 140
+				}
+			},
+			{
+				"bank": 0,
+				"id": 382,
+				"name": "Route 15",
+				"areaId": 56,
+				"areaName": "Route 15",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 382,
+					"parentId": 378,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 65
+				}
+			},
+			{
+				"bank": 0,
+				"id": 383,
+				"name": "Route 16",
+				"areaId": 57,
+				"areaName": "Route 16",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 458,
+						"ay": 431,
+						"bx": 458,
+						"by": 431,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 383,
+					"parentId": 383,
+					"mapType": 0,
+					"tex": 22,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 384,
+				"name": "Bridge Gate",
+				"areaId": 38,
+				"areaName": "Bridge Gate",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 384,
+					"parentId": 383,
+					"mapType": 16,
+					"tex": 244,
+					"matrix": 130
+				}
+			},
+			{
+				"bank": 0,
+				"id": 385,
+				"name": "Lostlorn Forest",
+				"areaId": 77,
+				"areaName": "Lostlorn Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 385,
+					"parentId": 385,
+					"mapType": 16,
+					"tex": 202,
+					"matrix": 237
+				}
+			},
+			{
+				"bank": 0,
+				"id": 386,
+				"name": "Lostlorn Forest",
+				"areaId": 77,
+				"areaName": "Lostlorn Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 386,
+					"parentId": 385,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 65
+				}
+			},
+			{
+				"bank": 0,
+				"id": 387,
+				"name": "Route 18",
+				"areaId": 78,
+				"areaName": "Route 18",
+				"type": null,
+				"width": 64,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 662,
+						"ay": 758,
+						"bx": 662,
+						"by": 758,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 387,
+					"parentId": 387,
+					"mapType": 0,
+					"tex": 122,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 388,
+				"name": "Route 18",
+				"areaId": 78,
+				"areaName": "Route 18",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 388,
+					"parentId": 387,
+					"mapType": 16,
+					"tex": 255,
+					"matrix": 91
+				}
+			},
+			{
+				"bank": 0,
+				"id": 389,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 782,
+						"ay": 750,
+						"bx": 782,
+						"by": 750,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 389,
+					"parentId": 389,
+					"mapType": 0,
+					"tex": 2,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 390,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 390,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 212,
+					"matrix": 39
+				}
+			},
+			{
+				"bank": 0,
+				"id": 391,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 391,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 212,
+					"matrix": 40
+				}
+			},
+			{
+				"bank": 0,
+				"id": 392,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 392,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 212,
+					"matrix": 37
+				}
+			},
+			{
+				"bank": 0,
+				"id": 393,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 393,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 212,
+					"matrix": 38
+				}
+			},
+			{
+				"bank": 0,
+				"id": 394,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 394,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 212,
+					"matrix": 35
+				}
+			},
+			{
+				"bank": 0,
+				"id": 395,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 395,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 212,
+					"matrix": 36
+				}
+			},
+			{
+				"bank": 0,
+				"id": 396,
+				"name": "Nuvema Town",
+				"areaId": 79,
+				"areaName": "Nuvema Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 396,
+					"parentId": 389,
+					"mapType": 16,
+					"tex": 213,
+					"matrix": 42
+				}
+			},
+			{
+				"bank": 0,
+				"id": 397,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 796,
+						"ay": 659,
+						"bx": 796,
+						"by": 659,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 397,
+					"parentId": 397,
+					"mapType": 0,
+					"tex": 2,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 398,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 398,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 399,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 399,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 400,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 400,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 27
+				}
+			},
+			{
+				"bank": 0,
+				"id": 401,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 401,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 402,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 402,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 27
+				}
+			},
+			{
+				"bank": 0,
+				"id": 403,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 403,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 26
+				}
+			},
+			{
+				"bank": 0,
+				"id": 404,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 404,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 217,
+					"matrix": 32
+				}
+			},
+			{
+				"bank": 0,
+				"id": 405,
+				"name": "Accumula Town",
+				"areaId": 80,
+				"areaName": "Accumula Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 405,
+					"parentId": 397,
+					"mapType": 16,
+					"tex": 235,
+					"matrix": 45
+				}
+			},
+			{
+				"bank": 0,
+				"id": 406,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 660,
+						"ay": 186,
+						"bx": 660,
+						"by": 186,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 406,
+					"parentId": 406,
+					"mapType": 0,
+					"tex": 66,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 407,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 407,
+					"parentId": 406,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 408,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 408,
+					"parentId": 406,
+					"mapType": 16,
+					"tex": 256,
+					"matrix": 47
+				}
+			},
+			{
+				"bank": 0,
+				"id": 409,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 409,
+					"parentId": 406,
+					"mapType": 16,
+					"tex": 256,
+					"matrix": 47
+				}
+			},
+			{
+				"bank": 0,
+				"id": 410,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 410,
+					"parentId": 406,
+					"mapType": 16,
+					"tex": 256,
+					"matrix": 47
+				}
+			},
+			{
+				"bank": 0,
+				"id": 411,
+				"name": "Lacunosa Town",
+				"areaId": 58,
+				"areaName": "Lacunosa Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 411,
+					"parentId": 406,
+					"mapType": 16,
+					"tex": 256,
+					"matrix": 47
+				}
+			},
+			{
+				"bank": 0,
+				"id": 412,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 64,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 760,
+						"ay": 301,
+						"bx": 760,
+						"by": 301,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 412,
+					"parentId": 412,
+					"mapType": 0,
+					"tex": 70,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 413,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 413,
+					"parentId": 412,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 414,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 414,
+					"parentId": 412,
+					"mapType": 16,
+					"tex": 257,
+					"matrix": 104
+				}
+			},
+			{
+				"bank": 0,
+				"id": 415,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 415,
+					"parentId": 412,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 416,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 416,
+					"parentId": 412,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 417,
+				"name": "Undella Town",
+				"areaId": 59,
+				"areaName": "Undella Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 417,
+					"parentId": 412,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			},
+			{
+				"bank": 0,
+				"id": 418,
+				"name": "Anville Town",
+				"areaId": 81,
+				"areaName": "Anville Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 418,
+					"parentId": 418,
+					"mapType": 16,
+					"tex": 134,
+					"matrix": 128
+				}
+			},
+			{
+				"bank": 0,
+				"id": 419,
+				"name": "Anville Town",
+				"areaId": 81,
+				"areaName": "Anville Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 419,
+					"parentId": 418,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 420,
+				"name": "Anville Town",
+				"areaId": 81,
+				"areaName": "Anville Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 420,
+					"parentId": 418,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 421,
+				"name": "Anville Town",
+				"areaId": 81,
+				"areaName": "Anville Town",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 421,
+					"parentId": 418,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 46
+				}
+			},
+			{
+				"bank": 0,
+				"id": 422,
+				"name": "－－－－－－－－－－",
+				"areaId": 19,
+				"areaName": "－－－－－－－－－－",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 422,
+					"parentId": 422,
+					"mapType": 6,
+					"tex": 252,
+					"matrix": 88
+				}
+			},
+			{
+				"bank": 0,
+				"id": 423,
+				"name": "Route 17",
+				"areaId": 82,
+				"areaName": "Route 17",
+				"type": null,
+				"width": 32,
+				"height": 64,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 724,
+						"ay": 744,
+						"bx": 724,
+						"by": 744,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 423,
+					"parentId": 423,
+					"mapType": 0,
+					"tex": 122,
+					"matrix": 0
+				}
+			},
+			{
+				"bank": 0,
+				"id": 424,
+				"name": "White Forest",
+				"areaId": 46,
+				"areaName": "White Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [
+					{
+						"ax": 43,
+						"ay": 38,
+						"bx": 43,
+						"by": 38,
+						"rad": 5,
+						"name": "flySpot",
+						"attrs": {
+							"flyspot": true
+						}
+					}
+				],
+				"gamedata": {
+					"mapId": 424,
+					"parentId": 424,
+					"mapType": 4,
+					"tex": 190,
+					"matrix": 225
+				}
+			},
+			{
+				"bank": 0,
+				"id": 425,
+				"name": "White Forest",
+				"areaId": 46,
+				"areaName": "White Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 425,
+					"parentId": 424,
+					"mapType": 16,
+					"tex": 211,
+					"matrix": 13
+				}
+			},
+			{
+				"bank": 0,
+				"id": 426,
+				"name": "White Forest",
+				"areaId": 46,
+				"areaName": "White Forest",
+				"type": null,
+				"width": 32,
+				"height": 32,
+				"attrs": {},
+				"areas": [],
+				"gamedata": {
+					"mapId": 426,
+					"parentId": 424,
+					"mapType": 16,
+					"tex": 210,
+					"matrix": 44
+				}
+			}
+		]
+	],
+	"reports": []
+}
