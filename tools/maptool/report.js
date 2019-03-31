@@ -202,6 +202,7 @@ function posChanged(args) {
 		}
 		$('.summary [name=x]').text(args.x);
 		$('.summary [name=y]').text(args.y);
+		$('.summary [name=z]').text(args.z);
 		$('.quickBtns .leader').val(currNode.is('leader')||'');
 		$('.quickBtns .legendary').val(currNode.is('legendary')||'');
 		$('.quickBtns button').prop('disabled', false);
@@ -218,6 +219,7 @@ function posChanged(args) {
 		}
 		$('.summary [name=x]').text(NaN);
 		$('.summary [name=y]').text(NaN);
+		$('.summary [name=z]').text(NaN);
 		$('.quickBtns .leader').val('');
 		$('.quickBtns .legendary').val('');
 		$('.quickBtns button').prop('disabled', true);

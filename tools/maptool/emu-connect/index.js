@@ -48,15 +48,45 @@ const READ_GAME = {
 READ_GAME['Pokemon - Red Version (USA, Europe)'] = READ_GAME['red']; //alias
 
 class EmuConnect extends EventEmitter {
-	constructor() {
+	constructor(type='connect') {
 		super();
+		this.type = type;
 		this.last = {};
 	}
 	
 	listen() {
-		this._timer = setInterval(()=>{
-			this.getState();
-		}, 500);
+		if (this.type == 'connect') {
+			this.server = http.createServer((req, res)=>{
+				if (req.method === 'POST') {
+					let data = '';
+					req.setEncoding('utf8');
+					req.on('data', (chunk)=> data += chunk );
+					req.on('end', ()=>{
+						res.end();
+						this.setState(JSON.parse(data));
+					});
+					return;
+				}
+				res.statusCode = 418; //I am a teapot
+				res.end();
+			});
+			
+			this.server.listen(21345);
+			console.log("LISTENING 21345");
+		} else {
+			this._timer = setInterval(()=>{
+				this.getState();
+			}, 500);
+		}
+	}
+	close() {
+		if (this.type == 'connect') {
+			this.server.close();
+			this.server = null;
+		} else {
+			clearInterval(this._timer);
+			this._timer = null;
+		}
 	}
 	
 	pause() {
@@ -100,5 +130,7 @@ class EmuConnect extends EventEmitter {
 		});
 	}
 }
+EmuConnect.TYPE_CONNECT = 'connect';
+EmuConnect.TYPE_LISTEN = 'listen';
 
 module.exports = EmuConnect;

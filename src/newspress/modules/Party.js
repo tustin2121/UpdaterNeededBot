@@ -140,18 +140,20 @@ class PartyModule extends ReportingModule {
 			}
 			
 			// HP
-			if (prev.hp > 0 && curr.hp === 0) {
-				ledger.addItem(new MonFainted(curr));
-			} else if (prev.hp === 0 && curr.hp > 0) {
-				ledger.addItem(new MonRevived(curr));
-			}
-			if (curr.hp > prev.hp) {
-				ledger.addItem(new MonHealedHP(curr, prev.hp));
-			} else if (curr.hp < prev.hp) {
-				ledger.addItem(new MonLostHP(curr, prev.hp));
-			}
-			if (curr.status !== prev.status) {
-				ledger.addItem(new MonStatusChanged(curr, prev.status));
+			if (!this.config.supressHPUpdates) {
+				if (prev.hp > 0 && curr.hp === 0) {
+					ledger.addItem(new MonFainted(curr));
+				} else if (prev.hp === 0 && curr.hp > 0) {
+					ledger.addItem(new MonRevived(curr));
+				}
+				if (curr.hp > prev.hp) {
+					ledger.addItem(new MonHealedHP(curr, prev.hp));
+				} else if (curr.hp < prev.hp) {
+					ledger.addItem(new MonLostHP(curr, prev.hp));
+				}
+				if (curr.status !== prev.status) {
+					ledger.addItem(new MonStatusChanged(curr, prev.status));
+				}
 			}
 			//*
 			partyMaxHP += curr._hp[1];
@@ -164,7 +166,7 @@ class PartyModule extends ReportingModule {
 			//*/
 			
 			// Moves (Learns and PP)
-			{
+			if (!this.config.supressMoveUpdates) {
 				let movePairs = [];
 				for (let i = 0; i < 4; i++) {
 					let p = prev.moveInfo[i] || { id:0 };

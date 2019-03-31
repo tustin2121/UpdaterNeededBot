@@ -82,6 +82,7 @@ class Gen5TableReader {
 					mapType: Number.parseInt(line[COL_mapType], 10),
 					tex: Number.parseInt(line[COL_texture], 10),
 					matrix: Number.parseInt(line[COL_matrix], 10),
+					flags: Number.parseInt(line[COL_flags], 10),
 				},
 			});
 			let flySpot = [
@@ -104,6 +105,20 @@ class Gen5TableReader {
 				}
 				info.areaId = areaId;
 			}
+			mapData.push(info);
+			
+			const FLAG_0 = info.gamedata.flags & 0x01; //inside? route? gatehouse?
+			const FLAG_1 = info.gamedata.flags & 0x02; //
+			const FLAG_2 = info.gamedata.flags & 0x04; //overworld? gatehouse?
+			const FLAG_3 = info.gamedata.flags & 0x08; //inside? overworld? gatehouse?
+			const FLAG_4 = info.gamedata.flags & 0x10; //
+			const FLAG_5 = info.gamedata.flags & 0x20; //overworld?
+			const FLAG_6 = info.gamedata.flags & 0x40; //inside? overworld? gatehouse?
+			const FLAG_7 = info.gamedata.flags & 0x80; //overworld?
+			const HAS_POKEMON = Number.parseInt(line[COL_wildPokemon], 10) !== 65535;
+			
+			info.type = (FLAG_0)?'indoor' : 'default';
+			
 			if (info.gamedata.matrix === 0) {
 				// Attempt to find the width and height of this overworld map
 				for (let y = 0; y < this.matrix.length; y++) {
@@ -118,7 +133,14 @@ class Gen5TableReader {
 					break;
 				}
 			}
-			mapData.push(info);
+			else if (info.gamedata.matrix === 13) {
+				// Pokemon Center
+				info.type = 'center';
+			}
+			else if (info.gamedata.flags) {
+				
+			}
+			
 		});
 		return { mapData: [ mapData ] };
 	}

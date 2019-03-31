@@ -1,0 +1,349 @@
+{
+	"area_id": 18,
+	"area_name": "Route 103",
+	"badges": 0,
+	"ball_count": 0,
+	"battle_kind": "Wild",
+	"caught": 1,
+	"caught_list": [
+		207
+	],
+	"coins": 0,
+	"daycare": [],
+	"enemy_party": [
+		{
+			"active": true,
+			"buffs": {
+				"accuracy": 6,
+				"attack": 6,
+				"defense": 6,
+				"evasion": 6,
+				"hp": 6,
+				"special_attack": 7,
+				"special_defense": 7,
+				"speed": 6
+			},
+			"gender": "Female",
+			"health": [
+				303,
+				408
+			],
+			"moves": [
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"contest": {
+						"appeal": "\u2661\u2661\u2661",
+						"effect": "The appeal effect of this move is constant.",
+						"jamming": "",
+						"type": "Cute"
+					},
+					"id": 118,
+					"max_pp": 99,
+					"name": "Metronome",
+					"pp": 97,
+					"pp_up": 0,
+					"type": "Normal"
+				}
+			],
+			"name": "Wigglytuff",
+			"personality_value": 1225444531,
+			"shiny": false,
+			"shiny_value": 57809,
+			"species": {
+				"abilities": [
+					"Cute Charm",
+					"-------"
+				],
+				"base_stats": {
+					"attack": 70,
+					"defense": 45,
+					"hp": 140,
+					"special_attack": 75,
+					"special_defense": 50,
+					"speed": 45
+				},
+				"catch_rate": 50,
+				"egg_cycles": 10,
+				"egg_type1": "Fairy",
+				"egg_type2": "Fairy",
+				"gender_ratio": 191,
+				"growth_rate": "Fast",
+				"held_items": [],
+				"id": 40,
+				"name": "Wigglytuff",
+				"national_dex": 40,
+				"tm_moves": [],
+				"type1": "Normal",
+				"type2": "Normal"
+			}
+		}
+	],
+	"enemy_trainers": [],
+	"evolution_is_happening": false,
+	"game": "metronomesapphire",
+	"gender": "Female",
+	"id": 1228,
+	"in_battle": true,
+	"items": {
+		"balls": [],
+		"berries": [],
+		"items": [],
+		"key": [],
+		"pc": [],
+		"tms": []
+	},
+	"level_cap": 100,
+	"map_bank": 0,
+	"map_id": 18,
+	"map_name": "Route 103",
+	"money": 750,
+	"name": "MARINA",
+	"options": {
+		"battle_scene": "On",
+		"battle_style": "Set",
+		"button_mode": "Normal",
+		"frame": "1",
+		"map_zoom": "Full",
+		"sound": "Stereo",
+		"text_speed": "Fast"
+	},
+	"party": [
+		{
+			"ability": "Hyper Cutter",
+			"aiss_id": 52992,
+			"buffs": {
+				"accuracy": 6,
+				"attack": 6,
+				"defense": 6,
+				"evasion": 6,
+				"hp": 6,
+				"special_attack": 6,
+				"special_defense": 6,
+				"speed": 6
+			},
+			"checksum": 17199,
+			"condition": {
+				"beauty": 0,
+				"coolness": 0,
+				"cuteness": 0,
+				"feel": 0,
+				"smartness": 0,
+				"toughness": 0
+			},
+			"encryption_key": -639758352,
+			"evs": {
+				"attack": 0,
+				"defense": 0,
+				"hp": 0,
+				"special_attack": 0,
+				"special_defense": 0,
+				"speed": 0
+			},
+			"experience": {
+				"current": 1059860,
+				"next_level": 1093306,
+				"remaining": 33446,
+				"this_level": 1059860
+			},
+			"friendship": 74,
+			"gender": "Female",
+			"health": [
+				240,
+				240
+			],
+			"held_item": null,
+			"is_egg": false,
+			"ivs": {
+				"attack": 0,
+				"defense": 0,
+				"hp": 0,
+				"special_attack": 0,
+				"special_defense": 0,
+				"speed": 0
+			},
+			"language": "English",
+			"level": 100,
+			"marking": "",
+			"met": {
+				"area_id": 16,
+				"area_name": "Route 101",
+				"caught_in": "Pok\u00e9 Ball",
+				"game": "1",
+				"level": 100,
+				"map_id": 16
+			},
+			"moves": [
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"contest": {
+						"appeal": "\u2661\u2661\u2661",
+						"effect": "The appeal effect of this move is constant.",
+						"jamming": "",
+						"type": "Cute"
+					},
+					"id": 118,
+					"max_pp": 99,
+					"name": "Metronome",
+					"pp": 97,
+					"pp_up": 0,
+					"type": "Normal"
+				}
+			],
+			"name": "Gligar",
+			"nature": "Adamant",
+			"original_trainer": {
+				"id": 1228,
+				"name": "MARINA",
+				"secret": 24740
+			},
+			"personality_value": 3111783228,
+			"pokerus": {
+				"cured": false,
+				"days_left": 0,
+				"infected": false,
+				"strain": 0
+			},
+			"pokerus_remaining": 255,
+			"ribbons": [],
+			"shiny": false,
+			"shiny_value": 54830,
+			"sleep_turns": 0,
+			"species": {
+				"abilities": [
+					"Hyper Cutter",
+					"Sand Veil"
+				],
+				"base_stats": {
+					"attack": 75,
+					"defense": 105,
+					"hp": 65,
+					"special_attack": 35,
+					"special_defense": 65,
+					"speed": 85
+				},
+				"catch_rate": 60,
+				"egg_cycles": 20,
+				"egg_type1": "Bug",
+				"egg_type2": "Bug",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Slow",
+				"held_items": [],
+				"id": 207,
+				"name": "Gligar",
+				"national_dex": 207,
+				"tm_moves": [],
+				"type1": "Ground",
+				"type2": "Flying"
+			},
+			"stats": {
+				"attack": 170,
+				"defense": 215,
+				"hp": 240,
+				"special_attack": 67,
+				"special_defense": 135,
+				"speed": 175
+			},
+			"status": null,
+			"volatile_status": []
+		},
+		null,
+		null,
+		null,
+		null,
+		null
+	],
+	"pc": {
+		"boxes": [
+			{
+				"box_contents": [],
+				"box_name": "BOX1",
+				"box_number": 1
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX2",
+				"box_number": 2
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX3",
+				"box_number": 3
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX4",
+				"box_number": 4
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX5",
+				"box_number": 5
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX6",
+				"box_number": 6
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX7",
+				"box_number": 7
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX8",
+				"box_number": 8
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX9",
+				"box_number": 9
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX10",
+				"box_number": 10
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX11",
+				"box_number": 11
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX12",
+				"box_number": 12
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX13",
+				"box_number": 13
+			},
+			{
+				"box_contents": [],
+				"box_name": "BOX14",
+				"box_number": 14
+			}
+		]
+	},
+	"secret": 24740,
+	"security_key": 0,
+	"seen": 10,
+	"seen_list": [
+		40,
+		114,
+		117,
+		153,
+		194,
+		207,
+		309,
+		326,
+		344,
+		382
+	],
+	"transitioning": false,
+	"x": 14,
+	"y": 14
+}
