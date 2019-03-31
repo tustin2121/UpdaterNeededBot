@@ -126,11 +126,11 @@ function updateDiscordStatus() {
 	let status = (!!Bot.taggedIn)?'online':'idle';
 	dbot.user.setStatus(status).catch(ERR);
 	if (Bot.taggedIn) {
-		dbot.user.setActivity('the stream', { type:'WATCHING', url:'http://www.twitch.tv/twitchplayspokemon' }).catch(ERR);
+		lastActivity = ['the stream', { type:'WATCHING', url:'http://www.twitch.tv/twitchplayspokemon' }];
+		dbot.user.setActivity(...lastActivity).catch(ERR);
 	} else {
-		let activity = offActivities[Math.floor(Math.random()*offActivities.length)];
-		dbot.user.setActivity(...activity).catch(ERR);
-		lastActivity = activity;
+		lastActivity = offActivities[Math.floor(Math.random()*offActivities.length)];
+		dbot.user.setActivity(...lastActivity).catch(ERR);
 	}
 }
 
