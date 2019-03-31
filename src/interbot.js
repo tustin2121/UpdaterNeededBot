@@ -35,9 +35,9 @@ class IntermissionUpdaterBot extends BaseBot {
 		//TODO create a ReminderModule, which checks the time?
 		//TODO create a PostingModule, which can post things to the intermission live updater?
 		
-		if (until < 1 * MINUTES) {
+		if (until < -2 * MINUTES) {
 			this.memory.global.rebootRequested = true;
-			this.alertUpdaters(`Run is less than a minute away. Now rebooting into run mode, please wait...`, { bypassTagCheck:true });
+			this.alertUpdaters(`Run has started. Now rebooting into run mode, please wait...`, { bypassTagCheck:true });
 			setTimeout(()=>this.shutdown(), 500);
 			return;
 		}

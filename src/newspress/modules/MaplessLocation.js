@@ -19,7 +19,12 @@ class MaplessModule extends ReportingModule {
 	
 	firstPass(ledger, { prev_api:prev, curr_api:curr }) {
 		this.setDebug(LOGGER, ledger);
-		ledger.add(new LocationContext(curr.location));
+		let context = new LocationContext(curr.location);
+		ledger.add(context);
+		
+		if (prev.x !== curr.x || prev.y !== curr.y || prev.z !== curr.z) {
+			context.flavor = 'moving';
+		}
 		
 		this.debug(`curr=${curr.location} prev=${prev.location}`);
 		if (!curr.location.equals(prev.location)) {

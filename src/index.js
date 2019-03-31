@@ -65,7 +65,7 @@ process.on('SIGINT', ()=>{
 	Bot.shutdown();
 });
 
-if (TIME_TO_RUN < 1000*60) {
+if (TIME_TO_RUN < 0) {
 	// If there's still time before the run...
 	LOGGER.info(`Starting Intermission-Time UpdaterNeeded ${require('../package.json').version}.`);
 	const UpdaterBot = require('./interbot');

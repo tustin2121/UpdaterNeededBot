@@ -74,13 +74,13 @@ module.exports = {
 		Battle: {},
 		Politics: {},
 		Chat: {},
-		Timing: {
-			// The threshold amount of time without an update before the Timing module
-			// starts increasing importances
-			thresholdTicks: 5 * 15, //~15 minutes
-			// The amount per tick after the threshold that the importance should be increased.
-			promoteSlope: 0.01, //~0.05 importance per minute
-		},
+		// Timing: {
+		// 	// The threshold amount of time without an update before the Timing module
+		// 	// starts increasing importances
+		// 	thresholdTicks: 5 * 15, //~15 minutes
+		// 	// The amount per tick after the threshold that the importance should be increased.
+		// 	promoteSlope: 0.01, //~0.05 importance per minute
+		// },
 		// Phonebook: {},
 		// Options: {},
 		GameStats: {

@@ -53,7 +53,7 @@ const FLAGS = {
 	
 	play_by_play: { 
 		name: 'Play-By-Play',
-		default: true,
+		default: false,
 		purpose: `I will attempt to play-by-play important battles to the best of my ability.`,
 		match: /play(\-by\-play)?|battle ?state/,
 	},

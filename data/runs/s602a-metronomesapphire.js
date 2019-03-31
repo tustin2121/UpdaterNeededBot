@@ -6,13 +6,13 @@ module.exports = {
 	game0: {
 		name: "Metronome Sapphire",
 		base: "Sapphire",
-		gen: 5,
+		gen: 3,
 		// The region to use as the map
 		regionMap: 'gen3_emerald', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
-			secret: 0,
+			id: 1228,
+			secret: 24740,
 		},
 		// A list of game corrections and options
 		opts: {
@@ -114,6 +114,6 @@ module.exports = {
 		// 	reportNote: null,
 		// }, 
 		// RealTime: {},
-		PC: {},
+		// PC: {},
 	},
 };

@@ -450,7 +450,16 @@ MapChanged.__meta__ = { sort:-110 }; //After "Blackout!"
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module.exports = {
-	LocationContext: null, //TODO: Update for Timing Module
+	LocationContext: {
+		default: [
+			`Still hanging {{rand|around|about}} {{the location|@loc}}.`,
+			`Staring off into the distance {{in the location|@loc}}.`,
+		],
+		moving: [
+			`Still meandering {{rand|around|about}} {{the location|@loc}}.`,
+			`Walking {{rand|around|about}} {{the location|@loc}} still.`,
+		],
+	},
 	LocationChanged: {
 		// prev = the previous location
 		// curr = the current location
@@ -463,7 +472,25 @@ module.exports = {
 		],
 	},
 	
-	MapContext: null, //TODO: Update for Timing Module
+	MapContext: {
+		default: [
+			`Still hanging {{rand|around|about}} {{the location|@loc}}.`,
+			`Staring off into the distance {{in the location|@loc}}.`,
+			`{{if location is|town}}Currently loitering in town.`,
+			`{{if location is|gym}}Currently loitering in the gym.`,
+			`{{if location is|entralink}}Still trapped in the Entralink again, contemplating life.`,
+		],
+		moving: [
+			`Still meandering {{rand|around|about}} {{in the location|@loc}}.`,
+			`Walking {{rand|around|about}} {{in the location|@loc}} still.`,
+			`{{if location is|town}}Strolling {{rand|around|about}} town still.`,
+			`{{if location is|dungeon}}Making our way through {{the location|@loc}}.`,
+			`{{if location is|water}}{{$select surf mon}}Sailing about {{the location|@loc}} on the back of our {{mon}}.`,
+			// `{{if location is|underwater}}{{$select surf mon}}Admiring the seaweed forests from astride our {{mon}}.`,
+			`{{if location is|e4}}Still trying to find Koga.`,
+			`{{if location is|entralink}}Still trapped in the Entralink again.`,
+		],
+	},
 	MapChanged,
 	
 	CheckpointContext: null,

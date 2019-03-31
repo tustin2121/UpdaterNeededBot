@@ -20,7 +20,10 @@ class TimingModule extends ReportingModule {
 		
 		Bot.on('update', (text,ts,dest)=>{
 			if (dest !== 'tagged') return; //ignore non-tagged updates
-			this.memory.ticksSinceLastUpdate=0
+			this.memory.ticksSinceLastUpdate = 0;
+		});
+		Bot.on("cmd_resetTiming", ()=>{
+			this.memory.ticksSinceLastUpdate = 0;
 		});
 	}
 	
@@ -36,7 +39,7 @@ class TimingModule extends ReportingModule {
 	
 	finalPass(ledger) {
 		if (this.memory.ticksSinceLastUpdate < this.config.thresholdTicks) return;
-		let boost = (this.config.thresholdTicks - this.memory.ticksSinceLastUpdate) * this.config.promoteSlope;
+		let boost = (this.memory.ticksSinceLastUpdate - this.config.thresholdTicks) * this.config.promoteSlope;
 		for (let item of ledger.list) {
 			if (item.importance === 0) continue; //skip context-only items
 			if (item.isMarked(RULE_ID)) continue; //skip already boosted items

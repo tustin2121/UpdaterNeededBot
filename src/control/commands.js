@@ -209,6 +209,11 @@ const HANDLER = {
 		Bot.emit('cmd_forceAssumeTrainerId');
 		msg.channel.send(`Trainer ID will be assumed next update cycle.`).catch(ERR);
 	},
+	'cmd-resettiming': ({ msg })=>{
+		if (!Bot.runConfig) return;
+		Bot.emit('cmd_resetTiming');
+		msg.channel.send(`Timing module will be reset next update cycle.`).catch(ERR);
+	},
 	
 	'save-mem': ({ msg })=>{
 		Bot.saveMemory();
@@ -371,6 +376,7 @@ function parseCmd_RunCommands(cmd, authed, msg) {
 	if (/^clear temp(orary)? party$/.test(cmd) && authed) return ['cmd-clear-tempparty'];
 	if (/^reset (max )?(badge count|badges)$/.test(cmd) && authed) return ['cmd-resetbadge'];
 	if (/^assume trainer ?id$/.test(cmd) && authed) return ['cmd-assumetrainer'];
+	if (/^reset timing( ?module)?$/.test(cmd) && authed) return ['cmd-resettiming'];
 	
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];

@@ -57,7 +57,7 @@ class GameStatsModule extends ReportingModule {
 	}
 }
 
-HANDLERS = {
+Object.assign(HANDLERS, {
 	GameSaved(ledger, prev, curr) {
 		if (curr < this.memory.lastSave.count) {
 			ledger.addItem(new ApiDisturbance({
@@ -83,6 +83,6 @@ HANDLERS = {
 	},
 	
 	
-};
+});
 
 module.exports = GameStatsModule;

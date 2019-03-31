@@ -25,7 +25,8 @@ class LocationModule extends ReportingModule {
 	
 	firstPass(ledger, { prev_api, curr_api }) {
 		this.setDebug(LOGGER, ledger);
-		ledger.add(new LocationContext(curr_api.location));
+		let locCtx = new LocationContext(curr_api.location);
+		ledger.add(locCtx);
 		
 		let region = Bot.gameInfo().regionMap;
 		if (!(region instanceof MapRegion)) {
@@ -38,6 +39,10 @@ class LocationModule extends ReportingModule {
 		let prevMap = prev, prevArea = null, prevLoc = prev_api.location;
 		let currMap = curr, currArea = null, currLoc = curr_api.location;
 		
+		if (prevLoc.x !== currLoc.x || prevLoc.y !== currLoc.y || prevLoc.z !== currLoc.z) {
+			locCtx.flavor = 'moving';
+		}
+		
 		if (currMap instanceof MapArea) { currArea = currMap; currMap = currArea.parent; }
 		if (prevMap instanceof MapArea) { prevArea = prevMap; prevMap = prevArea.parent; }
 		
@@ -45,7 +50,9 @@ class LocationModule extends ReportingModule {
 			LOGGER.error(`No MapNode found!\n\tcurr => ${curr_api.location} => ${currMap}\n\tprev => ${prev_api.location} => ${prevMap}`);
 			return; //Can't continue without a map node...
 		}
-		ledger.add(new MapContext(currMap, currArea));
+		let mapCtx = new MapContext(currMap, currArea);
+		ledger.add(mapCtx);
+		mapCtx.flavor = locCtx.flavor;
 		
 		// Transit Reporting logic
 		if (currMap !== prevMap || currArea !== prevArea) {

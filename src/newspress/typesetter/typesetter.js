@@ -121,6 +121,29 @@ function printObject(obj) {
 		}
 	}
 	
+	function testLocationAttr(testArea) {
+		return function(attr, loc) {
+			let item = this._callMeta.top().item;
+			if (testArea) loc = loc || item.area;
+			loc = loc || item.loc || this.noun || this.subject;
+			if (!loc) {
+				LOGGER.error(`No location provided for testLocationAttr! => `, this._callMeta.top());
+				return false;
+			}
+			if (!attr) {
+				LOGGER.error(`No attribute provided for testLocationAttr! => `, this._callMeta.top());
+				return false;
+			}
+			if (!(loc.has === loc.is)) { //test for the attribute test functions
+				LOGGER.warn('testLocationAttr must take a location!');
+				return false; //error
+			}
+			if (this._setNoun) this.noun = loc;
+			if (this._setSubject) this.subject = loc;
+			return !!loc.has(attr);
+		};
+	}
+	
 	function determineOnIn(captial=false) {
 		const cap = (captial)? (p)=> p.charAt(0).toUpperCase() + p.substr(1) : (p)=>p;
 		return function(obj) {
@@ -149,6 +172,11 @@ function printObject(obj) {
 		'Onto the location': printLocationPhrase(true, 'to'),
 		'the location': printLocationPhrase(false, false),
 		'The location': printLocationPhrase(true, false),
+		
+		'if location is': testLocationAttr(false),
+		'if location has': testLocationAttr(false),
+		'if area is': testLocationAttr(true),
+		'if area has': testLocationAttr(true),
 	});
 }
 

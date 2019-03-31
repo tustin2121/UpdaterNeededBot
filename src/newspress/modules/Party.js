@@ -266,7 +266,9 @@ class PartyModule extends ReportingModule {
 			if (prev_api.battle.in_battle && !curr_api.battle.in_battle) blackoutIndicators++;
 			
 			if (partyHP === partyMaxHP) {
-				ledger.addItem(new FullHealed(null));
+				if (!this.config.supressHPUpdates) {
+					ledger.addItem(new FullHealed(null));
+				}
 				if (blackoutIndicators >= 3) {
 					ledger.addItem(new Blackout());
 				}
