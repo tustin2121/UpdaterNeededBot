@@ -2932,7 +2932,7 @@
 			{
 				"bank": 16,
 				"id": 0,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Sidney's Room",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
@@ -2947,7 +2947,7 @@
 			{
 				"bank": 16,
 				"id": 1,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Phoebe's Room",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
@@ -2962,7 +2962,7 @@
 			{
 				"bank": 16,
 				"id": 2,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Glacia's Room",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
@@ -2977,7 +2977,7 @@
 			{
 				"bank": 16,
 				"id": 3,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Drake's Room",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
@@ -2992,78 +2992,90 @@
 			{
 				"bank": 16,
 				"id": 4,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Champion's Chamber",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
 				"width": 13,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"e4": "champ"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 16,
 				"id": 5,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Hallway",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
 				"width": 11,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"e4": "e2"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 16,
 				"id": 6,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Hallway",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
 				"width": 11,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"e4": "e3"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 16,
 				"id": 7,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Hallway",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
 				"width": 11,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"e4": "e4"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 16,
 				"id": 8,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Hallway",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
 				"width": 11,
 				"height": 34,
-				"attrs": {},
+				"attrs": {
+					"e4": "champ"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
 			{
 				"bank": 16,
 				"id": 9,
-				"name": "Ever Grande City",
+				"name": "Ever Grande - Hallway",
 				"areaId": 15,
 				"areaName": "Ever Grande City",
 				"type": "indoor",
 				"width": 11,
 				"height": 13,
-				"attrs": {},
+				"attrs": {
+					"e4": "e1"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -3076,7 +3088,9 @@
 				"type": "indoor",
 				"width": 19,
 				"height": 12,
-				"attrs": {},
+				"attrs": {
+					"e4": "lobby"
+				},
 				"areas": [],
 				"gamedata": {}
 			},
@@ -3089,7 +3103,9 @@
 				"type": "indoor",
 				"width": 15,
 				"height": 17,
-				"attrs": {},
+				"attrs": {
+					"e4": "hallOfFame"
+				},
 				"areas": [],
 				"gamedata": {}
 			},

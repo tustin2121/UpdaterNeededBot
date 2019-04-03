@@ -4,6 +4,8 @@
 const { ReportingModule, Rule } = require('./_base');
 const { TimingBoostActive } = require('../ledger');
 
+const LOGGER = getLogger('Timing');
+
 const RULE_ID = { name:"__TimingModule__" };
 const RULES = [];
 
@@ -40,6 +42,10 @@ class TimingModule extends ReportingModule {
 	finalPass(ledger) {
 		if (this.memory.ticksSinceLastUpdate < this.config.thresholdTicks) return;
 		let boost = (this.memory.ticksSinceLastUpdate - this.config.thresholdTicks) * this.config.promoteSlope;
+		if (boost < 0) {
+			LOGGER.fatal('ASSERTION FAILED! Timing Module is making things worse!');
+			return;
+		}
 		for (let item of ledger.list) {
 			if (item.importance === 0) continue; //skip context-only items
 			if (item.isMarked(RULE_ID)) continue; //skip already boosted items
