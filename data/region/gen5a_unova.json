@@ -53,8 +53,8 @@
 			"attrs": {
 				"indoors": true,
 				"town": true,
-				"the": "",
-				"preposition": "on"
+				"the": "the",
+				"preposition": "in"
 			},
 			"areas": []
 		},
@@ -81,54 +81,21 @@
 			},
 			"areas": [
 				{
-					"ax": 2,
-					"ay": 2,
-					"bx": 2,
-					"by": 2,
+					"ax": 4,
+					"ay": 12,
+					"bx": 4,
+					"by": 12,
 					"rad": 5,
 					"name": "pc",
 					"attrs": {
 						"pc": true
 					}
-				}
-			]
-		},
-		"center2": {
-			"type": "center2",
-			"attrs": {
-				"indoors": true,
-				"the": "the",
-				"preposition": "in",
-				"floor": 2
-			},
-			"areas": [
+				},
 				{
-					"ax": 2,
-					"ay": 2,
-					"bx": 2,
-					"by": 2,
-					"rad": 5,
-					"name": "pc",
-					"attrs": {
-						"pc": true
-					}
-				}
-			]
-		},
-		"mart": {
-			"type": "mart",
-			"attrs": {
-				"indoors": true,
-				"shopping": true,
-				"the": "the",
-				"preposition": "in"
-			},
-			"areas": [
-				{
-					"ax": 2,
-					"ay": 2,
-					"bx": 2,
-					"by": 2,
+					"ax": 9,
+					"ay": 16,
+					"bx": 9,
+					"by": 18,
 					"rad": 5,
 					"name": "shopping",
 					"attrs": {
@@ -136,6 +103,14 @@
 					}
 				}
 			]
+		},
+		"bridge": {
+			"type": "bridge",
+			"attrs": {
+				"preposition": "on",
+				"the": ""
+			},
+			"areas": []
 		},
 		"gym": {
 			"type": "gym",
@@ -165,7 +140,7 @@
 				"name": "Black City",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -187,16 +162,17 @@
 					"parentId": 0,
 					"mapType": 4,
 					"tex": 74,
-					"matrix": 226
+					"matrix": 226,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 1,
-				"name": "Black City",
+				"name": "Black City Pokémon Center",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -206,7 +182,8 @@
 					"parentId": 0,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -215,7 +192,7 @@
 				"name": "Black City",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -225,7 +202,8 @@
 					"parentId": 0,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 209
+					"matrix": 209,
+					"flags": 73
 				}
 			},
 			{
@@ -234,7 +212,7 @@
 				"name": "Black City",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -244,7 +222,8 @@
 					"parentId": 0,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 209
+					"matrix": 209,
+					"flags": 73
 				}
 			},
 			{
@@ -253,7 +232,7 @@
 				"name": "Black City",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -263,7 +242,8 @@
 					"parentId": 0,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 209
+					"matrix": 209,
+					"flags": 73
 				}
 			},
 			{
@@ -272,7 +252,7 @@
 				"name": "Black City",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -282,7 +262,8 @@
 					"parentId": 0,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 213
+					"matrix": 213,
+					"flags": 73
 				}
 			},
 			{
@@ -291,7 +272,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "town",
 				"width": 96,
 				"height": 32,
 				"attrs": {},
@@ -313,7 +294,8 @@
 					"parentId": 6,
 					"mapType": 0,
 					"tex": 6,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -322,7 +304,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -332,16 +314,17 @@
 					"parentId": 6,
 					"mapType": 0,
 					"tex": 214,
-					"matrix": 51
+					"matrix": 51,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 8,
-				"name": "Striaton City",
+				"name": "Striaton City Pokémon Center",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -351,7 +334,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -360,7 +344,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -370,7 +354,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -379,7 +364,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -389,7 +374,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 213,
-					"matrix": 134
+					"matrix": 134,
+					"flags": 73
 				}
 			},
 			{
@@ -398,7 +384,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -408,7 +394,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -417,7 +404,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -427,7 +414,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 27
+					"matrix": 27,
+					"flags": 73
 				}
 			},
 			{
@@ -436,7 +424,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -446,7 +434,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -455,7 +444,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -465,7 +454,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 32
+					"matrix": 32,
+					"flags": 73
 				}
 			},
 			{
@@ -474,7 +464,7 @@
 				"name": "Striaton City",
 				"areaId": 1,
 				"areaName": "Striaton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -484,7 +474,8 @@
 					"parentId": 6,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 29
+					"matrix": 29,
+					"flags": 73
 				}
 			},
 			{
@@ -493,7 +484,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "town",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -515,7 +506,8 @@
 					"parentId": 16,
 					"mapType": 0,
 					"tex": 10,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -524,7 +516,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -534,7 +526,8 @@
 					"parentId": 16,
 					"mapType": 0,
 					"tex": 215,
-					"matrix": 52
+					"matrix": 52,
+					"flags": 73
 				}
 			},
 			{
@@ -543,7 +536,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -553,7 +546,8 @@
 					"parentId": 16,
 					"mapType": 0,
 					"tex": 229,
-					"matrix": 55
+					"matrix": 55,
+					"flags": 73
 				}
 			},
 			{
@@ -562,7 +556,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -572,16 +566,17 @@
 					"parentId": 16,
 					"mapType": 0,
 					"tex": 229,
-					"matrix": 120
+					"matrix": 120,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 20,
-				"name": "Nacrene City",
+				"name": "Nacrene City Pokémon Center",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -591,7 +586,8 @@
 					"parentId": 16,
 					"mapType": 0,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -600,7 +596,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -610,7 +606,8 @@
 					"parentId": 16,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 169
+					"matrix": 169,
+					"flags": 73
 				}
 			},
 			{
@@ -619,7 +616,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -629,7 +626,8 @@
 					"parentId": 16,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 31
+					"matrix": 31,
+					"flags": 73
 				}
 			},
 			{
@@ -638,7 +636,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -648,7 +646,8 @@
 					"parentId": 16,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 31
+					"matrix": 31,
+					"flags": 73
 				}
 			},
 			{
@@ -657,7 +656,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -667,7 +666,8 @@
 					"parentId": 16,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 31
+					"matrix": 31,
+					"flags": 73
 				}
 			},
 			{
@@ -676,7 +676,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -686,7 +686,8 @@
 					"parentId": 16,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 49
+					"matrix": 49,
+					"flags": 73
 				}
 			},
 			{
@@ -695,7 +696,7 @@
 				"name": "Nacrene City",
 				"areaId": 2,
 				"areaName": "Nacrene City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -705,7 +706,8 @@
 					"parentId": 16,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 30
+					"matrix": 30,
+					"flags": 73
 				}
 			},
 			{
@@ -714,7 +716,7 @@
 				"name": "Nacrene Gate",
 				"areaId": 3,
 				"areaName": "Nacrene Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -724,16 +726,17 @@
 					"parentId": 321,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
 				"bank": 0,
 				"id": 28,
-				"name": "Castelia City",
+				"name": "Castelia City (Outer Street)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -755,16 +758,17 @@
 					"parentId": 28,
 					"mapType": 2,
 					"tex": 18,
-					"matrix": 132
+					"matrix": 132,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 29,
-				"name": "Castelia City",
+				"name": "Castelia City Gym",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -774,16 +778,17 @@
 					"parentId": 28,
 					"mapType": 0,
 					"tex": 230,
-					"matrix": 56
+					"matrix": 56,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 30,
-				"name": "Castelia City",
+				"name": "Castelia City (Central Plaza)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -793,16 +798,17 @@
 					"parentId": 28,
 					"mapType": 14,
 					"tex": 186,
-					"matrix": 1
+					"matrix": 1,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 31,
-				"name": "Castelia City",
+				"name": "Castelia City (Gym Street)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -812,16 +818,17 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 186,
-					"matrix": 2
+					"matrix": 2,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 32,
-				"name": "Castelia City",
+				"name": "Castelia City (North Street)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -831,16 +838,17 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 186,
-					"matrix": 3
+					"matrix": 3,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 33,
-				"name": "Castelia City",
+				"name": "Castelia City (Mode Street)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -850,16 +858,17 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 186,
-					"matrix": 4
+					"matrix": 4,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 34,
-				"name": "Castelia City",
+				"name": "Castelia City (Castelia Street)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -869,16 +878,17 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 186,
-					"matrix": 5
+					"matrix": 5,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 35,
-				"name": "Castelia City",
+				"name": "Castelia City (Narrow Street)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -888,16 +898,17 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 186,
-					"matrix": 6
+					"matrix": 6,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 36,
-				"name": "Castelia City",
+				"name": "Castelia City (Liberty Pier)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -907,16 +918,17 @@
 					"parentId": 28,
 					"mapType": 7,
 					"tex": 186,
-					"matrix": 7
+					"matrix": 7,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 37,
-				"name": "Castelia City",
+				"name": "Castelia City (Unity Pier)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -926,16 +938,17 @@
 					"parentId": 28,
 					"mapType": 0,
 					"tex": 186,
-					"matrix": 8
+					"matrix": 8,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 38,
-				"name": "Castelia City",
+				"name": "Castelia City (Prime Pier)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -945,16 +958,17 @@
 					"parentId": 28,
 					"mapType": 0,
 					"tex": 186,
-					"matrix": 9
+					"matrix": 9,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 39,
-				"name": "Castelia City",
+				"name": "Castelia City (Cruise Dock)",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -964,35 +978,40 @@
 					"parentId": 28,
 					"mapType": 0,
 					"tex": 186,
-					"matrix": 10
+					"matrix": 10,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 40,
-				"name": "Castelia City",
+				"name": "Castelia City Pier",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on",
+					"the": "a"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 40,
 					"parentId": 28,
 					"mapType": 0,
 					"tex": 186,
-					"matrix": 11
+					"matrix": 11,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 41,
-				"name": "Castelia City",
+				"name": "Castelia City Pokémon Center",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1002,7 +1021,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -1011,7 +1031,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1021,7 +1041,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 266,
-					"matrix": 177
+					"matrix": 177,
+					"flags": 73
 				}
 			},
 			{
@@ -1030,7 +1051,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1040,7 +1061,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 216,
-					"matrix": 48
+					"matrix": 48,
+					"flags": 73
 				}
 			},
 			{
@@ -1049,7 +1071,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1059,7 +1081,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 33
+					"matrix": 33,
+					"flags": 73
 				}
 			},
 			{
@@ -1068,7 +1091,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1078,7 +1101,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 34
+					"matrix": 34,
+					"flags": 73
 				}
 			},
 			{
@@ -1087,7 +1111,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1097,7 +1121,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 43
+					"matrix": 43,
+					"flags": 73
 				}
 			},
 			{
@@ -1106,7 +1131,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1116,7 +1141,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 269,
-					"matrix": 243
+					"matrix": 243,
+					"flags": 73
 				}
 			},
 			{
@@ -1125,7 +1151,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1135,7 +1161,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 43
+					"matrix": 43,
+					"flags": 73
 				}
 			},
 			{
@@ -1144,7 +1171,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1154,7 +1181,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 33
+					"matrix": 33,
+					"flags": 73
 				}
 			},
 			{
@@ -1163,7 +1191,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1173,7 +1201,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 43
+					"matrix": 43,
+					"flags": 73
 				}
 			},
 			{
@@ -1182,7 +1211,7 @@
 				"name": "Castelia Gate",
 				"areaId": 5,
 				"areaName": "Castelia Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1192,7 +1221,8 @@
 					"parentId": 326,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 139
+					"matrix": 139,
+					"flags": 77
 				}
 			},
 			{
@@ -1201,7 +1231,7 @@
 				"name": "Royal Unova",
 				"areaId": 6,
 				"areaName": "Royal Unova",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1211,7 +1241,8 @@
 					"parentId": 28,
 					"mapType": 17,
 					"tex": 265,
-					"matrix": 179
+					"matrix": 179,
+					"flags": 9
 				}
 			},
 			{
@@ -1220,7 +1251,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1230,7 +1261,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 270,
-					"matrix": 192
+					"matrix": 192,
+					"flags": 73
 				}
 			},
 			{
@@ -1239,7 +1271,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1249,7 +1281,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 33
+					"matrix": 33,
+					"flags": 73
 				}
 			},
 			{
@@ -1258,7 +1291,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1268,7 +1301,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 43
+					"matrix": 43,
+					"flags": 73
 				}
 			},
 			{
@@ -1277,7 +1311,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1287,7 +1321,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 33
+					"matrix": 33,
+					"flags": 73
 				}
 			},
 			{
@@ -1296,7 +1331,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1306,7 +1341,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 43
+					"matrix": 43,
+					"flags": 73
 				}
 			},
 			{
@@ -1315,7 +1351,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1325,7 +1361,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 33
+					"matrix": 33,
+					"flags": 73
 				}
 			},
 			{
@@ -1334,7 +1371,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1344,7 +1381,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 34
+					"matrix": 34,
+					"flags": 73
 				}
 			},
 			{
@@ -1353,7 +1391,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1363,7 +1401,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 33
+					"matrix": 33,
+					"flags": 73
 				}
 			},
 			{
@@ -1372,7 +1411,7 @@
 				"name": "Castelia City",
 				"areaId": 4,
 				"areaName": "Castelia City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1382,7 +1421,8 @@
 					"parentId": 28,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 34
+					"matrix": 34,
+					"flags": 73
 				}
 			},
 			{
@@ -1391,7 +1431,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "town",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -1413,16 +1453,17 @@
 					"parentId": 62,
 					"mapType": 0,
 					"tex": 26,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 63,
-				"name": "Nimbasa City",
+				"name": "Nimbasa City Gym",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1432,7 +1473,8 @@
 					"parentId": 62,
 					"mapType": 10,
 					"tex": 232,
-					"matrix": 57
+					"matrix": 57,
+					"flags": 73
 				}
 			},
 			{
@@ -1441,7 +1483,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1463,16 +1505,17 @@
 					"parentId": 62,
 					"mapType": 0,
 					"tex": 142,
-					"matrix": 107
+					"matrix": 107,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 65,
-				"name": "Nimbasa City",
+				"name": "Nimbasa City Pokémon Center",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1482,7 +1525,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -1491,7 +1535,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1501,7 +1545,8 @@
 					"parentId": 62,
 					"mapType": 7,
 					"tex": 258,
-					"matrix": 101
+					"matrix": 101,
+					"flags": 73
 				}
 			},
 			{
@@ -1510,7 +1555,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1520,7 +1565,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1529,7 +1575,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1539,7 +1585,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1548,7 +1595,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1558,7 +1605,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1567,7 +1615,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1577,7 +1625,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1586,7 +1635,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1596,7 +1645,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1605,7 +1655,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1615,7 +1665,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1624,7 +1675,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1634,7 +1685,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1643,7 +1695,7 @@
 				"name": "Gear Station",
 				"areaId": 8,
 				"areaName": "Gear Station",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1653,7 +1705,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 165
+					"matrix": 165,
+					"flags": 73
 				}
 			},
 			{
@@ -1662,7 +1715,7 @@
 				"name": "Battle Subway",
 				"areaId": 9,
 				"areaName": "Battle Subway",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1672,7 +1725,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 167
+					"matrix": 167,
+					"flags": 73
 				}
 			},
 			{
@@ -1681,7 +1735,7 @@
 				"name": "Battle Subway",
 				"areaId": 9,
 				"areaName": "Battle Subway",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1691,7 +1745,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 258,
-					"matrix": 166
+					"matrix": 166,
+					"flags": 73
 				}
 			},
 			{
@@ -1700,7 +1755,7 @@
 				"name": "Musical Theater",
 				"areaId": 10,
 				"areaName": "Musical Theater",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1710,7 +1765,8 @@
 					"parentId": 62,
 					"mapType": 9,
 					"tex": 233,
-					"matrix": 58
+					"matrix": 58,
+					"flags": 73
 				}
 			},
 			{
@@ -1719,7 +1775,7 @@
 				"name": "Musical Theater",
 				"areaId": 10,
 				"areaName": "Musical Theater",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1729,7 +1785,8 @@
 					"parentId": 62,
 					"mapType": 9,
 					"tex": 233,
-					"matrix": 116
+					"matrix": 116,
+					"flags": 73
 				}
 			},
 			{
@@ -1738,7 +1795,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1748,7 +1805,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 98
+					"matrix": 98,
+					"flags": 73
 				}
 			},
 			{
@@ -1757,7 +1815,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1767,7 +1825,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 221
+					"matrix": 221,
+					"flags": 73
 				}
 			},
 			{
@@ -1776,7 +1835,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1786,7 +1845,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 105
+					"matrix": 105,
+					"flags": 73
 				}
 			},
 			{
@@ -1795,7 +1855,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1805,7 +1865,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 222
+					"matrix": 222,
+					"flags": 73
 				}
 			},
 			{
@@ -1814,7 +1875,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1824,7 +1885,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 176
+					"matrix": 176,
+					"flags": 73
 				}
 			},
 			{
@@ -1833,7 +1895,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1843,7 +1905,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 99
+					"matrix": 99,
+					"flags": 73
 				}
 			},
 			{
@@ -1852,7 +1915,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1862,7 +1925,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 223
+					"matrix": 223,
+					"flags": 73
 				}
 			},
 			{
@@ -1871,7 +1935,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1881,7 +1945,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 100
+					"matrix": 100,
+					"flags": 73
 				}
 			},
 			{
@@ -1890,7 +1955,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1900,7 +1965,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 259,
-					"matrix": 220
+					"matrix": 220,
+					"flags": 73
 				}
 			},
 			{
@@ -1909,7 +1975,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1919,7 +1985,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -1928,7 +1995,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1938,7 +2005,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 27
+					"matrix": 27,
+					"flags": 73
 				}
 			},
 			{
@@ -1947,7 +2015,7 @@
 				"name": "Nimbasa Gate",
 				"areaId": 11,
 				"areaName": "Nimbasa Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1957,7 +2025,8 @@
 					"parentId": 326,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 12
+					"matrix": 12,
+					"flags": 77
 				}
 			},
 			{
@@ -1966,7 +2035,7 @@
 				"name": "Nimbasa Gate",
 				"areaId": 11,
 				"areaName": "Nimbasa Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1976,7 +2045,8 @@
 					"parentId": 329,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -1985,7 +2055,7 @@
 				"name": "Nimbasa Gate",
 				"areaId": 11,
 				"areaName": "Nimbasa Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -1995,7 +2065,8 @@
 					"parentId": 383,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -2004,7 +2075,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2014,7 +2085,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 234,
-					"matrix": 241
+					"matrix": 241,
+					"flags": 73
 				}
 			},
 			{
@@ -2023,7 +2095,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2033,7 +2105,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -2042,7 +2115,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2052,7 +2125,8 @@
 					"parentId": 62,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 27
+					"matrix": 27,
+					"flags": 73
 				}
 			},
 			{
@@ -2061,7 +2135,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "town",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -2083,16 +2157,17 @@
 					"parentId": 96,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 97,
-				"name": "Driftveil City",
+				"name": "Driftveil City Gym",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2102,16 +2177,17 @@
 					"parentId": 96,
 					"mapType": 0,
 					"tex": 236,
-					"matrix": 61
+					"matrix": 61,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 98,
-				"name": "Driftveil City",
+				"name": "Driftveil City Gym",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2121,16 +2197,17 @@
 					"parentId": 96,
 					"mapType": 0,
 					"tex": 236,
-					"matrix": 180
+					"matrix": 180,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 99,
-				"name": "Driftveil City",
+				"name": "Driftveil City Pokémon Center",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2140,7 +2217,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -2149,7 +2227,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2159,7 +2237,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2168,7 +2247,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2178,7 +2257,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2187,7 +2267,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2197,7 +2277,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2206,7 +2287,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2216,7 +2297,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2225,7 +2307,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2235,7 +2317,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 249,
-					"matrix": 59
+					"matrix": 59,
+					"flags": 73
 				}
 			},
 			{
@@ -2244,7 +2327,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2254,7 +2337,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 250,
-					"matrix": 60
+					"matrix": 60,
+					"flags": 73
 				}
 			},
 			{
@@ -2263,7 +2347,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2273,7 +2357,8 @@
 					"parentId": 96,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -2282,7 +2367,7 @@
 				"name": "Mistralton City",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 96,
 				"attrs": {},
@@ -2304,16 +2389,17 @@
 					"parentId": 107,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 108,
-				"name": "Mistralton City",
+				"name": "Mistralton City Gym",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2323,16 +2409,17 @@
 					"parentId": 107,
 					"mapType": 0,
 					"tex": 237,
-					"matrix": 62
+					"matrix": 62,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 109,
-				"name": "Mistralton City",
+				"name": "Mistralton City Pokémon Center",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2342,7 +2429,8 @@
 					"parentId": 107,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -2351,7 +2439,7 @@
 				"name": "Mistralton City",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2361,7 +2449,8 @@
 					"parentId": 107,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2370,7 +2459,7 @@
 				"name": "Mistralton City",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2380,7 +2469,8 @@
 					"parentId": 107,
 					"mapType": 0,
 					"tex": 245,
-					"matrix": 63
+					"matrix": 63,
+					"flags": 73
 				}
 			},
 			{
@@ -2389,7 +2479,7 @@
 				"name": "Mistralton City",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2399,7 +2489,8 @@
 					"parentId": 107,
 					"mapType": 0,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2408,7 +2499,7 @@
 				"name": "Icirrus City",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 64,
 				"attrs": {},
@@ -2430,16 +2521,17 @@
 					"parentId": 113,
 					"mapType": 0,
 					"tex": 42,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 114,
-				"name": "Icirrus City",
+				"name": "Icirrus City Gym",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2449,16 +2541,17 @@
 					"parentId": 113,
 					"mapType": 14,
 					"tex": 239,
-					"matrix": 64
+					"matrix": 64,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 115,
-				"name": "Icirrus City",
+				"name": "Icirrus City Pokémon Center",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2468,7 +2561,8 @@
 					"parentId": 113,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -2477,7 +2571,7 @@
 				"name": "Icirrus City",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2487,7 +2581,8 @@
 					"parentId": 113,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2496,7 +2591,7 @@
 				"name": "Icirrus City",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2506,7 +2601,8 @@
 					"parentId": 113,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -2515,7 +2611,7 @@
 				"name": "Icirrus City",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2525,7 +2621,8 @@
 					"parentId": 113,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2534,7 +2631,7 @@
 				"name": "Icirrus City",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2544,7 +2641,8 @@
 					"parentId": 113,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -2553,7 +2651,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "town",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -2575,7 +2673,8 @@
 					"parentId": 120,
 					"mapType": 0,
 					"tex": 50,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -2584,7 +2683,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2594,16 +2693,17 @@
 					"parentId": 120,
 					"mapType": 14,
 					"tex": 240,
-					"matrix": 66
+					"matrix": 66,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 122,
-				"name": "Opelucid City",
+				"name": "Opelucid City Pokémon Center",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2613,7 +2713,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -2622,7 +2723,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2632,7 +2733,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 68
+					"matrix": 68,
+					"flags": 73
 				}
 			},
 			{
@@ -2641,7 +2743,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2651,7 +2753,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 161
+					"matrix": 161,
+					"flags": 73
 				}
 			},
 			{
@@ -2660,7 +2763,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2670,7 +2773,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 68
+					"matrix": 68,
+					"flags": 73
 				}
 			},
 			{
@@ -2679,7 +2783,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2689,7 +2793,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 161
+					"matrix": 161,
+					"flags": 73
 				}
 			},
 			{
@@ -2698,7 +2803,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2708,7 +2813,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 68
+					"matrix": 68,
+					"flags": 73
 				}
 			},
 			{
@@ -2717,7 +2823,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2727,7 +2833,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 161
+					"matrix": 161,
+					"flags": 73
 				}
 			},
 			{
@@ -2736,7 +2843,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2746,7 +2853,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 68
+					"matrix": 68,
+					"flags": 73
 				}
 			},
 			{
@@ -2755,7 +2863,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2765,7 +2873,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 161
+					"matrix": 161,
+					"flags": 73
 				}
 			},
 			{
@@ -2774,7 +2883,7 @@
 				"name": "Opelucid Gate",
 				"areaId": 16,
 				"areaName": "Opelucid Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2784,7 +2893,8 @@
 					"parentId": 348,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -2793,7 +2903,7 @@
 				"name": "Opelucid Gate",
 				"areaId": 16,
 				"areaName": "Opelucid Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2803,7 +2913,8 @@
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 12
+					"matrix": 12,
+					"flags": 77
 				}
 			},
 			{
@@ -2812,7 +2923,7 @@
 				"name": "Opelucid Gate",
 				"areaId": 16,
 				"areaName": "Opelucid Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2822,7 +2933,8 @@
 					"parentId": 365,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -2831,7 +2943,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2841,7 +2953,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 68
+					"matrix": 68,
+					"flags": 73
 				}
 			},
 			{
@@ -2850,7 +2963,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2860,7 +2973,8 @@
 					"parentId": 120,
 					"mapType": 16,
 					"tex": 242,
-					"matrix": 161
+					"matrix": 161,
+					"flags": 73
 				}
 			},
 			{
@@ -2869,7 +2983,7 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2891,7 +3005,8 @@
 					"parentId": 136,
 					"mapType": 5,
 					"tex": 126,
-					"matrix": 87
+					"matrix": 87,
+					"flags": 172
 				}
 			},
 			{
@@ -2900,7 +3015,7 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2922,7 +3037,8 @@
 					"parentId": 136,
 					"mapType": 14,
 					"tex": 126,
-					"matrix": 210
+					"matrix": 210,
+					"flags": 8
 				}
 			},
 			{
@@ -2931,7 +3047,7 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2953,7 +3069,8 @@
 					"parentId": 136,
 					"mapType": 20,
 					"tex": 126,
-					"matrix": 211
+					"matrix": 211,
+					"flags": 8
 				}
 			},
 			{
@@ -2962,7 +3079,7 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2984,7 +3101,8 @@
 					"parentId": 136,
 					"mapType": 0,
 					"tex": 126,
-					"matrix": 219
+					"matrix": 219,
+					"flags": 8
 				}
 			},
 			{
@@ -2993,29 +3111,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 140,
 					"parentId": 136,
 					"mapType": 15,
 					"tex": 243,
-					"matrix": 121
+					"matrix": 121,
+					"flags": 9
 				}
 			},
 			{
@@ -3024,29 +3131,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 141,
 					"parentId": 136,
 					"mapType": 15,
 					"tex": 261,
-					"matrix": 122
+					"matrix": 122,
+					"flags": 9
 				}
 			},
 			{
@@ -3055,29 +3151,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 142,
 					"parentId": 136,
 					"mapType": 15,
 					"tex": 262,
-					"matrix": 123
+					"matrix": 123,
+					"flags": 9
 				}
 			},
 			{
@@ -3086,29 +3171,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 143,
 					"parentId": 136,
 					"mapType": 15,
 					"tex": 263,
-					"matrix": 124
+					"matrix": 124,
+					"flags": 9
 				}
 			},
 			{
@@ -3117,29 +3191,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 144,
 					"parentId": 136,
 					"mapType": 16,
 					"tex": 247,
-					"matrix": 125
+					"matrix": 125,
+					"flags": 10
 				}
 			},
 			{
@@ -3148,29 +3211,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 145,
 					"parentId": 136,
 					"mapType": 16,
 					"tex": 247,
-					"matrix": 126
+					"matrix": 126,
+					"flags": 9
 				}
 			},
 			{
@@ -3179,29 +3231,18 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 146,
 					"parentId": 136,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 54
+					"matrix": 54,
+					"flags": 9
 				}
 			},
 			{
@@ -3210,7 +3251,7 @@
 				"name": "Unity Tower",
 				"areaId": 18,
 				"areaName": "Unity Tower",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3232,7 +3273,8 @@
 					"parentId": 147,
 					"mapType": 0,
 					"tex": 86,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -3241,7 +3283,7 @@
 				"name": "Unity Tower",
 				"areaId": 18,
 				"areaName": "Unity Tower",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3251,7 +3293,8 @@
 					"parentId": 147,
 					"mapType": 16,
 					"tex": 264,
-					"matrix": 168
+					"matrix": 168,
+					"flags": 73
 				}
 			},
 			{
@@ -3260,7 +3303,7 @@
 				"name": "Unity Tower",
 				"areaId": 18,
 				"areaName": "Unity Tower",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3270,7 +3313,8 @@
 					"parentId": 147,
 					"mapType": 16,
 					"tex": 264,
-					"matrix": 227
+					"matrix": 227,
+					"flags": 73
 				}
 			},
 			{
@@ -3279,7 +3323,7 @@
 				"name": "－－－－－－－－－－",
 				"areaId": 19,
 				"areaName": "－－－－－－－－－－",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3289,7 +3333,8 @@
 					"parentId": 422,
 					"mapType": 6,
 					"tex": 253,
-					"matrix": 89
+					"matrix": 89,
+					"flags": 73
 				}
 			},
 			{
@@ -3298,7 +3343,7 @@
 				"name": "－－－－－－－－－－",
 				"areaId": 19,
 				"areaName": "－－－－－－－－－－",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3308,7 +3353,8 @@
 					"parentId": 422,
 					"mapType": 6,
 					"tex": 253,
-					"matrix": 102
+					"matrix": 102,
+					"flags": 73
 				}
 			},
 			{
@@ -3317,7 +3363,7 @@
 				"name": "Dreamyard",
 				"areaId": 20,
 				"areaName": "Dreamyard",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3327,7 +3373,8 @@
 					"parentId": 152,
 					"mapType": 16,
 					"tex": 102,
-					"matrix": 14
+					"matrix": 14,
+					"flags": 108
 				}
 			},
 			{
@@ -3336,7 +3383,7 @@
 				"name": "Dreamyard",
 				"areaId": 20,
 				"areaName": "Dreamyard",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3346,7 +3393,8 @@
 					"parentId": 152,
 					"mapType": 16,
 					"tex": 218,
-					"matrix": 15
+					"matrix": 15,
+					"flags": 73
 				}
 			},
 			{
@@ -3355,7 +3403,7 @@
 				"name": "Pinwheel Forest",
 				"areaId": 21,
 				"areaName": "Pinwheel Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 64,
 				"attrs": {},
@@ -3377,7 +3425,8 @@
 					"parentId": 154,
 					"mapType": 0,
 					"tex": 10,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -3386,7 +3435,7 @@
 				"name": "Pinwheel Forest",
 				"areaId": 21,
 				"areaName": "Pinwheel Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3396,7 +3445,8 @@
 					"parentId": 154,
 					"mapType": 0,
 					"tex": 106,
-					"matrix": 16
+					"matrix": 16,
+					"flags": 108
 				}
 			},
 			{
@@ -3405,7 +3455,7 @@
 				"name": "Rumination Field",
 				"areaId": 22,
 				"areaName": "Rumination Field",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3415,7 +3465,8 @@
 					"parentId": 154,
 					"mapType": 16,
 					"tex": 106,
-					"matrix": 224
+					"matrix": 224,
+					"flags": 108
 				}
 			},
 			{
@@ -3424,7 +3475,7 @@
 				"name": "Desert Resort",
 				"areaId": 23,
 				"areaName": "Desert Resort",
-				"type": null,
+				"type": "indoor",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -3446,7 +3497,8 @@
 					"parentId": 157,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 237
 				}
 			},
 			{
@@ -3455,7 +3507,7 @@
 				"name": "Desert Resort",
 				"areaId": 23,
 				"areaName": "Desert Resort",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3465,7 +3517,8 @@
 					"parentId": 157,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 103
+					"matrix": 103,
+					"flags": 109
 				}
 			},
 			{
@@ -3474,7 +3527,7 @@
 				"name": "Route Gate",
 				"areaId": 24,
 				"areaName": "Route Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3484,7 +3537,8 @@
 					"parentId": 157,
 					"mapType": 0,
 					"tex": 244,
-					"matrix": 12
+					"matrix": 12,
+					"flags": 77
 				}
 			},
 			{
@@ -3493,7 +3547,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3503,7 +3557,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 17
+					"matrix": 17,
+					"flags": 93
 				}
 			},
 			{
@@ -3512,7 +3567,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3522,7 +3577,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 18
+					"matrix": 18,
+					"flags": 93
 				}
 			},
 			{
@@ -3531,7 +3587,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3541,7 +3597,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 19
+					"matrix": 19,
+					"flags": 93
 				}
 			},
 			{
@@ -3550,7 +3607,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3560,7 +3617,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 20
+					"matrix": 20,
+					"flags": 93
 				}
 			},
 			{
@@ -3569,7 +3627,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3579,7 +3637,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 21
+					"matrix": 21,
+					"flags": 93
 				}
 			},
 			{
@@ -3588,7 +3647,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3598,7 +3657,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 22
+					"matrix": 22,
+					"flags": 93
 				}
 			},
 			{
@@ -3607,7 +3667,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3617,7 +3677,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 70
+					"matrix": 70,
+					"flags": 93
 				}
 			},
 			{
@@ -3626,7 +3687,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3636,7 +3697,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 71
+					"matrix": 71,
+					"flags": 93
 				}
 			},
 			{
@@ -3645,7 +3707,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3655,7 +3717,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 71
+					"matrix": 71,
+					"flags": 93
 				}
 			},
 			{
@@ -3664,7 +3727,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3674,7 +3737,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 71
+					"matrix": 71,
+					"flags": 93
 				}
 			},
 			{
@@ -3683,7 +3747,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3693,7 +3757,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 71
+					"matrix": 71,
+					"flags": 93
 				}
 			},
 			{
@@ -3702,7 +3767,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3712,7 +3777,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 72
+					"matrix": 72,
+					"flags": 93
 				}
 			},
 			{
@@ -3721,7 +3787,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3731,7 +3797,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 72
+					"matrix": 72,
+					"flags": 93
 				}
 			},
 			{
@@ -3740,7 +3807,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3750,7 +3817,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 72
+					"matrix": 72,
+					"flags": 93
 				}
 			},
 			{
@@ -3759,7 +3827,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3769,7 +3837,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 72
+					"matrix": 72,
+					"flags": 93
 				}
 			},
 			{
@@ -3778,7 +3847,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3788,7 +3857,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 72
+					"matrix": 72,
+					"flags": 93
 				}
 			},
 			{
@@ -3797,7 +3867,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3807,7 +3877,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 72
+					"matrix": 72,
+					"flags": 93
 				}
 			},
 			{
@@ -3816,7 +3887,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3826,7 +3897,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 73
+					"matrix": 73,
+					"flags": 93
 				}
 			},
 			{
@@ -3835,7 +3907,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3845,7 +3917,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 73
+					"matrix": 73,
+					"flags": 93
 				}
 			},
 			{
@@ -3854,7 +3927,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3864,7 +3937,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 74
+					"matrix": 74,
+					"flags": 93
 				}
 			},
 			{
@@ -3873,7 +3947,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3883,7 +3957,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 74
+					"matrix": 74,
+					"flags": 93
 				}
 			},
 			{
@@ -3892,7 +3967,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3902,7 +3977,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 75
+					"matrix": 75,
+					"flags": 93
 				}
 			},
 			{
@@ -3911,7 +3987,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3921,7 +3997,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 76
+					"matrix": 76,
+					"flags": 93
 				}
 			},
 			{
@@ -3930,7 +4007,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3940,7 +4017,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 78
+					"matrix": 78,
+					"flags": 93
 				}
 			},
 			{
@@ -3949,7 +4027,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3959,7 +4037,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 79
+					"matrix": 79,
+					"flags": 93
 				}
 			},
 			{
@@ -3968,7 +4047,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3978,7 +4057,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 80
+					"matrix": 80,
+					"flags": 93
 				}
 			},
 			{
@@ -3987,7 +4067,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -3997,7 +4077,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 81
+					"matrix": 81,
+					"flags": 93
 				}
 			},
 			{
@@ -4006,7 +4087,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4016,7 +4097,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 82
+					"matrix": 82,
+					"flags": 93
 				}
 			},
 			{
@@ -4025,7 +4107,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4035,7 +4117,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 83
+					"matrix": 83,
+					"flags": 93
 				}
 			},
 			{
@@ -4044,7 +4127,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4054,7 +4137,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 84
+					"matrix": 84,
+					"flags": 93
 				}
 			},
 			{
@@ -4063,7 +4147,7 @@
 				"name": "Relic Castle",
 				"areaId": 25,
 				"areaName": "Relic Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4073,7 +4157,8 @@
 					"parentId": 160,
 					"mapType": 16,
 					"tex": 219,
-					"matrix": 85
+					"matrix": 85,
+					"flags": 93
 				}
 			},
 			{
@@ -4082,7 +4167,7 @@
 				"name": "Cold Storage",
 				"areaId": 26,
 				"areaName": "Cold Storage",
-				"type": null,
+				"type": "default",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -4104,7 +4189,8 @@
 					"parentId": 191,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -4113,7 +4199,7 @@
 				"name": "Cold Storage",
 				"areaId": 26,
 				"areaName": "Cold Storage",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4123,7 +4209,8 @@
 					"parentId": 191,
 					"mapType": 16,
 					"tex": 220,
-					"matrix": 86
+					"matrix": 86,
+					"flags": 73
 				}
 			},
 			{
@@ -4132,7 +4219,7 @@
 				"name": "Cold Storage",
 				"areaId": 26,
 				"areaName": "Cold Storage",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4142,7 +4229,8 @@
 					"parentId": 191,
 					"mapType": 16,
 					"tex": 220,
-					"matrix": 69
+					"matrix": 69,
+					"flags": 73
 				}
 			},
 			{
@@ -4151,7 +4239,7 @@
 				"name": "Chargestone Cave",
 				"areaId": 27,
 				"areaName": "Chargestone Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4173,7 +4261,8 @@
 					"parentId": 194,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -4182,7 +4271,7 @@
 				"name": "Chargestone Cave",
 				"areaId": 27,
 				"areaName": "Chargestone Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4192,7 +4281,8 @@
 					"parentId": 194,
 					"mapType": 0,
 					"tex": 221,
-					"matrix": 23
+					"matrix": 23,
+					"flags": 92
 				}
 			},
 			{
@@ -4201,7 +4291,7 @@
 				"name": "Chargestone Cave",
 				"areaId": 27,
 				"areaName": "Chargestone Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4211,7 +4301,8 @@
 					"parentId": 194,
 					"mapType": 16,
 					"tex": 221,
-					"matrix": 24
+					"matrix": 24,
+					"flags": 92
 				}
 			},
 			{
@@ -4220,7 +4311,7 @@
 				"name": "Chargestone Cave",
 				"areaId": 27,
 				"areaName": "Chargestone Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4230,7 +4321,8 @@
 					"parentId": 194,
 					"mapType": 16,
 					"tex": 221,
-					"matrix": 25
+					"matrix": 25,
+					"flags": 92
 				}
 			},
 			{
@@ -4239,7 +4331,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4261,7 +4353,8 @@
 					"parentId": 198,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -4270,7 +4363,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4280,7 +4373,8 @@
 					"parentId": 198,
 					"mapType": 16,
 					"tex": 110,
-					"matrix": 93
+					"matrix": 93,
+					"flags": 124
 				}
 			},
 			{
@@ -4289,7 +4383,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4299,7 +4393,8 @@
 					"parentId": 198,
 					"mapType": 16,
 					"tex": 222,
-					"matrix": 94
+					"matrix": 94,
+					"flags": 92
 				}
 			},
 			{
@@ -4308,7 +4403,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4318,7 +4413,8 @@
 					"parentId": 198,
 					"mapType": 16,
 					"tex": 222,
-					"matrix": 95
+					"matrix": 95,
+					"flags": 92
 				}
 			},
 			{
@@ -4327,7 +4423,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4337,7 +4433,8 @@
 					"parentId": 198,
 					"mapType": 16,
 					"tex": 222,
-					"matrix": 96
+					"matrix": 96,
+					"flags": 92
 				}
 			},
 			{
@@ -4346,7 +4443,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4356,7 +4453,8 @@
 					"parentId": 198,
 					"mapType": 16,
 					"tex": 222,
-					"matrix": 97
+					"matrix": 97,
+					"flags": 92
 				}
 			},
 			{
@@ -4365,7 +4463,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4375,7 +4473,8 @@
 					"parentId": 198,
 					"mapType": 16,
 					"tex": 255,
-					"matrix": 91
+					"matrix": 91,
+					"flags": 73
 				}
 			},
 			{
@@ -4384,10 +4483,12 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "near"
+				},
 				"areas": [
 					{
 						"ax": 175,
@@ -4406,7 +4507,8 @@
 					"parentId": 205,
 					"mapType": 0,
 					"tex": 42,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -4415,10 +4517,12 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside"
+				},
 				"areas": [
 					{
 						"ax": 16,
@@ -4437,7 +4541,8 @@
 					"parentId": 205,
 					"mapType": 16,
 					"tex": 114,
-					"matrix": 207
+					"matrix": 207,
+					"flags": 172
 				}
 			},
 			{
@@ -4446,29 +4551,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"attrs": {
+					"floor": 1
+				},
+				"areas": [],
 				"gamedata": {
 					"mapId": 207,
 					"parentId": 205,
 					"mapType": 16,
 					"tex": 223,
-					"matrix": 200
+					"matrix": 200,
+					"flags": 9
 				}
 			},
 			{
@@ -4477,29 +4573,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"attrs": {
+					"floor": 2
+				},
+				"areas": [],
 				"gamedata": {
 					"mapId": 208,
 					"parentId": 205,
 					"mapType": 16,
 					"tex": 223,
-					"matrix": 201
+					"matrix": 201,
+					"flags": 9
 				}
 			},
 			{
@@ -4508,17 +4595,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 3
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 209,
 					"parentId": 205,
 					"mapType": 7,
 					"tex": 223,
-					"matrix": 202
+					"matrix": 202,
+					"flags": 9
 				}
 			},
 			{
@@ -4527,29 +4617,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"attrs": {
+					"floor": 4
+				},
+				"areas": [],
 				"gamedata": {
 					"mapId": 210,
 					"parentId": 205,
 					"mapType": 16,
 					"tex": 223,
-					"matrix": 203
+					"matrix": 203,
+					"flags": 9
 				}
 			},
 			{
@@ -4558,17 +4639,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 5
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 211,
 					"parentId": 205,
 					"mapType": 7,
 					"tex": 223,
-					"matrix": 204
+					"matrix": 204,
+					"flags": 9
 				}
 			},
 			{
@@ -4577,29 +4661,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"attrs": {
+					"floor": 6
+				},
+				"areas": [],
 				"gamedata": {
 					"mapId": 212,
 					"parentId": 205,
 					"mapType": 16,
 					"tex": 223,
-					"matrix": 205
+					"matrix": 205,
+					"flags": 9
 				}
 			},
 			{
@@ -4608,29 +4683,20 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"attrs": {
+					"floor": 7
+				},
+				"areas": [],
 				"gamedata": {
 					"mapId": 213,
 					"parentId": 205,
 					"mapType": 16,
 					"tex": 223,
-					"matrix": 206
+					"matrix": 206,
+					"flags": 42
 				}
 			},
 			{
@@ -4639,7 +4705,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4649,7 +4715,8 @@
 					"parentId": 214,
 					"mapType": 12,
 					"tex": 58,
-					"matrix": 162
+					"matrix": 162,
+					"flags": 44
 				}
 			},
 			{
@@ -4658,29 +4725,18 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 215,
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 151
+					"matrix": 151,
+					"flags": 28
 				}
 			},
 			{
@@ -4689,29 +4745,18 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 216,
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 152
+					"matrix": 152,
+					"flags": 28
 				}
 			},
 			{
@@ -4720,7 +4765,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4730,7 +4775,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 153
+					"matrix": 153,
+					"flags": 28
 				}
 			},
 			{
@@ -4739,7 +4785,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4749,7 +4795,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 154
+					"matrix": 154,
+					"flags": 28
 				}
 			},
 			{
@@ -4758,7 +4805,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4768,7 +4815,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 155
+					"matrix": 155,
+					"flags": 28
 				}
 			},
 			{
@@ -4777,7 +4825,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4787,7 +4835,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 156
+					"matrix": 156,
+					"flags": 28
 				}
 			},
 			{
@@ -4796,7 +4845,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4806,7 +4855,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 157
+					"matrix": 157,
+					"flags": 28
 				}
 			},
 			{
@@ -4815,7 +4865,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4825,7 +4875,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 158
+					"matrix": 158,
+					"flags": 28
 				}
 			},
 			{
@@ -4834,7 +4885,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4844,7 +4895,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 159
+					"matrix": 159,
+					"flags": 28
 				}
 			},
 			{
@@ -4853,7 +4905,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4863,7 +4915,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 194
+					"matrix": 194,
+					"flags": 28
 				}
 			},
 			{
@@ -4872,7 +4925,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4882,7 +4935,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 195
+					"matrix": 195,
+					"flags": 28
 				}
 			},
 			{
@@ -4891,7 +4945,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4901,7 +4955,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 196
+					"matrix": 196,
+					"flags": 28
 				}
 			},
 			{
@@ -4910,7 +4965,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4920,7 +4975,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 197
+					"matrix": 197,
+					"flags": 28
 				}
 			},
 			{
@@ -4929,7 +4985,7 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4939,7 +4995,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 198
+					"matrix": 198,
+					"flags": 28
 				}
 			},
 			{
@@ -4948,7 +5005,7 @@
 				"name": "Trial Chamber",
 				"areaId": 31,
 				"areaName": "Trial Chamber",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4958,7 +5015,8 @@
 					"parentId": 214,
 					"mapType": 16,
 					"tex": 224,
-					"matrix": 199
+					"matrix": 199,
+					"flags": 28
 				}
 			},
 			{
@@ -4967,7 +5025,7 @@
 				"name": "Giant Chasm",
 				"areaId": 32,
 				"areaName": "Giant Chasm",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4989,7 +5047,8 @@
 					"parentId": 230,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -4998,7 +5057,7 @@
 				"name": "Giant Chasm",
 				"areaId": 32,
 				"areaName": "Giant Chasm",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5008,7 +5067,8 @@
 					"parentId": 230,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 184
+					"matrix": 184,
+					"flags": 92
 				}
 			},
 			{
@@ -5017,7 +5077,7 @@
 				"name": "Giant Chasm",
 				"areaId": 32,
 				"areaName": "Giant Chasm",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5027,7 +5087,8 @@
 					"parentId": 230,
 					"mapType": 0,
 					"tex": 206,
-					"matrix": 250
+					"matrix": 250,
+					"flags": 108
 				}
 			},
 			{
@@ -5036,7 +5097,7 @@
 				"name": "Giant Chasm",
 				"areaId": 32,
 				"areaName": "Giant Chasm",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5046,7 +5107,8 @@
 					"parentId": 230,
 					"mapType": 0,
 					"tex": 206,
-					"matrix": 251
+					"matrix": 251,
+					"flags": 44
 				}
 			},
 			{
@@ -5055,7 +5117,7 @@
 				"name": "Giant Chasm",
 				"areaId": 32,
 				"areaName": "Giant Chasm",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5065,7 +5127,8 @@
 					"parentId": 230,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 252
+					"matrix": 252,
+					"flags": 92
 				}
 			},
 			{
@@ -5074,7 +5137,7 @@
 				"name": "Liberty Garden",
 				"areaId": 33,
 				"areaName": "Liberty Garden",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5096,7 +5159,8 @@
 					"parentId": 235,
 					"mapType": 19,
 					"tex": 86,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -5105,7 +5169,7 @@
 				"name": "Liberty Garden",
 				"areaId": 33,
 				"areaName": "Liberty Garden",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5115,7 +5179,8 @@
 					"parentId": 235,
 					"mapType": 16,
 					"tex": 267,
-					"matrix": 239
+					"matrix": 239,
+					"flags": 73
 				}
 			},
 			{
@@ -5124,7 +5189,7 @@
 				"name": "Liberty Garden",
 				"areaId": 33,
 				"areaName": "Liberty Garden",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5134,7 +5199,8 @@
 					"parentId": 235,
 					"mapType": 16,
 					"tex": 267,
-					"matrix": 240
+					"matrix": 240,
+					"flags": 73
 				}
 			},
 			{
@@ -5143,7 +5209,7 @@
 				"name": "P2 Laboratory",
 				"areaId": 34,
 				"areaName": "P2 Laboratory",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5165,7 +5231,8 @@
 					"parentId": 238,
 					"mapType": 0,
 					"tex": 122,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -5174,7 +5241,7 @@
 				"name": "P2 Laboratory",
 				"areaId": 34,
 				"areaName": "P2 Laboratory",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5184,7 +5251,8 @@
 					"parentId": 238,
 					"mapType": 16,
 					"tex": 273,
-					"matrix": 191
+					"matrix": 191,
+					"flags": 73
 				}
 			},
 			{
@@ -5193,7 +5261,7 @@
 				"name": "Undella Bay",
 				"areaId": 35,
 				"areaName": "Undella Bay",
-				"type": null,
+				"type": "indoor",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -5215,7 +5283,8 @@
 					"parentId": 240,
 					"mapType": 0,
 					"tex": 70,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 237
 				}
 			},
 			{
@@ -5224,7 +5293,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5234,7 +5303,8 @@
 					"parentId": 241,
 					"mapType": 7,
 					"tex": 268,
-					"matrix": 236
+					"matrix": 236,
+					"flags": 93
 				}
 			},
 			{
@@ -5243,7 +5313,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5253,7 +5323,8 @@
 					"parentId": 241,
 					"mapType": 7,
 					"tex": 268,
-					"matrix": 244
+					"matrix": 244,
+					"flags": 93
 				}
 			},
 			{
@@ -5262,7 +5333,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5272,7 +5343,8 @@
 					"parentId": 241,
 					"mapType": 7,
 					"tex": 268,
-					"matrix": 245
+					"matrix": 245,
+					"flags": 93
 				}
 			},
 			{
@@ -5281,7 +5353,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5291,7 +5363,8 @@
 					"parentId": 241,
 					"mapType": 7,
 					"tex": 268,
-					"matrix": 246
+					"matrix": 246,
+					"flags": 93
 				}
 			},
 			{
@@ -5300,7 +5373,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5310,7 +5383,8 @@
 					"parentId": 241,
 					"mapType": 0,
 					"tex": 268,
-					"matrix": 247
+					"matrix": 247,
+					"flags": 93
 				}
 			},
 			{
@@ -5319,7 +5393,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5329,7 +5403,8 @@
 					"parentId": 241,
 					"mapType": 0,
 					"tex": 268,
-					"matrix": 248
+					"matrix": 248,
+					"flags": 93
 				}
 			},
 			{
@@ -5338,7 +5413,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5348,7 +5423,8 @@
 					"parentId": 241,
 					"mapType": 0,
 					"tex": 268,
-					"matrix": 249
+					"matrix": 249,
+					"flags": 93
 				}
 			},
 			{
@@ -5357,7 +5433,7 @@
 				"name": "Abyssal Ruins",
 				"areaId": 36,
 				"areaName": "Abyssal Ruins",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5367,7 +5443,8 @@
 					"parentId": 241,
 					"mapType": 0,
 					"tex": 268,
-					"matrix": 254
+					"matrix": 254,
+					"flags": 93
 				}
 			},
 			{
@@ -5376,7 +5453,7 @@
 				"name": "Skyarrow Bridge",
 				"areaId": 37,
 				"areaName": "Skyarrow Bridge",
-				"type": null,
+				"type": "bridge",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5386,7 +5463,8 @@
 					"parentId": 249,
 					"mapType": 1,
 					"tex": 14,
-					"matrix": 133
+					"matrix": 133,
+					"flags": 172
 				}
 			},
 			{
@@ -5395,7 +5473,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5417,45 +5495,52 @@
 					"parentId": 249,
 					"mapType": 16,
 					"tex": 118,
-					"matrix": 41
+					"matrix": 41,
+					"flags": 73
 				}
 			},
 			{
 				"bank": 0,
 				"id": 251,
-				"name": "Bridge Gate",
+				"name": "Bridge Gate (East)",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 251,
 					"parentId": 249,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 137
+					"matrix": 137,
+					"flags": 77
 				}
 			},
 			{
 				"bank": 0,
 				"id": 252,
-				"name": "Bridge Gate",
+				"name": "Bridge Gate (West)",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 252,
 					"parentId": 249,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 138
+					"matrix": 138,
+					"flags": 77
 				}
 			},
 			{
@@ -5464,10 +5549,12 @@
 				"name": "Driftveil Drawbridge",
 				"areaId": 39,
 				"areaName": "Driftveil Drawbridge",
-				"type": null,
+				"type": "bridge",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [
 					{
 						"ax": 20,
@@ -5486,7 +5573,8 @@
 					"parentId": 253,
 					"mapType": 11,
 					"tex": 30,
-					"matrix": 106
+					"matrix": 106,
+					"flags": 172
 				}
 			},
 			{
@@ -5495,7 +5583,7 @@
 				"name": "Tubeline Bridge",
 				"areaId": 40,
 				"areaName": "Tubeline Bridge",
-				"type": null,
+				"type": "bridge",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5505,7 +5593,8 @@
 					"parentId": 254,
 					"mapType": 13,
 					"tex": 46,
-					"matrix": 136
+					"matrix": 136,
+					"flags": 140
 				}
 			},
 			{
@@ -5514,7 +5603,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "bridge",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5524,7 +5613,8 @@
 					"parentId": 255,
 					"mapType": 18,
 					"tex": 62,
-					"matrix": 182
+					"matrix": 182,
+					"flags": 172
 				}
 			},
 			{
@@ -5533,7 +5623,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5543,7 +5633,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -5552,7 +5643,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5562,7 +5653,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -5571,7 +5663,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5581,7 +5673,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -5590,7 +5683,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5600,7 +5693,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -5609,7 +5703,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5619,7 +5713,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -5628,7 +5723,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5638,7 +5733,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -5647,7 +5743,7 @@
 				"name": "Village Bridge",
 				"areaId": 41,
 				"areaName": "Village Bridge",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5657,7 +5753,8 @@
 					"parentId": 255,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 65
+					"matrix": 65,
+					"flags": 73
 				}
 			},
 			{
@@ -5666,7 +5763,7 @@
 				"name": "Marvelous Bridge",
 				"areaId": 42,
 				"areaName": "Marvelous Bridge",
-				"type": null,
+				"type": "bridge",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5676,7 +5773,8 @@
 					"parentId": 263,
 					"mapType": 11,
 					"tex": 82,
-					"matrix": 135
+					"matrix": 135,
+					"flags": 172
 				}
 			},
 			{
@@ -5685,7 +5783,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5707,7 +5805,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 127
+					"matrix": 127,
+					"flags": 9
 				}
 			},
 			{
@@ -5716,7 +5815,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5726,7 +5825,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 171
+					"matrix": 171,
+					"flags": 9
 				}
 			},
 			{
@@ -5735,7 +5835,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5745,7 +5845,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5754,7 +5855,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5764,7 +5865,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5773,7 +5875,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5783,7 +5885,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5792,7 +5895,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5802,7 +5905,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 173
+					"matrix": 173,
+					"flags": 9
 				}
 			},
 			{
@@ -5811,7 +5915,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5821,7 +5925,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 170
+					"matrix": 170,
+					"flags": 9
 				}
 			},
 			{
@@ -5830,7 +5935,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5840,7 +5945,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5849,7 +5955,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5859,7 +5965,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5868,7 +5975,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5878,7 +5985,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 171
+					"matrix": 171,
+					"flags": 9
 				}
 			},
 			{
@@ -5887,7 +5995,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5897,7 +6005,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 163
+					"matrix": 163,
+					"flags": 9
 				}
 			},
 			{
@@ -5906,7 +6015,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5916,7 +6025,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5925,7 +6035,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5935,7 +6045,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 164
+					"matrix": 164,
+					"flags": 9
 				}
 			},
 			{
@@ -5944,7 +6055,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5954,7 +6065,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 174
+					"matrix": 174,
+					"flags": 9
 				}
 			},
 			{
@@ -5963,7 +6075,7 @@
 				"name": "N's Castle",
 				"areaId": 43,
 				"areaName": "N's Castle",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -5973,7 +6085,8 @@
 					"parentId": 264,
 					"mapType": 16,
 					"tex": 248,
-					"matrix": 172
+					"matrix": 172,
+					"flags": 9
 				}
 			},
 			{
@@ -5982,10 +6095,12 @@
 				"name": "Entralink",
 				"areaId": 44,
 				"areaName": "Entralink",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"entralink": true
+				},
 				"areas": [
 					{
 						"ax": 16,
@@ -6004,7 +6119,8 @@
 					"parentId": 279,
 					"mapType": 3,
 					"tex": 98,
-					"matrix": 117
+					"matrix": 117,
+					"flags": 12
 				}
 			},
 			{
@@ -6013,7 +6129,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6035,7 +6151,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 119
+					"matrix": 119,
+					"flags": 12
 				}
 			},
 			{
@@ -6044,7 +6161,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6054,7 +6171,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 228
+					"matrix": 228,
+					"flags": 12
 				}
 			},
 			{
@@ -6063,7 +6181,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6073,7 +6191,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 229
+					"matrix": 229,
+					"flags": 12
 				}
 			},
 			{
@@ -6082,7 +6201,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6092,7 +6211,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 230
+					"matrix": 230,
+					"flags": 12
 				}
 			},
 			{
@@ -6101,7 +6221,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6111,7 +6231,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 231
+					"matrix": 231,
+					"flags": 12
 				}
 			},
 			{
@@ -6120,7 +6241,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6130,7 +6251,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 232
+					"matrix": 232,
+					"flags": 12
 				}
 			},
 			{
@@ -6139,7 +6261,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6149,7 +6271,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 233
+					"matrix": 233,
+					"flags": 12
 				}
 			},
 			{
@@ -6158,7 +6281,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6168,7 +6291,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 234
+					"matrix": 234,
+					"flags": 12
 				}
 			},
 			{
@@ -6177,7 +6301,7 @@
 				"name": "Entree Forest",
 				"areaId": 45,
 				"areaName": "Entree Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6187,7 +6311,8 @@
 					"parentId": 279,
 					"mapType": 16,
 					"tex": 146,
-					"matrix": 235
+					"matrix": 235,
+					"flags": 12
 				}
 			},
 			{
@@ -6196,7 +6321,7 @@
 				"name": "Nimbasa City",
 				"areaId": 7,
 				"areaName": "Nimbasa City",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6218,7 +6343,8 @@
 					"parentId": 289,
 					"mapType": 0,
 					"tex": 26,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6227,7 +6353,7 @@
 				"name": "Driftveil City",
 				"areaId": 12,
 				"areaName": "Driftveil City",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6249,7 +6375,8 @@
 					"parentId": 290,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6258,7 +6385,7 @@
 				"name": "Mistralton City",
 				"areaId": 13,
 				"areaName": "Mistralton City",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6280,7 +6407,8 @@
 					"parentId": 291,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6289,7 +6417,7 @@
 				"name": "Icirrus City",
 				"areaId": 14,
 				"areaName": "Icirrus City",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6311,7 +6439,8 @@
 					"parentId": 292,
 					"mapType": 0,
 					"tex": 42,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6320,7 +6449,7 @@
 				"name": "Opelucid City",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6342,7 +6471,8 @@
 					"parentId": 293,
 					"mapType": 0,
 					"tex": 50,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6351,7 +6481,7 @@
 				"name": "Black City",
 				"areaId": 0,
 				"areaName": "Black City",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6361,7 +6491,8 @@
 					"parentId": 294,
 					"mapType": 4,
 					"tex": 74,
-					"matrix": 226
+					"matrix": 226,
+					"flags": 12
 				}
 			},
 			{
@@ -6370,7 +6501,7 @@
 				"name": "White Forest",
 				"areaId": 46,
 				"areaName": "White Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6380,7 +6511,8 @@
 					"parentId": 295,
 					"mapType": 4,
 					"tex": 190,
-					"matrix": 225
+					"matrix": 225,
+					"flags": 12
 				}
 			},
 			{
@@ -6389,7 +6521,7 @@
 				"name": "Cold Storage",
 				"areaId": 26,
 				"areaName": "Cold Storage",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6411,7 +6543,8 @@
 					"parentId": 296,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6420,7 +6553,7 @@
 				"name": "Chargestone Cave",
 				"areaId": 27,
 				"areaName": "Chargestone Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6442,7 +6575,8 @@
 					"parentId": 297,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6451,7 +6585,7 @@
 				"name": "Twist Mountain",
 				"areaId": 28,
 				"areaName": "Twist Mountain",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6473,7 +6607,8 @@
 					"parentId": 298,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6482,7 +6617,7 @@
 				"name": "Dragonspiral Tower",
 				"areaId": 29,
 				"areaName": "Dragonspiral Tower",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6504,7 +6639,8 @@
 					"parentId": 299,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6513,7 +6649,7 @@
 				"name": "Giant Chasm",
 				"areaId": 32,
 				"areaName": "Giant Chasm",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6535,7 +6671,8 @@
 					"parentId": 300,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6544,7 +6681,7 @@
 				"name": "Driftveil Drawbridge",
 				"areaId": 39,
 				"areaName": "Driftveil Drawbridge",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6566,7 +6703,8 @@
 					"parentId": 301,
 					"mapType": 11,
 					"tex": 30,
-					"matrix": 106
+					"matrix": 106,
+					"flags": 12
 				}
 			},
 			{
@@ -6575,7 +6713,7 @@
 				"name": "Tubeline Bridge",
 				"areaId": 40,
 				"areaName": "Tubeline Bridge",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6585,7 +6723,8 @@
 					"parentId": 302,
 					"mapType": 13,
 					"tex": 46,
-					"matrix": 136
+					"matrix": 136,
+					"flags": 12
 				}
 			},
 			{
@@ -6594,7 +6733,7 @@
 				"name": "Marvelous Bridge",
 				"areaId": 42,
 				"areaName": "Marvelous Bridge",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6604,7 +6743,8 @@
 					"parentId": 303,
 					"mapType": 11,
 					"tex": 82,
-					"matrix": 135
+					"matrix": 135,
+					"flags": 12
 				}
 			},
 			{
@@ -6613,7 +6753,7 @@
 				"name": "Route 5",
 				"areaId": 47,
 				"areaName": "Route 5",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6635,7 +6775,8 @@
 					"parentId": 304,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6644,7 +6785,7 @@
 				"name": "Route 6",
 				"areaId": 48,
 				"areaName": "Route 6",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6666,7 +6807,8 @@
 					"parentId": 305,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6675,7 +6817,7 @@
 				"name": "Route 7",
 				"areaId": 49,
 				"areaName": "Route 7",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6697,7 +6839,8 @@
 					"parentId": 306,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6706,7 +6849,7 @@
 				"name": "Route 8",
 				"areaId": 50,
 				"areaName": "Route 8",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6728,7 +6871,8 @@
 					"parentId": 307,
 					"mapType": 0,
 					"tex": 42,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6737,7 +6881,7 @@
 				"name": "Route 9",
 				"areaId": 51,
 				"areaName": "Route 9",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6759,7 +6903,8 @@
 					"parentId": 308,
 					"mapType": 0,
 					"tex": 54,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6768,7 +6913,7 @@
 				"name": "Route 11",
 				"areaId": 52,
 				"areaName": "Route 11",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6790,7 +6935,8 @@
 					"parentId": 309,
 					"mapType": 0,
 					"tex": 54,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6799,7 +6945,7 @@
 				"name": "Route 12",
 				"areaId": 53,
 				"areaName": "Route 12",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6821,7 +6967,8 @@
 					"parentId": 310,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6830,7 +6977,7 @@
 				"name": "Route 13",
 				"areaId": 54,
 				"areaName": "Route 13",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6852,7 +6999,8 @@
 					"parentId": 311,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6861,7 +7009,7 @@
 				"name": "Route 14",
 				"areaId": 55,
 				"areaName": "Route 14",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6883,7 +7031,8 @@
 					"parentId": 312,
 					"mapType": 0,
 					"tex": 70,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6892,7 +7041,7 @@
 				"name": "Route 15",
 				"areaId": 56,
 				"areaName": "Route 15",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6914,7 +7063,8 @@
 					"parentId": 313,
 					"mapType": 0,
 					"tex": 78,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6923,7 +7073,7 @@
 				"name": "Route 16",
 				"areaId": 57,
 				"areaName": "Route 16",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6945,7 +7095,8 @@
 					"parentId": 314,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 13
 				}
 			},
 			{
@@ -6954,7 +7105,7 @@
 				"name": "Lacunosa Town",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -6976,7 +7127,8 @@
 					"parentId": 315,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -6985,7 +7137,7 @@
 				"name": "Undella Town",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7007,7 +7159,8 @@
 					"parentId": 316,
 					"mapType": 0,
 					"tex": 70,
-					"matrix": 175
+					"matrix": 175,
+					"flags": 12
 				}
 			},
 			{
@@ -7016,7 +7169,7 @@
 				"name": "Route 1",
 				"areaId": 60,
 				"areaName": "Route 1",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 64,
 				"attrs": {},
@@ -7038,7 +7191,8 @@
 					"parentId": 317,
 					"mapType": 0,
 					"tex": 2,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7047,7 +7201,7 @@
 				"name": "Route Gate",
 				"areaId": 24,
 				"areaName": "Route Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7057,7 +7211,8 @@
 					"parentId": 317,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -7066,7 +7221,7 @@
 				"name": "Route 2",
 				"areaId": 61,
 				"areaName": "Route 2",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -7088,7 +7243,8 @@
 					"parentId": 319,
 					"mapType": 0,
 					"tex": 6,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7097,7 +7253,7 @@
 				"name": "Accumula Gate",
 				"areaId": 62,
 				"areaName": "Accumula Gate",
-				"type": null,
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7107,7 +7263,8 @@
 					"parentId": 319,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -7116,7 +7273,7 @@
 				"name": "Route 3",
 				"areaId": 63,
 				"areaName": "Route 3",
-				"type": null,
+				"type": "route",
 				"width": 96,
 				"height": 64,
 				"attrs": {},
@@ -7138,7 +7295,8 @@
 					"parentId": 321,
 					"mapType": 0,
 					"tex": 6,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7147,7 +7305,7 @@
 				"name": "Route 3",
 				"areaId": 63,
 				"areaName": "Route 3",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7157,7 +7315,8 @@
 					"parentId": 321,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 53
+					"matrix": 53,
+					"flags": 73
 				}
 			},
 			{
@@ -7166,7 +7325,7 @@
 				"name": "Route 3",
 				"areaId": 63,
 				"areaName": "Route 3",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7176,7 +7335,8 @@
 					"parentId": 321,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 28
+					"matrix": 28,
+					"flags": 73
 				}
 			},
 			{
@@ -7185,7 +7345,7 @@
 				"name": "Wellspring Cave",
 				"areaId": 64,
 				"areaName": "Wellspring Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7195,7 +7355,8 @@
 					"parentId": 324,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 108
+					"matrix": 108,
+					"flags": 92
 				}
 			},
 			{
@@ -7204,7 +7365,7 @@
 				"name": "Wellspring Cave",
 				"areaId": 64,
 				"areaName": "Wellspring Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7214,7 +7375,8 @@
 					"parentId": 324,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 109
+					"matrix": 109,
+					"flags": 92
 				}
 			},
 			{
@@ -7223,7 +7385,7 @@
 				"name": "Route 4",
 				"areaId": 65,
 				"areaName": "Route 4",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 128,
 				"attrs": {},
@@ -7245,7 +7407,8 @@
 					"parentId": 326,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 237
 				}
 			},
 			{
@@ -7254,7 +7417,7 @@
 				"name": "Route 4",
 				"areaId": 65,
 				"areaName": "Route 4",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7264,7 +7427,8 @@
 					"parentId": 326,
 					"mapType": 16,
 					"tex": 255,
-					"matrix": 91
+					"matrix": 91,
+					"flags": 73
 				}
 			},
 			{
@@ -7273,7 +7437,7 @@
 				"name": "Route 4",
 				"areaId": 65,
 				"areaName": "Route 4",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7283,7 +7447,8 @@
 					"parentId": 326,
 					"mapType": 16,
 					"tex": 255,
-					"matrix": 91
+					"matrix": 91,
+					"flags": 73
 				}
 			},
 			{
@@ -7292,7 +7457,7 @@
 				"name": "Route 5",
 				"areaId": 47,
 				"areaName": "Route 5",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -7314,7 +7479,8 @@
 					"parentId": 329,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7323,17 +7489,20 @@
 				"name": "Route 5",
 				"areaId": 47,
 				"areaName": "Route 5",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"inconsequential": true
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 330,
 					"parentId": 329,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 65
+					"matrix": 65,
+					"flags": 73
 				}
 			},
 			{
@@ -7342,7 +7511,7 @@
 				"name": "Route 6",
 				"areaId": 48,
 				"areaName": "Route 6",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -7364,7 +7533,8 @@
 					"parentId": 331,
 					"mapType": 0,
 					"tex": 34,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7373,7 +7543,7 @@
 				"name": "Route 6",
 				"areaId": 48,
 				"areaName": "Route 6",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7383,7 +7553,8 @@
 					"parentId": 331,
 					"mapType": 16,
 					"tex": 213,
-					"matrix": 92
+					"matrix": 92,
+					"flags": 73
 				}
 			},
 			{
@@ -7392,7 +7563,7 @@
 				"name": "Mistralton Cave",
 				"areaId": 66,
 				"areaName": "Mistralton Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7402,7 +7573,8 @@
 					"parentId": 333,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 110
+					"matrix": 110,
+					"flags": 92
 				}
 			},
 			{
@@ -7411,7 +7583,7 @@
 				"name": "Mistralton Cave",
 				"areaId": 66,
 				"areaName": "Mistralton Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7421,7 +7593,8 @@
 					"parentId": 333,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 111
+					"matrix": 111,
+					"flags": 92
 				}
 			},
 			{
@@ -7430,7 +7603,7 @@
 				"name": "Guidance Chamber",
 				"areaId": 67,
 				"areaName": "Guidance Chamber",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7440,7 +7613,8 @@
 					"parentId": 333,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 112
+					"matrix": 112,
+					"flags": 92
 				}
 			},
 			{
@@ -7449,7 +7623,7 @@
 				"name": "Route 6",
 				"areaId": 48,
 				"areaName": "Route 6",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7459,7 +7633,8 @@
 					"parentId": 331,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -7468,7 +7643,7 @@
 				"name": "Route 7",
 				"areaId": 49,
 				"areaName": "Route 7",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -7490,7 +7665,8 @@
 					"parentId": 337,
 					"mapType": 0,
 					"tex": 38,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7499,7 +7675,7 @@
 				"name": "Celestial Tower",
 				"areaId": 68,
 				"areaName": "Celestial Tower",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7509,7 +7685,8 @@
 					"parentId": 338,
 					"mapType": 14,
 					"tex": 251,
-					"matrix": 185
+					"matrix": 185,
+					"flags": 9
 				}
 			},
 			{
@@ -7518,7 +7695,7 @@
 				"name": "Celestial Tower",
 				"areaId": 68,
 				"areaName": "Celestial Tower",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7528,7 +7705,8 @@
 					"parentId": 338,
 					"mapType": 14,
 					"tex": 251,
-					"matrix": 186
+					"matrix": 186,
+					"flags": 9
 				}
 			},
 			{
@@ -7537,7 +7715,7 @@
 				"name": "Celestial Tower",
 				"areaId": 68,
 				"areaName": "Celestial Tower",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7547,7 +7725,8 @@
 					"parentId": 338,
 					"mapType": 14,
 					"tex": 251,
-					"matrix": 187
+					"matrix": 187,
+					"flags": 9
 				}
 			},
 			{
@@ -7556,7 +7735,7 @@
 				"name": "Celestial Tower",
 				"areaId": 68,
 				"areaName": "Celestial Tower",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7566,7 +7745,8 @@
 					"parentId": 338,
 					"mapType": 14,
 					"tex": 251,
-					"matrix": 188
+					"matrix": 188,
+					"flags": 9
 				}
 			},
 			{
@@ -7575,7 +7755,7 @@
 				"name": "Celestial Tower",
 				"areaId": 68,
 				"areaName": "Celestial Tower",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7585,7 +7765,8 @@
 					"parentId": 338,
 					"mapType": 16,
 					"tex": 90,
-					"matrix": 189
+					"matrix": 189,
+					"flags": 40
 				}
 			},
 			{
@@ -7594,7 +7775,7 @@
 				"name": "Route 7",
 				"areaId": 49,
 				"areaName": "Route 7",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7604,7 +7785,8 @@
 					"parentId": 337,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -7613,7 +7795,7 @@
 				"name": "Route 7",
 				"areaId": 49,
 				"areaName": "Route 7",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7623,7 +7805,8 @@
 					"parentId": 337,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -7632,7 +7815,7 @@
 				"name": "Route 8",
 				"areaId": 50,
 				"areaName": "Route 8",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -7654,7 +7837,8 @@
 					"parentId": 345,
 					"mapType": 0,
 					"tex": 42,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7663,7 +7847,7 @@
 				"name": "Moor of Icirrus",
 				"areaId": 69,
 				"areaName": "Moor of Icirrus",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7673,7 +7857,8 @@
 					"parentId": 346,
 					"mapType": 16,
 					"tex": 198,
-					"matrix": 183
+					"matrix": 183,
+					"flags": 108
 				}
 			},
 			{
@@ -7682,7 +7867,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7692,7 +7877,8 @@
 					"parentId": 345,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 129
+					"matrix": 129,
+					"flags": 77
 				}
 			},
 			{
@@ -7701,7 +7887,7 @@
 				"name": "Route 9",
 				"areaId": 51,
 				"areaName": "Route 9",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -7723,7 +7909,8 @@
 					"parentId": 348,
 					"mapType": 0,
 					"tex": 54,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7732,7 +7919,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7742,7 +7929,8 @@
 					"parentId": 348,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 129
+					"matrix": 129,
+					"flags": 77
 				}
 			},
 			{
@@ -7751,7 +7939,7 @@
 				"name": "Shopping Mall",
 				"areaId": 70,
 				"areaName": "Shopping Mall",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7761,7 +7949,8 @@
 					"parentId": 348,
 					"mapType": 16,
 					"tex": 254,
-					"matrix": 90
+					"matrix": 90,
+					"flags": 73
 				}
 			},
 			{
@@ -7770,7 +7959,7 @@
 				"name": "Shopping Mall",
 				"areaId": 70,
 				"areaName": "Shopping Mall",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7780,7 +7969,8 @@
 					"parentId": 348,
 					"mapType": 16,
 					"tex": 254,
-					"matrix": 141
+					"matrix": 141,
+					"flags": 73
 				}
 			},
 			{
@@ -7789,7 +7979,7 @@
 				"name": "Challenger's Cave",
 				"areaId": 71,
 				"areaName": "Challenger's Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7799,7 +7989,8 @@
 					"parentId": 352,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 113
+					"matrix": 113,
+					"flags": 92
 				}
 			},
 			{
@@ -7808,7 +7999,7 @@
 				"name": "Challenger's Cave",
 				"areaId": 71,
 				"areaName": "Challenger's Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7818,7 +8009,8 @@
 					"parentId": 352,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 114
+					"matrix": 114,
+					"flags": 92
 				}
 			},
 			{
@@ -7827,7 +8019,7 @@
 				"name": "Challenger's Cave",
 				"areaId": 71,
 				"areaName": "Challenger's Cave",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -7837,7 +8029,8 @@
 					"parentId": 352,
 					"mapType": 16,
 					"tex": 260,
-					"matrix": 115
+					"matrix": 115,
+					"flags": 92
 				}
 			},
 			{
@@ -7846,7 +8039,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "route",
 				"width": 96,
 				"height": 32,
 				"attrs": {},
@@ -7868,7 +8061,8 @@
 					"parentId": 355,
 					"mapType": 0,
 					"tex": 54,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -7877,29 +8071,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 356,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 150,
-					"matrix": 142
+					"matrix": 142,
+					"flags": 8
 				}
 			},
 			{
@@ -7908,29 +8091,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 357,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 154,
-					"matrix": 143
+					"matrix": 143,
+					"flags": 8
 				}
 			},
 			{
@@ -7939,29 +8111,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 358,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 158,
-					"matrix": 144
+					"matrix": 144,
+					"flags": 8
 				}
 			},
 			{
@@ -7970,29 +8131,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 359,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 162,
-					"matrix": 145
+					"matrix": 145,
+					"flags": 8
 				}
 			},
 			{
@@ -8001,29 +8151,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 360,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 166,
-					"matrix": 146
+					"matrix": 146,
+					"flags": 8
 				}
 			},
 			{
@@ -8032,29 +8171,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 361,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 170,
-					"matrix": 147
+					"matrix": 147,
+					"flags": 8
 				}
 			},
 			{
@@ -8063,29 +8191,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 362,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 174,
-					"matrix": 148
+					"matrix": 148,
+					"flags": 8
 				}
 			},
 			{
@@ -8094,29 +8211,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 363,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 178,
-					"matrix": 149
+					"matrix": 149,
+					"flags": 8
 				}
 			},
 			{
@@ -8125,29 +8231,18 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [
-					{
-						"ax": 16,
-						"ay": 16,
-						"bx": 16,
-						"by": 16,
-						"rad": 5,
-						"name": "flySpot",
-						"attrs": {
-							"flyspot": true
-						}
-					}
-				],
+				"areas": [],
 				"gamedata": {
 					"mapId": 364,
 					"parentId": 355,
 					"mapType": 16,
 					"tex": 182,
-					"matrix": 150
+					"matrix": 150,
+					"flags": 8
 				}
 			},
 			{
@@ -8156,7 +8251,7 @@
 				"name": "Route 11",
 				"areaId": 52,
 				"areaName": "Route 11",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -8178,7 +8273,8 @@
 					"parentId": 365,
 					"mapType": 0,
 					"tex": 54,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8187,7 +8283,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8197,7 +8293,8 @@
 					"parentId": 365,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -8206,7 +8303,7 @@
 				"name": "Route 11",
 				"areaId": 52,
 				"areaName": "Route 11",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8216,7 +8313,8 @@
 					"parentId": 365,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 65
+					"matrix": 65,
+					"flags": 73
 				}
 			},
 			{
@@ -8225,7 +8323,7 @@
 				"name": "Route 12",
 				"areaId": 53,
 				"areaName": "Route 12",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -8247,7 +8345,8 @@
 					"parentId": 368,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8256,7 +8355,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8266,7 +8365,8 @@
 					"parentId": 368,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -8275,7 +8375,7 @@
 				"name": "Route 13",
 				"areaId": 54,
 				"areaName": "Route 13",
-				"type": null,
+				"type": "route",
 				"width": 32,
 				"height": 128,
 				"attrs": {},
@@ -8297,7 +8397,8 @@
 					"parentId": 370,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8306,7 +8407,7 @@
 				"name": "Route 13",
 				"areaId": 54,
 				"areaName": "Route 13",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8316,7 +8417,8 @@
 					"parentId": 370,
 					"mapType": 16,
 					"tex": 256,
-					"matrix": 47
+					"matrix": 47,
+					"flags": 73
 				}
 			},
 			{
@@ -8325,7 +8427,7 @@
 				"name": "Undella Gate",
 				"areaId": 73,
 				"areaName": "Undella Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8335,7 +8437,8 @@
 					"parentId": 370,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 12
+					"matrix": 12,
+					"flags": 77
 				}
 			},
 			{
@@ -8344,7 +8447,7 @@
 				"name": "Route 13",
 				"areaId": 54,
 				"areaName": "Route 13",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8354,7 +8457,8 @@
 					"parentId": 370,
 					"mapType": 16,
 					"tex": 256,
-					"matrix": 47
+					"matrix": 47,
+					"flags": 73
 				}
 			},
 			{
@@ -8363,7 +8467,7 @@
 				"name": "Route 14",
 				"areaId": 55,
 				"areaName": "Route 14",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -8385,7 +8489,8 @@
 					"parentId": 374,
 					"mapType": 0,
 					"tex": 70,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8394,7 +8499,7 @@
 				"name": "Black Gate",
 				"areaId": 74,
 				"areaName": "Black Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8404,7 +8509,8 @@
 					"parentId": 374,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 12
+					"matrix": 12,
+					"flags": 77
 				}
 			},
 			{
@@ -8413,7 +8519,7 @@
 				"name": "Abundant Shrine",
 				"areaId": 75,
 				"areaName": "Abundant Shrine",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8423,7 +8529,8 @@
 					"parentId": 376,
 					"mapType": 16,
 					"tex": 194,
-					"matrix": 190
+					"matrix": 190,
+					"flags": 108
 				}
 			},
 			{
@@ -8432,7 +8539,7 @@
 				"name": "Abundant Shrine",
 				"areaId": 75,
 				"areaName": "Abundant Shrine",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8442,7 +8549,8 @@
 					"parentId": 376,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -8451,7 +8559,7 @@
 				"name": "Route 15",
 				"areaId": 56,
 				"areaName": "Route 15",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -8473,7 +8581,8 @@
 					"parentId": 378,
 					"mapType": 0,
 					"tex": 78,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8482,7 +8591,7 @@
 				"name": "Black Gate",
 				"areaId": 74,
 				"areaName": "Black Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8492,7 +8601,8 @@
 					"parentId": 378,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 50
+					"matrix": 50,
+					"flags": 77
 				}
 			},
 			{
@@ -8501,7 +8611,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8511,7 +8621,8 @@
 					"parentId": 378,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 131
+					"matrix": 131,
+					"flags": 77
 				}
 			},
 			{
@@ -8520,7 +8631,7 @@
 				"name": "Poké Transfer Lab",
 				"areaId": 76,
 				"areaName": "Poké Transfer Lab",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8530,7 +8641,8 @@
 					"parentId": 381,
 					"mapType": 16,
 					"tex": 231,
-					"matrix": 140
+					"matrix": 140,
+					"flags": 73
 				}
 			},
 			{
@@ -8539,7 +8651,7 @@
 				"name": "Route 15",
 				"areaId": 56,
 				"areaName": "Route 15",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8549,7 +8661,8 @@
 					"parentId": 378,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 65
+					"matrix": 65,
+					"flags": 73
 				}
 			},
 			{
@@ -8558,7 +8671,7 @@
 				"name": "Route 16",
 				"areaId": 57,
 				"areaName": "Route 16",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -8580,7 +8693,8 @@
 					"parentId": 383,
 					"mapType": 0,
 					"tex": 22,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8589,7 +8703,7 @@
 				"name": "Bridge Gate",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8599,7 +8713,8 @@
 					"parentId": 383,
 					"mapType": 16,
 					"tex": 244,
-					"matrix": 130
+					"matrix": 130,
+					"flags": 77
 				}
 			},
 			{
@@ -8608,7 +8723,7 @@
 				"name": "Lostlorn Forest",
 				"areaId": 77,
 				"areaName": "Lostlorn Forest",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8618,7 +8733,8 @@
 					"parentId": 385,
 					"mapType": 16,
 					"tex": 202,
-					"matrix": 237
+					"matrix": 237,
+					"flags": 108
 				}
 			},
 			{
@@ -8627,7 +8743,7 @@
 				"name": "Lostlorn Forest",
 				"areaId": 77,
 				"areaName": "Lostlorn Forest",
-				"type": null,
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8637,7 +8753,8 @@
 					"parentId": 385,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 65
+					"matrix": 65,
+					"flags": 72
 				}
 			},
 			{
@@ -8646,7 +8763,7 @@
 				"name": "Route 18",
 				"areaId": 78,
 				"areaName": "Route 18",
-				"type": null,
+				"type": "route",
 				"width": 64,
 				"height": 64,
 				"attrs": {},
@@ -8668,7 +8785,8 @@
 					"parentId": 387,
 					"mapType": 0,
 					"tex": 122,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8677,7 +8795,7 @@
 				"name": "Route 18",
 				"areaId": 78,
 				"areaName": "Route 18",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8687,7 +8805,8 @@
 					"parentId": 387,
 					"mapType": 16,
 					"tex": 255,
-					"matrix": 91
+					"matrix": 91,
+					"flags": 73
 				}
 			},
 			{
@@ -8696,7 +8815,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8718,7 +8837,8 @@
 					"parentId": 389,
 					"mapType": 0,
 					"tex": 2,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
@@ -8727,7 +8847,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8737,7 +8857,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 212,
-					"matrix": 39
+					"matrix": 39,
+					"flags": 73
 				}
 			},
 			{
@@ -8746,7 +8867,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8756,7 +8877,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 212,
-					"matrix": 40
+					"matrix": 40,
+					"flags": 73
 				}
 			},
 			{
@@ -8765,7 +8887,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8775,7 +8897,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 212,
-					"matrix": 37
+					"matrix": 37,
+					"flags": 73
 				}
 			},
 			{
@@ -8784,7 +8907,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8794,7 +8917,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 212,
-					"matrix": 38
+					"matrix": 38,
+					"flags": 73
 				}
 			},
 			{
@@ -8803,7 +8927,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8813,7 +8937,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 212,
-					"matrix": 35
+					"matrix": 35,
+					"flags": 73
 				}
 			},
 			{
@@ -8822,7 +8947,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8832,7 +8957,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 212,
-					"matrix": 36
+					"matrix": 36,
+					"flags": 73
 				}
 			},
 			{
@@ -8841,7 +8967,7 @@
 				"name": "Nuvema Town",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8851,7 +8977,8 @@
 					"parentId": 389,
 					"mapType": 16,
 					"tex": 213,
-					"matrix": 42
+					"matrix": 42,
+					"flags": 73
 				}
 			},
 			{
@@ -8860,7 +8987,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8882,16 +9009,17 @@
 					"parentId": 397,
 					"mapType": 0,
 					"tex": 2,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 398,
-				"name": "Accumula Town",
+				"name": "Accumula Town Pokémon Center",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8901,7 +9029,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -8910,7 +9039,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8920,7 +9049,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -8929,7 +9059,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8939,7 +9069,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 27
+					"matrix": 27,
+					"flags": 73
 				}
 			},
 			{
@@ -8948,7 +9079,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8958,7 +9089,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -8967,7 +9099,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8977,7 +9109,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 27
+					"matrix": 27,
+					"flags": 73
 				}
 			},
 			{
@@ -8986,7 +9119,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8996,7 +9129,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 26
+					"matrix": 26,
+					"flags": 73
 				}
 			},
 			{
@@ -9005,7 +9139,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9015,7 +9149,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 217,
-					"matrix": 32
+					"matrix": 32,
+					"flags": 73
 				}
 			},
 			{
@@ -9024,7 +9159,7 @@
 				"name": "Accumula Town",
 				"areaId": 80,
 				"areaName": "Accumula Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9034,7 +9169,8 @@
 					"parentId": 397,
 					"mapType": 16,
 					"tex": 235,
-					"matrix": 45
+					"matrix": 45,
+					"flags": 73
 				}
 			},
 			{
@@ -9043,7 +9179,7 @@
 				"name": "Lacunosa Town",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "town",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9065,16 +9201,17 @@
 					"parentId": 406,
 					"mapType": 0,
 					"tex": 66,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 407,
-				"name": "Lacunosa Town",
+				"name": "Lacunosa Town Pokémon Center",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9084,7 +9221,8 @@
 					"parentId": 406,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -9093,7 +9231,7 @@
 				"name": "Lacunosa Town",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9103,7 +9241,8 @@
 					"parentId": 406,
 					"mapType": 16,
 					"tex": 256,
-					"matrix": 47
+					"matrix": 47,
+					"flags": 73
 				}
 			},
 			{
@@ -9112,7 +9251,7 @@
 				"name": "Lacunosa Town",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9122,7 +9261,8 @@
 					"parentId": 406,
 					"mapType": 16,
 					"tex": 256,
-					"matrix": 47
+					"matrix": 47,
+					"flags": 73
 				}
 			},
 			{
@@ -9131,7 +9271,7 @@
 				"name": "Lacunosa Town",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9141,7 +9281,8 @@
 					"parentId": 406,
 					"mapType": 16,
 					"tex": 256,
-					"matrix": 47
+					"matrix": 47,
+					"flags": 73
 				}
 			},
 			{
@@ -9150,7 +9291,7 @@
 				"name": "Lacunosa Town",
 				"areaId": 58,
 				"areaName": "Lacunosa Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9160,7 +9301,8 @@
 					"parentId": 406,
 					"mapType": 16,
 					"tex": 256,
-					"matrix": 47
+					"matrix": 47,
+					"flags": 73
 				}
 			},
 			{
@@ -9169,7 +9311,7 @@
 				"name": "Undella Town",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "town",
 				"width": 64,
 				"height": 32,
 				"attrs": {},
@@ -9191,16 +9333,17 @@
 					"parentId": 412,
 					"mapType": 0,
 					"tex": 70,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 413,
-				"name": "Undella Town",
+				"name": "Undella Town Pokémon Center",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9210,7 +9353,8 @@
 					"parentId": 412,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -9219,7 +9363,7 @@
 				"name": "Undella Town",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9229,7 +9373,8 @@
 					"parentId": 412,
 					"mapType": 16,
 					"tex": 257,
-					"matrix": 104
+					"matrix": 104,
+					"flags": 73
 				}
 			},
 			{
@@ -9238,7 +9383,7 @@
 				"name": "Undella Town",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9248,7 +9393,8 @@
 					"parentId": 412,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -9257,7 +9403,7 @@
 				"name": "Undella Town",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9267,7 +9413,8 @@
 					"parentId": 412,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -9276,7 +9423,7 @@
 				"name": "Undella Town",
 				"areaId": 59,
 				"areaName": "Undella Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9286,7 +9433,8 @@
 					"parentId": 412,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			},
 			{
@@ -9295,7 +9443,7 @@
 				"name": "Anville Town",
 				"areaId": 81,
 				"areaName": "Anville Town",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9305,7 +9453,8 @@
 					"parentId": 418,
 					"mapType": 16,
 					"tex": 134,
-					"matrix": 128
+					"matrix": 128,
+					"flags": 236
 				}
 			},
 			{
@@ -9314,7 +9463,7 @@
 				"name": "Anville Town",
 				"areaId": 81,
 				"areaName": "Anville Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9324,7 +9473,8 @@
 					"parentId": 418,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -9333,7 +9483,7 @@
 				"name": "Anville Town",
 				"areaId": 81,
 				"areaName": "Anville Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9343,7 +9493,8 @@
 					"parentId": 418,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -9352,7 +9503,7 @@
 				"name": "Anville Town",
 				"areaId": 81,
 				"areaName": "Anville Town",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9362,7 +9513,8 @@
 					"parentId": 418,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 46
+					"matrix": 46,
+					"flags": 73
 				}
 			},
 			{
@@ -9371,7 +9523,7 @@
 				"name": "－－－－－－－－－－",
 				"areaId": 19,
 				"areaName": "－－－－－－－－－－",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9381,7 +9533,8 @@
 					"parentId": 422,
 					"mapType": 6,
 					"tex": 252,
-					"matrix": 88
+					"matrix": 88,
+					"flags": 73
 				}
 			},
 			{
@@ -9390,7 +9543,7 @@
 				"name": "Route 17",
 				"areaId": 82,
 				"areaName": "Route 17",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 64,
 				"attrs": {},
@@ -9412,7 +9565,8 @@
 					"parentId": 423,
 					"mapType": 0,
 					"tex": 122,
-					"matrix": 0
+					"matrix": 0,
+					"flags": 237
 				}
 			},
 			{
@@ -9421,7 +9575,7 @@
 				"name": "White Forest",
 				"areaId": 46,
 				"areaName": "White Forest",
-				"type": null,
+				"type": "default",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9443,16 +9597,17 @@
 					"parentId": 424,
 					"mapType": 4,
 					"tex": 190,
-					"matrix": 225
+					"matrix": 225,
+					"flags": 236
 				}
 			},
 			{
 				"bank": 0,
 				"id": 425,
-				"name": "White Forest",
+				"name": "White Forest Pokémon Center",
 				"areaId": 46,
 				"areaName": "White Forest",
-				"type": null,
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9462,7 +9617,8 @@
 					"parentId": 424,
 					"mapType": 16,
 					"tex": 211,
-					"matrix": 13
+					"matrix": 13,
+					"flags": 73
 				}
 			},
 			{
@@ -9471,7 +9627,7 @@
 				"name": "White Forest",
 				"areaId": 46,
 				"areaName": "White Forest",
-				"type": null,
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -9481,7 +9637,8 @@
 					"parentId": 424,
 					"mapType": 16,
 					"tex": 210,
-					"matrix": 44
+					"matrix": 44,
+					"flags": 73
 				}
 			}
 		]
