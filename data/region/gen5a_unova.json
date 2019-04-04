@@ -2666,6 +2666,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 428,
+						"ay": 178,
+						"bx": 429,
+						"by": 178,
+						"rad": 0,
+						"name": "vending",
+						"attrs": {
+							"vending": true
+						}
 					}
 				],
 				"gamedata": {
@@ -2680,10 +2691,10 @@
 			{
 				"bank": 0,
 				"id": 121,
-				"name": "Opelucid City",
+				"name": "Opelucid City Gym",
 				"areaId": 15,
 				"areaName": "Opelucid City",
-				"type": "indoor",
+				"type": "gym",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2720,7 +2731,7 @@
 			{
 				"bank": 0,
 				"id": 123,
-				"name": "Opelucid City",
+				"name": "Drayden's House",
 				"areaId": 15,
 				"areaName": "Opelucid City",
 				"type": "indoor",
@@ -2740,7 +2751,7 @@
 			{
 				"bank": 0,
 				"id": 124,
-				"name": "Opelucid City",
+				"name": "Drayden's House",
 				"areaId": 15,
 				"areaName": "Opelucid City",
 				"type": "indoor",
@@ -2880,10 +2891,10 @@
 			{
 				"bank": 0,
 				"id": 131,
-				"name": "Opelucid Gate",
+				"name": "Opelucid Gate (West)",
 				"areaId": 16,
 				"areaName": "Opelucid Gate",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2900,10 +2911,10 @@
 			{
 				"bank": 0,
 				"id": 132,
-				"name": "Opelucid Gate",
+				"name": "Opelucid Gate (North)",
 				"areaId": 16,
 				"areaName": "Opelucid Gate",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2920,10 +2931,10 @@
 			{
 				"bank": 0,
 				"id": 133,
-				"name": "Opelucid Gate",
+				"name": "Opelucid Gate (East)",
 				"areaId": 16,
 				"areaName": "Opelucid Gate",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -2983,10 +2994,14 @@
 				"name": "Pokémon League",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": "default",
+				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "at",
+					"the": "the",
+					"e4": "lobby"
+				},
 				"areas": [
 					{
 						"ax": 19,
@@ -3012,13 +3027,16 @@
 			{
 				"bank": 0,
 				"id": 137,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Central Plaza)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": "default",
+				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"e4": "e4"
+				},
 				"areas": [
 					{
 						"ax": 32,
@@ -3044,13 +3062,17 @@
 			{
 				"bank": 0,
 				"id": 138,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Champion's Stairs)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": "default",
+				"type": "town",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the",
+					"preposition": "in",
+					"e4": "champ"
+				},
 				"areas": [
 					{
 						"ax": 30,
@@ -3076,13 +3098,19 @@
 			{
 				"bank": 0,
 				"id": 139,
-				"name": "Pokémon League",
+				"name": "Staircase to N's Castle",
 				"areaId": 17,
 				"areaName": "Pokémon League",
 				"type": "default",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "on",
+					"the": "the",
+					"indoors": false,
+					"e4": "hallOfFame",
+					"floor": 65535
+				},
 				"areas": [
 					{
 						"ax": 30,
@@ -3108,14 +3136,30 @@
 			{
 				"bank": 0,
 				"id": 140,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Ghost Chamber)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"the": "the",
+					"e4": "e4"
+				},
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 0,
+						"bx": 0,
+						"by": 0,
+						"rad": 5,
+						"name": "leader",
+						"attrs": {
+							"trainertype": "e4",
+							"leader": "Shauntal"
+						}
+					}
+				],
 				"gamedata": {
 					"mapId": 140,
 					"parentId": 136,
@@ -3128,14 +3172,31 @@
 			{
 				"bank": 0,
 				"id": 141,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Dark Chamber)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"e4": "e4"
+				},
+				"areas": [
+					{
+						"ax": 0,
+						"ay": 0,
+						"bx": 0,
+						"by": 0,
+						"rad": 5,
+						"name": "leader",
+						"attrs": {
+							"trainertype": "e4",
+							"leader": "Grimsley"
+						}
+					}
+				],
 				"gamedata": {
 					"mapId": 141,
 					"parentId": 136,
@@ -3148,14 +3209,30 @@
 			{
 				"bank": 0,
 				"id": 142,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Fight Chamber)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"preposition": "in",
+					"the": "the"
+				},
+				"areas": [
+					{
+						"ax": 15,
+						"ay": 11,
+						"bx": 15,
+						"by": 11,
+						"rad": 5,
+						"name": "leader",
+						"attrs": {
+							"trainertype": "e4",
+							"leader": "Marshal"
+						}
+					}
+				],
 				"gamedata": {
 					"mapId": 142,
 					"parentId": 136,
@@ -3168,14 +3245,31 @@
 			{
 				"bank": 0,
 				"id": 143,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Dream Chamber)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"e4": "e4"
+				},
+				"areas": [
+					{
+						"ax": 15,
+						"ay": 9,
+						"bx": 15,
+						"by": 9,
+						"rad": 5,
+						"name": "leader",
+						"attrs": {
+							"trainertype": "e4",
+							"leader": "Caitlin"
+						}
+					}
+				],
 				"gamedata": {
 					"mapId": 143,
 					"parentId": 136,
@@ -3188,14 +3282,31 @@
 			{
 				"bank": 0,
 				"id": 144,
-				"name": "Pokémon League",
+				"name": "Pokémon League (Champion's Chamber)",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": "default",
+				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
-				"areas": [],
+				"attrs": {
+					"preposition": "in",
+					"the": "the",
+					"e4": "champ"
+				},
+				"areas": [
+					{
+						"ax": 16,
+						"ay": 10,
+						"bx": 16,
+						"by": 10,
+						"rad": 5,
+						"name": "leader",
+						"attrs": {
+							"trainertype": "e4",
+							"leader": "Alder"
+						}
+					}
+				],
 				"gamedata": {
 					"mapId": 144,
 					"parentId": 136,
@@ -3208,13 +3319,16 @@
 			{
 				"bank": 0,
 				"id": 145,
-				"name": "Pokémon League",
+				"name": "Hall of Fame",
 				"areaId": 17,
 				"areaName": "Pokémon League",
 				"type": "indoor",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"e4": "hallOfFame",
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 145,
@@ -3228,10 +3342,10 @@
 			{
 				"bank": 0,
 				"id": 146,
-				"name": "Pokémon League",
+				"name": "Pokémon League Pokémon Center",
 				"areaId": 17,
 				"areaName": "Pokémon League",
-				"type": "indoor",
+				"type": "center",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -4687,7 +4801,8 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {
-					"floor": 7
+					"floor": 7,
+					"indoors": false
 				},
 				"areas": [],
 				"gamedata": {
@@ -4708,7 +4823,11 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "outside",
+					"the": "",
+					"floor": 0
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 214,
@@ -4728,7 +4847,9 @@
 				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 1
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 215,
@@ -4745,10 +4866,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 2
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 216,
@@ -4765,10 +4888,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 3
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 217,
@@ -4785,10 +4910,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 4
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 218,
@@ -4805,10 +4932,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 2
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 219,
@@ -4825,10 +4954,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 1
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 220,
@@ -4845,10 +4976,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 3
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 221,
@@ -4865,10 +4998,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": -1
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 222,
@@ -4885,10 +5020,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 3
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 223,
@@ -4905,10 +5042,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 4
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 224,
@@ -4925,10 +5064,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 5
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 225,
@@ -4945,10 +5086,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 6
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 226,
@@ -4965,10 +5108,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 6
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 227,
@@ -4985,10 +5130,12 @@
 				"name": "Victory Road",
 				"areaId": 30,
 				"areaName": "Victory Road",
-				"type": "default",
+				"type": "dungeon",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"floor": 7
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 228,
@@ -5009,7 +5156,19 @@
 				"width": 32,
 				"height": 32,
 				"attrs": {},
-				"areas": [],
+				"areas": [
+					{
+						"ax": 5,
+						"ay": 5,
+						"bx": 5,
+						"by": 5,
+						"rad": 5,
+						"name": "Legendary",
+						"attrs": {
+							"legendary": "Terrakion"
+						}
+					}
+				],
 				"gamedata": {
 					"mapId": 229,
 					"parentId": 214,
@@ -5586,7 +5745,9 @@
 				"type": "bridge",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"the": "the"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 254,
@@ -7864,13 +8025,15 @@
 			{
 				"bank": 0,
 				"id": 347,
-				"name": "Bridge Gate",
+				"name": "Bridge Gate (East)",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 347,
@@ -7902,6 +8065,17 @@
 						"attrs": {
 							"flyspot": true
 						}
+					},
+					{
+						"ax": 366,
+						"ay": 169,
+						"bx": 369,
+						"by": 169,
+						"rad": 0,
+						"name": "vending",
+						"attrs": {
+							"vending": true
+						}
 					}
 				],
 				"gamedata": {
@@ -7916,13 +8090,15 @@
 			{
 				"bank": 0,
 				"id": 349,
-				"name": "Bridge Gate",
+				"name": "Bridge Gate (West)",
 				"areaId": 38,
 				"areaName": "Bridge Gate",
-				"type": "indoor",
+				"type": "gatehouse",
 				"width": 32,
 				"height": 32,
-				"attrs": {},
+				"attrs": {
+					"preposition": "in"
+				},
 				"areas": [],
 				"gamedata": {
 					"mapId": 349,
@@ -7936,7 +8112,7 @@
 			{
 				"bank": 0,
 				"id": 350,
-				"name": "Shopping Mall",
+				"name": "Shopping Mall Nine",
 				"areaId": 70,
 				"areaName": "Shopping Mall",
 				"type": "indoor",
@@ -7956,7 +8132,7 @@
 			{
 				"bank": 0,
 				"id": 351,
-				"name": "Shopping Mall",
+				"name": "Shopping Mall Nine (Storeroom)",
 				"areaId": 70,
 				"areaName": "Shopping Mall",
 				"type": "indoor",
@@ -8071,7 +8247,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": "default",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8091,7 +8267,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": "default",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8111,7 +8287,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": "default",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8131,7 +8307,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": "default",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8151,7 +8327,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": "default",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8171,7 +8347,7 @@
 				"name": "Route 10",
 				"areaId": 72,
 				"areaName": "Route 10",
-				"type": "default",
+				"type": "route",
 				"width": 32,
 				"height": 32,
 				"attrs": {},
@@ -8844,7 +9020,7 @@
 			{
 				"bank": 0,
 				"id": 390,
-				"name": "Nuvema Town",
+				"name": "{{Player}}'s House",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
 				"type": "indoor",
@@ -8864,7 +9040,7 @@
 			{
 				"bank": 0,
 				"id": 391,
-				"name": "Nuvema Town",
+				"name": "{{Player}}'s Room",
 				"areaId": 79,
 				"areaName": "Nuvema Town",
 				"type": "indoor",
@@ -9643,5 +9819,70 @@
 			}
 		]
 	],
-	"reports": []
+	"reports": [
+		{
+			"type": "transit",
+			"id": "d663f6e7",
+			"text": "We pass the Trio Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.356",
+			"to": "0.357"
+		},
+		{
+			"type": "transit",
+			"id": "ec5bf502",
+			"text": "We pass the Basic Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.357",
+			"to": "0.358"
+		},
+		{
+			"type": "transit",
+			"id": "a4c9592d",
+			"text": "We pass the Insect Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.358",
+			"to": "0.359"
+		},
+		{
+			"type": "transit",
+			"id": "6cde557b",
+			"text": "We pass the Basic Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.359",
+			"to": "0.360"
+		},
+		{
+			"type": "transit",
+			"id": "8dbba475",
+			"text": "We pass the Quake Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.360",
+			"to": "0.361"
+		},
+		{
+			"type": "transit",
+			"id": "7b893546",
+			"text": "We pass the Jet Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.361",
+			"to": "0.362"
+		},
+		{
+			"type": "transit",
+			"id": "de407629",
+			"text": "We pass the Freeze Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.362",
+			"to": "0.363"
+		},
+		{
+			"type": "transit",
+			"id": "35652e59",
+			"text": "We pass the Legend Badge Check!",
+			"timeout": 60000000000,
+			"from": "0.363",
+			"to": "0.364"
+		}
+	]
 }

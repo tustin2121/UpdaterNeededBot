@@ -130,6 +130,14 @@ class E4Module extends ReportingModule {
 	}
 }
 
+RULES.push(new Rule(`Change the flavor of Hall of Fame announcements for N's Castle.`)
+	.when(ledger=>ledger.hasMapThatIs('floor', 65535)) //hack for Unova's odd first E4
+	.when(ledger=>ledger.has('E4HallOfFame'))
+	.then(ledger=>{
+		ledger.get(1).forEach(x=>x.flavor='nattack');
+	})
+);
+
 RULES.push(new Rule(`Supress map change announcements when we enter the hall of fame.`)
 	.when(ledger=>ledger.has('E4HallOfFame'))
 	.when(ledger=>ledger.has('MapChanged'))

@@ -64,5 +64,8 @@ module.exports = {
 			14: `<b>We enter the Hall of Fame!</b> ┌༼ – _ – ༽┐ VICTORY ┌༼ – _ – ༽┐`,
 			15: `<b>We enter the Hall of Fame.</b> (╭ರ_⊙)`,
 		},
+		nattack: [
+			`Now we're walking up some stairs to a massive castle... Um... Victory Riot? └༼ຈل͜ຈ༽┘`,
+		],
 	}
 };
