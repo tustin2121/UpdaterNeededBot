@@ -214,6 +214,31 @@ const HANDLER = {
 		Bot.emit('cmd_resetTiming');
 		msg.channel.send(`Timing module will be reset next update cycle.`).catch(ERR);
 	},
+	'cmd-adjustattempt-battle': ({ msg, args })=>{
+		if (!Bot.runConfig) return;
+		let mem = Bot.memory['mod0_Battle'];
+		if (!mem.lastBattleReported)
+		{
+			msg.channel.send(`We're not currently in a notable battle, so I don't know which attempt count to change.`).catch(ERR);
+		}
+		else if (!mem.attempts[mem.lastBattleReported])
+		{
+			msg.channel.send(`I haven't been keeping track of attempts for this battle (\`${mem.lastBattleReported}\`).`).catch(ERR);
+		}
+		else
+		{
+			let last = mem.attempts[mem.lastBattleReported];
+			mem.attempts[mem.lastBattleReported] = args[0];
+			msg.channel.send(`This battle (\`${mem.lastBattleReported}\`) now has its attempt count changed from ${last} to ${mem.attempts[mem.lastBattleReported]}.`).catch(ERR);
+		}
+	},
+	'cmd-adjustattempt-e4': ({ msg, args })=>{
+		if (!Bot.runConfig) return;
+		let mem = Bot.memory['mod0_E4'];
+		let last = mem.e4Attempts;
+		mem.e4Attempts = args[0];
+		msg.channel.send(`Ok, the ${mem.inE4Run?'current':'last'} E4 attempt is changed from #${last} to #${mem.e4Attempts}.`).catch(ERR);
+	},
 	
 	'save-mem': ({ msg })=>{
 		Bot.saveMemory();
@@ -377,6 +402,16 @@ function parseCmd_RunCommands(cmd, authed, msg) {
 	if (/^reset (max )?(badge count|badges)$/.test(cmd) && authed) return ['cmd-resetbadge'];
 	if (/^assume trainer ?id$/.test(cmd) && authed) return ['cmd-assumetrainer'];
 	if (/^reset timing( ?module)?$/.test(cmd) && authed) return ['cmd-resettiming'];
+	if ((res = /^set e4 attempt(?: count)? to (\d+)$/.exec(cmd))) {
+		let num = Number.parseInt(res[1], 10);
+		if (typeof num === 'number' && !Number.isNaN(num)) return ['cmd-adjustattempt-e4', num];
+		return ['shutup', `I couldn't parse that attempt count.`];
+	}
+	if ((res = /^set battle attempt(?: count)? to (\d+)$/.exec(cmd))) {
+		let num = Number.parseInt(res[1], 10);
+		if (typeof num === 'number' && !Number.isNaN(num)) return ['cmd-adjustattempt-battle', num];
+		return ['shutup', `I couldn't parse that attempt count.`];
+	}
 	
 	if ((res = /^(?:tag ?in|start)(?: (?:for|on|with))? ([\w -]+)$/.exec(cmd))) {
 		return ['tagin', res[1]];

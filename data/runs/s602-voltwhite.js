@@ -11,8 +11,8 @@ module.exports = {
 		regionMap: 'gen5a_unova', //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
-			secret: 0,
+			id: 7180,
+			secret: 4533,
 		},
 		// A list of game corrections and options
 		opts: {
@@ -49,12 +49,12 @@ module.exports = {
 		},
 		
 		// The Reddit Live Updater ID to report to
-		liveID: "12e34utmqmlg6",
+		liveID: "12p55s67x6gld",
 		// The Discord LiveUpdater channel snowflake to report to
 		discordID: "366698530343223306",
 		
 		// The Reddit Live Updater ID to report test information to
-		testLiveID: "12g6ij1mejy9t",
+		testLiveID: "12s3dq6bzr7wz",
 		// The Discord channel snowflake to report test information to
 		testDiscordID: "436589281033715712", //"367499647410765824",
 		
@@ -111,6 +111,6 @@ module.exports = {
 			reportNote: null,
 		}, 
 		// RealTime: {},
-		PC: {},
+		// PC: {},
 	},
 };

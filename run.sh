@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-RUN_START=1553992971
-RUN_CONFIG="s602a-metronomesapphire"
+RUN_START=1555189200
+RUN_CONFIG="s602-voltwhite"
 
 echo Starting UpdaterNeededBot Loop.
 while [ true ]; do
