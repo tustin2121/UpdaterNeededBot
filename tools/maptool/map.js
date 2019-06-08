@@ -352,5 +352,9 @@ function makeMenu() {
 		}));
 		menu.append(new nw.MenuItem({ label:'Map', submenu }));
 	}
-	nw.Window.get().menu = menu;
+	if (process.platform === 'darwin') {
+		// nw.Window.get().menu = menu;
+	} else {
+		nw.Window.get().menu = menu;
+	}
 }

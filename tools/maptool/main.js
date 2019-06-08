@@ -1044,7 +1044,11 @@ function makeMenubar() {
 		}
 		menu.append(new nw.MenuItem({ label:'Edit', submenu }));
 	}
-	nw.Window.get().menu = menu;
+	if (process.platform === 'darwin') {
+		nw.Window.get().menu = menu;
+	} else {
+		nw.Window.get().menu = menu;
+	}
 }
 
 function toStr(node) {
