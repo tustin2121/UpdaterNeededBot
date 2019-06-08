@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-RUN_START=1555189200
-RUN_CONFIG="s602-voltwhite"
+RUN_START=1560027600
+RUN_CONFIG="s603-randocolo"
 
 echo Starting UpdaterNeededBot Loop.
 while [ true ]; do
