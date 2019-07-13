@@ -338,13 +338,24 @@ RULES.push(new Rule('Postpone reporting of name changes until the end of a battl
 	})
 );
 
-RULES.push(new Rule('Postpone reporting of new Pokemon until the end of a battle')
-	.when(ledger=>ledger.has('BattleContext'))
-	.when(ledger=>ledger.has('PokemonGained'))
-	.then(ledger=>{
-		ledger.postpone(1); //Postpone PokemonGained
-	})
-);
+if (Bot.runOpts('snagMachine')) {
+	RULES.push(new Rule('Report throwing balls at trainer Pokemon as snagging')
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('PokemonGained').unmarked())
+		.then(ledger=>{
+			ledger.mark(1).get(1).forEach(x=>x.flavor = 'snagged');
+		})
+	);
+} else {
+	RULES.push(new Rule('Postpone reporting of new Pokemon until the end of a battle')
+		.when(ledger=>ledger.has('BattleContext'))
+		.when(ledger=>ledger.has('PokemonGained'))
+		.then(ledger=>{
+			ledger.postpone(1); //Postpone PokemonGained
+		})
+	);
+}
+
 
 RULES.push(new Rule('Do not report any name changes when a pokemon is caught')
 	.when(ledger=>ledger.has('PokemonGained'))

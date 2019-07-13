@@ -11,13 +11,21 @@ module.exports = {
 		regionMap: null, //Folder in data/regions, or null if we don't have that info
 		// Trainer information
 		trainer: {
-			id: 0,
-			secret: 0,
+			id: 41169,
+			secret: 45659,
 		},
 		// A list of game corrections and options
 		opts: {
 			// see /data/genopts
+			shadow: true,
+			snagMachine: true,
 			
+			trainerClasses: {
+				leader: [162, 211, 326, 403, 425, 439, 440, 317, 378, 472],
+				rival: [],
+				e4: [],
+				champ: [],
+			},
 		},
 	},
 	
@@ -85,24 +93,13 @@ module.exports = {
 		// Options: {},
 		GameStats: {
 			stats: {
-				// 'games_saved': 'GameSaved',
-				// 'pokecenter_used': 'HealedAtCenter',
-				// 'rested_at_home': 'HealedAtHome',
-				// 'entered_safari_zone': null,
-				// 'pokemon_trades': null,
-				// 'splash_used': null,
-				// 'struggle_used': null,
-				// 'slots_jackpots': null,
-				// 'contests_entered': null,
-				// 'contests_won': null,
-				// 'shopping_trips': null,
-				// 'got_rained_on': null,
-				// 'ribbons_earned': null,
-				// 'ledges_jumped': null,
-				// 'tvs_watched': null,
-				// 'lottery_wins': null,
-				// 'cable_car_rides': null,
-				// 'hot_spring_baths_taken': null,
+				'Blackouts': 'Blackouts',
+				"Motorcycle Trips": 'MotorcycleTrips',
+		        "News Reports Watched": 'ColoNewsReport',
+		        "Pok\u00e9mon Caught": 'PokemonCaught',
+		        "Seconds Spent Watching News": 'NewsSeconds',
+		        "Total Money Paid to Trainers": 'MoneyPaid',
+		        "Trainer Battles Won": 'TrainerBattlesWon',
 			},
 			reportNote: null,
 		},

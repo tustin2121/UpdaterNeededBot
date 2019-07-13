@@ -58,6 +58,13 @@ const FLAGS = {
 		match: /play(\-by\-play)?|battle ?state/,
 	},
 	
+	force_important: { 
+		name: 'Force Important',
+		default: false,
+		purpose: `I will consider all battles important.`,
+		match: /force ?important/,
+	},
+	
 	in_democracy: {
 		name: 'In Democracy',
 		default: false,

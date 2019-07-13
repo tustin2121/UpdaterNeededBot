@@ -55,6 +55,8 @@ class BattleModule extends ReportingModule {
 			ledger.addItem(new BattleContext(cb));
 		}
 		
+		
+		
 		this.debug(`pb[${!!pb.in_battle}][${!!pb.party}] | cb[${!!cb.in_battle}][${!!cb.party}]`);
 		
 		// Battle handling
@@ -85,6 +87,13 @@ class BattleModule extends ReportingModule {
 			if (pb.in_battle && pb.party && pb.attemptId === cb.attemptId) {
 				this.constructPlayByPlay(ledger, prev, curr)
 			} else {
+				let attempt = 0;
+				if (cb.isImportant) {
+					attempt = (this.memory.attempts[cb.attemptId] || 0);
+					attempt++;
+					this.memory.attempts[cb.attemptId] = attempt;
+				}
+				ledger.addItem(new BattleStarted(cb, attempt));
 				this.constructInitialPlay(ledger, prev, curr);
 			}
 		}
@@ -121,7 +130,7 @@ class BattleModule extends ReportingModule {
 	
 	finalPass(ledger) {
 		if (Bot.runFlag('alert_battles')) {
-			let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4);
+			let battleItems = ledger.findAllItemsWithName('BattleStarted').filter(x=>x.battle.isImportant && !x.battle.isE4 && !x.battle.isCommon);
 			if (battleItems.length) {
 				let game = ' on stream';
 				if (Bot.runConfig.numGames > 1) {

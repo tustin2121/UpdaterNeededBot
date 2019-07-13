@@ -288,6 +288,24 @@ class MonSparklyChanged extends PartyItem {
 	get curr(){ return this.mon.sparkly; }
 }
 
+/** Indicates that a pokemon's "shadow" status changed. */
+class MonShadowChanged extends PartyItem {
+	constructor(mon) {
+		super(mon, 1);
+		this.flavor = (mon.shadow)?'became':'nolonger';
+	}
+	get curr(){ return this.mon.shadow; }
+}
+
+/** Indicates that a pokemon's "shadow" status changed. */
+class MonShadowHyperModeChanged extends PartyItem {
+	constructor(mon) {
+		super(mon, 1);
+		this.flavor = (mon.shadow_hypermode)?'became':'nolonger';
+	}
+	get curr(){ return this.mon.shadow_hypermode; }
+}
+
 /** Indicates that a pokemon's ability has changed. */
 class MonAbilityChanged extends PartyItem {
 	constructor(mon, prev) {
@@ -334,5 +352,6 @@ module.exports = {
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP, MonPPUp,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove,
 	MonGiveItem, MonTakeItem, MonSwapItem,
-	MonStatusChanged, MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged,
+	MonStatusChanged, MonShinyChanged, MonSparklyChanged, MonShadowChanged, 
+	MonShadowHyperModeChanged, MonAbilityChanged, MonNicknameChanged,
 };

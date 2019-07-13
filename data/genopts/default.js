@@ -37,6 +37,8 @@ module.exports = {
 	characteristics: true,
 	// If this game supports shadow pokemon
 	shadow: false,
+	//If this game supports snagging pokemon from trainers
+	snagMachine: false,
 	// If this game supports "sparkly" pokemon (N's pokemon in B2W2)
 	sparkly: false,
 	// If this generation has infinite use TMs (report as "the TM" instead of "1 TM")
@@ -51,6 +53,7 @@ module.exports = {
 	checkpointOnEnter: true,
 	// If this generation revives the player after a black out in the center, rather than at the spawn point.
 	reviveInCenter: true,
+	
 	
 	// If this generation requires external move information, the link to extdata file is here
 	moveInfo: false,

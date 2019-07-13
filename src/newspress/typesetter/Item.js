@@ -125,6 +125,10 @@ module.exports = {
 				`We {{rand|toss|throw|fling}} {{a comma-separated list of|some items|@item|@amount}} at a wild {{Mon|@enemy}} that has our eye.`,
 			],
 		},
+		snagged: [
+			`We {{rand|power up|spin up}} the snag machine and {{rand|toss|throw|chuck}} {{some items|@item|@amount}} at the trainer's Pokemon.`,
+			`We {{rand|power up|spin up}} the snag machine and use {{some items|@item|@amount}} to try and snag {{@trainer}}'s Pokemon.`,
+		],
 		trainer: [
 			`We toss {{some items|@item|@amount}} at the trainer's pokemon, but {{they|@trainer}} block{{*s|@trainer}} the ball. Don't be a thief!`,
 			`We throw {{some items|@item|@amount}} at the opponents's pokemon, to no avail.`,

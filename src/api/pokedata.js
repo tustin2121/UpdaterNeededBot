@@ -175,6 +175,7 @@ class Pokemon {
 		this.shiny = false;
 		this.sparkly = false;
 		this.shadow = false;
+		this.shadow_hypermode = false;
 		this.pokerus = null; //true = infected, false = cured, null = never had
 		this.traded = false;
 		this.status = '';
@@ -259,6 +260,10 @@ class Pokemon {
 		}
 		if (Bot.runOpts('shiny')) this.shiny = mon.shiny;
 		if (Bot.runOpts('sparkly')) this.sparkly = mon.sparkly;
+		if (Bot.runOpts('shadow')) {
+			this.shadow = !!read(mon, 'is_shadow', 'shadow');
+			this.shadow_hypermode = !!read(mon, 'in_hyper_mode');
+		}
 		if (Bot.runOpts('abilities')) this.ability = mon.ability;
 		
 		if (Bot.runOpts('natures')) this.nature = `${mon.nature}`;
@@ -858,11 +863,18 @@ class SortedBattle {
 		else if (Array.isArray(this.trainer)) {
 			determineImportance(this, game);
 		}
+		if (Bot.runFlag('force_important')) {
+			if (!this.isImportant) {
+				this.isCommon = true;
+			}
+			this.isImportant = true;
+		}
 	}
 	get isRival() { return !!this.classes['rival']; }
 	get isLeader() { return !!this.classes['leader']; }
 	get isE4() { return !!this.classes['e4']; }
 	get isChampion() { return !!this.classes['champ']; }
+	// get isCommon() { return !!this.classes['common']; }
 	
 	get isLegendary() { return !!this.classes['legendary']; } //TODO
 	

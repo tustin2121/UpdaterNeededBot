@@ -36,6 +36,22 @@ module.exports = {
 			}
 			return txt;
 		},
+		snagged: ({ mon })=>{
+			let ext = mon.getExtendedInfo().replace(/"/g, `''`);
+			let txt = `${mon._gender.toLowerCase()} Lv. ${mon.level} ${mon.species}`;
+			
+			if (mon.shiny) txt = `shiny ${txt}`;
+			if (mon.sparkly) txt = `sparkly ${txt}`;
+			if (mon.form) txt = `${txt} ${mon.form}`;
+			txt = `<b>We snag a <info ext="${ext}">${txt}</info>!</b>`;
+			
+			if (mon.storedIn && mon.storedIn.startsWith('box:')) {
+				let box = mon.storedIn.slice(4);
+				box = box.slice(0, box.indexOf('-'));
+				txt += ` (Sent to Box #${box}.)`;
+			}
+			return txt;
+		},
 	},
 	
 	PokemonDeposited: {

@@ -470,6 +470,13 @@ module.exports = {
 			`We head {{into the location|@curr}}.`,
 			`Arrived {{on the location|@curr}}.`,
 		],
+		nomap: [
+			`{{@curr}}.`,
+			`{{On the location|@curr}}.`,
+			`Now {{in the location|@curr}}.`,
+			`We head {{into the location|@curr}}.`,
+			`Arrived {{on the location|@curr}}.`,
+		]
 	},
 	
 	MapContext: {

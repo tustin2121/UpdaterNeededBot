@@ -191,6 +191,14 @@ if (!!Bot.gameInfo().regionMap) {
 		.when(ledger=>ledger.has('UsedBallInBattle').moreThan(1))
 		.then(ledger=>ledger.mergeTogether(0))
 	);
+}
+if (Bot.runOpts("snagMachine")){
+	RULES.push(new Rule(`Merge UsedBallInBattle items together.`)
+		.when(ledger=>ledger.has('UsedBallInBattle').ofFlavor('trainer'))
+		.then(ledger=>{
+			ledger.get(0).forEach(x=>x.flavor='snagged')
+		})
+	);
 }{
 	const itemIds = Bot.runOpts('itemIds_berries');
 	if (Bot.runOpts('heldItem')) {

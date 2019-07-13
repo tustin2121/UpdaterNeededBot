@@ -2,7 +2,7 @@
 // The Game-Provided Statistics Monitoring module
 
 const { ReportingModule, Rule } = require('./_base');
-const { GameStatChanged, GameSaved, ApiDisturbance } = require('../ledger');
+const { GameStatChanged, GameSaved, ColoNewsReport, ApiDisturbance } = require('../ledger');
 
 const LOGGER = getLogger('GameStats');
 
@@ -13,6 +13,7 @@ class GameStatsModule extends ReportingModule {
 	constructor(config, memory) {
 		super(config, memory);
 		this.memory.lastSave = (this.memory.lastSave||{count:0, time:0});
+		this.memory.lastNews = (this.memory.lastNews||{count:0, time:0});
 		this.memory.gameStats = (this.memory.gameStats || {});
 	}
 	
@@ -77,11 +78,23 @@ Object.assign(HANDLERS, {
 			}
 			
 			ledger.addItem(new GameSaved(flavor));
-			this.memory.lastSave.count = curr['games_saved'];
+			this.memory.lastSave.count = curr;
 			this.memory.lastSave.time = Date.now();
 		}
 	},
-	
+	ColoNewsReport(ledger, prev, curr) {
+		if (prev < curr) {
+			let report = false;
+			let time = Date.now();
+			report |= (time - this.memory.lastSave.time > 1000*60*10); //if last news was more than 10 minutes ago
+			report |= (curr % 10 == 0);
+			if (report) {
+				ledger.addItem(new ColoNewsReport(curr));
+				this.memory.lastSave.time = Date.now();
+				this.memory.lastSave.count = curr;
+			}
+		}
+	},
 	
 });
 

@@ -250,6 +250,19 @@ module.exports = {
 		],
 	},
 	
+	ColoNewsReport: {
+		default: [
+			`We {{rand|watch|examine|look at|contemplate|regard|observe|study|scrutinize|stare at|listen to|concentrate on|focus on}} the news for a while... TriHard {{@count}}`,
+			`A news report {{rand|is on|informs us of current events||briefs us on goings-on|talks about stuff|updates us on happenings|educates us on transpiring events|notifies us of our escapades|communicates things happening|updates us on the weather}}. TriHard {{@count}}`,
+			`And now the news! TriHard {{@count}}... That was the news!`,
+			`We stare at the TV. #NEWSNEWSNEWS TriHard {{@count}}`,
+			`#NEWSNEWSNEWS TriHard {{@count}}`,
+			`#NEWSNEWSNEWS TriHard {{@count}}`,
+			`#NEWSNEWSNEWS TriHard {{@count}}`,
+			`#NEWSNEWSNEWS TriHard {{@count}}`,
+		],
+	},
+	
 	MemeReport: {
 		__meta__: { sort:-9000 }, //after everything else
 		default: `{{@report}}`,
@@ -258,7 +271,7 @@ module.exports = {
 			`We {{rand|consider|contemplate|ponder about|think of|envisage|hesitate about|deliberate on|ruminate about|speculate about}} raiding the fridge.`,
 			`We {{rand|attempt|seek|strive|aim}} to raid the fridge, but fail.`,
 			`We {{rand|think|imagine|believe|deem that|suspect|expect}} this fridge needs a good raiding.`,
-		]
+		],
 	},
 	
 	RunStatChanged: null,

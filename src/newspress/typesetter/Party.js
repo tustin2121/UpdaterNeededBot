@@ -261,6 +261,25 @@ module.exports = {
 			`{{@target}} has inexplicably become no longer N's former pokemon...`,
 		],
 	},
+	MonShadowChanged: {
+		default: null,
+		became: [
+			`{{@target}} opens up {{his|@target}} heart...! <b>{{@target}} is purified</b>`,
+			`<b>{{@target}} has been purified</b>`,
+		],
+		nolonger: [
+			`{{@target}} has inexplicably become a Shadow Pokemon once again...`,
+		],
+	},
+	MonShadowHyperModeChanged: {
+		default: null,
+		became: [
+			`{{@target}} becomes enraged and enters Hyper Mode!`,
+		],
+		nolonger: [
+			`{{@target}} responds to our call and comes to {{his|@target}} senses!`,
+		],
+	},
 	MonAbilityChanged: null,
 	// MonAbilityChanged: {
 	// 	default: null,

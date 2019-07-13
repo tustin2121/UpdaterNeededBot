@@ -1,0 +1,1314 @@
+1560052906005
+{
+	"party": [
+		{
+			"species": {
+				"abilities": [
+					"Drought",
+					"-"
+				],
+				"base_stats": {
+					"attack": 70,
+					"defense": 60,
+					"hp": 65,
+					"special_attack": 65,
+					"special_defense": 65,
+					"speed": 115
+				},
+				"catch_rate": 90,
+				"egg_cycles": 20,
+				"egg_type1": "Field",
+				"egg_type2": "Field",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 53,
+				"name": "Persian",
+				"national_dex": 53,
+				"type1": "Normal",
+				"type2": "Normal",
+				"held_items": [],
+				"tm_moves": [
+					"TM03",
+					"TM05",
+					"TM06",
+					"TM10",
+					"TM11",
+					"TM12",
+					"TM15",
+					"TM17",
+					"TM18",
+					"TM21",
+					"TM23",
+					"TM24",
+					"TM25",
+					"TM27",
+					"TM28",
+					"TM30",
+					"TM32",
+					"TM34",
+					"TM40",
+					"TM41",
+					"TM42",
+					"TM43",
+					"TM44",
+					"TM45",
+					"TM46",
+					"TM49",
+					"HM01",
+					"HM05"
+				],
+				"evolutions": []
+			},
+			"personality_value": 2907769658,
+			"met": {
+				"map_id": 254,
+				"level": 29,
+				"caught_in": "Poké Ball",
+				"game": "Colosseum/XD",
+				"area_name": "Orre Region",
+				"caught": "2019-06-08T21:08:34.876Z",
+				"evolved": []
+			},
+			"original_trainer": {
+				"gender": "Male",
+				"secret": 45659,
+				"id": 41169,
+				"name": "ACCC"
+			},
+			"name": "Persian",
+			"experience": {
+				"current": 37093,
+				"next_level": 39304,
+				"this_level": 35937,
+				"remaining": 2211
+			},
+			"level": 33,
+			"sleep_turns": 0,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 80,
+					"id": 65,
+					"pp": 19,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Drill Peck",
+					"type": "Flying"
+				},
+				{
+					"accuracy": 75,
+					"base_power": 0,
+					"id": 261,
+					"pp": 15,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Will-O-Wisp",
+					"type": "Fire"
+				},
+				{
+					"accuracy": 100,
+					"base_power": 25,
+					"id": 41,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Twineedle",
+					"type": "Bug"
+				},
+				{
+					"accuracy": 80,
+					"base_power": 50,
+					"id": 317,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Rock Tomb",
+					"type": "Rock"
+				}
+			],
+			"held_item": null,
+			"health": [
+				88,
+				88
+			],
+			"stats": {
+				"hp": 88,
+				"attack": 59,
+				"defense": 56,
+				"special_attack": 42,
+				"special_defense": 51,
+				"speed": 88
+			},
+			"evs": {
+				"hp": 6,
+				"attack": 14,
+				"defense": 10,
+				"special_attack": 2,
+				"special_defense": 1,
+				"speed": 6
+			},
+			"ivs": {
+				"hp": 7,
+				"attack": 23,
+				"defense": 18,
+				"special_attack": 0,
+				"special_defense": 10,
+				"speed": 23
+			},
+			"friendship": 247,
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"ribbons": [],
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"is_egg": false,
+			"ability": "Drought",
+			"marking": "",
+			"pokerus_remaining": 255,
+			"shadow_id": 0,
+			"purification": {
+				"current": -100,
+				"initial": -100
+			},
+			"in_hyper_mode": false,
+			"shadow_exp": 0,
+			"is_shadow": false,
+			"next_move": {
+				"type": "Grass",
+				"level": 38
+			},
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Impish",
+			"characteristic": "Somewhat of a clown"
+		},
+		{
+			"species": {
+				"abilities": [
+					"Thick Fat",
+					"Sand Veil"
+				],
+				"base_stats": {
+					"attack": 45,
+					"defense": 135,
+					"hp": 30,
+					"special_attack": 45,
+					"special_defense": 90,
+					"speed": 30
+				},
+				"catch_rate": 255,
+				"egg_cycles": 20,
+				"egg_type1": "Mineral",
+				"egg_type2": "Mineral",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 320,
+				"name": "Nosepass",
+				"national_dex": 299,
+				"type1": "Rock",
+				"type2": "Rock",
+				"held_items": [],
+				"tm_moves": [
+					"TM06",
+					"TM10",
+					"TM11",
+					"TM12",
+					"TM17",
+					"TM21",
+					"TM24",
+					"TM25",
+					"TM26",
+					"TM27",
+					"TM32",
+					"TM34",
+					"TM37",
+					"TM39",
+					"TM41",
+					"TM42",
+					"TM43",
+					"TM44",
+					"TM45",
+					"HM04",
+					"HM06"
+				],
+				"evolutions": []
+			},
+			"personality_value": 3148712865,
+			"met": {
+				"map_id": 254,
+				"level": 29,
+				"caught_in": "Poké Ball",
+				"game": "Colosseum/XD",
+				"area_name": "Orre Region",
+				"caught": "2019-06-08T21:08:34.875Z",
+				"evolved": []
+			},
+			"original_trainer": {
+				"gender": "Male",
+				"secret": 45659,
+				"id": 41169,
+				"name": "ACCC"
+			},
+			"name": "Nosepass",
+			"experience": {
+				"current": 30741,
+				"next_level": 32768,
+				"this_level": 29791,
+				"remaining": 2027
+			},
+			"level": 31,
+			"sleep_turns": 0,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 75,
+					"id": 8,
+					"pp": 14,
+					"pp_up": 0,
+					"max_pp": 15,
+					"name": "Ice Punch",
+					"type": "Ice"
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 220,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Pain Split",
+					"type": "Normal"
+				},
+				{
+					"accuracy": 90,
+					"base_power": 30,
+					"id": 205,
+					"pp": 20,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Rollout",
+					"type": "Rock"
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 187,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Belly Drum",
+					"type": "Normal"
+				}
+			],
+			"held_item": null,
+			"health": [
+				53,
+				63
+			],
+			"stats": {
+				"hp": 63,
+				"attack": 35,
+				"defense": 91,
+				"special_attack": 37,
+				"special_defense": 69,
+				"speed": 28
+			},
+			"evs": {
+				"hp": 4,
+				"attack": 8,
+				"defense": 5,
+				"special_attack": 1,
+				"special_defense": 0,
+				"speed": 6
+			},
+			"ivs": {
+				"hp": 13,
+				"attack": 20,
+				"defense": 9,
+				"special_attack": 6,
+				"special_defense": 28,
+				"speed": 15
+			},
+			"friendship": 234,
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"ribbons": [],
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"is_egg": false,
+			"ability": "Thick Fat",
+			"marking": "",
+			"pokerus_remaining": 255,
+			"shadow_id": 0,
+			"purification": {
+				"current": -100,
+				"initial": -100
+			},
+			"in_hyper_mode": false,
+			"shadow_exp": 0,
+			"is_shadow": false,
+			"next_move": {
+				"type": "Normal",
+				"level": 37
+			},
+			"gender": "Male",
+			"shiny": false,
+			"nature": "Modest",
+			"characteristic": "Hates to lose"
+		},
+		{
+			"species": {
+				"abilities": [
+					"Forecast",
+					"-"
+				],
+				"base_stats": {
+					"attack": 47,
+					"defense": 55,
+					"hp": 65,
+					"special_attack": 73,
+					"special_defense": 75,
+					"speed": 85
+				},
+				"catch_rate": 150,
+				"egg_cycles": 15,
+				"egg_type1": "Bug",
+				"egg_type2": "Human-Like",
+				"gender_ratio": 254,
+				"growth_rate": "Fluctuating",
+				"id": 387,
+				"name": "Illumise",
+				"national_dex": 314,
+				"type1": "Bug",
+				"type2": "Bug",
+				"held_items": [],
+				"tm_moves": [
+					"TM01",
+					"TM03",
+					"TM06",
+					"TM10",
+					"TM11",
+					"TM16",
+					"TM17",
+					"TM18",
+					"TM19",
+					"TM21",
+					"TM22",
+					"TM24",
+					"TM25",
+					"TM27",
+					"TM30",
+					"TM31",
+					"TM32",
+					"TM34",
+					"TM40",
+					"TM42",
+					"TM43",
+					"TM44",
+					"TM45",
+					"TM46",
+					"HM05"
+				],
+				"evolutions": []
+			},
+			"personality_value": 856721650,
+			"met": {
+				"map_id": 5,
+				"level": 36,
+				"caught_in": "Great Ball",
+				"game": "Colosseum/XD",
+				"area_name": "Orre Region",
+				"caught": "2019-06-09T00:49:07.076Z",
+				"evolved": []
+			},
+			"original_trainer": {
+				"gender": "Male",
+				"secret": 45659,
+				"id": 41169,
+				"name": "ACCC"
+			},
+			"name": "Illumise",
+			"experience": {
+				"current": 46656,
+				"next_level": 50653,
+				"this_level": 46656,
+				"remaining": 3997
+			},
+			"level": 36,
+			"sleep_turns": 0,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 90,
+					"id": 356,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Shadow Rush",
+					"type": "Normal",
+					"is_shadow": true
+				},
+				{
+					"accuracy": 30,
+					"base_power": 1,
+					"id": 90,
+					"pp": 5,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Fissure",
+					"type": "Ground"
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 226,
+					"pp": 40,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "Baton Pass",
+					"type": "Normal"
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 235,
+					"pp": 5,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Synthesis",
+					"type": "Grass"
+				}
+			],
+			"held_item": null,
+			"health": [
+				92,
+				92
+			],
+			"stats": {
+				"hp": 92,
+				"attack": 50,
+				"defense": 54,
+				"special_attack": 59,
+				"special_defense": 64,
+				"speed": 72
+			},
+			"evs": {
+				"hp": 0,
+				"attack": 0,
+				"defense": 0,
+				"special_attack": 0,
+				"special_defense": 0,
+				"speed": 0
+			},
+			"ivs": {
+				"hp": 0,
+				"attack": 31,
+				"defense": 28,
+				"special_attack": 6,
+				"special_defense": 16,
+				"speed": 17
+			},
+			"friendship": 70,
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"ribbons": [],
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"is_egg": false,
+			"ability": "Forecast",
+			"marking": "",
+			"pokerus_remaining": 255,
+			"shadow_id": 1,
+			"purification": {
+				"current": 0,
+				"initial": 3000
+			},
+			"in_hyper_mode": false,
+			"shadow_exp": 0,
+			"is_shadow": true,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Hardy",
+			"characteristic": "Likes to thrash about"
+		},
+		{
+			"species": {
+				"abilities": [
+					"Sturdy",
+					"Water Veil"
+				],
+				"base_stats": {
+					"attack": 40,
+					"defense": 40,
+					"hp": 40,
+					"special_attack": 70,
+					"special_defense": 40,
+					"speed": 20
+				},
+				"catch_rate": 190,
+				"egg_cycles": 20,
+				"egg_type1": "Amorphous",
+				"egg_type2": "Amorphous",
+				"gender_ratio": 127,
+				"growth_rate": "Medium Fast",
+				"id": 218,
+				"name": "Slugma",
+				"national_dex": 218,
+				"type1": "Fire",
+				"type2": "Fire",
+				"held_items": [],
+				"tm_moves": [
+					"TM06",
+					"TM10",
+					"TM11",
+					"TM16",
+					"TM17",
+					"TM21",
+					"TM27",
+					"TM32",
+					"TM33",
+					"TM35",
+					"TM38",
+					"TM42",
+					"TM43",
+					"TM44",
+					"TM45",
+					"TM50",
+					"HM06"
+				],
+				"evolutions": [
+					{
+						"level": 38,
+						"is_trade": false,
+						"required_happiness": false,
+						"required_item": false,
+						"required_time_of_day": false
+					}
+				]
+			},
+			"personality_value": 4002230175,
+			"met": {
+				"map_id": 15,
+				"level": 36,
+				"caught_in": "Poké Ball",
+				"game": "Colosseum/XD",
+				"caught": "2019-06-09T02:19:51.410Z",
+				"evolved": []
+			},
+			"original_trainer": {
+				"gender": "Male",
+				"secret": 45659,
+				"id": 41169,
+				"name": "ACCC"
+			},
+			"name": "Slugma",
+			"experience": {
+				"current": 46656,
+				"next_level": 50653,
+				"this_level": 46656,
+				"remaining": 3997
+			},
+			"level": 36,
+			"sleep_turns": 0,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 90,
+					"id": 356,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Shadow Rush",
+					"type": "Normal",
+					"is_shadow": true
+				},
+				{
+					"accuracy": 75,
+					"base_power": 0,
+					"id": 186,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Sweet Kiss",
+					"type": "Normal"
+				},
+				{
+					"id": -2,
+					"name": "????",
+					"is_shadow": true,
+					"type": "???"
+				},
+				{
+					"id": -3,
+					"name": "????",
+					"is_shadow": true,
+					"type": "???"
+				}
+			],
+			"held_item": {
+				"count": 0,
+				"id": 95,
+				"name": "Fire Stone"
+			},
+			"health": [
+				7,
+				85
+			],
+			"stats": {
+				"hp": 85,
+				"attack": 44,
+				"defense": 44,
+				"special_attack": 66,
+				"special_defense": 44,
+				"speed": 30
+			},
+			"evs": {
+				"hp": 0,
+				"attack": 0,
+				"defense": 0,
+				"special_attack": 0,
+				"special_defense": 0,
+				"speed": 0
+			},
+			"ivs": {
+				"hp": 31,
+				"attack": 31,
+				"defense": 31,
+				"special_attack": 31,
+				"special_defense": 31,
+				"speed": 31
+			},
+			"friendship": 70,
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"ribbons": [],
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"is_egg": false,
+			"ability": "Sturdy",
+			"marking": "",
+			"pokerus_remaining": 255,
+			"shadow_id": 8,
+			"purification": {
+				"current": 1900,
+				"initial": 4000
+			},
+			"in_hyper_mode": true,
+			"shadow_exp": 0,
+			"is_shadow": true,
+			"gender": "Male",
+			"shiny": false,
+			"nature": "Hardy",
+			"characteristic": "Alert to sounds"
+		},
+		{
+			"species": {
+				"abilities": [
+					"Serene Grace",
+					"Shadow Tag"
+				],
+				"base_stats": {
+					"attack": 70,
+					"defense": 35,
+					"hp": 130,
+					"special_attack": 70,
+					"special_defense": 35,
+					"speed": 60
+				},
+				"catch_rate": 125,
+				"egg_cycles": 40,
+				"egg_type1": "Field",
+				"egg_type2": "Water 2",
+				"gender_ratio": 127,
+				"growth_rate": "Fluctuating",
+				"id": 313,
+				"name": "Wailmer",
+				"national_dex": 320,
+				"type1": "Water",
+				"type2": "Water",
+				"held_items": [],
+				"tm_moves": [
+					"TM03",
+					"TM05",
+					"TM06",
+					"TM07",
+					"TM10",
+					"TM13",
+					"TM14",
+					"TM17",
+					"TM18",
+					"TM21",
+					"TM26",
+					"TM27",
+					"TM32",
+					"TM39",
+					"TM42",
+					"TM43",
+					"TM44",
+					"TM45",
+					"HM03",
+					"HM04",
+					"HM06",
+					"HM07",
+					"HM08"
+				],
+				"evolutions": [
+					{
+						"level": 40,
+						"is_trade": false,
+						"required_happiness": false,
+						"required_item": false,
+						"required_time_of_day": false
+					}
+				]
+			},
+			"personality_value": 536417575,
+			"met": {
+				"map_id": 3,
+				"level": 36,
+				"caught_in": "Poké Ball",
+				"game": "Colosseum/XD",
+				"area_name": "Orre Region",
+				"caught": "2019-06-09T00:57:20.325Z",
+				"evolved": []
+			},
+			"original_trainer": {
+				"gender": "Male",
+				"secret": 45659,
+				"id": 41169,
+				"name": "ACCC"
+			},
+			"name": "Wailmer",
+			"experience": {
+				"current": 46656,
+				"next_level": 50653,
+				"this_level": 46656,
+				"remaining": 3997
+			},
+			"level": 36,
+			"sleep_turns": 0,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 90,
+					"id": 356,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Shadow Rush",
+					"type": "Normal",
+					"is_shadow": true
+				},
+				{
+					"accuracy": 100,
+					"base_power": 20,
+					"id": 145,
+					"pp": 29,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Bubble",
+					"type": "Water"
+				},
+				{
+					"accuracy": 85,
+					"base_power": 95,
+					"id": 330,
+					"pp": 10,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Muddy Water",
+					"type": "Water"
+				},
+				{
+					"accuracy": 100,
+					"base_power": 0,
+					"id": 39,
+					"pp": 30,
+					"pp_up": 0,
+					"max_pp": 30,
+					"name": "Tail Whip",
+					"type": "Normal"
+				}
+			],
+			"held_item": {
+				"count": 0,
+				"id": 205,
+				"name": "Miracle Seed"
+			},
+			"health": [
+				0,
+				147
+			],
+			"stats": {
+				"hp": 147,
+				"attack": 61,
+				"defense": 38,
+				"special_attack": 61,
+				"special_defense": 33,
+				"speed": 51
+			},
+			"evs": {
+				"hp": 0,
+				"attack": 0,
+				"defense": 0,
+				"special_attack": 0,
+				"special_defense": 0,
+				"speed": 0
+			},
+			"ivs": {
+				"hp": 21,
+				"attack": 17,
+				"defense": 22,
+				"special_attack": 16,
+				"special_defense": 9,
+				"speed": 8
+			},
+			"friendship": 70,
+			"condition": {
+				"coolness": 0,
+				"beauty": 0,
+				"cuteness": 0,
+				"smartness": 0,
+				"toughness": 0,
+				"feel": 0
+			},
+			"ribbons": [],
+			"pokerus": {
+				"infected": false,
+				"days_left": 0,
+				"strain": 0,
+				"cured": false
+			},
+			"is_egg": false,
+			"ability": "Serene Grace",
+			"marking": "",
+			"pokerus_remaining": 255,
+			"shadow_id": 2,
+			"purification": {
+				"current": 0,
+				"initial": 3000
+			},
+			"in_hyper_mode": false,
+			"shadow_exp": 0,
+			"is_shadow": true,
+			"gender": "Female",
+			"shiny": false,
+			"nature": "Hardy",
+			"characteristic": "Highly persistent"
+		}
+	],
+	"pc": {
+		"boxes": [
+			{
+				"box_number": 1,
+				"box_name": "BOX1",
+				"box_contents": []
+			}
+		]
+	},
+	"game": "Randomized Colosseum",
+	"items": {
+		"items": [
+			{
+				"id": 14,
+				"name": "Antidote",
+				"isKeyItem": false,
+				"count": 3
+			},
+			{
+				"id": 15,
+				"name": "Burn Heal",
+				"isKeyItem": false,
+				"count": 2
+			},
+			{
+				"id": 16,
+				"name": "Ice Heal",
+				"isKeyItem": false,
+				"count": 8
+			},
+			{
+				"id": 18,
+				"name": "Parlyz Heal",
+				"isKeyItem": false,
+				"count": 2
+			},
+			{
+				"id": 17,
+				"name": "Awakening",
+				"isKeyItem": false,
+				"count": 2
+			},
+			{
+				"id": 23,
+				"name": "Full Heal",
+				"isKeyItem": false,
+				"count": 2
+			}
+		],
+		"key": [],
+		"balls": [
+			{
+				"id": 4,
+				"name": "Poké Ball",
+				"isKeyItem": false,
+				"count": 2
+			},
+			{
+				"id": 3,
+				"name": "Great Ball",
+				"isKeyItem": false,
+				"count": 8
+			}
+		],
+		"tms": [],
+		"berries": [],
+		"cologne": []
+	},
+	"caught_list": [
+		53,
+		218,
+		299,
+		314,
+		320
+	],
+	"seen_list": [
+		2,
+		20,
+		35,
+		36,
+		46,
+		48,
+		53,
+		75,
+		99,
+		102,
+		106,
+		128,
+		130,
+		203,
+		206,
+		210,
+		218,
+		239,
+		250,
+		254,
+		285,
+		299,
+		314,
+		320,
+		334,
+		338,
+		353,
+		372,
+		386
+	],
+	"caught": 5,
+	"seen": 29,
+	"name": "ACCC",
+	"ball_count": 10,
+	"level_cap": 100,
+	"events": [
+		{
+			"group": "Pokemon",
+			"name": "Nosepass",
+			"time": "2019-06-08T21:08:34.875Z"
+		},
+		{
+			"group": "Pokemon",
+			"name": "Persian",
+			"time": "2019-06-08T21:08:34.876Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Outskirt Stand",
+			"time": "2019-06-08T21:12:57.892Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Orre Region",
+			"time": "2019-06-08T21:17:46.495Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Phenac City",
+			"time": "2019-06-08T21:17:53.723Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Pre Gym",
+			"time": "2019-06-08T21:48:40.662Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Mayor's House",
+			"time": "2019-06-08T21:58:41.680Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Phenac Stadium",
+			"time": "2019-06-08T22:13:50.981Z"
+		},
+		{
+			"group": "Pokemon",
+			"name": "Illumise",
+			"time": "2019-06-09T00:49:07.076Z"
+		},
+		{
+			"group": "Pokemon",
+			"name": "Wailmer",
+			"time": "2019-06-09T00:57:20.325Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Realgam Tower",
+			"time": "2019-06-09T01:17:41.907Z"
+		},
+		{
+			"group": "First Visit",
+			"name": "Pyrite Town",
+			"time": "2019-06-09T01:22:21.183Z"
+		},
+		{
+			"group": "Pokemon",
+			"name": "Slugma",
+			"time": "2019-06-09T02:19:51.410Z"
+		}
+	],
+	"enemy_trainers": [
+		{
+			"id": 63,
+			"class_id": 28,
+			"class_name": "St.Performer",
+			"name": "Diogo",
+			"gender": "Female",
+			"pic_id": 19
+		}
+	],
+	"map_id": 1390,
+	"map_name": "Pyrite Town",
+	"in_battle": true,
+	"fsys": [
+		1390,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		45,
+		45,
+		45,
+		45,
+		45,
+		45,
+		45,
+		19,
+		19
+	],
+	"music_id": 26,
+	"battle_kind": "Trainer",
+	"enemy_party": [
+		{
+			"species": {
+				"abilities": [],
+				"base_stats": {
+					"attack": 62,
+					"defense": 63,
+					"hp": 60,
+					"special_attack": 80,
+					"special_defense": 80,
+					"speed": 60
+				},
+				"catch_rate": 45,
+				"egg_cycles": 20,
+				"egg_type1": "Monster",
+				"egg_type2": "Grass",
+				"gender_ratio": 31,
+				"growth_rate": "Medium Slow",
+				"id": 2,
+				"name": "Ivysaur",
+				"national_dex": 2,
+				"type1": "Grass",
+				"type2": "Poison",
+				"held_items": [],
+				"tm_moves": [],
+				"evolutions": [
+					{
+						"level": 32,
+						"is_trade": false,
+						"required_happiness": false,
+						"required_item": false,
+						"required_time_of_day": false
+					}
+				]
+			},
+			"health": [
+				26,
+				100
+			],
+			"active": true,
+			"is_shadow": true,
+			"personality_value": 522075875,
+			"moves": [
+				{
+					"accuracy": 100,
+					"base_power": 90,
+					"id": 356,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 5,
+					"name": "Shadow Rush",
+					"type": "Normal",
+					"is_shadow": true
+				}
+			],
+			"name": "Ivysaur"
+		},
+		{
+			"species": {
+				"abilities": [],
+				"base_stats": {
+					"attack": 45,
+					"defense": 48,
+					"hp": 70,
+					"special_attack": 60,
+					"special_defense": 65,
+					"speed": 35
+				},
+				"catch_rate": 150,
+				"egg_cycles": 10,
+				"egg_type1": "Fairy",
+				"egg_type2": "Fairy",
+				"gender_ratio": 191,
+				"growth_rate": "Fast",
+				"id": 35,
+				"name": "Clefairy",
+				"national_dex": 35,
+				"type1": "Normal",
+				"type2": "Normal",
+				"held_items": [],
+				"tm_moves": [],
+				"evolutions": [
+					{
+						"level": 40,
+						"is_trade": false,
+						"required_happiness": false,
+						"required_item": false,
+						"required_time_of_day": false
+					}
+				]
+			},
+			"health": [
+				16,
+				84
+			],
+			"active": true,
+			"is_shadow": false,
+			"personality_value": 1763043219,
+			"moves": [
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 115,
+					"pp": 18,
+					"pp_up": 0,
+					"max_pp": 20,
+					"name": "Reflect",
+					"type": "Psychic"
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 166,
+					"pp": 0,
+					"pp_up": 0,
+					"max_pp": 1,
+					"name": "Sketch",
+					"type": "Normal"
+				},
+				{
+					"accuracy": 0,
+					"base_power": 0,
+					"id": 164,
+					"pp": 9,
+					"pp_up": 0,
+					"max_pp": 10,
+					"name": "Substitute",
+					"type": "Normal"
+				},
+				{
+					"accuracy": 95,
+					"base_power": 0,
+					"id": 81,
+					"pp": 39,
+					"pp_up": 0,
+					"max_pp": 40,
+					"name": "String Shot",
+					"type": "Bug"
+				}
+			],
+			"name": "Clefairy"
+		}
+	],
+	"secret": 45659,
+	"id": 41169,
+	"gender": "Male",
+	"money": 102,
+	"coins": 0,
+	"partner_name": "D QZ“ 3",
+	"game_stats": {
+		"Motorcycle Trips": 41,
+		"Blackouts": 15,
+		"Total Money Paid to Trainers": 8806,
+		"Pokémon Caught": 5,
+		"Pokémon Caught in a Poké Ball": 4,
+		"Pokémon Caught in a Great Ball": 1,
+		"Trainer Battles Won": 11,
+		"News Reports Watched": 78,
+		"Seconds Spent Watching News": 1144,
+		"Mt. Battle Completion Percentage": 0
+	},
+	"evolution_is_happening": false,
+	"transitioning": false
+}

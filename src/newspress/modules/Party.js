@@ -7,7 +7,7 @@ const {
 	MonLeveledUp, MonEvolved, MonHatched, MonPokerusInfected, MonPokerusCured,
 	MonFainted, MonRevived, MonHealedHP, MonLostHP, MonHealedPP, MonLostPP,
 	MonLearnedMove, MonLearnedMoveOverOldMove, MonForgotMove, MonPPUp,
-	MonGiveItem, MonTakeItem, MonSwapItem,
+	MonGiveItem, MonTakeItem, MonSwapItem, MonShadowHyperModeChanged,
 	MonShinyChanged, MonSparklyChanged, MonAbilityChanged, MonNicknameChanged, MonStatusChanged,
 	Blackout, FullHealed,
 	ApiDisturbance,
@@ -243,6 +243,20 @@ class PartyModule extends ReportingModule {
 					reason: `'${curr}' has suddenly changed sparkly status!`,
 				}));
 			}
+			if (Bot.runOpts('shadow')) {
+				if (prev.shadow !== curr.shadow) {
+					ledger.addItem(new MonShadowChanged(curr, prev.shadow));
+					if (!prev.shadow && curr.shadow) {
+						ledger.addItem(new ApiDisturbance({
+							code: ApiDisturbance.LOGIC_ERROR,
+							reason: `'${curr}' has suddenly become a shadow pokemon!`,
+						}));
+					}
+				}
+				if (prev.shadow_hypermode !== curr.shadow_hypermode) {
+					ledger.addItem(new MonShadowHyperModeChanged(curr, prev.shadow_hypermode));
+				}
+			}
 			if (Bot.runOpts('abilities') && prev.ability !== curr.ability) {
 				ledger.addItem(new MonAbilityChanged(curr, prev.ability));
 			}
@@ -338,6 +352,13 @@ RULES.push(new Rule(`Pokemon suriving due to poison outside of battle should be 
 	.when(ledger=>ledger.hasnt('BattleContext'))
 	.then(ledger=>{
 		ledger.get(0).forEach(x=>x.flavor = 'poisonWalking');
+	})
+);
+RULES.push(new Rule(`Do not report Pokemon leaving hyper mode when fainting.`)
+	.when(ledger=>ledger.has('MonShadowHyperModeChanged').ofFlavor('nolonger'))
+	.when(ledger=>ledger.has('MonFainted').withSame('mon.hash'))
+	.then(ledger=>{
+		ledger.demote(0);
 	})
 );
 
