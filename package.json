@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "irc": "^0.5.2",
     "log4js": "^3.0.6",
     "mkdirp": "^0.5.1",
